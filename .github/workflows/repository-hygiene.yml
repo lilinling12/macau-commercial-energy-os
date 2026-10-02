@@ -1,0 +1,42 @@
+name: Repository Hygiene
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  hygiene:
+    name: Repository hygiene
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Reject merge-conflict markers
+        shell: bash
+        run: |
+          if grep -RInE '^(<<<<<<<|=======|>>>>>>>)' .             --exclude-dir=.git             --exclude='*.lock'; then
+            echo "::error::Merge conflict markers found"
+            exit 1
+          fi
+
+      - name: Reject committed secret env files
+        shell: bash
+        run: |
+          tracked_env="$(git ls-files | grep -E '(^|/)\.env($|\.)' || true)"
+          if [[ -n "$tracked_env" ]]; then
+            echo "$tracked_env"
+            echo "::error::Environment secret files must not be committed"
+            exit 1
+          fi
+
+      - name: Ensure handoff entrypoint exists
+        shell: bash
+        run: test -f docs/handoff/CURRENT.md && test -f docs/handoff/CONTINUE-PROMPT.md
