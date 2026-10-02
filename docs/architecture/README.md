@@ -1,0 +1,15 @@
+# Architecture Authority
+
+This directory stores the system architecture decisions derived from research authority.
+
+Core architecture principles:
+
+- Energy OS is an enterprise energy intelligence platform.
+- Physical topology and settlement topology are separated.
+- Energy Graph is the domain foundation.
+- Tariff logic is versioned and traceable.
+- Safety boundaries are explicit.
+
+Architecture flow:
+
+Research -> Decision -> Architecture -> Implementation
