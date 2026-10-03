@@ -44,9 +44,9 @@
 
 ## U-009 — Exact B/C/D government tax / installation-use charge formula
 **Status:** UNKNOWN / G1 BLOCKER  
-**Known:** CEM Chinese bill material labels it “政府稅”; the Portuguese bill guide calls the corresponding line “Taxa de Exploração”. Both describe a monthly charge for use of the electrical installation. Current B/C/D public tariff pages show the monthly item but no calculation formula. Administrative Regulation 25/2022's reviewed tariff formulas do not establish the formula for this separate line. A-group/EV examples show `0.75 × √subscribed demand`, but do not prove the B/C/D rule.  
-**Unknown:** legal/contractual characterization and authoritative B/C/D formula, classes, exceptions and effective dates.  
-**Resolution path:** applicable legislation and Executive Decree 105/2022 annex review; CEM billing tariff specification; anonymized B/C/D bill examples and written CEM clarification.  
+**Known (public-source boundary):** CEM's Chinese bill guide uses “政府稅”; its Portuguese guide and current B/C/D tariff pages call the line “Taxa de Exploração” and describe a monthly installation-use charge, without a B/C/D formula. Administrative Regulation 25/2022 Articles 3 and 8 define the electricity-tariff components/formula, and Article 36 repeals Decree-Law 35/86/M. A historical CEM Group A leaflet described government remittance and an installation-type-dependent formula under the former regime; it does not establish the present legal basis or B/C/D rule. Current A/EV examples do not establish a B/C/D formula.  
+**Unknown:** current legal/contractual characterization and authority for the separate line; authoritative B/C/D formula, classes, exceptions, effective dates and relationship to the current tariff-system instruments.  
+**Resolution path:** current consolidated legislation/Executive Order 105/2022 annex review; CEM billing tariff specification; anonymized B/C/D bill examples and written CEM clarification.  
 **Design implication:** keep the monthly charge as an explicit unknown/contract-versioned tariff component; never reuse the A/EV formula for B/C/D without evidence.  
 **Evidence:** `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`.
 
