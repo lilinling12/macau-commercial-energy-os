@@ -16,6 +16,7 @@
   color: var(--ink); background: var(--canvas); font-size: 15px;
 }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 body { margin: 0; min-width: 320px; }
 button, select { font: inherit; }
 button { cursor: pointer; }
@@ -302,6 +303,7 @@ document.querySelectorAll('[data-review]').forEach((button) => button.addEventLi
   badge.className = 'status ' + (state === 'reviewed' ? 'good' : state === 'dismissed' ? 'neutral' : 'warn');
   badge.textContent = state === 'reviewed' ? 'Reviewed (demo)' : state === 'dismissed' ? 'Dismissed (demo)' : 'Needs data (demo)';
   card.querySelector('.rec-top').appendChild(badge);
+  document.querySelector('#rec-filter').dispatchEvent(new Event('change'));
 }));
 document.querySelectorAll('[data-result-kind]').forEach((button) => button.addEventListener('click', () => {
   const kind = button.dataset.resultKind;
