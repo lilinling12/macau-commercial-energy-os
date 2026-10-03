@@ -101,7 +101,15 @@ The following is illustrative JSON-like structure, not a committed schema:
 
 ### Compatibility implications
 
-The existing Recommendation schema allows objective.estimatedValue as a JSON number. That field cannot be treated as authoritative monetary truth under D-026. Before economics are put into a recommendation, either reference a CostEvaluationResult as the monetary authority or revise the recommendation contract to use an explicit currency plus canonical decimal text. The current schema must not be silently reinterpreted.
+The existing RecommendationV1 contract allows `objective.estimatedValue` as a JSON number and has no typed economic-assessment reference. D-026 means that number must not be treated as monetary truth, bill-grade cost or savings evidence. Do not change or reinterpret the v1 schema in place.
+
+### Non-breaking migration path for review (not a decision)
+
+1. Preserve RecommendationV1 as the existing compatibility contract. Existing numeric values are legacy/unverified display data until their meaning, currency, source and conversion policy are proven; do not convert them to decimal strings by formatting a binary float.
+2. Define RecommendationV2 only after product review establishes whether an economic figure means an absolute forecast cost, a change versus a baseline, or another measure. These meanings are not interchangeable.
+3. Prefer a typed immutable `economicAssessmentRef` over copying a monetary value into the recommendation. A change/savings claim requires a separate assessment that pins comparable baseline and candidate CostEvaluationResult references, period, currency, settlement scope, and comparison policy. An absolute cost may reference its single CostEvaluationResult. Missing or ineligible assessments mean no monetary estimate is emitted.
+4. If product requirements later require an inline amount, V2 must use canonical decimal text plus an explicit ISO currency and the immutable assessment reference. It must not expose a JSON number as authoritative money.
+5. V1 and V2 migration, generated TypeScript/Go bindings, compatibility behavior and acceptance fixtures must be versioned together under D-065. No implementation or schema change is authorized by this proposal.
 
 ## 3. Proposed ReplayManifest shape
 
