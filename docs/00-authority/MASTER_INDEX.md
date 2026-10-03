@@ -31,6 +31,7 @@ Research → Decision → Architecture → Engineering → Implementation.
 - Product information architecture, user flows and screen requirements (draft): `docs/02-product/USER-FLOWS-AND-IA-v0.1.md`
 - Candidate MVP vertical-slice plan and acceptance evidence (draft; scope/architecture unapproved): `docs/05-mvp/vertical-slices/MVP-VERTICAL-SLICE-PLAN-v0.1.md`
 - Clickable HTML product prototype v0.4 (synthetic data; consistent SVG navigation icons, read-only site context, responsive trend fallback, no live control; not user-tested): `docs/02-product/prototype/v0.4/index.html`
+- v0.4 static UI/UX Pro Max review and follow-up evidence (not user validation or WCAG conformance): `docs/02-product/PRODUCT-AND-ARCHITECTURE-REVIEW-PACKET-v0.1.md`
 - Prior clickable HTML product prototype v0.3 (retained for design comparison; corrected data-health count, synchronized breadcrumb, chart text/table fallback): `docs/02-product/prototype/v0.3/index.html`
 - Prior clickable HTML product prototype v0.2 (retained for design comparison): `docs/02-product/prototype/v0.2/index.html`
 - Prior clickable prototype v0.1 (preserved for design history): `docs/02-product/prototype/v0.1/index.html`
