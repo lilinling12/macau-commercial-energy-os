@@ -25,6 +25,7 @@ Research → Decision → Architecture → Engineering → Implementation.
 - Research-derived product scope and user workflow: `docs/02-product/PRODUCT-DESIGN.md`
 - Product and architecture owner review packet (unapproved; choices and Pro Max synthesis): `docs/02-product/PRODUCT-AND-ARCHITECTURE-REVIEW-PACKET-v0.1.md`
 - G6.9-R2 Step 3D readiness audit and execution packet (not execution results): `docs/01-research/G6.9-technology-research/STEP-3D-READINESS-AND-EXECUTION-PLAN-v0.1.md`
+- G6.9-R2 Step 3D machine-readable runner manifest (draft; pins and freeze blockers, not a runnable Compose environment): `docs/01-research/G6.9-technology-research/STEP-3D-RUNNER-MANIFEST-v0.1.json`
 - Research-derived product requirements draft (not customer-approved): `docs/02-product/PRD-v0.1.md`
 - Product information architecture, user flows and screen requirements (draft): `docs/02-product/USER-FLOWS-AND-IA-v0.1.md`
 - Clickable HTML product prototype v0.1 (synthetic data, no live control): `docs/02-product/prototype/v0.1/index.html`
