@@ -144,3 +144,11 @@
 **Unknown:** Whether a separate commercial customer may contract for off-site PV and receive bill credits, netting, wheeling, virtual allocation or another legally recognized settlement benefit through the public grid. The cited CEM material does not establish such a customer entitlement.  
 **Resolution path:** applicable Macau legislation/regulations and amendments; written CEM confirmation; actual producer/customer agreements, interconnection contracts, meter diagrams and bills.  
 **Design implication:** keep PV producer feed-in revenue separate from another site's consumption settlement unless a verified arrangement explicitly links them. Do not model off-site PV as a direct customer bill credit by default.
+
+
+## U-026 — Official Macau grid-connected PV count reconciliation
+**Status:** OPEN / G1 EVIDENCE QUALITY
+**Question:** Why does CEM's current PV page report 18 connected PV systems as of June 2026 (4,762 kWp), while DSPA's page last revised 2026-09-01 reports 12 grid-connected-and-selling cases as of August 31, 2026?
+**Known:** The sources use different units ("systems" and "cases") and may use different scopes or update cycles.
+**Resolution path:** Confirm the system/case definitions, reporting cutoffs and treatment of connected-but-not-selling or multi-installation projects with CEM and DSPA.
+**Design implication:** Do not combine these figures or use them as a time trend until reconciled.
