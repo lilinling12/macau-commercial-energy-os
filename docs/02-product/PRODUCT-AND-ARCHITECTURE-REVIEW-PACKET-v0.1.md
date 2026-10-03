@@ -144,10 +144,11 @@ This queue separates owner choices that unblock discovery/design from choices th
 | **Architecture boundaries** | Review now, finalize with evidence | Confirm or revise cloud intelligence vs site-local Edge/Safety Kernel, human approval boundary, and evidence/replay as a core product capability. | Sets logical responsibilities for detailed design. Technology frameworks remain unselected. |
 | **Visual direction and interaction system** | After target-user tasks are recruited and prototype is tested | Keep A (clear operational workspace) as a prototype baseline; compare A/B/C through usability and accessibility evidence; or request another direction. | Guides the next prototype iteration only; does not establish final visual identity. |
 | **Production stack and deployment model** | Defer until G6.9-R2 Step 3D/4 and product/operations evidence | No winner selected. Review measured candidate results, product requirements and operating costs before Decision Record. | A later, explicit owner-approved technology and deployment baseline. |
+| **Security verification baseline** | Review now as an engineering-governance choice | (A) use the candidate tailored OWASP ASVS 5.0.0 control-to-evidence mapping in the Security Threat Model, without claiming a conformance level; (B) nominate another security baseline; or (C) defer until a security reviewer is engaged. | Sets later security-verification scope only. It does not claim controls are implemented or close G6. |
 
 ### Approval boundary
 
-The next design work can advance on directional product scope and logical trust/module boundaries. A production architecture decision requires both the bake-off decision rule and owner review. G1 bill-grade functionality, G6 command execution, G7 field claims, customer/site selection, and deployment authorization each retain their own evidence and approval gates.
+The next design work can advance on directional product scope and logical trust/module boundaries. The candidate ASVS mapping still needs scope/reviewer approval before becoming the project's verification checklist. A production architecture decision requires both the bake-off decision rule and owner review. G1 bill-grade functionality, G6 command execution, G7 field claims, customer/site selection, and deployment authorization each retain their own evidence and approval gates.
 
 ## 7. Proposed review sequence
 
@@ -182,6 +183,7 @@ These confirmations govern how decisions are researched and reviewed. They do **
 - Recommendation economic display (absolute expected cost / baseline-relative change / omit until evidence):
 - Step 3D shared Temporal persistence service (approve PG16 addition / request supported alternative / defer):
 - Detailed-design slice to prioritize:
+- Security verification baseline (tailored ASVS checklist / other / defer):
 - Date / reviewer:
 
 
