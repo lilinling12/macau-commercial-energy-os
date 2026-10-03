@@ -12,4 +12,6 @@ Core architecture principles:
 
 Architecture flow:
 
-Research -> Decision -> Architecture -> Implementation
+Research -> Decision -> Product -> Architecture -> Engineering -> Implementation -> Validation
+
+PRD and research-Gate traceability, current design gaps, and implementation audit: `detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md`.
