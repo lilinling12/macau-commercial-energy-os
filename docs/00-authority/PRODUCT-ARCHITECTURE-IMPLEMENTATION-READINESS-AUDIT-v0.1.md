@@ -48,6 +48,33 @@ Detailed-design drafts cover the primary loop and major capabilities. Topic cove
 
 Governance, task-packet, vertical-slice and Gate acceptance frameworks exist. Production behavior, target-environment acceptance and authorized Macau pilot results have not been demonstrated. Documentation validation checks documents; it does not validate the running application.
 
+## Detailed-design interface cross-review (2026-10-04)
+
+**Method:** Static cross-reading of the telemetry ingestion, Energy Graph, Tariff & Settlement, Cost Analysis/Evidence Replay, Recommendation/Operator Review, CostResult/ReplayManifest proposal, tenant authorization, deployment/recovery and security threat-model drafts. This checks semantic handoffs only; it does not validate implementation or approve a contract.
+
+### Cross-capability rules that currently agree
+
+- Telemetry preserves source identity, observed/received time and quality; Energy Graph keeps physical/electrical relationships separate from settlement/economic relationships; Tariff & Settlement uses explicit account/site scope, tariff period and boundary policy. None should infer settlement demand from raw sample cadence.
+- Cost Analysis distinguishes bill reconstruction, interval assessment and baseline comparison. Recommendation design does not convert RecommendationV1 `estimatedValue` into monetary truth, a savings claim or an authorized action.
+- Analytical replay pins evidence and semantic inputs, while Edge command replay/idempotency remains a separate G6 concern. The drafts do not conflate a reproducible calculation with exactly-once physical control.
+- Tenant scope is intended to derive from verified identity and current authorization across synchronous and asynchronous paths; caller-supplied tenant/site selectors are not authority.
+
+No direct semantic contradiction was found in these reviewed handoffs. They remain proposals, not canonical runtime interfaces.
+
+### Cross-capability blockers before implementation
+
+1. **Telemetry identity and contract authority:** V1 has no stable producer event ID/idempotency contract, and the inspected TypeScript/Go consumers differ. This blocks safe durable deduplication, generated bindings and the event-to-replay lineage proof; do not deduplicate by value/time heuristics.
+2. **Cost/replay contract:** CostResult/ReplayManifest remains noncanonical. Result meaning, scope, decimal grammar/scale/rounding, status roll-up, semantic canonicalization/digest, durable reference and retention need domain/owner decisions before generators or production persistence are committed.
+3. **Recommendation economics:** RecommendationV1 carries an untyped numeric `estimatedValue`. Keep it out of monetary claims. A versioned typed assessment reference can proceed only after the owner chooses how the interface should communicate absolute expected cost versus baseline-relative effect (or omit monetary display until evidence is ready).
+4. **Identity and deployment:** The stack-neutral tenant design has no selected provider/role lifecycle or isolation topology, and the audited HTTP path lacks an auth guard. VS-002 must prove authorization through the actual API, repositories, jobs, caches and evidence paths in the selected runtime.
+5. **Verification boundary:** G6-08/G6-09 security controls need deployment-equivalent execution evidence. The proposed ASVS mapping is an acceptance checklist candidate, not proof that these controls exist.
+
+### Implementation sequencing consequence
+
+Keep the current technology-neutral slice order: identity/scope → telemetry/source identity → graph resolution → durable evidence/replay → tariff/cost → SHADOW recommendation/review → authorized pilot. Contract experiments and Step 3D runner preparation can progress in parallel, but a production stack, canonical schema, monetary recommendation display, and live command path cannot be inferred from these drafts.
+
+**Evidence boundary:** Source-level review only; no application tests, user sessions, threat workshop, database/runtime verification or Gate closure was performed in this cross-review.
+
 ## 4. Dependency-aware completion path
 
 | Stage | Work and deliverable | Exit evidence / decision |
