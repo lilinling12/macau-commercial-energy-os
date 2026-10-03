@@ -128,6 +128,10 @@ Grid-connected PV export and the generator's feed-in settlement must be represen
 - Keep service/module boundaries aligned with domain and failure boundaries; do not require each logical module to become a separate microservice.
 - Shared, Dedicated, and Private deployment modes are product/operations options from G6.8; their isolation, upgrade, and support costs require explicit engineering decisions.
 
+## Security threat model
+
+The stack-neutral STRIDE threat register, assets, trust boundaries, architecture invariants and required verification scenarios are in `docs/03-architecture/detailed-design/SECURITY-THREAT-MODEL-v0.1.md`. It is a review draft; threat likelihood/impact scoring, owner risk acceptance, deployment-specific controls and G6 closure evidence remain outstanding.
+
 ## Architecture decisions still open
 
 1. G6.9-R2 Step 3D pinned integrations and fault-injection results.
