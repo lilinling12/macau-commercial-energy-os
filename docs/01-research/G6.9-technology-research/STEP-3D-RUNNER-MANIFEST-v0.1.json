@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "name": "macau-energy-os-g6.9-r2-step-3d-runner",
+  "status": "draft-not-frozen",
+  "reviewedAt": "2026-10-04",
+  "authority": {
+    "source": "G6.9-R2 Step 3D experiment pack v0.3.0",
+    "purpose": "common candidate-comparison environment only",
+    "selectsProductionArchitecture": false,
+    "executionReady": false
+  },
+  "runner": {
+    "osFamily": "Linux",
+    "architecture": "x86_64",
+    "osImage": null,
+    "cpuLimit": null,
+    "memoryLimit": null,
+    "diskLimit": null,
+    "kernel": null,
+    "cleanRunnerProcedure": null,
+    "status": "host image and resource envelope not yet selected"
+  },
+  "candidateRuntimePins": {
+    "A": {
+      "api": ["bun@1.4.2", "hono@4.13.12", "effect@4.0.0"],
+      "temporalWorker": ["node@24.21.0", "@temporalio/worker@1.24.0"]
+    },
+    "B": {
+      "apiAndWorker": ["node@24.21.0", "@nestjs/core@12.1.1", "fastify@5.12.5", "@temporalio/worker@1.24.0"]
+    },
+    "CPlus": {
+      "coreAndWorker": ["go@1.27.1", "go.temporal.io/sdk@1.49.0"],
+      "thinBff": ["bun@1.4.2", "hono@4.13.12"]
+    },
+    "sharedOptimizer": ["python@3.14.8"]
+  },
+  "sharedServices": [
+    {
+      "role": "candidate-application-database",
+      "image": "timescale/timescaledb:2.30.2-pg18",
+      "versionEvidence": "official tag metadata reports PostgreSQL 18.6 and TimescaleDB 2.30.2",
+      "platformDigest": null,
+      "configurationStatus": "database roles, extensions, health check, resource limits and reset procedure pending"
+    },
+    {
+      "role": "temporal-persistence-database",
+      "image": "postgres:16.15-bookworm",
+      "authorityStatus": "runner-only proposal; verify pack interpretation before freeze",
+      "reason": "Temporal official persistence documentation lists PostgreSQL 13-16 as actively tested",
+      "platformDigest": null,
+      "configurationStatus": "credentials, schemas, health check, resource limits and reset procedure pending"
+    },
+    {
+      "role": "durable-workflow",
+      "serverImage": "temporalio/server:1.32.0",
+      "adminToolsImage": "temporalio/admin-tools:1.32.0",
+      "uiImage": null,
+      "platformDigests": null,
+      "configurationStatus": "server config, schema setup, namespace bootstrap, UI pin, health checks and reset procedure pending"
+    },
+    {
+      "role": "event-broker",
+      "image": "nats:2.15.0",
+      "platformDigest": null,
+      "configurationStatus": "JetStream file storage, limits, health check and reset procedure pending"
+    },
+    {
+      "role": "mqtt-5-broker",
+      "image": "eclipse-mosquitto:2.1.2-alpine",
+      "platformDigest": null,
+      "configurationStatus": "listener, authentication, TLS, persistence, health check and reset procedure pending"
+    },
+    {
+      "role": "telemetry-collector",
+      "image": "otel/opentelemetry-collector-contrib:0.162.0-amd64",
+      "platformDigest": null,
+      "configurationStatus": "receivers, exporters, pipelines, health check and resource limits pending"
+    },
+    {
+      "role": "metrics",
+      "prometheusImage": "prom/prometheus:v3.15.0",
+      "grafanaVersionCandidate": "13.2.3",
+      "grafanaImage": null,
+      "platformDigests": null,
+      "configurationStatus": "verify exact Grafana OSS/Enterprise image and license/features; configure scrape targets, dashboards, health checks and resource limits"
+    },
+    {
+      "role": "reference-simulator",
+      "sourceRepository": "https://github.com/ibpsa/project1-boptest",
+      "sourceTag": "v0.9.0",
+      "sourceCommit": "9b1610b",
+      "webImageDigest": null,
+      "workerImageDigest": null,
+      "configurationStatus": "freeze base images, OS packages, Node, Conda, Python and pip dependencies, Spawn archive checksum, build logs and resulting image digests"
+    }
+  ],
+  "packageLocks": {
+    "candidateA": null,
+    "candidateB": null,
+    "candidateCPlus": null,
+    "optimizer": null,
+    "status": "candidate source lockfiles and package-manager versions must be captured before execution"
+  },
+  "experimentInputs": {
+    "workloadSeeds": null,
+    "benchmarkCommitShas": null,
+    "contractAndSchemaHashes": null,
+    "aiAgentsAndVersions": null,
+    "repeatCount": null,
+    "rawResultRetention": null
+  },
+  "freezeBlockers": [
+    "confirm the Temporal PG16 service split is permitted by the bake-off authority",
+    "select Linux x86_64 base image and explicit CPU, memory and disk limits",
+    "capture immutable platform-specific image digests",
+    "complete service configurations, health checks, startup ordering and reset procedure",
+    "produce reproducible BOPTEST v0.9.0 build inputs and image digests",
+    "freeze dependency lockfiles and package-manager versions for every candidate",
+    "resolve browser UI, product BFF and API responsibilities consistently across A, B and C+",
+    "pin workload, candidate commits, AI agent versions, trial repetitions and raw-result retention"
+  ]
+}
