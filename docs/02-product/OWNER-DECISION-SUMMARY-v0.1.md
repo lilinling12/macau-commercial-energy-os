@@ -36,6 +36,7 @@ Record accepted product choices in the PRD and decision register; update the dis
 ## Source documents
 
 - Product and architecture review packet: `docs/02-product/PRODUCT-AND-ARCHITECTURE-REVIEW-PACKET-v0.1.md`
+- G2 official commercial-sales, hotel-scale, and site-flexibility evidence (aggregate only; no site profiles): `docs/01-research/evidence/G2-MACAU-COMMERCIAL-LOAD-FLEXIBILITY-EVIDENCE-2026-10.md`
 - Product requirements: `docs/02-product/PRD-v0.1.md`
 - Discovery and usability protocol: `docs/02-product/CUSTOMER-DISCOVERY-AND-USABILITY-RESEARCH-PLAN-v0.1.md`
 - Step 3D readiness and execution plan: `docs/01-research/G6.9-technology-research/STEP-3D-READINESS-AND-EXECUTION-PLAN-v0.1.md`
