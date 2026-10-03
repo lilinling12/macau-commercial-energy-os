@@ -33,6 +33,21 @@ VS-001 remains the integration-level outcome formed by the accepted increments a
 
 Evidence/replay primitives and audit hooks should be designed into VS-002–VS-004, even though VS-005 makes the full replay capability independently reviewable. Work can overlap where dependencies are genuinely independent, but acceptance cannot borrow evidence from a later or unapproved increment.
 
+## Detailed-design handoff by slice
+
+This matrix connects the candidate implementation order to the detailed-design work already in the repository. Each referenced design is a draft input, not an implementation authorization or proof that its acceptance criteria have passed. The task packet for a slice must narrow these references to the exact approved scope and identify unresolved decisions before coding.
+
+| Increment | Detailed-design inputs | Slice-specific readiness constraint |
+|---|---|---|
+| **VS-001 — Integration-level Energy Intelligence Loop** | `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md`; use the capability designs below for owning details. | End-to-end target only; do not treat the scaffold or synthetic flow as satisfying acceptance. Its acceptance depends on the accepted capability slices and open Gates. |
+| **VS-002 — Site identity, scope and access** | `docs/03-architecture/detailed-design/VS-001-IDENTITY-AND-TENANT-AUTHORIZATION-DESIGN-v0.1.md`; `docs/03-architecture/detailed-design/DEPLOYMENT-OPERABILITY-AND-RECOVERY-DETAILED-DESIGN-v0.1.md`. | Select an identity/deployment context and validate role/site entitlements before production auth implementation. |
+| **VS-003 — Source onboarding, telemetry and data health** | `docs/03-architecture/detailed-design/TELEMETRY-INGESTION-AND-DATA-QUALITY-DETAILED-DESIGN-v0.1.md`; `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md`. | Resolve canonical contract authority, consumer parity, source permission and site quality/freshness policies; the current V1 parity gap remains open. |
+| **VS-004 — Site model and Energy Graph resolution** | `docs/03-architecture/detailed-design/ENERGY-GRAPH-DETAILED-DESIGN-v0.1.md`; `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md`. | Validate site topology, point identity and settlement relationships; synthetic graph fixtures do not close G3. |
+| **VS-005 — Evidence, audit and deterministic replay foundation** | `docs/03-architecture/detailed-design/COST-ANALYSIS-AND-EVIDENCE-REPLAY-DETAILED-DESIGN-v0.1.md`; `docs/03-architecture/detailed-design/VS-001-RESULT-AND-REPLAY-CONTRACT-PROPOSAL-v0.1.md`; `docs/03-architecture/detailed-design/DEPLOYMENT-OPERABILITY-AND-RECOVERY-DETAILED-DESIGN-v0.1.md`. | Settle immutable input identity, semantic digest, tenant-scoped persistence, retention/correction and restore requirements before claiming deterministic or durable replay. |
+| **VS-006 — Tariff, bill and cost analysis** | `docs/03-architecture/detailed-design/TARIFF-SETTLEMENT-DETAILED-DESIGN-v0.1.md`; `docs/03-architecture/detailed-design/COST-ANALYSIS-AND-EVIDENCE-REPLAY-DETAILED-DESIGN-v0.1.md`; `docs/03-architecture/detailed-design/VS-001-RESULT-AND-REPLAY-CONTRACT-PROPOSAL-v0.1.md`. | Resolve applicable G1 rules and Golden Bill evidence; leave unknown tariff/settlement behavior blocked and scenario-only until then. |
+| **VS-007 — Shadow forecast/recommendation and operator review** | `docs/03-architecture/detailed-design/FORECASTING-AND-OPTIMIZATION-DETAILED-DESIGN-v0.1.md`; `docs/03-architecture/detailed-design/RECOMMENDATION-AND-OPERATOR-REVIEW-DETAILED-DESIGN-v0.1.md`; `docs/03-architecture/detailed-design/COST-ANALYSIS-AND-EVIDENCE-REPLAY-DETAILED-DESIGN-v0.1.md`. | Resolve product economics semantics and G2/G4/G5 evidence. Preserve SHADOW-only behavior; G6 remains an independent command authority. |
+| **VS-008 — Pilot measurement, operational readiness and handoff** | `docs/03-architecture/detailed-design/DEPLOYMENT-OPERABILITY-AND-RECOVERY-DETAILED-DESIGN-v0.1.md`; `docs/02-product/CUSTOMER-DISCOVERY-AND-USABILITY-RESEARCH-PLAN-v0.1.md`; `docs/01-research/gates/G7-pilot-validation.md`. | Requires a named, authorized pilot site and accepted outcome/operational evidence; planning artifacts alone cannot satisfy G7. |
+
 ## Ready and done rules
 
 A slice is **ready** only when:
