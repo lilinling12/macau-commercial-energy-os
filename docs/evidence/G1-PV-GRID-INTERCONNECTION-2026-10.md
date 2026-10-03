@@ -28,7 +28,7 @@ The CEM purchase tariff is a **producer-side export settlement**. A separate con
 
 ## Potential legal constraint requiring scope review
 
-The official Gazette version of Decree-Law 53/98/M amends the standard low/medium-voltage electricity-supply contract. Its text says a consumer must use electricity at the contracted supply location and may not sell or transfer part of that electricity to third parties. This is relevant to cross-building resale, but it does not by itself resolve how the separate PV-to-CEM purchase contract interacts with that standard supply contract, nor whether any distinct approved third-party arrangement exists. Treat this as a material legal constraint to verify, not a final conclusion about all possible PV contracting models.
+The official Gazette version of Decree-Law 53/98/M amends the standard low/medium-voltage electricity-supply contract. The current official republication of Decree-Law 43/91/M appears in Annex I to Law 26/2024 (published 2025-01-06; effective 2025-01-07); the general conditions retain the rule that the user must use electricity supplied at the contracted location and may not sell or transfer part of it to a third party. This is a material constraint on resale of electricity supplied under the ordinary customer contract. It does not, by itself, determine the legal treatment of a separate PV generator-to-CEM purchase contract, third-party PPA, or another specifically approved settlement arrangement. Treat it as a strong constraint requiring scope confirmation, not a final ruling on every possible PV contracting model.
 
 ## What remains unverified
 
@@ -51,4 +51,4 @@ Until then, keep the PV producer's feed-in revenue separate from the consuming s
 - CEM — PV introduction and bidirectional metering: https://www.cem-macau.com/zh/smart-living/photovoltaic-system-%28pv%29/pv-introduction/
 - CEM — PV interconnection application procedure: https://www.cem-macau.com/en/smart-living/photovoltaic-system-%28pv%29/application-procedure/
 - CEM — feed-in tariff table: https://www.cem-macau.com/en/go-green/photovoltaic-system-%28pv%29/feed-in-tariff/
-- Official Gazette — Decree-Law 53/98/M, amended standard low/medium-voltage supply contract: https://bo.io.gov.mo/bo/i/98/46/declei53_cn.asp?printer=1
+- Official Gazette — Law 26/2024, including the republished Decree-Law 43/91/M: https://bo.dsaj.gov.mo/bo/i/2025/01/lei26_cn.asp (published 2025-01-06; effective 2025-01-07).\n- Official Gazette — Decree-Law 43/91/M, republished low/medium-voltage electricity supply and sale contract: https://bo.io.gov.mo/bo/i/91/28/declei43_cn.asp\n- Official Gazette — Decree-Law 53/98/M amendment to the standard supply contract: https://bo.io.gov.mo/bo/i/98/46/declei53_cn.asp?printer=1
