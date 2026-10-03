@@ -35,7 +35,7 @@ Research → Decision → Architecture → Engineering → Implementation.
 - Candidate MVP vertical-slice plan, slice-to-detailed-design handoff and acceptance evidence (draft; scope/architecture unapproved): `docs/05-mvp/vertical-slices/MVP-VERTICAL-SLICE-PLAN-v0.1.md`
 - Clickable HTML product prototype v0.5 (synthetic data; adds context-reachable tariff-evidence and site-access subflows; no live connector, credential capture, user validation or final navigation decision): `docs/02-product/prototype/v0.5/index.html`
 - Clickable HTML product prototype v0.4 (synthetic data; consistent SVG navigation icons, read-only site context, responsive trend fallback, no live control; not user-tested): `docs/02-product/prototype/v0.4/index.html`
-- v0.4 static UI/UX Pro Max review and follow-up evidence (not user validation or WCAG conformance): `docs/02-product/PRODUCT-AND-ARCHITECTURE-REVIEW-PACKET-v0.1.md`
+- v0.5 static UI/UX Pro Max source review and follow-up evidence (not rendered-browser testing, user validation or WCAG conformance): `docs/02-product/PRODUCT-AND-ARCHITECTURE-REVIEW-PACKET-v0.1.md`
 - Prior clickable HTML product prototype v0.3 (retained for design comparison; corrected data-health count, synchronized breadcrumb, chart text/table fallback): `docs/02-product/prototype/v0.3/index.html`
 - Prior clickable HTML product prototype v0.2 (retained for design comparison): `docs/02-product/prototype/v0.2/index.html`
 - Prior clickable prototype v0.1 (preserved for design history): `docs/02-product/prototype/v0.1/index.html`
