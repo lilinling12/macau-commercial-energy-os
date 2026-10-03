@@ -136,6 +136,8 @@
   "freezeBlockers": [
     "confirm whether a dedicated PG16 Temporal persistence database is permitted as additional shared runner infrastructure; pack explicitly requires PostgreSQL 18 + TimescaleDB but leaves Temporal persistence backend unspecified",
     "select Linux x86_64 base image and explicit CPU, memory and disk limits",
+    "select an execution host that supports the required continuous 24-hour soak; standard GitHub-hosted jobs are capped at 6 hours",
+    "define a public-repository trust boundary for any self-hosted runner; never expose a persistent runner to arbitrary pull-request code, and prove the selected runner is clean and isolated",
     "capture immutable platform-specific image digests",
     "complete service configurations, health checks, startup ordering and reset procedure",
     "produce reproducible BOPTEST v0.9.0 build inputs and image digests",
