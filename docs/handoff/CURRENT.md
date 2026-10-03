@@ -15,7 +15,7 @@
 
 ## Repository state
 
-Completed:
+Completed on main:
 - Authority / handoff / decisions / evidence foundation;
 - G0–G7 research-gate index;
 - architecture and G6.9 technology Authority foundation;
@@ -23,33 +23,33 @@ Completed:
 - engineering governance;
 - PR / issue / CODEOWNERS governance;
 - Authority and repository-hygiene CI;
-- **Commit 004 Phase A — MVP Engineering Foundation**:
-  - implementation module boundaries;
-  - contracts-first package;
-  - TelemetryEventV1;
-  - OptimizationRecommendationV1;
-  - EvidenceRecordV1;
-  - platform-api / edge-runtime / optimizer / simulator boundaries;
-  - VS-001 Energy Intelligence Loop;
-  - contract JSON syntax CI.
+- Commit 004 Phase A — contracts-first MVP foundation and VS-001 definition.
+
+In review on branch `foundation/runtime-bootstrap-phase-b`:
+- runtime baseline pinned;
+- Node.js / NestJS platform-api bootstrap;
+- Go edge-runtime bootstrap;
+- Python optimizer bootstrap;
+- contract fixtures and Draft 2020-12 machine validation;
+- multi-runtime CI gate.
 
 ## Current gate
 
-**Commit 004 — MVP Engineering Foundation: Phase A complete.**
+**Commit 004 — MVP Engineering Foundation: Phase B IN REVIEW.**
 
-No application runtime bootstrap has been created yet.
+Issue: #1 — Runtime Bootstrap & Contract Validation.
 
-## Next work
+## Next work after Phase B validation
 
-**Commit 004 Phase B — Runtime Bootstrap & Contract Validation**
+**Commit 004 Phase C — Executable VS-001 Domain Path**
 
 Planned:
-1. platform-api workspace bootstrap under the frozen TypeScript/Node/NestJS direction;
-2. edge-runtime Go module bootstrap;
-3. optimizer Python package bootstrap;
-4. machine validation beyond JSON syntax;
-5. first executable VS-001 fixture path;
-6. keep tariff and simulator unknowns fail-closed.
+1. platform-api contract ingestion boundary;
+2. minimal Energy Graph identifiers and resolution interfaces;
+3. fail-closed tariff-resolution port;
+4. optimizer shadow-mode request/response path;
+5. evidence-record persistence boundary;
+6. deterministic fixture replay.
 
 ## Non-negotiable open evidence
 
@@ -69,4 +69,4 @@ Read, in order:
 4. `docs/handoff/CONTINUE-PROMPT.md`
 5. the Authority files referenced by the current task.
 
-GitHub state, verified evidence, and later Decision Records take precedence over chat memory.
+GitHub live state, verified evidence, and later Decision Records take precedence over chat memory.
