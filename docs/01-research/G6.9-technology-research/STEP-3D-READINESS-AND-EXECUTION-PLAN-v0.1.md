@@ -118,6 +118,7 @@ Official sources:
 - Temporal Admin Tools 1.32.0 image tag: https://hub.docker.com/r/temporalio/admin-tools/tags
 - Temporal UI 2.54.1 image tag: https://hub.docker.com/r/temporalio/ui/tags
 - Temporal persistence support and tested PostgreSQL versions: https://github.com/temporalio/documentation/blob/main/docs/encyclopedia/temporal-service/persistence.mdx
+- PostgreSQL Project — 16.15 release notes (2026-08-13): https://www.postgresql.org/docs/16/release-16-15.html
 - Temporal official PostgreSQL Compose sample and version pins: https://github.com/temporalio/samples-server/blob/main/compose/.env
 - Temporal official PostgreSQL schema setup: https://github.com/temporalio/samples-server/blob/main/compose/scripts/setup-postgres.sh
 - NATS Server 2.15.0: https://github.com/nats-io/nats-server/releases/tag/v2.15.0
