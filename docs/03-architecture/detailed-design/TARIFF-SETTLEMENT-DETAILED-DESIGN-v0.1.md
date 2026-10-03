@@ -11,7 +11,7 @@ Define a deterministic, auditable Tariff & Settlement capability used by histori
 
 The Tariff Engine is a domain capability, not a commitment to a standalone microservice. Runtime placement follows the G6.9-R2 decision. Exact settlement rules come from effective-dated, source-backed rule packages. Unknown legal, contract or meter semantics must produce a blocked/partial result; they are never filled by defaults.
 
-The engine handles the customer account's retail settlement stream. Producer-side PV feed-in revenue and any independently approved export arrangement are separate streams. Do not net off-site PV into another account without verified rights and meter/contract evidence (D-021, D-077, U-025).
+The engine handles the customer account's retail settlement stream. Producer-side PV feed-in revenue and any independently approved export arrangement are separate streams. The 2025 concession amendment effective 2026-01-01 limits private self-generated electricity distribution to the same concession/private land parcel with prior written SAR authorization; any such physical flow still requires explicit contract and meter treatment. Do not net off-site PV into another account without verified rights and meter/contract evidence (D-021, D-077, U-025).
 
 ### In scope
 
