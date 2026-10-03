@@ -32,6 +32,8 @@ DSPA's latest 2021–2025 aggregate energy-consumption and intensity tables (pag
 
 DSPA's 2023 Green Hotel Award record for Galaxy says the hotel used a Central Monitoring and Control Center to monitor and control electricity consumption and switched off 50% of escalators and lifts during non-peak periods. This establishes reported operational measures at that named hotel. The public award record gives no metered kW reduction, event duration, comfort/service impact, rebound, or causal baseline.
 
+DSEC's 2025 year-end release reports 147 hotel establishments offering lodging, about 45,000 available guest rooms (+4.9% year on year), and 89.4% annual room occupancy; occupancy was 92.9% for five-star, 83.8% for four-star, and 85.0% for three-star hotels. This establishes a sizeable, highly utilized and heterogeneous hotel sector, but it is not an energy-use or flexibility measurement. Together with the CEM program's published 1,600 kVA subscribed-demand split, it supports stratifying discovery by large hotel/resort complexes and smaller/standard accommodation sites. These are sampling hypotheses only; neither source proves which segment should be the first product or pilot.
+
 CEM's 2026 hotel/resort energy-saving activity groups each hotel/resort complex as one participant even when it has multiple supply points or contracts; segments participants at subscribed demand of 1,600 kVA; and compares four billing months (July–October) year over year using actual boundary meter reads. It is a seasonal energy-saving comparison and does not test dispatch response, demand-charge impact, intra-month peaks, causal attribution, or control latency.
 
 **Implication:** these sources support hotel customer segmentation and the existence of energy-management practices. They do not validate a Macau hotel flexibility model.
@@ -91,5 +93,6 @@ Until those conditions are met, G2 remains OPEN, no site-level dispatchable capa
 - DSPA, **Energy intensity trends, 2021–2025** (official indexed values): https://www.dspa.gov.mo/richtext.aspx?a_id=1598253440
 - DSPA, **Energy and Services Comprehensive Data, 2nd Quarter 2026** (page last modified 2026-09-25; report includes CEM-supplied electricity demand/sales, customer-group sales, and system peak): https://www.dspa.gov.mo/energyfigures/tc/en-chn_q226.pdf
 - DSPA, **2023 Macao Green Hotel Awardees — Gold Award — Galaxy** (last modified 2024-04-25): https://www.dspa.gov.mo/h_award_detail.aspx?a_id=1710484470
+- DSEC, **Package tours and hotel occupancy rate for December and the whole year of 2025** (2026-01-30): https://www.gov.mo/en/news/392646/
 - CEM, **Macao Energy Saving Activity 2026 Hotel / Resort Group**: https://www.cem-macau.com/en/event/75/
 - Project authority: `docs/00-authority/decisions/DECISIONS.md` (D-003, D-032, D-033, D-037), `docs/00-authority/decisions/OPEN-QUESTIONS.md` (U-004, U-006–U-008, U-012, U-014–U-017), and `docs/01-research/evidence/G1-PV-GRID-INTERCONNECTION-2026-10.md`.
