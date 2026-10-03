@@ -136,7 +136,7 @@ These are design tasks, not implied decisions. Update the relevant Open Question
 - Logical architecture: `docs/03-architecture/ARCHITECTURE-DESIGN.md`
 - Vertical slice: `docs/05-mvp/vertical-slices/VS-001-energy-intelligence-loop.md`
 - Contracts: `implementation/contracts/telemetry-event.v1.schema.json`, `recommendation.v1.schema.json`, `evidence-record.v1.schema.json`
-- Cost-result and replay-manifest contract proposal: docs/03-architecture/detailed-design/VS-001-RESULT-AND-REPLAY-CONTRACT-PROPOSAL-v0.1.md (proposal only; not a canonical contract)
+- Identity and tenant authorization design: docs/03-architecture/detailed-design/VS-001-IDENTITY-AND-TENANT-AUTHORIZATION-DESIGN-v0.1.md (draft; no identity provider or roles selected)\n- Cost-result and replay-manifest contract proposal: docs/03-architecture/detailed-design/VS-001-RESULT-AND-REPLAY-CONTRACT-PROPOSAL-v0.1.md (proposal only; not a canonical contract)
 - Gate and decision authority: `docs/00-authority/handoff/CURRENT.md`, `docs/00-authority/decisions/DECISIONS.md`, `docs/00-authority/decisions/OPEN-QUESTIONS.md`, G6 and G6.9-R2 records.
 
 ## 9. Approval and exit criteria
