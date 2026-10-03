@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from jsonschema import Draft202012Validator
+from jsonschema import Draft202012Validator, FormatChecker
 
 ROOT = Path(__file__).resolve().parent
 
@@ -15,11 +15,15 @@ CASES = (
 
 
 def main() -> None:
+    checker = FormatChecker()
+
     for schema_name, fixture_name in CASES:
         schema = json.loads((ROOT / schema_name).read_text(encoding="utf-8"))
         fixture = json.loads((ROOT / fixture_name).read_text(encoding="utf-8"))
+
         Draft202012Validator.check_schema(schema)
-        Draft202012Validator(schema, format_checker=None).validate(fixture)
+        Draft202012Validator(schema, format_checker=checker).validate(fixture)
+
         print(f"validated: {fixture_name}")
 
 
