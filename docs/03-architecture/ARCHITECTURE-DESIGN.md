@@ -72,7 +72,7 @@ See `docs/03-architecture/technology-authority/` and the G6.9-R2 bake-off Author
 
 ## Macau-specific settlement constraint
 
-Grid-connected PV export and the generator's feed-in settlement must be represented independently from another building customer's retail meter and bill. Do not allocate remote PV generation as customer bill credit unless the applicable contract, regulatory permission, meter topology, and CEM settlement evidence establish that right. U-025 remains open.
+Grid-connected PV export and the generator's feed-in settlement must be represented independently from another building customer's retail meter and bill. The amended public electricity-supply concession contract effective 2026-01-01 contemplates distribution of privately generated electricity only within the same concession/private land parcel and with prior written SAR authorization; model this only as a distinct, explicitly authorized physical distribution relationship. It does not establish cross-parcel allocation or retail bill credit. Do not allocate remote PV generation as customer bill credit unless the applicable contract, regulatory permission, meter topology, and CEM settlement evidence establish that right. U-025 remains open.
 
 ## Deployment and trust boundaries
 
