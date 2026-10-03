@@ -16,7 +16,8 @@ The VS-001 result and replay contract must:
 5. preserve fixed aggregation boundaries independently from sample quality (D-040, D-074);
 6. reproduce a result from the original immutable input and version set, never “latest” dependencies;
 7. exclude trace/correlation IDs from semantic identities and result equality (D-073);
-8. keep consumer and producer settlement streams distinct, and label any cross-stream site-economic roll-up explicitly (D-021, D-077);\n9. remain separate from command identity, approval and field-write semantics (D-008, D-025, D-070, D-075).
+8. keep consumer and producer settlement streams distinct, and label any cross-stream site-economic roll-up explicitly (D-021, D-077);
+9. remain separate from command identity, approval and field-write semantics (D-008, D-025, D-070, D-075).
 
 ## 2. Proposed CostEvaluationResult shape
 
@@ -30,9 +31,15 @@ The following is illustrative JSON-like structure, not a committed schema:
       "period": {
         "start": "RFC3339 instant",
         "end": "RFC3339 instant",
-        "timeZone": "IANA timezone",\n        "clockPolicyRef": "immutable clock and aggregation-boundary policy reference"
+        "timeZone": "IANA timezone",
+        "clockPolicyRef": "immutable clock and aggregation-boundary policy reference"
       },
-      "economicScope": {\n        "kind": "CONSUMER_SETTLEMENT | PV_PRODUCER_EXPORT | SITE_ECONOMIC_SCENARIO",\n        "accountRef": "settlement account/stream reference or null for a site scenario",\n        "aggregationPolicyRef": "required and versioned for a site-economics roll-up; otherwise null"\n      },\n      "resultStatus": "COMPLETE | PARTIAL | SCENARIO | BLOCKED",
+      "economicScope": {
+        "kind": "CONSUMER_SETTLEMENT | PV_PRODUCER_EXPORT | SITE_ECONOMIC_SCENARIO",
+        "accountRef": "settlement account/stream reference or null for a site scenario",
+        "aggregationPolicyRef": "required and versioned for a site-economics roll-up; otherwise null"
+      },
+      "resultStatus": "COMPLETE | PARTIAL | SCENARIO | BLOCKED",
       "evidenceStatus": "VERIFIED | DERIVED | HYPOTHESIS | PROJECT_ASSUMPTION | UNKNOWN | CONTRACT_VERIFIED",
       "settlementReadiness": "BILL_GRADE_ELIGIBLE | SCENARIO_ONLY | NOT_CALCULATED",
       "currency": "ISO currency code",
@@ -42,7 +49,8 @@ The following is illustrative JSON-like structure, not a committed schema:
           "componentCode": "stable rule/component code",
           "amount": "canonical decimal string",
           "quantity": "canonical decimal string or null",
-          "quantityUnit": "registered physical/economic unit when quantity is present",\n          "settlementStreamRef": "immutable settlement stream reference for this component or null for non-settlement components",
+          "quantityUnit": "registered physical/economic unit when quantity is present",
+          "settlementStreamRef": "immutable settlement stream reference for this component or null for non-settlement components",
           "tariffRuleRef": "immutable rule/version reference",
           "sourceRefs": ["immutable source references"],
           "evidenceStatus": "evidence status"
@@ -83,9 +91,13 @@ The following is illustrative JSON-like structure, not a committed schema:
 - BLOCKED means a required input or rule is missing/conflicting and no authoritative amount is emitted.
 - BILL_GRADE_ELIGIBLE is allowed only when every tariff, contract, meter and measurement rule required for the declared scope has sufficient evidence, and the applicable Golden Bill gate is satisfied. Before that, use SCENARIO_ONLY or NOT_CALCULATED. G1 remains open.
 - VERIFIED, DERIVED, HYPOTHESIS, PROJECT_ASSUMPTION, UNKNOWN and CONTRACT_VERIFIED retain the existing EvidenceRecordV1 meanings; do not assign VERIFIED merely because software returned a value.
-- Monetary amounts are canonical decimal text, not binary floating-point JSON numbers. Rounding mode and scale must come from a versioned settlement policy; do not invent interval rounding.\n- The result's top-level `evidenceStatus` must not be stronger than the evidence supporting its material inputs; component-level statuses remain visible where inputs differ.
+- Monetary amounts are canonical decimal text, not binary floating-point JSON numbers. Rounding mode and scale must come from a versioned settlement policy; do not invent interval rounding.
+- The result's top-level `evidenceStatus` must not be stronger than the evidence supporting its material inputs; component-level statuses remain visible where inputs differ.
 - Missing/null monetary values must not serialize as zero. A missing amount is not a zero charge.
-- `economicScope.kind` distinguishes a consumer settlement, PV producer export revenue and a site-economic scenario. A bill/consumer-settlement total cannot include a producer-export amount from another settlement stream.\n- A `SITE_ECONOMIC_SCENARIO` may present a cross-stream roll-up only with an explicit versioned `aggregationPolicyRef`; it must preserve per-stream component subtotals and remain labelled as an economic scenario, not as a customer bill.\n- Each component's `amount` uses the result's `currency`; `quantityUnit` describes only its `quantity`. Do not overload one `unit` field to mean both money and physical quantity.\n- Components remain separately traceable; PV producer feed-in settlement cannot be collapsed into generic negative building load (D-021/D-077).
+- `economicScope.kind` distinguishes a consumer settlement, PV producer export revenue and a site-economic scenario. A bill/consumer-settlement total cannot include a producer-export amount from another settlement stream.
+- A `SITE_ECONOMIC_SCENARIO` may present a cross-stream roll-up only with an explicit versioned `aggregationPolicyRef`; it must preserve per-stream component subtotals and remain labelled as an economic scenario, not as a customer bill.
+- Each component's `amount` uses the result's `currency`; `quantityUnit` describes only its `quantity`. Do not overload one `unit` field to mean both money and physical quantity.
+- Components remain separately traceable; PV producer feed-in settlement cannot be collapsed into generic negative building load (D-021/D-077).
 
 ### Compatibility implications
 
@@ -182,7 +194,8 @@ These scenarios define evidence to collect after the proposal is approved; they 
 6. Event quality exclusion does not move the declared fixed aggregation boundary (D-074).
 7. Replaying a superseded/corrected input creates a new evaluation and preserves the earlier result.
 8. No analytical replay action can invoke the command/Edge path.
-9. Contract-generated TypeScript and Go bindings, once the generator decision is made, conform to the same fixtures and semantic corpus (D-065).\n10. A consumer-settlement total never silently nets PV producer export revenue; any explicit site-economic roll-up names its versioned aggregation policy and preserves stream subtotals (D-021/D-077).
+9. Contract-generated TypeScript and Go bindings, once the generator decision is made, conform to the same fixtures and semantic corpus (D-065).
+10. A consumer-settlement total never silently nets PV producer export revenue; any explicit site-economic roll-up names its versioned aggregation policy and preserves stream subtotals (D-021/D-077).
 
 ## 6. Decision status and next work
 
