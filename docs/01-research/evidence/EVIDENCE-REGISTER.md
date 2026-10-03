@@ -36,3 +36,11 @@ Evidence discipline applies to research, architecture and implementation decisio
 - **Evidence:** `docs/03-architecture/detailed-design/ENERGY-GRAPH-DETAILED-DESIGN-v0.1.md`; research scope and closure criteria: `docs/01-research/gates/G3-energy-graph.md`.
 - **Unknown:** No Macau pilot site's physical/electrical topology, source-point mapping, meter hierarchy, settlement mapping, or cross-site PV allocation has been validated. U-005/U-016 remain site-evidence dependent; U-025 remains open for cross-site PV rights.
 - **Limit:** Existing VS-001 graph adapters are fail-closed/synthetic scaffolding. Public aggregate context, drawings not yet supplied for a selected site, simulation, and the logical design cannot establish a real site's authoritative meter/contract links. Do not claim G3 closure or bill-grade attribution.
+
+
+## G7 — Reference Simulator & Pilot Validation
+
+- **Claim:** U-013 records a v0.9.0 R0 fixture point set of 182 inputs, 204 measurements and 134 forecast points, with exact fixture hashes said to be in `G7.2-R0-HARNESS-PREFLIGHT.md`.
+- **Status:** REPORTED in the Open Questions register; **not independently auditable from the current repository snapshot** because the cited artifact is absent from the PR #8 branch tree. Do not treat the counts/hashes as verified by this repository review.
+- **Evidence:** `docs/00-authority/decisions/OPEN-QUESTIONS.md` (U-013) records the assertion; G7 closure requirements: `docs/01-research/gates/G7-pilot-validation.md`.
+- **Limit:** G7.2 live baseline/no-op remains pending; U-017 response/rebound, U-012 Macau calibration and U-015 weather validation remain open. No Macau customer pilot or measured customer result is established by the cited fixture assertion.
