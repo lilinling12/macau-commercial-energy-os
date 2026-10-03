@@ -50,11 +50,12 @@ Gate exit criteria below are execution checks derived from the research objectiv
 ## Product and architecture design deliverables
 
 - Product definition: `docs/02-product/PRODUCT-DESIGN.md`
+- Product requirements: `docs/02-product/PRD-v0.1.md` (**research-derived draft; customer validation and approval remain pending**)
 - Logical system architecture and technology decision states: `docs/03-architecture/ARCHITECTURE-DESIGN.md`
 - Gate-specific evidence and outcomes: `docs/01-research/gates/`
 - Single current handoff and next task: `docs/00-authority/handoff/CURRENT.md`
 
-The product and architecture documents distinguish confirmed research from hypotheses and provisional technology candidates. They do not claim the UI has been usability-tested or that a production stack has been selected.
+The product and architecture documents distinguish confirmed research from hypotheses and provisional technology candidates. They do not claim the UI has been usability-tested or that a production stack has been selected. PRD-v0.1 formalizes traceable requirements, but does not replace customer discovery, interaction design, detailed architecture, or approval of product scope.
 
 ## Next work packets
 
@@ -67,16 +68,29 @@ Build the pinned Linux x86-64 environment and run Candidate A/B/C+ with the same
 ### WP-3 — Advance G7.2 live R0 safely
 Complete the required fresh live baseline runs and live no-op identity trajectory with approved point bindings, run manifest, telemetry quality, and site authorization. Keep SAT/CHWS response and rebound claims open until U-017 is resolved.
 
-### WP-4 — Complete domain and product validation
-Use G2/G3 evidence to refine in-scope assets and customer workflows. Validate the proposed primary user tasks with Macau building operators and finance/energy stakeholders before treating navigation or segment priority as final.
+### WP-4 — Validate and complete product design
+Use G0/G2/G3 evidence to refine in-scope assets and customer workflows. PRD-v0.1 is a research-derived requirements draft, not customer-approved scope. Validate target users, buying authority, willingness to pay, integration burden, task frequency, and acceptable bill/savings evidence with Macau building operators and finance/energy stakeholders. Produce interview/evidence records, a role-to-task matrix, validated journeys, information architecture, permission/approval flows, and reviewable screen prototypes. Update PRD and PRODUCT-DESIGN from evidence rather than filling gaps with assumptions.
 
-### WP-5 — Authorize implementation by Gate
-Only after relevant research and architecture decisions pass, create implementation work packets tied to an approved Decision Record, contracts, acceptance evidence, rollback behavior, and explicit scope. Keep the existing Node/NestJS path replaceable until the bake-off decision.
+**Exit evidence:** named user/customer evidence; decisions or explicitly retained hypotheses for segment, buyer, workflow, and commercial value; usability feedback on primary tasks; versioned product requirements with acceptance criteria and unresolved dependencies.
+
+### WP-5 — Complete architecture and detailed design
+Translate approved product requirements and passed Gate outputs into component-level designs. Specify module boundaries, API/event/data contracts, persistence and migrations, workflow state machines, security/threat and key-lifecycle design, tenant isolation, failure/recovery semantics, deployment topology, SLO/observability, operations and rollback. Keep provisional stack choices replaceable until G6.9-R2 Step 4 records a formal decision.
+
+**Exit evidence:** approved architecture decisions linked to bake-off and Gate evidence; detailed design covers every MVP path and failure mode; contracts and acceptance tests are traceable; G6 security unknowns and operational authorization are explicit.
+
+### WP-6 — Authorize and implement MVP by vertical slice
+Only after relevant research and architecture decisions pass, create implementation work packets tied to an approved Decision Record, contracts, acceptance evidence, rollback behavior, and explicit scope. Retain the existing Node/NestJS path as Candidate B implementation evidence unless Step 4 selects it. Implement the product workflow and backend/Edge/optimizer paths according to the approved architecture.
+
+**Exit evidence:** every MVP requirement maps to merged implementation and successful acceptance evidence; operator-facing flows work end-to-end; unresolved evidence blocks bill-grade claims or device commands.
+
+### WP-7 — Verify, pilot, and make deployment decision
+Complete product, integration, security, reliability, performance and G7 validation at the level required for the pilot. Deploy only under site authorization; preserve run manifests and evidence; train operators; measure agreed user, safety, service, and economic outcomes.
+
+**Exit evidence:** customer-approved pilot protocol and baseline; successful deployment and operational handoff; reproducible results against agreed acceptance criteria; documented expand/remediate/stop decision.
 
 ## Gate reporting standard
 
 Every Gate update must state: (1) question researched, (2) evidence and provenance, (3) changed conclusions, (4) decision and approver, (5) unresolved questions, (6) product/model/architecture impact, (7) Authority files updated, and (8) next dependency-ready Gate or work packet.
-
 
 ## Cross-cutting capability: continuous AI research and AI Coding
 
