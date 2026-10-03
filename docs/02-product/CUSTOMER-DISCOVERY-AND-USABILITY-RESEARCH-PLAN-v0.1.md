@@ -117,7 +117,7 @@ Do not infer willingness to pay from hypothetical price reactions alone. Record 
 
 ## 5. Prototype usability session (45 minutes)
 
-Use synthetic prototype v0.3; label all records as synthetic and do not connect it to a live site. Retain v0.2 for comparison only when the session explicitly evaluates the interaction changes. Tell participants the interface is being evaluated, not their expertise. Ask them to think aloud while allowing natural work. Where relevant, compare the result-kind choices and review dispositions without coaching.
+Use synthetic prototype v0.4; label all records as synthetic and do not connect it to a live site. Retain v0.2 and v0.3 for comparison only when the session explicitly evaluates interaction changes. Tell participants the interface is being evaluated, not their expertise. Ask them to think aloud while allowing natural work. Where relevant, compare the result-kind choices and review dispositions without coaching.
 
 Choose the tasks relevant to the participant's role:
 
