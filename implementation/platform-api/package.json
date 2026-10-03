@@ -11,7 +11,9 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "start": "node dist/main.js",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test dist/vs001/*.spec.js",
+    "replay:vs001": "npm run build && node dist/vs001/replay.js"
   },
   "dependencies": {
     "@nestjs/common": "12.0.3",
