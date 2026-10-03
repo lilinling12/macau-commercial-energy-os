@@ -65,7 +65,7 @@
     {
       "role": "temporal-persistence-database",
       "image": "postgres:16.15-bookworm",
-      "authorityStatus": "runner-only proposal; verify pack interpretation before freeze",
+      "authorityStatus": "runner-only proposal; common candidate application database remains PostgreSQL 18 + TimescaleDB; dedicated PG16 persistence service is additional shared infra pending owner approval",
       "reason": "Temporal official persistence documentation lists PostgreSQL 13-16 as actively tested",
       "platformDigest": "sha256:efdf07c2f9d4df592783dcc8ea5f6db02efbf5f6452b527225ff5e58364570e9",
       "configurationStatus": "credentials, schemas, health check, resource limits and reset procedure pending"
@@ -134,7 +134,7 @@
     "rawResultRetention": null
   },
   "freezeBlockers": [
-    "confirm the Temporal PG16 service split is permitted by the bake-off authority",
+    "confirm whether a dedicated PG16 Temporal persistence database is permitted as additional shared runner infrastructure; pack explicitly requires PostgreSQL 18 + TimescaleDB but leaves Temporal persistence backend unspecified",
     "select Linux x86_64 base image and explicit CPU, memory and disk limits",
     "capture immutable platform-specific image digests",
     "complete service configurations, health checks, startup ordering and reset procedure",
