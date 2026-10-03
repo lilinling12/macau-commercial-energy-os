@@ -41,7 +41,7 @@ Evidence discipline applies to research, architecture and implementation decisio
 ## G7 — Reference Simulator & Pilot Validation
 
 - **Claim:** U-013 records a v0.9.0 R0 fixture point set of 182 inputs, 204 measurements and 134 forecast points, with exact fixture hashes said to be in `G7.2-R0-HARNESS-PREFLIGHT.md`.
-- **Status:** REPORTED in the Open Questions register; **not independently auditable from the current repository snapshot** because the cited artifact is absent from the PR #8 branch tree. Do not treat the counts/hashes as verified by this repository review.
+- **Status:** REPORTED in the Open Questions register; **not independently auditable from the current repository snapshot** because no dedicated preflight path was found across the seven current repository branches and the originating conversation has no attached files. Do not treat the counts/hashes as verified by this repository review.
 - **Evidence:** `docs/00-authority/decisions/OPEN-QUESTIONS.md` (U-013) records the assertion; G7 closure requirements: `docs/01-research/gates/G7-pilot-validation.md`.
 - **Limit:** G7.2 live baseline/no-op remains pending; U-017 response/rebound, U-012 Macau calibration and U-015 weather validation remain open. No Macau customer pilot or measured customer result is established by the cited fixture assertion. A prior assistant message in the originating conversation also reported G7.1/G7.3/G7.4 research complete, but no underlying sub-gate artifacts were attached or found in the repository; those statuses remain REPORTED / UNVERIFIED pending source recovery.
 
