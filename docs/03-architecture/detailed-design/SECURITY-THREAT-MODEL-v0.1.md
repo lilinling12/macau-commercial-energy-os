@@ -90,11 +90,38 @@ These are acceptance scenarios to implement and execute later. This document rec
 - Validate user types, organization/site membership lifecycle, delegated connector access, approval responsibilities and denial/404 disclosure behavior.
 - Select deployment and data-isolation model from customer/security evidence; decide whether database row-level security is appropriate. If PostgreSQL RLS is used, verify least-privileged deployed request roles, transaction-local tenant context, classified table coverage and connection reuse; do not assume RLS exists before a database decision.
 - Approve data classification, data residency, retention/deletion, backup/export and incident evidence policy for bills, telemetry, contracts, topology, model inputs and logs.
+- Assess Macau Law 8/2005 applicability per dataset and deployment flow; identify controller/processor roles and have the responsible privacy/legal owner review any transfer of in-scope personal data outside the MSAR under Articles 19/20 before intake or deployment.
 - Define identity provider/session policy, workload identity, secret/key storage, rotation/revocation, emergency access, audit retention and support access. Edge signing/key lifecycle remains U-022.
 - Set per-tenant quotas, queue/worker limits, availability/freshness SLOs, alert owners and recovery targets from the approved deployment mode and pilot workflow.
 - Decide whether and which external AI/model service processes customer data, what data may leave the tenant/site boundary, and what human validation is required.
 - Complete a product- and deployment-specific threat workshop, likelihood/impact scoring and named risk owners; this draft is not the final risk acceptance.
 - Review the candidate ASVS 5.0.0 control-to-evidence mapping in §6A and approve its scope, target level (if any), exclusions, owners and verification method before using it as a project baseline.
+
+## 6B. Macau personal-data and external-transfer review boundary
+
+**Status:** Legal/data-governance review item; no determination is made here that all building-energy telemetry is personal data, that a particular provider transfer is lawful/unlawful, or that Macau-only hosting is required.
+
+### Primary-source boundary
+
+Macau Law 8/2005 applies to covered processing of personal data, and its definition includes information relating to an identified or identifiable natural person. The Office for Personal Data Protection (GPDP) explains that where personal data is transferred outside the MSAR, Articles 19 and 20 must be considered; transfer destination protection and applicable legal conditions/notification or authorization must be reviewed for the concrete case. This document records the architecture implication, not a legal opinion.
+
+### Project-specific assessment required
+
+Do not classify a dataset from the label “building telemetry” alone. Before any customer-data intake or production deployment, inventory data fields and flows and have the customer/privacy or legal owner assess whether, in context, they identify or can reasonably be linked to natural persons—for example through named accounts, room/occupancy details, staff schedules, access identifiers, user logs or combinations with other records. Aggregation and pseudonymization reduce exposure but are not assumed to remove legal applicability without review.
+
+For each in-scope flow, record:
+
+- data category and source; whether direct/indirect identification is possible in the site context;
+- processing purpose, the customer/project parties determining purpose and means, and controller/processor roles and instructions;
+- applicable notice, lawful basis, data-subject rights and customer-contract requirements as confirmed by the responsible owner/adviser;
+- storage region, sub-processors, support/admin access locations, replication/backup/export paths, and whether a transfer outside the MSAR occurs under the applicable legal interpretation;
+- minimization, access, encryption/key ownership, retention/deletion, backup expiry and incident-evidence rules.
+
+Before cross-border access/processing of any in-scope personal data, obtain case-specific review of Articles 19/20 and applicable GPDP notification/authorization/transfer conditions. Do not infer compliance merely from choosing a Macau data-center region; map operator, support, backup and sub-processor paths as well. No data-residency design is selected by this note.
+
+### Intake and release gate
+
+Customer data must not enter a research, development, AI-provider or production workflow until the data inventory, customer authority/permissions, secure intake path, purpose/access boundary, retention/deletion rule and any cross-border review have been approved for that specific dataset and environment. Prefer synthetic or properly anonymized evidence for design and bake-off work.
 
 ## 6A. Candidate ASVS 5.0.0 control-to-evidence mapping
 
@@ -131,6 +158,9 @@ These are acceptance scenarios to implement and execute later. This document rec
 - OWASP Application Security Verification Standard (ASVS): https://owasp.org/projects/asvs
 - OWASP Multi Tenant Security Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/Multi_Tenant_Security_Cheat_Sheet.html
 - NIST SP 800-218 Secure Software Development Framework: https://csrc.nist.gov/pubs/sp/800/218/final
+- Macau Law 8/2005, Personal Data Protection Act (Official Gazette): https://bo.dsaj.gov.mo/bo/i/2005/34/lei08.asp?printer=1
+- Macau Office for Personal Data Protection, basic concepts and personal-data transfer outside the MSAR: https://mail.gpdp.gov.mo/zh_tw/basic_concepts.html
+- Macau Office for Personal Data Protection, transfer of personal data out of Macau (Arts. 19/20 guidance): https://eserv.gpdp.gov.mo/en/abstract_detail_copy/article/l13av000.html
 - Project identity and tenant design: docs/03-architecture/detailed-design/VS-001-IDENTITY-AND-TENANT-AUTHORIZATION-DESIGN-v0.1.md
 - Project deployment and recovery design: docs/03-architecture/detailed-design/DEPLOYMENT-OPERABILITY-AND-RECOVERY-DETAILED-DESIGN-v0.1.md
 - Project G6 authority: docs/01-research/gates/G6-safety-control.md
