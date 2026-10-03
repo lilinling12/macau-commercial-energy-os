@@ -19,7 +19,7 @@ Definition of done spans: customer/problem validation; product requirements and 
 
 **Lifecycle readiness audit:** `docs/00-authority/PRODUCT-ARCHITECTURE-IMPLEMENTATION-READINESS-AUDIT-v0.1.md` consolidates current evidence, open decisions, required completion proof and stage dependencies. It is a review aid, not approval or closure evidence.
 
-**Current active delivery record:** PR #8, branch `docs/product-architecture-roadmap` (open, not merged). It contains the research-derived product baseline, PRD draft, logical architecture, research/coding continuity, roadmap, product interaction design draft, lifecycle readiness audit v0.1, stack-neutral security threat model v0.1, synthetic prototype v0.5 (candidate tariff-evidence and site-onboarding subflows), VS-001 detailed-design draft, PRD requirement and research-Gate-to-delivery traceability matrix, expanded G6 evidence/closure checklist, proposed product/engineering governance, an owner review packet with provisional visual directions and the v0.4 Pro Max static UX review, a vertical-slice-to-detailed-design handoff matrix, a machine-readable Step 3D runner manifest draft, and a concise owner decision summary. The decision summary is `docs/02-product/OWNER-DECISION-SUMMARY-v0.1.md`; it separates process constraints, review recommendations, owner decisions still needed, and the later technology-selection path. All remain drafts pending review where applicable. These documents remain drafts; customer validation, complete detailed design, production stack selection, implementation completion, and pilot evidence are outstanding. Changes on this branch are not yet on `main`.
+**Current active delivery record:** PR #8, branch `docs/product-architecture-roadmap` (open, not merged). It contains the research-derived product baseline, PRD draft, logical architecture, research/coding continuity, roadmap, product interaction design draft, lifecycle readiness audit v0.1, stack-neutral security threat model v0.1, synthetic prototype v0.5 (candidate tariff-evidence and site-onboarding subflows), VS-001 detailed-design draft, PRD requirement and research-Gate-to-delivery traceability matrix, expanded G6 evidence/closure checklist, proposed product/engineering governance, an owner review packet with provisional visual directions and the v0.4 Pro Max static UX review, a vertical-slice-to-detailed-design handoff matrix, a machine-readable Step 3D runner manifest draft, and a concise owner decision summary, and corrected cross-conversation handoff entrypoints with an append-only HISTORY log. The decision summary is `docs/02-product/OWNER-DECISION-SUMMARY-v0.1.md`; it separates process constraints, review recommendations, owner decisions still needed, and the later technology-selection path. All remain drafts pending review where applicable. These documents remain drafts; customer validation, complete detailed design, production stack selection, implementation completion, and pilot evidence are outstanding. Changes on this branch are not yet on `main`.
 
 ## Research state
 
@@ -125,12 +125,17 @@ Do not claim:
 Read:
 1. `AGENTS.md`
 2. `docs/00-authority/handoff/README.md`
-3. `docs/00-authority/handoff/CURRENT.md`
-4. `docs/00-authority/decisions/DECISIONS.md`
-5. `docs/00-authority/decisions/OPEN-QUESTIONS.md`
-6. `docs/03-architecture/technology-authority/G6.9-technology-selection/README.md`
-7. `docs/01-research/evidence/G1-PV-GRID-INTERCONNECTION-2026-10.md`
-8. `docs/01-research/evidence/G2-MACAU-COMMERCIAL-LOAD-FLEXIBILITY-EVIDENCE-2026-10.md`
-9. Authority files referenced by the current task.
+3. `docs/00-authority/handoff/CONTINUATION-PROTOCOL.md`
+4. `docs/00-authority/handoff/HISTORY.md`
+5. `docs/00-authority/handoff/CONTINUE-PROMPT.md`
+6. `docs/00-authority/handoff/CURRENT.md`
+7. `docs/00-authority/ROADMAP.md`
+8. `docs/00-authority/decisions/DECISIONS.md`
+9. `docs/00-authority/decisions/OPEN-QUESTIONS.md`
+10. `docs/03-architecture/technology-authority/G6.9-technology-selection/README.md`
+11. `docs/01-research/evidence/G1-PV-GRID-INTERCONNECTION-2026-10.md`
+12. `docs/01-research/evidence/G2-MACAU-COMMERCIAL-LOAD-FLEXIBILITY-EVIDENCE-2026-10.md`
+13. For substantial AI-assisted research or implementation, follow `docs/04-engineering/ai-coding-governance/README.md` and use `docs/04-engineering/ai-coding-governance/TASK-PACKET-TEMPLATE.md`.
+14. Read additional authority files referenced by the current task.
 
 GitHub live state, exact-head CI, verified evidence, and Decision Records take precedence over chat memory.
