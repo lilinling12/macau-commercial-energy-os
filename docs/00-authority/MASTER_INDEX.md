@@ -22,7 +22,7 @@ Research → Decision → Architecture → Engineering → Implementation.
 - New-conversation entry prompt: `docs/00-authority/handoff/CONTINUE-PROMPT.md`
 - Reusable research and coding task packet: `docs/04-engineering/ai-coding-governance/TASK-PACKET-TEMPLATE.md`
 - Research-derived product scope and user workflow: `docs/02-product/PRODUCT-DESIGN.md`
-- Research-derived product requirements draft (not customer-approved): `docs/02-product/PRD-v0.1.md`
+- Research-derived product requirements draft (not customer-approved): `docs/02-product/PRD-v0.1.md`\n- Product information architecture, user flows and screen requirements (draft): `docs/02-product/USER-FLOWS-AND-IA-v0.1.md`
 - Logical system architecture and technology decision states: `docs/03-architecture/ARCHITECTURE-DESIGN.md`
 - VS-001 component-level detailed design draft (shadow-mode; not production authorization): `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md`
 - PRD-to-architecture traceability and design-gap matrix (draft): `docs/03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md`
