@@ -222,3 +222,117 @@ Stable project decisions. Do not silently overwrite; supersede with a new decisi
 ## D-055 — First R0 economic truth is energy + TCA only
 **Decision:** R0 bill-grade economic replay initially enables only verified C1 active-energy TOU + effective-dated TCA. Pu/demand charge, reactive, commercial government tax, PV, ESS and EV settlement remain disabled/scenario-only until their respective evidence/model requirements are satisfied.  
 **Status:** ACTIVE
+
+
+## D-056 — Deterministic controller before MPC
+**Decision:** R0 first executes a deterministic tariff-aware supervisory state machine (`TariffShaper v0`) before any MPC is promoted. Its purpose is to falsify naive TOU control, validate guard semantics and establish setpoint-response evidence.  
+**Status:** ACTIVE
+
+
+## D-057 — R0 first-controller control authority remains four supervisory setpoints
+**Decision:** G7.4 retains the R0-A four-point surface: three AHU supply-air-temperature setpoints plus one chilled-water-supply-temperature setpoint. Zone thermostats and low-level fan/damper/valve/VAV overrides remain disabled.  
+**Status:** ACTIVE
+
+
+## D-058 — Comfort/IAQ boundaries come from dynamic testcase boundaries
+**Decision:** R0 guard logic uses BOPTEST `LowerSetp`, `UpperSetp`, `UpperCO2` and measured zone state rather than inventing fixed hotel comfort/IAQ limits. R0 model values are never generalized to Macau customer SLA.  
+**Status:** ACTIVE
+
+
+## D-059 — Physical capacity guard stays separate from rebound diagnostic and Pu
+**Decision:** Physical/site-capacity protection requires an explicit verified or scenario capacity threshold. `NO_NEW_PEAK` baseline comparison and 5/15/30/60-minute rolling peaks are diagnostic metrics only and are not CEM Pu.  
+**Status:** ACTIVE
+
+
+## D-060 — Recovery is a first-class control state
+**Decision:** A tariff-shift controller must model post-peak recovery explicitly instead of immediately snapping all setpoints to baseline, because rebound may erase energy savings or create a new site peak.  
+**Status:** ACTIVE
+
+
+## D-061 — MPC receives no privileged control path
+**Decision:** Future MPC proposals must pass through the same Policy/Safety Kernel, command activation semantics and audit path as `TariffShaper v0`.  
+**Status:** ACTIVE
+
+## D-062 — Three primary language ceiling for MVP
+**Decision:** The default MVP architecture is constrained to TypeScript, Go and Python as the three primary implementation languages unless a customer/protocol requirement provides evidence for adding another. TypeScript owns product surfaces, Go is the provisional authoritative core/Edge language, and Python owns optimization/forecast/simulation.  
+**Status:** ACTIVE / PROVISIONAL STACK DEFAULT
+
+
+## D-063 — Bun is first-class, but not assumed compatible with Node-native authority paths
+**Decision:** Pin Bun as the preferred TypeScript workspace/tooling and Candidate-A API runtime. Do not infer Node-native compatibility from Bun performance or general Node-compatibility claims. Temporal TypeScript Workers remain on authentic Node while that is the official support boundary.  
+**Status:** ACTIVE
+
+
+## D-064 — C+ is provisional default pending falsifiable bake-off
+**Decision:** Use Go authoritative Energy Core + Temporal Go workers + Go Edge/Safety Kernel, with Bun/Hono/TypeScript on the product/BFF surface and Python for intelligence, as the provisional MVP default. It can be displaced only by the common bake-off decision rule.  
+**Status:** ACTIVE / PROVISIONAL
+
+
+## D-065 — Cross-language contracts are generated, not manually duplicated
+**Decision:** Use versioned OpenAPI/Protobuf/JSON Schema contracts as the source of truth and generate Go/TypeScript bindings. A multi-language architecture may not rely on hand-maintained duplicate DTOs.  
+**Status:** ACTIVE
+
+
+## D-066 — Temporal, cloud events and site messaging have separate responsibilities
+**Decision:** Temporal owns durable workflow state/outcome; NATS JetStream owns replayable cloud domain events; MQTT 5 owns resilient site/cloud messaging; PostgreSQL owns authoritative business/audit state. A broker is not used as a substitute workflow engine.  
+**Status:** ACTIVE
+
+
+## D-067 — Effect 4 adoption is selective until measured
+**Decision:** Effect 4 participates in Candidate A for typed errors, dependencies, resource safety and structured concurrency, but is not made pervasive platform authority until the bake-off demonstrates lower total engineering cost without hidden/regression cost.  
+**Status:** ACTIVE / EXPERIMENTAL BOUNDARY
+
+
+## D-068 — Stack selection requires semantic and AI-engineering bake-off
+**Decision:** Framework/runtime selection is made against one canonical Energy OS vertical slice, common hard safety/security gates and controlled Codex/Claude engineering trials. Hello-world throughput and vendor benchmarks cannot decide the stack.  
+**Status:** ACTIVE
+
+
+## D-069 — Suspend the Java-specific implementation portion of D-030
+**Decision:** The semantic Tariff Engine architecture from G1.1/G1.2 remains active, but the Java 25 + Spring Boot implementation choice in D-030 is no longer production authority while G6.9-R2 is open. The tariff implementation language must follow the platform bake-off or a separately justified isolation boundary.  
+**Status:** ACTIVE / SUPERSEDES D-030 IMPLEMENTATION STACK ONLY
+
+## D-070 — Signed command values use canonical decimal text at the authority boundary
+**Decision:** External cloud-to-Edge command setpoints are signed using canonical decimal text rather than runtime-native floating-point JSON formatting. Conversion to equipment numeric types happens only after signature/scope/time/replay checks.  
+**Status:** ACTIVE
+
+
+## D-071 — Protocol semantics precede framework choice
+**Decision:** Command verification semantics and reason-code ordering are frozen independently of Hono/Nest/Go service frameworks. Candidate implementations must conform to the same corpus; framework convenience may not change authority semantics.  
+**Status:** ACTIVE
+
+
+## D-072 — Step-3B HMAC is a test fixture, not production key architecture
+**Decision:** HMAC-SHA256 is used only to make cross-runtime conformance reproducible. Production Edge identity, signing algorithm, key provisioning/rotation and hardware-backed storage remain separate Safety Kernel security decisions.  
+**Status:** ACTIVE
+
+
+
+## D-073 — Observability identity cannot alter control/business identity
+**Decision:** Correlation/trace IDs are propagation metadata only. They MUST NOT participate in deterministic proposal IDs, command IDs, tariff results, optimizer semantic identity or field-write idempotency keys.  
+**Evidence:** Step 3C first run exposed cross-runtime proposal divergence caused solely by distinct correlation IDs; removing trace identity restored identical proposal/command identities.  
+**Status:** ACTIVE
+
+
+## D-074 — Aggregation window authority precedes quality filtering
+**Decision:** Telemetry quality controls eligible samples but never defines or slides the fixed aggregation/settlement window. Time buckets are established from the declared clock/boundary policy first, then quality rules are applied.  
+**Evidence:** Step 3C first run shifted a 15-minute bucket by 10 seconds when the boundary sample was `UNCERTAIN`; fixed-boundary logic restored deterministic Node/Go equality.  
+**Status:** ACTIVE
+
+
+## D-075 — Edge replay protection is a normal workflow-recovery boundary
+**Decision:** If the cloud retries a command after the field write has succeeded but workflow completion was not committed, Edge replay state prevents another physical write. A replay/already-applied outcome is recoverable workflow evidence, not automatically an exceptional control failure.  
+**Evidence:** Step 3C crash-after-field-write scenario completed with exactly one field write for both Node and Go semantic cloud paths.  
+**Status:** ACTIVE
+
+
+## D-076 — Step 3C is semantic evidence, not framework winner evidence
+**Decision:** Node 22/stdlib and Go 1.23 local shell timings from Step 3C may prove shared semantics only. They MUST NOT be used to rank Bun/Hono/Effect, Node/Nest/Fastify or Go 1.27 production candidates. Comparative runtime/framework claims require the pinned Step-3D environment.  
+**Status:** ACTIVE
+
+
+
+## D-077 — Macau grid-connected PV injection and settlement boundary
+**Decision:** For an approved customer PV installation, model public-grid interconnection as a regulated, metered process requiring the applicable project acceptance, CEM interconnection arrangement, connection-point meter and contract. CEM's published feed-in tariff is producer-side export settlement. Do not treat another building's injected PV kWh as a consuming customer's bill credit or procurement entitlement without separate verified legal, CEM, metering and contract evidence. Keep producer export revenue as a separate settlement stream unless an approved arrangement explicitly links the accounts.  
+**Evidence:** CEM PV introduction, application procedure and feed-in-tariff pages reviewed 2026-10-03; see `docs/evidence/G1-PV-GRID-INTERCONNECTION-2026-10.md`.  
+**Status:** ACTIVE for modeling boundary; U-025 remains open for cross-site rights.
