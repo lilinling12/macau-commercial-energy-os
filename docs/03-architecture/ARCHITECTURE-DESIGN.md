@@ -1,6 +1,6 @@
 # Logical Architecture Design Baseline
 
-**Status:** Product/system boundaries confirmed at a high level; cloud-core technology remains under G6.9-R2 evaluation.  
+**Status:** Logical boundaries are research-derived draft proposals; product-owner approval is pending. Cloud-core technology remains under G6.9-R2 evaluation. No production framework or runtime is approved by this document.  
 **Authority:** G6.8 enterprise deployment and safety boundaries, G6.9-R2 Consolidation Gate, Library v1.6.2, and current handoff.  
 **Purpose:** Explain system responsibilities and data/control flow without turning a candidate stack into a production decision.
 
@@ -44,7 +44,7 @@ Cloud analysis and optimization do not directly write to equipment. Edge is the 
 
 | Layer | Current authority state |
 |---|---|
-| Product UI | React + TypeScript confirmed as the frontend direction. |
+| Product UI | React + TypeScript appeared in the provisional architecture; framework and frontend implementation choice require product-owner review and are not approved. |
 | Application core | TypeScript/Go hybrid responsibilities are under evaluation; do not collapse this into a final framework choice. |
 | Workflow | Temporal is a candidate; framework-native behavior is part of G6.9-R2 Step 3D. |
 | Persistence | PostgreSQL + Timescale is the baseline for evaluation. |
