@@ -1,0 +1,232 @@
+# Customer Discovery and Usability Research Plan v0.1
+
+**Status:** Proposed research protocol; no customer or usability evidence is recorded here.  
+**Purpose:** Make WP-4 executable by validating the product's user, buyer, site, job, evidence needs and primary workflows before product scope is baselined.  
+**Authority:** G0 market rationale, `PRODUCT-DESIGN.md`, `PRD-v0.1.md`, `USER-FLOWS-AND-IA-v0.1.md`, and current G1/G6/G7 constraints.  
+**Scope:** Research planning only. This document does not approve product scope, make a savings claim, close a research Gate, or authorize live system access or control.
+
+## 1. Research objectives
+
+Answer with observed customer evidence rather than assumptions:
+
+1. Which Macau commercial-site segment has a frequent, consequential energy decision that this product can improve?
+2. Who experiences the problem, who owns the workflow, who approves a change, who controls data access, and who pays?
+3. What do users do today to understand bills, demand exposure, meter/BMS quality, plant constraints, and proposed actions?
+4. Which records do finance and operations accept as evidence, and what would make a cost or savings result untrustworthy?
+5. What site data is realistically available, who can provide it, and what integration effort, permission and operational risk does it create?
+6. Do the six proposed product tasks and IA match actual work? Where do users get confused, stop, or require another role?
+7. Which language, terminology, accessibility, deployment, support and commercial expectations affect a first pilot?
+
+The work separates **problem discovery**, **workflow observation**, **prototype usability**, and **commercial validation**. A positive reaction to a concept is not evidence of purchase intent or willingness to pay.
+
+## 2. Current hypotheses to test
+
+Treat these as hypotheses, not interview premises:
+
+- Candidate sites: integrated resorts/hotels, shopping malls, office towers and public buildings.
+- Candidate roles: energy/facilities manager, building operator/control-room staff, finance/asset owner, and energy-service/integration partner.
+- Candidate first product loop: qualify data → understand site and settlement context → explain a supported cost result → inspect a SHADOW recommendation → retain/replay evidence.
+- Candidate differentiation: connect physical/settlement context and traceable economic evidence with operationally constrained recommendations.
+- Candidate trust boundary: unknown tariff, incomplete data, synthetic evidence, forecast output and SHADOW proposals must never be mistaken for verified bills, measured savings or executed control.
+
+Do not present these propositions to participants until after asking about their actual past work.
+
+## 3. Sampling and recruitment plan
+
+Use purposive recruitment across different site types and responsibilities. Record why each participant matches a role; do not treat job titles as proof of decision authority.
+
+### Discovery wave
+
+Plan an initial 8–12 interviews across the candidate roles and at least two site contexts, where access permits. This is a learning sample, not a statistically representative market estimate. Include people close to the work as well as a buyer/finance perspective. Expand or rebalance the sample if key roles, decision paths or site types remain unrepresented or evidence conflicts.
+
+Seek participants who can describe a recent concrete example and, where permitted, walk through the artifact or workflow they used. Prefer actual recent bills, interval data, exception reports, operator logs or vendor proposals in redacted form over hypothetical opinions. A participant may decline to share artifacts without being excluded.
+
+### Usability wave
+
+After revising the prototype from discovery findings, run a formative task session with 5–8 relevant users per iteration as an initial planning target, sampling across the roles that will perform the tested tasks. This small qualitative round is intended to expose workflow and comprehension problems; it cannot establish population-level usability or market demand. Repeat after material design changes.
+
+Recruit through direct, authorized introductions or the user's existing customer/research relationships. Do not claim an organization or participant has endorsed the product unless they explicitly have.
+
+## 4. Discovery interview guide (45–60 minutes)
+
+### A. Context and responsibility (5–10 min)
+
+- Please describe your site, role and responsibilities related to energy, facilities, finance or building operations.
+- Which decisions do you personally make? Which do you recommend, approve, fund or execute?
+- Who else is involved, and what information does each person need?
+- What systems, suppliers or internal teams do you rely on?
+
+### B. Recent real event (15–20 min)
+
+Ask for the most recent example, not a general opinion:
+
+- Tell me about the last time an energy cost, demand peak, plant issue or data problem required attention.
+- What triggered the work? What did you do first, next and last?
+- Which tools, spreadsheets, bills, screenshots or people did you use?
+- What was difficult, slow, uncertain or repeated?
+- What was the consequence of acting late or getting it wrong?
+- How often has a similar event happened in the last month/quarter/year?
+- What did you decide, and how did you know the outcome was acceptable?
+
+With permission, ask the participant to show a redacted artifact or reconstruct the workflow. Note actual workarounds and handoffs.
+
+### C. Economics and evidence (10 min)
+
+- How do you reconcile the operational view with the bill or contract today?
+- Which meter, demand window, tariff, contract, tax, PV or settlement details can change the answer?
+- Who is trusted to confirm those details?
+- What level of discrepancy is acceptable for exploration, budgeting or a formal savings claim?
+- What proof would finance, an operator or a customer require before believing a result?
+- When are you unable to reach a reliable answer? What do you do then?
+
+Do not assume the research team can determine bill-grade truth from one participant's explanation. Capture contradictions and request authoritative artifacts or follow-up validation.
+
+### D. Data and integration (10 min)
+
+- Which meters, BMS points, equipment records and billing data are available, at what intervals and with what delay?
+- Who owns each system and can authorize access?
+- How are units, timestamps, missing/stale values and point mappings handled?
+- What integration has been attempted before? What took time or failed?
+- Are there network, cybersecurity, procurement, vendor or operational restrictions?
+- What data cannot leave the site, and what deployment model is acceptable?
+
+Do not request credentials, live control access, personal data, unredacted bills or sensitive building/network diagrams during discovery.
+
+### E. Concept check (5–10 min, only after open discovery)
+
+Show the product proposition and synthetic prototype after the participant has described their current work:
+
+- Which part, if any, maps to a task you actually perform?
+- What seems inaccurate or missing for your site?
+- Which part would you ignore? Why?
+- What would you need to verify before relying on a cost result or recommendation?
+- What would make this unsafe or politically difficult to introduce?
+- What alternative is already good enough?
+
+Avoid leading questions such as “Would you use this?” or “Would this save money?” Record concrete commitments separately from favorable opinions.
+
+### F. Commercial and next-step evidence (5 min)
+
+- Who owns the budget and procurement decision for this kind of capability?
+- What existing spend, contract or internal project would this replace or complement?
+- What would a pilot need to prove, and what would stop it?
+- Who else should be interviewed to understand the decision?
+- Is there a safe, authorized next step (for example, a redacted bill review or workflow observation)?
+
+Do not infer willingness to pay from hypothetical price reactions alone. Record actual budget, procurement, pilot or data-sharing commitments only when the participant makes them.
+
+## 5. Prototype usability session (45 minutes)
+
+Use the synthetic prototype; label all records as synthetic and do not connect it to a live site. Tell participants the interface is being evaluated, not their expertise. Ask them to think aloud while allowing natural work.
+
+Choose the tasks relevant to the participant's role:
+
+1. **Check site readiness:** identify whether the site data is current and trustworthy; state what is missing and what it affects.
+2. **Explain an economic result:** find its meter, period, contract/tariff evidence, coverage, assumptions and unresolved blockers.
+3. **Distinguish energy streams:** explain consumer settlement versus PV producer export and say whether one can be credited to the other site's bill from the evidence shown.
+4. **Review a SHADOW recommendation:** identify its baseline, horizon, proposed action, predicted effect, uncertainty and constraints; explain whether it has been executed.
+5. **Inspect evidence/replay:** find pinned source/rule/model versions and determine whether replay is complete or unavailable.
+6. **Recover from a failure state:** respond to stale/partial data, missing authorization, or a failed integration without silently treating the result as verified.
+
+Do not coach during the first attempt. If the participant is stuck, ask what they expect to happen; then provide neutral assistance and record it.
+
+### Observation measures
+
+Record per task:
+
+- completion: independent / completed with neutral prompt / not completed;
+- first action and navigation path;
+- errors, backtracks, hesitation, terminology mismatch and mistaken assumptions;
+- whether the participant can explain evidence status and downstream impact in their own words;
+- confidence (participant's own rating and rationale);
+- accessibility, keyboard, viewport or localization barriers;
+- severity and frequency of each issue;
+- proposed design change and the evidence supporting it.
+
+Task time is contextual only; do not compare users with different task familiarity as if it were a benchmark. A task is not successful if the participant reaches the right screen but misunderstands verified vs assumed, SHADOW vs execution, or consumer vs PV-export settlement.
+
+## 6. Evidence handling and synthesis
+
+For each session assign an opaque participant code and record only the minimum role/site context needed for analysis. Obtain explicit permission before recording audio/video or retaining artifacts. Prefer notes; redact names, account numbers, addresses, meter identifiers and commercially sensitive details. Store research records only in the approved, access-controlled project location. Agree retention and deletion with the project owner before collection.
+
+A finding record should include:
+
+- finding ID and date;
+- participant code, role, site-type category and recruitment basis;
+- method (interview, observation, prototype task, artifact review);
+- observed behavior or paraphrased statement, clearly separated from researcher interpretation;
+- artifact/evidence reference and permission status, if any;
+- supporting and conflicting cases;
+- confidence/status: single signal, repeated signal, contradicted, or validated by independent evidence;
+- affected user need, PRD requirement, workflow/screen and architecture implication;
+- decision needed, owner, and next validation step.
+
+Do not put identifiable customer evidence in public repository history. Store only anonymized synthesis and access-controlled references there. Do not turn a participant statement about tariff, settlement or safety into a project-wide fact without checking the relevant primary evidence and applicable customer contract.
+
+## 7. Synthesis and decision rules
+
+After each wave:
+
+1. Build a role × task × site-context map and identify missing perspectives.
+2. Map observed steps, handoffs, artifacts and failure points to the six product tasks and PR-01..PR-09.
+3. Separate observed behavior, participant interpretation, researcher inference and external/source-verified fact.
+4. List contradictory findings instead of averaging them away.
+5. Update hypotheses and product/design options; preserve rejected options and rationale.
+6. Decide whether evidence is strong enough to change PRD wording, IA, visual hierarchy, access model or MVP scope.
+7. Review decisions with the product owner; record owner choices separately from research findings.
+
+Use these status meanings:
+
+- **Supported:** repeated, relevant evidence from independent participants or artifacts supports the hypothesis; scope and counterexamples are documented.
+- **Mixed:** credible evidence conflicts across roles/sites or the sample is not sufficient to explain the difference.
+- **Not supported:** relevant evidence contradicts the hypothesis or actual workflows do not require the proposed capability.
+- **Untested:** no adequate evidence was collected.
+
+A small qualitative study can support workflow and design revision, not market sizing, statistical confidence, guaranteed ROI or proof of willingness to pay.
+
+## 8. Decision outputs and completion criteria
+
+The study is ready for synthesis when it has evidence for, or explicit remaining unknowns on:
+
+- lead site/segment and buyer/user/approver/data-owner relationships;
+- at least one recurring, consequential job and its present workflow;
+- evidence requirements for operational use and finance/customer claims;
+- data access and integration feasibility, including authority and burden;
+- usability of the primary workflows and comprehension of evidence/safety states;
+- language, accessibility, deployment, service and support expectations;
+- product changes to PRD, information architecture, prototype and requirement acceptance criteria.
+
+No research plan alone closes WP-4. Exit requires anonymized interview/observation evidence, prototype task findings, a product-owner review record, updated PRD/flows/prototype with remaining uncertainty explicit, and traceable decisions. Commercial demand and pilot willingness remain unproven until actual buyer and site evidence exists.
+
+## 9. Session capture template
+
+```text
+Study/session ID:
+Date:
+Researcher:
+Participant code:
+Role / authority:
+Site context:
+Recruitment basis:
+Consent and recording permission:
+Artifacts shown/shared (redacted? permission?):
+Recent event:
+Observed workflow and tools:
+Frequency / consequence:
+Data access and integration constraints:
+Evidence trusted / evidence gaps:
+Prototype tasks and completion:
+Misunderstandings / safety or economic interpretation:
+Conflicting evidence:
+Researcher inference (separate from observation):
+Potential PRD / IA / architecture impact:
+Follow-up authorized:
+Finding IDs:
+```
+
+## 10. Current status
+
+- No customer interviews, artifact reviews or prototype usability sessions are evidenced by this plan.
+- The role, site and workflow hypotheses remain open.
+- This plan is an executable preparation artifact for WP-4; it does not authorize contacting participants, collecting customer data or altering the PRD based on invented evidence.
+- The next research action is to arrange authorized access to representative Macau site users, then conduct the discovery wave and prototype tasks while continuing independent Gate research.
