@@ -32,8 +32,8 @@ jobs:
       run:
         working-directory: implementation/platform-api
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: "24.21.0"
       - run: npm install --ignore-scripts
@@ -48,7 +48,7 @@ jobs:
       run:
         working-directory: implementation/edge-runtime
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/setup-go@v6
         with:
           go-version: "1.27.1"
@@ -63,7 +63,7 @@ jobs:
       run:
         working-directory: implementation/optimizer
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
         with:
           python-version: "3.14.8"
@@ -74,7 +74,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
         with:
           python-version: "3.14.8"
