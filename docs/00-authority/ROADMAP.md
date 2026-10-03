@@ -53,6 +53,8 @@ Gate exit criteria below are execution checks derived from the research objectiv
 
 ## Product and architecture design deliverables
 
+- End-to-end lifecycle readiness snapshot and completion audit: `docs/00-authority/PRODUCT-ARCHITECTURE-IMPLEMENTATION-READINESS-AUDIT-v0.1.md` (current-state consolidation; owner review draft).
+
 - Product definition: `docs/02-product/PRODUCT-DESIGN.md`
 - Owner decision summary: `docs/02-product/OWNER-DECISION-SUMMARY-v0.1.md` (**review aid; no product or technology choice approved**)
 - Product requirements: `docs/02-product/PRD-v0.1.md` (**research-derived draft; customer validation and approval remain pending**)
