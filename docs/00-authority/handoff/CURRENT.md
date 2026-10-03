@@ -2,7 +2,7 @@
 
 **Snapshot:** 2026-10-03  
 **Authority mode:** research-first / evidence-governed  
-**Research authority:** Library Research Authority v1.6.2 + G6.9-R2 Step 3C bake-off evidence  
+**Research authority:** Library Research Authority v1.6.2 + G6.9-R2 Step 3C bake-off evidence + Macau PV follow-up D-077/U-025/U-026  
 **Repository:** lilinling12/macau-commercial-energy-os
 
 ## Project mission
@@ -16,7 +16,7 @@ This is not a generic energy dashboard, chatbot, BMS replacement, or kWh-only op
 - **G1 — Macau Tariff & Settlement Foundation:** OPEN. G1.1/G1.2 completed; commercial bill, demand-window and cross-site PV questions remain; U-026 tracks an official PV-count discrepancy.
 - **G6.9-R2 — Technology Stack Bake-off:** Step 3A, 3B and 3C complete; **Step 3D pinned framework-native integration pending**.
 - **G7 — Reference Simulator & Pilot Validation:** active in parallel; G7.2 live baseline/no-op still pending; U-017 live response/rebound remains open.
-- Research Authority v1.6.2 contains D-001..D-076 and U-001..U-024. This repository must preserve the same records; see the technology and decision documents.
+- Research Authority v1.6.2 contains D-001..D-076 and U-001..U-024. Repository follow-up records add D-077 and U-025..U-026; the synced registers now cover D-001..D-077 and U-001..U-026. See the architecture technology-authority, decision, and research evidence documents.
 - Official CEM PV material confirms an approved grid-interconnection and feed-in-tariff route. It does **not** establish cross-building virtual netting or a customer's right to claim another building's PV generation; U-025 tracks that question.
 
 ## Repository implementation state
