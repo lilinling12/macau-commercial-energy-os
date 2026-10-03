@@ -204,7 +204,7 @@ These findings establish source-level presence only. They do not establish that 
 
 ### Follow-up items before visual/product baseline
 
-1. **Typography:** the root body size is 15px, below the skill's 16px baseline recommendation. Review at 16px and inspect dense tables at 200% zoom before choosing the final scale; treat this as a prototype refinement, not a product-wide approved token.
+1. **Typography:** addressed in prototype v0.4: the root body size is now 16px, matching the skill's baseline recommendation. A rendered browser preview after the change loaded the primary navigation, main view, and chart explanation. This was a single available preview viewport, not the required responsive/200%-zoom review; dense-table fit and the final product-wide type scale remain open.
 2. **Macau language and formats:** the prototype is English-only. Validate Traditional Chinese, Portuguese and English needs, terminology, number/currency formatting, and timezone expectations with the lead user/site hypothesis before fixing locale defaults.
 3. **Responsive navigation and dense data:** verify the seven-item narrow-screen navigation, table behavior, focus visibility and page-level overflow at 375, 768, 1024 and 1440 CSS px in a rendered browser. The source uses a horizontally scrollable nav/table region at narrow widths; this static review cannot confirm its usability.
 4. **Evidence and chart comprehension:** ask target users to explain source, freshness, synthetic status, threshold, and what the sampled chart table does not contain. Keep the current non-bill-grade and not-measured language unless validated evidence supports a stronger claim.
