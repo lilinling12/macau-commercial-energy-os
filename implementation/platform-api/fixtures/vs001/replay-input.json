@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "tenantId": "tenant-demo",
+  "siteId": "site-demo",
+  "deviceId": "meter-001",
+  "pointId": "energy-import",
+  "metric": "energy_import",
+  "value": 10,
+  "unit": "kWh",
+  "quality": "GOOD",
+  "observedAt": "2026-10-03T00:00:00Z",
+  "source": "synthetic-vs001"
+}

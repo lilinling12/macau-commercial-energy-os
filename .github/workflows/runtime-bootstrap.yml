@@ -38,7 +38,14 @@ jobs:
           node-version: "24.21.0"
       - run: npm install --ignore-scripts
       - run: npm run typecheck
-      - run: npm run build
+      - run: npm test
+      - name: Verify deterministic VS-001 replay
+        shell: bash
+        run: |
+          npm run replay:vs001 > /tmp/vs001-a.json
+          npm run replay:vs001 > /tmp/vs001-b.json
+          diff -u /tmp/vs001-a.json /tmp/vs001-b.json
+          cat /tmp/vs001-a.json
 
   edge-runtime:
     name: Edge Runtime
