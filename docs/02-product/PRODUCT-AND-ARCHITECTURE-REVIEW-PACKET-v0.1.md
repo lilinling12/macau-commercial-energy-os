@@ -114,6 +114,12 @@ Before implementation of a design area is treated as ready, resolve or explicitl
 
 No change here closes G1, G6, G6.9-R2, or G7.2. No device control is authorized.
 
+### Telemetry event identity and duplicate-delivery decision — review draft
+
+The telemetry design now records a transport-independent identity invariant: prefer a producer-stable event ID scoped to an authenticated source; if a connector cannot provide one, assign a platform ingress ID only when raw capture is first durable and preserve it for internal retry/replay. Without stable source evidence, retain distinct later publications rather than collapsing equal value/time/device records. MQTT Packet Identifiers are reusable transport-flow identifiers and are not event identity. This follows the event identity boundaries described in the telemetry detailed-design references; it does not require CloudEvents, define the canonical envelope, or promise exactly-once processing.
+
+**Owner choice still open:** after inventorying the actual pilot meter/BMS/source connectors, decide whether the ingress-ID fallback is acceptable for any connector or whether a particular in-scope source must provide a stable event ID/sequence. Record source-specific exceptions and their duplicate/recovery limits before freezing the V2 telemetry contract or claiming safe deduplication.
+
 ### Contract authoring and generated bindings — research proposal, decision open
 
 D-065 requires contract-driven boundaries and generated OpenAPI / Protobuf / JSON Schema bindings; it does not establish one canonical authoring format or generator toolchain. The current CostResult/ReplayManifest and identity designs remain proposals, and their domain semantics must be settled before schema code generation is treated as canonical.
