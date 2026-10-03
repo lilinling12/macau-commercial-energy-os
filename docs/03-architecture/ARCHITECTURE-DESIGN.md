@@ -141,7 +141,7 @@ flowchart LR
   API -->|"authorized scoped use cases"| Core
   Site --> Edge
   Edge -->|"authenticated scoped telemetry"| Ingest
-  Ingest -->|"authorized raw payload + receipt metadata"| RawCapture
+  Ingest -->|"authorized submission payload + receipt metadata"| RawCapture
   RawCapture -->|"publish only after durable capture"| Bus
   Bus --> Workers
   Workers -->|"canonical event / quality / mapping"| DB
@@ -157,7 +157,7 @@ flowchart LR
   Safety -.-> Device
 ```
 
-The browser is untrusted; API authentication does not itself establish a tenant/site grant. The application core must enforce scope in synchronous requests and in persisted/queued work. Event-bus payload fields do not establish producer identity. Telemetry acceptance order is explicit: authenticate and authorize the producer, durably capture the original payload and receipt metadata, and only then publish downstream or acknowledge accepted intake. If raw capture cannot be made durable, apply backpressure and do not acknowledge acceptance. Normalization and downstream publication retain a reference to that raw record. The physical raw/evidence stores, transactional boundary, and retention remain undecided. Derived evidence writes must likewise be durable before the system reports a completed material result.
+The browser is untrusted; API authentication does not itself establish a tenant/site grant. The application core must enforce scope in synchronous requests and in persisted/queued work. Event-bus payload fields do not establish producer identity. Telemetry acceptance order is explicit: authenticate and authorize the producer, durably capture the original payload and receipt metadata, and only then publish downstream or acknowledge accepted intake. If raw capture cannot be made durable, apply backpressure and do not acknowledge acceptance. Normalization and downstream publication retain a reference to that raw record. The physical raw/evidence stores, transactional boundary, and retention remain undecided. The design must recover a crash between durable capture and event publication: pending captures need a discoverable/replayable publication path, and consumers must tolerate redelivery under the still-open event-identity policy. An outbox or equivalent mechanism is a design candidate, not selected. Do not claim exactly-once delivery. Derived evidence writes must likewise be durable before the system reports a completed material result.
 
 | Logical runtime group | Responsibility / proposed boundary | Deployment decision still open |
 |---|---|---|
