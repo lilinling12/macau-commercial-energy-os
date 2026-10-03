@@ -219,3 +219,15 @@ The IA defines nine screen responsibilities (S-01–S-09) and four primary flows
 This is a deliberate prototype-coverage limit, not evidence that the product should have nine permanent navigation items. Before calling the product interaction design complete or using it to validate those tasks, either extend the prototype with representative S-06/S-09 task paths and honest states, or explicitly narrow the validation task set and record what remains unvalidated. Keep the navigation structure open for user research; do not promote the IA screen count directly into final navigation.
 
 **Disposition:** v0.4 is a useful review prototype for the existing research-derived task hypotheses. No urgent source-level implementation blocker was found in this limited pass; the IA-to-prototype coverage gap above is a product-validation blocker for claims about complete Flow A, tariff-evidence inspection, or integration onboarding. Product scope, lead role/site, language, final visual system, accessibility conformance, and frontend framework remain open; no customer validation or WCAG conformance is claimed. The next product-design evidence step is an owner-selected lead role/site hypothesis followed by authorized discovery and formative usability sessions using these tasks.
+
+## Follow-up: v0.5 screen-flow coverage draft (2026-10-04)
+
+**Status:** Synthetic, no-framework review prototype; exploratory only. It does not approve a product workflow, final navigation, visual system or frontend framework.
+
+- Preserved v0.4 and added two context-reachable views: S-06 tariff and contract evidence from Economics, and S-09 integrations and site access from Site overview. They are child flows; v0.5 does not add two permanent primary-navigation destinations.
+- S-06 separates regulation/published tariff, customer contract, site configuration and project assumptions. Pu interval, customer-class monthly-charge formula and effective rules stay unresolved; the screen shows no calculated bill.
+- S-09 previews the read-only permission purpose and site scope, makes role/credential ownership explicitly undecided, separates connection state from data freshness, and describes denial/revocation recovery. The prototype collects no credentials, connects no source and has no live authorization.
+- The review task set can now inspect both evidence classes and onboarding/access expectations. This improves prototype coverage for the corresponding IA questions; it does not show that a real connector or complete operational onboarding workflow is designed.
+- Existing visual treatment is carried forward from v0.4 for comparison, not selected as the final design. Final placement, grouping, wording and role-specific access details require owner and user review.
+
+**Verification boundary:** Source content was added to the repository; no rendered-browser, viewport, keyboard, assistive-technology or user-session review has yet been completed for v0.5. All data and organizations remain synthetic. No customer validation, WCAG conformance or product approval is claimed.
