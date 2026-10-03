@@ -44,7 +44,7 @@ The installed Pro Max skill was used with:
 - UX query: dense operational data dashboard status hierarchy.
 - Chart query: energy cost demand time-series dashboard.
 
-The design-system search returned a **Real-Time / Operations Landing** pattern and **Glassmorphism** style, a dark/neutral palette with semantic status colors, and Fira Code/Fira Sans. The matching UX search returned useful guidance for submission feedback, hierarchy, nested-site breadcrumbs, font scale, and contextual status announcements. The chart search recommended time-series lines for continuous trends, direct labels/line styles, accessible tabular summaries, and explicit actual-versus-forecast distinction.
+The design-system query “enterprise energy operations dashboard dense analytical workspace” returned a **Real-Time / Operations Landing** pattern and **Glassmorphism** style, a dark/neutral palette with semantic status colors, and Fira Code/Fira Sans. UX Pro Max query results reinforce visible focus, semantic controls, loading/empty/disabled feedback, and clear action states. Its time-series chart guidance calls for solid actual versus dashed forecast lines, direct labels, named uncertainty, and visible table/narrative alternatives. These are candidate heuristics; no palette, font or framework is approved.
 
 These are search results, not user evidence. The landing-page pattern is not automatically appropriate for the signed-in operations workspace. The frosted/blurred glass style may reduce clarity or contrast in sustained, information-dense energy analysis; it should not be applied without prototyping and accessibility checks. Font-family and palette suggestions also require fit review. No stack-specific search was run because the frontend framework is unapproved.
 
@@ -58,6 +58,10 @@ These are search results, not user evidence. The landing-page pattern is not aut
 
 **Working recommendation for review, not approval:** prototype A as the baseline and use C only as a limited visual accent if it improves orientation. Keep B available as a testable alternative for control-room users. Validate with actual target users before freezing a design system.
 
+### Prototype iteration evidence
+
+Prototype v0.2 now lets reviewers switch among bill reconstruction, interval assessment, and baseline comparison. The bill view states why it is blocked without Golden Bill/G1 evidence; the comparison view withholds any delta without a validated baseline; the interval amount remains synthetic. Recommendation review adds a dismissed disposition and explicitly separates review from measured outcome. These interactions improve design reviewability only; they are not customer-tested product behavior.
+
 ### Interaction principles to evaluate
 
 - Make data provenance visible: measurement/source, time range, freshness, coverage, and uncertainty.
@@ -67,7 +71,7 @@ These are search results, not user evidence. The landing-page pattern is not aut
 - Fit navigation and layout to validated tasks and device context. Do not copy old dashboard conventions or force a mobile-first shape.
 - Review keyboard navigation, focus visibility, contrast, chart alternatives, reduced motion, and responsive behavior. WCAG 2.2 AA is a proposed evaluation target pending owner review.
 
-Reference material: Pro Max skill; W3C WCAG 2.2; Material Design 3 foundations; Nielsen Norman Group usability heuristics. They are reference points, not visual templates.
+Reference material: UI/UX Pro Max local search; W3C WCAG 2.2 (https://www.w3.org/TR/WCAG22/); Material Design 3 foundations; Nielsen Norman Group usability heuristics. These are reference points, not visual templates. WCAG 2.2 AA is the proposed accessibility evaluation baseline, not a completed conformance claim.
 
 ## 4. Architecture decision status for review
 
