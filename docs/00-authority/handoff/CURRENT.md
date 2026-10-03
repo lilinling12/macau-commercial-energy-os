@@ -68,10 +68,11 @@ Immediate work:
 ### Active design progress on PR #8
 
 - `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md` covers the shadow-mode energy intelligence loop, its component boundaries, data/time semantics, failures, evidence/replay, security boundaries, and current contract gaps.
-- `docs/03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md` maps all nine PRD requirements to current logical designs/contracts and identifies design gaps; it explicitly does not claim implementation completion.
+- `docs/03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md` maps all nine PRD requirements to current logical designs/contracts and records a preliminary static source audit of the VS-001/Edge/optimizer scaffold. It identifies gaps and does not claim product implementation completion.
+- The source audit found that the real Energy Graph and tariff adapters fail closed, replay uses hard-coded synthetic fixtures, evidence persistence is in-memory, the optimizer is only a data model, and inspected Edge code defines/serializes telemetry but does not demonstrate adapters or buffering. VS-001's service does compare tenant/site context, but its inspected controller has no authentication/authorization guard. No tests were run during this audit.
 - These drafts explicitly do not close G6 or authorize field commands.
 - Authority Validation and Repository Hygiene passed on PR head `2b688d8c38aa3241bc75de4addc5ddd3f622802d`.
-- Next: audit the existing implementation against the traceability matrix, linking each PRD requirement to actual source files and runtime/acceptance evidence; then close design gaps in dependency order. Product interviews and site validation remain parallel inputs, and unvalidated requirements must not be treated as approved scope.
+- Next: complete the full source audit beyond the VS-001 scaffold, including database/migrations, UI, deployment and any command/Safety Kernel code; then link existing acceptance/runtime evidence without treating test presence as a pass. Close design and implementation gaps in dependency order. Product interviews and site validation remain parallel inputs, and unvalidated requirements must not be treated as approved scope.
 
 ## Suspended implementation gate
 
