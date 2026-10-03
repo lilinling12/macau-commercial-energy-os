@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0",
+  "recommendationId": "rec-001",
+  "tenantId": "tenant-demo",
+  "siteId": "site-demo",
+  "mode": "SHADOW",
+  "createdAt": "2026-10-03T00:05:00Z",
+  "validFrom": "2026-10-03T00:10:00Z",
+  "validUntil": "2026-10-03T00:40:00Z",
+  "objective": {
+    "type": "ECONOMIC_COST",
+    "estimatedValue": 12.5,
+    "currency": "MOP"
+  },
+  "actions": [
+    {
+      "assetRef": "ahu-floor-1",
+      "actionType": "SETPOINT_RECOMMENDATION",
+      "parameters": {
+        "deltaK": 0.5
+      }
+    }
+  ],
+  "evidenceRefs": ["evidence-vs001"],
+  "safetyReviewRequired": true
+}
