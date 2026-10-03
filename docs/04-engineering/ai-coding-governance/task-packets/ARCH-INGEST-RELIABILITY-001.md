@@ -74,7 +74,7 @@
 
 - **Changes/deliverables:** durable telemetry lifecycle and crash/retry design added; architecture/runtime view aligned; owner decision #12 added; PR-02 and VS-003 criteria updated.
 - **Sources or files updated:** architecture design; telemetry detailed design; owner decision summary; product/architecture review packet; readiness audit; PRD traceability; vertical-slice plan; CURRENT.
-- **Checks run and results:** latest Authority Validation and Repository Hygiene are run against the exact PR head and recorded by the linked PR; they validate repository governance only. No application tests or runtime fault experiments were run.
+- **Checks run and results:** The preceding exact PR head `5464e0e` passed Authority Validation and Repository Hygiene before this task packet/handoff was added. The task-packet commit requires those same repository-governance checks on its exact resulting PR head. These workflows validate repository governance only; no application tests or runtime fault experiments were run.
 - **New evidence / decisions / unknowns:** design proposal is reviewable; outbox/physical persistence, connector ack semantics, producer event identity, SLO/retention and topology remain open. U-024 is not resolved.
 - **PR/branch and review state:** `https://github.com/lilinling12/macau-commercial-energy-os/pull/8`, `docs/product-architecture-roadmap`, open/unmerged.
 - **Gate or task status after work:** Review; no Gate closed.
