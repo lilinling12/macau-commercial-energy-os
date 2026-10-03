@@ -49,6 +49,8 @@ Research → Decision → Architecture → Engineering → Implementation.
 - G1 CEM billing, demand-window and smart-meter unknown review (2026-10; partial public evidence): `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`
 - G1 Macau PV grid-interconnection, feed-in settlement and cross-site allocation boundary (2026-10; U-025 remains open): `docs/01-research/evidence/G1-PV-GRID-INTERCONNECTION-2026-10.md`
 - G2 Macau commercial-load flexibility evidence (public context only; site validation pending): `docs/01-research/evidence/G2-MACAU-COMMERCIAL-LOAD-FLEXIBILITY-EVIDENCE-2026-10.md`
+- G0 Thesis & Market Rationale Gate (substantially complete at thesis level; customer/buyer/commercial validation remains open): `docs/01-research/gates/G0-thesis.md`
+- G1 Macau Tariff & Settlement Gate (OPEN; Golden Bills and material tariff/settlement blockers remain): `docs/01-research/gates/G1-tariff-settlement.md`
 - G3 Energy Digital Twin / Energy Graph Gate (OPEN; logical design exists, Macau pilot-site topology and settlement mapping remain unvalidated): `docs/01-research/gates/G3-energy-graph.md`
 - G7 Reference Simulator & Pilot Validation Gate (ACTIVE / INCOMPLETE; G7.2 live baseline/no-op pending; preflight evidence gap recorded): `docs/01-research/gates/G7-pilot-validation.md`
 
