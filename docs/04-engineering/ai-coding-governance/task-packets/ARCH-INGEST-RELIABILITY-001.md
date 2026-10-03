@@ -36,7 +36,7 @@
 ### In scope
 
 - Separate authenticated/authorized request, raw-durable capture, quarantine, pending publication, published, normalized-durable and blocked/replayable progress.
-- Specify that a receipt acknowledgement may occur only after authorized raw payload and receipt metadata are durable; it does not imply validation or economic eligibility.
+- Specify that an application-level capture receipt may occur only after authorized raw payload and receipt metadata are durable; distinguish it from transport/broker ACK, which proves only its connector's protocol boundary unless the broker is explicitly the authoritative raw store with verified recovery. Neither receipt implies validation or economic eligibility.
 - Specify crash recovery between capture and publication and acknowledgement after consumer-side durable effects.
 - Preserve at-least-once/redelivery reality; use stable internal capture references for internal replay; do not deduplicate distinct source publications by payload hash, timestamp or value.
 - Distinguish telemetry event processing from U-024's future physical field-write/idempotency proof.
@@ -51,7 +51,7 @@
 
 ### Assumptions to validate
 
-- Connector-specific protocol acknowledgements can represent durable capture separately from downstream processing, or a documented per-connector contract is needed.
+- Protocol/broker acknowledgements, application-level capture receipts and downstream processing are separate statuses. Map each connector's ACK semantics explicitly; only an explicitly designated and recovery-verified authoritative raw broker may let broker custody satisfy RAW_DURABLE.
 - The selected topology can recover pending raw captures after process restart without relying on an in-memory queue.
 - Data governance/security review permits the required raw payload and metadata capture under defined access, retention and deletion rules.
 - The source event identity inventory determines when producer identity exists and when platform capture references are the only safe internal retry key.
@@ -64,7 +64,7 @@
 - **Failure, retry, idempotency, tenant, audit, and rollback behavior:** see telemetry detailed design §9. Any selected implementation must recover PUBLISH_PENDING, tolerate redelivery, avoid duplicate durable consumer effects, preserve raw-to-normalized lineage and expose backpressure/backlog. Source retries without stable source identity may create distinct records and must not be heuristically collapsed.
 - **Required checks and exact acceptance criteria:**
   1. Owner reviews or explicitly defers decision #12 without treating silence as approval.
-  2. Each in-scope connector's receipt acknowledgement is mapped to the state model and protocol behavior.
+  2. Each in-scope connector's protocol ACK and application-level capture receipt are mapped separately to the state model and verified protocol behavior.
   3. A fault matrix covers failure before raw commit, after raw commit/before publish, after broker publish/before publication-state update, and after consumer durable write/before acknowledgement.
   4. Later runtime acceptance demonstrates pending-publication recovery, at-least-once redelivery, consumer idempotency, backpressure, quarantine, correction/replay, tenant isolation and observable state transitions under selected topology.
   5. No result is called exactly-once; U-024 physical field-write trials remain separate.
@@ -82,7 +82,7 @@
 
 ## Completion record
 
-- **Changes/deliverables:** durable telemetry lifecycle and crash/retry design added; architecture/runtime view aligned; owner decision #12 added; PR-02 and VS-003 criteria updated.
+- **Changes/deliverables:** durable telemetry lifecycle and crash/retry design added; official MQTT 5 and HTTP 202 semantics distinguish protocol/broker ACK from application capture receipt; architecture/runtime view aligned; owner decision #12 added; PR-02 and VS-003 criteria updated.
 - **Sources or files updated:** architecture design; telemetry detailed design; owner decision summary; product/architecture review packet; readiness audit; PRD traceability; vertical-slice plan; CURRENT.
 - **Checks run and results:** The preceding exact PR head `5464e0e` passed Authority Validation and Repository Hygiene before this task packet/handoff was added. The task-packet commit requires those same repository-governance checks on its exact resulting PR head. These workflows validate repository governance only; no application tests or runtime fault experiments were run.
 - **New evidence / decisions / unknowns:** design proposal is reviewable; outbox/physical persistence, connector ack semantics, producer event identity, SLO/retention and topology remain open. U-024 is not resolved.
