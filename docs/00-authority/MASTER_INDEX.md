@@ -29,7 +29,8 @@ Research → Decision → Architecture → Engineering → Implementation.
 - Research-derived product requirements draft (not customer-approved): `docs/02-product/PRD-v0.1.md`
 - Customer discovery and formative usability research protocol (proposed; no sessions conducted): `docs/02-product/CUSTOMER-DISCOVERY-AND-USABILITY-RESEARCH-PLAN-v0.1.md`
 - Product information architecture, user flows and screen requirements (draft): `docs/02-product/USER-FLOWS-AND-IA-v0.1.md`
-- Clickable HTML product prototype v0.2 (synthetic data; distinct economic result views and review/outcome states, no live control): `docs/02-product/prototype/v0.2/index.html`
+- Clickable HTML product prototype v0.3 (synthetic data; distinct economic result views, review/outcome states, corrected data-health count, synchronized breadcrumb, and chart text/table fallback; no live control): `docs/02-product/prototype/v0.3/index.html`
+- Prior clickable HTML prototype v0.2 (retained for design comparison): `docs/02-product/prototype/v0.2/index.html`
 - Prior clickable prototype v0.1 (preserved for design history): `docs/02-product/prototype/v0.1/index.html`
 - Logical system architecture and technology decision states: `docs/03-architecture/ARCHITECTURE-DESIGN.md`
 - VS-001 component-level detailed design draft (shadow-mode; not production authorization): `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md`
@@ -45,6 +46,7 @@ Research → Decision → Architecture → Engineering → Implementation.
 - PRD-to-architecture traceability and design-gap matrix (draft): `docs/03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md`
 - Current status and next authorized work: `docs/00-authority/handoff/CURRENT.md`
 - G1 CEM billing, demand-window and smart-meter unknown review (2026-10; partial public evidence): `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`
+- G1 Macau PV grid-interconnection, feed-in settlement and cross-site allocation boundary (2026-10; U-025 remains open): `docs/01-research/evidence/G1-PV-GRID-INTERCONNECTION-2026-10.md`
 - G2 Macau commercial-load flexibility evidence (public context only; site validation pending): `docs/01-research/evidence/G2-MACAU-COMMERCIAL-LOAD-FLEXIBILITY-EVIDENCE-2026-10.md`
 
 All authoritative project documentation belongs under these six numbered directories. Do not create parallel unnumbered documentation roots under `docs/`. Keep implementation source code in the repository's `implementation/` directory.
