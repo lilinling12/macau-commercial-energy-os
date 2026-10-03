@@ -52,7 +52,7 @@ Gate exit criteria below are execution checks derived from the research objectiv
 
 - Product definition: `docs/02-product/PRODUCT-DESIGN.md`
 - Product requirements: `docs/02-product/PRD-v0.1.md` (**research-derived draft; customer validation and approval remain pending**)
-- Product information architecture, primary flows and screen requirements: `docs/02-product/USER-FLOWS-AND-IA-v0.1.md` (**draft; target-user validation and screen prototypes remain pending**)
+- Product information architecture, primary flows and screen requirements: `docs/02-product/USER-FLOWS-AND-IA-v0.1.md` (**draft; target-user validation remains pending**)\n- Clickable product interaction prototype: `docs/02-product/prototype/v0.1/index.html` (**synthetic demo; not customer/usability validated**)
 - Logical system architecture and technology decision states: `docs/03-architecture/ARCHITECTURE-DESIGN.md`
 - VS-001 detailed design draft, explicitly SHADOW-only and non-authorizing: `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md`
 - PRD-to-architecture traceability and design-gap matrix: `docs/03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md` (draft; no implementation completion implied)
@@ -73,7 +73,7 @@ Build the pinned Linux x86-64 environment and run Candidate A/B/C+ with the same
 Complete the required fresh live baseline runs and live no-op identity trajectory with approved point bindings, run manifest, telemetry quality, and site authorization. Keep SAT/CHWS response and rebound claims open until U-017 is resolved.
 
 ### WP-4 — Validate and complete product design
-Use G0/G2/G3 evidence to refine in-scope assets and customer workflows. PRD-v0.1 and USER-FLOWS-AND-IA-v0.1 are research-derived drafts, not customer-approved scope. Validate target users, buying authority, willingness to pay, integration burden, task frequency, and acceptable bill/savings evidence with Macau building operators and finance/energy stakeholders. Validate the role/task hypotheses, six-step product workflow, information architecture, permission/approval flows, and screen-state requirements in USER-FLOWS-AND-IA-v0.1; produce interview/evidence records and reviewable screen prototypes. Update PRD and PRODUCT-DESIGN from evidence rather than filling gaps with assumptions.
+Use G0/G2/G3 evidence to refine in-scope assets and customer workflows. PRD-v0.1 and USER-FLOWS-AND-IA-v0.1 are research-derived drafts, not customer-approved scope. Validate target users, buying authority, willingness to pay, integration burden, task frequency, and acceptable bill/savings evidence with Macau building operators and finance/energy stakeholders. Validate the role/task hypotheses, six-step product workflow, information architecture, permission/approval flows, and screen-state requirements in USER-FLOWS-AND-IA-v0.1; produce interview/evidence records and reviewable screen prototypes with accessibility and responsive behavior. Update PRD and PRODUCT-DESIGN from evidence rather than filling gaps with assumptions.
 
 **Exit evidence:** named user/customer evidence; decisions or explicitly retained hypotheses for segment, buyer, workflow, and commercial value; usability feedback on primary tasks; versioned product requirements with acceptance criteria and unresolved dependencies.
 
