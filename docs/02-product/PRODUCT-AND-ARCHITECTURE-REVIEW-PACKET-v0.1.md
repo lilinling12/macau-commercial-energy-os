@@ -233,3 +233,14 @@ This is a deliberate prototype-coverage limit, not evidence that the product sho
 - Existing visual treatment is carried forward from v0.4 for comparison, not selected as the final design. Final placement, grouping, wording and role-specific access details require owner and user review.
 
 **Static interaction follow-up (2026-10-04):** Source review found that the keyboard-operable `<summary>` disclosures were missing the prototype's explicit shared focus-visible rule. The prototype now includes `summary:focus-visible` in that rule. This confirms a source-level fix only. **Verification boundary:** v0.5 still has no rendered-browser, viewport, keyboard, assistive-technology or user-session review. All data and organizations remain synthetic. No customer validation, WCAG conformance or product approval is claimed.
+
+## Follow-up: v0.5 responsive and accessibility source audit (2026-10-04)
+
+**Method:** Narrow source-level audit of the static HTML/CSS prototype, guided by UI/UX Pro Max searches for keyboard focus visibility and small-viewport table handling. No frontend framework is selected or assumed.
+
+- Confirmed a viewport meta tag, one primary `main` landmark, a navigation landmark, and responsive breakpoints at 1100px, 760px and 480px.
+- At narrow widths the KPI cards reflow, two/three-column content becomes one column, chart labels are hidden below 480px, and tabular records sit in `overflow-x:auto` wrappers. Four tables have captions and column headers.
+- All 26 source buttons contain text or an accessible name. The two select controls have accessible names, including a visible `<label>` for the point filter. Explicit `:focus-visible` styling covers buttons, selects, links and disclosure summaries.
+- The mobile primary navigation becomes a horizontally scrollable strip at 760px and below; discoverability and keyboard/gesture behavior require rendered testing.
+
+**Boundary:** This audit only confirms source constructs. It does not establish computed contrast, actual viewport fit, browser rendering, keyboard traversal, screen-reader announcements, touch usability, WCAG conformance or user validation. No visual direction or interaction design is approved by this review.
