@@ -62,6 +62,7 @@ Gate exit criteria below are execution checks derived from the research objectiv
 - Prior prototype v0.1, retained for comparison: `docs/02-product/prototype/v0.1/index.html` (**synthetic demo; not customer/usability validated**)
 - Logical system architecture and technology decision states: `docs/03-architecture/ARCHITECTURE-DESIGN.md`
 - VS-001 detailed design draft, explicitly SHADOW-only and non-authorizing: `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md`
+- Candidate MVP vertical-slice sequence and acceptance evidence: `docs/05-mvp/vertical-slices/MVP-VERTICAL-SLICE-PLAN-v0.1.md` (**draft; VS-001 remains incomplete, product scope and technology approval pending**)
 - Tariff & Settlement Engine detailed design v0.1 (stack-neutral proposal; blocked from bill-grade implementation by G1 unknowns): `docs/03-architecture/detailed-design/TARIFF-SETTLEMENT-DETAILED-DESIGN-v0.1.md`
 - Energy Graph detailed design v0.1 (stack-neutral proposal; site topology and G3 acceptance evidence pending): `docs/03-architecture/detailed-design/ENERGY-GRAPH-DETAILED-DESIGN-v0.1.md`
 - Telemetry Ingestion & Data Quality detailed design v0.1 (stack-neutral proposal; contract parity, identity and site-policy evidence pending): `docs/03-architecture/detailed-design/TELEMETRY-INGESTION-AND-DATA-QUALITY-DETAILED-DESIGN-v0.1.md`
@@ -101,9 +102,9 @@ Translate approved product requirements and passed Gate outputs into component-l
 **Exit evidence:** approved architecture decisions linked to bake-off and Gate evidence; detailed design covers every validated MVP path and failure mode; contracts and acceptance tests are traceable; G6 security unknowns and operational authorization are explicit.
 
 ### WP-6 — Authorize and implement MVP by vertical slice
-Only after relevant research and architecture decisions pass, create implementation work packets tied to an approved Decision Record, contracts, acceptance evidence, rollback behavior, and explicit scope. Retain the existing Node/NestJS path as Candidate B implementation evidence unless Step 4 selects it. Implement the product workflow and backend/Edge/optimizer paths according to the approved architecture.
+Only after relevant research and architecture decisions pass, create implementation work packets tied to an approved Decision Record, contracts, acceptance evidence, rollback behavior, and explicit scope. Use the candidate, technology-neutral increment sequence in `docs/05-mvp/vertical-slices/MVP-VERTICAL-SLICE-PLAN-v0.1.md` to order tenant/site access, source health/ingestion, Energy Graph, evidence/replay, tariff/cost, SHADOW recommendation/review, and pilot M&V. VS-001 is the integration-level target, not an accepted implementation: the current source audit records scaffold gaps. Retain the existing Node/NestJS path as Candidate B implementation evidence unless Step 4 selects it. No technology-specific production slice is ready until G6.9-R2 Step 4 and the required owner/product decisions are recorded.
 
-**Exit evidence:** every MVP requirement maps to merged implementation and successful acceptance evidence; operator-facing flows work end-to-end; unresolved evidence blocks bill-grade claims or device commands.
+**Exit evidence:** every approved MVP requirement maps to merged implementation and successful acceptance evidence; operator-facing flows work end-to-end; required positive, negative, authorization/isolation, failure and recovery cases are evidenced; unresolved research blocks bill-grade claims or device commands; customer/site and owner sign-off plus operational handoff are recorded.
 
 ### WP-7 — Verify, pilot, and make deployment decision
 Complete product, integration, security, reliability, performance and G7 validation at the level required for the pilot. Deploy only under site authorization; preserve run manifests and evidence; train operators; measure agreed user, safety, service, and economic outcomes.
