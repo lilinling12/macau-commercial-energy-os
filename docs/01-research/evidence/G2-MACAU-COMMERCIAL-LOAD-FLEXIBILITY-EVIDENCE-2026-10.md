@@ -12,7 +12,17 @@ What can public Macau evidence establish about commercial electricity use and co
 
 ### 1. Official statistics establish commercial-sector scale and rising seasonal demand, not site flexibility
 
-The newest located official quarterly source is DSPA's 2026 Q2 Energy and Services synthesis (page updated 2026-09-25), which reports CEM-supplied total electricity consumption of 1,710 GWh (+3% year on year), CEM commercial-customer electricity sales of 1,059 GWh (+3%), and a system maximum load of 1,130 MW, a record. It attributes the quarter's higher total electricity consumption partly to above-average temperatures. The report's total-consumption definition excludes the waste-incineration centre's own-use and private-facility self-generation; the commercial figure is utility electricity sold to commercial customers, not a named-building meter profile. The same source reports CEM commercial sales of 1,813 GWh in H1 2025 and 1,887 GWh in H1 2026 (+4%). DSEC's 2025 Q3 Energy Statistics separately reports 1,200 million kWh for its broader 'establishments' category (+1.7% year on year), alongside households (437 million kWh, +3.3%) and government (232 million kWh, +6.4%). These are distinct statistical series and must not be merged or treated as like-for-like without a category reconciliation. None publishes named-building interval profiles, HVAC end-use shares, building coincident peaks, controllable capacity, or response/rebound measurements.
+The newest located official quarterly source is DSPA's 2026 Q2 Energy and Services synthesis (page updated 2026-09-25). It reports CEM-supplied total electricity consumption of 1,710 GWh (+3% year on year), CEM sales of 1,669 GWh (+3%), and a system maximum load of 1,130 MW, a record. Its electricity sales table breaks the total down by customer group:
+
+| Q2 2026 CEM electricity sales | GWh | Year-on-year |
+|---|---:|---:|
+| Commercial | 1,059 | +3% |
+| Residential | 362 | +3% |
+| Government institutions | 207 | +5% |
+| Industrial | 42 | 0% |
+| Total | 1,669 | +3% |
+
+Using the published rounded values, commercial customers account for approximately 63.5% of Q2 sales (1,059 / 1,669); H1 2026 commercial sales are 1,887 GWh, approximately 64.6% of the 2,920 GWh H1 total. These are utility customer-group aggregates, not a hotel/retail/site count, an addressable market estimate, or a building load profile. The report attributes the quarter's higher total electricity consumption partly to above-average temperatures. Its total-consumption definition excludes the waste-incineration centre's own-use and private-facility self-generation. DSEC's 2025 Q3 Energy Statistics separately reports 1,200 million kWh for its broader "establishments" category (+1.7% year on year), alongside households (437 million kWh, +3.3%) and government (232 million kWh, +6.4%). These are distinct statistical series and must not be merged or treated as like-for-like without category reconciliation. Neither source publishes named-building interval profiles, HVAC end-use shares, building coincident peaks, controllable capacity, or response/rebound measurements.
 
 **Implication:** use the newer DSPA/CEM series for commercial-customer quarterly sales and system-level seasonal context, and retain DSEC's establishments series as a separate category. Neither series supports building load-shape inference or available demand response.
 
