@@ -23,7 +23,7 @@ Research → Decision → Architecture → Engineering → Implementation.
 - Reusable research and coding task packet: `docs/04-engineering/ai-coding-governance/TASK-PACKET-TEMPLATE.md`
 - Research-derived product scope and user workflow: `docs/02-product/PRODUCT-DESIGN.md`
 - Research-derived product requirements draft (not customer-approved): `docs/02-product/PRD-v0.1.md`
-- Logical system architecture and technology decision states: `docs/03-architecture/ARCHITECTURE-DESIGN.md`
+- Logical system architecture and technology decision states: `docs/03-architecture/ARCHITECTURE-DESIGN.md`\n- VS-001 component-level detailed design draft (shadow-mode; not production authorization): `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md`
 - Current status and next authorized work: `docs/00-authority/handoff/CURRENT.md`
 
 All authoritative project documentation belongs under these six numbered directories. Do not create parallel unnumbered documentation roots under `docs/`. Keep implementation source code in the repository's `implementation/` directory.
