@@ -14,7 +14,7 @@ The first product validates an intelligence loop in shadow/advisory mode. It is 
 
 - **G0 — Thesis & Market Rationale:** substantially complete in the original gate register; customer and willingness-to-pay evidence remains a product validation activity.
 - **G1 — Macau Tariff & Settlement Foundation:** OPEN. G1.1/G1.2 are complete, but blocking Macau billing and settlement questions remain, including U-001, U-009, U-010, U-011, U-025, and U-026.
-- **G2–G6:** defined as research gates. The current handoff does not claim that each gate has passed; their evidence and closure records must be checked before dependent production claims.
+- **G2–G5:** defined as research gates; do not claim passage without each gate's evidence and closure record.\n- **G6 — Safety & Control:** OPEN / not demonstrated closed. The exit criteria require site-local safety veto/limits, offline fallback, manual override, authenticated and idempotent command handling, audit and replay. U-022 remains OPEN for production command signing and Edge key lifecycle. Step-3C semantic evidence is not production security proof.
 - **G6.9-R2 — Technology Stack Bake-off:** Steps 3A–3C complete; pinned framework-native Step 3D pending. C+ is a provisional default, not a measured winner. Step 4 selection follows comparable candidate evidence.
 - **G7 — Reference Simulator & Pilot Validation:** active in parallel. G7.2 live baseline/no-op remains pending; U-017 live response and rebound remains open.
 - **Repository structure:** the numbered documentation structure is in place. Existing Node/NestJS code is Candidate B implementation evidence only; it does not close the bake-off.
@@ -51,7 +51,7 @@ Gate exit criteria below are execution checks derived from the research objectiv
 
 - Product definition: `docs/02-product/PRODUCT-DESIGN.md`
 - Product requirements: `docs/02-product/PRD-v0.1.md` (**research-derived draft; customer validation and approval remain pending**)
-- Logical system architecture and technology decision states: `docs/03-architecture/ARCHITECTURE-DESIGN.md`
+- Logical system architecture and technology decision states: `docs/03-architecture/ARCHITECTURE-DESIGN.md`\n- VS-001 detailed design draft, explicitly SHADOW-only and non-authorizing: `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md`
 - Gate-specific evidence and outcomes: `docs/01-research/gates/`
 - Single current handoff and next task: `docs/00-authority/handoff/CURRENT.md`
 
@@ -74,7 +74,7 @@ Use G0/G2/G3 evidence to refine in-scope assets and customer workflows. PRD-v0.1
 **Exit evidence:** named user/customer evidence; decisions or explicitly retained hypotheses for segment, buyer, workflow, and commercial value; usability feedback on primary tasks; versioned product requirements with acceptance criteria and unresolved dependencies.
 
 ### WP-5 — Complete architecture and detailed design
-Translate approved product requirements and passed Gate outputs into component-level designs. Specify module boundaries, API/event/data contracts, persistence and migrations, workflow state machines, security/threat and key-lifecycle design, tenant isolation, failure/recovery semantics, deployment topology, SLO/observability, operations and rollback. Keep provisional stack choices replaceable until G6.9-R2 Step 4 records a formal decision.
+Translate approved product requirements and passed Gate outputs into component-level designs. The first bounded draft now covers VS-001 in `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md`; it is not yet approved or production-authoritative. Extend detailed design across all validated MVP journeys and specify module boundaries, API/event/data contracts, persistence and migrations, workflow state machines, security/threat and key-lifecycle design, tenant isolation, failure/recovery semantics, deployment topology, SLO/observability, operations and rollback. Keep provisional stack choices replaceable until G6.9-R2 Step 4 records a formal decision.
 
 **Exit evidence:** approved architecture decisions linked to bake-off and Gate evidence; detailed design covers every MVP path and failure mode; contracts and acceptance tests are traceable; G6 security unknowns and operational authorization are explicit.
 
