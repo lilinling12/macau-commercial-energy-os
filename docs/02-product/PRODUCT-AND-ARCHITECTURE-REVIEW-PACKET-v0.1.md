@@ -107,6 +107,22 @@ Before implementation of a design area is treated as ready, resolve or explicitl
 
 No change here closes G1, G6, G6.9-R2, or G7.2. No device control is authorized.
 
+### Contract authoring and generated bindings — research proposal, decision open
+
+D-065 requires contract-driven boundaries and generated OpenAPI / Protobuf / JSON Schema bindings; it does not establish one canonical authoring format or generator toolchain. The current CostResult/ReplayManifest and identity designs remain proposals, and their domain semantics must be settled before schema code generation is treated as canonical.
+
+| Candidate | Best fit in this product | Main constraints to prove |
+|---|---|---|
+| OpenAPI 3.1 | HTTP API description plus JSON request/response schemas, documentation and API-client generation. Its Schema Object dialect builds on JSON Schema Draft 2020-12 with OAS-specific vocabulary. | Prove the same source can generate maintainable TypeScript and Go clients/models, enforce intended validation identically, and represent non-HTTP event contracts without an awkward API-centric wrapper. |
+| JSON Schema Draft 2020-12 | Language-neutral JSON payload validation for events, results, evidence and fixtures; current contract files can seed experiments. | Select and pin separate TypeScript/Go validators and code generators; compare their support for dialects, references, unions, unknown fields and decimal strings. The format keyword is annotation by default unless assertion behavior is explicitly required/configured, so timestamp and other format checks need an explicit cross-runtime rule. |
+| Protocol Buffers | Typed service/event contracts with generated bindings and a compact binary wire format; official tooling includes Go output. | Prove the TypeScript generator/runtime and JSON-facing boundary, field presence/default semantics, evolution rules and operational fit. Never hash serialized Protobuf bytes as a replay identity: serialization is not canonical; define a semantic canonicalization layer if stable digests are required. |
+
+**Evidence gate before choosing:** create one representative contract slice from the approved domain semantics and generate/use it in the actual candidate runtimes. Pin compiler, plugin, validator and generator versions. Compare (1) Go and TypeScript type generation, (2) required/optional/null/unknown-field behavior, (3) oneOf/discriminator and enum evolution, (4) money as decimal strings with currency and scale rules, (5) timestamp/timezone and invalid-format rejection, (6) HTTP and event transport representation, (7) deterministic semantic digest behavior, (8) error quality, build friction, dependency footprint and supply-chain maintenance. Run identical positive and negative fixtures through both language paths and retain generated diffs plus results as bake-off evidence.
+
+**Current recommendation for the experiment only:** include JSON Schema Draft 2020-12 and OpenAPI 3.1 as competing JSON-contract paths, and Protobuf as a separate typed-wire path. Do not select a production canonical format from standards coverage alone. A possible layered outcome (OpenAPI for HTTP descriptions, JSON Schema for shared payload validation, Protobuf only for a demonstrated internal transport need) is a hypothesis to test, not the chosen architecture.
+
+Official references: [OpenAPI 3.1.2](https://spec.openapis.org/oas/v3.1), [JSON Schema Draft 2020-12 Core](https://json-schema.org/draft/2020-12/json-schema-core), [JSON Schema Validation](https://json-schema.org/draft/2020-12/json-schema-validation), [Protocol Buffers proto3 guide](https://protobuf.dev/programming-guides/proto3/), [Protobuf field presence](https://protobuf.dev/programming-guides/field_presence/), [Protobuf serialization is not canonical](https://protobuf.dev/programming-guides/serialization-not-canonical/).
+
 ## 6. Proposed review sequence
 
 1. Review the product promise, first user/site hypothesis, and exclusions.
