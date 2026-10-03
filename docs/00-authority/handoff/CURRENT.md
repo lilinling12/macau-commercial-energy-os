@@ -78,7 +78,7 @@ Immediate work:
 - The real Energy Graph and tariff adapters fail closed, replay uses hard-coded synthetic fixtures, evidence persistence is in-memory, and the Python optimizer is only a data model. VS-001 service tests use static/in-memory fakes; Edge test checks serialization. No tests were run during this static audit.
 - These findings show the product implementation is still a scaffold; they do not close G6 or authorize field commands.
 - The most recent prior checked PR head passed Authority Validation and Repository Hygiene; rerun both on the latest head after these handoff changes.
-- Next: continue detailed design and research in dependency order, then implement only after product scope and technology authority are reviewed. Complete G1/Step-3D/G7 evidence and customer workflow validation in parallel where inputs permit; keep missing site/customer inputs as explicit blockers or hypotheses.
+- Next: review the VS-001 cost-result/replay-manifest proposal against D-065 and contract ownership; resolve decimal semantics, source-event identity, manifest canonicalization and durable evidence requirements before creating canonical schemas. In parallel, continue G1, G6.9-R2 Step 3D, G7.2 and target-user validation where required inputs are available. Do not implement production adapters until product scope and technology authority are reviewed.
 
 ## Suspended implementation gate
 
