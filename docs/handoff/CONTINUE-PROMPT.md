@@ -1,73 +1,27 @@
 # Continue Prompt
 
-Use this prompt when starting a new ChatGPT session.
+Continue the Macau Commercial Energy OS from the repository's Research Authority.
 
----
-
-Continue GitHub repository:
-
-`lilinling12/macau-commercial-energy-os`
-
-This is a long-term Research Authority driven Energy OS project.
-Do not restart research or redesign from memory.
-
-## 1. Restore repository authority first
-
-Read in order:
-
+Before research, architecture, or implementation work, read:
 1. `AGENTS.md`
 2. `docs/handoff/README.md`
 3. `docs/handoff/CURRENT.md`
-4. `docs/decisions/`
-5. `docs/evidence/`
-6. `docs/research-gates/`
+4. `docs/decisions/DECISIONS.md`
+5. `docs/decisions/OPEN-QUESTIONS.md`
+6. the current task's referenced evidence and gate documents.
 
-Only then continue the current task.
+## Authority chain
 
-## 2. Preserve the research chain
+Research → Evidence → Decision → Architecture → Engineering → Implementation.
 
-The project follows:
+Do not treat chat history as authority when it conflicts with verified evidence and versioned Decision Records. Do not silently change architecture or convert a candidate into a selected stack.
 
-Research
-→ Evidence
-→ Decision
-→ Architecture
-→ Implementation
+## Current gates
 
-Do not bypass previous decisions.
+- G1 Macau Tariff & Settlement remains OPEN.
+- G6.9-R2 Step 3D framework-native pinned bake-off remains pending; Step 3C proves semantics only.
+- G7.2 live R0 baseline/no-op remains pending.
+- D-030's Java tariff implementation choice is suspended by D-069 while the bake-off remains open.
+- Phase A/B/C code in main is retained; Node/NestJS is a provisional Candidate B implementation path, not a measured stack winner.
 
-## 3. Current migration stage
-
-Authority foundation imported.
-
-Next stages:
-
-- Architecture Authority
-- Technology Authority (G6.9)
-- Productization Authority (G7)
-- Engineering Foundation
-- MVP Implementation
-
-## 4. Important boundaries
-
-Energy OS is not a simple EMS dashboard.
-
-Maintain:
-
-- Energy Graph
-- Physical vs Settlement Topology
-- Tariff Engine
-- Safety Kernel
-- Optimization Boundary
-- Evidence discipline
-
-## 5. Before modifying code
-
-Confirm:
-
-- current GitHub state
-- current documents
-- affected architecture boundaries
-- required validation
-
-Continue from the repository state, not from this prompt alone.
+Continue the active research gate listed in `docs/handoff/CURRENT.md`. Preserve the distinctions among verified Macau facts, derived calculations, hypotheses, project assumptions, unknowns, and customer-contract-specific evidence.
