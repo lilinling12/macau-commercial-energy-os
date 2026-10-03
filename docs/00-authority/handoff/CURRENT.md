@@ -71,6 +71,7 @@ Immediate work:
 ### Active design progress on PR #8
 
 - `docs/02-product/USER-FLOWS-AND-IA-v0.1.md` translates PRD PR-01..PR-09 into role hypotheses, information architecture, four primary task flows, nine screen responsibilities, error/unknown/freshness behavior and user-validation criteria. It is explicitly unvalidated; no customer workflow is claimed as confirmed.
+- `docs/02-product/CUSTOMER-DISCOVERY-AND-USABILITY-RESEARCH-PLAN-v0.1.md` operationalizes roadmap WP-4 with role/site sampling, a behavior-first interview guide, synthetic-prototype usability tasks, evidence handling and synthesis rules. It is a protocol only: no interviews, artifact reviews or usability sessions have been conducted.
 - `docs/02-product/prototype/v0.1/index.html` is a no-framework clickable demo of portfolio/site/data/model/economics/recommendations/evidence views with synthetic data, responsive layout, keyboard-focus support and demo-only local annotations/replay state. It has no runtime/API connection and is not usability-validated.
 
 - `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md` covers the shadow-mode energy intelligence loop, its component boundaries, data/time semantics, failures, evidence/replay, security boundaries, and current contract gaps.
