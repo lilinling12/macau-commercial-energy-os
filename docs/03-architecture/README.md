@@ -15,3 +15,5 @@ Architecture flow:
 Research -> Decision -> Product -> Architecture -> Engineering -> Implementation -> Validation
 
 PRD and research-Gate traceability, current design gaps, and implementation audit: `detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md`.
+
+Stack-neutral STRIDE threat model and verification scenarios (draft; no G6 closure): `detailed-design/SECURITY-THREAT-MODEL-v0.1.md`.
