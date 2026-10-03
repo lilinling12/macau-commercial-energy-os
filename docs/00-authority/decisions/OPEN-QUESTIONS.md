@@ -72,9 +72,10 @@
 
 
 ## U-013 — Pinned R0 native point set
-**Status:** RESOLVED FOR v0.9.0 PRE-FLIGHT / LIVE HASH RECHECK REQUIRED  
-**Resolved:** Official v0.9.0 API regression fixtures establish 182 inputs, 204 measurements and 134 forecast points, with exact fixture SHAs recorded in `G7.2-R0-HARNESS-PREFLIGHT.md`.  
-**Remaining runtime check:** A live v0.9.0 deployment must reproduce the same metadata hashes/counts before a run is accepted.
+**Status:** PARTIALLY RESOLVED / CITED PREFLIGHT ARTIFACT NOT IN REPOSITORY / LIVE HASH RECHECK REQUIRED  
+**Recorded authority assertion:** The prior record says official v0.9.0 API regression fixtures establish 182 inputs, 204 measurements and 134 forecast points, with exact fixture SHAs in `G7.2-R0-HARNESS-PREFLIGHT.md`. A recursive audit of the PR #8 branch tree at commit `c59877ce6d5abe30e1ca91162f27208e8235e471` found no file with that name or any G7.2/R0 preflight artifact. The counts and hashes are therefore not independently auditable from this repository snapshot; retain them as reported, not verified here.
+**Resolution path:** Restore the referenced preflight artifact to the canonical research/MVP location or link its immutable source and provenance; reconcile point counts and hashes against the pinned v0.9.0 API fixtures. Then re-run metadata hash/count checks on the approved live deployment and preserve the exact run manifest and outputs.
+**Remaining runtime check:** A live v0.9.0 deployment must reproduce the authoritative metadata hashes/counts before a run is accepted. Do not mark U-013 fully resolved until both the preflight evidence and live recheck are reviewable.
 
 ## U-014 — R0 humidity / latent observability
 **Status:** PARTIALLY RESOLVED / R1 REQUIREMENT IDENTIFIED  
