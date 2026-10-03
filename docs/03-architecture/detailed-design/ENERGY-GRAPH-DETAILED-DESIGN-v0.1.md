@@ -18,7 +18,7 @@ Invariants:
 3. Every relationship is effective-dated and carries source evidence, author/reviewer and status. Preserve both valid time and system/knowledge time for correction and replay (D-024).
 4. An ambiguous, missing, contradictory or out-of-scope resolution is an explicit result. Never select the “closest” asset, latest edge, or first match as a fallback.
 5. Assets do not own tariff prices. Marginal value is resolved through settlement meter, contract and applicable tariff rules (D-020); the Tariff Engine evaluates commercial terms.
-6. PV export/producers, grid import, consumption meters and battery flows remain distinct physical and settlement roles. No remote PV credit or netting is inferred (D-021, D-077, U-025).
+6. PV export/producers, grid import, consumption meters and battery flows remain distinct physical and settlement roles. The 2025 concession amendment effective 2026-01-01 contemplates private self-generated electricity distribution only within the same concession/private land parcel with prior written SAR authorization; represent any such arrangement as an explicitly approved, evidence-backed physical relation, separate from retail settlement. No cross-parcel PV credit or netting is inferred (D-021, D-077, U-025).
 7. Telemetry interval/sample cadence is not a settlement demand window or an optimizer/control cadence (D-027, D-040, U-001).
 
 ## 2. Graph views and ownership
