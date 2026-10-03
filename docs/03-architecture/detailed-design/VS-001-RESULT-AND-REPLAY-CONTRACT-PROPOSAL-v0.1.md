@@ -33,7 +33,7 @@ The following is illustrative JSON-like structure, not a committed schema:
         "timeZone": "IANA timezone"
       },
       "resultStatus": "COMPLETE | PARTIAL | SCENARIO | BLOCKED",
-      "evidenceStatus": "VERIFIED | DERIVED | PROJECT_ASSUMPTION | UNKNOWN",
+      "evidenceStatus": "VERIFIED | DERIVED | HYPOTHESIS | PROJECT_ASSUMPTION | UNKNOWN | CONTRACT_VERIFIED",
       "settlementReadiness": "BILL_GRADE_ELIGIBLE | SCENARIO_ONLY | NOT_CALCULATED",
       "currency": "ISO currency code",
       "totalAmount": "canonical decimal string or null",
@@ -82,7 +82,7 @@ The following is illustrative JSON-like structure, not a committed schema:
 - SCENARIO means at least one material input/rule is a PROJECT_ASSUMPTION; monetary output must be visibly scenario-labelled.
 - BLOCKED means a required input or rule is missing/conflicting and no authoritative amount is emitted.
 - BILL_GRADE_ELIGIBLE is allowed only when every tariff, contract, meter and measurement rule required for the declared scope has sufficient evidence, and the applicable Golden Bill gate is satisfied. Before that, use SCENARIO_ONLY or NOT_CALCULATED. G1 remains open.
-- VERIFIED, DERIVED, PROJECT_ASSUMPTION and UNKNOWN retain the Evidence Authority meanings; do not assign VERIFIED merely because software returned a value.
+- VERIFIED, DERIVED, HYPOTHESIS, PROJECT_ASSUMPTION, UNKNOWN and CONTRACT_VERIFIED retain the existing EvidenceRecordV1 meanings; do not assign VERIFIED merely because software returned a value.
 - Monetary amounts are canonical decimal text, not binary floating-point JSON numbers. Rounding mode and scale must come from a versioned settlement policy; do not invent interval rounding.
 - Missing/null monetary values must not serialize as zero. A missing amount is not a zero charge.
 - Components remain separate; PV producer feed-in settlement cannot be collapsed into consumer load (D-021/D-077).
