@@ -36,6 +36,7 @@ Research → Decision → Architecture → Engineering → Implementation.
 - Energy Graph detailed design v0.1 (stack-neutral; G3/site validation pending): `docs/03-architecture/detailed-design/ENERGY-GRAPH-DETAILED-DESIGN-v0.1.md`
 - Telemetry Ingestion & Data Quality detailed design v0.1 (stack-neutral; contract parity and site policies pending): `docs/03-architecture/detailed-design/TELEMETRY-INGESTION-AND-DATA-QUALITY-DETAILED-DESIGN-v0.1.md`
 - Recommendation and Operator Review detailed design v0.1 (SHADOW-only lifecycle; no execution authorization): `docs/03-architecture/detailed-design/RECOMMENDATION-AND-OPERATOR-REVIEW-DETAILED-DESIGN-v0.1.md`
+- Cost Analysis and Evidence Replay detailed design v0.1 (stack-neutral; G1 and replay acceptance pending): `docs/03-architecture/detailed-design/COST-ANALYSIS-AND-EVIDENCE-REPLAY-DETAILED-DESIGN-v0.1.md`
 - VS-001 cost-result and replay-manifest contract proposal (not canonical): docs/03-architecture/detailed-design/VS-001-RESULT-AND-REPLAY-CONTRACT-PROPOSAL-v0.1.md
 - VS-001 identity and tenant authorization design (draft; provider/roles not selected): docs/03-architecture/detailed-design/VS-001-IDENTITY-AND-TENANT-AUTHORIZATION-DESIGN-v0.1.md
 - PRD-to-architecture traceability and design-gap matrix (draft): `docs/03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md`
