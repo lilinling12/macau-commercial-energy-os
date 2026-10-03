@@ -19,6 +19,8 @@ Definition of done spans: customer/problem validation; product requirements and 
 
 **Lifecycle readiness audit:** `docs/00-authority/PRODUCT-ARCHITECTURE-IMPLEMENTATION-READINESS-AUDIT-v0.1.md` consolidates current evidence, open decisions, required completion proof and stage dependencies. It is a review aid, not approval or closure evidence.
 
+**Active architecture task packet:** `docs/04-engineering/ai-coding-governance/task-packets/ARCH-INGEST-RELIABILITY-001.md` records the telemetry durable-capture/publication design, owner decision #12, implementation acceptance, evidence limits and dependencies. Status is Review; no runtime behavior or Gate is certified.
+
 **Current active delivery record:** PR #8, branch `docs/product-architecture-roadmap` (open, not merged). It contains the research-derived product baseline, PRD draft, logical architecture, research/coding continuity, roadmap, product interaction design draft, lifecycle readiness audit v0.1, stack-neutral security threat model v0.1, synthetic prototype v0.5 (candidate tariff-evidence and site-onboarding subflows), VS-001 detailed-design draft, PRD requirement and research-Gate-to-delivery traceability matrix, expanded G6 evidence/closure checklist, proposed product/engineering governance, an owner review packet with provisional visual directions and the static UI/UX Pro Max source review through prototype v0.5, a synchronized decision queue covering product promise, discovery user/site, monetary semantics, PV boundary, telemetry identity and receipt/processing acknowledgement, D-003 asset hypothesis, Macau data governance, architecture boundaries, security baseline and Step 3D-only choices, a vertical-slice-to-detailed-design handoff matrix, a machine-readable Step 3D runner manifest draft, and a concise owner decision summary, and corrected cross-conversation handoff entrypoints with an append-only HISTORY log. The decision summary is `docs/02-product/OWNER-DECISION-SUMMARY-v0.1.md`; it separates process constraints, review recommendations, owner decisions still needed (now including recommendation monetary semantics, telemetry event identity and receipt/processing acknowledgement, D-003 asset-priority scope, Macau data governance/transfer review, and the remaining architecture/Step 3D choices), and the later technology-selection path. All remain drafts pending review where applicable. These documents remain drafts; customer validation, complete detailed design, production stack selection, implementation completion, and pilot evidence are outstanding. Changes on this branch are not yet on `main`.
 
 ## Research state
@@ -136,6 +138,7 @@ Read:
 11. `docs/01-research/evidence/G1-PV-GRID-INTERCONNECTION-2026-10.md`
 12. `docs/01-research/evidence/G2-MACAU-COMMERCIAL-LOAD-FLEXIBILITY-EVIDENCE-2026-10.md`
 13. For substantial AI-assisted research or implementation, follow `docs/04-engineering/ai-coding-governance/README.md` and use `docs/04-engineering/ai-coding-governance/TASK-PACKET-TEMPLATE.md`.
-14. Read additional authority files referenced by the current task.
+14. Resume the active packet `docs/04-engineering/ai-coding-governance/task-packets/ARCH-INGEST-RELIABILITY-001.md` before starting dependent telemetry work.
+15. Read additional authority files referenced by the current task.
 
 GitHub live state, exact-head CI, verified evidence, and Decision Records take precedence over chat memory.
