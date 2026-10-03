@@ -10,7 +10,7 @@ Research → Decision → Architecture → Engineering → Implementation.
 
 - `docs/00-authority/`: project state, roadmap, decisions, open questions and handoff instructions.
 - `docs/01-research/`: domain and technology research, research gates, evidence register and source-backed evidence notes.
-- `docs/02-product/`: product thesis, customer segments, commercial model, MVP definition and pilot design.
+- `docs/02-product/`: product thesis, customer segments, commercial model, product requirements, MVP definition and pilot design.
 - `docs/03-architecture/`: system boundaries and architecture records, including technology selection authority.
 - `docs/04-engineering/`: development workflow, module boundaries, AI coding governance and CI/CD.
 - `docs/05-mvp/`: executable MVP plans and vertical slices.
@@ -22,6 +22,7 @@ Research → Decision → Architecture → Engineering → Implementation.
 - New-conversation entry prompt: `docs/00-authority/handoff/CONTINUE-PROMPT.md`
 - Reusable research and coding task packet: `docs/04-engineering/ai-coding-governance/TASK-PACKET-TEMPLATE.md`
 - Research-derived product scope and user workflow: `docs/02-product/PRODUCT-DESIGN.md`
+- Research-derived product requirements draft (not customer-approved): `docs/02-product/PRD-v0.1.md`
 - Logical system architecture and technology decision states: `docs/03-architecture/ARCHITECTURE-DESIGN.md`
 - Current status and next authorized work: `docs/00-authority/handoff/CURRENT.md`
 
