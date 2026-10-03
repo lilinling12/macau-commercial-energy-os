@@ -65,6 +65,23 @@ Metrics and traces support operations but are not the replay record. Do not put 
 
 Availability, latency, ingestion freshness, recovery, support coverage, retention, RPO and RTO remain product/customer decisions. Derive targets from validated workflows, contracts, operational capability and measured candidate runtime behavior. For each proposed SLO specify measurement scope, window, exclusions, data source, alert threshold, owner, error-budget action and customer communication. Averages must not hide one site's safety/evidence degradation.
 
+### 4.4 Proposed SLI measurement contract (thresholds intentionally open)
+
+The following catalog makes measurement boundaries reviewable without inventing availability, latency, freshness, recovery or support targets. It is a logical measurement proposal, not a production telemetry schema or SLO approval.
+
+| Concern | Proposed indicator and measurement boundary | Required segmentation / interpretation | Target status |
+|---|---|---|---|
+| API service health | Eligible authorized request success and latency from service ingress to response; count authorization denials and validation errors separately from service failures. | Operation and deployment; tenant-safe aggregate. Do not expose tenant IDs in high-cardinality labels. | Threshold, window and exclusions require workflow/customer evidence. |
+| Telemetry arrival | (a) source-observed-to-platform-received lag only where source clock quality is known; (b) platform-received-to-durable-raw-acceptance duration; (c) age of oldest unprocessed durable event. | Site/source/connector and quality state. Never merge source-clock uncertainty with platform processing delay. | Freshness policy and bounds require source cadence and product task evidence. |
+| Workflow service | Accepted trigger to terminal workflow outcome, with scheduled-to-start delay, retries, timeout, duplicate/replay outcome and blocked reason reported separately. | Workflow type, result status and site-safe scope. Blocked/incomplete is not success. | End-to-end target depends on the validated user task and failure budget. |
+| Economic assessment | Coverage/completeness and outcome-state distribution for reconstruction, interval assessment and baseline comparison; separately record provenance gaps and unresolved-rule blocks. | Result kind, tariff scope and evidence version. Availability does not prove bill correctness. | Golden Bill accuracy and zero-unexplained-adjustment remain G1 acceptance, not an uptime SLO. |
+| Replay/evidence | Durable evidence write/read availability; replay outcome and semantic digest equality for an identical pinned input/version set; record mismatch as a correctness incident. | Assessment version and tenant-safe scope. Correlation IDs are excluded from semantic identity (D-073). | Determinism is a correctness invariant; durability/restore targets require owner-approved retention and RPO/RTO. |
+| Site Edge | Last authenticated heartbeat age, buffer occupancy/oldest buffered age, clock synchronization status, and cloud-link availability; measure policy veto and rejected-command reasons separately if G6 later authorizes command paths. | Per site with fail-closed local status; do not average away one site's loss of safety/evidence capability. | Thresholds depend on site operations, buffer policy and G6 evidence; no command SLO is approved. |
+| Identity/security | Authorization-denial counts, credential/key lifecycle events, revocation propagation time and tenant-isolation verification outcomes. | Role, boundary and deployment mode with restricted security access. | Baseline and response targets require security-owner review and G6-08/G6-09 evidence. |
+| Backup/recovery | Point of recoverable data and elapsed restoration-to-validated-service, measured per data class and failure scenario. | Raw telemetry, tariff/contract versions, graph versions, assessment/evidence, workflow and audit records; preserve separate RPO/RTO evidence. | RPO/RTO values require customer, legal-retention, operational and deployment decisions. |
+
+For every SLI selected for the pilot, record its owner, clock source, numerator/denominator or aggregation rule, evaluation window, excluded states, data source, tenant/site segmentation, alert/runbook, customer-visible consequence and validation artifact before setting an SLO. The same metric name must not silently change meaning between candidate stacks. Numeric targets remain unapproved until the product workflow, site operating boundary, deployment mode and support ownership are reviewed.
+
 ## 5. Failure domains and degradation
 
 | Failure | Required behavior to design and validate |
