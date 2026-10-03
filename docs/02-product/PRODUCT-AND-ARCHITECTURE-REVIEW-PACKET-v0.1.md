@@ -60,7 +60,7 @@ These are search results, not user evidence. The landing-page pattern is not aut
 
 ### Prototype iteration evidence
 
-Prototype v0.2 now lets reviewers switch among bill reconstruction, interval assessment, and baseline comparison. The bill view states why it is blocked without Golden Bill/G1 evidence; the comparison view withholds any delta without a validated baseline; the interval amount remains synthetic. Recommendation review adds a dismissed disposition and explicitly separates review from measured outcome. These interactions improve design reviewability only; they are not customer-tested product behavior.
+Prototype v0.2 lets reviewers switch among bill reconstruction, interval assessment, and baseline comparison; the bill view states why it is blocked without Golden Bill/G1 evidence, the comparison view withholds any delta without a validated baseline, and the interval amount remains synthetic. Recommendation review adds a dismissed disposition and separates review from measured outcome. Prototype v0.3 corrects the data-health review count, synchronizes the breadcrumb with the active view, and adds a text summary plus an expandable sample table for the synthetic trend chart. These iterations improve design reviewability only; they are not customer-tested product behavior, and they do not approve a visual direction or frontend framework.
 
 ### Interaction principles to evaluate
 
