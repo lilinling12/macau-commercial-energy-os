@@ -1,44 +1,49 @@
 # G1 Evidence Note — Macau PV Grid Interconnection and Feed-in Tariff
 
-**Evidence captured:** 2026-10-03  
-**Status:** VERIFIED for the general CEM interconnection and feed-in-tariff mechanism; not proof of cross-customer energy allocation.
+**Evidence reviewed:** 2026-10-03  
+**Status:** VERIFIED for Macau's general grid-interconnection / CEM feed-in purchase mechanism; not proof of cross-customer energy allocation.
 
-## Verified from CEM
+## Verified from Macau official sources
 
-CEM's current PV introduction page states that Macau's PV interconnection safety and installation regulation took effect on 2015-01-26 and covers connection to public low- and medium-voltage networks directly or through distribution systems. CEM states that a bidirectional meter records PV electricity fed into its grid and that CEM buys PV electricity at a feed-in tariff.
+The Environmental Protection Bureau (DSPA) explains that the PV interconnection safety and installation regulation covers connecting PV systems to the public grid directly or via a distribution system. It states that:
+- DSSCU receives and approves installation applications and oversees compliance;
+- DSPA supervises CEM's purchase of PV output at the feed-in tariff set by the Government;
+- when a PV system meets the technical requirements, CEM may not refuse to receive its generated electricity and monitors public-grid operation after interconnection.
 
-CEM's application procedure requires DSSCU project submission/acceptance and a request to CEM for grid interconnection. It calls for technical documents and tests, confirmation of the grid connection point, a CEM meter at that point, and a signed PV interconnection contract before interconnection.
+The public procedure requires design by a registered technician, the applicable DSSCU application/acceptance, then an interconnection request to CEM. CEM confirms the connection point and installs the meter; the CEM customer procedure says interconnection follows signing the PV interconnection contract. A bidirectional meter records energy injected into the CEM grid.
 
-The CEM PV page reports that, as of June 2026, Macau had 18 grid-connected PV systems totaling 4,762 kWp and had generated nearly 8 million kWh of green electricity.
-
-The current CEM feed-in-tariff page lists these capacity tiers:
+DSPA states the feed-in tariff purchase period is 20 years and publishes these current capacity tiers:
 - Installed capacity below 10 kW: MOP 3.7/kWh.
 - 10–100 kW: MOP 3.4/kWh.
 - Above 100–500 kW: MOP 3.0/kWh.
 - Above 500 kW: MOP 2.8/kWh.
 
-The feed-in-tariff page states that this scheme took effect on 2018-07-01. Confirm the applicable rate and contract terms with CEM for each project before using them in a customer economic model.
+DSPA's page, last revised 2026-09-01, reports that by 2026-08-31 it had received 39 consultation cases on PV installation and 12 cases had proceeded to grid interconnection and electricity sales. These are cases, not necessarily unique buildings or customers.
 
 ## What this establishes
 
-A separate building's approved PV system can inject electricity into Macau's public grid under the applicable interconnection process, and the PV producer can receive the stated feed-in tariff under its interconnection arrangement. The generation contributes to the grid supply mix.
+A PV system on another building can be approved to inject into the public grid and sell its generation to CEM under the applicable interconnection / purchase contract and feed-in tariff. The electricity contributes to the grid supply mix. The general route is therefore real and operational in Macau; it is not merely a hypothetical net-metering concept.
 
-## What this does not establish
+The CEM purchase tariff is a **producer-side export settlement**. A separate consumer continues to be billed for electricity supplied to that consumer's own contracted location under its applicable tariff unless a distinct approved arrangement provides otherwise.
 
-These sources do not establish that another building's electricity customer can:
-- identify or physically receive specified electrons from a particular PV installation;
-- net that generator's exported kWh against its own CEM bill;
-- receive a virtual-net-metering credit or a cross-site settlement allocation;
-- procure the output through a third-party PPA/wheeling/retail arrangement.
+## What remains unverified
 
-Do not model off-site PV as a direct bill credit or customer supply entitlement until the applicable legal, regulatory, CEM, metering and contractual path is verified.
+The cited official materials do not establish that another building's user can:
+- net that PV producer's exported kWh against its own CEM bill;
+- receive virtual-net-metering credits or an allocated share of production;
+- procure power through a third-party PPA / wheeling / retail supply arrangement over the public grid.
 
-## Research follow-up
+Do not model off-site PV as a direct bill credit, a cheaper retail supply, or a customer entitlement without the relevant legal basis, CEM confirmation, meter/accounting design and actual contract/bill evidence.
 
-U-025 asks whether a Macau commercial customer can contract for off-site PV and receive legally valid bill credits or another settlement benefit through the public grid. Resolve using the governing regulation and current amendments, CEM confirmation, actual interconnection/PV contracts and bills, and any applicable third-party supply/aggregation rules. Keep the producer's feed-in revenue separate from the consuming site's settlement account unless a verified arrangement explicitly links them.
+## Research follow-up — U-025
+
+Determine whether a Macau commercial customer can contract for off-site PV and receive legally valid bill credits or another settlement benefit through the public grid. Resolve using current legislation/regulations and amendments, written DSPA/DSSCU/CEM confirmation, actual producer-CEM purchase contracts, customer bills, metering configuration, and any applicable third-party supply/aggregation rules.
+
+Until then, keep the PV producer's feed-in revenue separate from the consuming site's bill and dispatch objective unless a verified arrangement explicitly links them.
 
 ## Sources
 
-- CEM PV introduction (Chinese): https://www.cem-macau.com/zh/smart-living/photovoltaic-system-%28pv%29/pv-introduction/
-- CEM PV application procedure: https://www.cem-macau.com/en/smart-living/photovoltaic-system-%28pv%29/application-procedure/
-- CEM feed-in tariff: https://www.cem-macau.com/en/go-green/photovoltaic-system-%28pv%29/feed-in-tariff/
+- DSPA — Solar energy / PV interconnection and feed-in purchase: https://www.dspa.gov.mo/energytopics/solar/c1.html (last revised 2026-09-01).
+- CEM — PV introduction and bidirectional metering: https://www.cem-macau.com/zh/smart-living/photovoltaic-system-%28pv%29/pv-introduction/
+- CEM — PV interconnection application procedure: https://www.cem-macau.com/en/smart-living/photovoltaic-system-%28pv%29/application-procedure/
+- CEM — feed-in tariff table: https://www.cem-macau.com/en/go-green/photovoltaic-system-%28pv%29/feed-in-tariff/
