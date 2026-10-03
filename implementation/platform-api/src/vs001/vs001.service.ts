@@ -1,17 +1,19 @@
 import { createHash } from 'node:crypto';
 import { Inject, Injectable } from '@nestjs/common';
 import { parseTelemetryEventV1, type TelemetryEventV1 } from './contracts.js';
-import type {
+import {
   ENERGY_GRAPH_PORT,
   EVIDENCE_REPOSITORY,
   OPTIMIZER_PORT,
   TARIFF_RESOLUTION_PORT,
-  type EnergyGraphPort,
-  type EvidenceRecord,
-  type EvidenceRepository,
-  type OptimizerPort,
-  type ShadowRecommendation,
-  type TariffResolutionPort,
+} from './ports.js';
+import type {
+  EnergyGraphPort,
+  EvidenceRecord,
+  EvidenceRepository,
+  OptimizerPort,
+  ShadowRecommendation,
+  TariffResolutionPort,
 } from './ports.js';
 
 export type Vs001Result =
