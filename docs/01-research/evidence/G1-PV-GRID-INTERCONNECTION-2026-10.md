@@ -61,6 +61,12 @@ Keep four structures separate: (1) PV owner sells metered export to CEM under th
 
 Until then, keep the PV producer's feed-in revenue separate from the consuming site's bill and dispatch objective unless a verified arrangement explicitly links them.
 
+## Live-source recheck — 2026-10-04
+
+The current CEM PV application-procedure page was re-opened during this review. It says applicants must establish a legal right to use the rooftop/installation site; the procedure then requires the applicable DSSCU project approval/acceptance, a CEM interconnection request, a connection-point meter installed by CEM, and a signed PV interconnection contract before interconnection. For a non-grid-connected PV system tied into the consumer's own electrical network, the design may require an anti-backflow device at the public-grid boundary.
+
+This recheck confirms the existing source interpretation; it does not establish that site-use right equals PV-system ownership, identify the counterparty entitled to FIT proceeds under every third-party structure, or create a remote consumer bill credit. Keep U-025 OPEN.
+
 ## Sources
 
 - DSPA — Solar energy / PV interconnection and feed-in purchase: https://www.dspa.gov.mo/energytopics/solar/c1.html (last revised 2026-09-01).
