@@ -25,6 +25,13 @@ The v0.3.0 Step 3C record states that the run used Node 22.16.0, Go 1.23.2, and 
 
 The Step 3C result reports deterministic Node/Go aggregate and proposal equality, tenant rejection, duplicate suppression, signed command acceptance, and crash/replay recovery without duplicate field writes. It also states that this is not a substitute for the 100-kill Temporal recovery gate.
 
+Node version clarification (official release status checked 2026-10-04): Node 22.16.0 is only the historical Step 3C runner version; it is not the Step 3D pin. The v0.3.0 candidate spec calls for Node 24 LTS for Candidate B and for Candidate A's Temporal TypeScript worker. Node.js official releases list 24.21.0 as the latest LTS release published on 2026-09-09; Temporal's TypeScript SDK lists Node 20, 22, and 24 as supported and recommends using Active LTS for development. Therefore, pin Node 24.21.0 for those Step 3D Node processes unless an official compatibility check at environment freeze requires a newer 24.x patch. Do not use a floating "24" tag, and keep Candidate A's Bun service and its Node Temporal worker as separate runtimes.
+
+Sources:
+- Node.js releases: https://nodejs.org/en/about/previous-releases
+- Node.js 24.21.0 release: https://nodejs.org/en/blog/release/v24.21.0
+- Temporal TypeScript SDK supported Node versions: https://github.com/temporalio/sdk-typescript
+
 ### Task-host preflight
 
 A read-only inventory on the current task host reported Node v22.20.0 and Python 3.11.9; Docker, Bun, Go, and the Python launcher were unavailable. This host therefore does not satisfy the pack's stated Step 3D runner requirements. No Step 3D command, application test, benchmark, or environment mutation was performed.
