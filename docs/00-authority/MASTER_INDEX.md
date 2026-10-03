@@ -50,6 +50,7 @@ Research → Decision → Architecture → Engineering → Implementation.
 - G1 Macau PV grid-interconnection, feed-in settlement and cross-site allocation boundary (2026-10; U-025 remains open): `docs/01-research/evidence/G1-PV-GRID-INTERCONNECTION-2026-10.md`
 - G2 Macau commercial-load flexibility evidence (public context only; site validation pending): `docs/01-research/evidence/G2-MACAU-COMMERCIAL-LOAD-FLEXIBILITY-EVIDENCE-2026-10.md`
 - G3 Energy Digital Twin / Energy Graph Gate (OPEN; logical design exists, Macau pilot-site topology and settlement mapping remain unvalidated): `docs/01-research/gates/G3-energy-graph.md`
+- G7 Reference Simulator & Pilot Validation Gate (ACTIVE / INCOMPLETE; G7.2 live baseline/no-op pending; preflight evidence gap recorded): `docs/01-research/gates/G7-pilot-validation.md`
 
 All authoritative project documentation belongs under these six numbered directories. Do not create parallel unnumbered documentation roots under `docs/`. Keep implementation source code in the repository's `implementation/` directory.
 
