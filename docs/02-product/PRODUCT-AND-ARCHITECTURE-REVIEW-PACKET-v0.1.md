@@ -123,7 +123,25 @@ D-065 requires contract-driven boundaries and generated OpenAPI / Protobuf / JSO
 
 Official references: [OpenAPI 3.1.2](https://spec.openapis.org/oas/v3.1), [JSON Schema Draft 2020-12 Core](https://json-schema.org/draft/2020-12/json-schema-core), [JSON Schema Validation](https://json-schema.org/draft/2020-12/json-schema-validation), [Protocol Buffers proto3 guide](https://protobuf.dev/programming-guides/proto3/), [Protobuf field presence](https://protobuf.dev/programming-guides/field_presence/), [Protobuf serialization is not canonical](https://protobuf.dev/programming-guides/serialization-not-canonical/).
 
-## 6. Proposed review sequence
+## 6. Decision queue — what is needed now and what must wait
+
+This queue separates owner choices that unblock discovery/design from choices that require completed research. A response can select an option, modify it, or explicitly defer it. “Defer” keeps the corresponding baseline provisional and records the dependency; it is not approval by silence.
+
+| Decision | When | Choices to review | What the choice authorizes |
+|---|---|---|---|
+| **Initial product scope and promise** | Directional review now; validate in WP-4 | (A) traceable tariff/cost intelligence + shadow recommendations + replay evidence; (B) bill reconciliation and cost intelligence first, defer recommendations; (C) revise the promise. | Sets the research focus for PRD and user interviews. It does not validate demand or authorize bill-grade claims. |
+| **Lead user and pilot-site hypothesis** | Select a hypothesis for discovery now; validate before baseline | (A) hotel/resort energy or facilities manager; (B) commercial property finance/asset owner; (C) site operations/control-room lead; (D) name another role/site; (E) defer ranking and compare these in discovery. | Sets recruitment and workflow-prototype priorities. It does not commit to a customer or pilot. |
+| **Product operating boundary** | Review now | Keep MVP telemetry, economics, explanation, shadow recommendation, and evidence/replay; exclude direct device control and unsupported remote-PV bill credits; or specify changes. | Allows product workflow and acceptance criteria to be refined while G1/G6/G7 remain open. |
+| **Step 3D Temporal persistence service** | Must be resolved before freezing the common runner | (A) approve adding one shared PostgreSQL 16 service for Temporal persistence while candidate app services use PostgreSQL 18 + TimescaleDB; (B) defer Step 3D until another Temporal-supported topology is researched and pinned; (C) request a specific alternative. | Authorizes only the bake-off runner configuration. It does not select production database or application architecture. |
+| **Architecture boundaries** | Review now, finalize with evidence | Confirm or revise cloud intelligence vs site-local Edge/Safety Kernel, human approval boundary, and evidence/replay as a core product capability. | Sets logical responsibilities for detailed design. Technology frameworks remain unselected. |
+| **Visual direction and interaction system** | After target-user tasks are recruited and prototype is tested | Keep A (clear operational workspace) as a prototype baseline; compare A/B/C through usability and accessibility evidence; or request another direction. | Guides the next prototype iteration only; does not establish final visual identity. |
+| **Production stack and deployment model** | Defer until G6.9-R2 Step 3D/4 and product/operations evidence | No winner selected. Review measured candidate results, product requirements and operating costs before Decision Record. | A later, explicit owner-approved technology and deployment baseline. |
+
+### Approval boundary
+
+The next design work can advance on directional product scope and logical trust/module boundaries. A production architecture decision requires both the bake-off decision rule and owner review. G1 bill-grade functionality, G6 command execution, G7 field claims, customer/site selection, and deployment authorization each retain their own evidence and approval gates.
+
+## 7. Proposed review sequence
 
 1. Review the product promise, first user/site hypothesis, and exclusions.
 2. Review visual direction A/B/C and interaction principles. Treat prototypes as synthetic until user-tested.
@@ -132,7 +150,7 @@ Official references: [OpenAPI 3.1.2](https://spec.openapis.org/oas/v3.1), [JSON 
 5. After those reviews, revise the PRD, user flows, prototype, logical architecture, and relevant ADRs to record accepted decisions and remaining unknowns.
 6. Confirm the first detailed-design slice and its acceptance evidence; then implement against that approved packet.
 
-## 7. Owner response record
+## 8. Owner response record
 
 No response or approval is recorded in this draft.
 
