@@ -2,10 +2,11 @@
 
 ## U-001 — CEM Pu averaging/integration interval
 **Status:** UNKNOWN / G1 BLOCKER  
-**Known:** CEM/legislation define Pu as the highest measured demand / maximum periodically measured average active power.  
-**Unknown:** Exact averaging/integration window used for settlement (e.g. 15 min, 30 min or another period).  
-**Resolution path:** real B/C/D meter load-profile + bill, CEM metering configuration or authoritative technical documentation.  
-**Production behavior:** never hard-code 15 minutes.
+**Verified public boundary (2026-10-04):** Administrative Regulation 25/2022 defines Group B Pu through the maximum periodically measured average active power. Current CEM B/C/D tariff pages describe Pu as the highest measured demand during a billing period. The reviewed public sources do not state the meter demand-integration interval or the precise settlement averaging window.  
+**Unknown:** Exact averaging/integration window used for settlement (e.g. 15 min, 30 min or another period), including class/topology-specific differences.  
+**Resolution path:** obtain the CEM demand-register/configuration specification and matched B/C/D bill plus interval/load-profile data; written CEM confirmation if the meter profile does not expose the settlement interval.  
+**Production behavior:** never hard-code 15 minutes.  
+**Evidence:** `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`.
 
 ## U-002 — Commercial PV settlement topology
 **Status:** CONTRACT-SPECIFIC  
@@ -14,6 +15,7 @@
 
 ## U-003 — Third-party high-frequency CEM AMI access
 **Status:** UNKNOWN  
+**Verified public boundary (2026-10-04):** CEM reports full smart-meter coverage and customer-facing daily consumption history. The reviewed official material does not establish an external third-party API, high-frequency interval, export format, retention or commercial access terms.  
 **Question:** Is a supported real-time/high-frequency API available to commercial third parties?  
 **Resolution path:** CEM technical/commercial confirmation.  
 **Design implication:** first pilot must be viable with local metering/BMS data.
@@ -40,11 +42,13 @@
 **Status:** SITE-SPECIFIC UNKNOWN  
 **Need:** zone categories, allowed temperature/humidity bands, operating hours, critical rooms and override rules.
 
-## U-009 — Exact B/C/D government tax formula
+## U-009 — Exact B/C/D government tax / installation-use charge formula
 **Status:** UNKNOWN / G1 BLOCKER  
-**Known:** CEM B/C/D pages state a monthly government tax applies.  
-**Unknown:** authoritative general formula and exceptions for B/C/D.  
-**Resolution path:** legislation/CEM bill evidence.
+**Known:** CEM Chinese bill material labels it “政府稅”; the Portuguese bill guide calls the corresponding line “Taxa de Exploração”. Both describe a monthly charge for use of the electrical installation. Current B/C/D public tariff pages show the monthly item but no calculation formula. Administrative Regulation 25/2022's reviewed tariff formulas do not establish the formula for this separate line. A-group/EV examples show `0.75 × √subscribed demand`, but do not prove the B/C/D rule.  
+**Unknown:** legal/contractual characterization and authoritative B/C/D formula, classes, exceptions and effective dates.  
+**Resolution path:** applicable legislation and Executive Decree 105/2022 annex review; CEM billing tariff specification; anonymized B/C/D bill examples and written CEM clarification.  
+**Design implication:** keep the monthly charge as an explicit unknown/contract-versioned tariff component; never reuse the A/EV formula for B/C/D without evidence.  
+**Evidence:** `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`.
 
 ## U-010 — Golden Bill Test cases
 **Status:** NOT ACQUIRED / G1 BLOCKER  
@@ -52,11 +56,13 @@
 **Gate:** Tariff Engine cannot be marked production-ready until reconstruction error is <=0.5% with zero unexplained balancing adjustment.
 
 ## U-011 — Commercial bill rounding / odd-amount carry-forward semantics
-**Status:** OPEN / GOLDEN-BILL VALIDATION REQUIRED  
-**Known:** CEM's bill explanation documents an “Odd Amount” carry-forward/rounding concept.  
-**Unknown:** Exact component-level versus invoice-level rounding/carry-forward behavior for B/C/D commercial bills and how it interacts with reconstruction tolerance.  
-**Resolution path:** real B/C/D bills + CEM billing explanation/contract evidence.  
-**Design implication:** rounding remains an explicit settlement policy; do not round each interval by default.
+**Status:** PARTIALLY RESOLVED / GOLDEN-BILL VALIDATION REQUIRED  
+**Verified public boundary (2026-10-04):** CEM's bill explanation for A and B/C/D says an odd amount is automatically carried to the next bill and the amount payable is rounded down to the nearest ten.  
+**Unknown:** Exact denomination semantics, calculation order across charges/tax/credits, ledger representation/direction, negative adjustment treatment, and whether/how component values are rounded; interaction with reconstruction tolerance remains unverified. No commercial Golden Bill has been reconciled.  
+**Resolution path:** real B/C/D bills + matching meter/load-profile evidence and CEM billing explanation/contract confirmation.  
+**Design implication:** treat the public statement as an invoice-payable-level behavior only; do not infer component rounding or round each interval. Keep settlement policy explicit.
+
+**Evidence:** `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`.
 
 ## U-012 — Macau reference-building calibration targets
 **Status:** OPEN / G7  
@@ -66,9 +72,10 @@
 
 
 ## U-013 — Pinned R0 native point set
-**Status:** RESOLVED FOR v0.9.0 PRE-FLIGHT / LIVE HASH RECHECK REQUIRED  
-**Resolved:** Official v0.9.0 API regression fixtures establish 182 inputs, 204 measurements and 134 forecast points, with exact fixture SHAs recorded in `G7.2-R0-HARNESS-PREFLIGHT.md`.  
-**Remaining runtime check:** A live v0.9.0 deployment must reproduce the same metadata hashes/counts before a run is accepted.
+**Status:** PARTIALLY RESOLVED / CITED PREFLIGHT ARTIFACT NOT IN REPOSITORY / LIVE HASH RECHECK REQUIRED  
+**Recorded authority assertion:** The prior record says official v0.9.0 API regression fixtures establish 182 inputs, 204 measurements and 134 forecast points, with exact fixture SHAs in `G7.2-R0-HARNESS-PREFLIGHT.md`. A recursive audit of all seven current GitHub branch trees (including `main`, PR #8, and the other current branches) found no dedicated path matching `G7.2-R0-HARNESS-PREFLIGHT`, G7.2, R0 or PREFLIGHT. The originating conversation read on 2026-10-04 also had no attached files. The counts and hashes are therefore not independently auditable from available repository/conversation artifacts; retain them as reported, not verified.
+**Resolution path:** Restore the referenced preflight artifact to the canonical research/MVP location or link its immutable source and provenance; reconcile point counts and hashes against the pinned v0.9.0 API fixtures. Then re-run metadata hash/count checks on the approved live deployment and preserve the exact run manifest and outputs.
+**Remaining runtime check:** A live v0.9.0 deployment must reproduce the authoritative metadata hashes/counts before a run is accepted. Do not mark U-013 fully resolved until both the preflight evidence and live recheck are reviewable.
 
 ## U-014 — R0 humidity / latent observability
 **Status:** PARTIALLY RESOLVED / R1 REQUIREMENT IDENTIFIED  
@@ -140,15 +147,15 @@
 
 ## U-025 — Cross-site PV procurement and settlement rights
 **Status:** UNKNOWN / G1 BLOCKER FOR OFF-SITE PV CUSTOMER ECONOMICS  
-**Known:** The current republication of Decree-Law 43/91/M under Law 26/2024 (including the 53/98/M amendment) restricts ordinary supplied electricity to the contracted location and bars its resale/transfer. It also requires written concessionaire approval for a consumer's own generation to operate in parallel with the public grid, except the separately regulated PV route. Administrative Regulation 20/2014 and DSPA/CEM describe a specific approved PV interconnection and producer-to-CEM feed-in purchase route (up to 20 years).  
-**Unknown:** Whether host-building self-consumption can be structured under current CEM contract terms and how that differs from sale of injected surplus; whether a remote customer can obtain bill credits, netting, wheeling, virtual allocation or another recognized settlement benefit. Public sources found so far do not establish those customer entitlements.  
+**Known (updated 2026-10):** The standard low/medium-voltage supply conditions republished under Law 26/2024 make ordinary supplied electricity specific to the contracted location and prohibit its resale/transfer; own generation in parallel with the public grid requires the applicable written approval, subject to the separately regulated PV route. The extended/amended CEM public electricity-supply concession contract, published in Official Gazette Series II 49/2025 and effective 2026-01-01, further states that distribution of electricity self-generated through private installations is outside the public concession only within the same concession/private land parcel as the installation and subject to prior written SAR authorization. The concession requires CEM to purchase renewable output under government-set tariff/price arrangements using bidirectional metering and applicable purchase contracts. Annex VIII allows SAR-owned public renewable generation to offset public lighting or other consumption designated by the SAR; this is not a private customer's virtual-netting entitlement. Administrative Regulation 20/2014 and DSPA/CEM describe the PV-to-grid producer feed-in route (with purchase terms up to 20 years); CEM's application procedure requires legal right to use the installation site and documents a behind-the-meter configuration where anti-backflow may be required. Third-party rooftop ownership/PPA and host-supply treatment remain unsettled. CEM/CSGI's announced cross-border GEC procurement model concerns environmental attributes and is not evidence of physical remote-PV delivery or CEM bill netting.
+**Unknown:** Whether any specific CEM/SAR approval, contract, or settlement arrangement authorizes distribution across separate land parcels, remote account credits, virtual allocation, wheeling, third-party PPA supply, or host-building self-consumption by a separate system owner; how such a structure would be metered, priced and billed. The concession contract narrows the general same-parcel private distribution exception but does not resolve these project-specific arrangements.  
 **Resolution path:** Obtain current CEM PV application/interconnection and purchase contract forms; request written CEM/DSPA/DSSCU clarification on host self-consumption, generator ownership/roof lease or third-party PPA, and any remote account allocation; inspect anonymized contracts, meter diagrams and bills for any actual approved arrangement.  
 **Design implication:** keep PV producer feed-in revenue separate from another site's consumption settlement unless a verified arrangement explicitly links them. Do not model off-site PV as a direct customer bill credit by default.
 
 
 ## U-026 — Official Macau grid-connected PV count reconciliation
-**Status:** OPEN / G1 EVIDENCE QUALITY
-**Question:** Why does CEM's current PV page report 18 connected PV systems as of June 2026 (4,762 kWp), while DSPA's page last revised 2026-09-01 reports 12 grid-connected-and-selling cases as of August 31, 2026?
-**Known:** The sources use different units ("systems" and "cases") and may use different scopes or update cycles.
-**Resolution path:** Confirm the system/case definitions, reporting cutoffs and treatment of connected-but-not-selling or multi-installation projects with CEM and DSPA.
-**Design implication:** Do not combine these figures or use them as a time trend until reconciled.
+**Status:** PARTIALLY RESOLVED / CAPACITY AND SCOPE RECONCILIATION OPEN
+**Question:** Do CEM's connected-system count and DSPA's connected-and-selling count use identical reference dates, operational status and capacity/energy definitions?
+**Known:** CEM's PV introduction page reports 12 connected systems, 4,193 kWp and more than 6 million kWh generated as of January 2026. CEM's 2026-06-08 announcement reports 12 grid-connected systems and more than 6 million kWh cumulatively, without a capacity update. DSPA's page last revised 2026-09-01 reports that by 2026-08-31, 12 systems had proceeded to grid interconnection and electricity sales from 39 consultation cases. The current reported count is consistent at 12, but time cutoffs and the status/category wording differ. The previously recorded CEM figure of 18 systems / 4,762 kWp as of June 2026 is unsupported by the primary CEM pages reviewed and is withdrawn.
+**Resolution path:** Confirm the common reference date, whether CEM's figure counts all connected systems versus systems already selling, and updated capacity/cumulative generation scope with CEM/DSPA before constructing a time series.
+**Design implication:** Current evidence supports existence and reported scale of grid-connected PV, but do not infer capacity growth, project/site count equivalence or generation trend from the mismatched cutoffs.
