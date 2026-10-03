@@ -2,10 +2,11 @@
 
 ## U-001 — CEM Pu averaging/integration interval
 **Status:** UNKNOWN / G1 BLOCKER  
-**Known:** CEM/legislation define Pu as the highest measured demand / maximum periodically measured average active power.  
-**Unknown:** Exact averaging/integration window used for settlement (e.g. 15 min, 30 min or another period).  
-**Resolution path:** real B/C/D meter load-profile + bill, CEM metering configuration or authoritative technical documentation.  
-**Production behavior:** never hard-code 15 minutes.
+**Verified public boundary (2026-10-04):** Administrative Regulation 25/2022 defines Group B Pu through the maximum periodically measured average active power. Current CEM B/C/D tariff pages describe Pu as the highest measured demand during a billing period. The reviewed public sources do not state the meter demand-integration interval or the precise settlement averaging window.  
+**Unknown:** Exact averaging/integration window used for settlement (e.g. 15 min, 30 min or another period), including class/topology-specific differences.  
+**Resolution path:** obtain the CEM demand-register/configuration specification and matched B/C/D bill plus interval/load-profile data; written CEM confirmation if the meter profile does not expose the settlement interval.  
+**Production behavior:** never hard-code 15 minutes.  
+**Evidence:** `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`.
 
 ## U-002 — Commercial PV settlement topology
 **Status:** CONTRACT-SPECIFIC  
