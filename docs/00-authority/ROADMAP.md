@@ -58,6 +58,7 @@ Gate exit criteria below are execution checks derived from the research objectiv
 - VS-001 detailed design draft, explicitly SHADOW-only and non-authorizing: `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md`
 - PRD-to-architecture traceability and design-gap matrix: `docs/03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md` (draft; no implementation completion implied)
 - VS-001 cost-result and replay-manifest contract proposal: docs/03-architecture/detailed-design/VS-001-RESULT-AND-REPLAY-CONTRACT-PROPOSAL-v0.1.md (draft; no schema or stack decision implied)
+- VS-001 identity and tenant authorization detailed design: docs/03-architecture/detailed-design/VS-001-IDENTITY-AND-TENANT-AUTHORIZATION-DESIGN-v0.1.md (draft; identity provider, roles and implementation remain open)
 - Gate-specific evidence and outcomes: `docs/01-research/gates/`
 - Single current handoff and next task: `docs/00-authority/handoff/CURRENT.md`
 
