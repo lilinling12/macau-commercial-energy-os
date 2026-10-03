@@ -93,6 +93,17 @@ Do not assume the research team can determine bill-grade truth from one particip
 - Are there network, cybersecurity, procurement, vendor or operational restrictions?
 - What data cannot leave the site, and what deployment model is acceptable?
 
+### Site-context probes (use selectively; 5–10 min)
+
+After the behavior-first questions, use only the probes that fit the participant's actual site. Ask them to map the physical site, supply account/contract, meters and responsible roles; do not assume one complex equals one bill or one decision-maker.
+
+- **Hotel or resort complex:** How many supply points, meters and contracts cover the operation, and how are they reconciled? Which central plant, chillers, BMS or vendor systems affect energy decisions, and who can change or only observe them? How do occupancy, events and guest-service requirements change operating practice? Which facilities, finance and central teams review the evidence?
+- **Smaller accommodation:** Which energy review and operating tasks are handled by the owner, a small facilities team or an external provider? What tools or vendor services are already used? What data connection, setup effort and ongoing support would be manageable?
+- **Non-hotel commercial site:** Which operating hours, tenants, processes or service constraints shape energy decisions? Which parts of the described workflow match existing practice, and which depend specifically on hotel operations?
+- **Across site types:** What are the actual approval, procurement, data-access and operational handoffs? Which redacted artifacts could confirm the meter/account boundary, recent event or workflow, if the participant is willing?
+
+Treat differences between contexts as evidence to investigate, not as proof that a segment is preferable. Do not request confidential plant diagrams or vendor/network details; a verbal boundary map or redacted, approved artifact is sufficient.
+
 Do not request credentials, live control access, personal data, unredacted bills or sensitive building/network diagrams during discovery.
 
 ### E. Concept check (5–10 min, only after open discovery)
