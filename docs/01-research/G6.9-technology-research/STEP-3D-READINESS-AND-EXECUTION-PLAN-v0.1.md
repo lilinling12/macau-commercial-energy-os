@@ -21,6 +21,19 @@ The v0.3.0 archive contains Step 3C scripts, candidate semantic-slice examples, 
 
 The v0.2.0 archive contains the bake-off specifications, contracts, candidate stack descriptions, protocol corpus, and pack validator. The v0.3.0 archive adds semantic-slice source and recorded Node/Go/Python outputs for the Step 3C run. This is a meaningful increase in executable semantic evidence, but it does not cover the native candidate frameworks or shared infrastructure.
 
+### Provided archive revalidation (2026-10-04)
+
+The user-provided `macau-energy-os-stack-bakeoff-v0.2.0.zip` and `macau-energy-os-stack-bakeoff-v0.3.0.zip` were rechecked on the current host. Archive SHA-256 values:
+
+- v0.2.0: `189377f4d7757532b310e82db729fd22a580147c3aac7d5d0059fa63736a8389`
+- v0.3.0: `b8825e9e93ce3ab612da71701a0712cf9a94c37c3861724a1716d01b47e6767b`
+
+The included `scripts/validate_pack.py` passed for both archives. This pack-only validator verifies required-path presence, parses selected JSON files, and prints hashes for those required files; it does not execute candidate code or establish Step 3C/3D runtime correctness.
+
+The v0.2.0 archive has 38 non-directory entries and v0.3.0 has 67. A full SHA-256 comparison found 29 files added, one removed (a precompiled Go command-verifier binary), and three modified (`README.md`, `spec/VERTICAL-SLICE.md`, `VERSION`). All other overlapping files are byte-identical. The added files include the Step 3C source and recorded outputs; the archive still has no Step 3D runner/results or TypeScript candidate lockfiles.
+
+The host was rechecked at Node v22.20.0 and Python 3.11.9; Docker/Compose, Bun, and Go are unavailable on PATH. The required Step 3D execution cannot run on this host as currently provisioned. No Step 3C or Step 3D runtime experiment was run during this revalidation.
+
 ### Step 3C environment and scope
 
 The v0.3.0 Step 3C record states that the run used Node 22.16.0, Go 1.23.2, and Python 3.13.5; Bun and Docker were unavailable. It explicitly says MQTT, Postgres/Timescale, Temporal, Hono/Effect, and NestJS/Fastify were not run. The result is semantic conformance evidence for available shells, not a framework winner or performance comparison.
