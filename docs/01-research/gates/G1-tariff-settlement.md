@@ -12,7 +12,7 @@
 3. What is the exact Pu demand averaging/integration window for applicable customer classes and meter configurations (U-001)?
 4. How are energy periods, demand charges, fixed/monthly charges, taxes/installation-use charges, credits, rounding, carry-forward and adjustments calculated and ordered?
 5. What real Golden Bill and matching interval/load-profile evidence is available for each representative tariff class, and can the full invoice be reconstructed without unexplained balancing adjustments (U-010)?
-6. Which PV/ESS import, self-consumption, export and producer payments are permitted for a specific site, concession/land parcel, contract and account? What settlement applies, and what is unknown about cross-site rights (U-002/U-025)?
+6. Which PV/ESS import, self-consumption, export and producer payments are permitted for a specific site, concession/land parcel, contract and account? What project-specific interconnection/approved-capacity constraints apply, what settlement follows, and what remains unknown about cross-site rights (U-002/U-025)?
 7. What does the public mismatch in PV installation counts describe—date, installed vs connected/selling system, capacity vs unit count, and reporting scope (U-026)?
 8. What meter/AMI data is available to third parties and under what sampling, export, retention, security and commercial terms (U-003)?
 9. Which claims are bill-reconstruction results, interval assessments, baseline comparisons, producer export revenue or scenario-only economics, and what evidence is required for each?
