@@ -124,7 +124,8 @@ flowchart LR
   Browser["User browser / product UI<br/>React + TypeScript proposal; not approved"]
   API["Authenticated product API / BFF<br/>framework and placement TBD"]
   Core["Energy application core<br/>identity scope · graph · tariff/cost<br/>recommendation · review · evidence"]
-  Ingest["Telemetry ingress / validation"]
+  Ingest["Authenticated telemetry ingress<br/>producer and site authorization"]
+  RawCapture[("Durable raw capture<br/>logical store; physical placement TBD")]
   Bus["Event transport<br/>NATS JetStream candidate"]
   Workflow["Durable workflow orchestration<br/>Temporal candidate"]
   Workers["Domain workers<br/>TS/Go candidate responsibilities"]
@@ -140,9 +141,11 @@ flowchart LR
   API -->|"authorized scoped use cases"| Core
   Site --> Edge
   Edge -->|"authenticated scoped telemetry"| Ingest
-  Ingest -->|"validated event; candidate async path"| Bus
+  Ingest -->|"authorized raw payload + receipt metadata"| RawCapture
+  RawCapture -->|"publish only after durable capture"| Bus
   Bus --> Workers
-  Workers --> Core
+  Workers -->|"canonical event / quality / mapping"| DB
+  DB --> Core
   Core --> DB
   Core --> Evidence
   Core --> Workflow
@@ -154,7 +157,7 @@ flowchart LR
   Safety -.-> Device
 ```
 
-The browser is untrusted; API authentication does not itself establish a tenant/site grant. The application core must enforce scope in synchronous requests and in persisted/queued work. Event-bus payload fields do not establish producer identity. Evidence writes must be durable before the system reports a completed material result; the physical persistence mechanism and retention remain undecided.
+The browser is untrusted; API authentication does not itself establish a tenant/site grant. The application core must enforce scope in synchronous requests and in persisted/queued work. Event-bus payload fields do not establish producer identity. Telemetry acceptance order is explicit: authenticate and authorize the producer, durably capture the original payload and receipt metadata, and only then publish downstream or acknowledge accepted intake. If raw capture cannot be made durable, apply backpressure and do not acknowledge acceptance. Normalization and downstream publication retain a reference to that raw record. The physical raw/evidence stores, transactional boundary, and retention remain undecided. Derived evidence writes must likewise be durable before the system reports a completed material result.
 
 | Logical runtime group | Responsibility / proposed boundary | Deployment decision still open |
 |---|---|---|
