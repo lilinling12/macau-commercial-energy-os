@@ -23,6 +23,7 @@ Research → Decision → Architecture → Engineering → Implementation.
 - Reusable research and coding task packet: `docs/04-engineering/ai-coding-governance/TASK-PACKET-TEMPLATE.md`
 - Product design approval and engineering delivery governance (proposed): `docs/04-engineering/PRODUCT-DESIGN-AND-DELIVERY-GOVERNANCE-v0.1.md`
 - Research-derived product scope and user workflow: `docs/02-product/PRODUCT-DESIGN.md`
+- Product and architecture owner review packet (unapproved; choices and Pro Max synthesis): `docs/02-product/PRODUCT-AND-ARCHITECTURE-REVIEW-PACKET-v0.1.md`
 - Research-derived product requirements draft (not customer-approved): `docs/02-product/PRD-v0.1.md`
 - Product information architecture, user flows and screen requirements (draft): `docs/02-product/USER-FLOWS-AND-IA-v0.1.md`
 - Clickable HTML product prototype v0.1 (synthetic data, no live control): `docs/02-product/prototype/v0.1/index.html`
