@@ -51,6 +51,20 @@ The following source files were inspected on the PR branch. This is static code 
 | **PR-08** | `recommendation.v1.schema.json`, `ports.ts`, `vs001.service.ts` | The external schema enumerates SHADOW, HUMAN_APPROVAL and CONTROLLED_EXECUTION, while the current service type accepts only SHADOW. This is an appropriate boundary for VS-001, but no approval lifecycle, command arbitration, Edge Safety Kernel, signing/key lifecycle or command acknowledgement path is implemented by the inspected VS-001 code. **Shadow-only slice; G6 remains OPEN.** |
 | **PR-09** | `implementation/edge-runtime/README.md`, `implementation/edge-runtime/internal/telemetry/event.go`, `event_test.go` | README lists intended adapters, buffering, retry and health responsibilities; inspected code defines/serializes an event structure. The inspected files do not demonstrate protocol adapters, persistent buffering, reconnect/retry, health reporting or an operator integration-health view. **Responsibility stated; runtime capability not evidenced.** |
 
+### Additional repository-level implementation inventory
+
+The recursive source tree and module entrypoints were also checked:
+
+| Product capability | Repository evidence | Finding |
+|---|---|---|
+| User-facing product UI | No frontend/application UI source tree or UI package is present under `implementation/` in the inspected recursive tree | Product screens and interaction workflows are not implemented in the inspected implementation tree |
+| Persistent domain storage / migrations | No database module, ORM models, migration files or durable evidence adapter appears in the inspected implementation tree | No evidence for production persistence, schema migration, tenant-scoped storage or recovery |
+| API authentication and readiness | `platform-api/src/main.ts`, `app.module.ts`, `vs001.controller.ts`, `health.controller.ts` | Platform starts an HTTP server; no auth guard/provider is wired in AppModule. Health endpoint returns UP unconditionally; no dependency/readiness checks are evidenced |
+| Edge runtime | `edge-runtime/cmd/edge/main.go`, `internal/telemetry/event.go` | Executable only logs that bootstrap started; event type exists, but no protocol adapter, broker/network transport, buffering, key management, command execution or local Safety Kernel appears in this tree |
+| Command arbitration / Safety Kernel | `docs/03-architecture/command-arbitration/README.md`, `safety-kernel/README.md`; no corresponding implementation package in `implementation/` | Principles are documented, but policy evaluation, veto, command lifecycle, offline fallback, manual override, signing, replay protection and actuator writes are not implemented in the inspected tree |
+| Simulator / live harness | `implementation/simulator/README.md` | Responsibilities and G7.2 constraint are documented; no simulator executable, BOPTEST adapter, run manifest generator or live R0 evidence is present in the implementation tree |
+| CI evidence | `.github/workflows/runtime-bootstrap.yml`, `contracts-validation.yml` | Workflows define build/typecheck/unit/fixture/replay checks when triggered. They are not production integration, security, resilience, UI or pilot acceptance evidence |
+
 ### Scope and limits of this audit
 
 This audit did not inspect every file or dependency in the repository, execute the application, run existing tests, review database migrations, verify deployment behavior, or conduct penetration/reliability tests. Tests present in the repository use in-memory/static fakes for the VS-001 service path; the Edge test inspected verifies event serialization. These are useful scaffold checks but do not establish product acceptance, persistent replay, site integration, G6 closure, or pilot readiness.
