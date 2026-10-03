@@ -153,8 +153,8 @@
 
 
 ## U-026 — Official Macau grid-connected PV count reconciliation
-**Status:** OPEN / G1 EVIDENCE QUALITY
-**Question:** Why does CEM's current PV page report 18 connected PV systems as of June 2026 (4,762 kWp), while DSPA's page last revised 2026-09-01 reports 12 grid-connected-and-selling cases as of August 31, 2026?
-**Known:** The sources use different units ("systems" and "cases") and may use different scopes or update cycles.
-**Resolution path:** Confirm the system/case definitions, reporting cutoffs and treatment of connected-but-not-selling or multi-installation projects with CEM and DSPA.
-**Design implication:** Do not combine these figures or use them as a time trend until reconciled.
+**Status:** PARTIALLY RESOLVED / CAPACITY AND SCOPE RECONCILIATION OPEN
+**Question:** Do CEM's connected-system count and DSPA's connected-and-selling count use identical reference dates, operational status and capacity/energy definitions?
+**Known:** CEM's PV introduction page reports 12 connected systems, 4,193 kWp and more than 6 million kWh generated as of January 2026. CEM's 2026-06-08 announcement reports 12 grid-connected systems and more than 6 million kWh cumulatively, without a capacity update. DSPA's page last revised 2026-09-01 reports that by 2026-08-31, 12 systems had proceeded to grid interconnection and electricity sales from 39 consultation cases. The current reported count is consistent at 12, but time cutoffs and the status/category wording differ. The previously recorded CEM figure of 18 systems / 4,762 kWp as of June 2026 is unsupported by the primary CEM pages reviewed and is withdrawn.
+**Resolution path:** Confirm the common reference date, whether CEM's figure counts all connected systems versus systems already selling, and updated capacity/cumulative generation scope with CEM/DSPA before constructing a time series.
+**Design implication:** Current evidence supports existence and reported scale of grid-connected PV, but do not infer capacity growth, project/site count equivalence or generation trend from the mismatched cutoffs.
