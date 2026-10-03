@@ -57,6 +57,7 @@ Gate exit criteria below are execution checks derived from the research objectiv
 - Logical system architecture and technology decision states: `docs/03-architecture/ARCHITECTURE-DESIGN.md`
 - VS-001 detailed design draft, explicitly SHADOW-only and non-authorizing: `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md`
 - PRD-to-architecture traceability and design-gap matrix: `docs/03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md` (draft; no implementation completion implied)
+- VS-001 cost-result and replay-manifest contract proposal: docs/03-architecture/detailed-design/VS-001-RESULT-AND-REPLAY-CONTRACT-PROPOSAL-v0.1.md (draft; no schema or stack decision implied)
 - Gate-specific evidence and outcomes: `docs/01-research/gates/`
 - Single current handoff and next task: `docs/00-authority/handoff/CURRENT.md`
 
@@ -81,7 +82,7 @@ Use G0/G2/G3 evidence to refine in-scope assets and customer workflows. PRD-v0.1
 ### WP-5 — Complete architecture and detailed design
 Translate approved product requirements and passed Gate outputs into component-level designs. The first bounded draft now covers VS-001 in `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md`; it is not yet approved or production-authoritative. Extend detailed design across all validated MVP journeys and specify module boundaries, API/event/data contracts, persistence and migrations, workflow state machines, security/threat and key-lifecycle design, tenant isolation, failure/recovery semantics, deployment topology, SLO/observability, operations and rollback. Keep provisional stack choices replaceable until G6.9-R2 Step 4 records a formal decision.
 
-**Progress evidence:** VS-001 has an initial component-level draft and the PRD has a requirement-to-architecture gap matrix. Both are drafts; the traceability matrix includes a preliminary static audit of VS-001/Edge/optimizer sources and the implementation tree, while runtime, full module, security and pilot audits remain outstanding.
+**Progress evidence:** VS-001 has an initial component-level draft and the PRD has a requirement-to-architecture gap matrix. These design artifacts are drafts; the traceability matrix includes a preliminary static audit the traceability matrix includes a preliminary static audit of VS-001/Edge/optimizer sources and the implementation tree, while runtime, full module, security and pilot audits remain outstanding.
 
 **Exit evidence:** approved architecture decisions linked to bake-off and Gate evidence; detailed design covers every validated MVP path and failure mode; contracts and acceptance tests are traceable; G6 security unknowns and operational authorization are explicit.
 
