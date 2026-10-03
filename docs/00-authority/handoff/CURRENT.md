@@ -17,7 +17,7 @@ The project objective is to complete and validate the product design, complete t
 
 Definition of done spans: customer/problem validation; product requirements and tested workflows; passed domain/safety/technology gates or explicitly bounded pilot limitations; approved architecture and detailed designs; implementation mapped to requirements; security/reliability/acceptance evidence; site authorization; pilot measurement; and an expand/remediate/stop decision.
 
-**Current active delivery record:** PR #8, branch `docs/product-architecture-roadmap` (open, not merged). It contains the research-derived product baseline, PRD draft, logical architecture, research/coding continuity, roadmap, product interaction design draft, VS-001 detailed-design draft, PRD-to-architecture traceability matrix, and expanded G6 evidence/closure checklist. These documents remain drafts; customer validation, complete detailed design, production stack selection, implementation completion, and pilot evidence are outstanding. Changes on this branch are not yet on `main`.
+**Current active delivery record:** PR #8, branch `docs/product-architecture-roadmap` (open, not merged). It contains the research-derived product baseline, PRD draft, logical architecture, research/coding continuity, roadmap, product interaction design draft and clickable prototype, VS-001 detailed-design draft, PRD-to-architecture traceability matrix, and expanded G6 evidence/closure checklist. These documents remain drafts; customer validation, complete detailed design, production stack selection, implementation completion, and pilot evidence are outstanding. Changes on this branch are not yet on `main`.
 
 ## Research state
 
@@ -68,7 +68,7 @@ Immediate work:
 
 ### Active design progress on PR #8
 
-- `docs/02-product/USER-FLOWS-AND-IA-v0.1.md` translates PRD PR-01..PR-09 into role hypotheses, information architecture, four primary task flows, nine screen responsibilities, error/unknown/freshness behavior and user-validation criteria. It is explicitly unvalidated; no customer workflow is claimed as confirmed.
+- `docs/02-product/USER-FLOWS-AND-IA-v0.1.md` translates PRD PR-01..PR-09 into role hypotheses, information architecture, four primary task flows, nine screen responsibilities, error/unknown/freshness behavior and user-validation criteria. It is explicitly unvalidated; no customer workflow is claimed as confirmed.\n- `docs/02-product/prototype/v0.1/index.html` is a no-framework clickable demo of portfolio/site/data/model/economics/recommendations/evidence views with synthetic data, responsive layout, keyboard-focus support and demo-only local annotations/replay state. It has no runtime/API connection and is not usability-validated.
 
 - `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md` covers the shadow-mode energy intelligence loop, its component boundaries, data/time semantics, failures, evidence/replay, security boundaries, and current contract gaps.
 - `docs/03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md` maps all nine PRD requirements to current logical designs/contracts and records a preliminary static source audit of the VS-001/Edge/optimizer scaffold. It identifies gaps and does not claim product implementation completion.
