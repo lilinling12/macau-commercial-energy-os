@@ -115,6 +115,62 @@ See `docs/03-architecture/technology-authority/` and the G6.9-R2 bake-off Author
 7. If a later gate authorizes control, convert a proposal into a scoped command; Edge revalidates freshness, identity, policy, and local safety before any device write.
 8. Record acknowledgement and physical effect separately; retries must not create duplicate physical writes.
 
+## Logical runtime view for review
+
+This view makes runtime responsibilities and trust boundaries concrete enough for product-owner and engineering review. It describes logical runtime groups, not a one-process-per-box mandate. Candidate A/B/C+ may group the cloud responsibilities differently; deployment, provider, region and shared/dedicated/private mode remain open.
+
+```mermaid
+flowchart LR
+  Browser["User browser / product UI\nReact + TypeScript proposal; not approved"]
+  API["Authenticated product API / BFF\nframework and placement TBD"]
+  Core["Energy application core\nidentity scope · graph · tariff/cost\nrecommendation · review · evidence"]
+  Ingest["Telemetry ingress / validation"]
+  Bus["Event transport\nNATS JetStream candidate"]
+  Workflow["Durable workflow orchestration\nTemporal candidate"]
+  Workers["Domain workers\nTS/Go candidate responsibilities"]
+  AI["Forecast / optimization jobs\nPython responsibility; execution mode TBD"]
+  DB[("Operational + time-series persistence\nPostgreSQL + Timescale baseline for evaluation")]
+  Evidence[("Durable evidence / artifact persistence\nphysical store, immutability and retention TBD")]
+  Edge["Site Edge agent\nGo responsibility proposal\nprotocol adapters · bounded local buffer"]
+  Site["Meters / BMS / approved read-only sources"]
+  Safety["Future local Safety Kernel\nno MVP device-write path"]
+  Device["Equipment write boundary\nonly after G6/G7 + site authorization"]
+
+  Browser -->|"authenticated HTTPS"| API
+  API -->|"authorized scoped use cases"| Core
+  Site --> Edge
+  Edge -->|"authenticated scoped telemetry"| Ingest
+  Ingest -->|"validated event; candidate async path"| Bus
+  Bus --> Workers
+  Workers --> Core
+  Core --> DB
+  Core --> Evidence
+  Core --> Workflow
+  Workflow --> Workers
+  Workers --> AI
+  AI -->|"versioned proposal inputs/results"| Core
+  Core -.->|"future proposal only; G6/G7 and site authorization"| Edge
+  Edge -.-> Safety
+  Safety -.-> Device
+```
+
+The browser is untrusted; API authentication does not itself establish a tenant/site grant. The application core must enforce scope in synchronous requests and in persisted/queued work. Event-bus payload fields do not establish producer identity. Evidence writes must be durable before the system reports a completed material result; the physical persistence mechanism and retention remain undecided.
+
+| Logical runtime group | Responsibility / proposed boundary | Deployment decision still open |
+|---|---|---|
+| Browser experience | Present onboarding, evidence, cost-analysis and SHADOW review workflows; no direct device authority. React + TypeScript is a proposal only. | Framework, hosting, localization, supported browsers and responsive/accessibility acceptance after owner and user review. |
+| Product API and application core | Authenticate, resolve authorization context and execute scoped product use cases. Preserve domain boundaries for Energy Graph, settlement, cost, recommendation and evidence. | Candidate A/B/C+ determines framework/process grouping after Step 3D/4; do not turn every module into a service by default. |
+| Telemetry ingress and async transport | Authenticate producer identity, validate source/site/point binding and persist accepted/rejected raw evidence before downstream processing. Broker decouples ingest only if measured workloads/failure needs support it. | NATS JetStream is a candidate, not a requirement; transport, acknowledgement and replay semantics depend on connector and Step 3D evidence. |
+| Workflow and domain workers | Run long-lived/retried business workflows with explicit state, idempotency and tenant/site scope. | Temporal is a candidate; runner persistence is still a Step 3D owner decision. Worker language/process placement follows candidate evidence. |
+| AI/forecast/optimization jobs | Produce versioned, bounded SHADOW proposals with assumptions, constraints, uncertainty and evidence refs; no authority to change tariff truth or invoke field writes. | Python is the proposed responsibility boundary; model/solver/provider, isolation and execution mode remain open. |
+| Persistence and evidence | Keep operational/series data distinct from immutable or append-only evidence semantics; preserve versioned lineage and tenant scope. | PostgreSQL + Timescale is the evaluation baseline; evidence object store, canonical digest, retention, region, backup and deployment mode remain open. |
+| Site Edge | Authenticate and scope telemetry, buffer only under approved policy, report source/device health. In the MVP it has no device-write path. | Go is the responsibility proposal; target hardware, protocols, local store, update/support model and key custody require site/security evidence. |
+| Safety Kernel and device adapter | Future local veto, limits, manual/offline behavior and command replay protection; separate proposal from acknowledgement and measured physical effect. | Outside current MVP; command authority, hardware/key design and every field integration require G6/G7 closure and explicit site/customer authorization. |
+
+### Runtime review boundary
+
+Review this view as responsibilities and trust boundaries. The owner may revise the product/authority boundary. Do not approve production containers, provider, region, HA topology, datastore split, protocol, cryptographic mechanism or microservice count from this diagram. Those need the selected product scope, G6.9-R2 evidence, deployment context, security review and operational targets.
+
 ## Macau-specific settlement constraint
 
 Grid-connected PV export and the generator's feed-in settlement must be represented independently from another building customer's retail meter and bill. The amended public electricity-supply concession contract effective 2026-01-01 contemplates distribution of privately generated electricity only within the same concession/private land parcel and with prior written SAR authorization; model this only as a distinct, explicitly authorized physical distribution relationship. It does not establish cross-parcel allocation or retail bill credit. Do not allocate remote PV generation as customer bill credit unless the applicable contract, regulatory permission, meter topology, and CEM settlement evidence establish that right. U-025 remains open.
