@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://macau-commercial-energy-os/contracts/evidence-record.v1.schema.json",
+  "title": "EvidenceRecordV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "evidenceId",
+    "status",
+    "subject",
+    "recordedAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "evidenceId": { "type": "string", "minLength": 1 },
+    "status": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "DERIVED",
+        "HYPOTHESIS",
+        "PROJECT_ASSUMPTION",
+        "UNKNOWN",
+        "CONTRACT_VERIFIED"
+      ]
+    },
+    "subject": { "type": "string", "minLength": 1 },
+    "recordedAt": { "type": "string", "format": "date-time" },
+    "sourceRefs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "derivation": { "type": "string" },
+    "notes": { "type": "string" }
+  }
+}
