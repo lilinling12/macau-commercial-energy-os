@@ -250,7 +250,8 @@ const labels = {
   portfolio: 'Portfolio overview', site: 'Site overview', data: 'Data health',
   model: 'Site model', economics: 'Economics', recommendations: 'Recommendations', evidence: 'Evidence & replay'
 };
-function showView(name) {
+function showView(name, { updateHistory = true } = {}) {
+  const currentView = document.querySelector('.view.active')?.id.slice('view-'.length);
   document.querySelectorAll('.view').forEach((el) => el.classList.toggle('active', el.id === 'view-' + name));
   document.querySelectorAll('.nav-item').forEach((el) => {
     if (el.dataset.view === name) el.setAttribute('aria-current', 'page');
@@ -258,15 +259,15 @@ function showView(name) {
   });
   const title = document.querySelector('#view-' + name + ' h1');
   if (title) title.focus?.();
-  history.replaceState(null, '', '#' + name);
+  if (updateHistory && currentView !== name) history.pushState({ view: name }, '', '#' + name);
 }
 document.querySelectorAll('[data-view]').forEach((button) => button.addEventListener('click', () => showView(button.dataset.view)));
 document.querySelectorAll('[data-goto]').forEach((button) => button.addEventListener('click', () => showView(button.dataset.goto)));
 function syncHash() {
-  const name = location.hash.slice(1);
-  if (labels[name]) showView(name);
+  const name = location.hash.slice(1) || 'portfolio';
+  if (labels[name]) showView(name, { updateHistory: false });
 }
-window.addEventListener('hashchange', syncHash);
+window.addEventListener('popstate', syncHash);
 if (location.hash) syncHash();
 
 document.querySelector('#point-filter').addEventListener('change', (event) => {
