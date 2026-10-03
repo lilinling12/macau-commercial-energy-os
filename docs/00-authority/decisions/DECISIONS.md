@@ -334,5 +334,5 @@ Stable project decisions. Do not silently overwrite; supersede with a new decisi
 
 ## D-077 — Macau grid-connected PV injection and settlement boundary
 **Decision:** For an approved customer PV installation, model public-grid interconnection as a regulated, metered process requiring the applicable project acceptance, CEM interconnection arrangement, connection-point meter and contract. CEM's published feed-in tariff is producer-side export settlement. Do not treat another building's injected PV kWh as a consuming customer's bill credit or procurement entitlement without separate verified legal, CEM, metering and contract evidence. Keep producer export revenue as a separate settlement stream unless an approved arrangement explicitly links the accounts.  
-**Evidence:** CEM PV introduction, application procedure and feed-in-tariff pages reviewed 2026-10-03; see `docs/evidence/G1-PV-GRID-INTERCONNECTION-2026-10.md`.  
+**Evidence:** CEM PV introduction, application procedure and feed-in-tariff pages reviewed 2026-10-03; see `docs/01-research/evidence/G1-PV-GRID-INTERCONNECTION-2026-10.md`.  
 **Status:** ACTIVE for modeling boundary; U-025 remains open for cross-site rights.

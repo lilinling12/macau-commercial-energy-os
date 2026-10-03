@@ -5,7 +5,7 @@ AI-assisted implementation is allowed and expected, but it operates under reposi
 ## Required sequence
 
 1. Read AGENTS.md.
-2. Read docs/handoff/CURRENT.md.
+2. Read docs/00-authority/handoff/CURRENT.md.
 3. Read only the Authority relevant to the task.
 4. Identify contracts and architectural boundaries.
 5. Define an explicit implementation scope.

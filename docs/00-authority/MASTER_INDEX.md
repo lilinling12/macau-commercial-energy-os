@@ -2,21 +2,27 @@
 
 ## Purpose
 
-This document is the entry point for all project knowledge.
+This is the entry point for project knowledge. The repository's numbered documentation structure follows the original research-to-delivery framework:
 
-Authority flow:
+Research → Decision → Architecture → Engineering → Implementation.
 
-Research -> Decision -> Architecture -> Engineering -> Implementation
+## Canonical directory structure
 
-## Structure
+- `docs/00-authority/`: project state, roadmap, decisions, open questions and handoff instructions.
+- `docs/01-research/`: domain and technology research, research gates, evidence register and source-backed evidence notes.
+- `docs/02-product/`: product thesis, customer segments, commercial model, MVP definition and pilot design.
+- `docs/03-architecture/`: system boundaries and architecture records, including technology selection authority.
+- `docs/04-engineering/`: development workflow, module boundaries, AI coding governance and CI/CD.
+- `docs/05-mvp/`: executable MVP plans and vertical slices.
 
-- 00-authority: governance and project state
-- 01-research: research evidence and exploration
-- 02-product: product decisions and requirements
-- 03-architecture: architecture principles and ADRs
-- 04-engineering: engineering standards and delivery governance
-- 05-mvp: implementation planning
+All authoritative project documentation belongs under these six numbered directories. Do not create parallel unnumbered documentation roots under `docs/`. Keep implementation source code in the repository's `implementation/` directory.
+
+## Authority chain
+
+Research → Evidence → Decision → Architecture → Engineering → Implementation.
+
+Every implementation decision must trace to an approved decision and its supporting evidence. Research conclusions, assumptions and unresolved questions must retain their status.
 
 ## Rule
 
-Implementation decisions must be traceable to authority documents.
+When adding or moving documentation, update this index and every affected internal link in the same change.

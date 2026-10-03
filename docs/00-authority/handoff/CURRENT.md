@@ -74,12 +74,12 @@ Do not claim:
 
 Read:
 1. `AGENTS.md`
-2. `docs/handoff/README.md`
-3. `docs/handoff/CURRENT.md`
-4. `docs/decisions/DECISIONS.md`
-5. `docs/decisions/OPEN-QUESTIONS.md`
-6. `docs/technology/G6.9-technology-selection/README.md`
-7. `docs/evidence/G1-PV-GRID-INTERCONNECTION-2026-10.md`
+2. `docs/00-authority/handoff/README.md`
+3. `docs/00-authority/handoff/CURRENT.md`
+4. `docs/00-authority/decisions/DECISIONS.md`
+5. `docs/00-authority/decisions/OPEN-QUESTIONS.md`
+6. `docs/03-architecture/technology-authority/G6.9-technology-selection/README.md`
+7. `docs/01-research/evidence/G1-PV-GRID-INTERCONNECTION-2026-10.md`
 8. Authority files referenced by the current task.
 
 GitHub live state, exact-head CI, verified evidence, and Decision Records take precedence over chat memory.

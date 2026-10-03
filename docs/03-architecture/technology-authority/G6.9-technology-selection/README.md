@@ -39,4 +39,4 @@ D-030's tariff semantic design remains active. Its Java 25 / Spring Boot impleme
 
 ## Decision records
 
-See D-062..D-076 in `docs/decisions/DECISIONS.md`. In particular: D-064 (C+ provisional only), D-068 (common bake-off required), D-069 (suspend Java implementation authority), and D-076 (Step 3C is semantic evidence only).
+See D-062..D-076 in `docs/00-authority/decisions/DECISIONS.md`. In particular: D-064 (C+ provisional only), D-068 (common bake-off required), D-069 (suspend Java implementation authority), and D-076 (Step 3C is semantic evidence only).
