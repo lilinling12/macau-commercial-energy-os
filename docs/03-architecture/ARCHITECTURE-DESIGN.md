@@ -30,6 +30,51 @@ Cloud Intelligence Plane
 
 Cloud analysis and optimization do not directly write to equipment. Edge is the site execution boundary; the Safety Kernel may reject any proposal. Initial product operation is SHADOW/advisory.
 
+## System context and trust boundaries
+
+The following is a logical view for product and architecture review. Boxes are responsibility boundaries, not a mandated microservice or deployment topology. The cloud framework, service decomposition and production runtime remain open under G6.9-R2.
+
+```mermaid
+flowchart LR
+  Actors["Facilities / operations / finance users"]
+  EvidenceSources["CEM tariff rules / site contracts / meter records"]
+
+  subgraph SiteBoundary["Customer site trust boundary"]
+    Sources["Meters / BMS / HVAC / PV / ESS / EV"]
+    Edge["Site Edge: protocol adapters / local buffer"]
+    Safety["Safety Kernel: local policy / veto / audit"]
+    Equipment["Device adapters / equipment"]
+    Sources --> Edge
+    Edge -. "local command validation when enabled" .-> Safety
+    Safety -. "only after G6 and site authorization" .-> Equipment
+  end
+
+  subgraph CloudBoundary["Cloud platform trust boundary"]
+    UI["Operator workspace (framework TBD)"]
+    Ingress["Authenticated telemetry ingress / quality"]
+    Graph["Energy Graph: physical, electrical and settlement views"]
+    Tariff["Tariff and Settlement"]
+    Cost["Cost / demand analysis"]
+    Intelligence["Forecasting / optimization"]
+    Proposal["SHADOW recommendation"]
+    Review["Operator review event"]
+    Evidence["Evidence / audit / replay"]
+
+    Ingress --> Graph --> Tariff --> Cost --> Intelligence --> Proposal
+    Proposal --> UI
+    UI --> Review --> Evidence
+    Proposal --> Evidence
+    Evidence --> UI
+  end
+
+  Actors --> UI
+  Edge -- "scoped telemetry" --> Ingress
+  EvidenceSources --> Tariff
+  Proposal -. "future command proposal; G6 + site authorization required" .-> Edge
+```
+
+Solid paths show the initial telemetry, analysis, SHADOW and evidence loop. Dashed paths show a possible future command route only; the MVP has no device-write affordance, and a cloud proposal never bypasses the site Edge or Safety Kernel. The diagram does not imply that a particular external contract, tariff source or site connection is already integrated.
+
 ## Domain responsibilities
 
 - **Telemetry and provenance:** preserve source, site/tenant, event time, ingestion time, quality, and mapping status.
