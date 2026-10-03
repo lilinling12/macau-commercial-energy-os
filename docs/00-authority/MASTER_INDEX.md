@@ -36,6 +36,7 @@ Research → Decision → Architecture → Engineering → Implementation.
 - VS-001 identity and tenant authorization design (draft; provider/roles not selected): docs/03-architecture/detailed-design/VS-001-IDENTITY-AND-TENANT-AUTHORIZATION-DESIGN-v0.1.md
 - PRD-to-architecture traceability and design-gap matrix (draft): `docs/03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md`
 - Current status and next authorized work: `docs/00-authority/handoff/CURRENT.md`
+- G1 CEM billing, demand-window and smart-meter unknown review (2026-10; partial public evidence): `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`
 
 All authoritative project documentation belongs under these six numbered directories. Do not create parallel unnumbered documentation roots under `docs/`. Keep implementation source code in the repository's `implementation/` directory.
 
