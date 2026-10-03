@@ -117,15 +117,15 @@ Do not infer willingness to pay from hypothetical price reactions alone. Record 
 
 ## 5. Prototype usability session (45 minutes)
 
-Use the synthetic prototype; label all records as synthetic and do not connect it to a live site. Tell participants the interface is being evaluated, not their expertise. Ask them to think aloud while allowing natural work.
+Use synthetic prototype v0.2; label all records as synthetic and do not connect it to a live site. Tell participants the interface is being evaluated, not their expertise. Ask them to think aloud while allowing natural work. Where relevant, compare the result-kind choices and review dispositions without coaching.
 
 Choose the tasks relevant to the participant's role:
 
 1. **Check site readiness:** identify whether the site data is current and trustworthy; state what is missing and what it affects.
-2. **Explain an economic result:** find its meter, period, contract/tariff evidence, coverage, assumptions and unresolved blockers.
+2. **Explain an economic result:** identify whether the view is bill reconstruction, interval assessment, or baseline comparison; find its meter, period, contract/tariff evidence, coverage, assumptions and unresolved blockers; explain what the evidence permits the user to conclude.
 3. **Distinguish energy streams:** explain consumer settlement versus PV producer export and say whether one can be credited to the other site's bill from the evidence shown.
-4. **Review a SHADOW recommendation:** identify its baseline, horizon, proposed action, predicted effect, uncertainty and constraints; explain whether it has been executed.
-5. **Inspect evidence/replay:** find pinned source/rule/model versions and determine whether replay is complete or unavailable.
+4. **Review a SHADOW recommendation:** identify its baseline, horizon, proposed action, predicted effect, uncertainty and constraints; choose or interpret reviewed/dismissed/needs-data; explain why that disposition neither authorizes execution nor proves an outcome.
+5. **Inspect evidence/replay:** find pinned source/rule/model versions, separate replay state from measured-outcome state, and determine whether replay is complete or unavailable and whether an outcome has actually been measured.
 6. **Recover from a failure state:** respond to stale/partial data, missing authorization, or a failed integration without silently treating the result as verified.
 
 Do not coach during the first attempt. If the participant is stuck, ask what they expect to happen; then provide neutral assistance and record it.
@@ -143,7 +143,7 @@ Record per task:
 - severity and frequency of each issue;
 - proposed design change and the evidence supporting it.
 
-Task time is contextual only; do not compare users with different task familiarity as if it were a benchmark. A task is not successful if the participant reaches the right screen but misunderstands verified vs assumed, SHADOW vs execution, or consumer vs PV-export settlement.
+Task time is contextual only; do not compare users with different task familiarity as if it were a benchmark. A task is not successful if the participant reaches the right screen but misunderstands bill reconstruction vs interval estimate vs modeled comparison; review disposition vs execution vs measured outcome; verified vs assumed; SHADOW vs execution; or consumer vs PV-export settlement.
 
 ## 6. Evidence handling and synthesis
 
