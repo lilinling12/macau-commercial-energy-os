@@ -55,7 +55,7 @@ Evidence discipline applies to research, architecture and implementation decisio
 
 ## G1 — CEM billing and demand-rule evidence
 
-- **Claim:** Public CEM material partially documents payable-amount rounding/odd-amount carry-forward and defines high-level tariff/billing descriptions; reviewed public material does not settle Pu's numeric integration window or the B/C/D monthly installation-use charge formula.
+- **Claim:** Public CEM material partially documents payable-amount rounding/odd-amount carry-forward and defines high-level tariff/billing descriptions; reviewed public material does not settle Pu's numeric integration window or the current legal/contractual basis and B/C/D formula for the monthly installation-use charge. Regulation 25/2022 repeals the former tariff law; historical fee descriptions are not current B/C/D proof.
 - **Status:** PARTIALLY VERIFIED for the public statements recorded in the G1 evidence note; **UNKNOWN** for calculation order, real Golden Bill behavior, U-001, U-009 and third-party high-frequency data access (U-003).
 - **Evidence:** `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`; corresponding Open Questions U-001/U-003/U-009/U-010/U-011.
 - **Limit:** No matched real Golden Bill + interval/load-profile set is recorded. G1 remains OPEN; do not claim bill-grade reconstruction or hard-code a demand interval/tax formula.
