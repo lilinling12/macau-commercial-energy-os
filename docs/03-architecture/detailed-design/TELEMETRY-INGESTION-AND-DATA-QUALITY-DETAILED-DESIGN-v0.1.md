@@ -123,6 +123,8 @@ Freshness thresholds and range/plausibility limits are source-, metric- and use-
 
 With no stable producer event identity in V1, use append-only ingestion and report likely duplicates as a diagnostic where a source-specific safe key exists. Do not collapse two records solely because tenant/device/point/value/timestamp match. If a future source contract provides stable event IDs, scope idempotency to authenticated producer + source namespace + event ID and retain collision evidence.
 
+**Identity evidence and transport boundary (research note, 2026-10-04):** CloudEvents requires the producer to make `source + id` unique for each distinct event and permits a redelivery of the same event to reuse the same ID. This supports a source-scoped business-event identity invariant, but does not require adopting the CloudEvents wire format. MQTT 5 Packet Identifiers belong to a client/server session flow and become reusable after the corresponding acknowledgement; they are transport delivery identifiers, not durable event identity. Therefore, do not use MQTT Packet Identifier, connection ID, trace ID, timestamp, or payload hash as the cross-retry business event key. A future producer contract should supply a stable event ID in its authenticated source namespace. If a connector cannot supply one, the platform may assign an ingress ID at the first durable raw capture and reuse it for internal retry/replay; that does not identify duplicate source publications received as separate first captures, which must remain uncollapsed absent stronger source evidence. This is an evidence-backed design recommendation, not an approved V2 schema, CloudEvents adoption, or exactly-once guarantee.
+
 A correction is a new event linked to the superseded source observation. Downstream recomputation creates a new assessment and evidence record; it never edits previously published economic evidence. Broker delivery retries must be idempotent at the consumer boundary only after the event identity contract and persistence/outbox behavior are specified.
 
 ## 7. Health, completeness and operator presentation
@@ -206,3 +208,5 @@ This document is a logical design proposal and a list of evidence gates; no appl
 - V1 Go event structure: implementation/edge-runtime/internal/telemetry/event.go.
 - Existing VS-001 ingress semantics: docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md.
 - Authority: D-038–D-040, D-065, G3/G6 and OPEN questions U-003/U-006/U-021/U-022.
+- CloudEvents Core Specification, event identity and duplicate redelivery: https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md
+- OASIS MQTT Version 5.0, Packet Identifier scope and reuse: https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html
