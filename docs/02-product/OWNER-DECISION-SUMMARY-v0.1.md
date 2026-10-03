@@ -18,6 +18,7 @@ The product, interaction design, technical architecture, and detailed designs mu
 | **4. Initial PV boundary** | **Evidence-safe starting scope:** one site, with documented site-use rights, approved interconnection design/capacity basis, export arrangement, and separate producer/export and consumer/import settlement records. Administrative Regulation 20/2014 limits PV installed capacity relative to the site's public-grid or upstream transformer supply capacity; a roof-area estimate alone is not approval evidence. Should this be the initial scope, or should PV be excluded until a specific site's rights and settlement evidence are available? Do not assume another building's generation credits a consumer account. | Energy Graph and Tariff & Settlement acceptance scope. U-025 remains open for broader cross-site rights. |
 | **5. Step 3D UI comparison boundary** | **Recommendation:** run equal UI-contract, API, and live-stream checks across candidates; exclude browser rendering/React from the stack score and clarify C+'s BFF/UI scope. Alternative: amend the bake-off pack to add equivalent browser workflows and score UI effort separately. | Freeze the comparative experiment's scope. This is an experiment decision, not a frontend or production-stack selection. |
 | **6. Step 3D Temporal test persistence** | Approve one shared **test-only PostgreSQL 16** service for Temporal across candidates, alongside the pack's PostgreSQL 18 + TimescaleDB application service; or require another Temporal persistence configuration to be validated before runner freeze. | Freeze the runner's service topology. This does not decide production database architecture. |
+| **7. Security verification baseline** | Review the proposed tailored ASVS 5.0.0 control-to-evidence matrix for G6-08/G6-09 and adjacent API controls. Choose (A) use it as a project verification checklist without claiming full ASVS conformance or a level; (B) nominate another baseline; or (C) defer until a security reviewer is engaged. | Names the verification framework and reviewer scope for later implementation evidence; it does not prove controls or close G6. |
 
 ## Recommendation versus approval
 
@@ -26,7 +27,7 @@ The recommendations above are research-based proposals to make review concrete. 
 - React + TypeScript remains provisional; Next.js is not approved.
 - TypeScript/Go responsibilities, Temporal, PostgreSQL + Timescale, NATS JetStream, Python, Go Edge, and Wasm/WASI retain the candidate status recorded in the authority documents.
 - C+ remains provisional; no G6.9-R2 winner exists. Step 3D has not run.
-- The detailed designs are review drafts. G1, G3, G6, G6.9-R2 Step 3D/4, and G7 evidence remains open or incomplete as recorded in `CURRENT.md`.
+- The detailed designs are review drafts. The candidate ASVS 5.0.0 mapping is a proposed tailored checklist only; target scope/level and security verification are unapproved. G1, G3, G6, G6.9-R2 Step 3D/4, and G7 evidence remains open or incomplete as recorded in `CURRENT.md`.
 - Nothing here approves autonomous device control, bill-grade claims, cross-site PV crediting, a deployment mode, visual system, or production implementation.
 
 ## After owner review
