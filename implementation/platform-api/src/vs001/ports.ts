@@ -1,3 +1,8 @@
+export const ENERGY_GRAPH_PORT = Symbol('ENERGY_GRAPH_PORT');
+export const TARIFF_RESOLUTION_PORT = Symbol('TARIFF_RESOLUTION_PORT');
+export const OPTIMIZER_PORT = Symbol('OPTIMIZER_PORT');
+export const EVIDENCE_REPOSITORY = Symbol('EVIDENCE_REPOSITORY');
+
 import type { TelemetryEventV1 } from './contracts.js';
 
 export interface EnergyGraphContext {
