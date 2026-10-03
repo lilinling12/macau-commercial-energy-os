@@ -57,7 +57,7 @@ Until then, keep the PV producer's feed-in revenue separate from the consuming s
 - CEM — PV introduction and bidirectional metering: https://www.cem-macau.com/zh/smart-living/photovoltaic-system-%28pv%29/pv-introduction/
 - CEM — PV interconnection application procedure: https://www.cem-macau.com/en/smart-living/photovoltaic-system-%28pv%29/application-procedure/
 - CEM — Cross-border GEC model for Macau customers and six integrated resorts: https://www.cem-macau.com/en/press-release/716/ (2025-11-26).
-- CEM — First Guangdong–Macau GEC transaction and GEC environmental-attribute definition: https://www.cem-macau.com/en/press-release/ (2023-12-25; CEM press release title: “CEM and CSGI signed the first cross-border GEC trading agreement”).
+- CEM — First Guangdong–Macau GEC transaction and GEC environmental-attribute definition: https://www.cem-macau.com/en/press-release/635/ (2023-12-25).
 - CEM — feed-in tariff table: https://www.cem-macau.com/en/go-green/photovoltaic-system-%28pv%29/feed-in-tariff/
 - Official Gazette — Law 26/2024, including the republished Decree-Law 43/91/M: https://bo.dsaj.gov.mo/bo/i/2025/01/lei26_cn.asp (published 2025-01-06; effective 2025-01-07).
 - Official Gazette — Decree-Law 43/91/M, republished low/medium-voltage electricity supply and sale contract: https://bo.io.gov.mo/bo/i/91/28/declei43_cn.asp
