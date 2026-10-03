@@ -17,7 +17,7 @@ The project objective is to complete and validate the product design, complete t
 
 Definition of done spans: customer/problem validation; product requirements and tested workflows; passed domain/safety/technology gates or explicitly bounded pilot limitations; approved architecture and detailed designs; implementation mapped to requirements; security/reliability/acceptance evidence; site authorization; pilot measurement; and an expand/remediate/stop decision.
 
-**Current active delivery record:** PR #8, branch `docs/product-architecture-roadmap` (open, not merged). It contains the research-derived product baseline, PRD draft, logical architecture, research/coding continuity, roadmap, and the VS-001 detailed-design draft. These documents remain drafts; customer validation, complete detailed design, production stack selection, implementation completion, and pilot evidence are outstanding. Changes on this branch are not yet on `main`.
+**Current active delivery record:** PR #8, branch `docs/product-architecture-roadmap` (open, not merged). It contains the research-derived product baseline, PRD draft, logical architecture, research/coding continuity, roadmap, and the VS-001 detailed-design draft and PRD-to-architecture traceability matrix. These documents remain drafts; customer validation, complete detailed design, production stack selection, implementation completion, and pilot evidence are outstanding. Changes on this branch are not yet on `main`.
 
 ## Research state
 
@@ -69,10 +69,11 @@ Immediate work:
 
 - `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md` covers the shadow-mode energy intelligence loop, its component boundaries, data/time semantics, failures, evidence/replay, security boundaries, and current contract gaps.
 - `docs/03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md` maps all nine PRD requirements to current logical designs/contracts and records a preliminary static source audit of the VS-001/Edge/optimizer scaffold. It identifies gaps and does not claim product implementation completion.
-- The source audit found that the real Energy Graph and tariff adapters fail closed, replay uses hard-coded synthetic fixtures, evidence persistence is in-memory, the optimizer is only a data model, and inspected Edge code defines/serializes telemetry but does not demonstrate adapters or buffering. VS-001's service does compare tenant/site context, but its inspected controller has no authentication/authorization guard. No tests were run during this audit.
-- These drafts explicitly do not close G6 or authorize field commands.
-- Authority Validation and Repository Hygiene passed on PR head `2b688d8c38aa3241bc75de4addc5ddd3f622802d`.
-- Next: complete the full source audit beyond the VS-001 scaffold, including database/migrations, UI, deployment and any command/Safety Kernel code; then link existing acceptance/runtime evidence without treating test presence as a pass. Close design and implementation gaps in dependency order. Product interviews and site validation remain parallel inputs, and unvalidated requirements must not be treated as approved scope.
+- The recursive repository tree contains no frontend source/package, database model/migration, command implementation or Safety Kernel runtime package. The platform HTTP controller path has no auth guard wired in AppModule; the health endpoint returns UP without dependency/readiness checks; Edge main only logs bootstrap start. Command arbitration and Safety Kernel currently have principles in README files, not executable modules.
+- The real Energy Graph and tariff adapters fail closed, replay uses hard-coded synthetic fixtures, evidence persistence is in-memory, and the Python optimizer is only a data model. VS-001 service tests use static/in-memory fakes; Edge test checks serialization. No tests were run during this static audit.
+- These findings show the product implementation is still a scaffold; they do not close G6 or authorize field commands.
+- The most recent prior checked PR head passed Authority Validation and Repository Hygiene; rerun both on the latest head after these handoff changes.
+- Next: continue detailed design and research in dependency order, then implement only after product scope and technology authority are reviewed. Complete G1/Step-3D/G7 evidence and customer workflow validation in parallel where inputs permit; keep missing site/customer inputs as explicit blockers or hypotheses.
 
 ## Suspended implementation gate
 
