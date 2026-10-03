@@ -35,6 +35,7 @@ These are not yet validated role rankings or final navigation. Discovery must co
 1. Is the proposed initial product promise (traceable cost intelligence + shadow-mode recommendation + replayable evidence) the right first product?
 2. Which user and site type should lead the first workflow and pilot discovery? Current roles/sites are hypotheses; please name a preferred lead role/site or request more evidence before choosing.
 3. Are there product capabilities or exclusions that should change before detailed design proceeds?
+4. How should SHADOW recommendations express economic effect? Current RecommendationV1 `estimatedValue` is not monetary truth. Review three options: (A) modeled absolute expected cost over a named horizon; (B) modeled change against an explicitly comparable baseline; or (C) defer a currency amount until an eligible immutable cost assessment exists. **Interim recommendation:** use C for the recommendation card, while allowing a separately evidenced cost assessment to be opened and explained. Any modeled effect must remain distinct from realized savings. The selected meaning must name its assessment scope, horizon, baseline, uncertainty and provenance before Recommendation/CostResult contracts or UI labels are frozen.
 
 ## 3. UI/UX Pro Max search evidence and interpretation
 
