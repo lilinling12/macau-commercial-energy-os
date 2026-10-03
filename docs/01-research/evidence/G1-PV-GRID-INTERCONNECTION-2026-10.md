@@ -26,6 +26,16 @@ DSPA's page, last revised 2026-09-01, reports that by 2026-08-31 it had received
 
 CEM and China Southern Power Grid International announced a November 2025 memorandum to jointly act as agents coordinating procurement of Mainland China GECs for Macau customers, with an aim of expanding coverage. CEM also reports a 2023 cross-border transaction of 5.2 million kWh-equivalent certificates. In a 2026-06-08 announcement, CEM said it purchased 2,250 GECs (2.25 million kWh-equivalent) from Three Gorges New Energy to offset carbon emissions associated with the CEM Building's self-use electricity. CEM describes each GEC as representing the environmental attribute/premium of 1 MWh of qualifying renewable electricity generated and fed into the grid. This is a separate environmental-attribute procurement mechanism; the announcements do not prove physical delivery of a specific remote PV plant's electrons to a particular Macau building or a retail electricity-bill credit for customers. The CEM Building example documents a corporate carbon-accounting use, not customer bill netting. Commercial availability to customers, eligibility, price, certificate retirement and claim rules require the applicable offer and contract.
 
+## 2025 concession-contract clarification effective 2026-01-01
+
+The official Gazette excerpt for the extended and amended public electricity-supply concession contract (published 2025-12-03; effective 2026-01-01) adds an important boundary:
+
+- The concession excludes distribution on consumer-owned/shared consumer electrical networks and distribution of electricity self-generated through private installations, but that private distribution is limited to the same concession/private land parcel as the generating installation and requires prior written authorization from the Macao SAR.
+- The contract requires CEM to acquire renewable electricity under government-established tariffs/prices, with bidirectional metering and purchase contracts as applicable. This aligns with the separate producer-to-CEM feed-in route.
+- For public renewable generation under the contract's Annex VIII, the generation and associated rights belong to the SAR, grid-connection meters record the output, and it may be used to offset public-lighting consumption or other electricity consumption designated by the SAR. This public-infrastructure arrangement is not a private building's virtual-net-metering right.
+
+This is stronger evidence that Macau has a route for approved PV export and a narrowly bounded private same-parcel distribution possibility. It does not establish an ordinary right to wheel private PV across separate parcels or credit another customer's retail bill. U-025 remains open for any specific exception/approval, third-party ownership or PPA structure, and account-linked settlement terms.
+
 ## What this establishes
 
 A PV system on another building can be approved to inject into the public grid and sell its generation to CEM under the applicable interconnection / purchase contract and feed-in tariff. The electricity contributes to the grid supply mix. The general route is therefore real and operational in Macau; it is not merely a hypothetical net-metering concept.
