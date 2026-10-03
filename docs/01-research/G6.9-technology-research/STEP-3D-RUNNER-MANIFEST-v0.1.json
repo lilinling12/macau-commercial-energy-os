@@ -66,7 +66,7 @@
       "role": "temporal-persistence-database",
       "image": "postgres:16.15-bookworm",
       "authorityStatus": "runner-only proposal; common candidate application database remains PostgreSQL 18 + TimescaleDB; dedicated PG16 persistence service is additional shared infra pending owner approval",
-      "reason": "Temporal official persistence documentation lists PostgreSQL 13-16 as actively tested",
+      "reason": "Temporal docs describe PostgreSQL 12+ availability for modern server versions and actively test PostgreSQL 13.18, 14.15, 15.10 and 16.6; PostgreSQL 18 is not listed in that active test matrix. PostgreSQL 16.15 is the latest supported PG16 patch as of 2026-10-04, but is not the exact patch version Temporal lists in its matrix; validate schema bootstrap and recovery on the pinned runner.",
       "platformDigest": "sha256:efdf07c2f9d4df592783dcc8ea5f6db02efbf5f6452b527225ff5e58364570e9",
       "configurationStatus": "credentials, schemas, health check, resource limits and reset procedure pending"
     },
