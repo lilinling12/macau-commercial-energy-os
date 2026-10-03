@@ -4,48 +4,61 @@
 **Repository:** lilinling12/macau-commercial-energy-os  
 **Authority mode:** research-first / evidence-governed
 
-## Research state recovered from the original Authority
+## Research state
 
 - **G1 — Macau Tariff & Settlement Foundation:** OPEN.
 - **G1.1 / G1.2:** completed.
 - **G7 — Reference Simulator & Pilot Validation:** active in parallel.
 - **G7.1 / G7.3 / G7.4 research:** completed.
-- **G7.2 R0 live execution:** still pending; static preflight alone is not sufficient.
+- **G7.2 R0 live execution:** still pending.
 - Known blocking unknowns remain authoritative until evidence closes them.
 
-## Repository migration state
+## Repository state
 
 Completed:
-- handoff / decisions / evidence foundation;
+- Authority / handoff / decisions / evidence foundation;
 - G0–G7 research-gate index;
-- architecture Authority foundation;
-- G6.9 technology Authority foundation;
+- architecture and G6.9 technology Authority foundation;
 - productization Authority foundation;
-- engineering governance foundation;
+- engineering governance;
 - PR / issue / CODEOWNERS governance;
-- AI-coding and development workflow governance;
-- first real GitHub Actions CI gates.
+- Authority and repository-hygiene CI;
+- **Commit 004 Phase A — MVP Engineering Foundation**:
+  - implementation module boundaries;
+  - contracts-first package;
+  - TelemetryEventV1;
+  - OptimizationRecommendationV1;
+  - EvidenceRecordV1;
+  - platform-api / edge-runtime / optimizer / simulator boundaries;
+  - VS-001 Energy Intelligence Loop;
+  - contract JSON syntax CI.
 
-## Current work
+## Current gate
 
-**Commit 003 — Engineering Governance Bootstrap: substantially complete.**
+**Commit 004 — MVP Engineering Foundation: Phase A complete.**
 
-Current CI:
-- authority structure validation;
-- evidence vocabulary validation;
-- repository hygiene checks.
+No application runtime bootstrap has been created yet.
 
-## Next gate
+## Next work
 
-**Commit 004 — MVP Engineering Foundation**
+**Commit 004 Phase B — Runtime Bootstrap & Contract Validation**
 
-Before generating application code:
-1. define the repository/module skeleton;
-2. establish contracts-first package boundaries;
-3. map the first vertical slice:
-   Telemetry → Energy Graph → Tariff Resolution → Cost Analysis → Recommendation → Evidence;
-4. preserve the original research unknowns and safety boundaries;
-5. do not claim G1 or G7.2 closed without the required evidence.
+Planned:
+1. platform-api workspace bootstrap under the frozen TypeScript/Node/NestJS direction;
+2. edge-runtime Go module bootstrap;
+3. optimizer Python package bootstrap;
+4. machine validation beyond JSON syntax;
+5. first executable VS-001 fixture path;
+6. keep tariff and simulator unknowns fail-closed.
+
+## Non-negotiable open evidence
+
+Do not claim:
+- G1 closed;
+- CEM Pu interval verified;
+- G7.2 live baseline complete;
+- synthetic reference-building results as Macau customer evidence;
+- autonomous control authorized.
 
 ## Start here in a new conversation
 
@@ -54,6 +67,6 @@ Read, in order:
 2. `docs/handoff/README.md`
 3. `docs/handoff/CURRENT.md`
 4. `docs/handoff/CONTINUE-PROMPT.md`
-5. only the Authority files referenced by the current task.
+5. the Authority files referenced by the current task.
 
-Repository state, verified evidence, and later Decision Records take precedence over chat memory.
+GitHub state, verified evidence, and later Decision Records take precedence over chat memory.
