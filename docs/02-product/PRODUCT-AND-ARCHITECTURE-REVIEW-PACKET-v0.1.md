@@ -170,3 +170,33 @@ No response or approval is recorded in this draft.
 - Step 3D shared Temporal persistence service (approve PG16 addition / request supported alternative / defer):
 - Detailed-design slice to prioritize:
 - Date / reviewer:
+
+
+## Follow-up: Pro Max and prototype v0.4 static UX review (2026-10-04)
+
+**Scope:** Static source review of `docs/02-product/prototype/v0.4/index.html` against the product IA and the installed UI/UX Pro Max skill. This is a design review, not a browser/device assistive-technology audit or user test.
+
+### Search evidence
+
+- The design-system query `commercial energy operations analytics dashboard` returned a Real-Time / Operations Landing pattern and conditional Glassmorphism direction. The product's signed-in, sustained analysis workspace is not a marketing landing page; these results are reference material only. No palette, font or visual style is approved from them.
+- The first UX query (`data uncertainty decision review dashboard`) returned unrelated bulk-edit and autoplay guidance, so it was not applied. The required narrower retry (`keyboard focus navigation state`) returned directly relevant guidance on keyboard reachability, focus, active state, deep links and skip links.
+- The chart query (`time series accessible chart uncertainty`) returned relevant time-series guidance: use more than hue to distinguish series and provide a visible table or narrative alternative. v0.4 already has a labeled SVG, line-style distinction, explanatory summary and sampled-value table for its synthetic trend.
+- No framework-specific guidance was run: the frontend framework remains unapproved and this prototype is standalone HTML.
+
+### What the static source supports
+
+- Skip-to-main link, semantic main/navigation regions, visible focus styling, 44px minimum navigation/button/filter targets, keyboard-operable native controls and focus transfer to the active view heading are present.
+- Workspace views update the hash and support browser back/forward navigation. Chart context remains explicitly synthetic; the text summary and table remain available when small-screen chart axis labels are hidden.
+- The economics selector distinguishes bill reconstruction, interval assessment and baseline comparison. Recommendation disposition and replay controls explicitly state that their local demo actions do not authorize execution or run a real replay.
+
+These findings establish source-level presence only. They do not establish that contrast and focus remain correct in every state, that the page has no rendered overflow at target viewports, or that a keyboard/screen-reader user can complete tasks.
+
+### Follow-up items before visual/product baseline
+
+1. **Typography:** the root body size is 15px, below the skill's 16px baseline recommendation. Review at 16px and inspect dense tables at 200% zoom before choosing the final scale; treat this as a prototype refinement, not a product-wide approved token.
+2. **Macau language and formats:** the prototype is English-only. Validate Traditional Chinese, Portuguese and English needs, terminology, number/currency formatting, and timezone expectations with the lead user/site hypothesis before fixing locale defaults.
+3. **Responsive navigation and dense data:** verify the seven-item narrow-screen navigation, table behavior, focus visibility and page-level overflow at 375, 768, 1024 and 1440 CSS px in a rendered browser. The source uses a horizontally scrollable nav/table region at narrow widths; this static review cannot confirm its usability.
+4. **Evidence and chart comprehension:** ask target users to explain source, freshness, synthetic status, threshold, and what the sampled chart table does not contain. Keep the current non-bill-grade and not-measured language unless validated evidence supports a stronger claim.
+5. **Prototype boundary:** review-state and replay buttons are local demonstrations with no persistence or runtime replay. Preserve their explicit labels; implementation must not carry these demo semantics into production unnoticed.
+
+**Disposition:** v0.4 is a useful review prototype for the existing research-derived task hypotheses. No urgent source-level blocker was found in this limited pass. Product scope, lead role/site, language, final visual system, accessibility conformance, and frontend framework remain open; no customer validation or WCAG conformance is claimed. The next product-design evidence step is an owner-selected lead role/site hypothesis followed by authorized discovery and formative usability sessions using these tasks.
