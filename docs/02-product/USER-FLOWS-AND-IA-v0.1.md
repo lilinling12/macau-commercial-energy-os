@@ -111,7 +111,8 @@ Disclose required permissions before credentials are entered. Separate connector
 - Keep safety-sensitive execution controls absent from shadow-only flows.
 - Use persistent form labels, inline validation and concise error summaries; never rely on placeholders alone.
 - All controls are keyboard accessible with visible focus. Status uses text/icon as well as color; normal text contrast is at least 4.5:1.
-- Asynchronous actions show loading, success and recoverable failure. Use 44px minimum touch targets where touch operation is expected.
+- Asynchronous actions show loading, success and recoverable failure. Use 44px minimum touch targets where touch operation is expected, with at least 8px between adjacent touch controls.
+- Navigation states use stable deep links and participate in browser back/forward history. Restoring a prior view also restores its active navigation state and moves keyboard focus to the view heading.
 - Respect reduced motion; live updates must not shift focus or reorder rows while a user is interacting.
 - Responsive targets: 375, 768, 1024 and 1440 CSS px. Narrow data tables use card views or labeled contained horizontal scroll.
 - Show local timezone and units consistently. Asia/Macau and MOP are proposed defaults, not verified universal settings.
