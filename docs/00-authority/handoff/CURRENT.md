@@ -1,6 +1,6 @@
 # CURRENT — Macau Commercial Energy OS
 
-**Snapshot:** 2026-10-04 (PR head `825eacc7a6a40239e55d229896248ff457e55c98`)  
+**Snapshot:** 2026-10-04  
 **Authority mode:** research-first / evidence-governed  
 **Research authority:** Library Research Authority v1.6.2 + G6.9-R2 Step 3C bake-off evidence + Macau PV follow-up D-077/U-025/U-026  
 **Repository:** lilinling12/macau-commercial-energy-os
@@ -81,7 +81,7 @@ Immediate work:
 - The real Energy Graph and tariff adapters fail closed, replay uses hard-coded synthetic fixtures, evidence persistence is in-memory, and the Python optimizer is only a data model. VS-001 service tests use static/in-memory fakes; Edge test checks serialization. No tests were run during this static audit.
 - These findings show the product implementation is still a scaffold; they do not close G6 or authorize field commands.
 - The Step 3D runner manifest records candidate service/runtime pins, five verified Linux/AMD64 registry digest observations, and explicit freeze blockers; remaining unresolved digests stay null, and all captured digests require re-resolution on the frozen runner. It also records the unresolved authority question for adding a shared PG16 Temporal persistence service while preserving the specified PG18 + TimescaleDB application database. `executionReady` remains false. No Compose runner, package lock set, BOPTEST frozen build, Step 3D execution, or comparative results exist yet.
-- On PR head `825eacc7a6a40239e55d229896248ff457e55c98`, workflow runs had not yet appeared when this snapshot was updated; verify Authority Validation and Repository Hygiene against the exact live PR head before merge. Earlier successful runs do not validate later commits.
+- Authority Validation and Repository Hygiene run on PR updates. Verify both against the exact live PR head before merge; earlier successful runs do not validate later commits.
 - Next: review the VS-001 cost-result/replay-manifest proposal against D-065 and contract ownership; resolve decimal semantics, source-event identity, manifest canonicalization and durable evidence requirements before creating canonical schemas. Review the tenant authorization design with validated user roles and deployment context before selecting an identity provider or role policy. In parallel, continue G1, G6.9-R2 Step 3D, G7.2 and target-user validation where required inputs are available. Do not implement production adapters until product scope and technology authority are reviewed.
 
 ## Suspended implementation gate
