@@ -34,6 +34,9 @@ Do not present these propositions to participants until after asking about their
 ## 3. Sampling and recruitment plan
 
 Use purposive recruitment across different site types and responsibilities. Record why each participant matches a role; do not treat job titles as proof of decision authority.
+**Evidence-informed site strata to seek (proposal only):** DSEC reports 147 hotel establishments and about 45,000 rooms for 2025; CEM's 2026 hotel/resort energy-saving activity groups a resort complex as one participant despite multiple supply points and uses 1,600 kVA subscribed demand to distinguish two program groups. If access permits, seek (1) a large hotel/resort complex at or above that published threshold, (2) a standard/economical accommodation site below or near it, and (3) a non-hotel commercial site to test whether the workflow transfers. These are discovery strata, not selected target markets or representative sampling quotas. Do not infer subscribed demand from room count. For every site, record supply-point/meter boundaries, energy and finance roles, procurement/approval authority, and whether redacted bill and interval artifacts can be reviewed. Source details and evidence limits: `docs/01-research/evidence/G2-MACAU-COMMERCIAL-LOAD-FLEXIBILITY-EVIDENCE-2026-10.md`.
+
+
 
 ### Discovery wave
 
