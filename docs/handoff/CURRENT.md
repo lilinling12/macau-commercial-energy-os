@@ -25,21 +25,36 @@ Completed on main:
 - Authority and repository-hygiene CI;
 - Commit 004 Phase A — contracts-first MVP foundation and VS-001 definition.
 
-In review on branch `foundation/runtime-bootstrap-phase-b`:
+Ready for review on PR #2:
 - runtime baseline pinned;
-- Node.js / NestJS platform-api bootstrap;
-- Go edge-runtime bootstrap;
-- Python optimizer bootstrap;
+- Node.js 24.21.0 + NestJS 12.0.3 platform-api bootstrap;
+- Go 1.27.1 edge-runtime bootstrap;
+- Python 3.14.8 optimizer bootstrap;
 - contract fixtures and Draft 2020-12 machine validation;
 - multi-runtime CI gate.
 
+## Exact-head validation
+
+PR #2 exact head is green for:
+- Authority Validation;
+- Repository Hygiene;
+- Contracts Validation;
+- Runtime Bootstrap:
+  - Platform API typecheck/build;
+  - Edge Runtime test/build;
+  - Optimizer unit test;
+  - Contract fixture validation.
+
+The first Runtime Bootstrap attempt exposed an explicit TypeScript 6 Node-global configuration gap; it was fixed by adding `types: ["node"]` and the exact-head rerun is green.
+
 ## Current gate
 
-**Commit 004 — MVP Engineering Foundation: Phase B IN REVIEW.**
+**Commit 004 — MVP Engineering Foundation: Phase B READY FOR REVIEW.**
 
-Issue: #1 — Runtime Bootstrap & Contract Validation.
+Issue: #1 — Runtime Bootstrap & Contract Validation.  
+PR: #2 — Runtime Bootstrap & Contract Validation.
 
-## Next work after Phase B validation
+## Next work after Phase B merge
 
 **Commit 004 Phase C — Executable VS-001 Domain Path**
 
@@ -69,4 +84,4 @@ Read, in order:
 4. `docs/handoff/CONTINUE-PROMPT.md`
 5. the Authority files referenced by the current task.
 
-GitHub live state, verified evidence, and later Decision Records take precedence over chat memory.
+GitHub live state, exact-head CI, verified evidence, and later Decision Records take precedence over chat memory.
