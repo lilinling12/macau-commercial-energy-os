@@ -53,7 +53,8 @@ Gate exit criteria below are execution checks derived from the research objectiv
 - Product definition: `docs/02-product/PRODUCT-DESIGN.md`
 - Product requirements: `docs/02-product/PRD-v0.1.md` (**research-derived draft; customer validation and approval remain pending**)
 - Product information architecture, primary flows and screen requirements: `docs/02-product/USER-FLOWS-AND-IA-v0.1.md` (**draft; target-user validation remains pending**)
-- Clickable product interaction prototype: `docs/02-product/prototype/v0.1/index.html` (**synthetic demo; not customer/usability validated**)
+- Clickable product interaction prototype v0.2: `docs/02-product/prototype/v0.2/index.html` (**synthetic demo; separates cost-result types and review/outcome states; not customer/usability validated**)
+- Prior prototype v0.1, retained for comparison: `docs/02-product/prototype/v0.1/index.html` (**synthetic demo; not customer/usability validated**)
 - Logical system architecture and technology decision states: `docs/03-architecture/ARCHITECTURE-DESIGN.md`
 - VS-001 detailed design draft, explicitly SHADOW-only and non-authorizing: `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md`
 - Tariff & Settlement Engine detailed design v0.1 (stack-neutral proposal; blocked from bill-grade implementation by G1 unknowns): `docs/03-architecture/detailed-design/TARIFF-SETTLEMENT-DETAILED-DESIGN-v0.1.md`
