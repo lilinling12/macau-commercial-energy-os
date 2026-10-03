@@ -26,6 +26,10 @@ A PV system on another building can be approved to inject into the public grid a
 
 The CEM purchase tariff is a **producer-side export settlement**. A separate consumer continues to be billed for electricity supplied to that consumer's own contracted location under its applicable tariff unless a distinct approved arrangement provides otherwise.
 
+## Potential legal constraint requiring scope review
+
+The official Gazette version of Decree-Law 53/98/M amends the standard low/medium-voltage electricity-supply contract. Its text says a consumer must use electricity at the contracted supply location and may not sell or transfer part of that electricity to third parties. This is relevant to cross-building resale, but it does not by itself resolve how the separate PV-to-CEM purchase contract interacts with that standard supply contract, nor whether any distinct approved third-party arrangement exists. Treat this as a material legal constraint to verify, not a final conclusion about all possible PV contracting models.
+
 ## What remains unverified
 
 The cited official materials do not establish that another building's user can:
@@ -47,3 +51,4 @@ Until then, keep the PV producer's feed-in revenue separate from the consuming s
 - CEM — PV introduction and bidirectional metering: https://www.cem-macau.com/zh/smart-living/photovoltaic-system-%28pv%29/pv-introduction/
 - CEM — PV interconnection application procedure: https://www.cem-macau.com/en/smart-living/photovoltaic-system-%28pv%29/application-procedure/
 - CEM — feed-in tariff table: https://www.cem-macau.com/en/go-green/photovoltaic-system-%28pv%29/feed-in-tariff/
+- Official Gazette — Decree-Law 53/98/M, amended standard low/medium-voltage supply contract: https://bo.io.gov.mo/bo/i/98/46/declei53_cn.asp?printer=1
