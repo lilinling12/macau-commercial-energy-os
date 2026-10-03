@@ -68,9 +68,10 @@ Immediate work:
 ### Active design progress on PR #8
 
 - `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md` covers the shadow-mode energy intelligence loop, its component boundaries, data/time semantics, failures, evidence/replay, security boundaries, and current contract gaps.
-- The draft explicitly states it does not close G6 or authorize field commands.
+- `docs/03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md` maps all nine PRD requirements to current logical designs/contracts and identifies design gaps; it explicitly does not claim implementation completion.
+- These drafts explicitly do not close G6 or authorize field commands.
 - Authority Validation and Repository Hygiene passed on PR head `2b688d8c38aa3241bc75de4addc5ddd3f622802d`.
-- Next architecture deliverable: a requirement-to-component/contract/evidence traceability matrix covering the full PRD, then detailed designs for the remaining validated MVP workflows. This matrix must expose gaps; it must not imply that unvalidated requirements are approved.
+- Next: audit the existing implementation against the traceability matrix, linking each PRD requirement to actual source files and runtime/acceptance evidence; then close design gaps in dependency order. Product interviews and site validation remain parallel inputs, and unvalidated requirements must not be treated as approved scope.
 
 ## Suspended implementation gate
 
