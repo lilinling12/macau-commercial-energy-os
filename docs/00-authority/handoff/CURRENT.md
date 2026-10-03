@@ -41,17 +41,19 @@ The Phase B Node/NestJS code is an existing implementation path corresponding to
 
 ## Current authority for technical architecture
 
-The owner-confirmed provisional layer summary is:
-- Frontend: React + TypeScript.
+Product and technology design documents on PR #8 are review drafts. User confirmation is required before product scope, major interaction design, frontend stack, or production architecture is baselined.
+
+The earlier layer summary below is a research-derived provisional proposal, not an owner-approved product or production architecture:
+- Frontend: React + TypeScript candidate.
 - Application: TypeScript/Go hybrid responsibilities under evaluation.
 - Workflow: Temporal candidate.
-- Data: PostgreSQL + Timescale baseline.
+- Data: PostgreSQL + Timescale evaluation baseline.
 - Event: NATS JetStream candidate.
-- AI / Optimization: Python.
-- Edge: Go.
-- Future plugin isolation: Wasm/WASI direction.
+- AI / Optimization: Python responsibility candidate.
+- Edge: Go responsibility candidate.
+- Future plugin isolation: Wasm/WASI direction candidate.
 
-This layer summary does not replace the bake-off's topology candidates. C+ (Go authoritative Energy Core + Temporal Go workers + Go Edge/Safety, thin Bun/Hono/TypeScript product surface, Python intelligence) remains a **provisional default**, not a measured winner. A and B remain candidates until the common Step 3D/Step 4 decision rule is satisfied. See D-062..D-076.
+Each layer and its boundaries require product-owner review before becoming an approved architecture baseline. This summary does not replace the bake-off's topology candidates. C+ (Go authoritative Energy Core + Temporal Go workers + Go Edge/Safety, thin Bun/Hono/TypeScript product surface, Python intelligence) remains a **provisional default**, not a measured winner. A and B remain candidates until the common Step 3D/Step 4 decision rule is satisfied and the resulting decision is reviewed. See D-062..D-076.
 
 ## Research sequence and next work
 
@@ -62,7 +64,7 @@ Immediate work:
 1. Continue G1 with authoritative Macau tariff/billing evidence, including U-025 cross-site PV rights and settlement.
 2. Execute G6.9-R2 Step 3D in the pinned environment; do not infer a framework winner from Step 3C.
 3. Execute G7.2 live baseline/no-op when the pinned BOPTEST runtime is available.
-4. Continue product discovery and validate PRD roles, workflows, and pilot value with target users.
+4. Review product scope, user workflows, visual direction, and the technology decision packet with the product owner before treating drafts or candidates as approved baselines; continue user validation in parallel.
 5. Extend component-level detailed design beyond VS-001 after product workflows and dependent Gate inputs are validated; close contract gaps and retain unresolved items explicitly.
 6. Only then revise technology decisions and authorize dependent production implementation.
 
