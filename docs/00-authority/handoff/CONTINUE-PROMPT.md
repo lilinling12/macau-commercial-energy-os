@@ -20,7 +20,7 @@ Check the live repository/PR state for work that may have changed since the last
 
 Research → Evidence → Decision → Product / Architecture → Engineering → Implementation → Validation → Handoff.
 
-For research, follow `docs/00-authority/handoff/CONTINUATION-PROTOCOL.md`. For AI-assisted implementation, follow `docs/04-engineering/ai-coding-governance/README.md` and use `TASK-PACKET-TEMPLATE.md`.
+For research, follow `docs/00-authority/handoff/CONTINUATION-PROTOCOL.md`. For AI-assisted implementation, follow `docs/04-engineering/ai-coding-governance/README.md` and use `docs/04-engineering/ai-coding-governance/TASK-PACKET-TEMPLATE.md`.
 
 Do not treat chat history as authority when it conflicts with verified evidence and versioned Decision Records. Do not silently change architecture, turn a candidate into a selected stack, or claim a Gate is complete without its required evidence and recorded decision.
 
