@@ -94,3 +94,53 @@
 **Question:** What are the actual direction, magnitude, nonlinearity and post-peak rebound effects of the approved supervisory SAT/CHWS perturbations on chiller power, fan power and total composed site power?  
 **Resolution path:** close G7.2 live baseline/no-op execution, then run the guarded R0 controller experiment matrix with paired baseline/candidate replay.  
 **Design implication:** do not assume that raising SAT/CHWS lowers total site power; recovery/new-peak diagnostics remain mandatory.
+
+
+## U-018 — Candidate A production Temporal topology
+**Status:** OPEN / G6.9-R2
+**Question:** Does a Bun/Hono/Effect API plus Node-backed Temporal TypeScript Worker produce enough engineering advantage to justify the extra runtime topology compared with C+?  
+**Resolution path:** common vertical slice + AI engineering trials + chaos/soak.
+
+
+## U-019 — Effect 4 agent-maintainability advantage
+**Status:** OPEN / G6.9-R2
+**Question:** Do Effect 4 typed failure/dependency/resource semantics reduce hidden defects and review burden for current coding agents, or increase compiler/context repair cost?  
+**Resolution path:** controlled T01–T10 trials and reviewer scoring.
+
+
+## U-020 — Go-core product-iteration cost
+**Status:** OPEN / G6.9-R2
+**Question:** Does generated contract sharing keep Go core + TS product iteration within 10–20% of all-TS engineering cost while materially simplifying command/Edge reliability?  
+**Resolution path:** candidate C+ trial metrics.
+
+
+## U-021 — Live full-stack bake-off execution environment
+**Status:** OPEN / EXECUTION BLOCKER
+**Question:** Establish a pinned Linux x86-64 environment containing Bun 1.4.2, Node 24 LTS, Go 1.27.x, Python, Docker/Compose and common Postgres/Timescale/Temporal/NATS/MQTT/OTel services.  
+**Current environment:** lacks Bun, Deno, pnpm and Docker, so Step 3A can build the pack but cannot produce comparable full-stack runtime results.
+
+## U-022 — Production command signing and Edge key lifecycle
+**Status:** OPEN / G6 SECURITY
+**Question:** Select production command signing algorithm/device identity model, provisioning, rotation, revocation and optional hardware-backed key storage.  
+**Constraint:** must preserve D-070 canonical payload semantics and deterministic replay/audit behavior; Step-3B HMAC is not production authority.
+
+
+
+## U-023 — Framework-native Step-3D execution
+**Status:** OPEN / G6.9-R2
+**Question:** Under pinned Bun 1.4.2, Node 24 LTS and Go 1.27, do Candidate A/B/C+ preserve the Step-3C semantic invariants when Hono/Effect, NestJS/Fastify and Temporal are actually introduced?  
+**Resolution path:** pinned Linux x86-64 integration runner with common Postgres/Timescale, NATS, MQTT and OTel services.
+
+
+## U-024 — Durable exactly-once-effect behavior under real workflow/broker failures
+**Status:** OPEN / G6.9-R2 HARD GATE
+**Question:** Does the production workflow topology maintain zero duplicate field writes through worker kill, ACK loss, broker partition, DB restart and retry storms?  
+**Known:** the local Step-3C persisted-state crash-after-field-write scenario passes for Node and Go semantic shells.  
+**Resolution path:** Temporal-backed 100 kill/recover trials plus MQTT partition/reconciliation tests in Step 3D/4.
+
+## U-025 — Cross-site PV procurement and settlement rights
+**Status:** UNKNOWN / G1 BLOCKER FOR OFF-SITE PV CUSTOMER ECONOMICS  
+**Known:** CEM's current official material describes approved customer PV systems connecting to the public grid, bidirectional metering of injected energy, and a capacity-tiered feed-in tariff paid by CEM to PV producers.  
+**Unknown:** Whether a separate commercial customer may contract for off-site PV and receive bill credits, netting, wheeling, virtual allocation or another legally recognized settlement benefit through the public grid. The cited CEM material does not establish such a customer entitlement.  
+**Resolution path:** applicable Macau legislation/regulations and amendments; written CEM confirmation; actual producer/customer agreements, interconnection contracts, meter diagrams and bills.  
+**Design implication:** keep PV producer feed-in revenue separate from another site's consumption settlement unless a verified arrangement explicitly links them. Do not model off-site PV as a direct customer bill credit by default.
