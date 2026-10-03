@@ -39,6 +39,7 @@ Research → Decision → Architecture → Engineering → Implementation.
 - Recommendation and Operator Review detailed design v0.1 (SHADOW-only lifecycle; no execution authorization): `docs/03-architecture/detailed-design/RECOMMENDATION-AND-OPERATOR-REVIEW-DETAILED-DESIGN-v0.1.md`
 - Cost Analysis and Evidence Replay detailed design v0.1 (stack-neutral; G1 and replay acceptance pending): `docs/03-architecture/detailed-design/COST-ANALYSIS-AND-EVIDENCE-REPLAY-DETAILED-DESIGN-v0.1.md`
 - Forecasting and Optimization detailed design v0.1 (stack-neutral; G4/G5 open; no model/solver/control decision): `docs/03-architecture/detailed-design/FORECASTING-AND-OPTIMIZATION-DETAILED-DESIGN-v0.1.md`
+- Deployment, Operability and Recovery detailed design v0.1 (stack-neutral; deployment mode, SLOs and recovery objectives remain open): `docs/03-architecture/detailed-design/DEPLOYMENT-OPERABILITY-AND-RECOVERY-DETAILED-DESIGN-v0.1.md`
 - VS-001 cost-result and replay-manifest contract proposal (not canonical): docs/03-architecture/detailed-design/VS-001-RESULT-AND-REPLAY-CONTRACT-PROPOSAL-v0.1.md
 - VS-001 identity and tenant authorization design (draft; provider/roles not selected): docs/03-architecture/detailed-design/VS-001-IDENTITY-AND-TENANT-AUTHORIZATION-DESIGN-v0.1.md
 - PRD-to-architecture traceability and design-gap matrix (draft): `docs/03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md`
