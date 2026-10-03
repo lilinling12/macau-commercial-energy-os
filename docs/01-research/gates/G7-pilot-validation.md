@@ -30,7 +30,7 @@ Never relabel an earlier class as a later one. Synthetic fixtures, BOPTEST resul
 
 ## Current evidence boundary
 
-- U-013 currently reports that v0.9.0 API regression fixtures define 182 inputs, 204 measurements and 134 forecast points, and cites exact fixture SHAs in `G7.2-R0-HARNESS-PREFLIGHT.md`. That cited file is **not present in the current PR branch's Git tree**; counts and hashes therefore cannot be independently audited from this repository snapshot. Treat them as a recorded external assertion until the artifact is checked in or linked to a stable accessible authority.
+- U-013 currently reports that v0.9.0 API regression fixtures define 182 inputs, 204 measurements and 134 forecast points, and cites exact fixture SHAs in `G7.2-R0-HARNESS-PREFLIGHT.md`. No dedicated preflight path was found in an audit of all seven current GitHub branch trees; the originating conversation read on 2026-10-04 had no attached files. Counts and hashes therefore cannot be independently audited from available repository/conversation artifacts. Treat them as a recorded external assertion until the artifact is restored or linked to a stable accessible authority.
 - G7.2 live R0 baseline/no-op remains pending. A fresh live deployment must reproduce the authoritative metadata/hashes and complete the required baseline and no-op identity trajectory before response/control interpretation.
 - U-017 remains open for live SAT/CHWS response and rebound interpretation. Do not claim site-wide power reduction from those perturbations until the measurement boundary, paired baseline, total-power response and recovery are resolved.
 - U-012 Macau reference-building calibration and U-015 weather-source validation remain open. BOPTEST is an engineering harness, not a calibrated Macau hotel/commercial-building ground truth.
@@ -38,7 +38,7 @@ Never relabel an earlier class as a later one. Synthetic fixtures, BOPTEST resul
 
 ## Historical sub-gate status report requiring source recovery
 
-A prior assistant message in the originating ChatGPT conversation stated that G7.1, G7.3 and G7.4 research had been completed while G7.2 live execution remained pending. This is a historical conversation statement, not a Gate decision or source artifact. The conversation read on 2026-10-04 had no attached files, and the current repository tree contains no G7.1/G7.3/G7.4 evidence packets or G7.2 preflight file. Therefore those sub-gate completion claims remain **REPORTED / UNVERIFIED** and are not promoted to current status.
+A prior assistant message in the originating ChatGPT conversation stated that G7.1, G7.3 and G7.4 research had been completed while G7.2 live execution remained pending. This is a historical conversation statement, not a Gate decision or source artifact. The conversation read on 2026-10-04 had no attached files, and the current repository branches contain no dedicated G7.1/G7.3/G7.4 evidence packet or G7.2 preflight path by filename. Therefore those sub-gate completion claims remain **REPORTED / UNVERIFIED** and are not promoted to current status.
 
 **Resolution:** recover the referenced original Library/research artifacts or immutable links; map each claimed sub-gate to its question, evidence, exit criteria, decision/approver and residual unknowns; then update this Gate, Evidence Register and CURRENT from the recovered sources. Until then, report only the independently reviewable current state: G7.2 live R0 baseline/no-op pending, U-017 open, and no authorized Macau pilot outcome evidenced in this repo.
 
