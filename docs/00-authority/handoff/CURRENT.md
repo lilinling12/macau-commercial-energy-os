@@ -11,10 +11,18 @@ Build a commercial multi-energy orchestration system for Macau commercial buildi
 
 This is not a generic energy dashboard, chatbot, BMS replacement, or kWh-only optimizer. Cloud recommendations do not directly control devices; site Edge and the Safety Kernel own command validation and execution. Initial operation remains SHADOW/advisory until evidence and authorization gates are met.
 
+## End-to-end product and delivery objective
+
+The project objective is to complete and validate the product design, complete the evidence-backed technical architecture and detailed designs, implement and verify the MVP, and reach an authorized Macau pilot with measured outcomes and an operational handoff. This is one lifecycle objective, not a claim that planning documents alone constitute completion.
+
+Definition of done spans: customer/problem validation; product requirements and tested workflows; passed domain/safety/technology gates or explicitly bounded pilot limitations; approved architecture and detailed designs; implementation mapped to requirements; security/reliability/acceptance evidence; site authorization; pilot measurement; and an expand/remediate/stop decision.
+
+**Current active delivery record:** PR #8, branch `docs/product-architecture-roadmap` (open, not merged). It contains the research-derived product baseline, PRD draft, logical architecture, research/coding continuity, roadmap, and the VS-001 detailed-design draft. These documents remain drafts; customer validation, complete detailed design, production stack selection, implementation completion, and pilot evidence are outstanding. Changes on this branch are not yet on `main`.
+
 ## Research state
 
 - **G1 — Macau Tariff & Settlement Foundation:** OPEN. G1.1/G1.2 completed; commercial bill, demand-window and cross-site PV questions remain; U-026 tracks an official PV-count discrepancy.
-- **G6.9-R2 — Technology Stack Bake-off:** Step 3A, 3B and 3C complete; **Step 3D pinned framework-native integration pending**.
+- **G6 — Safety & Control:** OPEN / no formal closure evidence recorded. Required proof includes site-local veto/limits, offline fallback, manual override, authenticated/idempotent commands, audit and replay. U-022 remains OPEN for production signing and Edge key lifecycle; Step-3C semantics do not close this security gate.\n- **G6.9-R2 — Technology Stack Bake-off:** Step 3A, 3B and 3C complete; **Step 3D pinned framework-native integration pending**.
 - **G7 — Reference Simulator & Pilot Validation:** active in parallel; G7.2 live baseline/no-op still pending; U-017 live response/rebound remains open.
 - Research Authority v1.6.2 contains D-001..D-076 and U-001..U-024. Repository follow-up records add D-077 and U-025..U-026; the synced registers now cover D-001..D-077 and U-001..U-026. See the architecture technology-authority, decision, and research evidence documents.
 - Official CEM PV material confirms an approved grid-interconnection and feed-in-tariff route. It does **not** establish cross-building virtual netting or a customer's right to claim another building's PV generation; U-025 tracks that question.
@@ -53,7 +61,16 @@ Immediate work:
 1. Continue G1 with authoritative Macau tariff/billing evidence, including U-025 cross-site PV rights and settlement.
 2. Execute G6.9-R2 Step 3D in the pinned environment; do not infer a framework winner from Step 3C.
 3. Execute G7.2 live baseline/no-op when the pinned BOPTEST runtime is available.
-4. Only then revise technology decisions and authorize dependent production implementation.
+4. Continue product discovery and validate PRD roles, workflows, and pilot value with target users.
+5. Extend component-level detailed design beyond VS-001 after product workflows and dependent Gate inputs are validated; close contract gaps and retain unresolved items explicitly.
+6. Only then revise technology decisions and authorize dependent production implementation.
+
+### Active design progress on PR #8
+
+- `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md` covers the shadow-mode energy intelligence loop, its component boundaries, data/time semantics, failures, evidence/replay, security boundaries, and current contract gaps.
+- The draft explicitly states it does not close G6 or authorize field commands.
+- Authority Validation and Repository Hygiene passed on PR head `2b688d8c38aa3241bc75de4addc5ddd3f622802d`.
+- Next architecture deliverable: a requirement-to-component/contract/evidence traceability matrix covering the full PRD, then detailed designs for the remaining validated MVP workflows. This matrix must expose gaps; it must not imply that unvalidated requirements are approved.
 
 ## Suspended implementation gate
 
