@@ -31,7 +31,7 @@ C+ is the **provisional default hypothesis**, not the bake-off winner. A and B r
 
 Step 3A established a common experiment pack. Step 3B checked protocol semantics across available Node and Go runtimes. Step 3C ran a semantic vertical slice and recovery case using the available Node/Go/Python shells. Step 3C did not run the candidate frameworks or common Postgres/Timescale, Temporal, NATS, MQTT 5 and OpenTelemetry stack together; it did not produce comparable performance or AI engineering results.
 
-**Next:** Step 3D pinned framework-native integration and failure testing, followed by the controlled candidate comparison. Keep U-018..U-024 open until their evidence criteria are met. The archive review and preflight are recorded in `docs/01-research/G6.9-technology-research/STEP-3D-READINESS-AND-EXECUTION-PLAN-v0.1.md`; it found Step 3D unexecuted and the current pack/host lacks a reproducible pinned runner.
+**Next:** Step 3D pinned framework-native integration and failure testing, followed by the controlled candidate comparison. Keep U-018..U-024 open until their evidence criteria are met. The archive review and preflight are recorded in `docs/01-research/G6.9-technology-research/STEP-3D-READINESS-AND-EXECUTION-PLAN-v0.1.md`; the draft machine-readable pin/blocker list is `docs/01-research/G6.9-technology-research/STEP-3D-RUNNER-MANIFEST-v0.1.json`. Step 3D remains unexecuted; these files do not constitute a reproducible pinned runner.
 
 ## Existing Node/NestJS implementation
 
