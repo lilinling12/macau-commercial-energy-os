@@ -21,6 +21,7 @@ Research → Decision → Architecture → Engineering → Implementation.
 - End-to-end product, architecture, implementation readiness audit and lifecycle completion criteria: `docs/00-authority/PRODUCT-ARCHITECTURE-IMPLEMENTATION-READINESS-AUDIT-v0.1.md` (draft; no scope, stack or Gate approval implied)
 - Cross-conversation research/coding continuity: `docs/00-authority/handoff/CONTINUATION-PROTOCOL.md`
 - New-conversation entry prompt: `docs/00-authority/handoff/CONTINUE-PROMPT.md`
+- Append-only handoff history: `docs/00-authority/handoff/HISTORY.md`
 - Reusable research and coding task packet: `docs/04-engineering/ai-coding-governance/TASK-PACKET-TEMPLATE.md`
 - Product design approval and engineering delivery governance (proposed): `docs/04-engineering/PRODUCT-DESIGN-AND-DELIVERY-GOVERNANCE-v0.1.md`
 - Research-derived product scope and user workflow: `docs/02-product/PRODUCT-DESIGN.md`
