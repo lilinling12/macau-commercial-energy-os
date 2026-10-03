@@ -50,13 +50,48 @@ Build one reproducible Linux x86-64 runner shared by all candidates. Before exec
 
 The versions named by the archive are inputs to verify and pin; do not silently substitute a newer runtime or service. Record deviations and rerun all candidates on the same environment if any pin changes.
 
-## 4. Candidate interpretation that remains open
+## 4. Official release check for Step 3D pin candidates
+
+**Checked:** 2026-10-04. These are proposed exact versions to evaluate and freeze with immutable image digests; they are not final architecture choices or proof of compatibility. The experiment should preserve a version manifest and retrieval date so all candidates use the same shared services.
+
+| Role | Proposed pin candidate | Evidence / remaining check |
+|---|---|---|
+| Candidate A API/product runtime | Bun 1.4.2 | Official Bun release page lists 1.4.2 as latest (Sep 2026). Exact Hono and Effect 4 package versions still need to be pinned in a lockfile. |
+| Candidate A Temporal TypeScript worker | Node 24.21.0 | Official Node LTS release (Sep 9, 2026); Temporal TypeScript SDK officially supports Node 24. |
+| Candidate B API/worker runtime | Node 24.21.0 | Same exact Node patch for API and Temporal TypeScript worker; exact NestJS, Fastify, and Temporal SDK packages still need a lockfile. |
+| Candidate C+ core | Go 1.27.1 | Official Go stable release; verify Go SDK and dependency versions in go.mod. |
+| Candidate C+ thin BFF | Bun 1.4.2 | Keep separate from Go core; exact Hono dependencies still need a lockfile. |
+| Shared optimizer | Python 3.14.8 | Official Python security/maintenance release (Sep 30, 2026); confirm optimizer dependency wheels and runtime compatibility before freezing. |
+| Shared database | PostgreSQL 18.6 + TimescaleDB 2.30.2 | Both official current releases at the check date. Verify the official image/extension combination supports PostgreSQL 18, then pin the image digest. |
+| Shared workflow service | Temporal Server 1.32.0 | Official stable release (Sep 11, 2026). Pin the matching image and record server/SDK compatibility. |
+| Shared event service | NATS Server 2.15.0 | Official stable release (Sep 17, 2026); includes JetStream. Pin image digest and record configuration. |
+| MQTT 5 broker | Not selected in pack | The pack requires MQTT 5 but does not name a broker or exact version. Select one common broker, document why, and pin it before the experiment. |
+| Telemetry collection | OpenTelemetry Collector 0.162.0 | Official release (Sep 29, 2026); pin distribution and image digest. |
+| Metrics dashboard | Prometheus 3.15.0 + Grafana 13.2.3 | Official stable releases found (Sep 2026); verify common dashboard/config and pin image digests. |
+
+Official sources:
+- Node.js 24.21.0: https://nodejs.org/en/blog/release/v24.21.0
+- Temporal TypeScript SDK Node support: https://github.com/temporalio/sdk-typescript
+- Bun 1.4.2: https://bun.sh/blog/bun-v1.4.2
+- Go 1.27.1: https://go.dev/doc/devel/release#go1.27.1
+- Python 3.14.8: https://www.python.org/downloads/release/python-3148/
+- PostgreSQL 18.6: https://www.postgresql.org/docs/current/release-18-6.html
+- TimescaleDB 2.30.2: https://github.com/timescale/timescaledb/releases/tag/2.30.2
+- Temporal Server 1.32.0: https://github.com/temporalio/temporal/releases/tag/v1.32.0
+- NATS Server 2.15.0: https://github.com/nats-io/nats-server/releases/tag/v2.15.0
+- OpenTelemetry Collector 0.162.0: https://github.com/open-telemetry/opentelemetry-collector-releases/releases/tag/v0.162.0
+- Prometheus 3.15.0: https://github.com/prometheus/prometheus/releases/tag/v3.15.0
+- Grafana 13.2.3: https://github.com/grafana/grafana/releases/tag/v13.2.3
+
+Before freeze, confirm image availability, cross-component compatibility, security advisories, and actual package-level pins. Any selected older version needs a recorded compatibility or stability reason. Exact versions alone do not make a runner reproducible: retain image digests, lockfiles, resource limits, configuration, benchmark commit SHAs, and raw results.
+
+## 5. Candidate interpretation that remains open
 
 The archive describes C+ with a thin Bun/Hono/TypeScript product BFF/UI surface while the separate provisional layer summary mentions React + TypeScript. These statements may mean a React frontend plus a Bun/Hono BFF, or they may describe competing UI approaches. The product/frontend boundary is unresolved and must not be silently inferred from the C+ topology. Record the exact API, BFF, and browser UI responsibilities consistently across candidates before treating the comparison as equivalent.
 
 Candidate A also uses Bun for its API/product service while keeping the Temporal TypeScript worker on authentic Node; Candidate B uses Node/NestJS/Fastify; Candidate C+ uses Go core/Temporal Go and a thin TypeScript surface. Compare equivalent user-visible flows and common contracts, not different product scopes.
 
-## 5. Ordered execution packet
+## 6. Ordered execution packet
 
 1. Resolve the product/API/BFF/browser-UI boundary across A/B/C+ and preserve it as an experiment assumption or approved decision.
 2. Create the pinned runner and a machine-readable environment manifest; freeze dependencies, image digests, workload, and resource limits.
@@ -70,7 +105,7 @@ Candidate A also uses Bun for its API/product service while keeping the Temporal
 
 The order above reflects the experiment pack. Work items 3–8 have not been performed as part of this preflight.
 
-## 6. Exit criteria and authority status
+## 7. Exit criteria and authority status
 
 Step 3D is complete only when all candidates have comparable framework-native integrations and raw evidence for the agreed failure, acceptance, performance, soak, and AI engineering experiments; deviations and failures are preserved; hard-gate status is explicit; and the evidence is reviewed under the published decision rule.
 
@@ -82,7 +117,7 @@ Until then:
 - no framework or production stack is approved by this readiness review;
 - G6 Safety & Control remains OPEN independently of the bake-off.
 
-## 7. Source artifacts
+## 8. Source artifacts
 
 - User-provided archive: macau-energy-os-stack-bakeoff-v0.2.0.zip
 - User-provided archive: macau-energy-os-stack-bakeoff-v0.3.0.zip
