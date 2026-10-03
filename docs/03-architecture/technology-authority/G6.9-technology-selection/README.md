@@ -4,16 +4,20 @@
 **Authority source:** Research Authority v1.6.2 and G6.9-R2 Step 3A–3C evidence  
 **Status:** Candidate evaluation remains open; no measured production-stack winner.
 
-## Project-level provisional architecture
+## Project-level layer proposal — pending owner review
 
-- **Frontend:** React + TypeScript.
+The following list was previously recorded as a provisional architecture. It is a research/design proposal, not an owner-approved stack or production baseline:
+
+- **Frontend:** React + TypeScript candidate; framework choice is open.
 - **Application:** TypeScript / Go responsibility split under evaluation.
 - **Durable workflow:** Temporal candidate.
-- **Data:** PostgreSQL + Timescale baseline.
+- **Data:** PostgreSQL + Timescale evaluation baseline.
 - **Cloud events:** NATS JetStream candidate.
-- **AI / forecasting / optimization / simulation:** Python.
-- **Site Edge and Safety Kernel:** Go.
-- **Future plugin isolation:** Wasm/WASI direction; not an MVP implementation commitment.
+- **AI / forecasting / optimization / simulation:** Python responsibility proposal.
+- **Site Edge and Safety Kernel:** Go responsibility proposal.
+- **Future plugin isolation:** Wasm/WASI direction proposal; not an MVP implementation commitment.
+
+Review product boundaries with the owner before finalizing frontend and module responsibilities. The G6.9-R2 bake-off separately governs cloud-core candidate evidence and selection.
 
 ## G6.9-R2 topology candidates
 
