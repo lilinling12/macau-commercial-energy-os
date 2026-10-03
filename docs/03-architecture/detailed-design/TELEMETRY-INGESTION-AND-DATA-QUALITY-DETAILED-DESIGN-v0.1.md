@@ -156,6 +156,33 @@ User-facing explanations identify source, measurement time, unit, freshness and 
 - Define backup/restore and reprocessing procedures that preserve original payloads and version references.
 - Exactly-once effects are not assumed. Duplicates, retries, late data and corrections remain explicit data states.
 
+## 9. Durable capture and publication state model (proposal)
+
+Separate transport receipt, durable capture, validation, downstream publication and consumer processing. A single HTTP/MQTT success response must not imply that an event is normalized, mapped, fresh, eligible for economics or consumed by every downstream workflow.
+
+| State | Entry condition | Required persisted reference / behavior | What may be acknowledged |
+|---|---|---|---|
+| RECEIVED | Bounded request/frame reached the adapter/ingress | Volatile only; validate connection and message size. A process crash may lose this state. | Nothing that claims durable receipt or business acceptance. |
+| AUTHENTICATED | Producer identity and requested tenant/site/device scope verified | Record principal/scope reference and authorization-policy version; do not trust payload identity alone. | No durable-data acknowledgement yet. |
+| RAW_DURABLE | Authorized original payload plus immutable receipt metadata has been committed and can be recovered | Assign an internal capture reference; retain raw text/bytes and receipt/adapter/contract context under approved access/retention controls. | A transport-level receipt acknowledgement may be sent only after this transition. It means “durably captured”, not “valid, billable, normalized, or processed.” Exact protocol response semantics remain connector-specific. |
+| QUARANTINED | Raw-durable record fails a pinned contract or cannot be safely normalized | Preserve stable reason, validator/policy version and raw reference; exclude from downstream economic/optimization use. | Report capture separately from validation status. |
+| PUBLISH_PENDING | Raw-durable record is valid for downstream processing but its event publication is not yet confirmed | Keep a durable, discoverable pending-publication marker or equivalent recovery cursor linked to the raw capture. | Do not report downstream completion. |
+| PUBLISHED | Broker accepted a publication referencing the durable raw capture | Preserve publication attempt/outcome and capture reference. A broker acknowledgement does not mean consumer processing completed. | May report publication progress separately from durable capture. |
+| NORMALIZED_DURABLE | Consumer validated/canonicalized/mapped/assessed the record and durably stored an append-only result linked to raw capture and policy versions | Retain resolved/unresolved and quality/freshness states; corrections create new lineage. | A consumer acknowledges only after the relevant durable side effect is committed. |
+| REPLAYABLE / BLOCKED | Reprocessing is requested, or a dependency prevents safe progression | Replay from the pinned raw reference and versioned inputs, or expose a stable blocked reason/backlog. Never substitute current rules silently. | Report replay/blocked status; do not imply an economic result exists. |
+
+### Crash, retry and acknowledgement rules
+
+1. A crash before RAW_DURABLE has no durable acceptance acknowledgement; the source may retry. If a source lacks a stable producer event ID, retries may create separate raw capture records. Preserve them; do not collapse records by payload hash, timestamp or value heuristics.
+2. A crash after RAW_DURABLE but before broker publication must leave a discoverable pending record. A dispatcher/outbox or equivalent recovery mechanism republishes it after restart. This mechanism is not selected here.
+3. A crash after broker acceptance but before recording PUBLISHED may cause republishing. Consumers must tolerate redelivery using a stable internal capture reference and explicit source identity where available; this is at-least-once behavior, not exactly-once delivery.
+4. If a consumer crashes after a durable side effect but before acknowledging the broker, redelivery must not create duplicate normalized/economic records. The storage transaction/idempotency boundary and version key must be designed and proven for the selected runtime.
+5. Durable raw capture, broker publication and normalized persistence may use separate physical systems. If so, recovery cursors, backlog visibility, retry limits, poison-event handling, quarantine, deletion/retention and restore ordering must be explicit.
+6. When durable capacity is unavailable, apply bounded backpressure and expose the degraded state. Do not acknowledge capture and do not allow downstream workers to infer completeness.
+7. Receipt acknowledgement, event publication, normalized persistence and economic assessment are separate statuses in health/UI/audit. Trace IDs remain observability metadata, not business event identity.
+
+This state model defines semantics, not an HTTP status code, MQTT QoS, broker configuration, outbox product, database schema or exactly-once guarantee. Those choices require connector inventory, contract/event identity decisions, G6.9-R2 evidence, security/data-retention review and an owner-approved architecture.
+
 ## 9. Failure behavior
 
 | Failure | Required response | Downstream result |
@@ -179,7 +206,7 @@ Before PR-02/PR-09 can be declared implementation-ready:
 2. Resolve producer identity/event ID and delivery/idempotency contract; document whether each connector is at-most-once, at-least-once or has a stronger verified boundary.
 3. Validate representative Macau meter/BMS connector inventories, metric/unit mappings, source clocks, multipliers/register semantics, sampling cadence and quality codes.
 4. Establish authenticated producer-to-tenant/site/device authorization and negative cross-tenant evidence.
-5. Demonstrate durable raw capture, quarantine, backpressure, restart/retry, duplicate-suspect handling and correction/replay lineage under the selected topology.
+5. Demonstrate each state transition and crash boundary in §9: raw capture before receipt acknowledgement; recovery of pending publication; safe broker redelivery; consumer acknowledgement only after durable effects; quarantine, backpressure, restart/retry and correction/replay lineage under the selected topology.
 6. Set metric/site-specific quality, freshness, late-data, range and coverage policies with product/operator owners.
 7. Define operator data-health tasks, screen requirements and alert/SLO thresholds based on user research and pilot operating model.
 8. Prove downstream fail-closed behavior: unresolved, stale, BAD/UNKNOWN or unauthorized inputs cannot produce exact settlement, monetary savings claims or control proposals.
@@ -196,6 +223,7 @@ This document is a logical design proposal and a list of evidence gates; no appl
 - Metric registry and unit-conversion governance, including registers, multipliers and flow direction.
 - Source-specific quality codes, freshness thresholds, clock-skew tolerance and missing-data behavior.
 - Expected event rate, retention, latency, durability, regional availability and SLO targets.
+- Connector-specific receipt/acknowledgement response semantics and durable capture → publication → consumer state mapping.
 - Edge/offline buffer size and full-buffer behavior for the selected pilot.
 - Tenant/site producer provisioning, certificate/key lifecycle and delegated integration partner access.
 - Which source systems provide utility-settled quantities vs inferred/submeter quantities.
