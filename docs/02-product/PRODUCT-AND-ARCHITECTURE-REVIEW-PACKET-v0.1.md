@@ -22,7 +22,7 @@ The repository contains useful research-derived product and architecture drafts.
 
 Macau Commercial Energy OS is proposed as an energy-intelligence and orchestration product for commercial buildings and sites. It joins metering and building-system data with site/asset topology, customer contracts, tariffs, and settlement evidence. Its initial value proposition is traceable cost intelligence and explainable, shadow-mode recommendations, with evidence that can be replayed and compared.
 
-This proposal excludes autonomous control, unsupported bill-grade claims, and treating remote PV as another building's bill credit without settlement evidence. These boundaries follow the current research authority and remain subject to product-owner review.
+This proposal excludes autonomous control, unsupported bill-grade claims, and treating remote PV as another building's bill credit without settlement evidence. The amended electricity concession contract effective 2026-01-01 contemplates private self-generated distribution only within the same land parcel and with prior written SAR authorization; this does not establish cross-parcel customer bill credits. These boundaries follow the current research authority and remain subject to product-owner review.
 
 ### Users and workflow hypotheses
 
