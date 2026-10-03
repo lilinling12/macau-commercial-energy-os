@@ -19,7 +19,7 @@ CEM's simplified Standard Conditions of Supply separately say that energy-consum
 
 ### Government tax / installation-use charge
 
-CEM's Chinese bill guide labels the item “政府稅” and describes it as a monthly tax for using the electrical installation. The Portuguese bill guide calls the corresponding item “Taxa de Exploração” and describes it as a monthly charge for use of the electrical installation. CEM's current B/C/D tariff pages identify the monthly item but do not publish a B/C/D calculation formula in the material reviewed. Administrative Regulation 25/2022 provides tariff formulas (including the B formula) but the reviewed provisions do not establish a B/C/D formula for this separate monthly bill item. CEM's A-group and EV examples show `0.75 × √subscribed demand`; that is scope-specific evidence and must not be extrapolated to B/C/D. The legal/contractual characterization and exact B/C/D calculation remain unknown. U-009 remains **UNKNOWN / G1 BLOCKER**.
+CEM's Chinese bill guide labels the invoice line “政府稅”; the Portuguese bill guide and current B/C/D tariff pages call it “Taxa de Exploração” and describe it as a monthly charge for using the electrical installation. The current CEM B/C/D pages reviewed identify the line but publish no formula. Administrative Regulation 25/2022 defines electricity-tariff charges as power and energy components (Article 3) and specifies the Group B tariff formula (Article 8); Article 36 expressly repeals Decree-Law 35/86/M. The Official Gazette entry confirms Regulation 25/2022 is the current tariff-system instrument; Executive Order 105/2022 supplies tariff parameters, and the later amendments located (66/2024 and 1/2026) amend Article 10 on transport-charging tariffs. A historical CEM Group A leaflet based on the former tariff regime said this fee reverted to the SAR Government and that its formula depended on installation type, but that historical statement does not establish the current legal basis or B/C/D treatment after the 2022 reform. Current CEM A-group/EV examples show `0.75 × √subscribed demand`; this is scope-specific and must not be extrapolated to B/C/D. The line's current legal/contractual characterization, authority and exact B/C/D calculation remain unknown. U-009 remains **UNKNOWN / G1 BLOCKER**.
 
 ### Smart meter deployment and data access
 
@@ -43,5 +43,11 @@ CEM's January 2025 press release says smart-meter coverage is complete, remote r
 - Official Gazette — Administrative Regulation 25/2022: https://bo.io.gov.mo/bo/i/2022/26/regadm25.asp
 - CEM — Smart Meters: https://www.cem-macau.com/en/smart-living/smartcity/smartmeters/
 - CEM — Standard Conditions of Supply (simplified): https://www.cem-macau.com/en/about-cem/power-supply-technical-information/standard-condition-of-supply
+
+- Official Gazette — Administrative Regulation 25/2022 (current tariff system; Articles 3, 8, 36): https://bo.dsaj.gov.mo/bo/i/2022/26/regadm25.asp
+- Official Gazette — Executive Order 105/2022 (tariff parameters and annex): https://bo.dsaj.gov.mo/bo/i/2022/26/despce.asp
+- Official Gazette — Chief Executive Order 66/2024 (amends Order 105/2022 Article 10, transport-charging tariff): https://bo.dsaj.gov.mo/bo/i/2024/17/despce.asp
+- Official Gazette — Chief Executive Order 1/2026 (amends Order 105/2022 Article 10, transport-charging tariff): https://bo.dsaj.gov.mo/bo/i/2026/02/despce.asp
+- CEM — historical Group A tariff leaflet (former legal framework; not evidence of current B/C/D rule): https://www.cem-macau.com/uploads/pdf_education_Tariff_A_eng_e2e7123386.pdf
 - CEM — Smart-meter coverage and customer daily-use summary (2025-01-16): https://www.cem-macau.com/en/press-release/681/
 - CEM — Smart Energy Management press release (2025-01-16): https://www.cem-macau.com/en/press-release/681/
