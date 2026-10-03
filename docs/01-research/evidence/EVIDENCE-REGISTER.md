@@ -44,3 +44,18 @@ Evidence discipline applies to research, architecture and implementation decisio
 - **Status:** REPORTED in the Open Questions register; **not independently auditable from the current repository snapshot** because the cited artifact is absent from the PR #8 branch tree. Do not treat the counts/hashes as verified by this repository review.
 - **Evidence:** `docs/00-authority/decisions/OPEN-QUESTIONS.md` (U-013) records the assertion; G7 closure requirements: `docs/01-research/gates/G7-pilot-validation.md`.
 - **Limit:** G7.2 live baseline/no-op remains pending; U-017 response/rebound, U-012 Macau calibration and U-015 weather validation remain open. No Macau customer pilot or measured customer result is established by the cited fixture assertion.
+
+
+## G0 — Macau customer/problem and commercial validation
+
+- **Claim:** The current roadmap records the original G0 thesis/market rationale as substantially complete, while direct target-customer, buyer-authority, willingness-to-pay and workflow validation remains outstanding.
+- **Status:** REPORTED for prior research rationale; **UNKNOWN / HYPOTHESIS** for validated target-segment demand, buying authority, recurring job, accessible data and commercial commitment.
+- **Evidence:** `docs/00-authority/ROADMAP.md`; research-derived product baseline and customer discovery protocol in `docs/02-product/PRODUCT-DESIGN.md` and `docs/02-product/CUSTOMER-DISCOVERY-AND-USABILITY-RESEARCH-PLAN-v0.1.md`.
+- **Limit:** Public aggregate energy statistics and concept/prototype reactions do not establish customer pain, purchase intent or willingness to pay. G0's current “substantially complete” label does not mean the product thesis is customer validated.
+
+## G1 — CEM billing and demand-rule evidence
+
+- **Claim:** Public CEM material partially documents payable-amount rounding/odd-amount carry-forward and defines high-level tariff/billing descriptions; reviewed public material does not settle Pu's numeric integration window or the B/C/D monthly installation-use charge formula.
+- **Status:** PARTIALLY VERIFIED for the public statements recorded in the G1 evidence note; **UNKNOWN** for calculation order, real Golden Bill behavior, U-001, U-009 and third-party high-frequency data access (U-003).
+- **Evidence:** `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`; corresponding Open Questions U-001/U-003/U-009/U-010/U-011.
+- **Limit:** No matched real Golden Bill + interval/load-profile set is recorded. G1 remains OPEN; do not claim bill-grade reconstruction or hard-code a demand interval/tax formula.
