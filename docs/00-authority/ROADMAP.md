@@ -54,6 +54,7 @@ Gate exit criteria below are execution checks derived from the research objectiv
 ## Product and architecture design deliverables
 
 - Product definition: `docs/02-product/PRODUCT-DESIGN.md`
+- Owner decision summary: `docs/02-product/OWNER-DECISION-SUMMARY-v0.1.md` (**review aid; no product or technology choice approved**)
 - Product requirements: `docs/02-product/PRD-v0.1.md` (**research-derived draft; customer validation and approval remain pending**)
 - Product information architecture, primary flows and screen requirements: `docs/02-product/USER-FLOWS-AND-IA-v0.1.md` (**draft; target-user validation remains pending**)
 - Clickable product interaction prototype v0.4: `docs/02-product/prototype/v0.4/index.html` (**synthetic demo; coherent SVG navigation icons, truthful read-only site context, and phone-sized trend presentation backed by text/table; not customer/usability validated or WCAG-conformance tested**)
@@ -79,6 +80,11 @@ Gate exit criteria below are execution checks derived from the research objectiv
 The product and architecture documents distinguish confirmed research from hypotheses and provisional technology candidates. They do not claim the UI has been usability-tested or that a production stack has been selected. PRD-v0.1 formalizes traceable requirements, but does not replace customer discovery, interaction design, detailed architecture, or approval of product scope.
 
 ## Next work packets
+
+### WP-0 — Owner review and decision baseline
+Use `docs/02-product/OWNER-DECISION-SUMMARY-v0.1.md` as the immediate review entry point. The owner may approve, revise, or defer each proposed choice; record only choices explicitly confirmed by the owner. Review the initial product promise, lead user/site, visual direction, and initial PV boundary for product discovery/design. Separately resolve the Step 3D comparison boundary and test-only Temporal persistence configuration before freezing its runner. These experiment choices do not select the frontend or production stack.
+
+**Exit evidence:** owner responses are recorded in the relevant PRD/decision record and reflected in the Step 3D readiness plan/manifest; deferrals remain explicit blockers rather than inferred approval. Product discovery and evidence gathering that do not depend on a decision may continue in parallel.
 
 ### WP-1 — Close G1 evidence blockers
 Obtain authoritative tariff and meter-window answers, anonymized real bills with matching meter data, tax/rounding rules, and written clarification for cross-site PV settlement and the official PV-count discrepancy. Update U-items, evidence register, tariff rules, and Golden Bill fixtures. Do not recognize remote PV generation as a customer's bill credit without contractual and settlement evidence.
