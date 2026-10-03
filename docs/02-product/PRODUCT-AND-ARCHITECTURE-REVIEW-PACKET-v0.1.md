@@ -158,7 +158,18 @@ The next design work can advance on directional product scope and logical trust/
 
 ## 8. Owner response record
 
-No response or approval is recorded in this draft.
+### Confirmed process and quality constraints
+
+The owner has confirmed these review constraints in the conversation:
+
+- Product scope, interaction design, technical architecture and detailed design must be presented for owner review before they become approved baselines.
+- Use the specified UI/UX Pro Max skill when designing or reviewing the interface.
+- Ground interface decisions in mature product-design practices and current research; do not keep dated interaction or visual patterns simply because they exist in an earlier prototype.
+- Apply engineering governance and the necessary development/review/validation workflow.
+
+These confirmations govern how decisions are researched and reviewed. They do **not** approve the product promise, target role/site, MVP scope, visual direction, frontend framework, production architecture, deployment model, or any G6.9-R2 candidate. No such substantive product or architecture approval is recorded here.
+
+### Decisions still awaiting owner review
 
 - Product promise:
 - Lead user/site:
