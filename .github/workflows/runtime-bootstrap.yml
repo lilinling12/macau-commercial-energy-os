@@ -1,0 +1,82 @@
+name: Runtime Bootstrap
+
+on:
+  pull_request:
+    paths:
+      - "implementation/platform-api/**"
+      - "implementation/edge-runtime/**"
+      - "implementation/optimizer/**"
+      - "implementation/contracts/**"
+      - ".tool-versions"
+      - ".github/workflows/runtime-bootstrap.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "implementation/platform-api/**"
+      - "implementation/edge-runtime/**"
+      - "implementation/optimizer/**"
+      - "implementation/contracts/**"
+      - ".tool-versions"
+      - ".github/workflows/runtime-bootstrap.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  platform-api:
+    name: Platform API
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: implementation/platform-api
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24.21.0"
+      - run: npm install --ignore-scripts
+      - run: npm run typecheck
+      - run: npm run build
+
+  edge-runtime:
+    name: Edge Runtime
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: implementation/edge-runtime
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-go@v6
+        with:
+          go-version: "1.27.1"
+      - run: go test ./...
+      - run: go build ./cmd/edge
+
+  optimizer:
+    name: Optimizer
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: implementation/optimizer
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.14.8"
+      - run: PYTHONPATH=src python -m unittest discover -s tests -v
+
+  contracts:
+    name: Contract Fixtures
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.14.8"
+      - run: python -m pip install --disable-pip-version-check -r implementation/contracts/requirements-ci.txt
+      - run: python implementation/contracts/validate_fixtures.py

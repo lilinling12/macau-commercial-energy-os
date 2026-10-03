@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "tenantId": "tenant-demo",
+  "siteId": "site-demo",
+  "deviceId": "meter-001",
+  "pointId": "active-power",
+  "metric": "active_power",
+  "value": 128.5,
+  "unit": "kW",
+  "quality": "GOOD",
+  "observedAt": "2026-10-03T00:00:00Z",
+  "source": "synthetic-vs001"
+}
