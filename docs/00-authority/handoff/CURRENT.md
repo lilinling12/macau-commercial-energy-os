@@ -22,6 +22,7 @@ Definition of done spans: customer/problem validation; product requirements and 
 ## Research state
 
 - **G1 — Macau Tariff & Settlement Foundation:** OPEN. G1.1/G1.2 completed. CEM's public bill guide partially clarifies amount-due rounding/odd-amount carry-forward (U-011), while Golden Bill validation remains required. Pu interval (U-001), B/C/D monthly government tax/installation-use charge formula (U-009), real bills (U-010), and cross-site PV rights (U-025) remain open; U-026 tracks an official PV-count discrepancy. CEM reports smart-meter coverage and customer-facing daily history, but third-party high-frequency API access remains unknown (U-003). Evidence: `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`.
+- **G2 — Commercial Load Flexibility:** OPEN. Public Macau evidence establishes sector-level establishment electricity consumption, some reported hotel energy-management practices, and billing-month energy-saving comparisons; it does not quantify interval load shape, flexible kW/kWh, response, comfort/service effects or rebound. Site-approved measured evidence is still required; D-003 HVAC/chiller priority remains a hypothesis to validate. Evidence and exit protocol: `docs/01-research/evidence/G2-MACAU-COMMERCIAL-LOAD-FLEXIBILITY-EVIDENCE-2026-10.md`.
 - **G6 — Safety & Control:** OPEN / no formal closure evidence recorded. The itemized status and closure checklist is `docs/01-research/gates/G6-safety-control.md`. Required proof includes site-local veto/limits, offline fallback, manual override, authenticated/idempotent commands, audit and replay. U-022 remains OPEN for production signing and Edge key lifecycle; Step-3C semantics do not close this security gate.
 - **G6.9-R2 — Technology Stack Bake-off:** Step 3A, 3B and 3C complete; **Step 3D pinned framework-native integration pending**. The v0.3.0 archive contains Step 3C evidence only. Readiness findings and execution requirements are in `docs/01-research/G6.9-technology-research/STEP-3D-READINESS-AND-EXECUTION-PLAN-v0.1.md`; the machine-readable draft `docs/01-research/G6.9-technology-research/STEP-3D-RUNNER-MANIFEST-v0.1.json` is not an executable runner and retains explicit freeze blockers.
 - **G7 — Reference Simulator & Pilot Validation:** active in parallel; G7.2 live baseline/no-op still pending; U-017 live response/rebound remains open.
@@ -121,6 +122,7 @@ Read:
 5. `docs/00-authority/decisions/OPEN-QUESTIONS.md`
 6. `docs/03-architecture/technology-authority/G6.9-technology-selection/README.md`
 7. `docs/01-research/evidence/G1-PV-GRID-INTERCONNECTION-2026-10.md`
-8. Authority files referenced by the current task.
+8. `docs/01-research/evidence/G2-MACAU-COMMERCIAL-LOAD-FLEXIBILITY-EVIDENCE-2026-10.md`
+9. Authority files referenced by the current task.
 
 GitHub live state, exact-head CI, verified evidence, and Decision Records take precedence over chat memory.
