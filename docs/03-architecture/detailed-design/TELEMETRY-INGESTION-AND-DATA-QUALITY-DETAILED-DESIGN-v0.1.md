@@ -158,28 +158,38 @@ User-facing explanations identify source, measurement time, unit, freshness and 
 
 ## 9. Durable capture and publication state model (proposal)
 
-Separate transport receipt, durable capture, validation, downstream publication and consumer processing. A single HTTP/MQTT success response must not imply that an event is normalized, mapped, fresh, eligible for economics or consumed by every downstream workflow.
+Separate protocol-level transport acknowledgement, platform durable capture, validation, downstream publication and consumer processing. A protocol success response does not by itself prove that the platform has durably captured the payload, nor that it is normalized, mapped, fresh, economically eligible or consumed by downstream workflows.
 
 | State | Entry condition | Required persisted reference / behavior | What may be acknowledged |
 |---|---|---|---|
 | RECEIVED | Bounded request/frame reached the adapter/ingress | Volatile only; validate connection and message size. A process crash may lose this state. | Nothing that claims durable receipt or business acceptance. |
 | AUTHENTICATED | Producer identity and requested tenant/site/device scope verified | Record principal/scope reference and authorization-policy version; do not trust payload identity alone. | No durable-data acknowledgement yet. |
-| RAW_DURABLE | Authorized original payload plus immutable receipt metadata has been committed and can be recovered | Assign an internal capture reference; retain raw text/bytes and receipt/adapter/contract context under approved access/retention controls. | A transport-level receipt acknowledgement may be sent only after this transition. It means “durably captured”, not “valid, billable, normalized, or processed.” Exact protocol response semantics remain connector-specific. |
+| RAW_DURABLE | Authorized original payload plus immutable receipt metadata has been committed and can be recovered | Assign an internal capture reference; retain raw text/bytes and receipt/adapter/contract context under approved access/retention controls. | Issue a distinct application-level capture receipt only after this transition. It means “the designated authoritative raw store can recover this record”, not “valid, billable, normalized, or processed.” A protocol/broker acknowledgement is a separate status and counts as RAW_DURABLE only if that broker is explicitly selected as the authoritative raw store and its persistence, failover and recovery behavior is verified. |
 | QUARANTINED | Raw-durable record fails a pinned contract or cannot be safely normalized | Preserve stable reason, validator/policy version and raw reference; exclude from downstream economic/optimization use. | Report capture separately from validation status. |
 | PUBLISH_PENDING | Raw-durable record is valid for downstream processing but its event publication is not yet confirmed | Keep a durable, discoverable pending-publication marker or equivalent recovery cursor linked to the raw capture. | Do not report downstream completion. |
 | PUBLISHED | Broker accepted a publication referencing the durable raw capture | Preserve publication attempt/outcome and capture reference. A broker acknowledgement does not mean consumer processing completed. | May report publication progress separately from durable capture. |
 | NORMALIZED_DURABLE | Consumer validated/canonicalized/mapped/assessed the record and durably stored an append-only result linked to raw capture and policy versions | Retain resolved/unresolved and quality/freshness states; corrections create new lineage. | A consumer acknowledges only after the relevant durable side effect is committed. |
 | REPLAYABLE / BLOCKED | Reprocessing is requested, or a dependency prevents safe progression | Replay from the pinned raw reference and versioned inputs, or expose a stable blocked reason/backlog. Never substitute current rules silently. | Report replay/blocked status; do not imply an economic result exists. |
 
+### Protocol acknowledgement evidence and implications (official-spec review, 2026-10-04)
+
+- **MQTT 5 QoS 1:** OASIS defines at-least-once delivery with possible duplicates. The receiver sends PUBACK after accepting ownership of the application message; the standard explicitly says onward delivery need not be complete before PUBACK. The packet identifier is reusable after PUBACK and is not a durable application event ID. Thus, a PUBACK received by an Edge publisher normally proves the MQTT server/broker's protocol-level acceptance, not that a separate platform subscriber has committed the payload to the platform raw store.
+- **MQTT 5 QoS 2:** OASIS defines exactly-once delivery within the QoS 2 protocol exchange, but the receiver may send PUBREC/PUBCOMP before onward delivery is complete. It does not prove that a downstream database transaction or economic side effect committed exactly once. Do not promote a QoS label into an end-to-end application guarantee.
+- **HTTP:** RFC 9110 defines 202 Accepted as accepted for processing before processing is complete, and 201 Created as fulfillment resulting in a created resource. HTTP does not define this product's raw-store durability boundary; the API contract must define which application commit point its response represents.
+
+**Design implication (inference from the protocol scopes above):** keep transport acknowledgement and platform capture receipt separate in state, UI and audit. A protocol ACK may count as RAW_DURABLE only when the selected broker is deliberately the authoritative raw store and tests prove restart/failover/recovery from that store. Otherwise issue an application-level capture receipt after the designated raw commit and track broker custody/publication separately. Exact response topics, API codes, MQTT QoS, broker durability settings and status-resource shape remain open per connector.
+
+Official references: [OASIS MQTT Version 5.0, §§4.3.2–4.3.3](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html); [RFC 9110 §§15.3.2–15.3.3](https://www.rfc-editor.org/rfc/rfc9110.html#section-15.3).
+
 ### Crash, retry and acknowledgement rules
 
-1. A crash before RAW_DURABLE has no durable acceptance acknowledgement; the source may retry. If a source lacks a stable producer event ID, retries may create separate raw capture records. Preserve them; do not collapse records by payload hash, timestamp or value heuristics.
+1. A crash before RAW_DURABLE means no application-level capture receipt may be issued. A direct source may retry; when a broker has already acknowledged its own transport boundary, later recovery depends on the configured durable session/queue and subscriber replay path. Verify this for the connector. If no stable producer event ID exists, retries may create separate raw capture records. Preserve them; do not collapse records by payload hash, timestamp or value heuristics.
 2. A crash after RAW_DURABLE but before broker publication must leave a discoverable pending record. A dispatcher/outbox or equivalent recovery mechanism republishes it after restart. This mechanism is not selected here.
 3. A crash after broker acceptance but before recording PUBLISHED may cause republishing. Consumers must tolerate redelivery using a stable internal capture reference and explicit source identity where available; this is at-least-once behavior, not exactly-once delivery.
 4. If a consumer crashes after a durable side effect but before acknowledging the broker, redelivery must not create duplicate normalized/economic records. The storage transaction/idempotency boundary and version key must be designed and proven for the selected runtime.
 5. Durable raw capture, broker publication and normalized persistence may use separate physical systems. If so, recovery cursors, backlog visibility, retry limits, poison-event handling, quarantine, deletion/retention and restore ordering must be explicit.
-6. When durable capacity is unavailable, apply bounded backpressure and expose the degraded state. Do not acknowledge capture and do not allow downstream workers to infer completeness.
-7. Receipt acknowledgement, event publication, normalized persistence and economic assessment are separate statuses in health/UI/audit. Trace IDs remain observability metadata, not business event identity.
+6. When the authoritative raw store lacks durable capacity, apply bounded backpressure and expose the degraded state. Do not issue the application capture receipt or allow downstream workers to infer completeness. Transport-level ACK behavior is connector-specific; if it acknowledges broker custody, show that state distinctly and prove the configured broker can replay after failure.
+7. Transport acknowledgement/broker custody, application capture receipt, event publication, normalized persistence and economic assessment are separate statuses in health/UI/audit. Trace IDs remain observability metadata, not business event identity.
 
 This state model defines semantics, not an HTTP status code, MQTT QoS, broker configuration, outbox product, database schema or exactly-once guarantee. Those choices require connector inventory, contract/event identity decisions, G6.9-R2 evidence, security/data-retention review and an owner-approved architecture.
 
@@ -188,7 +198,7 @@ This state model defines semantics, not an HTTP status code, MQTT QoS, broker co
 | Failure | Required response | Downstream result |
 |---|---|---|
 | Authentication or tenant/site authorization fails | Reject and audit without exposing other tenant graph records | No event reaches normalized consumers |
-| Raw capture unavailable | Do not acknowledge durable acceptance; signal backpressure | No tariff/recommendation use |
+| Raw capture unavailable | Do not issue an application-level capture receipt; signal backpressure. Record protocol/broker acknowledgement separately if it has already occurred. | No tariff/recommendation use |
 | Contract invalid/unsupported | Quarantine raw payload with contract/version and stable reason | No normalization |
 | Timestamp invalid or timezone ambiguous | Quarantine or mark non-actionable under pinned policy; retain raw text | No time-dependent aggregation |
 | Unit/metric mismatch | Preserve raw and quarantine mapping error | No economic/optimizer input |
@@ -237,4 +247,5 @@ This document is a logical design proposal and a list of evidence gates; no appl
 - Existing VS-001 ingress semantics: docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md.
 - Authority: D-038–D-040, D-065, G3/G6 and OPEN questions U-003/U-006/U-021/U-022.
 - CloudEvents Core Specification, event identity and duplicate redelivery: https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md
-- OASIS MQTT Version 5.0, Packet Identifier scope and reuse: https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html
+- OASIS MQTT Version 5.0, §§4.3.2–4.3.3, QoS delivery/acknowledgement scope: https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html
+- RFC 9110, §§15.3.2–15.3.3, HTTP 201 Created and 202 Accepted: https://www.rfc-editor.org/rfc/rfc9110.html#section-15.3
