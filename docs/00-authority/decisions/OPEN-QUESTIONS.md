@@ -14,6 +14,7 @@
 
 ## U-003 — Third-party high-frequency CEM AMI access
 **Status:** UNKNOWN  
+**Verified public boundary (2026-10-04):** CEM reports full smart-meter coverage and customer-facing daily consumption history. The reviewed official material does not establish an external third-party API, high-frequency interval, export format, retention or commercial access terms.  
 **Question:** Is a supported real-time/high-frequency API available to commercial third parties?  
 **Resolution path:** CEM technical/commercial confirmation.  
 **Design implication:** first pilot must be viable with local metering/BMS data.
@@ -52,11 +53,13 @@
 **Gate:** Tariff Engine cannot be marked production-ready until reconstruction error is <=0.5% with zero unexplained balancing adjustment.
 
 ## U-011 — Commercial bill rounding / odd-amount carry-forward semantics
-**Status:** OPEN / GOLDEN-BILL VALIDATION REQUIRED  
-**Known:** CEM's bill explanation documents an “Odd Amount” carry-forward/rounding concept.  
-**Unknown:** Exact component-level versus invoice-level rounding/carry-forward behavior for B/C/D commercial bills and how it interacts with reconstruction tolerance.  
-**Resolution path:** real B/C/D bills + CEM billing explanation/contract evidence.  
-**Design implication:** rounding remains an explicit settlement policy; do not round each interval by default.
+**Status:** PARTIALLY RESOLVED / GOLDEN-BILL VALIDATION REQUIRED  
+**Verified public boundary (2026-10-04):** CEM's bill explanation for A and B/C/D says an odd amount is automatically carried to the next bill and the amount payable is rounded down to the nearest ten.  
+**Unknown:** Exact denomination semantics, calculation order across charges/tax/credits, ledger representation/direction, negative adjustment treatment, and whether/how component values are rounded; interaction with reconstruction tolerance remains unverified. No commercial Golden Bill has been reconciled.  
+**Resolution path:** real B/C/D bills + matching meter/load-profile evidence and CEM billing explanation/contract confirmation.  
+**Design implication:** treat the public statement as an invoice-payable-level behavior only; do not infer component rounding or round each interval. Keep settlement policy explicit.
+
+**Evidence:** `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`.
 
 ## U-012 — Macau reference-building calibration targets
 **Status:** OPEN / G7  
