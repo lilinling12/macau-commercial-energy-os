@@ -131,29 +131,29 @@ Official sources:
 
 Before freeze, confirm image availability, cross-component compatibility, security advisories, and actual package-level pins. Any selected older version needs a recorded compatibility or stability reason. The application database image check is satisfied by the official `2.30.2-pg18` image metadata (PostgreSQL 18.6 + TimescaleDB 2.30.2); the MQTT broker is provisionally named as Mosquitto 2.1.2. Temporal's `temporalio/server:1.32.0` image tag is verified. Current Temporal docs actively test PostgreSQL 13–16, and the current official sample configuration pins PostgreSQL 16. The v0.3.0 pack's `infra/README.md` explicitly requires PostgreSQL 18 + TimescaleDB and a Temporal dev/prod-equivalent service, and says candidates may not substitute a different database, broker or workflow engine. It does not specify Temporal's persistence database version or whether persistence must use the same instance as the candidate application database. Keep PostgreSQL 18 + TimescaleDB as the common candidate application service. A dedicated PostgreSQL 16 persistence service is an additional shared runner service proposal—not a candidate-specific replacement—and remains subject to owner approval before freeze. If that addition is not approved, do not assume PostgreSQL 18 compatibility from the current tested-version list; resolve and document the supported Temporal persistence configuration before execution. Schema setup, namespace bootstrap, server configuration, and health checks remain open execution blockers. Exact versions alone do not make a runner reproducible: retain image digests, lockfiles, resource limits, configuration, benchmark commit SHAs, and raw results.
 
-## 5. Candidate boundary finding verified against the supplied v0.3.0 pack
+## 5. Candidate UI-scope finding verified against the supplied v0.3.0 pack
 
-A re-read of the original v0.3.0 archive confirms a concrete comparison-scope gap:
+The original v0.3.0 sources expose different levels of UI responsibility:
 
-| Source in the supplied pack | What it specifies | What it leaves unspecified |
+| Source in the supplied pack | What it specifies | Evidence of the measured UI boundary |
 |---|---|---|
-| `README.md` and Candidate A `STACK.md` | Bun/Hono/Effect TypeScript product/API services; the Temporal TypeScript worker stays on Node. | A common browser application or screen/task implementation. |
-| `README.md` and Candidate B `STACK.md` | Node 24, NestJS/Fastify API and worker. | A common browser application or screen/task implementation. |
-| Candidate C+ `STACK.md` | Go authoritative core and Temporal Go, with a thin Bun/Hono/TypeScript product BFF/UI. | Whether this C+ BFF/UI is compared against equivalent browser UI work in A and B. |
-| `spec/VERTICAL-SLICE.md` | The canonical flow ends with immutable audit and a “live UI event”. | Browser UI framework, screen/task behavior, or what UI work is included in the candidate comparison. |
+| Candidate A `STACK.md` | Bun/Hono/Effect product/API services; the Temporal TypeScript worker stays on Node. | No browser rendering scope. |
+| Candidate B `STACK.md` | Node 24, NestJS/Fastify API and worker. | No browser rendering scope. |
+| Candidate C+ `STACK.md` | Go authoritative core and Temporal Go, with a thin Bun/Hono/TypeScript product BFF/UI. | BFF/UI wording is broader than the other candidate descriptions and is not tied to common UI tasks. |
+| `spec/VERTICAL-SLICE.md` | The canonical flow ends with immutable audit and a “live UI event”. | Specifies an event output, not a browser framework or rendered screen acceptance. |
+| `tasks/T01-telemetry-quality.md` | Adds a telemetry quality state through persistence, API contract, aggregate filtering and UI contract. | Tests the UI contract/data shape; it does not define browser rendering. |
+| `tasks/T07-live-stream-filter.md` and `spec/METRICS.md` | Tenant/site authorization on live stream/reconnect; a reference live-stream push metric. | Tests stream/API behavior, not browser UI implementation. |
+| `spec/AI-ENGINEERING-TRIALS.md` and `spec/METRICS.md` | Scores time-to-green, hidden tests, review burden, API readiness, HTTP, telemetry ingest, live stream and recovery. | No browser visual, task-usability or frontend implementation metric is defined. |
 
-The separate provisional architecture proposal names React + TypeScript for the browser frontend. That proposal does not amend the bake-off pack or make React part of Step 3D. Candidate A/B/C+ currently do not specify comparable browser UI scope, so “same canonical vertical slice” alone is not enough to tell whether product UI implementation is in or out of the measured comparison.
+The separate provisional architecture proposal names React + TypeScript for the browser frontend. It does not amend the pack or make React part of Step 3D.
 
-Before Step 3D freeze, record one of these experiment-scope resolutions in the governing G6.9-R2 authority:
+**Recommended interpretation of the current pack:** keep browser rendering and React framework evaluation outside the G6.9-R2 stack score. Require all candidates to pass the same UI contract, API and live-stream acceptance checks. Clarify whether C+'s “BFF/UI” means only a thin adapter to those same contracts or includes browser UI work; do not give it unscored candidate-specific surface area. This interpretation best matches T01/T07 and the metrics, but must be recorded as an owner-approved clarification/amendment in G6.9-R2 authority before runner freeze.
 
-1. **Shared browser harness:** one common, unchanged browser client exercises each candidate through the same API and live-UI-event contract. Treat that client as harness, not as evidence favoring a production frontend framework. Specify exactly which UI-visible acceptance tasks it covers.
-2. **Candidate UI included:** amend the pack to require equivalent browser tasks for A/B/C+, with explicit common acceptance and separate UI implementation/review-effort results so backend and frontend effects are not conflated.
-
-React + TypeScript may be evaluated as a proposed shared client only if that experiment boundary is approved; it remains unselected for production. Do not treat the C+ BFF/UI wording as proof that the existing pack compares equal frontend scope. This is a bake-off-methodology blocker, separate from the unresolved production architecture.
+If the owner wants frontend implementation included in the technology comparison, amend the pack to include equivalent browser workflows for A/B/C+ and separate UI effort/review metrics. Neither interpretation selects the production frontend. React + TypeScript remains a proposal until separately reviewed.
 
 ## 6. Ordered execution packet
 
-1. Resolve the browser UI scope using the source-backed comparison gap in §5; record whether a common browser harness or equal candidate UI tasks are in scope, then preserve the decision in G6.9-R2 authority.
+1. Resolve the candidate UI scope using the source-backed evidence in §5; record whether browser rendering is excluded (common UI contract/API/stream tests only) or added equally to all candidates, then preserve the approved interpretation in G6.9-R2 authority.
 2. Create the pinned runner and a machine-readable environment manifest; freeze dependencies, image digests, workload, and resource limits.
 3. Validate the experiment pack and verify source/contract hashes. Preserve the validation output as preflight evidence.
 4. Implement framework-native vertical-slice integrations for all candidates against the exact same contracts and services.
