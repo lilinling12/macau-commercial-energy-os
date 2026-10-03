@@ -75,3 +75,4 @@ Until then, keep the PV producer's feed-in revenue separate from the consuming s
 - Official Gazette — Administrative Regulation 20/2014, PV interconnection safety and installation rules: https://bo.dsaj.gov.mo/bo/i/2014/43/regadm20_cn.asp
 - Official Gazette — Administrative Regulation 25/2022, public electricity supply tariff system: https://bo.dsaj.gov.mo/bo/i/2022/26/regadm25.asp
 - Official Gazette — Decree-Law 53/98/M amendment to the standard supply contract: https://bo.io.gov.mo/bo/i/98/46/declei53_cn.asp?printer=1
+- Official Gazette — Macau public electricity-supply concession contract extension and amendment (Series II, Issue 49/2025, published 2025-12-03; effective 2026-01-01): https://bo.dsaj.gov.mo/bo/ii/2025/49/extractos_cn.asp
