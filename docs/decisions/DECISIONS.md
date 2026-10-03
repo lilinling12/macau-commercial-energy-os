@@ -120,7 +120,7 @@ Stable project decisions. Do not silently overwrite; supersede with a new decisi
 
 ## D-030 — Initial tariff implementation stack
 **Decision:** Use a pure Java 25 LTS `tariff-core`, Spring Boot 4.1.x as an API/runtime adapter, and PostgreSQL 18 for rule/contract/state/audit metadata. Avoid premature microservice/rule-engine/graph-database complexity.  
-**Status:** ACTIVE
+**Status:** SUPERSEDED IN IMPLEMENTATION BY D-069; retained as historical decision. Tariff semantic architecture remains active.
 
 ## D-031 — DMN boundary
 **Decision:** DMN may be used later for readable eligibility/policy decisions, but is not the authoritative monetary settlement kernel.  
