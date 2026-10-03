@@ -15,9 +15,9 @@ It does not define the complete accounting algorithm: the exact denomination mea
 
 CEM's public B/C/D tariff pages describe Pu as the highest measured demand during the billing period. Administrative Regulation 25/2022 defines the B-group quantity by reference to the maximum periodically measured average active power. The cited public materials do not state the numeric averaging/integration interval. U-001 remains **UNKNOWN / G1 BLOCKER**; do not hard-code a 15-minute interval.
 
-### Government tax
+### Government tax / installation-use charge
 
-CEM's B/C/D tariff pages identify a monthly government tax but do not publish the general B/C/D formula in the materials reviewed. A formula found in CEM's A-group tariff guide is not evidence of the B/C/D rule and must not be generalized. U-009 remains **UNKNOWN / G1 BLOCKER**.
+CEM's Chinese bill guide labels the item “政府稅” and describes it as a monthly tax for using the electrical installation. The Portuguese bill guide calls the corresponding item “Taxa de Exploração” and describes it as a monthly charge for use of the electrical installation. CEM's current B/C/D tariff pages identify the monthly item but do not publish a B/C/D calculation formula in the material reviewed. Administrative Regulation 25/2022 provides tariff formulas (including the B formula) but the reviewed provisions do not establish a B/C/D formula for this separate monthly bill item. CEM's A-group and EV examples show `0.75 × √subscribed demand`; that is scope-specific evidence and must not be extrapolated to B/C/D. The legal/contractual characterization and exact B/C/D calculation remain unknown. U-009 remains **UNKNOWN / G1 BLOCKER**.
 
 ### Smart meter deployment and data access
 
