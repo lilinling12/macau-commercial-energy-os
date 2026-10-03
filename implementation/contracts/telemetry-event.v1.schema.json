@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://macau-commercial-energy-os/contracts/telemetry-event.v1.schema.json",
+  "title": "TelemetryEventV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "tenantId",
+    "siteId",
+    "deviceId",
+    "pointId",
+    "metric",
+    "value",
+    "unit",
+    "observedAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "tenantId": { "type": "string", "minLength": 1 },
+    "siteId": { "type": "string", "minLength": 1 },
+    "deviceId": { "type": "string", "minLength": 1 },
+    "pointId": { "type": "string", "minLength": 1 },
+    "metric": { "type": "string", "minLength": 1 },
+    "value": { "type": ["number", "integer", "boolean", "string"] },
+    "unit": { "type": "string" },
+    "quality": {
+      "type": "string",
+      "enum": ["GOOD", "UNCERTAIN", "BAD", "UNKNOWN"]
+    },
+    "observedAt": { "type": "string", "format": "date-time" },
+    "receivedAt": { "type": "string", "format": "date-time" },
+    "source": { "type": "string" }
+  }
+}
