@@ -36,6 +36,12 @@ Never relabel an earlier class as a later one. Synthetic fixtures, BOPTEST resul
 - U-012 Macau reference-building calibration and U-015 weather-source validation remain open. BOPTEST is an engineering harness, not a calibrated Macau hotel/commercial-building ground truth.
 - No selected customer/site authorization, pilot protocol, customer-accepted baseline, production integration, or measured Macau commercial outcome is recorded by this Gate document.
 
+## Historical sub-gate status report requiring source recovery
+
+A prior assistant message in the originating ChatGPT conversation stated that G7.1, G7.3 and G7.4 research had been completed while G7.2 live execution remained pending. This is a historical conversation statement, not a Gate decision or source artifact. The conversation read on 2026-10-04 had no attached files, and the current repository tree contains no G7.1/G7.3/G7.4 evidence packets or G7.2 preflight file. Therefore those sub-gate completion claims remain **REPORTED / UNVERIFIED** and are not promoted to current status.
+
+**Resolution:** recover the referenced original Library/research artifacts or immutable links; map each claimed sub-gate to its question, evidence, exit criteria, decision/approver and residual unknowns; then update this Gate, Evidence Register and CURRENT from the recovered sources. Until then, report only the independently reviewable current state: G7.2 live R0 baseline/no-op pending, U-017 open, and no authorized Macau pilot outcome evidenced in this repo.
+
 ## Required artifacts for each accepted run
 
 1. **Run manifest:** unique run ID; evidence class; owner/approver; repository and artifact revisions; simulator/API/runtime versions; testcase/build and image digests where applicable; configuration; seed; initial state; time zone and time grid; input/output point-set identity; exact command and environment.
