@@ -140,7 +140,7 @@
     "complete service configurations, health checks, startup ordering and reset procedure",
     "produce reproducible BOPTEST v0.9.0 build inputs and image digests",
     "freeze dependency lockfiles and package-manager versions for every candidate",
-    "resolve browser UI, product BFF and API responsibilities consistently across A, B and C+",
+    "resolve the source-backed Step 3D gap between the required live UI event and unspecified comparable browser UI scope across A/B/C+; approve a common browser harness or amend the pack to include equivalent candidate UI tasks",
     "pin workload, candidate commits, AI agent versions, trial repetitions and raw-result retention"
   ],
   "imageDigestEvidence": {
