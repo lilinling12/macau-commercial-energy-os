@@ -1,6 +1,6 @@
 # CURRENT — Macau Commercial Energy OS
 
-**Snapshot:** 2026-10-03  
+**Snapshot:** 2026-10-04  
 **Authority mode:** research-first / evidence-governed  
 **Research authority:** Library Research Authority v1.6.2 + G6.9-R2 Step 3C bake-off evidence + Macau PV follow-up D-077/U-025/U-026  
 **Repository:** lilinling12/macau-commercial-energy-os
@@ -17,13 +17,13 @@ The project objective is to complete and validate the product design, complete t
 
 Definition of done spans: customer/problem validation; product requirements and tested workflows; passed domain/safety/technology gates or explicitly bounded pilot limitations; approved architecture and detailed designs; implementation mapped to requirements; security/reliability/acceptance evidence; site authorization; pilot measurement; and an expand/remediate/stop decision.
 
-**Current active delivery record:** PR #8, branch `docs/product-architecture-roadmap` (open, not merged). It contains the research-derived product baseline, PRD draft, logical architecture, research/coding continuity, roadmap, product interaction design draft and clickable prototype, VS-001 detailed-design draft, PRD-to-architecture traceability matrix, expanded G6 evidence/closure checklist, proposed product/engineering governance, and an owner review packet with provisional visual directions. All remain drafts pending review where applicable. These documents remain drafts; customer validation, complete detailed design, production stack selection, implementation completion, and pilot evidence are outstanding. Changes on this branch are not yet on `main`.
+**Current active delivery record:** PR #8, branch `docs/product-architecture-roadmap` (open, not merged). It contains the research-derived product baseline, PRD draft, logical architecture, research/coding continuity, roadmap, product interaction design draft and clickable prototype, VS-001 detailed-design draft, PRD-to-architecture traceability matrix, expanded G6 evidence/closure checklist, proposed product/engineering governance, an owner review packet with provisional visual directions, and a machine-readable Step 3D runner manifest draft. All remain drafts pending review where applicable. These documents remain drafts; customer validation, complete detailed design, production stack selection, implementation completion, and pilot evidence are outstanding. Changes on this branch are not yet on `main`.
 
 ## Research state
 
 - **G1 — Macau Tariff & Settlement Foundation:** OPEN. G1.1/G1.2 completed; commercial bill, demand-window and cross-site PV questions remain; U-026 tracks an official PV-count discrepancy.
 - **G6 — Safety & Control:** OPEN / no formal closure evidence recorded. The itemized status and closure checklist is `docs/01-research/gates/G6-safety-control.md`. Required proof includes site-local veto/limits, offline fallback, manual override, authenticated/idempotent commands, audit and replay. U-022 remains OPEN for production signing and Edge key lifecycle; Step-3C semantics do not close this security gate.
-- **G6.9-R2 — Technology Stack Bake-off:** Step 3A, 3B and 3C complete; **Step 3D pinned framework-native integration pending**. The v0.3.0 archive contains Step 3C evidence only; Step 3D readiness findings and execution requirements are recorded in `docs/01-research/G6.9-technology-research/STEP-3D-READINESS-AND-EXECUTION-PLAN-v0.1.md`.
+- **G6.9-R2 — Technology Stack Bake-off:** Step 3A, 3B and 3C complete; **Step 3D pinned framework-native integration pending**. The v0.3.0 archive contains Step 3C evidence only. Readiness findings and execution requirements are in `docs/01-research/G6.9-technology-research/STEP-3D-READINESS-AND-EXECUTION-PLAN-v0.1.md`; the machine-readable draft `docs/01-research/G6.9-technology-research/STEP-3D-RUNNER-MANIFEST-v0.1.json` is not an executable runner and retains explicit freeze blockers.
 - **G7 — Reference Simulator & Pilot Validation:** active in parallel; G7.2 live baseline/no-op still pending; U-017 live response/rebound remains open.
 - Research Authority v1.6.2 contains D-001..D-076 and U-001..U-024. Repository follow-up records add D-077 and U-025..U-026; the synced registers now cover D-001..D-077 and U-001..U-026. See the architecture technology-authority, decision, and research evidence documents.
 - Official CEM PV material confirms an approved grid-interconnection and feed-in-tariff route. It does **not** establish cross-building virtual netting or a customer's right to claim another building's PV generation; U-025 tracks that question.
@@ -80,7 +80,8 @@ Immediate work:
 - The recursive repository tree contains no frontend source/package, database model/migration, command implementation or Safety Kernel runtime package. The platform HTTP controller path has no auth guard wired in AppModule; the health endpoint returns UP without dependency/readiness checks; Edge main only logs bootstrap start. Command arbitration and Safety Kernel currently have principles in README files, not executable modules.
 - The real Energy Graph and tariff adapters fail closed, replay uses hard-coded synthetic fixtures, evidence persistence is in-memory, and the Python optimizer is only a data model. VS-001 service tests use static/in-memory fakes; Edge test checks serialization. No tests were run during this static audit.
 - These findings show the product implementation is still a scaffold; they do not close G6 or authorize field commands.
-- Always verify Authority Validation and Repository Hygiene against the exact live PR head; earlier successful runs do not validate later commits.
+- The Step 3D runner manifest currently records candidate service/runtime pins and freeze blockers; `executionReady` remains false. No Compose runner, package lock set, BOPTEST frozen build, Step 3D execution, or comparative results exist yet.
+- On PR head `148fa07`, Authority Validation and Repository Hygiene passed. Always verify these workflows again against the exact live PR head before merge; earlier successful runs do not validate later commits.
 - Next: review the VS-001 cost-result/replay-manifest proposal against D-065 and contract ownership; resolve decimal semantics, source-event identity, manifest canonicalization and durable evidence requirements before creating canonical schemas. Review the tenant authorization design with validated user roles and deployment context before selecting an identity provider or role policy. In parallel, continue G1, G6.9-R2 Step 3D, G7.2 and target-user validation where required inputs are available. Do not implement production adapters until product scope and technology authority are reviewed.
 
 ## Suspended implementation gate
