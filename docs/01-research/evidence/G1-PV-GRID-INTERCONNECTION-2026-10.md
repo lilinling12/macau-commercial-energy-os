@@ -1,6 +1,6 @@
 # G1 Evidence Note — Macau PV Grid Interconnection and Feed-in Tariff
 
-**Evidence reviewed:** 2026-10-03  
+**Evidence reviewed:** 2026-10-04  
 **Status:** VERIFIED for Macau's general grid-interconnection / CEM feed-in purchase mechanism; not proof of cross-customer energy allocation.
 
 ## Verified from Macau official sources
@@ -20,11 +20,11 @@ DSPA states the feed-in tariff purchase period is 20 years and publishes these c
 - Above 100–500 kW: MOP 3.0/kWh.
 - Above 500 kW: MOP 2.8/kWh.
 
-DSPA's page, last revised 2026-09-01, reports that by 2026-08-31 it had received 39 consultation cases on PV installation and 12 cases had proceeded to grid interconnection and electricity sales. These are cases, not necessarily unique buildings or customers. CEM's current PV introduction page separately reports 18 grid-connected PV systems as of June 2026 (4,762 kWp and nearly 8 million kWh generated). Because the later DSPA figure (12 cases) is lower than CEM's earlier system count (18 systems), and the units differ (cases vs systems), the totals cannot be combined or assumed to use the same counting scope. Reconciliation with DSPA and CEM is open as U-026.
+DSPA's page, last revised 2026-09-01, reports that by 2026-08-31 it had received 39 consultation cases on PV installation and 12 systems had proceeded to grid interconnection and electricity sales. CEM's PV introduction page reports 12 grid-connected systems, 4,193 kWp and more than 6 million kWh generated as of January 2026; CEM's 2026-06-08 low-carbon update again reports 12 connected systems and more than 6 million kWh cumulatively. The reported count of 12 is therefore consistent across these sources, although the dates and terms differ: DSPA reports systems already interconnected and selling, while CEM's January page reports connected systems and its June announcement gives no capacity refresh. The earlier repository statement that CEM reported 18 systems / 4,762 kWp as of June 2026 is not supported by the currently verifiable CEM primary pages and is withdrawn. U-026 remains partially open to reconcile reporting cutoffs, status definitions, capacity and production scope before using a time series.
 
 ## Separate route: green electricity certificates (GECs)
 
-CEM and China Southern Power Grid International announced a November 2025 memorandum to jointly act as agents coordinating procurement of Mainland China GECs for Macau customers, with an aim of expanding coverage. CEM also reports a 2023 cross-border transaction of 5.2 million kWh-equivalent certificates. CEM describes each GEC as representing the environmental attribute/premium of 1 MWh of qualifying renewable electricity generated and fed into the grid. This is a separate environmental-attribute procurement mechanism; the announcements do not prove physical delivery of a specific remote PV plant's electrons to a particular Macau building, virtual netting against that building's CEM bill, or a retail energy-price credit. Commercial availability, eligibility, price, certificate retirement and customer claim rules require the applicable offer and contract.
+CEM and China Southern Power Grid International announced a November 2025 memorandum to jointly act as agents coordinating procurement of Mainland China GECs for Macau customers, with an aim of expanding coverage. CEM also reports a 2023 cross-border transaction of 5.2 million kWh-equivalent certificates. In a 2026-06-08 announcement, CEM said it purchased 2,250 GECs (2.25 million kWh-equivalent) from Three Gorges New Energy to offset carbon emissions associated with the CEM Building's self-use electricity. CEM describes each GEC as representing the environmental attribute/premium of 1 MWh of qualifying renewable electricity generated and fed into the grid. This is a separate environmental-attribute procurement mechanism; the announcements do not prove physical delivery of a specific remote PV plant's electrons to a particular Macau building or a retail electricity-bill credit for customers. The CEM Building example documents a corporate carbon-accounting use, not customer bill netting. Commercial availability to customers, eligibility, price, certificate retirement and claim rules require the applicable offer and contract.
 
 ## What this establishes
 
@@ -57,6 +57,7 @@ Until then, keep the PV producer's feed-in revenue separate from the consuming s
 - CEM — PV introduction and bidirectional metering: https://www.cem-macau.com/zh/smart-living/photovoltaic-system-%28pv%29/pv-introduction/
 - CEM — PV interconnection application procedure: https://www.cem-macau.com/en/smart-living/photovoltaic-system-%28pv%29/application-procedure/
 - CEM — Cross-border GEC model for Macau customers and six integrated resorts: https://www.cem-macau.com/en/press-release/716/ (2025-11-26).
+- CEM — Low-carbon transition update reporting 12 grid-connected PV systems and 2,250 GECs used for CEM Building self-use emissions (2026-06-08): https://www.cem-macau.com/en/press-release/739/.
 - CEM — First Guangdong–Macau GEC transaction and GEC environmental-attribute definition: https://www.cem-macau.com/en/press-release/635/ (2023-12-25).
 - CEM — feed-in tariff table: https://www.cem-macau.com/en/go-green/photovoltaic-system-%28pv%29/feed-in-tariff/
 - Official Gazette — Law 26/2024, including the republished Decree-Law 43/91/M: https://bo.dsaj.gov.mo/bo/i/2025/01/lei26_cn.asp (published 2025-01-06; effective 2025-01-07).
