@@ -58,7 +58,7 @@ The earlier layer summary below is a research-derived provisional proposal, not 
 - Edge: Go responsibility candidate.
 - Future plugin isolation: Wasm/WASI direction candidate.
 
-Each layer and its boundaries require product-owner review before becoming an approved architecture baseline. This summary does not replace the bake-off's topology candidates. C+ (Go authoritative Energy Core + Temporal Go workers + Go Edge/Safety, thin Bun/Hono/TypeScript product surface, Python intelligence) remains a **provisional default**, not a measured winner. A and B remain candidates until the common Step 3D/Step 4 decision rule is satisfied and the resulting decision is reviewed. See D-062..D-076.
+The logical runtime view in `docs/03-architecture/ARCHITECTURE-DESIGN.md` now maps browser/API, application core, ingress/async processing, persistence/evidence, Python jobs and site Edge as reviewable responsibilities. It does not prescribe process counts, deployment placement, provider, or final stack. Each layer and its boundaries require product-owner review before becoming an approved architecture baseline. This summary does not replace the bake-off's topology candidates. C+ (Go authoritative Energy Core + Temporal Go workers + Go Edge/Safety, thin Bun/Hono/TypeScript product surface, Python intelligence) remains a **provisional default**, not a measured winner. A and B remain candidates until the common Step 3D/Step 4 decision rule is satisfied and the resulting decision is reviewed. See D-062..D-076.
 
 ## Research sequence and next work
 
