@@ -42,15 +42,19 @@ Phase B validation:
 
 ## Current gate
 
-**Commit 004 Phase C — Executable VS-001 Domain Path: STARTING.**
+**Commit 004 Phase C — Executable VS-001 Domain Path: IN REVIEW.**
 
-Planned:
-1. platform-api contract ingestion boundary;
-2. minimal Energy Graph identifiers and resolution interfaces;
-3. fail-closed tariff-resolution port;
-4. optimizer shadow-mode request/response path;
-5. evidence-record persistence boundary;
-6. deterministic fixture replay.
+Implemented on branch `mvp/vs001-phase-c`:
+1. platform-api telemetry contract ingestion boundary;
+2. explicit Energy Graph / Tariff / Optimizer / Evidence ports;
+3. tenant/site boundary enforcement;
+4. fail-closed unresolved tariff behavior;
+5. SHADOW-only optimizer boundary for VS-001;
+6. deterministic Evidence ID generation;
+7. deterministic fixture replay;
+8. CI coverage for resolved, unresolved, tenant-mismatch, and replay determinism.
+
+Production adapters remain intentionally fail-closed until later Authority binds verified implementations.
 
 ## Non-negotiable open evidence
 
