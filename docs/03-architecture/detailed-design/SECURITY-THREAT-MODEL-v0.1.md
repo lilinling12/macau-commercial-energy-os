@@ -94,7 +94,29 @@ These are acceptance scenarios to implement and execute later. This document rec
 - Set per-tenant quotas, queue/worker limits, availability/freshness SLOs, alert owners and recovery targets from the approved deployment mode and pilot workflow.
 - Decide whether and which external AI/model service processes customer data, what data may leave the tenant/site boundary, and what human validation is required.
 - Complete a product- and deployment-specific threat workshop, likelihood/impact scoring and named risk owners; this draft is not the final risk acceptance.
-- Map applicable controls to an owner-approved security verification baseline. OWASP ASVS 5.0.0 is a candidate web/API control catalog, not yet a project-approved conformance target.
+- Review the candidate ASVS 5.0.0 control-to-evidence mapping in §6A and approve its scope, target level (if any), exclusions, owners and verification method before using it as a project baseline.
+
+## 6A. Candidate ASVS 5.0.0 control-to-evidence mapping
+
+**Status:** Proposed tailoring for owner/security review. This is not an approved ASVS target, Level 1/2/3 claim, certification, or evidence of implemented controls. Control identifiers below refer to OWASP ASVS 5.0.0; applicability and verification depth must be approved against the product and deployment scope.
+
+| Security concern | Candidate ASVS controls | Required acceptance evidence | Current status |
+|---|---|---|---|
+| Server-side function/data authorization, BOLA/IDOR, tenant isolation | V8.2.1, V8.2.2, V8.3.1, V8.4.1 | Approved role × resource/action matrix; negative tests for cross-tenant list/read/write/search/export/evidence paths through actual APIs and repositories; show client-side selectors cannot confer access | **Not implemented / not verified.** Existing VS-001 HTTP path has no auth guard; scoped persistence, cache and job enforcement are open. |
+| Membership, permission and session revocation | V8.3.2 | Revoke membership/permission/session and demonstrate subsequent API, queued-job, cache and evidence access is denied within an owner-approved bound | **Not selected / not verified.** Identity provider, session model, cache behavior and revocation bound are undecided. |
+| Input and business-rule validation | V2.2.1, V2.2.2 | Shared positive/negative fixtures prove validation occurs at trusted service boundaries for APIs and event consumers; malformed units, timestamps, identifiers and unknown fields cannot become authoritative economic output | **Partial design / not verified.** Static TypeScript/Go contract differences are recorded; no runtime parity or validation evidence. |
+| Authentication abuse and resource exhaustion | V6.3.1, V2.4.1 | Rate/abuse tests for credential attacks and excessive requests; tenant-aware API, queue, worker, replay and storage limits with bounded retry/backpressure evidence | **Not selected / not verified.** Provider, thresholds, quotas and deployment SLOs remain open. |
+| Security event inventory, context, time, redaction and integrity | V16.1.1, V16.2.1, V16.2.2, V16.2.5, V16.3.1, V16.3.2, V16.3.3, V16.4.2 | Approved event catalog; records show UTC or explicit timezone, actor/service, tenant/site scope, action, target, outcome and correlation; tests demonstrate sensitive-data redaction, access controls and resistance to unauthorized modification | **Design principles only / not verified.** Audit store, retention, access policy and tamper protection are not selected. |
+| Safe errors and fail-closed behavior | V16.5.1, V16.5.3 | API error review confirms no sensitive internals are disclosed; fault-injection proves auth, scope resolution, mapping, tariff, persistence and downstream failures cannot silently allow access or publish unsupported results | **Partial design / not verified.** No runtime security review or fault-injection evidence is recorded. |
+
+### Baseline decision and evidence rules
+
+1. Product owner and security reviewer must select the applicable ASVS version, target level (if any), exclusions, and verification method before this matrix becomes a compliance target.
+2. Each accepted row needs a named implementation owner, a linked test or inspection artifact, an execution environment/revision, a result, and any risk disposition. A design statement or CI documentation check is not control verification.
+3. Security testing must use production-equivalent identity, request roles, database roles/pools, workers and deployment configuration. Test-only superuser privileges cannot stand in for tenant enforcement.
+4. Record gaps as OPEN with an owner and due gate. Do not infer ASVS conformance, G6 closure, or field-control authorization from this draft.
+
+**Source:** OWASP Application Security Verification Standard 5.0.0, versioned control catalog: https://github.com/OWASP/ASVS/blob/master/5.0/docs_en/OWASP_Application_Security_Verification_Standard_5.0.0_en.json
 
 ## 7. Traceability and status
 
