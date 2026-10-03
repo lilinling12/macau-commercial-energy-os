@@ -76,3 +76,16 @@ Only after relevant research and architecture decisions pass, create implementat
 ## Gate reporting standard
 
 Every Gate update must state: (1) question researched, (2) evidence and provenance, (3) changed conclusions, (4) decision and approver, (5) unresolved questions, (6) product/model/architecture impact, (7) Authority files updated, and (8) next dependency-ready Gate or work packet.
+
+
+## Cross-cutting capability: continuous AI research and AI Coding
+
+This capability applies across G0–G7 and G6.9-R2; it is not a new domain Gate and does not replace the original research sequence. The goal is for a new conversation or AI agent to continue from durable project state without requiring the prior chat.
+
+- **Continuity authority:** `docs/00-authority/handoff/CONTINUATION-PROTOCOL.md`, `CURRENT.md`, `CONTINUE-PROMPT.md`, and the task packet.
+- **Research process:** question and Gate → primary evidence with provenance → synthesis and uncertainty → Decision/Open Question update → product/architecture impact → next dependency-ready packet.
+- **Coding process:** approved Authority → explicit task packet → bounded change → required validation and evidence → human review → updated handoff.
+- **Persistent memory:** write conclusions, assumptions, rejected hypotheses, source provenance, decisions, and next steps into versioned repository files. Do not rely on conversation history as the only record.
+- **Governance boundary:** AI may research, draft, implement, and validate within scope; a person reviews Authority changes, architecture decisions, and operational authorization.
+
+This workstream is now documented by the cross-conversation protocol and reusable task packet template. Its effectiveness should be checked by using them at the start and end of each subsequent research or coding task.
