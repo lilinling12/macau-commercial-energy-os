@@ -85,9 +85,9 @@ The product must resolve tariff and contract rules by effective time and retain 
 
 ### PR-05 — Cost and demand explanation
 
-The product must present cost/demand results with component-level traceability, input coverage, unresolved evidence, and the calculation/rule version. It must distinguish energy quantities and settlement quantities.
+The product must present cost/demand results with component-level traceability, input coverage, unresolved evidence, and the calculation/rule version. It must distinguish energy quantities and settlement quantities, and keep bill reconstruction, interval assessment, and baseline comparison as separate result kinds. A modeled baseline difference is not realized savings.
 
-**Acceptance:** A user can navigate from a reported cost component to the contributing measurements, tariff/contract version, calculation trace, and evidence status.
+**Acceptance:** A user can navigate from a reported cost component to the contributing measurements, tariff/contract version, calculation trace, and evidence status. The user can distinguish a bill result (or why it is blocked), an interval estimate, and a counterfactual comparison without conflating their values or evidence.
 
 ### PR-06 — Shadow recommendation
 
@@ -99,13 +99,13 @@ The optimizer may produce a recommendation, but the MVP must not directly execut
 
 For each material cost result or recommendation, the product must preserve enough versioned input and execution context to explain and replay the result, including relevant source/mapping/rule/model versions and timestamps.
 
-**Acceptance:** Replaying an unchanged evidence snapshot with unchanged versions reproduces the same business result and stable semantic identity. Operational trace identifiers must not change the business result.
+**Acceptance:** Replaying an unchanged evidence snapshot with unchanged versions reproduces the same business result and stable semantic identity. Operational trace identifiers must not change the business result. Corrected inputs create a new assessment lineage; unavailable or changed replay inputs are disclosed rather than silently replaced.
 
 ### PR-08 — Operator review and authority
 
 The interface must keep recommendation, review/approval, authorization, command, acknowledgement, and observed physical effect as separate states. Manual override and rejection remain visible and auditable.
 
-**Acceptance:** An unapproved recommendation remains non-executable; a rejected or expired proposal cannot be represented as applied.
+**Acceptance:** An unapproved recommendation remains non-executable; a rejected or expired proposal cannot be represented as applied. Reviewed/dismissed/needs-evidence dispositions remain separate from command authorization, measured physical effect, and outcome evidence.
 
 ### PR-09 — Integration and run health
 
