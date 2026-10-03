@@ -5,6 +5,10 @@
 **Authority:** Original G0–G7 research framework; D-001–D-009, D-018, D-020–D-021, D-026–D-028, D-050, D-065, D-073–D-077; current U-001, U-002, U-009–U-011, U-025–U-026 and related contract/site unknowns.
 **Boundary:** G1 defines economic semantics and evidence. It does not select a software stack. A verified grid-interconnection/feed-in route does not prove cross-site retail netting; a simulator or synthetic bill does not prove a customer's settlement.
 
+## Evidence acquisition execution packet
+
+Before any customer/CEM request, use `docs/01-research/gates/G1-EVIDENCE-ACQUISITION-PACKET-v0.1.md`. It defines the exact U-001 demand-register, U-009 charge-basis/formula and U-010/U-011 matched Golden Bill evidence bundles, privacy-safe handling, sufficiency criteria and a request/receipt workflow. The packet is a prepared plan only: no request was sent, no customer data was received, and owner authorization plus an approved secure intake path are prerequisites.
+
 ## Research questions
 
 1. Which customer classes, tariff schedules, contracts and regulatory provisions apply to each supply/account/meter topology, and over which effective dates?
