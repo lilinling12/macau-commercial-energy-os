@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://macau-commercial-energy-os/contracts/recommendation.v1.schema.json",
+  "title": "OptimizationRecommendationV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "recommendationId",
+    "tenantId",
+    "siteId",
+    "mode",
+    "createdAt",
+    "validFrom",
+    "validUntil",
+    "objective",
+    "actions",
+    "evidenceRefs"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "recommendationId": { "type": "string", "minLength": 1 },
+    "tenantId": { "type": "string", "minLength": 1 },
+    "siteId": { "type": "string", "minLength": 1 },
+    "mode": {
+      "type": "string",
+      "enum": ["SHADOW", "HUMAN_APPROVAL", "CONTROLLED_EXECUTION"]
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "validFrom": { "type": "string", "format": "date-time" },
+    "validUntil": { "type": "string", "format": "date-time" },
+    "objective": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["ECONOMIC_COST", "DEMAND_GUARD", "COMFORT_SAFE_ECONOMIC_COST"]
+        },
+        "estimatedValue": { "type": "number" },
+        "currency": { "type": "string" }
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["assetRef", "actionType"],
+        "properties": {
+          "assetRef": { "type": "string", "minLength": 1 },
+          "actionType": { "type": "string", "minLength": 1 },
+          "parameters": { "type": "object" }
+        }
+      }
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "safetyReviewRequired": { "type": "boolean", "default": true }
+  }
+}
