@@ -43,6 +43,20 @@ The following is a logical model, not an approved serialization contract:
 - **Settlement link:** canonical settlement-meter identity, customer/producer account reference, contract reference, settlement role, tariff context reference, valid/system intervals and evidence status.
 - **Graph snapshot:** immutable query-result identity, query scope, effective instant/range, knowledge-time cutoff, selected entity/edge revisions, source evidence references and resolver version.
 
+### PV host, system rights and settlement separation (U-025)
+
+Where a site has PV or a third-party rooftop arrangement, keep these identities and evidence links distinct in the logical graph:
+
+- **Host location:** the site/parcel/building and electrical bus where the installation is physically present and injects or supplies power.
+- **PV system and responsible parties:** the installation identity, owner/operator references and effective-dated responsibility evidence. Do not infer equipment ownership from the host-site relationship.
+- **Installation-site use right:** a reference to the lease, consent or other legal right and any required project/interconnection approvals. CEM's application procedure asks applicants to establish a legal right to use the rooftop/installation site; that is not by itself proof of system ownership or the party entitled to CEM purchase proceeds.
+- **Producer-side settlement:** the export meter, producer/account reference and applicable CEM PV purchase/feed-in contract. This is distinct from a consumer's retail supply account, import meter and tariff contract.
+- **Host consumption:** the building's import/consumption meters and its own supply account/contract. Link self-consumed generation to host load only when the electrical diagram, meter behavior and applicable contracts support that relation.
+- **Third-party or cross-site arrangement:** preserve any PPA, host-use, allocation, wheeling or settlement instrument as evidence with parties and effective dates. Do not create an account-allocation edge or bill credit unless the exact arrangement and required regulatory/CEM authorization, metering and settlement rules are verified.
+- **Environmental attributes:** track GEC/REC-style certificates separately from physical kWh and retail bill settlement.
+
+An unknown owner, site-use right, producer counterparty, flow direction or cross-account entitlement yields an explicit unresolved/conflict status. It cannot be treated as transferable electricity, bill savings or an optimizer value. This is a candidate logical model, not an approved schema or assertion that any particular third-party PPA or cross-site allocation is authorized. U-025 and G3 evidence must resolve the concrete Macau arrangement before implementation or economic claims.
+
 A Brick-compatible semantic layer is the project baseline (D-014). Canonical identity and stable contract IDs must not depend on any particular Brick release, namespace URI, package or database extension. Concrete ontology terms and version must be checked against the selected data sources before implementation. Preserve source/vendor classifications alongside canonical semantics instead of discarding them.
 
 ### Relationship integrity
@@ -140,12 +154,12 @@ API/job authorization, scoped persistence/cache, audit and revocation must be en
 
 Before PR-03 can be marked implementation-ready:
 
-1. Validate representative Macau site drawings and meter/contract documents for the selected pilot candidate, including utility import, submeters, transformer boundary, BMS point inventory and any PV/ESS meter.
+1. Validate representative Macau site drawings and meter/contract documents for the selected pilot candidate, including utility import, submeters, transformer boundary, BMS point inventory and any PV/ESS meter; where PV exists, separately verify host location, system owner/operator, site-use right, export meter and CEM purchase contract.
 2. Approve canonical entity/predicate catalog and source namespaces; verify the Brick-compatible semantic mapping and exact ontology version against actual source systems.
 3. Prove effective-time and knowledge-time queries, corrections, graph snapshots and historical replay.
 4. Demonstrate deterministic resolution of unique, missing, ambiguous, conflicting, stale and cross-tenant cases; measure query latency at an agreed scale/SLO.
 5. Reconcile utility settlement meter against submeters/topology; document losses, missing meters and aggregation limitations.
-6. Verify that unmapped or low-quality data cannot produce exact cost, savings attribution or executable recommendation.
+6. Verify that missing PV ownership/site-use/export-settlement evidence or any unapproved cross-account link cannot produce PV bill credits, exact cost, savings attribution or executable recommendations.
 7. Review graph-administration workflow, reviewer roles, audit, export, backup/restore and tenant isolation.
 8. Link every graph relationship used by bill reconstruction to evidence and the Tariff Engine's resolved context; retain real/synthetic test evidence separately.
 
@@ -157,7 +171,7 @@ No site has been validated by this draft. G3 remains open until its research gat
 - Canonical building ontology release and point-mapping policy under D-014.
 - Source ID stability, meter register direction, multiplier, clock quality and sampling behavior by integration.
 - Settlement meter hierarchy, transformer loss treatment and meter/submeter reconciliation by tariff class (U-005/U-016).
-- PV owner/host/customer relationship and any approved cross-account allocation (U-025).
+- PV host location, installation-site right, system owner/operator, producer account, CEM export meter/purchase agreement and host customer/import account as separate evidence-backed relationships; any cross-account allocation remains UNKNOWN without the specific approval and settlement rules (U-025).
 - Tenant/admin/partner roles, delegated site access and approval workflow.
 - Graph snapshot storage, indexing, scale, retention and SLO after deployment discovery.
 - Contract/tariff resolvers remain owned by the Tariff & Settlement Engine; exact tariffs remain subject to G1.
