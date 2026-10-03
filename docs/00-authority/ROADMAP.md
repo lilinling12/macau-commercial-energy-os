@@ -66,7 +66,7 @@ Gate exit criteria below are execution checks derived from the research objectiv
 - Cost Analysis and Evidence Replay detailed design v0.1 (stack-neutral; bill-grade G1 evidence and canonical replay contract remain open): `docs/03-architecture/detailed-design/COST-ANALYSIS-AND-EVIDENCE-REPLAY-DETAILED-DESIGN-v0.1.md`
 - Forecasting and Optimization detailed design v0.1 (stack-neutral; G4/G5 evidence and decisions remain open): `docs/03-architecture/detailed-design/FORECASTING-AND-OPTIMIZATION-DETAILED-DESIGN-v0.1.md`
 - Deployment, Operability and Recovery detailed design v0.1 (stack-neutral; deployment mode, SLOs and recovery objectives remain open): `docs/03-architecture/detailed-design/DEPLOYMENT-OPERABILITY-AND-RECOVERY-DETAILED-DESIGN-v0.1.md`
-- PRD-to-architecture traceability and design-gap matrix: `docs/03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md` (draft; no implementation completion implied)
+- PRD-to-architecture requirement traceability, design-gap matrix, and G0–G7/G6.9 Gate-to-delivery map: `docs/03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md` (draft; no Gate closure, approval or implementation completion implied)
 - VS-001 cost-result and replay-manifest contract proposal: docs/03-architecture/detailed-design/VS-001-RESULT-AND-REPLAY-CONTRACT-PROPOSAL-v0.1.md (draft; no schema or stack decision implied)
 - VS-001 identity and tenant authorization detailed design: docs/03-architecture/detailed-design/VS-001-IDENTITY-AND-TENANT-AUTHORIZATION-DESIGN-v0.1.md (draft; identity provider, roles and implementation remain open)
 - Gate-specific evidence and outcomes: `docs/01-research/gates/`
