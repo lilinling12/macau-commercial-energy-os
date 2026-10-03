@@ -79,7 +79,7 @@ Use G0/G2/G3 evidence to refine in-scope assets and customer workflows. PRD-v0.1
 ### WP-5 — Complete architecture and detailed design
 Translate approved product requirements and passed Gate outputs into component-level designs. The first bounded draft now covers VS-001 in `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md`; it is not yet approved or production-authoritative. Extend detailed design across all validated MVP journeys and specify module boundaries, API/event/data contracts, persistence and migrations, workflow state machines, security/threat and key-lifecycle design, tenant isolation, failure/recovery semantics, deployment topology, SLO/observability, operations and rollback. Keep provisional stack choices replaceable until G6.9-R2 Step 4 records a formal decision.
 
-**Progress evidence:** VS-001 has an initial component-level draft and the PRD has a requirement-to-architecture gap matrix. Both are drafts; the matrix explicitly records missing designs and says implementation status has not been audited.
+**Progress evidence:** VS-001 has an initial component-level draft and the PRD has a requirement-to-architecture gap matrix. Both are drafts; the traceability matrix includes a preliminary static audit of VS-001/Edge/optimizer sources and the implementation tree, while runtime, full module, security and pilot audits remain outstanding.
 
 **Exit evidence:** approved architecture decisions linked to bake-off and Gate evidence; detailed design covers every validated MVP path and failure mode; contracts and acceptance tests are traceable; G6 security unknowns and operational authorization are explicit.
 
