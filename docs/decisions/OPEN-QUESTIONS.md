@@ -140,7 +140,7 @@
 
 ## U-025 — Cross-site PV procurement and settlement rights
 **Status:** UNKNOWN / G1 BLOCKER FOR OFF-SITE PV CUSTOMER ECONOMICS  
-**Known:** CEM's current official material describes approved customer PV systems connecting to the public grid, bidirectional metering of injected energy, and a capacity-tiered feed-in tariff paid by CEM to PV producers.  
+**Known:** DSPA/CEM official material describes approved customer PV systems connecting to the public grid, bidirectional metering, and a producer-side feed-in tariff purchase contract with CEM (up to 20 years). Decree-Law 53/98/M's standard low/medium-voltage supply contract also says a consumer must use supplied electricity at the contracted location and may not sell or cede it to third parties; the scope of this clause for separate PV generation / third-party structures needs legal confirmation.  
 **Unknown:** Whether a separate commercial customer may contract for off-site PV and receive bill credits, netting, wheeling, virtual allocation or another legally recognized settlement benefit through the public grid. The cited CEM material does not establish such a customer entitlement.  
 **Resolution path:** applicable Macau legislation/regulations and amendments; written CEM confirmation; actual producer/customer agreements, interconnection contracts, meter diagrams and bills.  
 **Design implication:** keep PV producer feed-in revenue separate from another site's consumption settlement unless a verified arrangement explicitly links them. Do not model off-site PV as a direct customer bill credit by default.
