@@ -98,6 +98,7 @@ The repository has detailed-design drafts for VS-001, result/replay, identity/te
 Before implementation of a design area is treated as ready, resolve or explicitly scope:
 
 - approved product workflow and acceptance evidence;
+- recommendation economics meaning: absolute expected cost versus change against a baseline; the current RecommendationV1 number is not monetary truth under D-026, and any V2 migration must reference an eligible immutable assessment;
 - canonical request/event/result/evidence contracts and versioning;
 - tenant/site authorization derived from authenticated identity, not caller-supplied body fields;
 - storage, retention, replay determinism, idempotency, failure and recovery;
@@ -125,6 +126,7 @@ No response or approval is recorded in this draft.
 - Product changes/exclusions:
 - Architecture boundaries:
 - Technology decisions deferred to bake-off:
+- Recommendation economic display (absolute expected cost / baseline-relative change / omit until evidence):
 - Step 3D shared Temporal persistence service (approve PG16 addition / request supported alternative / defer):
 - Detailed-design slice to prioritize:
 - Date / reviewer:
