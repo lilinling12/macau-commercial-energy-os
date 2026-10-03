@@ -51,6 +51,17 @@ Sources:
 
 A read-only inventory on the current task host found PATH-default Node v22.20.0 and Python 3.11.9; Docker/Compose, Bun and Go were unavailable on PATH. A later check found NVM-installed Node v24.9.0 at D:\\dev\\nvm\\v24.9.0\\node.exe. The Step 3D plan proposes exact Node 24.21.0 pins, so v24.9.0 is not the pinned runtime; Bun, Go and the full shared-service runner remain unavailable. This host therefore does not satisfy the pack's Step 3D runner requirements. No Step 3D command, application test, benchmark, or environment mutation was performed.
 
+### GitHub Actions execution-host fit (official documentation review, 2026-10-04)
+
+The repository's existing GitHub Actions workflows target ordinary repository validation and do not provide the Step 3D runner. Standard GitHub-hosted jobs are capped at 6 hours; that cannot satisfy the pack's required 24-hour soak in one continuous job. GitHub-hosted jobs also use newly provisioned VMs, so a workflow label alone does not freeze the exact host image or hardware. The public-repository standard Ubuntu runner profile listed by GitHub is 4 vCPU, 16 GB RAM and 14 GB SSD; verify disk and resource adequacy against the actual BOPTEST and service images before relying on it.
+
+A self-hosted Linux runner can run Docker-based service containers and has a documented 5-day job limit, which fits the soak duration in principle. However, GitHub explicitly warns against using self-hosted runners with public repositories because untrusted pull-request code can compromise a persistent runner. A Step 3D harness must therefore not be automatically exposed to arbitrary PRs. If GitHub Actions is used, require a trusted, owner-reviewed dispatch path and a clean isolated/ephemeral runner with no persistent secrets; JIT registration alone does not make reused hardware clean. The experiment must run all candidates under the same pinned host/resource envelope and retain raw results.
+
+**Execution-host recommendation for review:** use a dedicated clean Linux x86_64 environment with Docker and fixed resource limits for Step 3D; keep ordinary hosted Actions for short documentation/build checks. Choose either a manually controlled isolated VM/harness or a restricted one-shot Actions runner only after the security, runner lifecycle, artifact retention and ownership model are explicit. This is a test-execution choice, not a production deployment or architecture decision. The feasibility/cost/availability of such a runner is not yet demonstrated.
+
+Official references: [GitHub Actions limits](https://docs.github.com/en/actions/reference/limits) (6-hour hosted vs 5-day self-hosted job limits); [GitHub-hosted runner specifications](https://docs.github.com/en/actions/reference/runners/github-hosted-runners); [self-hosted runner requirements](https://docs.github.com/en/actions/reference/runners/self-hosted-runners); [GitHub Actions secure use](https://docs.github.com/en/actions/reference/security/secure-use) (public-repository and untrusted-PR risks; JIT runners).
+
+
 ## 3. Required Step 3D environment
 
 Build one reproducible Linux x86-64 runner shared by all candidates. Before execution, record:
