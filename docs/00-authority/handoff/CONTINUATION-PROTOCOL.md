@@ -49,7 +49,7 @@ A research task is not complete merely because sources were collected. It must p
 
 For each implementation task:
 
-1. Create or complete a task packet using `TASK-PACKET-TEMPLATE.md`; cite the Gate, approved decisions, architecture boundaries, contracts, scope, non-goals, acceptance evidence, and rollback/recovery expectations.
+1. Create or complete a task packet using `docs/04-engineering/ai-coding-governance/TASK-PACKET-TEMPLATE.md`; cite the Gate, approved decisions, architecture boundaries, contracts, scope, non-goals, acceptance evidence, and rollback/recovery expectations.
 2. Confirm the task can proceed under current Authority. If it changes architecture, safety, settlement semantics, contracts, or research direction, prepare a Decision Record before implementation.
 3. Make the smallest change that satisfies the packet while preserving replaceability for provisional technology choices.
 4. Validate against the packet's required checks. Record commands, results, and limitations; do not claim checks that were not run.
