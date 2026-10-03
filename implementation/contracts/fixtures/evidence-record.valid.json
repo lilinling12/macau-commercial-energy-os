@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceId": "evidence-vs001",
+  "status": "PROJECT_ASSUMPTION",
+  "subject": "VS-001 synthetic bootstrap fixture",
+  "recordedAt": "2026-10-03T00:05:00Z",
+  "sourceRefs": [
+    "mvp/vertical-slices/VS-001-energy-intelligence-loop.md"
+  ],
+  "notes": "Synthetic fixture for executable contract validation; not Macau customer evidence."
+}
