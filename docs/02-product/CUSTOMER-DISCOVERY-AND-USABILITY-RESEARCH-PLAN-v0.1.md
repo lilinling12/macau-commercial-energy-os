@@ -117,7 +117,7 @@ Do not infer willingness to pay from hypothetical price reactions alone. Record 
 
 ## 5. Prototype usability session (45 minutes)
 
-Use synthetic prototype v0.2; label all records as synthetic and do not connect it to a live site. Tell participants the interface is being evaluated, not their expertise. Ask them to think aloud while allowing natural work. Where relevant, compare the result-kind choices and review dispositions without coaching.
+Use synthetic prototype v0.3; label all records as synthetic and do not connect it to a live site. Retain v0.2 for comparison only when the session explicitly evaluates the interaction changes. Tell participants the interface is being evaluated, not their expertise. Ask them to think aloud while allowing natural work. Where relevant, compare the result-kind choices and review dispositions without coaching.
 
 Choose the tasks relevant to the participant's role:
 
@@ -127,6 +127,7 @@ Choose the tasks relevant to the participant's role:
 4. **Review a SHADOW recommendation:** identify its baseline, horizon, proposed action, predicted effect, uncertainty and constraints; choose or interpret reviewed/dismissed/needs-data; explain why that disposition neither authorizes execution nor proves an outcome.
 5. **Inspect evidence/replay:** find pinned source/rule/model versions, separate replay state from measured-outcome state, and determine whether replay is complete or unavailable and whether an outcome has actually been measured.
 6. **Recover from a failure state:** respond to stale/partial data, missing authorization, or a failed integration without silently treating the result as verified.
+7. **Read the trend without relying on the graphic alone:** use the chart, text summary, or expandable sample table to describe the approximate synthetic pattern; identify the values as illustrative rather than measured site demand or CEM settlement demand. Record whether the alternate text/table representation helps the participant understand the trend.
 
 Do not coach during the first attempt. If the participant is stuck, ask what they expect to happen; then provide neutral assistance and record it.
 
