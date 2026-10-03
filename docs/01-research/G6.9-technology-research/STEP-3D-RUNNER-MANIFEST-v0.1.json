@@ -54,9 +54,9 @@
       "role": "durable-workflow",
       "serverImage": "temporalio/server:1.32.0",
       "adminToolsImage": "temporalio/admin-tools:1.32.0",
-      "uiImage": null,
+      "uiImage": "temporalio/ui:2.54.1",
       "platformDigests": null,
-      "configurationStatus": "server config, schema setup, namespace bootstrap, UI pin, health checks and reset procedure pending"
+      "configurationStatus": "server config, schema setup, namespace bootstrap, health checks and reset procedure pending"
     },
     {
       "role": "event-broker",
