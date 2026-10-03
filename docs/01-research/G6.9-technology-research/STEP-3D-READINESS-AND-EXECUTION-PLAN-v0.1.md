@@ -64,6 +64,7 @@ The versions named by the archive are inputs to verify and pin; do not silently 
 | Shared optimizer | Python 3.14.8 | Official Python security/maintenance release (Sep 30, 2026); confirm optimizer dependency wheels and runtime compatibility before freezing. |
 | Shared database | `timescale/timescaledb:2.30.2-pg18` | Official image tag exists; its published image metadata reports PostgreSQL 18.6 and TimescaleDB 2.30.2. Proposed Linux x86-64 platform digest must still be captured at runner freeze. |
 | Shared workflow service | Temporal Server 1.32.0 (`temporalio/server:1.32.0`) | Official image tag exists. This is only the server binary image; select and configure its persistence backend, schema setup/migrations, namespace bootstrap, and health checks before a runner can start it. Avoid assuming the deprecated/legacy auto-setup image is a complete production-like runner. |
+| Temporal persistence database (runner proposal) | Dedicated PostgreSQL 16 service shared by all candidates | Temporal's current official persistence page lists PostgreSQL 13–16 as actively tested; official server samples also currently pin PostgreSQL 16. Keep this separate from the candidate application database pinned to PostgreSQL 18 + TimescaleDB. This proposed split must be checked against the bake-off authority before environment freeze; do not claim Temporal on PG18 is verified. |
 | Shared event service | NATS Server 2.15.0 | Official stable release (Sep 17, 2026); includes JetStream. Pin image digest and record configuration. |
 | MQTT 5 broker | Eclipse Mosquitto 2.1.2 (`eclipse-mosquitto:2.1.2-alpine`) | Proposed common MQTT 5 broker; the Docker Official Image documents MQTT 5 support and this exact tag. Decide auth/TLS, persistence, listener, and test-network policy, then capture the platform-specific digest at runner freeze. |
 | Telemetry collection | OpenTelemetry Collector 0.162.0 | Official release (Sep 29, 2026); pin distribution and image digest. |
@@ -86,6 +87,9 @@ Official sources:
 - TimescaleDB official Docker tags and PostgreSQL 18.6 image metadata: https://hub.docker.com/r/timescale/timescaledb/tags
 - Temporal Server 1.32.0 release: https://github.com/temporalio/temporal/releases/tag/v1.32.0
 - Temporal Server 1.32.0 image tag: https://hub.docker.com/r/temporalio/server/tags
+- Temporal persistence support and tested PostgreSQL versions: https://github.com/temporalio/documentation/blob/main/docs/encyclopedia/temporal-service/persistence.mdx
+- Temporal official PostgreSQL Compose sample and version pins: https://github.com/temporalio/samples-server/blob/main/compose/.env
+- Temporal official PostgreSQL schema setup: https://github.com/temporalio/samples-server/blob/main/compose/scripts/setup-postgres.sh
 - NATS Server 2.15.0: https://github.com/nats-io/nats-server/releases/tag/v2.15.0
 - NATS official image tags: https://hub.docker.com/_/nats/tags
 - OpenTelemetry Collector 0.162.0: https://github.com/open-telemetry/opentelemetry-collector-releases/releases/tag/v0.162.0
@@ -93,7 +97,7 @@ Official sources:
 - Prometheus 3.15.0: https://github.com/prometheus/prometheus/releases/tag/v3.15.0
 - Grafana 13.2.3: https://github.com/grafana/grafana/releases/tag/v13.2.3
 
-Before freeze, confirm image availability, cross-component compatibility, security advisories, and actual package-level pins. Any selected older version needs a recorded compatibility or stability reason. The database image check is now satisfied by the official `2.30.2-pg18` image metadata (PostgreSQL 18.6 + TimescaleDB 2.30.2); the MQTT broker is provisionally named as Mosquitto 2.1.2. Temporal's `temporalio/server:1.32.0` image tag is verified, but its persistence/schema/bootstrap configuration remains an execution blocker. Exact versions alone do not make a runner reproducible: retain image digests, lockfiles, resource limits, configuration, benchmark commit SHAs, and raw results.
+Before freeze, confirm image availability, cross-component compatibility, security advisories, and actual package-level pins. Any selected older version needs a recorded compatibility or stability reason. The application database image check is satisfied by the official `2.30.2-pg18` image metadata (PostgreSQL 18.6 + TimescaleDB 2.30.2); the MQTT broker is provisionally named as Mosquitto 2.1.2. Temporal's `temporalio/server:1.32.0` image tag is verified. Current Temporal docs actively test PostgreSQL 13–16, and current official sample configuration pins PostgreSQL 16. Therefore, propose a dedicated PostgreSQL 16 persistence service for the shared Temporal instance while candidates share the PostgreSQL 18 + TimescaleDB application service. This separation is a runner-only proposal; verify it is permitted by the bake-off pack and pin the image digest before freeze. Schema setup, namespace bootstrap, server configuration, and health checks remain open execution blockers. Exact versions alone do not make a runner reproducible: retain image digests, lockfiles, resource limits, configuration, benchmark commit SHAs, and raw results.
 
 ## 5. Candidate interpretation that remains open
 
