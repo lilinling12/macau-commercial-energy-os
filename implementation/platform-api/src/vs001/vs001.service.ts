@@ -1,13 +1,17 @@
 import { createHash } from 'node:crypto';
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { parseTelemetryEventV1, type TelemetryEventV1 } from './contracts.js';
 import type {
-  EnergyGraphPort,
-  EvidenceRecord,
-  EvidenceRepository,
-  OptimizerPort,
-  ShadowRecommendation,
-  TariffResolutionPort,
+  ENERGY_GRAPH_PORT,
+  EVIDENCE_REPOSITORY,
+  OPTIMIZER_PORT,
+  TARIFF_RESOLUTION_PORT,
+  type EnergyGraphPort,
+  type EvidenceRecord,
+  type EvidenceRepository,
+  type OptimizerPort,
+  type ShadowRecommendation,
+  type TariffResolutionPort,
 } from './ports.js';
 
 export type Vs001Result =
@@ -55,9 +59,13 @@ function evidenceTime(event: TelemetryEventV1): string {
 @Injectable()
 export class Vs001Service {
   constructor(
+    @Inject(ENERGY_GRAPH_PORT)
     private readonly energyGraph: EnergyGraphPort,
+    @Inject(TARIFF_RESOLUTION_PORT)
     private readonly tariff: TariffResolutionPort,
+    @Inject(OPTIMIZER_PORT)
     private readonly optimizer: OptimizerPort,
+    @Inject(EVIDENCE_REPOSITORY)
     private readonly evidenceRepository: EvidenceRepository,
   ) {}
 
