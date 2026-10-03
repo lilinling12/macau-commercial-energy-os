@@ -169,6 +169,47 @@ Customer data must not enter a research, development, AI-provider or production 
 - Gates: G6-05 Edge identity/key lifecycle and G6-09 tenant/site isolation remain open; G1/G3/G7 evidence remains necessary for the economic and pilot claims that depend on it.
 - Implementation status: existing scaffold findings are in PRD-ARCHITECTURE-TRACEABILITY. No executable threat controls are implied by this model.
 
+## 6C. Machine identity and credential lifecycle (design requirements; selection open)
+
+This lifecycle applies to Edge/device identities, site integration credentials and platform workload identities. It is separate from human session and membership lifecycle. It defines reviewable behavior, not a selected credential format, cryptographic algorithm, hardware root, KMS, cloud service or deployment topology. Production command-signing authority remains disabled and U-022 remains OPEN.
+
+### Lifecycle states and transitions
+
+| State/transition | Required behavior | Evidence to retain |
+|---|---|---|
+| Provision → pending | Bind the identity to one organization, site, device/agent and permitted purpose before it can authenticate. A pending identity has no data or command authority. | Approver/provisioning actor, intended scope, identity reference, policy version and timestamp |
+| Activate | Activate only after binding and a positive possession/registration check. Grant the minimum ingest/configuration permissions explicitly; command authority is not implied. | Activation outcome and registered scope |
+| Rotate → overlap → retire | Support a controlled replacement with a bounded overlap where the deployment requires it. New credentials must be verified before old credentials are retired; overlap must not broaden scope. Define recovery for partial rotation and prevent fallback to a credential already revoked. | Old/new credential references (never secret bytes), actor, scope, overlap window, checks and retirement result |
+| Revoke | Deny new authentication and invalidate cached/session/workload authority within an owner-approved bound. Re-check queued work and downstream consumers; revocation must not be undone by retries or stale replicas. | Revocation reason/actor, effective-time evidence, affected scope and propagation outcome |
+| Expire | Reject at and after expiry. Renewal is an explicit issuance/activation flow and cannot silently extend a revoked or decommissioned identity. | Expiry and renewal decision |
+| Replace/decommission | Revoke the prior device/agent before removing its registration; replacement receives a distinct identity. Preserve attributable historical evidence without retaining usable secret material. | Old/new identity linkage, decommission actor and completion checks |
+| Recover while offline | State what the site agent may do during cloud/control-plane loss. Existing ingest buffering may continue only within its approved scope; no offline credential or cached policy may create new command authority. Define bounded rejoin, queued-data validation and stale-policy handling. | Offline/rejoin interval, identity/policy versions, accepted/rejected backlog counts |
+
+### Invariants
+
+1. Machine identities are distinct from human identities and from one another; no shared fleet-wide credential is assumed.
+2. Every credential is scoped to a registered purpose and organization/site/device set. Payload tenant/site fields never establish identity or authorization.
+3. Secrets are not stored in source, images, ordinary logs, evidence bundles or synthetic fixtures presented as production credentials. Storage and protection mechanism remain a deployment decision.
+4. Rotation and revocation are auditable without exposing secret bytes. A credential reference/fingerprint may be recorded only under an approved handling policy.
+5. Unknown, ambiguous, expired, revoked, out-of-scope or stale-policy identities fail closed for protected operations.
+6. Revocation applies across API authentication, broker/workflow consumers, caches, queued work and evidence access as appropriate to that identity; exact propagation targets and maximum delay require owner/security approval.
+7. Loss, reset, cloning suspicion or physical replacement of an Edge unit does not authorize transferring its identity. Re-provision as a new identity after the prior identity is disabled.
+8. No state in this lifecycle grants physical control. Any later command-signing and execution path requires separate G6/G7 evidence, site-local Safety Kernel policy and explicit authorization.
+
+### Acceptance scenarios for G6 evidence
+
+- An unactivated, expired, revoked, wrong-site or wrong-device identity cannot authenticate or publish/read outside its registered scope.
+- During rotation, old and new credentials behave only within the explicitly approved overlap; a partial failure has a documented recovery path and does not reactivate a revoked credential.
+- Revocation is exercised against active sessions/connections, caches, queued events/jobs and downstream consumers; observed denial time is measured against a bound approved before production.
+- An Edge agent offline across credential or policy rotation rejoins using the approved recovery path; stale backlog is validated and cannot create command authority.
+- A replaced, reset or suspected-cloned device cannot reuse the previous identity; decommission and re-provision events remain attributable.
+- Logs/audit show identity reference, action, scope, policy version, result and time without exposing secret bytes.
+- Negative scenarios are executed against the selected runtime and deployment. This checklist is a design requirement, not evidence of execution or G6 closure.
+
+### Decisions still owned by U-022 and deployment/security review
+
+Select and review the production device identity and command-signing model, provisioning ceremony, algorithms and formats, key custody/hardware protection, rotation and revocation propagation bounds, offline recovery, incident response, audit retention and command authority. Keep data-ingest identity permissions separate from command-signing authority. No production key or command design is approved by this document.
+
 ## References
 
 - Microsoft Threat Modeling Tool — STRIDE categories: https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats
