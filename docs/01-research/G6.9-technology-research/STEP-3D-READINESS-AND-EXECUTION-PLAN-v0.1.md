@@ -44,11 +44,24 @@ Build one reproducible Linux x86-64 runner shared by all candidates. Before exec
 - exact runtime/framework versions and immutable image digests where available;
 - dependency lockfiles and package-manager versions;
 - shared PostgreSQL 18 + TimescaleDB, Temporal, NATS JetStream, MQTT 5, OpenTelemetry Collector, metrics/Grafana, and pinned BOPTEST v0.9.0 profile;
+- BOPTEST source/build provenance: release tag/commit, build context digest, all base-image digests, OS package snapshot, exact Node/Conda/Python/pip dependencies, external Spawn artifact checksum, and resulting web/worker image digests;
 - service configuration, health checks, startup order, reset/cleanup procedure, and test-data isolation;
 - benchmark commands, workload seeds, warm-up and run duration, repeat count, measurement collection, and raw-result retention;
 - candidate commit SHAs, contracts/schema hashes, generated bindings, and exact AI agent/model/tool versions for controlled trials.
 
 The versions named by the archive are inputs to verify and pin; do not silently substitute a newer runtime or service. Record deviations and rerun all candidates on the same environment if any pin changes.
+
+### BOPTEST v0.9.0 buildability and pinning boundary
+
+The official v0.9.0 release is a signed source tag at commit `9b1610b`; its documented local deployment builds the web and worker services from source instead of prescribing a single immutable v0.9.0 service image. In the tagged build recipe, the web image starts from `ubuntu:focal` and installs Node through the moving NodeSource `setup_16.x` channel. The worker pins its Miniconda installer URL but then updates Conda, requests Python `3.11` without a patch pin, upgrades pip/setuptools, and installs a requirements file. The tag therefore pins model/application source but does not, by itself, freeze the full simulation runtime.
+
+For a repeatable Step 3D run, build BOPTEST from the exact signed tag in a controlled builder, pin base images and all OS/runtime/package sources, checksum the external Spawn archive, and retain the resulting web/worker image digests plus build logs. If those inputs cannot be frozen without changing the upstream model/build semantics, record that deviation and the precise patch; do not describe a source-tag-only build as an immutable runner.
+
+Official sources:
+- BOPTEST v0.9.0 signed source release: https://github.com/ibpsa/project1-boptest/releases/tag/v0.9.0
+- Official local deployment Compose at the v0.9.0 commit: https://github.com/ibpsa/project1-boptest/blob/9b1610b/docker-compose.yml
+- Web build recipe: https://github.com/ibpsa/project1-boptest/blob/9b1610b/service/web/Dockerfile
+- Worker build recipe: https://github.com/ibpsa/project1-boptest/blob/9b1610b/service/worker/Dockerfile
 
 ## 4. Official release check for Step 3D pin candidates
 
