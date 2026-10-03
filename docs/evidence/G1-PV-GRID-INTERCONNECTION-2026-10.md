@@ -18,7 +18,7 @@ DSPA states the feed-in tariff purchase period is 20 years and publishes these c
 - Above 100–500 kW: MOP 3.0/kWh.
 - Above 500 kW: MOP 2.8/kWh.
 
-DSPA's page, last revised 2026-09-01, reports that by 2026-08-31 it had received 39 consultation cases on PV installation and 12 cases had proceeded to grid interconnection and electricity sales. These are cases, not necessarily unique buildings or customers.
+DSPA's page, last revised 2026-09-01, reports that by 2026-08-31 it had received 39 consultation cases on PV installation and 12 cases had proceeded to grid interconnection and electricity sales. These are cases, not necessarily unique buildings or customers. CEM's current PV introduction page separately reports 18 grid-connected PV systems as of June 2026 (4,762 kWp and nearly 8 million kWh generated). Because the later DSPA figure (12 cases) is lower than CEM's earlier system count (18 systems), and the units differ (cases vs systems), the totals cannot be combined or assumed to use the same counting scope. Reconciliation with DSPA and CEM is open as U-026.
 
 ## What this establishes
 
