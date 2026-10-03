@@ -8,11 +8,12 @@ Before research, product design, architecture, or implementation work, read:
 1. `AGENTS.md`
 2. `docs/00-authority/handoff/README.md`
 3. `docs/00-authority/handoff/CONTINUATION-PROTOCOL.md`
-4. `docs/00-authority/handoff/CURRENT.md`
-5. `docs/00-authority/ROADMAP.md`
-6. `docs/00-authority/decisions/DECISIONS.md`
-7. `docs/00-authority/decisions/OPEN-QUESTIONS.md`
-8. the current task packet, referenced evidence, Gate, product, architecture, and contract documents.
+4. `docs/00-authority/handoff/HISTORY.md`
+5. `docs/00-authority/handoff/CURRENT.md`
+6. `docs/00-authority/ROADMAP.md`
+7. `docs/00-authority/decisions/DECISIONS.md`
+8. `docs/00-authority/decisions/OPEN-QUESTIONS.md`
+9. `docs/04-engineering/ai-coding-governance/TASK-PACKET-TEMPLATE.md` when creating or completing a substantial task packet; then read the active packet and the referenced evidence, Gate, product, architecture, and contract documents.
 
 Check the live repository/PR state for work that may have changed since the last conversation. State the active Gate, verified status, missing evidence, and concrete durable output before substantial work.
 
