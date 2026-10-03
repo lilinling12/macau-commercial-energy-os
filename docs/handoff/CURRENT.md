@@ -13,7 +13,7 @@ This is not a generic energy dashboard, chatbot, BMS replacement, or kWh-only op
 
 ## Research state
 
-- **G1 — Macau Tariff & Settlement Foundation:** OPEN. G1.1/G1.2 completed; commercial bill, demand-window and cross-site PV questions remain.
+- **G1 — Macau Tariff & Settlement Foundation:** OPEN. G1.1/G1.2 completed; commercial bill, demand-window and cross-site PV questions remain; U-026 tracks an official PV-count discrepancy.
 - **G6.9-R2 — Technology Stack Bake-off:** Step 3A, 3B and 3C complete; **Step 3D pinned framework-native integration pending**.
 - **G7 — Reference Simulator & Pilot Validation:** active in parallel; G7.2 live baseline/no-op still pending; U-017 live response/rebound remains open.
 - Research Authority v1.6.2 contains D-001..D-076 and U-001..U-024. This repository must preserve the same records; see the technology and decision documents.
