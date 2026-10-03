@@ -121,20 +121,20 @@ This view makes runtime responsibilities and trust boundaries concrete enough fo
 
 ```mermaid
 flowchart LR
-  Browser["User browser / product UI\nReact + TypeScript proposal; not approved"]
-  API["Authenticated product API / BFF\nframework and placement TBD"]
-  Core["Energy application core\nidentity scope · graph · tariff/cost\nrecommendation · review · evidence"]
+  Browser["User browser / product UI<br/>React + TypeScript proposal; not approved"]
+  API["Authenticated product API / BFF<br/>framework and placement TBD"]
+  Core["Energy application core<br/>identity scope · graph · tariff/cost<br/>recommendation · review · evidence"]
   Ingest["Telemetry ingress / validation"]
-  Bus["Event transport\nNATS JetStream candidate"]
-  Workflow["Durable workflow orchestration\nTemporal candidate"]
-  Workers["Domain workers\nTS/Go candidate responsibilities"]
-  AI["Forecast / optimization jobs\nPython responsibility; execution mode TBD"]
-  DB[("Operational + time-series persistence\nPostgreSQL + Timescale baseline for evaluation")]
-  Evidence[("Durable evidence / artifact persistence\nphysical store, immutability and retention TBD")]
-  Edge["Site Edge agent\nGo responsibility proposal\nprotocol adapters · bounded local buffer"]
+  Bus["Event transport<br/>NATS JetStream candidate"]
+  Workflow["Durable workflow orchestration<br/>Temporal candidate"]
+  Workers["Domain workers<br/>TS/Go candidate responsibilities"]
+  AI["Forecast / optimization jobs<br/>Python responsibility; execution mode TBD"]
+  DB[("Operational + time-series persistence<br/>PostgreSQL + Timescale baseline for evaluation")]
+  Evidence[("Durable evidence / artifact persistence<br/>physical store, immutability and retention TBD")]
+  Edge["Site Edge agent<br/>Go responsibility proposal<br/>protocol adapters · bounded local buffer"]
   Site["Meters / BMS / approved read-only sources"]
-  Safety["Future local Safety Kernel\nno MVP device-write path"]
-  Device["Equipment write boundary\nonly after G6/G7 + site authorization"]
+  Safety["Future local Safety Kernel<br/>no MVP device-write path"]
+  Device["Equipment write boundary<br/>only after G6/G7 + site authorization"]
 
   Browser -->|"authenticated HTTPS"| API
   API -->|"authorized scoped use cases"| Core
