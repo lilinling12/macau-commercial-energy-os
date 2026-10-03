@@ -81,7 +81,7 @@ Reference material: UI/UX Pro Max local search; W3C WCAG 2.2 (https://www.w3.org
 
 ### Logical boundaries
 
-The current draft separates site Edge and local safety from cloud intelligence, cost/settlement, forecasting/optimization, evidence/replay, and human approval. The new logical runtime view in `docs/03-architecture/ARCHITECTURE-DESIGN.md` makes browser/API, application core, ingress/async processing, persistence, AI jobs and Edge responsibilities reviewable without prescribing process counts or deployment placement. This remains a research-derived proposal. Please review whether these responsibilities and trust boundaries fit the intended product and operating model.
+The current draft separates site Edge and local safety from cloud intelligence, cost/settlement, forecasting/optimization, evidence/replay, and human approval. The new logical runtime view in `docs/03-architecture/ARCHITECTURE-DESIGN.md` makes browser/API, application core, ingress/async processing, persistence, AI jobs and Edge responsibilities reviewable without prescribing process counts or deployment placement. It also makes durable raw capture before downstream event publication an explicit invariant; crash recovery/outbox and redelivery handling remain to be designed. This remains a research-derived proposal. Please review whether these responsibilities and trust boundaries fit the intended product and operating model.
 
 ### Technology choices
 
