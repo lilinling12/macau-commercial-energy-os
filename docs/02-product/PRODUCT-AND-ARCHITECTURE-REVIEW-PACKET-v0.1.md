@@ -121,6 +121,10 @@ The telemetry design now records a transport-independent identity invariant: pre
 
 **Owner choice still open:** after inventorying the actual pilot meter/BMS/source connectors, decide whether the ingress-ID fallback is acceptable for any connector or whether a particular in-scope source must provide a stable event ID/sequence. Record source-specific exceptions and their duplicate/recovery limits before freezing the V2 telemetry contract or claiming safe deduplication.
 
+### Macau data classification and transfer review — owner/legal dependency
+
+The security threat model now records a dataset-specific review boundary based on Macau Law 8/2005 and GPDP guidance. The law's personal-data definition concerns information relating to identified or identifiable natural persons; building-energy telemetry is not classified wholesale here. Before customer-data intake or production/pilot deployment, identify the actual fields, identities/linkage, purposes, controller/processor roles, storage, sub-processors/support access, retention/deletion and backup/export paths. If in-scope personal data may be transferred outside the MSAR, the responsible privacy/legal owner must assess Articles 19/20 and applicable GPDP conditions for that specific flow. This does not decide a provider, require Macau-only hosting, or provide a legal opinion.
+
 ### Contract authoring and generated bindings — research proposal, decision open
 
 D-065 requires contract-driven boundaries and generated OpenAPI / Protobuf / JSON Schema bindings; it does not establish one canonical authoring format or generator toolchain. The current CostResult/ReplayManifest and identity designs remain proposals, and their domain semantics must be settled before schema code generation is treated as canonical.
