@@ -8,6 +8,8 @@ The original domain research framework is G0–G7. Each Gate requires evidence p
 |---|---|---|
 | G0 Thesis & Market Rationale | Substantially complete for the original research rationale; customer/problem and commercial validation remain open. | [G0](G0-thesis.md) |
 | G1 Tariff & Settlement Foundation | OPEN; Golden Bills and material tariff/settlement unknowns remain. | [G1](G1-tariff-settlement.md) |
+
+G1 evidence acquisition packet (prepared only; unsent): [U-001/U-009/U-010/U-011 request and sufficiency plan](G1-EVIDENCE-ACQUISITION-PACKET-v0.1.md).
 | G2 Commercial Load Flexibility | OPEN; public context exists, site-level flexibility is not validated. | [G2](G2-load-flexibility.md) |
 | G3 Energy Digital Twin / Energy Graph | OPEN; logical design exists, pilot-site graph is not validated. | [G3](G3-energy-graph.md) |
 | G4 Forecasting | OPEN; no eligible Macau dataset and Gate evaluation is recorded. | [G4](G4-forecasting.md) |
