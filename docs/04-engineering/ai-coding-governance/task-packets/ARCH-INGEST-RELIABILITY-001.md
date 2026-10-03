@@ -70,6 +70,16 @@
   5. No result is called exactly-once; U-024 physical field-write trials remain separate.
 - **Evidence to preserve:** source/protocol inventory; owner decision/deferral; frozen design version; runner manifest and dependency pins; raw and normalized lineage references; fault-injection manifests/logs; state transition/backlog metrics; data-governance approval; exact commands and results when runtime work is authorized.
 
+## Current implementation baseline recheck
+
+- PR #8 base and current `main` both resolve to `a897bf0b1e7e6ceea3862d7d87fa288ecca08203`; PR #8 is documentation/governance-only at the latest inspected head and does not modify application source.
+- Source files rechecked at that main snapshot:
+  - `implementation/platform-api/src/vs001/vs001.controller.ts` blob `de93bc59354890f1e8be6274123ecf51f24fb3ca`: the VS-001 route has no visible authentication/authorization guard.
+  - `implementation/platform-api/src/app.module.ts` blob `df2e93719b1209633597045142d3c5688751f47e`: wires fail-closed Energy Graph/Tariff adapters, a fail-closed optimizer and an in-memory evidence repository.
+  - `implementation/platform-api/src/vs001/adapters.ts` blob `d4b0872fd9a52dedf8745cc45bdcbcd2fb3e83d6`: confirms unresolved graph/tariff behavior and in-memory evidence storage.
+  - `implementation/edge-runtime/cmd/edge/main.go` blob `ee671a01e41f9325658bb2a98243936bc31825f4`: logs bootstrap only; no ingestion transport or durable capture path is present in this entrypoint.
+- This is a static source inspection, not a runtime verification. These findings mean there is no safe production VS-003 implementation to begin in the present scaffold without first resolving identity, storage, contract and architecture authority. They do not mean that the existing code cannot be retained as Candidate B evidence.
+
 ## Completion record
 
 - **Changes/deliverables:** durable telemetry lifecycle and crash/retry design added; architecture/runtime view aligned; owner decision #12 added; PR-02 and VS-003 criteria updated.
