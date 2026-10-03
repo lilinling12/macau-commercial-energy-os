@@ -1,0 +1,35 @@
+name: Contracts Validation
+
+on:
+  pull_request:
+    paths:
+      - "implementation/contracts/**"
+      - ".github/workflows/contracts-validation.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "implementation/contracts/**"
+      - ".github/workflows/contracts-validation.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  json:
+    name: Validate JSON contract syntax
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate JSON files
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r -d '' file; do
+            echo "Validating $file"
+            jq empty "$file"
+          done < <(find implementation/contracts -type f -name '*.json' -print0)
