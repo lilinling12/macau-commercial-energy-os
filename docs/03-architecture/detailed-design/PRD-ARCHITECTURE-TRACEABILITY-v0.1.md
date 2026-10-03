@@ -120,6 +120,8 @@ The implementation phase must extend this audit with code-level evidence for all
 
 ## Recommended sequencing
 
+See the candidate dependency-ordered MVP increment plan and per-slice acceptance evidence at `docs/05-mvp/vertical-slices/MVP-VERTICAL-SLICE-PLAN-v0.1.md`. It is a draft and does not authorize technology-specific implementation.
+
 1. Validate user/task ownership and acceptance for each PRD requirement.
 2. Resolve or explicitly bound G1/G2/G3 dependencies before claiming economic or asset semantics.
 3. Close design gaps in contracts and component-level designs; record decisions and open questions.
