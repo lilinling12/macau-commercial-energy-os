@@ -59,3 +59,11 @@ Evidence discipline applies to research, architecture and implementation decisio
 - **Status:** PARTIALLY VERIFIED for the public statements recorded in the G1 evidence note; **UNKNOWN** for calculation order, real Golden Bill behavior, U-001, U-009 and third-party high-frequency data access (U-003).
 - **Evidence:** `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`; corresponding Open Questions U-001/U-003/U-009/U-010/U-011.
 - **Limit:** No matched real Golden Bill + interval/load-profile set is recorded. G1 remains OPEN; do not claim bill-grade reconstruction or hard-code a demand interval/tax formula.
+
+
+## G6.9-R2 — Technology stack bake-off
+
+- **Claim:** Steps 3A–3C are recorded complete; Step 3C contains semantic vertical-slice evidence but did not run the candidate frameworks with the common shared-service environment or produce comparable performance/AI-engineering results.
+- **Status:** REPORTED by the G6.9 authority and reviewed archives; Step 3D is **NOT EXECUTED**, Step 4 is **PENDING**, and no measured production-stack winner exists.
+- **Evidence:** `docs/03-architecture/technology-authority/G6.9-technology-selection/README.md`; `docs/01-research/G6.9-technology-research/STEP-3D-READINESS-AND-EXECUTION-PLAN-v0.1.md`; draft runner blockers in `STEP-3D-RUNNER-MANIFEST-v0.1.json`; user-provided v0.2.0/v0.3.0 archive audit recorded in the readiness plan.
+- **Limit:** Included archive validators check selected pack structure/JSON/hash outputs; they do not execute the applications. Step 3C is not Step 3D, a performance bake-off, a safety certification or production approval. C+ remains provisional; Node/NestJS remains an existing candidate implementation path; Java implementation is suspended by D-069.
