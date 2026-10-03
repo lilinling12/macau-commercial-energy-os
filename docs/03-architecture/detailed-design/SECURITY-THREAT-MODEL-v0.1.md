@@ -119,6 +119,23 @@ For each in-scope flow, record:
 
 Before cross-border access/processing of any in-scope personal data, obtain case-specific review of Articles 19/20 and applicable GPDP notification/authorization/transfer conditions. Do not infer compliance merely from choosing a Macau data-center region; map operator, support, backup and sub-processor paths as well. No data-residency design is selected by this note.
 
+### Initial data-flow inventory for classification (triage only)
+
+This is an initial inventory of project data categories, not a final legal classification. Actual payloads, site context, identifiers and processing paths must be reviewed before intake.
+
+| Data family | Examples in this product | Privacy/classification question | Review boundary before use |
+|---|---|---|---|
+| Tariff and public regulatory material | Published tariffs, laws, CEM guidance, public schedules | Usually public source material, but a collected bundle may also contain customer notes or account-specific annotations. | Keep source provenance and separate public source data from customer-specific overlays. |
+| Customer commercial and settlement records | Bills, supply-point/account identifiers, contracts, tariff correspondence, contacts/signatures | Business-confidential content may contain named representatives or other information relating to identifiable people. | Identify customer authority, purpose, access scope, redaction/minimization, retention and any export path. |
+| Meter and interval telemetry | Time-stamped site/point measurements, meter IDs, quality, observed/received times | Site-level energy data is not classified wholesale here; room/tenant/user links or combination with schedules may make individuals identifiable or reveal activity patterns. | Record source, granularity, linkage keys, aggregation, permitted purpose and any identifiable context. |
+| BMS, room and operating data | Plant/zone states, occupancy schedules, setpoint changes, operator actions | Occupancy/room/staff schedules and linked actions may reveal identifiable behavior depending on granularity and surrounding records. | Prefer asset/site aggregation; justify fine-grained fields and limit access/use to the approved task. |
+| Identity, access and audit | User/workload IDs, session/access logs, approvals, support actions, IP/device context | Direct user identifiers and activity records may relate to identifiable employees or contractors. | Define controller/processor roles, purpose, access and audit retention; redact from general metrics. |
+| Recommendations, assessments and evidence | Baselines, forecasts, replay manifests, review comments, measured outcomes | May inherit customer data and may include named reviewers, sensitive operational details or linkable schedules. | Preserve tenant scope/provenance; define export, correction, retention and deletion per evidence class. |
+| AI prompts, context and outputs | User prompts, retrieved bills/telemetry, generated explanations, tool traces | Inherits the most restrictive relevant content supplied or retrieved; prompts and traces can copy source data. | No external model processing of customer/personal data until provider, purpose, data boundary, retention and transfer review are approved. |
+| Synthetic simulator/fixture data | BOPTEST, generated tariffs or anonymized test cases | Treat as non-customer only when provenance confirms it contains no real or re-identifiable customer/user data. | Preserve source and generation method; never relabel real pilot data as synthetic solely by removing names. |
+
+For every actual data flow, add source → collector → storage → processor/model → export/support/backup destinations, identity/linkage fields, responsible party, purpose, region and retention/deletion behavior. Resolve unknown fields through a customer/site data inventory; do not infer a clean privacy classification from a schema name or database region.
+
 ### Intake and release gate
 
 Customer data must not enter a research, development, AI-provider or production workflow until the data inventory, customer authority/permissions, secure intake path, purpose/access boundary, retention/deletion rule and any cross-border review have been approved for that specific dataset and environment. Prefer synthetic or properly anonymized evidence for design and bake-off work.
