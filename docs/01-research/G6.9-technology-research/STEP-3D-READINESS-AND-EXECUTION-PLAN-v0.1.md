@@ -32,7 +32,7 @@ The included `scripts/validate_pack.py` passed for both archives. This pack-only
 
 The v0.2.0 archive has 38 non-directory entries and v0.3.0 has 67. A full SHA-256 comparison found 29 files added, one removed (a precompiled Go command-verifier binary), and three modified (`README.md`, `spec/VERTICAL-SLICE.md`, `VERSION`). All other overlapping files are byte-identical. The added files include the Step 3C source and recorded outputs; the archive still has no Step 3D runner/results or TypeScript candidate lockfiles.
 
-The host was rechecked at Node v22.20.0 and Python 3.11.9; Docker/Compose, Bun, and Go are unavailable on PATH. The required Step 3D execution cannot run on this host as currently provisioned. No Step 3C or Step 3D runtime experiment was run during this revalidation.
+The host was rechecked: PATH-default Node v22.20.0, Python 3.11.9, and NVM-installed Node v24.9.0 are present; Docker/Compose, Bun, and Go are unavailable on PATH. The exact proposed Step 3D Node pin is 24.21.0, so the installed 24.9.0 does not satisfy it. The required Step 3D execution cannot run on this host as currently provisioned. No Step 3C or Step 3D runtime experiment was run during this revalidation.
 
 ### Step 3C environment and scope
 
@@ -49,7 +49,7 @@ Sources:
 
 ### Task-host preflight
 
-A read-only inventory on the current task host reported Node v22.20.0 and Python 3.11.9; Docker, Bun, Go, and the Python launcher were unavailable. This host therefore does not satisfy the pack's stated Step 3D runner requirements. No Step 3D command, application test, benchmark, or environment mutation was performed.
+A read-only inventory on the current task host found PATH-default Node v22.20.0 and Python 3.11.9; Docker/Compose, Bun and Go were unavailable on PATH. A later check found NVM-installed Node v24.9.0 at D:\\dev\\nvm\\v24.9.0\\node.exe. The Step 3D plan proposes exact Node 24.21.0 pins, so v24.9.0 is not the pinned runtime; Bun, Go and the full shared-service runner remain unavailable. This host therefore does not satisfy the pack's Step 3D runner requirements. No Step 3D command, application test, benchmark, or environment mutation was performed.
 
 ## 3. Required Step 3D environment
 
