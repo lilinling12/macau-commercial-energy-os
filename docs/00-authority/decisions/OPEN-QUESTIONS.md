@@ -94,3 +94,61 @@
 **Question:** What are the actual direction, magnitude, nonlinearity and post-peak rebound effects of the approved supervisory SAT/CHWS perturbations on chiller power, fan power and total composed site power?  
 **Resolution path:** close G7.2 live baseline/no-op execution, then run the guarded R0 controller experiment matrix with paired baseline/candidate replay.  
 **Design implication:** do not assume that raising SAT/CHWS lowers total site power; recovery/new-peak diagnostics remain mandatory.
+
+
+## U-018 — Candidate A production Temporal topology
+**Status:** OPEN / G6.9-R2
+**Question:** Does a Bun/Hono/Effect API plus Node-backed Temporal TypeScript Worker produce enough engineering advantage to justify the extra runtime topology compared with C+?  
+**Resolution path:** common vertical slice + AI engineering trials + chaos/soak.
+
+
+## U-019 — Effect 4 agent-maintainability advantage
+**Status:** OPEN / G6.9-R2
+**Question:** Do Effect 4 typed failure/dependency/resource semantics reduce hidden defects and review burden for current coding agents, or increase compiler/context repair cost?  
+**Resolution path:** controlled T01–T10 trials and reviewer scoring.
+
+
+## U-020 — Go-core product-iteration cost
+**Status:** OPEN / G6.9-R2
+**Question:** Does generated contract sharing keep Go core + TS product iteration within 10–20% of all-TS engineering cost while materially simplifying command/Edge reliability?  
+**Resolution path:** candidate C+ trial metrics.
+
+
+## U-021 — Live full-stack bake-off execution environment
+**Status:** OPEN / EXECUTION BLOCKER
+**Question:** Establish a pinned Linux x86-64 environment containing Bun 1.4.2, Node 24 LTS, Go 1.27.x, Python, Docker/Compose and common Postgres/Timescale/Temporal/NATS/MQTT/OTel services.  
+**Current environment:** lacks Bun, Deno, pnpm and Docker, so Step 3A can build the pack but cannot produce comparable full-stack runtime results.
+
+## U-022 — Production command signing and Edge key lifecycle
+**Status:** OPEN / G6 SECURITY
+**Question:** Select production command signing algorithm/device identity model, provisioning, rotation, revocation and optional hardware-backed key storage.  
+**Constraint:** must preserve D-070 canonical payload semantics and deterministic replay/audit behavior; Step-3B HMAC is not production authority.
+
+
+
+## U-023 — Framework-native Step-3D execution
+**Status:** OPEN / G6.9-R2
+**Question:** Under pinned Bun 1.4.2, Node 24 LTS and Go 1.27, do Candidate A/B/C+ preserve the Step-3C semantic invariants when Hono/Effect, NestJS/Fastify and Temporal are actually introduced?  
+**Resolution path:** pinned Linux x86-64 integration runner with common Postgres/Timescale, NATS, MQTT and OTel services.
+
+
+## U-024 — Durable exactly-once-effect behavior under real workflow/broker failures
+**Status:** OPEN / G6.9-R2 HARD GATE
+**Question:** Does the production workflow topology maintain zero duplicate field writes through worker kill, ACK loss, broker partition, DB restart and retry storms?  
+**Known:** the local Step-3C persisted-state crash-after-field-write scenario passes for Node and Go semantic shells.  
+**Resolution path:** Temporal-backed 100 kill/recover trials plus MQTT partition/reconciliation tests in Step 3D/4.
+
+## U-025 — Cross-site PV procurement and settlement rights
+**Status:** UNKNOWN / G1 BLOCKER FOR OFF-SITE PV CUSTOMER ECONOMICS  
+**Known:** The current republication of Decree-Law 43/91/M under Law 26/2024 (including the 53/98/M amendment) restricts ordinary supplied electricity to the contracted location and bars its resale/transfer. It also requires written concessionaire approval for a consumer's own generation to operate in parallel with the public grid, except the separately regulated PV route. Administrative Regulation 20/2014 and DSPA/CEM describe a specific approved PV interconnection and producer-to-CEM feed-in purchase route (up to 20 years).  
+**Unknown:** Whether host-building self-consumption can be structured under current CEM contract terms and how that differs from sale of injected surplus; whether a remote customer can obtain bill credits, netting, wheeling, virtual allocation or another recognized settlement benefit. Public sources found so far do not establish those customer entitlements.  
+**Resolution path:** Obtain current CEM PV application/interconnection and purchase contract forms; request written CEM/DSPA/DSSCU clarification on host self-consumption, generator ownership/roof lease or third-party PPA, and any remote account allocation; inspect anonymized contracts, meter diagrams and bills for any actual approved arrangement.  
+**Design implication:** keep PV producer feed-in revenue separate from another site's consumption settlement unless a verified arrangement explicitly links them. Do not model off-site PV as a direct customer bill credit by default.
+
+
+## U-026 — Official Macau grid-connected PV count reconciliation
+**Status:** OPEN / G1 EVIDENCE QUALITY
+**Question:** Why does CEM's current PV page report 18 connected PV systems as of June 2026 (4,762 kWp), while DSPA's page last revised 2026-09-01 reports 12 grid-connected-and-selling cases as of August 31, 2026?
+**Known:** The sources use different units ("systems" and "cases") and may use different scopes or update cycles.
+**Resolution path:** Confirm the system/case definitions, reporting cutoffs and treatment of connected-but-not-selling or multi-installation projects with CEM and DSPA.
+**Design implication:** Do not combine these figures or use them as a time trend until reconciled.

@@ -21,7 +21,7 @@ Telemetry
 → Optimization Recommendation
 → Evidence Record
 
-See `mvp/vertical-slices/VS-001-energy-intelligence-loop.md`.
+See `docs/05-mvp/vertical-slices/VS-001-energy-intelligence-loop.md`.
 
 ## Non-negotiable constraints
 

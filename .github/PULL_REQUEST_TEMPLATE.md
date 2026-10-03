@@ -33,7 +33,7 @@ Describe tests, simulations, replay evidence, schema checks, or manual verificat
 Describe contract, data, deployment, and migration impact.
 
 ## Checklist
-- [ ] Read docs/handoff/CURRENT.md
+- [ ] Read docs/00-authority/handoff/CURRENT.md
 - [ ] Read relevant Authority
 - [ ] No silent contract break
 - [ ] No silent weakening of tenant/security/safety boundaries
