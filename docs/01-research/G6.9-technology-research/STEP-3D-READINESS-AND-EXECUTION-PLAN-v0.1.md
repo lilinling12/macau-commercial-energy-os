@@ -56,11 +56,11 @@ The versions named by the archive are inputs to verify and pin; do not silently 
 
 | Role | Proposed pin candidate | Evidence / remaining check |
 |---|---|---|
-| Candidate A API/product runtime | Bun 1.4.2 | Official Bun release page lists 1.4.2 as latest (Sep 2026). Exact Hono and Effect 4 package versions still need to be pinned in a lockfile. |
-| Candidate A Temporal TypeScript worker | Node 24.21.0 | Official Node LTS release (Sep 9, 2026); Temporal TypeScript SDK officially supports Node 24. |
-| Candidate B API/worker runtime | Node 24.21.0 | Same exact Node patch for API and Temporal TypeScript worker; exact NestJS, Fastify, and Temporal SDK packages still need a lockfile. |
-| Candidate C+ core | Go 1.27.1 | Official Go stable release; verify Go SDK and dependency versions in go.mod. |
-| Candidate C+ thin BFF | Bun 1.4.2 | Keep separate from Go core; exact Hono dependencies still need a lockfile. |
+| Candidate A API/product runtime and packages | Bun 1.4.2 + Hono 4.13.12 + Effect 4.0.0 | Official latest stable package/runtime releases at the check date. Freeze exact packages in bun.lock and verify Bun/platform support in the pinned runner. |
+| Candidate A Temporal TypeScript worker | Node 24.21.0 + Temporal TypeScript SDK 1.24.0 | Official Node LTS release; SDK officially supports Node 24. |
+| Candidate B API/worker | Node 24.21.0 + NestJS 12.1.1 + Fastify 5.12.5 + Temporal TypeScript SDK 1.24.0 | Official stable releases. Verify adapter compatibility and freeze package lock before running. |
+| Candidate C+ core | Go 1.27.1 + Temporal Go SDK 1.49.0 | Official stable releases; freeze all module versions in go.mod/go.sum. |
+| Candidate C+ thin BFF | Bun 1.4.2 + Hono 4.13.12 | Keep separate from Go core; freeze packages in bun.lock. |
 | Shared optimizer | Python 3.14.8 | Official Python security/maintenance release (Sep 30, 2026); confirm optimizer dependency wheels and runtime compatibility before freezing. |
 | Shared database | PostgreSQL 18.6 + TimescaleDB 2.30.2 | Both official current releases at the check date. Verify the official image/extension combination supports PostgreSQL 18, then pin the image digest. |
 | Shared workflow service | Temporal Server 1.32.0 | Official stable release (Sep 11, 2026). Pin the matching image and record server/SDK compatibility. |
@@ -72,6 +72,12 @@ The versions named by the archive are inputs to verify and pin; do not silently 
 Official sources:
 - Node.js 24.21.0: https://nodejs.org/en/blog/release/v24.21.0
 - Temporal TypeScript SDK Node support: https://github.com/temporalio/sdk-typescript
+- Hono 4.13.12: https://github.com/honojs/hono/releases/tag/v4.13.12
+- Effect 4.0.0 stable/LTS release: https://github.com/Effect-TS/effect/releases
+- NestJS 12.1.1: https://github.com/nestjs/nest/releases/tag/v12.1.1
+- Fastify 5.12.5: https://github.com/fastify/fastify/releases/tag/v5.12.5
+- Temporal TypeScript SDK 1.24.0: https://github.com/temporalio/sdk-typescript/releases/tag/v1.24.0
+- Temporal Go SDK 1.49.0: https://github.com/temporalio/sdk-go/releases/tag/v1.49.0
 - Bun 1.4.2: https://bun.sh/blog/bun-v1.4.2
 - Go 1.27.1: https://go.dev/doc/devel/release#go1.27.1
 - Python 3.14.8: https://www.python.org/downloads/release/python-3148/
