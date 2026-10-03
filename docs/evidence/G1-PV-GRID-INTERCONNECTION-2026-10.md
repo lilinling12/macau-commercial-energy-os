@@ -28,11 +28,11 @@ The CEM purchase tariff is a **producer-side export settlement**. A separate con
 
 ## Potential legal constraint requiring scope review
 
-The official Gazette version of Decree-Law 53/98/M amends the standard low/medium-voltage electricity-supply contract. The current official republication of Decree-Law 43/91/M appears in Annex I to Law 26/2024 (published 2025-01-06; effective 2025-01-07); the general conditions retain the rule that the user must use electricity supplied at the contracted location and may not sell or transfer part of it to a third party. This is a material constraint on resale of electricity supplied under the ordinary customer contract. It does not, by itself, determine the legal treatment of a separate PV generator-to-CEM purchase contract, third-party PPA, or another specifically approved settlement arrangement. Treat it as a strong constraint requiring scope confirmation, not a final ruling on every possible PV contracting model.
+The official Gazette version of Decree-Law 53/98/M amends the standard low/medium-voltage electricity-supply contract. The current official republication of Decree-Law 43/91/M appears in Annex I to Law 26/2024 (published 2025-01-06; effective 2025-01-07); the general conditions retain the rule that the user must use electricity supplied at the contracted location and may not sell or transfer part of it to a third party. This is a material constraint on resale of electricity supplied under the ordinary customer contract. It does not, by itself, determine the legal treatment of a separate PV generator-to-CEM purchase contract, third-party PPA, or another specifically approved settlement arrangement. Treat it as a strong constraint requiring scope confirmation, not a final ruling on every possible PV contracting model. The same republished conditions also say a consumer with its own generation may use it only for emergencies and limited-duration tests, except where duly authorized under conditions written into the supply contract; operating in parallel with the public grid requires the concessionaire's written authorization attached to the contract. Macau's PV-specific Administrative Regulation 20/2014 supplies a specific technical approval/interconnection route for PV systems, with CEM receiving compliant generation and a separate PV purchase/feed-in mechanism. Read together, these texts support a regulated, contract-based PV export route; they do not establish a general right to wheel or allocate output to another customer's account.
 
 ## What remains unverified
 
-The cited official materials do not establish that another building's user can:
+The official material establishes the generator's approved interconnection and sale-to-CEM path. It does not establish that another building's user can:
 - net that PV producer's exported kWh against its own CEM bill;
 - receive virtual-net-metering credits or an allocated share of production;
 - procure power through a third-party PPA / wheeling / retail supply arrangement over the public grid.
@@ -41,7 +41,7 @@ Do not model off-site PV as a direct bill credit, a cheaper retail supply, or a 
 
 ## Research follow-up — U-025
 
-Determine whether a Macau commercial customer can contract for off-site PV and receive legally valid bill credits or another settlement benefit through the public grid. Resolve using current legislation/regulations and amendments, written DSPA/DSSCU/CEM confirmation, actual producer-CEM purchase contracts, customer bills, metering configuration, and any applicable third-party supply/aggregation rules.
+Separate three structures and verify each: (1) PV owner sells metered export to CEM under the FIT purchase contract; (2) host-site PV self-consumption / behind-the-meter supply under the approved interconnection and supply contracts; (3) a remote customer's virtual allocation, bill credit, wheeling or retail purchase through the public grid. Public sources establish (1) and the technical route for approved PV, but do not establish (2)'s commercial contract rules or any entitlement under (3). Obtain the applicable CEM forms/contracts and written DSPA/DSSCU/CEM interpretation; confirm whether any approved third-party or account-linked arrangement exists.
 
 Until then, keep the PV producer's feed-in revenue separate from the consuming site's bill and dispatch objective unless a verified arrangement explicitly links them.
 
@@ -51,4 +51,8 @@ Until then, keep the PV producer's feed-in revenue separate from the consuming s
 - CEM — PV introduction and bidirectional metering: https://www.cem-macau.com/zh/smart-living/photovoltaic-system-%28pv%29/pv-introduction/
 - CEM — PV interconnection application procedure: https://www.cem-macau.com/en/smart-living/photovoltaic-system-%28pv%29/application-procedure/
 - CEM — feed-in tariff table: https://www.cem-macau.com/en/go-green/photovoltaic-system-%28pv%29/feed-in-tariff/
-- Official Gazette — Law 26/2024, including the republished Decree-Law 43/91/M: https://bo.dsaj.gov.mo/bo/i/2025/01/lei26_cn.asp (published 2025-01-06; effective 2025-01-07).\n- Official Gazette — Decree-Law 43/91/M, republished low/medium-voltage electricity supply and sale contract: https://bo.io.gov.mo/bo/i/91/28/declei43_cn.asp\n- Official Gazette — Decree-Law 53/98/M amendment to the standard supply contract: https://bo.io.gov.mo/bo/i/98/46/declei53_cn.asp?printer=1
+- Official Gazette — Law 26/2024, including the republished Decree-Law 43/91/M: https://bo.dsaj.gov.mo/bo/i/2025/01/lei26_cn.asp (published 2025-01-06; effective 2025-01-07).
+- Official Gazette — Decree-Law 43/91/M, republished low/medium-voltage electricity supply and sale contract: https://bo.io.gov.mo/bo/i/91/28/declei43_cn.asp
+- Official Gazette — Administrative Regulation 20/2014, PV interconnection safety and installation rules: https://bo.dsaj.gov.mo/bo/i/2014/43/regadm20_cn.asp
+- Official Gazette — Administrative Regulation 25/2022, public electricity supply tariff system: https://bo.dsaj.gov.mo/bo/i/2022/26/regadm25.asp
+- Official Gazette — Decree-Law 53/98/M amendment to the standard supply contract: https://bo.io.gov.mo/bo/i/98/46/declei53_cn.asp?printer=1
