@@ -27,6 +27,7 @@ Research → Decision → Architecture → Engineering → Implementation.
 - G6.9-R2 Step 3D readiness audit and execution packet (not execution results): `docs/01-research/G6.9-technology-research/STEP-3D-READINESS-AND-EXECUTION-PLAN-v0.1.md`
 - G6.9-R2 Step 3D machine-readable runner manifest (draft; pins and freeze blockers, not a runnable Compose environment): `docs/01-research/G6.9-technology-research/STEP-3D-RUNNER-MANIFEST-v0.1.json`
 - Research-derived product requirements draft (not customer-approved): `docs/02-product/PRD-v0.1.md`
+- Customer discovery and formative usability research protocol (proposed; no sessions conducted): `docs/02-product/CUSTOMER-DISCOVERY-AND-USABILITY-RESEARCH-PLAN-v0.1.md`
 - Product information architecture, user flows and screen requirements (draft): `docs/02-product/USER-FLOWS-AND-IA-v0.1.md`
 - Clickable HTML product prototype v0.1 (synthetic data, no live control): `docs/02-product/prototype/v0.1/index.html`
 - Logical system architecture and technology decision states: `docs/03-architecture/ARCHITECTURE-DESIGN.md`
