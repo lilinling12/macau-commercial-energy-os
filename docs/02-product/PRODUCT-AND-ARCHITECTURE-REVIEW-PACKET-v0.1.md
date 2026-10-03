@@ -88,7 +88,7 @@ The current draft separates site Edge and local safety from cloud intelligence, 
 | Site Edge | Go responsibility proposal including local safety boundary. | Confirm through safety, deployment, protocol, and failure evidence; G6 remains open. |
 | Plugin isolation | Wasm/WASI future direction. | Future option; outside first MVP absent a validated requirement. |
 
-The next stack decision depends on the pinned G6.9-R2 Step 3D/4 process. Product-owner review of intended product boundaries can proceed in parallel, but it must not predetermine bake-off results.
+The C+ candidate names a thin Bun/Hono/TypeScript product BFF/UI, while the layer proposal separately names React + TypeScript as a possible frontend. Clarify whether React is a separate browser UI served through a thin BFF, or whether the candidates intentionally compare different UI approaches. Define the product/API/BFF/browser-UI boundary consistently before the bake-off; the Step 3D readiness plan records this ambiguity. The next stack decision depends on the pinned G6.9-R2 Step 3D/4 process. Product-owner review of intended product boundaries can proceed in parallel, but it must not predetermine bake-off results.
 
 ## 5. Detailed-design readiness and gaps
 
