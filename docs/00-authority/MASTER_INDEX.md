@@ -15,9 +15,12 @@ Research → Decision → Architecture → Engineering → Implementation.
 - `docs/04-engineering/`: development workflow, module boundaries, AI coding governance and CI/CD.
 - `docs/05-mvp/`: executable MVP plans and vertical slices.
 
-## Core planning and design documents
+## Core planning and continuity documents
 
 - Research-to-delivery Gate sequence and work packets: `docs/00-authority/ROADMAP.md`
+- Cross-conversation research/coding continuity: `docs/00-authority/handoff/CONTINUATION-PROTOCOL.md`
+- New-conversation entry prompt: `docs/00-authority/handoff/CONTINUE-PROMPT.md`
+- Reusable research and coding task packet: `docs/04-engineering/ai-coding-governance/TASK-PACKET-TEMPLATE.md`
 - Research-derived product scope and user workflow: `docs/02-product/PRODUCT-DESIGN.md`
 - Logical system architecture and technology decision states: `docs/03-architecture/ARCHITECTURE-DESIGN.md`
 - Current status and next authorized work: `docs/00-authority/handoff/CURRENT.md`
@@ -26,9 +29,9 @@ All authoritative project documentation belongs under these six numbered directo
 
 ## Authority chain
 
-Research → Evidence → Decision → Architecture → Engineering → Implementation.
+Research → Evidence → Decision → Product / Architecture → Engineering → Implementation → Validation → Handoff.
 
-Every implementation decision must trace to an approved decision and its supporting evidence. Research conclusions, assumptions and unresolved questions must retain their status.
+Every implementation decision must trace to an approved decision and supporting evidence. Research conclusions, assumptions, and unresolved questions must retain their status.
 
 ## Rule
 
