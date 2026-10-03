@@ -82,6 +82,7 @@ The current draft separates site Edge and local safety from cloud intelligence, 
 | Frontend | React + TypeScript was proposed in provisional architecture notes. | Not approved; confirm framework only after product surfaces and bake-off implications are clear. |
 | Cloud-core topology | Candidates A, B, C+ under G6.9-R2. C+ is a provisional default; Node/NestJS is existing Candidate B implementation evidence. | Do not call a winner before Step 3D/4 evidence and Decision Record. |
 | Workflow | Temporal candidate. | Candidate, not final selection. |
+| Temporal persistence for Step 3D | Temporal's actively tested PostgreSQL range is 13–16; the experiment pack requires PostgreSQL 18 + TimescaleDB for common candidate infrastructure but does not specify Temporal persistence backend/version. A separate PostgreSQL 16 service is proposed for all candidates. | Owner decision required before runner freeze: approve this additional shared test-only service, or require a different supported configuration to be validated first. This does not decide the production database architecture. |
 | Data | PostgreSQL + Timescale evaluation baseline. | Baseline for evaluation, not yet final operational decision. |
 | Eventing | NATS JetStream candidate. | Candidate, not final selection. |
 | Optimization/AI | Python responsibility proposal. | Confirm module boundary and workload evidence in architecture review. |
@@ -110,8 +111,9 @@ No change here closes G1, G6, G6.9-R2, or G7.2. No device control is authorized.
 1. Review the product promise, first user/site hypothesis, and exclusions.
 2. Review visual direction A/B/C and interaction principles. Treat prototypes as synthetic until user-tested.
 3. Confirm product boundaries and the architecture questions to carry into G6.9-R2; do not prematurely select the stack.
-4. After those reviews, revise the PRD, user flows, prototype, logical architecture, and relevant ADRs to record accepted decisions and remaining unknowns.
-5. Confirm the first detailed-design slice and its acceptance evidence; then implement against that approved packet.
+4. Decide whether Step 3D may add a shared PostgreSQL 16 Temporal persistence service while keeping PostgreSQL 18 + TimescaleDB as the common candidate application database. The pack specifies the latter and leaves Temporal persistence unspecified; this is a bake-off environment choice, not production approval.
+5. After those reviews, revise the PRD, user flows, prototype, logical architecture, and relevant ADRs to record accepted decisions and remaining unknowns.
+6. Confirm the first detailed-design slice and its acceptance evidence; then implement against that approved packet.
 
 ## 7. Owner response record
 
@@ -123,5 +125,6 @@ No response or approval is recorded in this draft.
 - Product changes/exclusions:
 - Architecture boundaries:
 - Technology decisions deferred to bake-off:
+- Step 3D shared Temporal persistence service (approve PG16 addition / request supported alternative / defer):
 - Detailed-design slice to prioritize:
 - Date / reviewer:
