@@ -128,6 +128,22 @@ This matrix defines behaviors that the selected storage/deployment design must s
 
 Before production design freeze, define a data-class registry that binds each class to owner, purpose, source, tenant scope, location/processor path, retention event/clock, legal hold, deletion SLA, backup expiry, replay consequence and verification evidence. Do not use one global retention period for materially different data classes or claim erasure until restored and replicated copies are covered.
 
+### 6.2 Target-free restore and recovery scenario catalog
+
+Use these scenarios to select deployment/storage boundaries and to plan recovery verification. They define integrity outcomes, not numeric RPO/RTO targets or a claim that any scenario has already passed.
+
+| Scenario | Required recovery invariant | Evidence to retain |
+|---|---|---|
+| Primary database/object store loss with point-in-time restore | All records acknowledged as durable meet the owner-approved recovery point; tenant/site scope, effective-dated versions, audit/evidence references and deletion restrictions remain consistent. | Recovery point, restore timeline, row/object consistency results, affected/inaccessible records, replay sample and owner decision against approved RPO/RTO. |
+| Broker/worker state diverges from business persistence | Reconcile outbox/inbox or equivalent offsets against durable business state; retries cannot duplicate evidence, assessment or physical field effects. | Broker offsets, workflow histories, idempotency/replay outcomes, duplicate-effect count and reconciliation record; any field effect remains gated by G6/site authorization. |
+| Raw capture succeeds but normalization/publication partially fails | Reprocess from the preserved raw reference using pinned contract/adapter/policy versions; never acknowledge an event as fully available while its durability state is ambiguous. | Raw receipt, transformation versions, retry attempts, terminal status and downstream availability boundary. |
+| Correction/deletion occurs before backup restore | Apply the current authorized correction/deletion state before restored data becomes accessible; stale copies are not exposed by replay, search, cache, export or AI traces. | Deletion/correction ledger reconciliation across primary, replicas, backup, index, cache and export paths, plus verification of replay status after removal. |
+| Single-tenant/site export or restore | Restore/export only the approved tenant/site scope, preserve provenance and prevent cross-scope records or references from becoming visible. | Scope manifest, authorization principal, included/excluded record counts, reference-integrity check and negative isolation evidence. |
+| Edge reconnects after a prolonged disconnection/restart | Reconcile locally buffered telemetry without unsafe deduplication; preserve source identity, event time, ordering uncertainty and clock status. Any future command state is reconciled without repeating a physical write. | Edge buffer bounds/age, sequence/cursor state, accepted/quarantined records, duplicate classification, command replay state and site operator confirmation. |
+| Failed schema/contract/Edge rollout and rollback | Restore a compatible release set without silently rewriting historical contracts/results, losing audit evidence or breaking tenant isolation; use forward-fix when rollback would corrupt state. | Release manifest, migration state, compatibility results, rollback/forward-fix procedure, data integrity checks and user-visible degraded/recovery status. |
+
+For each scenario, record the measured recovery point and elapsed recovery time separately from the target, then obtain product/operations/customer approval for the target and residual loss window. A successful backup command, green health check or synthetic replay is not acceptance evidence by itself; execute the scenario in an environment representative of the approved deployment and retain raw recovery artifacts.
+
 ## 7. Release, migration and rollback
 
 - Version service artifacts, API/event contracts, model/solver artifacts, tariff rule packages and site Edge software independently but record compatible release sets.
