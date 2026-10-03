@@ -1,6 +1,6 @@
 # G6.9 Technology Selection — Current Authority
 
-**Snapshot:** 2026-10-03  
+**Snapshot:** 2026-10-04  
 **Authority source:** Research Authority v1.6.2 and G6.9-R2 Step 3A–3C evidence  
 **Status:** Candidate evaluation remains open; no measured production-stack winner.
 
