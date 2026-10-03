@@ -11,6 +11,8 @@ The v0.3.0 archive is a Step 3C semantic-slice pack. It is not evidence that Ste
 
 The archive's own README says Step 3D must implement A/B/C+ against the common vertical slice in a pinned integration runner, then execute acceptance, clean-worktree hidden regression/security checks, runtime/load/chaos/24-hour soak, and controlled AI engineering trials.
 
+The machine-readable draft at `docs/01-research/G6.9-technology-research/STEP-3D-RUNNER-MANIFEST-v0.1.json` records the current pin candidates and explicit freeze blockers. It is not an executable Compose file and does not make the runner ready.
+
 The v0.3.0 archive contains Step 3C scripts, candidate semantic-slice examples, contracts, and Step 3C outputs. The archive listing contains no Step 3D result directory, no shared compose/runner manifest, and no dependency lockfiles for the TypeScript candidates. Its infra directory contains a README listing services but no executable environment definition.
 
 ## 2. Evidence reviewed
@@ -80,8 +82,8 @@ Official sources:
 | Temporal persistence database (runner proposal) | Dedicated PostgreSQL 16 service shared by all candidates | Temporal's current official persistence page lists PostgreSQL 13–16 as actively tested; official server samples also currently pin PostgreSQL 16. Keep this separate from the candidate application database pinned to PostgreSQL 18 + TimescaleDB. This proposed split must be checked against the bake-off authority before environment freeze; do not claim Temporal on PG18 is verified. |
 | Shared event service | NATS Server 2.15.0 | Official stable release (Sep 17, 2026); includes JetStream. Pin image digest and record configuration. |
 | MQTT 5 broker | Eclipse Mosquitto 2.1.2 (`eclipse-mosquitto:2.1.2-alpine`) | Proposed common MQTT 5 broker; the Docker Official Image documents MQTT 5 support and this exact tag. Decide auth/TLS, persistence, listener, and test-network policy, then capture the platform-specific digest at runner freeze. |
-| Telemetry collection | OpenTelemetry Collector 0.162.0 | Official release (Sep 29, 2026); pin distribution and image digest. |
-| Metrics dashboard | Prometheus 3.15.0 + Grafana 13.2.3 | Official stable releases found (Sep 2026); verify common dashboard/config and pin image digests. |
+| Telemetry collection | `otel/opentelemetry-collector-contrib:0.162.0-amd64` | Official 0.162.0 release and Linux x86-64 tag are visible; freeze the exact distribution, verify required receivers/exporters, and capture its immutable digest. |
+| Metrics dashboard | `prom/prometheus:v3.15.0` + Grafana 13.2.3 version candidate | Prometheus image tag is visible. Grafana 13.2.3 package/release is available, but the exact OSS/Enterprise container reference and its license/features are not yet frozen; verify that image before writing Compose. |
 
 Official sources:
 - Node.js 24.21.0: https://nodejs.org/en/blog/release/v24.21.0
@@ -100,15 +102,19 @@ Official sources:
 - TimescaleDB official Docker tags and PostgreSQL 18.6 image metadata: https://hub.docker.com/r/timescale/timescaledb/tags
 - Temporal Server 1.32.0 release: https://github.com/temporalio/temporal/releases/tag/v1.32.0
 - Temporal Server 1.32.0 image tag: https://hub.docker.com/r/temporalio/server/tags
+- Temporal Admin Tools 1.32.0 image tag: https://hub.docker.com/r/temporalio/admin-tools/tags
+- Temporal UI 2.54.1 image tag: https://hub.docker.com/r/temporalio/ui/tags
 - Temporal persistence support and tested PostgreSQL versions: https://github.com/temporalio/documentation/blob/main/docs/encyclopedia/temporal-service/persistence.mdx
 - Temporal official PostgreSQL Compose sample and version pins: https://github.com/temporalio/samples-server/blob/main/compose/.env
 - Temporal official PostgreSQL schema setup: https://github.com/temporalio/samples-server/blob/main/compose/scripts/setup-postgres.sh
 - NATS Server 2.15.0: https://github.com/nats-io/nats-server/releases/tag/v2.15.0
 - NATS official image tags: https://hub.docker.com/_/nats/tags
 - OpenTelemetry Collector 0.162.0: https://github.com/open-telemetry/opentelemetry-collector-releases/releases/tag/v0.162.0
+- OpenTelemetry Collector Contrib 0.162.0 linux/amd64 image tag: https://hub.docker.com/layers/otel/opentelemetry-collector-contrib/0.162.0-amd64/images/sha256-340885ab6f46822374f00c58c067396b53b8d612559842e8821585567579d9e3
 - Mosquitto official image and MQTT 5 support: https://hub.docker.com/_/eclipse-mosquitto
 - Prometheus 3.15.0: https://github.com/prometheus/prometheus/releases/tag/v3.15.0
 - Grafana 13.2.3: https://github.com/grafana/grafana/releases/tag/v13.2.3
+- Grafana official Docker tags: https://hub.docker.com/r/grafana/grafana/tags
 
 Before freeze, confirm image availability, cross-component compatibility, security advisories, and actual package-level pins. Any selected older version needs a recorded compatibility or stability reason. The application database image check is satisfied by the official `2.30.2-pg18` image metadata (PostgreSQL 18.6 + TimescaleDB 2.30.2); the MQTT broker is provisionally named as Mosquitto 2.1.2. Temporal's `temporalio/server:1.32.0` image tag is verified. Current Temporal docs actively test PostgreSQL 13–16, and current official sample configuration pins PostgreSQL 16. Therefore, propose a dedicated PostgreSQL 16 persistence service for the shared Temporal instance while candidates share the PostgreSQL 18 + TimescaleDB application service. This separation is a runner-only proposal; verify it is permitted by the bake-off pack and pin the image digest before freeze. Schema setup, namespace bootstrap, server configuration, and health checks remain open execution blockers. Exact versions alone do not make a runner reproducible: retain image digests, lockfiles, resource limits, configuration, benchmark commit SHAs, and raw results.
 
