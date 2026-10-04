@@ -655,3 +655,11 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Change:** Added a consolidated PR-01–PR-09 map linking proposed user flows/screens, numbered WP-4 probes, detailed-design authority, candidate delivery slices and current validation evidence. Synchronized the readiness audit and CURRENT handoff.
 - **Finding:** The prior architecture matrix linked designs and runtime gaps, while product IA and MVP plan separately linked screens/flows and slices. Joining these references exposed the status of the evidence edge: every WP-4 item remains a planned probe, not a participant finding; v0.9 covers only one synthetic demand-evidence case.
 - **Status:** Traceability artifact is more complete; user/site evidence, Owner approval, Gate evidence, production architecture and implementation remain incomplete. No readiness claim was upgraded.
+
+
+## v0.6 core-workflow overflow / v0.10 navigation review — 2026-10-04
+
+- **Finding:** v0.6 had a 320px body minimum width; with the vertical scrollbar, the available client width was 305px and the page overflowed horizontally.
+- **Change:** Preserved v0.6, created v0.10 with the minimum width removed, and made v0.10 the current core-flow study stimulus. v0.9 remains the IA comparison stimulus. Updated README, WP-4 plan, IA status, review packet, readiness audit, PRD traceability, owner summaries, roadmap and CURRENT.
+- **Evidence:** At 320/375/768/1024/1440 CSS px, page scroll width matched client width. All nine destination options displayed their matching view and URL; Browser Back restored Recommendations after Evidence & replay; mobile ArrowUp+Enter selected Recommendations and moved focus to its heading. Wide table scrolling was contained inside its labeled wrapper.
+- **Status:** Bounded local browser observation. No target-user, screen-reader, 200% zoom, localization or WCAG-conformance evidence; product IA, scope, visual system and frontend framework remain unapproved.
