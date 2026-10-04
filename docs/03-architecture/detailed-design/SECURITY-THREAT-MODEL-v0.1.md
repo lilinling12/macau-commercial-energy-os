@@ -101,6 +101,8 @@ These are acceptance scenarios to implement and execute later. This document rec
 
 **Status:** Legal/data-governance review item; no determination is made here that all building-energy telemetry is personal data, that a particular provider transfer is lawful/unlawful, or that Macau-only hosting is required.
 
+**Research evidence and open question:** See `docs/01-research/evidence/MACAU-PERSONAL-DATA-AND-CROSS-BORDER-FLOW-REVIEW-2026-10.md` for the official-source review of Law 8/2005 Articles 4(1)(1), 19–21 and GPDP guidance. U-027 tracks the missing project dataset, provider, support, backup and external-processing inventory. The note does not supply a project legal determination.
+
 ### Primary-source boundary
 
 Macau Law 8/2005 applies to covered processing of personal data, and its definition includes information relating to an identified or identifiable natural person. The Office for Personal Data Protection (GPDP) explains that where personal data is transferred outside the MSAR, Articles 19 and 20 must be considered; transfer destination protection and applicable legal conditions/notification or authorization must be reviewed for the concrete case. This document records the architecture implication, not a legal opinion.
