@@ -82,7 +82,7 @@ Keep distinct state dimensions rather than one overloaded status field:
 - **Request lifecycle:** received, rejected, accepted/pending, completed or failed.
 - **Data lifecycle:** raw-durable, quarantined, publication-pending, published, normalized-durable, replayable/blocked.
 - **Evidence quality:** verified, derived, hypothesis, project assumption, unknown or the repository-approved equivalent.
-- **Economic result:** use the separate proposed result status/evidence status in the cost-result contract only after owner review.
+- **Economic result (when a result exists):** COMPLETE, PARTIAL or BLOCKED plus evidence/settlement readiness; a scenario is carried by PROJECT_ASSUMPTION and SCENARIO_ONLY, not by an overloaded result status. If execution ends without a result, the request lifecycle is FAILED and no CostResult/amount is emitted. Canonical vocabulary remains subject to owner and G1 review.
 - **Recommendation lifecycle:** SHADOW proposal and append-only review disposition; no execution transition is present in the MVP.
 - **Replay outcome:** preserve the result/replay proposal's statuses and its compatibility with the data/version pins.
 
