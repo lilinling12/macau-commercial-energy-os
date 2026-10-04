@@ -26,7 +26,7 @@
 
 ### In scope
 
-- Define human accountability, bounded AI authority, task-to-authority traceability, risk-based review/verification and durable evidence.
+- Define human accountability, bounded AI authority, task-to-authority traceability, risk-based review/verification, dependency risk management and durable build/release evidence.
 - Separate written expectations from currently enforced repository controls.
 - Stage governance across research/design, pre-implementation, MVP implementation, production readiness and pilot.
 - Ground the proposal in mature engineering/security/reliability practices and adapt them to team and domain risk.
@@ -49,6 +49,7 @@
 6. Goal charter, governance README, baseline, roadmap and CURRENT provide consistent links/status.
 7. The reusable task-packet and PR templates capture accountable human ownership/review, risk tier, authority, exact-revision checks and relevant security/compatibility/operations review.
 8. Exact-head documentation/workflow results and limitations are recorded; no application behavior or tests are claimed.
+9. Before customer/pilot/production release, the adoption proposal requires a retained release SBOM and artifact-to-reviewed-source/build provenance evidence, while keeping formats/tools and remediation thresholds stack- and owner-dependent.
 
 ## Verification and evidence
 
@@ -64,6 +65,7 @@
 - **PR/branch:** PR #8, docs/product-architecture-roadmap, open/unmerged.
 - **Gate status:** No research Gate closed; this is cross-cutting governance proposal work.
 - **Owner decision traceability:** Added Owner Decision Summary item #18 for governance adoption, reviewer model, administrator bypass and staged repository enforcement. It remains open; no policy adoption or settings change is implied.
+- **Supply-chain refinement:** Expanded the quality baseline and adoption plan with lockfile/dependency review, release SBOM, artifact digest and build provenance/attestation evidence. NIST SSDF, NIST's SBOM definition, OWASP SBOM guidance and SLSA provenance inform the proposal; no format, vendor, SLSA level or remediation SLA is selected.
 - **Next dependency:** Owner review; then inventory live repository controls. Write and enforce a stack-specific annex after the production architecture is approved and before production code merge.
 
 ## Repository enforcement readiness recheck — 2026-10-04
