@@ -139,3 +139,19 @@ On this exact head, [Runtime Bootstrap #37231132170](https://github.com/lilinlin
 ### PR #14 final repeatability head — 2026-10-05
 
 The latest PR #14 head is `414e7826eac741417840054d8cbcc80403364cc4`. It adds an explicit same-input/same-candidate assertion and request-shape rejection for a missing economic context. On this exact head, [Runtime Bootstrap #37231457579](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37231457579) passed: CPython 3.14.8 Optimizer ran 18 tests, with Platform API, Go Edge and Contract Fixtures also green. [Authority Validation #37231457548](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37231457548) and [Repository Hygiene #37231457553](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37231457553) remain failed on the main-base legacy-path mismatch. The repeated-output assertion is local to the declared discrete inputs/runtime; it is not proof of replay across versions or deployments. PR #14 remains Draft/open/unmerged and G7.9 remains open.
+
+
+## Live delivery recheck — 2026-10-05 (current task)
+
+Fetched current pull-request metadata and Actions runs directly from GitHub. All proposals below remain open and unmerged. Exact-head workflow results:
+
+| PR | Head | State | Exact-head checks |
+|---|---|---|---|
+| #8 product/architecture roadmap | `9d601a5fda08201a06125621b031e1897723c4ff` | Open, ready for review, unmerged | Authority Validation #37226190899, Repository Hygiene #37226190896, Contracts Validation #37226190898, Runtime Bootstrap #37226190901 all succeeded. |
+| #10 source/load dispatch product and boundary | `e1602cf487a28497b29958e8eec66822aa09be30` | Open, Draft, unmerged | Authority Validation #37231521168 and Repository Hygiene #37231521171 succeeded. |
+| #11 technology research / Next.js status | `8ec91db5ad08cb289daf6ba62ba79ac3603c818b` | Open, Draft, unmerged | Authority Validation #37215582399 and Repository Hygiene #37215582526 succeeded on this head. |
+| #12 research authority/archive audit | `0e1f45639fcdf5aec7c36e5a24fa16511f7e9eec` | Open, Draft, unmerged before this append | Authority Validation #37231560973 and Repository Hygiene #37231560976 succeeded on this exact head. This file update creates a new head; its checks must be re-read after push. |
+| #13 canonical authority CI paths | `68c955b936faddfbdbdbdf043688b3696efa87a3` | Open, Draft, unmerged | Authority Validation #37205213613 and Repository Hygiene #37205213621 succeeded on this head. |
+| #14 bounded SHADOW dispatch search | `414e7826eac741417840054d8cbcc80403364cc4` | Open, Draft, unmerged | Runtime Bootstrap #37231457579 succeeded (18 optimizer tests on CPython 3.14.8, plus Platform API, Go Edge and Contract Fixtures); Authority Validation #37231457548 and Repository Hygiene #37231457553 failed on the documented main-base legacy-path checks. |
+
+These checks prove only the jobs and exact commits named above. In particular, PR #14's runtime success does not integrate the optimizer with the API, persist/replay assessments, validate real tariff or site evidence, or close G7.9 Step 3. PR #8/#10 product and architecture proposals remain unapproved and are not in `main`. The original shared ChatGPT page could not be fetched in this task (web fetch returned a cache miss); the associated conversation archive API exposed only four recent turns and no older-page cursor, so this is not a complete transcript audit. No main-branch files were changed by this recheck.
