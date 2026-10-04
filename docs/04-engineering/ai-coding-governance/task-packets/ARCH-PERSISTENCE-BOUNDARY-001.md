@@ -61,10 +61,10 @@
 
 ## Completion record
 
-- **Changes/deliverables:** To be recorded after the detailed design is written and reviewed.
-- **Sources or files updated:** This packet and linked architecture/authority files.
-- **Checks run and results:** Await exact resulting PR-head documentation workflows.
-- **New evidence / decisions / unknowns:** To be recorded after design review.
+- **Changes/deliverables:** Added the stack-neutral logical persistence/domain-authority matrix, durability and transaction-boundary proposal, failure/recovery matrix, tenant-scope invariants, temporal/version/replay rules and additive migration/backfill/rollback policy.
+- **Sources or files updated:** This packet; DATA-PERSISTENCE-AND-SCHEMA-EVOLUTION-DETAILED-DESIGN-v0.1.md; architecture index; PRD-to-architecture traceability; roadmap; CURRENT; append-only HISTORY and PR #8 description.
+- **Checks run and results:** Exact resulting PR-head Authority Validation, Repository Hygiene and Runtime Bootstrap results are to be recorded after the cross-file synchronization. No application code, migration or runtime test was added or run.
+- **New evidence / decisions / unknowns:** The design makes persistence requirements reviewable without selecting physical technologies. Owner decisions #8/#12/#14, U-027, product/Gate evidence, physical data model, retention/deletion, RPO/RTO and G6.9-R2 Step 3D/4 remain open.
 - **PR/branch and review state:** PR #8, docs/product-architecture-roadmap, open/unmerged.
-- **Gate or task status after work:** Review; no Gate closed.
-- **Next task and dependencies:** owner/customer review of retention, deletion, scope and replay policies; Step 3D/4 evidence for physical persistence capabilities; then a stack-specific data model and migration packet tied to approved product/architecture decisions.
+- **Gate or task status after work:** Review; draft deliverable prepared, no owner approval or Gate closure.
+- **Next task and dependencies:** Owner/customer/security review of data domains and access/retention/replay boundaries; Step 3D/4 evidence for physical persistence capabilities; then a stack-specific data model and migration packet tied to approved product/architecture decisions.
