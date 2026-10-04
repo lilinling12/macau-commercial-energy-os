@@ -94,6 +94,8 @@ def generate_candidate(request: DispatchSearchRequest) -> DispatchSearchResult:
         raise DispatchSearchError("Search bounds must be positive integers.")
     if not _positive(request.power_step_kw) or not _positive(request.soc_step_kwh):
         raise DispatchSearchError("Power and SOC discretization steps must be positive finite Decimals.")
+    if not isinstance(request.economic_context, EconomicContext):
+        raise DispatchSearchError("A declared economic context with aligned import rates is required to search schedules.")
     if len(request.physical_evidence) == 0 or any(not _usable_evidence(ref) for ref in request.physical_evidence):
         raise DispatchSearchError("Required physical evidence is missing, unknown, or stale.")
     if request.ess_limits is not None and not isinstance(request.ess_limits, EssLimits):
@@ -244,7 +246,6 @@ def generate_candidate(request: DispatchSearchRequest) -> DispatchSearchResult:
                     grid_import_kw = max(Decimal("0"), residual_kw - row.pv_generation_kw)
                     if request.grid_import_limit_kw is not None and grid_import_kw > request.grid_import_limit_kw:
                         continue
-                    curtailed_kw = row.pv_generation_kw - pv_used_kw
                     rate = rates[(row.start, row.end)].rate_mop_per_kwh
                     objective = path.objective + grid_import_kw * duration * rate
                     new_state = (next_soc, next_delivered)
