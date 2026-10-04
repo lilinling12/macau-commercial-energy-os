@@ -7,6 +7,7 @@ from zoneinfo import ZoneInfo
 from macau_energy_optimizer.dispatch_assessment import (
     AssessmentRequest,
     EconomicContext,
+    EssLimits,
     EvidenceRef,
     EvidenceState,
     FlexibleLoadFlow,
@@ -18,6 +19,7 @@ from macau_energy_optimizer.dispatch_assessment import (
     ScheduleInterval,
     assess_schedule,
 )
+from macau_energy_optimizer.dispatch_optimizer import DispatchSearchError, DispatchSearchRequest, FlexibleEnergyTask, generate_candidate
 
 
 TZ = ZoneInfo("Asia/Macau")
@@ -140,6 +142,115 @@ class DispatchAssessmentTests(unittest.TestCase):
         self.assertEqual(result.physical_status, PhysicalStatus.VALIDATED_WITHIN_SCOPE)
         self.assertIsNone(result.import_energy_charge_delta_mop)
         self.assertIn("SOC boundary conditions differ", result.reasons[0])
+
+
+class DispatchOptimizerTests(unittest.TestCase):
+    def test_exact_discrete_search_shifts_hvac_energy_to_lower_rate_window(self):
+        start2 = START + timedelta(hours=1)
+        baseline = Schedule((
+            interval(grid="7", pv="0", load="5", start=START, end=END, pv_generation_kw=D("0"), flexible_loads=(FlexibleLoadFlow("hvac-1", FlexibleLoadKind.HVAC, D("2")),)),
+            interval(grid="5", pv="0", load="5", start=END, end=start2 + timedelta(hours=1), pv_generation_kw=D("0"), flexible_loads=()),
+        ))
+        rates = (
+            ImportEnergyRate(START, END, D("3"), VERIFIED),
+            ImportEnergyRate(END, start2 + timedelta(hours=1), D("1"), VERIFIED),
+        )
+        context = EconomicContext(VERIFIED, VERIFIED, VERIFIED, rates)
+        task = FlexibleEnergyTask("hvac-1", FlexibleLoadKind.HVAC, D("2"), (True, True), D("1"), D("2"), VERIFIED)
+        result = generate_candidate(DispatchSearchRequest(
+            tenant_id="tenant-demo", site_id="site-demo", site_timezone="Asia/Macau",
+            baseline=baseline, flexible_tasks=(task,), fixed_flexible_load_limits=(),
+            physical_evidence=(VERIFIED,), economic_context=context,
+            power_step_kw=D("1"), soc_step_kwh=D("1"),
+        ))
+        self.assertEqual(result.candidate.intervals[0].flexible_loads[0].power_kw, D("0"))
+        self.assertEqual(result.candidate.intervals[1].flexible_loads[0].power_kw, D("2"))
+        self.assertEqual(result.assessment.import_energy_charge_delta_mop, D("-4"))
+        self.assertEqual(result.search_scope, "EXACT_WITHIN_DECLARED_DISCRETE_ACTION_SPACE")
+        self.assertGreater(result.transitions_examined, 0)
+
+    def test_search_dispatches_pv_surplus_through_storage_with_terminal_soc(self):
+        end2 = END + timedelta(hours=1)
+        baseline = Schedule((
+            interval(grid="0", pv="3", load="3", start=START, end=END,
+                     pv_generation_kw=D("5"), pv_curtailed_kw=D("2"), ess_soc_start_kwh=D("0"), ess_soc_end_kwh=D("0")),
+            interval(grid="3", pv="0", load="3", start=END, end=end2,
+                     pv_generation_kw=D("0"), pv_used_kw=D("0"), ess_soc_start_kwh=D("0"), ess_soc_end_kwh=D("0")),
+        ))
+        rates = (ImportEnergyRate(START, END, D("0.1"), VERIFIED), ImportEnergyRate(END, end2, D("1"), VERIFIED))
+        limits = EssLimits(D("2"), D("2"), D("0"), D("2"), D("1"), D("1"), VERIFIED)
+        result = generate_candidate(DispatchSearchRequest(
+            tenant_id="tenant-demo", site_id="site-demo", site_timezone="Asia/Macau",
+            baseline=baseline, flexible_tasks=(), fixed_flexible_load_limits=(),
+            physical_evidence=(VERIFIED,), economic_context=EconomicContext(VERIFIED, VERIFIED, VERIFIED, rates),
+            power_step_kw=D("2"), soc_step_kwh=D("2"), ess_limits=limits, initial_soc_kwh=D("0"),
+        ))
+        first, second = result.candidate.intervals
+        self.assertEqual((first.ess_charge_kw, first.pv_used_kw, first.pv_curtailed_kw), (D("2"), D("5"), D("0")))
+        self.assertEqual((second.ess_discharge_kw, second.grid_import_kw), (D("2"), D("1")))
+        self.assertEqual((first.ess_soc_start_kwh, second.ess_soc_end_kwh), (D("0"), D("0")))
+        self.assertEqual(result.assessment.import_energy_charge_delta_mop, D("-2"))
+
+    def test_candidate_import_guard_does_not_reject_higher_baseline_import(self):
+        end2 = END + timedelta(hours=1)
+        baseline = Schedule((
+            interval(grid="3", pv="0", load="1", start=START, end=END, pv_generation_kw=D("0"),
+                     flexible_loads=(FlexibleLoadFlow("ev-1", FlexibleLoadKind.EV, D("2")),)),
+            interval(grid="0", pv="1", load="1", start=END, end=end2, pv_generation_kw=D("2"),
+                     pv_curtailed_kw=D("1"), flexible_loads=()),
+        ))
+        rates = (ImportEnergyRate(START, END, D("3"), VERIFIED), ImportEnergyRate(END, end2, D("1"), VERIFIED))
+        task = FlexibleEnergyTask("ev-1", FlexibleLoadKind.EV, D("2"), (True, True), D("1"), D("2"), VERIFIED)
+        result = generate_candidate(DispatchSearchRequest(
+            tenant_id="tenant-demo", site_id="site-demo", site_timezone="Asia/Macau",
+            baseline=baseline, flexible_tasks=(task,), fixed_flexible_load_limits=(),
+            physical_evidence=(VERIFIED,), economic_context=EconomicContext(VERIFIED, VERIFIED, VERIFIED, rates),
+            power_step_kw=D("1"), soc_step_kwh=D("1"), grid_import_limit_kw=D("2"),
+            grid_import_limit_evidence=VERIFIED,
+        ))
+        self.assertEqual(result.assessment.physical_status, PhysicalStatus.VALIDATED_WITHIN_SCOPE)
+        self.assertGreater(result.assessment.baseline_peak_grid_import_kw, D("2"))
+        self.assertLessEqual(result.assessment.candidate_peak_grid_import_kw, D("2"))
+
+    def test_search_rejects_unknown_rate_provenance(self):
+        baseline = Schedule((interval(),))
+        context = EconomicContext(VERIFIED, VERIFIED, VERIFIED, (ImportEnergyRate(START, END, D("1"), EvidenceRef("unknown", EvidenceState.UNKNOWN)),))
+        with self.assertRaises(DispatchSearchError):
+            generate_candidate(DispatchSearchRequest(
+                tenant_id="tenant-demo", site_id="site-demo", site_timezone="Asia/Macau",
+                baseline=baseline, flexible_tasks=(), fixed_flexible_load_limits=(),
+                physical_evidence=(VERIFIED,), economic_context=context,
+                power_step_kw=D("1"), soc_step_kwh=D("1"),
+            ))
+
+    def test_assumption_tagged_inputs_produce_scenario_only_result(self):
+        baseline = Schedule((interval(),))
+        scenario = EvidenceRef("scenario:load-profile", EvidenceState.PROJECT_ASSUMPTION)
+        context = EconomicContext(VERIFIED, VERIFIED, VERIFIED, (ImportEnergyRate(START, END, D("1"), VERIFIED),))
+        result = generate_candidate(DispatchSearchRequest(
+            tenant_id="tenant-demo", site_id="site-demo", site_timezone="Asia/Macau",
+            baseline=baseline, flexible_tasks=(), fixed_flexible_load_limits=(),
+            physical_evidence=(scenario,), economic_context=context,
+            power_step_kw=D("1"), soc_step_kwh=D("1"),
+        ))
+        self.assertTrue(result.scenario_only)
+        self.assertEqual(result.assessment.claim_scope.value, "SCENARIO_ONLY")
+        self.assertEqual(result.assessment.economic_status.value, "SCENARIO_ONLY")
+        self.assertIn("scenario-only", " ".join(result.assessment.reasons))
+
+    def test_search_enforces_transition_budget(self):
+        baseline = Schedule((interval(),))
+        baseline = Schedule((replace(baseline.intervals[0], ess_soc_start_kwh=D("0"), ess_soc_end_kwh=D("0")),))
+        context = EconomicContext(VERIFIED, VERIFIED, VERIFIED, (ImportEnergyRate(START, END, D("1"), VERIFIED),))
+        with self.assertRaises(DispatchSearchError):
+            generate_candidate(DispatchSearchRequest(
+                tenant_id="tenant-demo", site_id="site-demo", site_timezone="Asia/Macau",
+                baseline=baseline, flexible_tasks=(), fixed_flexible_load_limits=(),
+                physical_evidence=(VERIFIED,), economic_context=context,
+                power_step_kw=D("1"), soc_step_kwh=D("1"), max_transitions=1,
+                ess_limits=EssLimits(D("1"), D("1"), D("0"), D("1"), D("1"), D("1"), VERIFIED),
+                initial_soc_kwh=D("0"),
+            ))
 
 
 if __name__ == "__main__":
