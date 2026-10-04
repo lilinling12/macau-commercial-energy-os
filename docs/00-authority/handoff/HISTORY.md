@@ -805,3 +805,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - PR #8 head `a5b94a7b968990a3fa608a01ef18d98f442bb9e4` had four passing workflows but no submitted reviews or inline review threads. These workflow results are not merge gates.
 - The linked integration cannot read the exact protection endpoint (403) and exposes no branch-protection/ruleset write operation. No setting or permission was changed. Requiring GitHub approval needs a second authorized reviewer if the PR author is the sole maintainer; an owner-attestation alternative must not be represented as peer review.
 - Updated the adoption plan, task packet and CURRENT with an unactivated stack-neutral proposal and evidence boundary. Owner policy adoption, reviewer model, admin bypass and applying repository rules remain open. No application tests or behavior changes were made.
+
+
+## Owner governance decision queue alignment (2026-10-04)
+
+- Added Owner Decision Summary item #18 for adoption of the AI Coding Quality Baseline, human reviewer model, administrator bypass policy and staged repository enforcement. The decision is independent of production-stack selection and remains unapproved.
+- Corrected the decision-summary count to 18 and aligned its dependency sequence; linked the governance plan and task packet. Updated CURRENT and the governance task packet to reference decision #18.
+- This is an owner-review aid only. GitHub branch protection and required checks remain disabled; no policy or settings were adopted or changed.
