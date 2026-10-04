@@ -67,3 +67,4 @@ Public Macau aggregate data and the current Energy Graph detailed-design draft p
 - Product baseline: `docs/02-product/PRODUCT-DESIGN.md`
 - Stack-neutral design: `docs/03-architecture/detailed-design/ENERGY-GRAPH-DETAILED-DESIGN-v0.1.md`
 - Cross-Gate implementation traceability: `docs/03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md`
+- G3 site evidence acquisition packet (prepared, not sent; site selection, authorization and secure intake remain required): `docs/01-research/gates/G3-SITE-EVIDENCE-ACQUISITION-PACKET-v0.1.md`
