@@ -8,7 +8,9 @@ Copy this template for a substantial research, product, architecture, or impleme
 - **Type:** Research / Product / Architecture / Engineering / Pilot
 - **Gate / workstream:**
 - **Status:** Proposed / Ready / In progress / Review / Complete / Blocked
-- **Owner / reviewer:**
+- **Accountable human owner:**
+- **Required human reviewer(s) / expertise:**
+- **Risk tier / rationale:** Low / Moderate / High / Critical; explain user, data, security, settlement, safety and operational impact.
 - **Created / updated:**
 
 ## Outcome
@@ -56,14 +58,16 @@ Copy this template for a substantial research, product, architecture, or impleme
 - **Approved interfaces/contracts:**
 - **Architecture and safety constraints:**
 - **Failure, retry, idempotency, tenant, audit, and rollback behavior:**
-- **Required checks and exact acceptance criteria:**
+- **Risk tier-specific required checks and exact acceptance criteria:**
+- **Checks explicitly not run / why:**
 - **Evidence to preserve:**
 
 ## Completion record
 
 - **Changes/deliverables:**
 - **Sources or files updated:**
-- **Checks run and results:**
+- **Checks run and results (exact revision/commit SHA):**
+- **Human review completed by / unresolved feedback:**
 - **New evidence / decisions / unknowns:**
 - **PR/branch and review state:**
 - **Gate or task status after work:**
