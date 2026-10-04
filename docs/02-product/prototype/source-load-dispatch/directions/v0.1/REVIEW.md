@@ -55,3 +55,17 @@ No rendered browser review, viewport screenshots, keyboard walkthrough, contrast
 4. Which languages and locale fallback are required for Macau operators?
 5. Which layout performs best in a rendered responsive review and operator walkthrough?
 
+## Official design and accessibility references checked (2026-10-04)
+
+- **Apple HIG:** layout guidance emphasizes adapting to display size, orientation, window/text size and locale; accessibility guidance emphasizes perceivable information beyond color and readable contrast. Apply these as cross-platform principles, not as an Apple-platform UI template.
+- **Material Design 3:** foundations connect design tokens, accessibility, content design, interaction states and layout; adaptive canonical layouts can inform panel composition without imposing a Material component set.
+- **W3C WCAG 2.2:** use the current W3C Recommendation as the proposed accessibility evaluation baseline. Source-level affordances in this prototype are not WCAG conformance evidence.
+- **Awwwards:** the official Site of the Day case page exposes Design, Usability, Creativity and Content dimensions (40/30/20/10 in the inspected example). This informs a balanced craft review, but does not define an operator-console acceptance test.
+- **Webby Awards:** the official 2026/2027 website and mobile-site criteria cover content, structure/navigation, visual design, functionality, interactivity, innovation and overall experience. This supports reviewing the whole operational experience rather than only styling.
+- **FWA:** the official anniversary overview describes digital innovation, creativity, originality and technical excellence. A granular official UX/accessibility scoring rubric was not located in this check; no extra rubric is inferred.
+
+Specific award-winning site case studies were not reviewed in this iteration. Therefore this is a standards/criteria review, not an awards-reference case study and not a claim that the prototype matches award-winning work.
+
+## Narrow-screen chart correction
+
+Source review found that scaling the 860-unit desktop SVG to a 341px chart area would scale its 10px labels to roughly 4px. Added a narrow-screen chart with a compact 360-unit viewBox, larger axis labels, key time marks and direct 430/510 kW labels. The full six-interval values remain available in the table. This is a source-level correction; no rendered 375px browser screenshot or visual-fit check is claimed.
