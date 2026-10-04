@@ -735,3 +735,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - Cross-reviewed the G1 PV evidence/U-025 against Energy Graph, Tariff & Settlement, Cost Analysis/Evidence Replay, VS-001 result semantics, PRD traceability and VS-004/VS-006. All reviewed drafts keep physical PV/grid flow, producer feed-in settlement, consumer import billing and any approved site-economic aggregation distinct; no contradiction was found.
 - Rechecked official DSPA/CEM public counts: DSPA reports 12 systems connected and selling by 2026-08-31; CEM reports 12 connected systems, 4,193 kWp and >6 million kWh as of January 2026. Same count, different cutoffs/status terms; no matched capacity or generation time series is established.
 - Recorded limits and open U-025/U-026 status in the readiness audit and CURRENT. Static review only; no site/contract/runtime evidence, user research or Gate closure. U-025 bundle E remains prepared and unsent; owner authorization and secure intake are required.
+
+
+## Operability and tenant-authorization cross-design review (2026-10-04)
+
+- Cross-reviewed Deployment/Operability/Recovery §§3–9, Security Threat Model §§1–6C and VS-001 Identity/Tenant Authorization §§4–8. Tenant scope, degraded-state, recovery, release and G6 boundaries agree across the drafts.
+- Found that the deployment design required sensitive-evidence access logging while the identity draft did not explicitly cover successful sensitive reads or export/support/restore/break-glass paths. Updated identity §6 to require auditable events for data classified as sensitive and those privileged paths; exact read classes remain tied to data classification, and retention/access policy remains open.
+- No runtime tests or recovery drills were performed. User/security/operations decisions, actual authorization/restore evidence and G6 closure remain outstanding.
