@@ -1,0 +1,49 @@
+# Source/Load Dispatch Prototype — Review Record v0.1
+
+**Review date:** 2026-10-04  
+**Prototype:** separate dispatch-study v0.3; Traditional Chinese; all values synthetic  
+**Status:** interaction study only; not an approved visual system, product scope, tariff evaluation, field capability, user-tested design or production UI.
+
+## Design task and comparison basis
+
+This study asks whether a site operator can read a schedule-first supply/load comparison and spot the evidence boundary. It is separate from the repository's PR #8 v0.11 core-flow stimulus and does not replace its bill/interval/baseline-result comparison.
+
+The local browser opened the prototype through a loopback server. Its accessibility tree exposed the rendered initial state at the browser's default viewport. The viewport's physical CSS pixel dimensions were not captured. The browser snapshot confirmed:
+
+- Traditional Chinese labels, Macau example time context and a visible “synthetic / not site data” notice;
+- one-hour example grain and average-power units, explicitly saying the CEM billing interval is unverified;
+- baseline and candidate grid import, total-load series, onsite-PV and storage labels;
+- the proposed HVAC reduction in 15:00–16:00 and equal rebound at 17:00–18:00;
+- illustrative per-period power-balance figures and a table alternative control;
+- tariff/contract readiness unverified, no bill-grade amount and no device-control action;
+- initial baseline selected; SHADOW candidate state; no measured outcome.
+
+## Corrections made during review
+
+1. Added a candidate-total-load trace after finding that the earlier legend named it without plotting it.
+2. Added a 17:00 rebound period so the illustrated HVAC shift does not appear to erase load.
+3. Matched the candidate grid-import trace and inspectable example to the rebound hour.
+4. Changed the selector/caption from 15-minute intervals to a one-hour synthetic example, matching the displayed hourly points. No implication is made that one hour is CEM's settlement interval.
+5. Labeled the balance as power only and noted ESS conversion loss is omitted.
+6. Kept the tariff unresolved, withheld bill-grade economics, preserved the SHADOW boundary, and kept equipment control disabled.
+
+The figures are still incomplete as an energy schedule: the ESS charge history/SOC path, conversion losses, full-horizon interval integration, comfort limits, constraints and all site mappings are not validated. No saving claim or PV export credit is displayed.
+
+## Inspection coverage
+
+| Dimension | Checked | Not checked |
+|---|---|---|
+| Rendered state | Initial load at browser default viewport; accessibility-tree snapshot | Pixel screenshot inspection and measured viewport size |
+| Responsive sizes | Source contains 1050, 760 and 390 px breakpoints | Rendered 1440, 1024, 768 and 375 px comparisons; clipping/zoom/reflow |
+| UI states | Initial synthetic baseline selected, candidate available, SHADOW and control-disabled labels present | Candidate switching, opening evidence modal/table, dismiss/review outcomes, failure states or keyboard focus walkthrough |
+| Language | Traditional Chinese only | Portuguese and English, locale fallback, real Macau terminology, date/number/currency formats, screen-reader language metadata |
+| Accessibility | Semantic headings, chart name/description, text status alongside color, source-table alternative in source, reduced-motion CSS in source | Measured contrast, visible focus, full keyboard/dialog behavior, screen-reader test, WCAG conformance |
+| Validation | Static arithmetic inspection of two example periods and browser semantic content | Domain-expert review, operator/finance usability, customer data, site/contract validation, field behavior |
+
+## Next review pass
+
+Render at agreed desktop/tablet/mobile sizes, inspect hierarchy and horizontal overflow, measure text/status/chart contrast, test all controls by keyboard and assistive technology, and compare the schedule-first view with an evidence-first composition on the same tasks. Translate full flows only after the intended role/site language scope is reviewed. Domain-review a complete interval/SOC-balanced fixture before using it to accept optimizer or product behavior.
+
+## Source and authority notes
+
+The schedule-first job follows the explicit user direction and the product objective/boundaries in `main` D-001/002/003/004/005/006/009/013/019/055/056/060/061/077. Product requirements, visual direction, pilot/user hypotheses, locales and production architecture remain proposed until the applicable owner review and evidence are recorded. This review does not close G1/G2/G3/G6/G6.9/G7/G7.9, validate PR #8, or authorize a device write path.
