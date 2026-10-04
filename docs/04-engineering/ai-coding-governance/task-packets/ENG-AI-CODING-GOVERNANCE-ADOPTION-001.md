@@ -57,9 +57,9 @@
 
 ## Completion record
 
-- **Changes/deliverables:** To be recorded after exact-head validation.
-- **Files updated:** Adoption plan, quality baseline, governance README, lifecycle goal charter, roadmap and CURRENT; this packet.
-- **Evidence / decisions / unknowns:** Owner adoption remains pending. The production stack and actual repository enforcement design remain downstream decisions.
+- **Changes/deliverables:** Added the proposed staged governance adoption plan and linked it to the existing quality baseline, lifecycle completion evidence, roadmap and CURRENT handoff. The plan defines the AI-assisted change lifecycle, risk tiers, human accountability, staged enforcement and official mature-practice references.
+- **Files updated:** AI-CODING-GOVERNANCE-ADOPTION-PLAN-v0.1.md; AI-CODING-QUALITY-BASELINE-v0.1.md; governance README; PRODUCT-ARCHITECTURE-DELIVERY-GOAL-v0.1.md; ROADMAP.md; CURRENT.md; HISTORY.md; this packet.
+- **Evidence / decisions / unknowns:** At the review snapshot, four CI workflows exist (Authority Validation, Repository Hygiene, Runtime Bootstrap, Contracts Validation), but GitHub reports main unprotected, required status checks disabled and no repository rulesets. This is an observed configuration, not a control change. Owner adoption, reviewer ownership, stack-specific enforcement, service SLOs and release policy remain open.
 - **PR/branch:** PR #8, docs/product-architecture-roadmap, open/unmerged.
 - **Gate status:** No research Gate closed; this is cross-cutting governance proposal work.
 - **Next dependency:** Owner review; then inventory live repository controls. Write and enforce a stack-specific annex after the production architecture is approved and before production code merge.
