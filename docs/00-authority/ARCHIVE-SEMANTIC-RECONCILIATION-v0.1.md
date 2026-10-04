@@ -176,3 +176,31 @@ The strongest supported statement is: **G7.9 Step 1 and Step 2 are marked comple
 The next implementation-design work that does not require a production-stack freeze is to reconcile APP-11 with the catalog and G7.9 domain model; resolve request/result/status and provenance semantics; align units, site time, interval and energy-flow equations with existing contract rules; specify authenticated tenant/site authorization, evidence reference resolution, durable idempotency, replay, SHADOW review/audit and failure behavior; then map acceptance cases to contract/schema/API/application/UI surfaces. The actual wire format, runtime/service split, database/messaging design and execution host remain gated on their authority/owner decisions.
 
 This finding matches the supplied Step 2 package's own “Step 3 next” declaration and the PR #10 proposal's explicit “does not close G7.9 Step 3” boundary. It does not claim the whole MVP is complete, and it does not validate any Macau site or tariff outcome.
+
+## 11. UI/UX skill and engineering-governance implementation state
+
+### UI/UX artifacts and proof boundary
+
+A direct main-branch fetch returns 404 for the project UI/UX skill, its visual principles, and the quality-baseline/adoption-plan files. They exist on PR #8's unmerged branch; therefore they are reviewable proposals but not yet part of the main authority or default repository workflow. PR #8's AGENTS.md explicitly invokes the project skill for interface work, combining it with ui-ux-pro-max.
+
+The project skill has useful product-specific controls: model source/load decisions from evidence; distinguish physical flow from settlement; preserve SHADOW/no-control semantics; compare materially different layouts before styling; treat Apple/Material/WCAG and selected award work as references rather than templates; include real populated/empty/stale/partial/error/review states; test locale length, keyboard, focus, reduced motion and responsive widths. Its quality-review companion defines blocker/high/polish severity and tells reviewers to record viewports, states, locales and evidence rather than claim user validation.
+
+The reviewed source does not prove the design requirement is complete. The visual-principles file and quality checklist point to Apple, Material, WCAG and Webby/Awwwards/FWA criteria/examples, but the prototype review does not document a curated set of winning product sites, per-site observations, or a transferable visual-quality rubric derived from those cases. That is a research/evidence gap for the requested award-standard benchmark, not a reason to copy award-site styling.
+
+Existing design review evidence remains bounded: PR #10 v0.5 is a synthetic Traditional-Chinese-only dispatch study; prior source/browser checks covered 1440, 1024, 768 and 375 CSS-pixel widths, interval arithmetic and limited keyboard/ARIA behavior. They did not validate English or Portuguese, Macau terminology with users, screen-reader operation, full WCAG conformance, or an approved palette/design system. PR #8's v0.10 and palette studies remain separate exploratory artifacts; no global IA, locale set, font, color palette or production component system is owner-approved. No production UI has been merged into main.
+
+### Engineering-governance implementation state
+
+Main's AGENTS.md requires reading authority, checking ADRs, preserving domain/contracts, and applying the same review/validation expectations to AI code. It does not itself define the full proposed risk-tier/task-packet/reviewer/release process. PR #8 contains the detailed AI Coding Quality Baseline and Adoption Plan, PR/task templates, project skill and additional validation workflow; each remains unmerged/proposed or review-stage, and the CURRENT document explicitly says the baseline is not owner-adopted.
+
+PR #8 CURRENT records a live GitHub settings observation dated 2026-10-04: main protection false, required-check enforcement off, and no repository rulesets; the repository connector could not read the settings endpoint (403) and has no settings-write operation. Treat this as a dated source record, not a fresh independent settings query in this pass. Passing exact-head Actions on PR #8 is useful validation evidence but not a required merge gate while these controls remain disabled.
+
+### Required next evidence and adoption work
+
+1. Record several specific Awwwards/Webby/FWA winning works and the criteria used to select them; extract composition, originality, motion and interaction lessons, then state how the operator-console task changes or rejects each lesson. Keep marketing work separate from the operations console.
+2. Select the product's intended locales through owner/customer evidence; localize full workflows, errors, units, dates, currency and data labels, then inspect text expansion and accessibility in all supported languages.
+3. Complete visual and assistive-technology checks against the skill checklist and actual rendered states; retain screenshots, viewport/state list, full keyboard path, contrast evidence and unresolved issues. Do not call it user-validated until representative Macau users test it.
+4. Review and adopt the AI Coding Quality Baseline and reviewer/owner model; then verify branch protection, required checks/rulesets, CODEOWNERS, security/dependency gates and release evidence on GitHub. Until enforcement is observable, report these as proposed controls.
+5. Keep current PRs unmerged until their coherent review groups and owner decisions are completed.
+
+This section records research and implementation status only; it does not adopt the policy or approve the visual direction.
