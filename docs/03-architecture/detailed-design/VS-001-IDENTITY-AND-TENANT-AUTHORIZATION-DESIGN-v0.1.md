@@ -58,6 +58,36 @@ No user or machine action for device execution is enabled in VS-001. A future co
 
 The PRD roles remain hypotheses. A later role decision may map roles to action families, but the backend must enforce action grants rather than trusting a UI role label. Avoid a single broad administrator role spanning customer data, secrets, tariff approval and field control without separate justification.
 
+### Candidate role-to-action and site-entitlement matrix (owner review proposal)
+
+This matrix makes the candidate action bundles concrete for product, customer and security review. It is **not an approved grant policy**. Every candidate grant below remains denied until its role/task need, resource scope and approver are explicitly validated. A person may hold more than one separately approved capability bundle; job title alone never creates permission.
+
+| Candidate profile (hypothesis) | Candidate action bundle | Required resource scope | Explicitly not implied |
+|---|---|---|---|
+| Energy / facilities manager | Site health, telemetry summary, site model, cost/evidence read, recommendation read and review annotation | Each explicitly assigned site; portfolio views resolve to that exact assigned site set | Raw payload access, evidence export, integration configuration, tariff/contract changes, membership administration, device execution |
+| Site operator / control-room user | Site health, telemetry summary, site model, recommendation read and review annotation | Each explicitly assigned operating site | Financial contract/bill access, evidence export, integration credentials, mapping approval, membership administration, device execution |
+| Finance / asset reviewer | Tariff/contract read and cost/evidence read; evidence export only as a separate explicit grant | Explicit account/site scope needed for finance duties; cross-site rollups list and authorize each included site | Raw telemetry, point mapping, integration configuration, recommendation control, membership administration, device execution |
+| Integration partner / commissioning user | Site-model read, integration configuration, mapping proposal, and only the minimum telemetry view needed to validate the connection | Named organization/site plus registered source/device/point allowlist; sponsored, time-bounded and revocable | Mapping approval, tariff/contract changes, bill/evidence export, membership administration, access to other sites, device execution |
+| Designated customer data/configuration reviewer | Mapping approval and/or tariff/contract configuration, only for the specific responsibility the customer validates | Explicit site/account scope and named capability; high-impact changes remain attributable and versioned | Approval of one's own proposal is not assumed; unrelated site data, membership administration, device execution |
+| Organization access administrator | Membership and site-entitlement administration; scoped authorization-audit read | Organization membership and explicit site-grant administration | Automatic access to every site's telemetry, contracts, calculations, recommendations or evidence |
+| Site integration identity | Telemetry ingest and connector-health reporting | One registered tenant/site/source/device/point set, enforced from trusted provisioning | Human UI access, analytics, financial/evidence read, membership changes, or authority beyond the registered source scope |
+| Platform workload identity | Only the service actions needed for a declared job, with originating actor and authorized site scope carried through | Specific service, job type and persisted authorized resource scope | Ambient cross-tenant access, interactive user permissions, or using service identity to widen the originating user's access |
+
+**Default and review rules**
+
+- Unlisted actions are denied. In particular, there is no human or machine device-command grant in the SHADOW MVP.
+- Site entitlement is an independent resource boundary. Organization membership or administrator status does not automatically grant access to site data.
+- Separate telemetry summary read from raw telemetry read; raw bill, contract and evidence access, and evidence export each require separate reviewable grants.
+- Treat mapping propose and mapping approve as separate actions. A second-person approval for changes affecting settlement meter/account, tariff, demand policy or PV allocation is a proposed control for owner/customer/security review, not a universal or approved rule.
+- Keep integration setup, mapping decisions, economic-data access and membership administration separable. Partner delegation must include sponsor, exact site/action set, expiry and revocation.
+- Re-evaluate grants using the authenticated principal, requested action, resource attributes (organization/site/account/data class/status), relationship/entitlement and relevant time/state. The role or UI selection only groups capabilities; server-side policy decides each operation and object.
+
+**Acceptance evidence to derive from this proposal:** after the owner/customer validates the workflow, freeze an approved action/resource matrix; implement it at the trusted service boundary; test both permitted and denied cases for every sensitive action, resource scope, export, asynchronous job and revocation path. Until then, this table is design-review input and not authorization to process customer data.
+
+**Mature-practice mapping:** NIST SP 800-162 describes ABAC decisions in terms of subject, object, requested operation and, where needed, environment attributes; this supports the draft's explicit principal/action/resource/site/time dimensions, but does not mandate a particular policy engine. OWASP ASVS 5.0 authorization requirements V8.1.1, V8.2.1–V8.2.2, V8.3.1 and V8.4.1 provide verification prompts for documented function/data scope, server-side enforcement and multi-tenant isolation. They are review inputs, not a claim of compliance or certification.
+
+References: [NIST SP 800-162](https://csrc.nist.gov/pubs/sp/800/162/upd2/final); [OWASP ASVS 5.0 — V8 Authorization](https://github.com/OWASP/ASVS/blob/master/5.0/en/0x17-V8-Authorization.md).
+
 ### Workflow-to-authorization review map
 
 This map links the PRD/interaction flows to authorization actions and the specific customer/site facts that WP-4 must validate. It is **not** a role grant matrix; candidate job titles do not receive permissions by appearing here.
