@@ -10,11 +10,24 @@ The reviewed screen is for an energy/facilities operator comparing source and fl
 
 Repository decisions constrain the design: total economic cost/value is the product objective (D-002); HVAC/chiller is first-priority asset hypothesis (D-003); ESS is optional and site-economics dependent (D-004); PV treatment comes from verified settlement terms (D-005); Demand Guard can veto (D-006); recommendations are advisory with strict LLM/cloud control boundaries (D-007/008); R0 economic truth is limited under D-055; and D-077/U-025 keep PV feed-in/cross-site rights evidence-bound. The prototype remains synthetic and non-controlling.
 
-## 2. Design intelligence search and fit
+## 2. UI/UX skill use, search evidence and fit
 
-`ui-ux-pro-max` design-system search was run for this product. The first result (“Trust & Authority + Conversion”, organic biophilic, conversion CTA) was a poor fit: it is a marketing/conversion pattern. Following the skill's retry guidance, a narrower operations query returned “Real-Time / Operations Landing” and “Minimalism & Swiss Style”, with a dark/neutral, scannable data presentation. That result is closer in audience but still names a landing-page pattern, so it is used only for broad qualities (clear status, readable operational data, reduced-motion behavior), not as a literal page structure or palette.
+The project-specific `macau-energy-os-ui-ux` skill draft was read and applied as domain guidance: design around the energy operator's decision, evidence quality, source/load semantics, and SHADOW boundary; compare compositions using the same task; keep locales and responsive behavior explicit. It is a local proposal, not yet an installed or repository-approved project skill.
 
-The project-specific skill correctly keeps energy semantics and product authority ahead of generic visual trends. Together, the skills support a custom analytical canvas, direct labels, accessible status, responsive density and purposeful motion. Neither search result was treated as an approved visual system. The generator's typography recommendation included a display/editorial pairing that is not appropriate to adopt without separate multilingual readability evaluation; this review does not adopt it.
+A fresh, reproducible `ui-ux-pro-max` search was run on 2026-10-04:
+
+| Search | Returned result | Fit and use |
+|---|---|---|
+| `commercial energy operations dispatch planning modern analytical workspace --design-system` | Hero + Testimonials + CTA, Soft UI Evolution, romantic pink/gold palette and wedding/editorial fonts | Misrouted marketing pattern and typography. Rejected; none of these are adopted. |
+| Retry: `energy management software operations console dispatch planning --design-system` | Same marketing/testimonials pattern and off-domain wedding typography | Retry remained unsuitable. This is recorded as a search limitation, not as project design evidence. |
+| `energy operations interface analytical chart --domain product` | Sustainable Energy / Climate Tech; primary Organic Biophilic + E-Ink/Paper; alternatives Data-Dense Dashboard and Swiss Modernism; Earth Green + Sky Blue + Solar Yellow | Relevant product category and palette family only. It is a taxonomy suggestion, not an endorsed style or palette. We use it to ensure the visual study includes energy-specific alternatives, while preserving chart and evidence legibility. |
+| `professional energy software interface --domain style` | Generic Adobe Spectrum, Minimalism & Swiss Style, and Soft UI Evolution matches | General craft references only; no framework or component system is selected. |
+| `accessible energy chart data table keyboard focus --domain ux` | Native button semantics and selected state, visible focus, and unobscured focus guidance | Applied as concrete review criteria for interactive choices and evidence controls. The result identifies the enhanced AAA focus-obscuration rule separately; this review does not misstate it as an AA requirement. |
+| `energy management operator color palette trustworthy --domain color` | Fitness/gym, CRM, and inventory palettes | Off-domain results. Rejected rather than used as a color specification. |
+
+The design-system aggregate and the targeted domain searches return mixed-quality results. Therefore, we accept only traceable, task-relevant principles and explicitly reject off-domain templates and palettes. The existing three-theme study (Harbor teal, Mineral blue, Night) remains an unselected project study; it is not represented as a direct output of the searches above.
+
+The project skill draft correctly places verified energy semantics and current product authority above generic trend references. The working design direction remains an original schedule-comparison canvas with contextual evidence and readiness, subject to rendered comparison and owner/user review. Search output does not approve a layout, palette, brand or technology stack.
 
 ## 3. Visual direction proposal (not frozen)
 
