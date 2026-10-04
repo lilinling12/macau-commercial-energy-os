@@ -4,7 +4,7 @@
 
 Before any change:
 
-1. Read CURRENT.md.
+1. Read `docs/00-authority/handoff/CURRENT.md`.
 2. Read related authority documents.
 3. Check related ADRs.
 4. Define validation evidence.
