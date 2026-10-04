@@ -38,6 +38,23 @@ The recommendations above are research-based proposals to make review concrete. 
 - The detailed designs are review drafts. The candidate ASVS 5.0.0 mapping is a proposed tailored checklist only; target scope/level and security verification are unapproved. G1, G3, G6, G6.9-R2 Step 3D/4, and G7 evidence remains open or incomplete as recorded in `CURRENT.md`.
 - Nothing here approves autonomous device control, bill-grade claims, cross-site PV crediting, a deployment mode, visual system, or production implementation.
 
+## Decision dependency sequence
+
+The 15 review items do not need to be approved all at once. Use the earliest safe decision point; later decisions remain provisional until their evidence prerequisites exist.
+
+| Decision window | Items | Required evidence / action |
+|---|---|---|
+| **Directional product review and discovery preparation** | #1 promise, #2 lead user/site hypothesis, #3 workflow-IA direction to validate, #4 PV exploration boundary, #7 security baseline proposal, #8 monetary semantics direction, #14 authorization questions | Owner may set the research focus or explicitly defer. Keep customer roles, visual system, bill-grade economics, actual PV scope and exact grants unapproved pending discovery/Gate evidence. WP-4 validates users, workflows and access reality. |
+| **Before G6.9-R2 Step 3D runner freeze** | #5 UI-comparison scope, #6 Temporal test persistence, #13 execution host/trust boundary | Resolve only the experiment harness. Pin the evidence protocol, service topology and trusted isolated host before running; none of these chooses production framework/database/hosting. |
+| **Before customer data intake or external AI processing** | #11 data governance/transfer review, #14 identity/site-entitlement policy | Classify actual fields and flows, get site/customer permission, agree minimum data scope and support access, then record privacy/legal/security review. Do not collect real customer data before this gate. |
+| **After connector/source inventory; before telemetry contract freeze** | #9 event identity/duplicate policy, #12 durable-capture receipt semantics | Use actual meter/BMS connector behavior to set source-specific identity and acknowledgement mapping; retain fail-closed recovery and audit boundaries. |
+| **After domain semantics and candidate boundaries; before contract V2/code generation** | #15 canonical contract source/toolchain | Run the retained TypeScript/Go evidence slice; select an authoring/versioning/generation policy only after cross-runtime results, then record an ADR. |
+| **Before freezing economic-result labels/contracts** | #8 recommendation monetary semantics; relevant #4 PV settlement scope | Resolve cost-result meaning against approved product workflows and G1/G2/G4/G5 evidence. PV producer/export and consumer/import semantics need site rights/contract/meter support; no cross-site bill credit is inferred. |
+| **After pilot site selection and site evidence; before any controllability or pilot claim** | #4 specific PV inclusion, #10 D-003 asset priority, #14 site grants | Obtain site topology, rights, G2 flexibility, operating constraints, customer permissions and measurement plan. Approve only the named site/action scope; no generic asset or control authorization follows. |
+| **Before declaring security controls verified** | #7 security verification baseline | Name reviewer and scope; run implementation verification later against the chosen architecture. The candidate ASVS mapping alone does not establish conformance or close G6. |
+
+If a decision is deferred, preserve it as an explicit open dependency. No item is approved by silence, and no decision window bypasses its Gate or owner-approval boundary.
+
 ## After owner review
 
 Record accepted product choices in the PRD and decision register; update the discovery/usability plan and test the chosen workflows with target users. Record the Step 3D scope, runner service topology and execution-host/trust boundary in its readiness plan and manifest; clear the remaining environment/lock/build blockers, then execute the bake-off. Review its evidence before recording any technology decision. Complete and approve the dependent detailed designs, map implementation slices to those designs and acceptance evidence, and proceed through safety, site-authorization, pilot-measurement, and operational-handoff gates.
