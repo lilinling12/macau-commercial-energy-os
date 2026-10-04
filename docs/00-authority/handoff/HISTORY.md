@@ -203,3 +203,11 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Status:** Public tariff schedule interpretation is strengthened. C2 loss adjustments and customer-specific tariff applicability still require account contract and bill evidence. U-001/U-009/U-010/U-011 remain open; G1 remains OPEN. No bill-grade result, customer savings claim or Gate closure is implied.
 - **Source:** https://bo.dsaj.gov.mo/bo/i/2022/26/despce_cn.asp?printer=1 (Article 7); CEM C-group page linked in the snapshot.
 - **Validation boundary:** Documentation-only update; exact-head governance checks are required. No application tests or tariff runtime implementation were performed.
+
+
+## 2026-10-04 — Lifecycle goal confirmed for continued execution
+
+- **Change:** Updated the goal charter from a proposed/confirmation-pending draft to an active lifecycle goal after the owner explicitly instructed that work continue using Goal mode and asked that the eventual architecture be brought back for owner confirmation. Updated CURRENT and Master Index accordingly.
+- **Confirmed scope:** Complete and validate the product design, evidence-backed technical architecture and detailed designs, verified MVP implementation, authorized Macau pilot, measured outcomes and operational handoff.
+- **Decision boundary:** This confirmation activates the lifecycle objective and its tracking criteria. It does not approve product scope, PRD baseline, visual/UI direction, any production framework/database/service choice, G6.9 winner, controlled operation, or site deployment. Those remain separate evidence-backed owner decisions.
+- **Status:** Goal active; project Gate and delivery completion criteria remain unchanged. PR #8 remains open/unmerged.
