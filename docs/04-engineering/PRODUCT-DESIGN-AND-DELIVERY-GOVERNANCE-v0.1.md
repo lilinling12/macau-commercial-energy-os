@@ -75,13 +75,17 @@ Use small, traceable increments:
 
 A green CI run proves only the checks that actually ran. It does not by itself prove product fit, safety, bill correctness, Gate completion, or pilot authorization. Do not claim tests or validation that were not performed.
 
-## 6. Definition of ready and done
+## 6. AI coding quality baseline
+
+Use [AI Coding Quality Baseline v0.1](ai-coding-governance/AI-CODING-QUALITY-BASELINE-v0.1.md) for risk-based test selection, exact-revision CI evidence, human review, secure dependency/change management, compatibility, operations and release gates. It is technology-neutral until the production stack has been selected. Completion claims must name the exact checks run and checks not run.
+
+## 7. Definition of ready and done
 
 A substantial task is **ready** when its owner, outcome, authority, dependencies, scope, acceptance evidence, and review path are explicit.
 
 It is **done** when the deliverable is reviewable; approved boundaries are respected; required validation results and limitations are recorded; relevant product/architecture/evidence/handoff records are updated; and the next dependency-ready task is clear.
 
-## 7. Reference sources
+## 8. Reference sources
 
 References are starting points for evaluation, not substitute approvals:
 
