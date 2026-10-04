@@ -699,3 +699,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - Linked governance adoption to the lifecycle goal's completion evidence, governance README, quality baseline, roadmap and CURRENT handoff. The plan distinguishes written policy from repository controls actually enforced and preserves the requirement for owner adoption.
 - References Google Engineering Practices, DORA CI/test automation, Google SRE production readiness/release engineering, NIST SP 800-218 SSDF 1.1 and OWASP ASVS 5.0. These guide adaptation; no compliance/certification claim is made.
 - Production stack, stack-specific toolchain, branch/reviewer enforcement, SLOs, and release/rollback authority remain open. No application code or tests, repository permissions, branch protections, customer-data workflow or production release were changed.
+
+
+## AI coding governance templates (2026-10-04)
+
+- Strengthened the reusable .github/PULL_REQUEST_TEMPLATE.md and TASK-PACKET-TEMPLATE.md to require accountable human ownership/review, risk tier and rationale, governing authority, exact-revision validation evidence, skipped-check reasons, security/privacy/tenant/safety impacts, compatibility, operations and recovery considerations.
+- Linked the PR template from the AI coding governance README and reflected its role and limits in the adoption plan, governance task packet and CURRENT handoff.
+- These templates improve change context but are not repository-enforced gates. main remains unprotected, required status checks are disabled, and no repository rulesets exist. No permissions or branch settings changed; no application behavior or application tests were involved.
