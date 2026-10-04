@@ -114,6 +114,11 @@ def verify_fixture(fixture: dict) -> None:
     require(datetime.fromisoformat(intervals[-1]["end"]) == datetime.fromisoformat(horizon["end"]), "horizon end mismatch")
     require(hvac_deltas == [0, 0, 0, -30, 0, 30], "HVAC shift/rebound must be explicit and interval-aligned")
     require(sum(hvac_deltas) == 0, "illustrative HVAC shift must not fabricate net load reduction")
+    baseline_peak_kw = max(row["baseline"]["gridImportKw"] for row in intervals)
+    candidate_peak = max(intervals, key=lambda row: row["candidate"]["gridImportKw"])
+    require(baseline_peak_kw == 485, "baseline grid-import horizon peak must be 485 kW")
+    require(candidate_peak["candidate"]["gridImportKw"] == 510, "candidate rebound must set a 510 kW horizon peak")
+    require(candidate_peak["start"].startswith("2026-10-04T17:00:00"), "candidate grid-import peak must occur during rebound")
     require(all(i["candidate"]["essDischargeKw"] == 0 for i in intervals if i["start"].startswith("2026-10-04T16:")), "unexpected ESS discharge at 16:00")
 
 
@@ -158,6 +163,10 @@ def verify_prototype_matches_fixture(fixture: dict) -> None:
     require("H198 V74" in html and "H702 V88" in html, "prototype series should use interval step geometry")
     require("18:00 · 結束" in html, "18:00 must be labelled as the horizon boundary")
     require("不建模 ESS 充電、SOC、效率或損耗" in html, "prototype must disclose omitted storage physics")
+    require("全時段最大電網輸入 · 基線 → 候選" in html, "prototype must label the horizon peak comparison")
+    require("485 → 510 kW" in html and "回彈時段 +25 kW" in html, "prototype must disclose the rebound-driven peak increase")
+    require("候選尖峰電網輸入" not in html, "prototype must not mislabel the 430 kW interval as the horizon peak")
+    require("id=\"reviewBtn\"" in html and "重新載入後重設" in html, "review state must be visibly page-only")
 
 
 def main() -> int:
@@ -168,7 +177,7 @@ def main() -> int:
     except (AssertionError, KeyError, ValueError, json.JSONDecodeError) as error:
         print(f"FAIL: {error}", file=sys.stderr)
         return 1
-    print("PASS: 6 synthetic intervals, source/load balance, HVAC shift/rebound, claim limits, and prototype table alignment.")
+    print("PASS: 6 synthetic intervals, source/load balance, HVAC shift/rebound, horizon peak disclosure, claim limits, and prototype table/review alignment.")
     print("LIMIT: This is a static illustrative fixture check; it does not validate a site, tariff, optimizer, device capability, or control path.")
     return 0
 
