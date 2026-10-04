@@ -131,7 +131,7 @@ Do not infer willingness to pay from hypothetical price reactions alone. Record 
 
 ## 5. Prototype usability session (45 minutes)
 
-Use synthetic prototype v0.6 for the established task flow, or v0.9 for a comparative workspace-organization session; label all records as synthetic and do not connect either prototype to a live site or enter credentials. v0.9 presents one demand-evidence case in three organizations (evidence-first, exceptions-first, guided assessment) with the content and visual styling held constant. Navigation and workflow remain hypotheses. Do not use v0.7 or v0.8 for comparative sessions: v0.7 displayed all variants at once; v0.8 retained page-level horizontal overflow at a 320 CSS px viewport. v0.9 removes both issues documented in its predecessors. Retain v0.2–v0.5 only when the session explicitly evaluates their historical interaction changes. Tell participants the interface is being evaluated, not their expertise. Ask them to think aloud while allowing natural work. Where relevant, compare the result-kind choices and review dispositions without coaching.
+Use synthetic prototype v0.10 for the established nine-destination task flow, or v0.9 for a comparative workspace-organization session; label all records as synthetic and do not connect either prototype to a live site or enter credentials. v0.9 presents one demand-evidence case in three organizations (evidence-first, exceptions-first, guided assessment) with the content and visual styling held constant. Navigation and workflow remain hypotheses. Do not use v0.7 or v0.8 for comparative sessions: v0.7 displayed all variants at once; v0.8 retained page-level horizontal overflow at a 320 CSS px viewport. v0.9 removes both issues documented in its predecessors. Do not use v0.6 for current task sessions; v0.10 preserves its synthetic nine-destination concept and fixes the 320px page overflow. Retain v0.2–v0.6 only when the session explicitly evaluates historical interaction changes. Tell participants the interface is being evaluated, not their expertise. Ask them to think aloud while allowing natural work. Where relevant, compare the result-kind choices and review dispositions without coaching.
 
 Choose the tasks relevant to the participant's role:
 
@@ -257,7 +257,7 @@ Finding IDs:
 - No customer interviews, artifact reviews or prototype usability sessions are evidenced by this plan.
 - The role, site and workflow hypotheses remain open.
 - This plan is an executable preparation artifact for WP-4; it does not authorize contacting participants, collecting customer data or altering the PRD based on invented evidence.
-- The next research action is to arrange authorized access to representative Macau site users, then conduct the discovery wave and assign either the v0.6 workflow tasks or the v0.9 comparative IA protocol according to the approved study question, while continuing independent Gate research.
+- The next research action is to arrange authorized access to representative Macau site users, then conduct the discovery wave and assign either the v0.10 core-workflow tasks or the v0.9 comparative IA protocol according to the approved study question, while continuing independent Gate research.
 
 
 ### v0.8 rendering note
@@ -268,3 +268,8 @@ A bounded browser observation at the available narrow viewport confirmed that on
 ### v0.9 responsive observation note
 
 The current prototype was rendered at 320, 375, 768, 1024 and 1440 CSS px. The root scroll width matched the available client width at each size, the mode selector's scroll width matched its client width, and exactly one workspace was visible. At 320px, removing the body's 320px minimum width resolved the horizontal overflow caused by the vertical scrollbar reducing available client width. This is bounded local browser evidence; 200% zoom, full keyboard traversal, screen-reader behavior, localization and target-user performance remain unverified. Recheck the exact stimulus version and viewport before recruitment.
+
+
+### v0.10 core-workflow rendering observation
+
+In one local browser context, the nine destinations were each selected and the corresponding content view and URL hash followed. Browser Back from Evidence & replay restored Recommendations and its selected navigation state. At the narrow viewport, ArrowUp then Enter in the native destination selector switched Evidence & replay to Recommendations and moved focus to the destination heading. At 320/375/768/1024/1440 CSS px, document scroll width matched client width. The 320px Data health sample table can scroll inside its labeled wrapper while the page itself remains within the viewport. This is bounded manual interaction evidence only; screen-reader announcements, full traversal, 200% zoom, localization, customer comprehension and WP-4 user results remain unverified.
