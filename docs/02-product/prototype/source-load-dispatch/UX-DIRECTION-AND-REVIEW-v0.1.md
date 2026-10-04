@@ -44,6 +44,7 @@ The project-specific skill correctly keeps energy semantics and product authorit
 | Medium | Candidate copy did not make HVAC-first and ESS-optional authority clear. | Candidate now names HVAC load shifting as the focus and states ESS is optional and site controllability is unverified. |
 | High | Candidate total load was labeled without a plotted line, and the shifted HVAC demand had no later rebound interval. | v0.3 adds the orange candidate-load line, a 17:00 rebound and a matching grid-import/table example. |
 | Medium | The selector and chart said 15-minute data although the plotted marks were hourly. | v0.3 labels this as a one-hour synthetic example and says the CEM billing interval is unverified. |
+| High | The hourly averages were drawn as interpolated lines, 18:00 read like another interval point, and three ESS bars did not match the described one-hour discharge. | v0.3 now uses six interval-aligned step series, labels 18:00 as the end boundary, and marks only the 15:00–16:00 20 kW ESS example in a separate annotation lane. A fixture verifier checks that the full six-row table matches the synthetic inputs. |
 | Good | Screen gives baseline and candidate on a shared horizon, direct units, a table alternative, a synthetic-data notice, tariff-unverified state, and no-device-control boundary. | Preserved. It currently displays no bill cost, export credit, cross-site allocation or saving claim. |
 
 Changes are limited to local output prototype v0.3. They do not alter the repository's v0.11 prototype or claim product approval.
@@ -52,7 +53,7 @@ Changes are limited to local output prototype v0.3. They do not alter the reposi
 
 The source was statically inspected for semantic labels, synthetic/demo boundary, responsive breakpoint declarations (1050/760/390 px), reduced-motion behavior declarations, table alternative and interaction copy. Scenario selection uses keyboard-capable native controls in the source, but switching, focus order, focus return and dialog behavior were not exercised in this review; the prototype review records those interaction checks as outstanding.
 
-The v0.3 HTML was opened in a browser and its accessibility tree was inspected at the browser's current default viewport. This confirms the rendered content and semantic labels at that viewport, but does not provide a pixel-level visual review. There is no recorded verification at 1440, 1024, 768 or 375 px, no measured contrast audit, no screen-reader walkthrough, no zoom/reflow check, and no browser/device compatibility evidence. Traditional Chinese is the only locale present in this prototype; Portuguese and English are not implemented. Locale requirements remain unconfirmed, and no user research was run. The screen is not ready for usability or accessibility sign-off.
+The updated v0.3 HTML was opened in the in-app browser and its accessibility tree inspected at the browser's default viewport. The tree confirms the step-chart description, six one-hour intervals, 18:00 end boundary, unverified tariff and disabled device control; the viewport CSS-pixel size was not captured and this did not provide a pixel-level visual review. A local static fixture checker passed arithmetic and table-alignment assertions, which does not constitute site, optimizer or usability evidence. There is no recorded rendered verification at 1440, 1024, 768 or 375 px, no measured contrast audit, no screen-reader walkthrough, no zoom/reflow check, and no browser/device compatibility evidence. Traditional Chinese is the only locale present in this prototype; Portuguese and English are not implemented. Locale requirements remain unconfirmed, and no user research was run. The screen is not ready for usability or accessibility sign-off.
 
 ### Next review actions
 
@@ -60,7 +61,7 @@ The v0.3 HTML was opened in a browser and its accessibility tree was inspected a
 2. Measure foreground, status, focus and chart contrast; verify keyboard focus and dialog focus entry/return with assistive technology.
 3. Add Portuguese and English only after owner/user locale scope is confirmed; then test reflow and Macau terminology across all required locales.
 4. Compare two compositions of the same task (schedule-first canvas vs contextual evidence-first layout) using the same fixture; decide with task observation, not palette preference alone.
-5. Obtain domain review of the synthetic balance and D-055 economics boundary before expanding any result metric.
+5. Obtain domain review of the synthetic balance fixture and D-055 economics boundary before expanding any result metric; separately review actual interval, SOC, loss, comfort and rebound constraints before claiming physical feasibility.
 
 ## 6. Owner decisions still open
 
