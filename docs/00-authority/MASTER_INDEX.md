@@ -44,6 +44,7 @@ Research → Decision → Architecture → Engineering → Implementation.
 - Prior clickable prototype v0.1 (preserved for design history): `docs/02-product/prototype/v0.1/index.html`
 - Logical system architecture and technology decision states: `docs/03-architecture/ARCHITECTURE-DESIGN.md`
 - VS-001 component-level detailed design draft (shadow-mode; not production authorization): `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md`
+- Data Persistence and Schema Evolution detailed design v0.1 (stack-neutral logical proposal; retention, physical schema, migrations and owner review remain open): `docs/03-architecture/detailed-design/DATA-PERSISTENCE-AND-SCHEMA-EVOLUTION-DETAILED-DESIGN-v0.1.md`
 - Tariff & Settlement Engine detailed design v0.1 (stack-neutral; G1 blocked; not bill-grade approved): `docs/03-architecture/detailed-design/TARIFF-SETTLEMENT-DETAILED-DESIGN-v0.1.md`
 - Energy Graph detailed design v0.1 (stack-neutral; G3/site validation pending): `docs/03-architecture/detailed-design/ENERGY-GRAPH-DETAILED-DESIGN-v0.1.md`
 - Telemetry Ingestion & Data Quality detailed design v0.1 (stack-neutral; contract parity and site policies pending): `docs/03-architecture/detailed-design/TELEMETRY-INGESTION-AND-DATA-QUALITY-DETAILED-DESIGN-v0.1.md`
