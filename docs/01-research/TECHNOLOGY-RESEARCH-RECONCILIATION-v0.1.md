@@ -70,3 +70,34 @@ If the product later gains a concrete server-rendered/public portal or BFF need,
 - The research reports remain local files; their hashes identify the inspected copies but do not show they are versioned in GitHub.
 - No Step 3D candidate integration or benchmark was executed in this task.
 - No owner has approved a final product UI, production topology, or Next.js adoption through the evidence inspected here.
+
+
+## Addendum — Authority v1.6.2 through v2.1 status conflict (2026-10-04)
+
+The earlier timeline above was incomplete because it compared reports (6)/(7), G7.8, G7.9 Step 2 and the current main handoff, but did not include the later local Authority v2.0 and v2.1 source files and recovery packages. This addendum records the conflict without choosing one source by version number alone.
+
+| Source | What the source itself asserts | Reconciliation |
+|---|---|---|
+| Research Authority v1.6.2 package | G6.9-R2 Steps 3A/3B/3C complete; pinned framework-native Step 3D is pending. G1 and the G7.2 live baseline/no-op remain open. | Direct gate-status source, but it predates later Authority files. |
+| Authority v1.7.0 package | G6.9-R2 consolidation release; technology research, architecture and related research are complete, while final framework bake-off evidence and reference-implementation decision remain pending. | Broad research completion does not itself select a measured framework winner. |
+| Authority v1.7.1 package | Provisional TS Product Plane + Go Energy Kernel + Python Intelligence; cloud framework, Bun scope and event architecture remain open. G7.2–G7.5 are sequenced as subsequent research. | Explicitly retains stack questions as unresolved. |
+| Authority v2.0 recovery / Step 2 / Step 3 / Step 4 packages | Recovery and mapping work is described as complete; the architecture consolidation records broad system boundaries; repository-preparation work is marked complete, while actual repository initialization/bootstrap remains a later step in that package's checklist. | These packages establish recovery/preparation outputs, not by themselves a runnable Step 3D comparison or production implementation. |
+| Loose Authority v2.0 Markdown | Lists several G6.9-R2 substeps, including 3G.1 complete and 3G.2 next, while leaving the cloud-core framework and implementation questions under evaluation. It does not list Step 3D as completed. | Does not support treating the framework bake-off as closed. |
+| Loose Authority v2.1 Markdown | States that G6.9 Technology Selection / G6.9-R2 AI Native Engineering is complete and that the project is entering G7, with G7.1 next. It does not provide Step 3D comparison results or a measured winner in the inspected text. | A material later closure assertion, but its evidence and supersession relationship to v2.0, v1.7.x and main are not established by that file alone. |
+| GitHub main docs/00-authority/handoff/CURRENT.md | Snapshot 2026-10-03: G6.9-R2 Step 3D pending; G7.2 live baseline/no-op pending; C+ provisional. | Controlling repository state until an authorized, reviewed change updates it. |
+| Open PR #8 | Snapshot 2026-10-04: G6.9 Step 3D integration pending; G1–G7 open/incomplete. | More recent proposal branch, but unmerged; it does not supersede main. |
+
+### Corrected interpretation
+
+The local sources contain a **Gate-authority conflict**, not sufficient evidence to announce either “G6.9 is definitely complete” or “the v2.1 completion statement is invalid.” Authority v2.1 is a later assertion of completion, but the inspected source does not link the required framework-native Step 3D run, decision rule, results, approver, or an explicit supersession record. Main and PR #8 still record Step 3D as pending. Accordingly, the defensible GitHub status remains **unresolved pending authority reconciliation**; production framework selection remains unproven.
+
+The lettered G6.9 workstream entries (for example, Step 3G.1/3G.2) are not evidence that the separately named Step 3D framework comparison was executed. Likewise, completion of a recovery, architecture-boundary, or repository-preparation package must not be substituted for actual repository implementation or runtime evidence.
+
+### Required authority repair
+
+1. Add a dated, owner-reviewed supersession/decision record identifying which Authority version controls and why.
+2. If Step 3D was executed, link the exact pinned candidate/runtime/lockfile versions, shared workload and fixtures, run logs, failure-injection results, scoring rule, reviewer and accepted decision.
+3. If Step 3D was waived or replaced, record the approver, rationale, replacement evidence and explicit impact on the G6.9 exit criteria.
+4. Update main CURRENT.md, the gate register, and technology ADR only after that review; until then preserve the conflicting assertions as unresolved history.
+
+This addendum is a reconciliation correction only. It closes no Gate, selects no stack, and does not supersede main authority.
