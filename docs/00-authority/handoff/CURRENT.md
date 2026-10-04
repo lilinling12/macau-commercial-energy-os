@@ -379,3 +379,8 @@ v0.8 still overflowed horizontally at 320 CSS px because the body's 320px minimu
 ## PRD-to-delivery traceability follow-up — 2026-10-04
 
 The PRD-to-architecture traceability document now includes one joined map from PR-01–PR-09 to product flows/screens, planned WP-4 probes, detailed designs, vertical slices, and the current evidence needed before acceptance. The map makes missing customer/site validation and runtime proof explicit; it records no completed user study and does not advance any requirement to implementation-ready.
+
+
+## Product UX review update — core workflow v0.10 — 2026-10-04
+
+The nine-destination core-workflow prototype is now v0.10; v0.9 remains the separate three-way IA comparison. v0.10 removes v0.6's body minimum-width overflow at 320 CSS px. Browser observation at 320/375/768/1024/1440 CSS px found no document-level horizontal overflow; table overflow is contained in labeled wrappers. All nine destinations exposed the corresponding view/hash, Browser Back restored the prior view, and ArrowUp+Enter in the narrow native selector moved focus to the destination heading. Content/actions remain synthetic and disconnected. User tasks, 200% zoom, full keyboard/screen-reader, localization and WCAG evidence remain open; no UX direction or frontend framework is approved.
