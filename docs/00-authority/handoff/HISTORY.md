@@ -244,3 +244,8 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Finding:** The opening logical architecture diagram named a “Go Edge” runtime even though the authority table and status clearly keep Go as an unapproved responsibility proposal.
 - **Change:** Renamed the diagram boundary to “Site Edge Energy Runtime + Safety Kernel”. The later technology table continues to identify Go as a proposal and preserves the unresolved site/hardware/security decisions.
 - **Status:** Documentation consistency correction only; no production technology decision or implementation authority changed.
+
+## 2026-10-04 — Provisional AI and Edge responsibility labels clarified
+
+- **Change:** The logical architecture technology-authority table now describes Python AI/optimization responsibilities and Go Site Edge responsibilities as provisional proposals, and lists workload/deployment/hardware validation still open.
+- **Boundary:** The provisional candidate map remains: React + TypeScript UI proposal; TypeScript/Go cloud-core responsibility candidates under G6.9-R2; Temporal and NATS candidates; PostgreSQL + Timescale evaluation baseline; Python AI proposal; Go Edge proposal; Wasm/WASI future option. No item becomes approved by the diagram/table or by this documentation update. Java/Spring and Next.js remain unselected as previously recorded.
