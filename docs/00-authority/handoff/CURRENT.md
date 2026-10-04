@@ -1,7 +1,7 @@
 # CURRENT — Macau Commercial Energy OS
 
-**Snapphot:** 2026-10-04  
-**Authority mode:** repearch-first / evidence-governed  
+**Snapshot:** 2026-10-04  
+**Authority mode:** research-first / evidence-governed  
 **Research authority:** Library Research Authority v1.6.2 + G6.9-R2 Step 3C bake-off evidence + Macau PV follow-up D-077/U-025/U-026  
 **Repository:** lilinling12/macau-commercial-energy-os
 
