@@ -67,6 +67,7 @@ Gate exit criteria below are execution checks derived from the research objectiv
 - Prior prototype v0.1, retained for comparison: `docs/02-product/prototype/v0.1/index.html` (**synthetic demo; not customer/usability validated**)
 - Logical system architecture and technology decision states: `docs/03-architecture/ARCHITECTURE-DESIGN.md`
 - VS-001 detailed design draft, explicitly SHADOW-only and non-authorizing: `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md`
+- Command arbitration and Edge Safety Kernel detailed design v0.1 (future controlled-mode proposal; SHADOW MVP remains non-authorizing, G6 evidence and owner/site review pending): `docs/03-architecture/detailed-design/COMMAND-ARBITRATION-AND-EDGE-SAFETY-KERNEL-DETAILED-DESIGN-v0.1.md`
 - Candidate MVP vertical-slice sequence and acceptance evidence: `docs/05-mvp/vertical-slices/MVP-VERTICAL-SLICE-PLAN-v0.1.md` (**draft; VS-001 remains incomplete, product scope and technology approval pending**)
 - Tariff & Settlement Engine detailed design v0.1 (stack-neutral proposal; blocked from bill-grade implementation by G1 unknowns): `docs/03-architecture/detailed-design/TARIFF-SETTLEMENT-DETAILED-DESIGN-v0.1.md`
 - Energy Graph detailed design v0.1 (stack-neutral proposal; site topology and G3 acceptance evidence pending): `docs/03-architecture/detailed-design/ENERGY-GRAPH-DETAILED-DESIGN-v0.1.md`
