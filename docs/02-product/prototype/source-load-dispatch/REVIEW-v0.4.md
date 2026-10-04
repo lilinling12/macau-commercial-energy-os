@@ -34,3 +34,16 @@ The screenshot and viewport checks do not establish WCAG conformance. Contrast r
 A focused source audit found two prototype semantics issues after v0.4 was added: the scenario-only example was labelled as a forecast/SHADOW result, and the stage-5 jump link targeted a nonexistent `#reviewBox` id. The follow-up changes relabel stage 3 as a time-series/scenario comparison, mark the candidate as synthetic, remove the static current-step marker from a page that does not track scroll position, and point the review jump at the actual review button. The opening copy also uses consistent Traditional Chinese wording.
 
 The verifier now guards those labels and the destination anchor. These checks confirm source-level consistency only; they do not replace rendered interaction or accessibility review.
+
+
+## UI review follow-up — 2026-10-05
+
+**Source under review:** PR #10 head `17436e9763e928279d1ce89907554657332a4cca`; prototype blob `24b6a4985c921538eae9a7a1383170b6ba786c16`.
+
+A fresh browser load of the exact branch HTML (served from a local review copy) and its accessibility tree exposed four rail controls labelled “Portfolio overview,” “Source dispatch,” “Energy model,” and “Evidence.” They were buttons without handlers. They have been replaced with native links to the corresponding page sections and grouped under a named “Main workflow” navigation landmark. The refreshed accessibility tree reports all four as links with the expected section destinations.
+
+The CSS now gives both buttons and links 44 × 44 CSS-pixel navigation targets at the ≤760 px and ≤390 px breakpoints. The responsive rule is verified in source. **This follow-up did not measure the browser viewport or render the modified branch at those narrow widths**, so the previous width checks do not constitute a post-fix mobile visual pass.
+
+The refreshed tree also reconfirms that this version is Traditional Chinese only, labels all scenario data synthetic, blocks bill-level economics when tariff/contract evidence is absent, explains HVAC rebound and the higher full-horizon peak, and marks equipment control disabled. It explicitly says the review action is page-local and non-persistent. English/Portuguese localization, date/number/currency formatting, runtime keyboard walkthrough, contrast, screen-reader chart equivalence, and real operator validation remain open.
+
+**Interaction scope:** source inspection confirms the rail controls are anchors to existing IDs. This pass did not activate the modal, table toggle, scenario control or page-local review button; their runtime behavior remains unverified. The visual screenshot dimensions for this refreshed load were not available in the browser accessibility observation, so no new visual or responsive conformance claim is made.
