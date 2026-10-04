@@ -169,3 +169,21 @@ This proposal is additive and should be reconciled, not silently substituted:
 Continue using source/load economic dispatch as the working product direction because it is directly requested and matches current `main` authority. Before product, visual or technical freeze, the owner still needs to review the lead user/site hypothesis, launch-language scope, result types and M&V rules, UI composition after rendering, contract/API semantics and the unresolved G6.9 production stack. This file itself approves none of them.
 
 **Source references:** GitHub `main` `docs/00-authority/handoff/CURRENT.md` (snapshot 2026-10-03) and `docs/00-authority/decisions/DECISIONS.md` D-001…D-077; PR #8 at head `ebb576fc0cb18fd64266ed9395ebdcba7a06ff69` (`PRD-v0.1.md`, `PRODUCT-DESIGN.md`, `USER-FLOWS-AND-IA-v0.1.md`, `MVP-APPLICATION-AND-EVENT-CONTRACT-CATALOG-v0.1.md`, prototype v0.11); G7.9 Step 2 source package `macau-commercial-energy-os-g7.9-step2-domain-data-contract-design-v0.1.zip`; local design study `macau-energy-os-dispatch-prototype-v0.3.html` and `DISPATCH-PROTOTYPE-REVIEW-v0.3.md`. G7.9 source package is on D: and has not been committed to GitHub; all prototype/design claims remain synthetic or proposed unless stated otherwise.
+
+## Addendum — Prototype coverage and information-hierarchy study (2026-10-04)
+
+The branch now contains a three-direction layout study at prototype/source-load-dispatch/directions/v0.1/index.html and its review record at prototype/source-load-dispatch/directions/v0.1/REVIEW.md. All directions show the same six synthetic hourly intervals, site assumptions, evidence status and SHADOW-only review affordance:
+
+- **Timeline first** foregrounds whole-horizon grid import, including the later HVAC rebound.
+- **Difference first** foregrounds the aligned baseline/candidate interval table.
+- **Evidence first** foregrounds readiness and the claims each missing input blocks.
+
+The chart uses step series aligned to interval boundaries, with an 18:00 planning boundary and no implied endpoint measurement. Its coordinates follow the displayed 300–540 kW scale. The correct synthetic example shows 480→430 kW at 15:00–16:00, but the candidate maximum rises from 485 kW to 510 kW at 17:00–18:00. This does not estimate bill cost or savings.
+
+**Coverage against the workflow in §3:** the v0.4 prototype expresses the six-stage path and the new direction study exercises schedule comparison → economics/constraints/evidence → page-only SHADOW review. The synthetic evidence/readiness panels demonstrate how missing inputs withhold claims. Neither artifact implements or validates site ingestion, contract onboarding, a real Energy Graph, forecast production, schedule generation, constraint feasibility, persistence, monitoring or M&V replay. Those are product/architecture requirements, not completed functionality.
+
+**UI/UX method:** UI/UX Pro Max searches were run for a dispatch operations console and for chart/accessibility concerns; project UI/UX guidance was applied. The generic style search returned a real-time operations landing-page pattern and unrelated glass/OLED/academic styling; these were rejected as poor product fit. Chart and UX results support paired direct labels/line styles, a visible table, keyboard focus and scroll handling for wide tables. This does not approve a final palette or claim visual polish, WCAG conformance, Apple/Material compliance, award quality or usability validation.
+
+**Source-level checks recorded:** three direction buttons are present; they preserve one scenario and reorder workspace panels. Keyboard focus styles, skip navigation, live announcements, reduced-motion rules and narrow-screen layout rules are present in source. No browser-rendered viewport review, keyboard walkthrough, screen-reader review, contrast measurement, multi-language layout review or operator test has yet been performed.
+
+This addendum refines the existing product proposal only. It does not supersede PR #8's general PRD/IA, approve the dispatch-first product baseline, choose one layout, close a Gate, or approve a production stack.
