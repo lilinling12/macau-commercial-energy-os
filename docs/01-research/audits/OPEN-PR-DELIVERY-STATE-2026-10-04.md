@@ -97,3 +97,24 @@ The open-PR state was refreshed against GitHub metadata and checks. PRs #6 and #
 | #13 | fix/canonical-authority-ci-paths | 68c955b936faddfbdbdbdf043688b3696efa87a3 | Authority Validation and Repository Hygiene: both succeeded. | #13 remains a separate open draft; no PR was merged by this follow-up. |
 
 Earlier failure rows in this document remain historical and must not be read as the current result for the repaired exact heads. The latest successful #10 head also contains the compact narrow-screen chart source correction and dispatch design coverage addendum. None of these results is application end-to-end validation, Macau site/user validation, or proof that branch protection is enforced on main.
+
+
+## Exact-head refresh — 2026-10-05
+
+**Checked against live GitHub metadata and workflow runs.** Default-branch base for these open proposals remains `main` at `a897bf0b1e7e6ceea3862d7d87fa288ecca08203`. All five PRs below remain unmerged; a green check validates only its named workflow, not product approval, Gate closure, customer/site evidence, or production readiness.
+
+| PR | Exact head and current review state | Exact-head Actions evidence | Current boundary |
+|---|---|---|---|
+| [#8](https://github.com/lilinling12/macau-commercial-energy-os/pull/8) | `4c93fb225d19a4efe7651c305c7033ae9c62e1e0`; open, **ready for review**, 96 changed files | Authority Validation #37215341700, Repository Hygiene #37215341719, Contracts Validation #37215341692, Runtime Bootstrap #37215341684 — all succeeded | The 96-file cross-domain package still needs its documented approval-group review. Passing checks do not accept its product, architecture, governance or gate proposals. |
+| [#10](https://github.com/lilinling12/macau-commercial-energy-os/pull/10) | `6c661bc71e7d8678915d6c0a60ae87760243eb4b`; open Draft, 18 changed files | Authority Validation #37219882700 and Repository Hygiene #37219882698 — both succeeded | Dispatch-first product, prototypes, APP-11 boundary and G7.9 Step 3 map remain proposals. Since comparison base `b2be14de8c87e9be9803887ab8e6946a94898532`, the ten-commit delta changes only v0.4 HTML/review and adds the VS-001→APP-11 trace; it does not revise the service map or product design. |
+| [#11](https://github.com/lilinling12/macau-commercial-energy-os/pull/11) | `8ec91db5ad08cb289daf6ba62ba79ac3603c818b`; open Draft, 4 changed files | Authority Validation #37215582399 and Repository Hygiene #37215582526 — both succeeded | Technology/Next.js reconciliation remains unapproved and does not complete G6.9-R2 Step 3D or select a production stack. |
+| [#12](https://github.com/lilinling12/macau-commercial-energy-os/pull/12) | `7600174910bdc78cc4e04baa853fb772f460e3e5` before this snapshot update; open Draft, 13 changed files | Authority Validation #37217410984 and Repository Hygiene #37217410935 — both succeeded | Research/archive audit remains a proposal. The documentation change recording this refresh will create a new head; its checks must be checked on that new SHA. |
+| [#13](https://github.com/lilinling12/macau-commercial-energy-os/pull/13) | `68c955b936faddfbdbdbdf043688b3696efa87a3`; open Draft, 3 changed files | Authority Validation #37205213613 and Repository Hygiene #37205213621 — both succeeded | Canonical-path repair works on its own branch but remains unmerged; its checks do not become main protection or checks on other branches. |
+
+### G7.9 status cross-check
+
+The supplied G7.9 Step 2 package says Steps 1 and 2 are complete and names Step 3 Service Boundary and Implementation Design next. PR #10 now contains a stack-neutral Step 3 dispatch contract/implementation map and a current-main VS-001→APP-11 implementation trace. The map specifies proposed request/result/review semantics, Edge and optimizer boundaries, repository tasks and acceptance cases. Its own status remains proposal; no owner acceptance, canonical wire schema, approved APP-11 catalog change, implemented end-to-end source/load assessment, or Gate-exit record was found in the checked main/PR evidence. Therefore **G7.9 Step 3 remains open**. Next evidence-bearing work is a reviewed logical-contract/APP-11 ownership decision against PR #8's APP-01…APP-10 catalog, D-065 and the G7.8 contract/technology records, followed by accepted detailed design and implementation proof; this is not implied by PR #10's passing repository checks.
+
+### Scope and source limits
+
+The exact current PR metadata, changed-file counts and Actions runs were retrieved on 2026-10-05. This refresh does not re-read the full original shared ChatGPT transcript, which remains unavailable in the logged-out share view and limited archive record. It updates delivery state and G7.9 placement only; it does not replace the source-package timeline or assert that every repository document has been semantically re-reviewed.
