@@ -34,7 +34,7 @@ Evidence discipline applies to research, architecture and implementation decisio
 - **Claim:** DSEC publishes aggregate establishment electricity use; DSPA documents reported hotel energy-management practices; CEM runs hotel/resort billing-month energy-saving comparisons.
 - **Status:** VERIFIED for the cited public context; **UNKNOWN** for site-level flexible kW/kWh, response, duration, comfort/service effects and rebound.
 - **Evidence:** `docs/01-research/evidence/G2-MACAU-COMMERCIAL-LOAD-FLEXIBILITY-EVIDENCE-2026-10.md`.
-- **Limit:** DSEC Establishments and DSPA/CEM Commercial are separately classified aggregate series; no one-to-one crosswalk is documented in the reviewed sources. Sector totals, reported measures, annual/billing-month energy comparisons and BOPTEST/R0 do not prove dispatchable Macau site capacity or bill savings. G2 remains OPEN pending site-approved measurement.
+- **Limit:** DSEC Establishments and DSPA/CEM Commercial are separately classified aggregate series; no one-to-one crosswalk is documented in the reviewed sources. DSEC Q1–Q3 2025 Establishments totals rose from 819 to 1,200 GWh (+46.5% from rounded values), but this unadjusted quarterly total cannot isolate seasonality, weather or site count and is not a building load shape. Sector totals, reported measures, annual/billing-month energy comparisons and BOPTEST/R0 do not prove dispatchable Macau site capacity or bill savings. G2 remains OPEN pending site-approved measurement.
 
 
 ## G3 — Energy Digital Twin / Energy Graph
