@@ -257,7 +257,7 @@ Finding IDs:
 - No customer interviews, artifact reviews or prototype usability sessions are evidenced by this plan.
 - The role, site and workflow hypotheses remain open.
 - This plan is an executable preparation artifact for WP-4; it does not authorize contacting participants, collecting customer data or altering the PRD based on invented evidence.
-- The next research action is to arrange authorized access to representative Macau site users, then conduct the discovery wave and assign either the v0.6 workflow tasks or the v0.7 comparative IA protocol according to the approved study question, while continuing independent Gate research.
+- The next research action is to arrange authorized access to representative Macau site users, then conduct the discovery wave and assign either the v0.6 workflow tasks or the v0.9 comparative IA protocol according to the approved study question, while continuing independent Gate research.
 
 
 ### v0.8 rendering note
