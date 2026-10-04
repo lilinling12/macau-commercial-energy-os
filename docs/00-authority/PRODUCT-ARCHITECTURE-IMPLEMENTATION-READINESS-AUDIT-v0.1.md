@@ -190,3 +190,9 @@ No other direct semantic contradiction was found in this bounded review. No appl
 - Found two interface ambiguities: Energy Graph required an immutable source event identity even though telemetry V1 has no producer event ID; and graph `STALE` conflated expired mapping validity with measurement freshness. The capture identity is now the durable platform raw-capture record reference, while producer/source event identity is optional when an authenticated integration supplies it. Graph mapping results now use `EXPIRED_MAPPING`; telemetry freshness/quality remains a separate dimension.
 - Aligned APP-04 and the G3 packet's machine vocabulary (`CONFLICT`, `EXPIRED_MAPPING`) and recorded measurement quality separately.
 - This is a static design correction only. No site evidence, runtime contract, source-ID stability, resolver behavior, tests, Gate closure or production schema was validated. G3 remains OPEN; U-027/secure intake and site authorization remain prerequisites.
+
+## Follow-up — PRD, user-flow and vertical-slice alignment for G3 states (2026-10-04)
+
+- Compared PR-02/PR-03 acceptance, Flow A/S-03/S-04, PRD-to-architecture traceability, and VS-003/VS-004 acceptance with the revised Energy Graph/Telemetry status boundary.
+- Found the design semantics were separated in the architecture documents, but the product flow and slice acceptance still used the ambiguous phrase “stale mapping.” Updated PR-02, Flow A, S-03/S-04, the traceability matrix and VS-003/VS-004: mapping resolution (including `EXPIRED_MAPPING`) and measurement freshness/quality must be displayed and accepted separately.
+- This closes a terminology/traceability gap across product and architecture drafts. It does not establish that users understand these states; WP-4 study evidence, site source behavior, implementation and G3 remain open.
