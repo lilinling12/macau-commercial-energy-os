@@ -155,3 +155,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Update:** Added this boundary to the lifecycle readiness audit and CURRENT handoff. No technology choice, research Gate or production authority changed.
 - **Validation:** Exact-head repository checks are pending for the updated docs; this was a documentation-only change, not an application test or bake-off.
 - **Related:** docs/00-authority/PRODUCT-ARCHITECTURE-IMPLEMENTATION-READINESS-AUDIT-v0.1.md, docs/00-authority/handoff/CURRENT.md, docs/03-architecture/ARCHITECTURE-DESIGN.md, and owner Step 3D browser-UI-scope decision.
+
+## 2026-10-04 — End-to-end product/architecture delivery goal charter
+
+- **Change:** Added `docs/00-authority/PRODUCT-ARCHITECTURE-DELIVERY-GOAL-v0.1.md` to define the full lifecycle objective, completion evidence, owner decision boundaries, stage exits, and next dependency-ready sequence. Linked it from the Master Index, roadmap and CURRENT handoff.
+- **Status:** Proposed charter on PR #8; owner confirmation remains pending. It does not approve product scope, close a research Gate, select a production stack, authorize implementation beyond existing approved scope, or authorize deployment/control.
+- **Current-state basis:** Existing roadmap, lifecycle readiness audit, owner decision packet, detailed-design drafts, vertical-slice plan and handoff were inspected. They establish substantial planning/design drafts, while product approval, user validation, G6.9-R2 Step 3D/4, implementation completion and authorized Macau pilot evidence remain outstanding.
+- **Next:** Obtain the owner's product-promise decision; continue independent evidence and research work; then follow the charter's product → architecture → detailed design → implementation → pilot completion criteria.
