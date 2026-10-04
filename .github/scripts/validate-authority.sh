@@ -19,6 +19,20 @@ required_files=(
   "docs/04-engineering/ai-coding-governance/TASK-PACKET-TEMPLATE.md"
 )
 
+# These canonical design entrypoints are introduced by the broader product/architecture PR.
+# Validate them when present in the checked-out tree while allowing focused governance PRs
+# against main to run before those documents are merged.
+optional_authority_files=(
+  "docs/02-product/PRODUCT-DESIGN.md"
+  "docs/03-architecture/ARCHITECTURE-DESIGN.md"
+)
+
+for path in "${optional_authority_files[@]}"; do
+  if [[ -e "$path" ]]; then
+    required_files+=("$path")
+  fi
+done
+
 for path in "${required_files[@]}"; do
   if [[ ! -f "$path" ]]; then
     echo "::error file=$path::Required authority file is missing"
