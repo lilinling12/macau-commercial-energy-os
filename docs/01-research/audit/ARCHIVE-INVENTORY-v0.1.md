@@ -72,11 +72,17 @@
 
 ### macau-commercial-energy-os-g7.6-step2-engineering-foundation-v0.1(1).zip
 
+- SHA-256: `F3955862E9902166F82126A2C489E798413676CF93000D4F3F68F650867D47EB`.
+- Contains 39 entries; the detailed ADRs are marked Accepted and the tech freeze is dated 2026-10-03.
+
 - ZIP entries: 39
   - `CURRENT.md`: # CURRENT — Macau Commercial Energy OS; Authority: Research Authority v1.7.1; ## Gate; G7 — Productization; ### Completed; - G7.1 Market Research; - G7.2 Energy Economics; - G7.3 Dispatch Research; - G7.4 Pilot Blueprint & ROI Validation; - G7.5 Commercial Product Architecture
   - `NEXT_GATE.md`: # Next Gate — G7.6 Step 3; ## Repository Bootstrap & First Vertical Slice Implementation; ### Goal; Turn the frozen foundation into a runnable repository and prove one end-to-end path.; ### Required slice; ```text; simulated chiller telemetry; -> edge runtime; -> telemetry ingest; -> PostgreSQL
 
 ### macau-commercial-energy-os-g7.6-step2-engineering-foundation-v0.1.zip
+
+- SHA-256: `18704C677AF55A53886806A219A1A5EE22DEA9EF3A0256E286EC9429DD7F2785`.
+- Contains seven entries; its Decision Log Update labels ADR-068 Proposed. This status differs from the separate 39-entry `(1)` archive above.
 
 - ZIP entries: 7
   - `CURRENT.md`: # CURRENT; Project:; Macau Commercial Energy OS; Authority:; v1.7.1; Current Gate:; G7.6 Step 2 Technical Architecture Freeze & Repository Bootstrap; Status:; Research package completed.; Next:
