@@ -64,11 +64,12 @@ The analyst produces a versioned draft inventory; a site-authorized technical re
 | Measurement | Metric, unit, direction, multiplier, sampling/time quality and boundary |
 | Validity | Effective interval, observed/knowledge time, evidence version and correction link |
 | Evidence | Restricted evidence ID, source class, owner role, reviewer and permission status |
-| Resolution | RESOLVED / UNMAPPED / AMBIGUOUS / CONFLICTING / STALE / OUT_OF_SCOPE |
+| Mapping resolution | `RESOLVED` / `UNMAPPED` / `AMBIGUOUS` / `CONFLICT` / `EXPIRED_MAPPING` / `OUT_OF_SCOPE`; use the Energy Graph machine vocabulary |
+| Measurement quality | Freshness, coverage and source-clock/quality state reported separately from mapping resolution; use the Telemetry Ingestion vocabulary |
 | Consequence | Which product calculation or workflow is blocked, scenario-only or eligible |
 | Disposition | Validated in scope / excluded / unresolved-deferred, with reason and approver |
 
-A mapping is not resolved until supporting evidence agrees on identity, scope, direction and effective time. Preserve conflicting assertions; do not silently overwrite history. Ineligible or unresolved mappings must fail closed for settlement-grade attribution and recommendations that depend on them. Keep tariff-rule interpretation with G1 and flexibility/response claims with G2.
+A mapping is not resolved until supporting evidence agrees on identity, scope, direction and effective time. An expired or absent mapping is distinct from a mapped observation whose source measurement is stale; record both dimensions when applicable. Preserve conflicting assertions; do not silently overwrite history. Ineligible or unresolved mappings must fail closed for settlement-grade attribution and recommendations that depend on them. Keep tariff-rule interpretation with G1 and flexibility/response claims with G2.
 
 ## 6. Execution sequence and exit record
 
