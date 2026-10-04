@@ -63,6 +63,7 @@
 - **Evidence / decisions / unknowns:** At the review snapshot, four CI workflows exist (Authority Validation, Repository Hygiene, Runtime Bootstrap, Contracts Validation), but GitHub reports main unprotected, required status checks disabled and no repository rulesets. PR-triggered actions also exercise existing scaffold checks; those results are recorded against the exact head in PR #8 and do not validate the governance proposal's operational enforcement. This task changed no application implementation. Owner adoption, reviewer ownership, stack-specific enforcement, service SLOs and release policy remain open.
 - **PR/branch:** PR #8, docs/product-architecture-roadmap, open/unmerged.
 - **Gate status:** No research Gate closed; this is cross-cutting governance proposal work.
+- **Owner decision traceability:** Added Owner Decision Summary item #18 for governance adoption, reviewer model, administrator bypass and staged repository enforcement. It remains open; no policy adoption or settings change is implied.
 - **Next dependency:** Owner review; then inventory live repository controls. Write and enforce a stack-specific annex after the production architecture is approved and before production code merge.
 
 ## Repository enforcement readiness recheck — 2026-10-04
