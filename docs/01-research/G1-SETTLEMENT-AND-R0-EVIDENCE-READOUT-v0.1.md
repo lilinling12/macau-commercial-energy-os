@@ -70,3 +70,35 @@ The preflight explicitly records live R0-00 baseline run #1/#2 and R0-01 full-tr
 
 This readout directly extracts the named files from the supplied v1.6.2 archive and cross-checks the existing G7.1–G7.5 readout. It does not independently re-verify current CEM tariff values against live official sources; any archived prices are historical snapshots. It does not claim to have read every file in all archives or the full original ChatGPT shared conversation. The exact current branch and PR are verified separately in the current GitHub audit.
 
+
+
+## Public CEM tariff and PV source snapshot — 2026-10-05
+
+This update checks public first-party CEM pages and Macao Official Gazette sources. It adds current public context to, but does not resolve, the site- and invoice-specific G1 blockers above. Public tariffs are versioned/effective-dated inputs; the prototype still has no customer account, meter mapping, contract, bill, or settlement result.
+
+### What official public sources establish
+
+| Topic | Public-source observation | Product interpretation and boundary |
+|---|---|---|
+| Tariff classification | Administrative Regulation 25/2022 defines groups A–D. Group B covers medium/low voltage where subscribed apparent demand is at least 69 kVA and monthly use at least 10,000 kWh; if a customer meets multiple groups, the regulation provides a choice and a 12-month hold after choosing. CEM's Group B page repeats the eligibility and lists B1/B2/B3 metering classes. | Site onboarding must verify the actual tariff group, voltage, metering class, subscribed demand, consumption, contract/account and chosen-group effective period. Do not infer a group's tariff from a building type or the word “commercial”. |
+| Group B demand | CEM describes billed demand as (0.2Pc + 0.8Pu), with Pc the subscribed active demand and Pu the highest measured demand in a billing period. CEM also lists active and reactive-energy components, time bands and class-specific loss adjustments. | A schedule's optimizer interval is not automatically the Pu measurement interval. The exact meter/configuration and U-001 averaging/integration details remain unverified; do not derive bill-grade demand cost or savings from the six synthetic hourly intervals. |
+| Tariff-clause adjustment | CEM describes TCA as a quarterly adjustment. Its public table shows 2026 Q3 at MOP 0.36/kWh, effective 2026-07-22, for Tariff A and for B/C/D. | This is a dated public parameter snapshot, not the customer's complete bill, contract applicability, subsidy/tax treatment, or a timeless constant. Store source, class, effective-from/to and retrieval time if used in a future calculation. |
+| PV grid interconnection | Administrative Regulation 20/2014 establishes safety/installation conditions for PV systems in public or private buildings and connection directly or through the distribution system to the public grid. It requires technical and documentary conditions; grid interconnection is not automatic for an arbitrary installation. | The physical model may represent a site-specific, evidenced PV-to-grid connection after approved topology, equipment, metering and commissioning evidence. A city-level rule does not prove any candidate building's capacity or interconnection state. |
+| PV feed-in payment | CEM's PV page states a feed-in-tariff system effective 2018-07-01 and currently displays four installed-capacity tiers: below 10 kW at MOP 3.7/kWh; 10–100 kW at 3.4; over 100–500 kW at 3.0; over 500 kW at 2.8. | This documents a public purchase mechanism and schedule on CEM's page. It does not establish the eligibility, contracted rate, metering, commissioning, export volume or payee/account for a particular installation. It does not create a credit for a different building's account or a cross-site netting right. U-002/U-004/U-025 and site contracts remain necessary. |
+
+### Implications for the dispatch product
+
+1. **Keep the physics and settlement layers separate.** A PV installation may be physically interconnected to the public network under the applicable requirements, and CEM publicly describes feed-in remuneration. Neither fact means a consuming building can claim that generation as its own bill credit. Show site import, PV generation/use/export only where meter topology supports each flow; show the relevant account settlement as a separately evidenced mapping.
+2. **Model tariff applicability, not a single Macau tariff constant.** The schedule/economic record will need tariff group/class, voltage/metering class, customer choice where applicable, Pc, bill period, tariff calendar, measured demand evidence, active/reactive quantities, effective-dated TCA and any applicable account/contract terms. These are proposed data requirements, not approved schema names.
+3. **Keep unresolved settlement fail-closed.** Public descriptions can guide candidate rules and evidence requests, but U-001 measurement-window details and U-009/U-010/U-011 tax/Golden-Bill/rounding evidence still block a complete bill-grade claim. The existing R0 boundary remains C1 active-energy TOU + effective-dated TCA only, with its stated exclusions; do not generalize the Group B formula or PV feed-in page into a validated optimizer or customer result.
+4. **Do not put these public rates into the synthetic v0.5 schedule.** Its no-tariff/no-savings state remains correct. A later public-tariff research fixture must be explicitly labeled as a published-rule calculation, use an effective period and verified class, and remain separate from a customer's actual contract and bill reconstruction.
+
+### Sources checked
+
+- CEM, [Tariff Group B](https://www.cem-macau.com/en/customer-service/billing-service/tariff-group-b/) (eligibility, Pc/Pu demand description, energy components and tariff periods; accessed 2026-10-05).
+- Macao Official Gazette, [Administrative Regulation 25/2022](https://bo.io.gov.mo/bo/i/2022/26/regadm25.asp) (public electricity tariff system and tariff-group rules).
+- CEM, [Tariff Clause Adjustment](https://www.cem-macau.com/pt/customer-service/billing-service/tariff-clause-adjustment/) (quarterly published TCA; 2026 Q3 snapshot).
+- Macao Official Gazette, [Administrative Regulation 20/2014, Chinese text](https://bo.dsaj.gov.mo/isapi/go.asp?d=rega-20-2014cn) (PV installation and public-grid interconnection requirements).
+- CEM, [PV Feed-in Tariff](https://twww.cem-macau.com/en/go-green/photovoltaic-system-%28pv%29/feed-in-tariff/) (published capacity tiers and rates; page states system effective 2018-07-01).
+
+This source review updates public-rule context only. It does not resolve site-specific tariff classification, actual Pu interval, contract applicability, PV ownership/interconnection, payment assignment, cross-building credit, actual bills or customer economics.
