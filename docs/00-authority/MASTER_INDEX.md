@@ -54,7 +54,7 @@ Research → Decision → Architecture → Engineering → Implementation.
 - VS-001 identity and tenant authorization design (draft; provider/roles not selected): docs/03-architecture/detailed-design/VS-001-IDENTITY-AND-TENANT-AUTHORIZATION-DESIGN-v0.1.md
 - PRD-to-architecture traceability, design-gap matrix, and research Gate-to-delivery map (draft): `docs/03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md`
 - Current status and next authorized work: `docs/00-authority/handoff/CURRENT.md`
-- G1 CEM billing, demand-window and smart-meter unknown review (2026-10; partial public evidence): `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`
+- Macau personal-data and cross-border-flow review (official Law 8/2005/GPDP sources; project flow classification remains open under U-027): `docs/01-research/evidence/MACAU-PERSONAL-DATA-AND-CROSS-BORDER-FLOW-REVIEW-2026-10.md`\n- G1 CEM billing, demand-window and smart-meter unknown review (2026-10; partial public evidence): `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`
 - G1 Macau PV grid-interconnection, feed-in settlement and cross-site allocation boundary (2026-10; U-025 remains open): `docs/01-research/evidence/G1-PV-GRID-INTERCONNECTION-2026-10.md`
 - G2 Macau commercial-load flexibility evidence (public context only; site validation pending): `docs/01-research/evidence/G2-MACAU-COMMERCIAL-LOAD-FLEXIBILITY-EVIDENCE-2026-10.md`
 - G0 Thesis & Market Rationale Gate (substantially complete at thesis level; customer/buyer/commercial validation remains open): `docs/01-research/gates/G0-thesis.md`
