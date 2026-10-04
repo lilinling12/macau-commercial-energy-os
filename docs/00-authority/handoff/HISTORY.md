@@ -195,3 +195,11 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Status:** Public-source snapshot only. G1 remains OPEN; customer-specific applicability, Pu interval, B/C/D monthly installation-use formula, real Golden Bills and invoice arithmetic remain unresolved. C2 tariff-table cell attribution requires rendered/controlled-source verification. No bill-grade claim, customer savings claim or Gate closure is implied.
 - **Sources:** CEM tariff-group and TCA pages; Administrative Regulation 25/2022; Executive Decree 105/2022. See the evidence note for direct links and limits.
 - **Validation boundary:** Documentation-only update. Exact-head repository workflows must be checked; no application test, customer-data intake or runtime tariff implementation was performed.
+
+
+## 2026-10-04 — Official C1/C2 schedule clarification
+
+- **Change:** Rechecked the C-group merged-cell ambiguity against Article 7(1)–(3) of Executive Decree 105/2022 in the Official Gazette. The tariff order explicitly sets separate C1/C2 demand parameters and a shared C1/C2 seasonal energy-period schedule. Corrected the dated G1 rate snapshot and linked the clarification from the G1 Gate and Evidence Register.
+- **Status:** Public tariff schedule interpretation is strengthened. C2 loss adjustments and customer-specific tariff applicability still require account contract and bill evidence. U-001/U-009/U-010/U-011 remain open; G1 remains OPEN. No bill-grade result, customer savings claim or Gate closure is implied.
+- **Source:** https://bo.dsaj.gov.mo/bo/i/2022/26/despce_cn.asp?printer=1 (Article 7); CEM C-group page linked in the snapshot.
+- **Validation boundary:** Documentation-only update; exact-head governance checks are required. No application tests or tariff runtime implementation were performed.
