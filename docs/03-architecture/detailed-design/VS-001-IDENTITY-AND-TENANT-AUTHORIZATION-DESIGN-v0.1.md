@@ -58,6 +58,22 @@ No user or machine action for device execution is enabled in VS-001. A future co
 
 The PRD roles remain hypotheses. A later role decision may map roles to action families, but the backend must enforce action grants rather than trusting a UI role label. Avoid a single broad administrator role spanning customer data, secrets, tariff approval and field control without separate justification.
 
+### Workflow-to-authorization review map
+
+This map links the PRD/interaction flows to authorization actions and the specific customer/site facts that WP-4 must validate. It is **not** a role grant matrix; candidate job titles do not receive permissions by appearing here.
+
+| Product workflow | Candidate action family | Scope that must be enforced | Product/site question before role mapping |
+|---|---|---|---|
+| Connect/qualify a site and review data health | Site read; integration configuration; mapping propose/review; telemetry read | Explicit organization and site entitlement; ingestion identity is additionally bound to registered source/device/point IDs. | Who may connect a source, propose a point/asset mapping, approve the mapping, and view raw versus summarized telemetry? Must propose and approve be separated for this site? |
+| Explain cost, demand or settlement evidence | Cost read; tariff/contract read; evidence read/export | Explicit site entitlement. Portfolio/cross-site queries must resolve to the exact authorized site set; organization membership alone must not widen data access. | Which finance/asset users may see bill artifacts, tariff/contract terms, raw inputs and cross-site rollups? Which evidence may be exported/shared? |
+| Review a SHADOW recommendation | Recommendation read; review annotation | Site-scoped recommendation and actor attribution; annotation is not command authority. | Which roles may record reviewed/dismissed/needs-data, and can a reviewer annotate across assigned sites? No device-execution action exists in this MVP. |
+| Inspect evidence and request replay | Evidence read; replay request | Authorize the evidence record and every source/result reference; replay work inherits persisted actor and site scope and cannot broaden it. | Who may request a replay, access its derived result, and export lineage? Are compute quotas or approvals needed? |
+| Manage organization membership and site access | Membership/access administration | Explicit admin action grant; membership administration is distinct from entitlement to read every site's economic or operational data. | Does the organization administrator also receive site data access, or must each site grant be separate? Who approves high-impact membership changes? |
+| Partner configuration / delegated support | Time-bounded delegated configuration or support actions | Named organization/site, explicit action set, expiry/revocation, attributable human sponsor; no credential sharing. | Which partner actions are needed, who sponsors them, how long access lasts, and how the customer can revoke it? |
+| Telemetry service or Edge ingestion | Telemetry ingest; source health report | Workload identity bound to registered tenant/site/source/device/point; no human UI role or economic-review capability is inherited. | Which connector credentials and provisioning/rotation method apply to each pilot source? |
+
+**Stable design boundary:** enforce authenticated principal → explicit action grant → exact resource scope on the server. Candidate human roles may group grants for usability, but a UI role label, organization membership, request body, site selector or service identity cannot create a grant. Do not add control permission to the MVP.
+
 ## 4. Request authorization sequence
 
 For each HTTP/API request:
@@ -120,7 +136,10 @@ These scenarios define future acceptance evidence; they have not been executed a
 - Integration identity for site A cannot publish telemetry under site B or an unregistered device/point.
 - Revoked/expired service credential is rejected; retries do not restore revoked authority.
 - Background job cannot use an unscoped global repository method to read a site outside its persisted authorized scope.
-- Evidence reference from another tenant does not disclose subject, derivation, source refs or related recommendation.
+- Evidence reference from another tenant or an unentitled site does not disclose subject, derivation, source refs or related recommendation.
+- Organization membership administration does not implicitly grant data-read access to every site; any granted site set is explicit and auditable.
+- A delegated partner grant expires/revokes at its recorded scope and cannot be reused for another site or for economic/recommendation review unless those exact actions are granted.
+- A replay job remains confined to its persisted actor and authorized site scope even when referenced inputs span sites; cross-scope inputs fail closed.
 - Cache hit produced under a different tenant/site or policy version is not returned.
 - Audit record contains actor/action/scope/outcome but no credentials or sensitive raw payload.
 
@@ -130,8 +149,8 @@ Acceptance requires executable negative tests and reviewable evidence in the sel
 
 - Identity provider and federation protocols, including enterprise SSO requirements.
 - Session/token type, lifetime, refresh/revocation behavior, MFA and recovery policies.
-- Validated human roles, membership lifecycle, delegated integration access and approval responsibilities.
-- Organization/portfolio/site hierarchy and the semantics of cross-site finance/reporting access.
+- Validated human roles and role-to-action mapping, membership lifecycle, delegated integration access, configuration proposal/approval responsibilities and high-impact membership approvals.
+- Organization/portfolio/site hierarchy and exact site-entitlement semantics, including whether organization administrators have data access and how cross-site finance/reporting grants are explicitly assembled.
 - Service/workload identity mechanism across selected deployment modes.
 - Persistence isolation mechanism, including whether database row-level security is required.
 - Authorization cache policy and revocation bound.
