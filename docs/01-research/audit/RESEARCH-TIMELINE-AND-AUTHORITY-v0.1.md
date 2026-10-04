@@ -97,10 +97,16 @@ A filename/status-file inventory was generated for all **40 Macau Energy OS ZIP 
 - **Research authority:** current `main` has the controlling handoff; several later package assertions, v2.0 recovery files, and v2.1 assertion are not reconciled into it.
 - **Product design:** main/PR #8 contain a broad PRD and prototype v0.11. PR #10 adds the source/load dispatch product design, synthetic prototype and APP-11 logical-boundary proposal. PR #10 is open, draft and unmerged.
 - **Architecture/ADR:** main has NestJS/Go/Python bootstrap and bounded Phase C VS-001 evidence. PR #8 contains stack-neutral detailed-design drafts. G7.8 Fastify ADR vs NestJS implementation vs C+ report recommendation remains a traceable conflict, not an approved winner.
-- **UI/UX:** PR #8 has visual-design principles and an English synthetic v0.11 prototype. PR #10 has a dispatch UX review and a Traditional-Chinese synthetic study. The project-specific UI skill remains a local draft; no full locale, multi-viewport visual review, representative user test, or award-level outcome is claimed.
+- **UI/UX:** PR #8 has visual-design principles, an English synthetic v0.11 prototype, and a project-specific UI/UX skill under `.agents/skills/macau-energy-os-ui-ux/` on its open branch (head `91a184603cc4f8ffeb8b89afbe0daac3fe7c8ec1`). Root `AGENTS.md` on that branch points interface work to the skill. PR #10 has a dispatch UX review and Traditional-Chinese synthetic study. The skill is not on `main` until PR #8 is approved/merged; no full locale, multi-viewport visual review, representative user test, or award-level outcome is claimed.
 - **Technology reconciliation:** PR #11 has been updated with the Authority v1.6.2–v2.1 conflict addendum; PR #11 remains open/draft and does not modify controlling main.
 - **Engineering governance:** PR #9 remains a proposal; required branch checks/branch protection have not been established as adopted policy in the inspected evidence.
 - **Original shared ChatGPT conversation:** still not fully readable in this environment. The page only displays its title/login surface; the conversation tool returns recent turns, not the older full transcript.
 
 The audit remains partial at the per-file semantic level. The manifest gives complete package coverage; the next review should read the remaining package bodies and map each authoritative artifact to a specific repository path/commit/PR, with “not found” distinguished from “not merged”.
 
+
+
+## Supplemental source-access and skill status — 2026-10-04
+
+- Reopened the original share URL in the in-app browser: the page title is visible, but its message area is empty and the page shows a Login action. Re-read the related conversation record through the archive tool: exactly four recent turns are returned, with no next cursor and hasMore=false. The share URL and conversation record therefore still do not prove access to the complete original research dialogue.
+- The local project-specific UI/UX skill and its two references are now present on open PR #8 under `.agents/skills/macau-energy-os-ui-ux/`; root `AGENTS.md` links UI work to it. This is a proposal branch, not merged main authority. Exact PR #8 head `91a184603cc4f8ffeb8b89afbe0daac3fe7c8ec1` passed Authority Validation #962, Repository Hygiene #961, Contracts Validation #128 and Runtime Bootstrap #358. Those checks do not validate visual rendering or user experience.
