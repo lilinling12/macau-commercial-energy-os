@@ -147,7 +147,7 @@ Localize the entire critical dispatch task, not only navigation: evidence onboar
 
 ### Actual prototype coverage at this date
 
-The v0.1 layout-direction study was rendered only in Traditional Chinese at 1440×900, 1024×900, 768×900 and 375×812 CSS pixels; A/B/C switching, the page-only SHADOW state, skip-link focus and first direction-button focus were exercised. No Portuguese or English rendering, translation expansion test or locale-specific terminology review was performed. The v0.3 six-stage product-flow prototype remains unrendered in this review. Therefore multilingual support remains **proposed and unverified**, not implemented.
+The v0.1 layout-direction study was rendered only in Traditional Chinese at 1440×900, 1024×900, 768×900 and 375×812 CSS pixels; A/B/C switching, the page-only SHADOW state, skip-link focus and first direction-button focus were exercised. No Portuguese or English rendering, translation expansion test or locale-specific terminology review was performed. This paragraph refers to the earlier v0.3 single-screen dispatch comparison. It was source-reviewed and its browser accessibility tree was inspected, but it did not receive the six-stage visual review. The distinct six-stage v0.4 workflow was rendered later; see `REVIEW-v0.4.md` for the exact viewport, source revision, visible states and interaction limits. Therefore multilingual support remains **proposed and unverified**, not implemented.
 
 ### Owner questions retained for the product decision review
 
