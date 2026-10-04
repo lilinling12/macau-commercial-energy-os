@@ -65,9 +65,9 @@ Every user-visible result and stored record must resolve to an authorized organi
 
 ### PR-02 — Data quality and provenance
 
-For each relevant telemetry series, the product must expose source, event time, ingestion time, unit, quality, mapping status, and freshness. Missing, stale, uncertain, rejected, or unmapped inputs must remain visible.
+For each relevant telemetry series, the product must expose source, event time, ingestion time, unit, measurement quality/freshness, and Energy Graph mapping status/version. Mapping resolution and measurement freshness/quality are separate dimensions: a stale measurement does not invalidate a mapping, and a valid mapping does not make old or invalid data usable. Missing, stale, uncertain, rejected, or unmapped inputs must remain visible.
 
-**Acceptance:** When required inputs are stale, unmapped, or invalid, the product identifies the affected result and does not silently substitute a plausible value.
+**Acceptance:** When required inputs are stale, unmapped, or invalid, the product identifies the affected result and does not silently substitute a plausible value. Graph mapping outcomes (`UNMAPPED`, `AMBIGUOUS`, `CONFLICT`, `EXPIRED_MAPPING`) remain distinct from telemetry freshness and quality states.
 
 ### PR-03 — Energy Graph context
 
