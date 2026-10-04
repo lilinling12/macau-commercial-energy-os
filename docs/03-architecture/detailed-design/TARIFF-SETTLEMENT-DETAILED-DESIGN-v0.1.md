@@ -88,7 +88,11 @@ Each resolved field carries status and valid/system intervals. Resolution return
 
 Return:
 
-- overall status: `BILL_GRADE`, `PARTIAL`, `PROJECT_ASSUMPTION`, `BLOCKED`, or `FAILED`;
+- result status when a result exists: `COMPLETE`, `PARTIAL`, or `BLOCKED`;
+- top-level and component evidence status; scenario basis is `PROJECT_ASSUMPTION`;
+- settlement readiness: `BILL_GRADE_ELIGIBLE`, `SCENARIO_ONLY`, or `NOT_CALCULATED`;
+- request lifecycle is separate; an execution failure is `FAILED` and emits no CostResult or amount;
+- replay manifest/outcome is separate from the economic result status.
 - component results with formula/rule version, quantity, unit, rate/parameter, decimal amount and provenance;
 - demand/energy quantities before and after each approved adjustment;
 - invoice total, amount payable and carry-forward only if their semantics are resolved;
@@ -98,6 +102,10 @@ Return:
 - replay manifest identity and content references.
 
 A numeric total without resolved context and component trace is not a valid settlement result.
+
+### Projection to the shared economic-result vocabulary
+
+Tariff context resolution (`RESOLVED`, `PARTIAL`, `UNKNOWN`, `CONFLICT`) and component findings such as `UNKNOWN` are internal domain states, not top-level CostResult statuses. Map a resolved evaluation to `COMPLETE` only when the requested calculation finished with all required inputs; map an explicitly bounded usable subset to `PARTIAL`; map a required missing, ambiguous or conflicting input to `BLOCKED`. Preserve the specific resolver/component state and reason in the component evidence and unresolved references. Only a `COMPLETE` result that also satisfies the applicable G1/Golden Bill evidence can use `BILL_GRADE_ELIGIBLE`; assumption-based computation uses `PROJECT_ASSUMPTION` and `SCENARIO_ONLY`. Evaluator failure before a result exists belongs to the request lifecycle as `FAILED`. Replay completeness is represented by its manifest/outcome, not by changing the original economic result status.
 
 ## 5. Resolution and evaluation flow
 
@@ -122,16 +130,17 @@ Evaluator implementations are reviewed source code with stable version IDs. A ru
 
 | Condition | Result and operator-visible reason | Bill-grade? |
 |---|---|---|
-| No/ambiguous contract, meter or tariff mapping | `BLOCKED`; show unresolved entity and valid-time range | No |
-| Pu provided without trustworthy provenance, or no verified demand window | Demand component `UNKNOWN`; no demand-charge claim | No |
-| B/C/D monthly installation-use formula unresolved | Component `UNKNOWN`; no exact invoice total | No |
+| No/ambiguous contract, meter or tariff mapping | Economic result `BLOCKED`; retain resolver state and unresolved entity/valid-time range | No |
+| Pu provided without trustworthy provenance, or no verified demand window | Demand component `UNKNOWN`; economic result `BLOCKED` if demand is required for the requested scope, otherwise `PARTIAL` only under an explicit supported exclusion; no demand-charge claim | No |
+| B/C/D monthly installation-use formula unresolved | Component `UNKNOWN`; economic result `BLOCKED` when required for the requested bill total; a separately scoped analysis may be `PARTIAL` only when the component is explicitly excluded and disclosed | No |
 | Rates/TCA/contract change inside bill period without an effective-dated split | `BLOCKED`; show boundary and missing version | No |
 | Incomplete reactive-energy/time-band quantities | Partial result with omitted component and coverage | No |
 | PV export/self-consumption/account rights unclear | Keep producer export separate; block customer-credit allocation | No |
 | Invoice rounding/carry-forward semantics unresolved | Show pre-rounding component subtotal only as partial; do not claim amount payable | No |
-| Conflicting authoritative sources or post-hoc correction | `CONFLICT`; preserve both sources and require reviewed superseding rule | No |
-| Replay lacks any pinned input/rule/build | `FAILED` or `INCOMPLETE_REPLAY`; never substitute current values | No |
-| All required rules and quantities resolved and Golden Bill criteria pass | `BILL_GRADE` with component reconciliation and replay manifest | Yes, for exact covered tariff/version/site scope only |
+| Conflicting authoritative sources or post-hoc correction | Preserve resolver state `CONFLICT` and both sources; economic result `BLOCKED` when material, or `PARTIAL` only for an explicitly bounded unaffected scope; require reviewed superseding rule | No |
+| Replay lacks any pinned input/rule/build | Manifest is `INCOMPLETE` and replay outcome is `INCOMPLETE_REPLAY`; never substitute current values or change the original CostResult | No |
+| Evaluator terminates before producing a result | Request lifecycle is `FAILED`; emit no CostResult or monetary amount | No |
+| All required rules and quantities resolved and Golden Bill criteria pass | Economic result `COMPLETE` with `BILL_GRADE_ELIGIBLE` settlement readiness, component reconciliation and replay manifest | Yes, for exact covered tariff/version/site scope only |
 
 ## 8. State, correction and concurrency semantics
 
