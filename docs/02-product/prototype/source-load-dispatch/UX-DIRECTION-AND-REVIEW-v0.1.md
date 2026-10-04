@@ -84,3 +84,19 @@ That browser snapshot predates the current keyboard-semantics source edits. A fr
 - Approve visual design tokens only after rendered comparison and accessibility review.
 
 Until then, this is a documented proposal and quality checkpoint, not a frozen design system.
+
+
+## 7. Current design-reference check (2026-10-04)
+
+Reviewed the official design/accessibility sources and award materials again while assessing the review criteria:
+
+- Apple HIG [Layout](https://developer.apple.com/design/human-interface-guidelines/layout) was updated on 2026-09-09. It emphasizes visual hierarchy, grouping/progressive disclosure, adaptable layouts and testing across sizes, localizations and text sizes. [Motion](https://developer.apple.com/design/human-interface-guidelines/motion) says custom motion should be purposeful, brief, optional, and cancellable where practical.
+- Google [Material 3 Foundations](https://m3.material.io/foundations/) organizes guidance around accessibility, content design, tokens, interaction states and layout. Its [canonical adaptive layouts](https://m3.material.io/foundations/layout/canonical-examples/overview) show feed, list-detail and supporting-pane patterns across compact/medium/expanded breakpoints. These are adaptable references, not templates to adopt wholesale.
+- W3C [WCAG 2.2](https://www.w3.org/TR/WCAG22/) and its [focus appearance explanation](https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance) provide verifiable keyboard, contrast, focus and reflow requirements. Source attributes alone cannot demonstrate conformance; rendered and keyboard testing is still absent.
+- The Webby Awards' [2026/2027 criteria](https://www.webbyawards.com/judging-criteria/) assess content, structure/navigation, visual design, functionality, interactivity, innovation and overall experience; its 2026 [Best User Interface winners page](https://winners.webbyawards.com/winners/websites-and-mobile-sites/features-design/best-user-interface) defines excellence around a seamless end-user experience. These criteria support evaluating the console as an operating tool, not only as a visually striking first screen.
+- An [Awwwards Site of the Day example](https://www.awwwards.com/sites/self-aware) displays design/usability/creativity/content scores and separate developer dimensions such as accessibility and responsive design. This is an example of its judging surface, not a universal acceptance rubric for this B2B product.
+- The FWA's [25th-anniversary overview](https://thefwa.com/FWA25/25.html) describes its focus on digital innovation, creativity, originality and technical excellence; no detailed, project-applicable scoring rubric was established in this check.
+
+**Application to this product:** the schedule canvas should make the site's current context, source/load comparison, units, claim eligibility, constraints and next review action legible before decorative treatment. Motion can explain a schedule transition or provide concise feedback, but it must not obscure interval data or delay a frequent operator task. Responsive layout must preserve comparison and evidence access; at compact widths it may change the composition or switch to a table rather than shrink a desktop chart. The marketing-site aspiration for expressive storytelling remains separate from the persistent operations console.
+
+This reference review does not revise the prior render coverage: the browser blocked the updated GitHub raw prototype; only traditional Chinese appears in the prototype; no current 1440/1024/768/375 rendered comparison, measured contrast or full keyboard/screen-reader verification has been performed. No award-level, WCAG-conformance or user-validation claim is made.
