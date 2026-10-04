@@ -50,7 +50,7 @@ The result envelope should distinguish:
 
 - result kind: bill reconstruction, interval assessment, or baseline comparison;
 - scope: consumer import/settlement, producer export/feed-in, or an explicitly named site scenario;
-- status: at minimum complete, partial, blocked, or failed, with stable reason codes;
+- calculation result status: complete, partial, or blocked, with stable reason codes; failed is a request-lifecycle outcome when execution ends without a result;
 - period plus named clock/boundary policy;
 - amount and currency only where eligible;
 - component breakdown and trace references;
@@ -59,7 +59,7 @@ The result envelope should distinguish:
 - optional compatible baseline/candidate references and modeled delta;
 - replay-manifest reference and immutable semantic digest.
 
-Status must roll up conservatively: any mandatory unresolved input blocks a definitive result; optional unavailable detail may yield a partial result if clearly shown. A complete computational run does not establish economic truth if the source evidence or tariff rule is unverified.
+Status must roll up conservatively: any mandatory unresolved input blocks a definitive result; optional unavailable detail may yield a partial result if clearly shown. A complete computational run does not establish economic truth if the source evidence or tariff rule is unverified. Request lifecycle is separate: if execution terminates without a result, the request is FAILED and no CostResult or amount is emitted. An assumption-led scenario is expressed through PROJECT_ASSUMPTION evidence and SCENARIO_ONLY settlement readiness; its calculation result can still be COMPLETE, PARTIAL or BLOCKED.
 
 Do not expose RecommendationV1 objective.estimatedValue as a verified monetary result. A future recommendation may refer to an eligible assessment, but this design does not decide that contract change or imply RecommendationV2 exists.
 
@@ -90,7 +90,7 @@ Replay uses the exact referenced inputs and versions. A corrected source creates
 | Duplicate/corrected source data | Preserve source identity and correction lineage; produce a new immutable assessment |
 | Incompatible baseline/candidate versions | Refuse delta; show comparison incompatibility reason |
 | Replay input unavailable or digest mismatch | Mark non-reproducible; do not substitute latest data |
-| Evaluator timeout or dependency failure | Return failed/pending state without partial amount unless partial semantics are explicitly supported and disclosed |
+| Evaluator timeout or dependency failure | Keep the request pending or mark it failed; if no completed assessment exists, emit no CostResult or amount. A completed, explicitly bounded assessment uses PARTIAL only when partial semantics are supported and disclosed |
 | Invoice mismatch | Show component-level variance and unexplained residual; do not adjust silently to force a match |
 
 ## 8. Acceptance evidence
@@ -101,7 +101,7 @@ This design area is not accepted until evidence covers:
 - class/contract-specific demand-window, tax/fee, rounding and settlement rules, including unresolved exceptions;
 - deterministic replay of a pinned assessment and explicit behavior when a source/rule version is unavailable;
 - cross-scope isolation and negative tests for tenant/site authorization;
-- complete, partial, blocked, failed, stale, correction and invoice-variance states;
+- complete, partial and blocked economic results; failed/pending request lifecycle; stale, correction and invoice-variance states;
 - compatible and incompatible baseline comparison cases, with modeled delta separated from measured outcome;
 - accessible product review of terminology and states with target users;
 - owner approval of canonical result and replay contracts before generated bindings or production persistence are baselined.
