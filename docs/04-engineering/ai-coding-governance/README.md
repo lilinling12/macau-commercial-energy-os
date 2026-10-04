@@ -6,7 +6,7 @@ AI is a continuous research and engineering capability for this project. Its con
 
 Research Question → Evidence → Synthesis → Decision → Product / Architecture → Task Packet → AI-Assisted Work → Validation → Human Review → Durable Handoff
 
-Use `docs/00-authority/handoff/CONTINUATION-PROTOCOL.md` to run and persist the research loop across conversations. Use `TASK-PACKET-TEMPLATE.md` to define substantial research, product, architecture, engineering, or pilot work.
+Use `docs/00-authority/handoff/CONTINUATION-PROTOCOL.md` to run and persist the research loop across conversations. Use `TASK-PACKET-TEMPLATE.md` to define substantial research, product, architecture, engineering, or pilot work. The repository's `.github/PULL_REQUEST_TEMPLATE.md` carries authority, risk, exact-revision validation, compatibility, security/privacy, operations and human-review prompts into each proposed change; completing a template does not replace human approval or repository-enforced branch rules.
 
 ## Required start sequence
 
