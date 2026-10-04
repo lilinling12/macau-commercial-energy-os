@@ -131,7 +131,7 @@ Do not infer willingness to pay from hypothetical price reactions alone. Record 
 
 ## 5. Prototype usability session (45 minutes)
 
-Use synthetic prototype v0.5; label all records as synthetic and do not connect it to a live site or enter credentials. It adds context-reachable tariff/contract evidence and integration/site-access views while keeping final navigation undecided. Retain v0.2–v0.4 for comparison only when the session explicitly evaluates interaction changes. Tell participants the interface is being evaluated, not their expertise. Ask them to think aloud while allowing natural work. Where relevant, compare the result-kind choices and review dispositions without coaching.
+Use synthetic prototype v0.6; label all records as synthetic and do not connect it to a live site or enter credentials. It adds context-reachable tariff/contract evidence and integration/site-access views, and a compact selector at narrow widths that covers all nine views. Navigation remains a hypothesis to validate. Retain v0.2–v0.4 for comparison only when the session explicitly evaluates interaction changes. Tell participants the interface is being evaluated, not their expertise. Ask them to think aloud while allowing natural work. Where relevant, compare the result-kind choices and review dispositions without coaching.
 
 Choose the tasks relevant to the participant's role:
 
@@ -142,6 +142,7 @@ Choose the tasks relevant to the participant's role:
 5. **Inspect evidence/replay:** find pinned source/rule/model versions, separate replay state from measured-outcome state, and determine whether replay is complete or unavailable and whether an outcome has actually been measured.
 6. **Recover from a failure state:** respond to stale/partial data, missing authorization, or a failed integration without silently treating the result as verified.
 7. **Read the trend without relying on the graphic alone:** use the chart, text summary, or expandable sample table to describe the approximate synthetic pattern; identify the values as illustrative rather than measured site demand or CEM settlement demand. Record whether the alternate text/table representation helps the participant understand the trend.
+8. **Find a secondary view on a narrow screen:** at a phone-sized viewport, locate Tariff & contract evidence and Integrations & site access without coaching; return to a previous view using browser back and explain what changed. Record whether the participant notices, understands and can operate the compact selector. Repeat at a wider viewport only to compare navigation discoverability; do not imply a preferred interaction before testing.
 
 Do not coach during the first attempt. If the participant is stuck, ask what they expect to happen; then provide neutral assistance and record it.
 
@@ -154,11 +155,11 @@ Record per task:
 - errors, backtracks, hesitation, terminology mismatch and mistaken assumptions;
 - whether the participant can explain evidence status and downstream impact in their own words;
 - confidence (participant's own rating and rationale);
-- accessibility, keyboard, viewport or localization barriers;
+- accessibility, keyboard, viewport or localization barriers, including narrow-screen navigation discoverability and browser back/forward synchronization;
 - severity and frequency of each issue;
 - proposed design change and the evidence supporting it.
 
-Task time is contextual only; do not compare users with different task familiarity as if it were a benchmark. A task is not successful if the participant reaches the right screen but misunderstands bill reconstruction vs interval estimate vs modeled comparison; review disposition vs execution vs measured outcome; verified vs assumed; SHADOW vs execution; or consumer vs PV-export settlement.
+Task time is contextual only; do not compare users with different task familiarity as if it were a benchmark. For task 8, success requires independently finding both secondary views at phone size and returning with browser back while the visible selection follows the active view. A task is not successful if the participant reaches the right screen but misunderstands bill reconstruction vs interval estimate vs modeled comparison; review disposition vs execution vs measured outcome; verified vs assumed; SHADOW vs execution; or consumer vs PV-export settlement.
 
 ## 6. Evidence handling and synthesis
 
@@ -244,4 +245,4 @@ Finding IDs:
 - No customer interviews, artifact reviews or prototype usability sessions are evidenced by this plan.
 - The role, site and workflow hypotheses remain open.
 - This plan is an executable preparation artifact for WP-4; it does not authorize contacting participants, collecting customer data or altering the PRD based on invented evidence.
-- The next research action is to arrange authorized access to representative Macau site users, then conduct the discovery wave and prototype tasks while continuing independent Gate research.
+- The next research action is to arrange authorized access to representative Macau site users, then conduct the discovery wave and v0.6 prototype tasks, including narrow-screen navigation discoverability, while continuing independent Gate research.
