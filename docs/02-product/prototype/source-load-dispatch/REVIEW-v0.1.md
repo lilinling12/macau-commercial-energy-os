@@ -61,3 +61,8 @@ The previous browser accessibility-tree observation applies to the earlier sourc
 ## Source and authority notes
 
 The schedule-first job follows the explicit user direction and the product objective/boundaries in `main` D-001/002/003/004/005/006/009/013/019/055/056/060/061/077. Product requirements, visual direction, pilot/user hypotheses, locales and production architecture remain proposed until the applicable owner review and evidence are recorded. This review does not close G1/G2/G3/G6/G6.9/G7/G7.9, validate PR #8, or authorize a device write path.
+
+
+## 2026-10-04 fixture-verifier execution follow-up
+
+A direct check of the PR branch found the verifier still referenced the earlier local filenames, while the committed fixture and prototype are `v0.3/fixtures/synthetic-dispatch.json` and `v0.3/index.html`. Updated `validate-fixture.py` to use those committed paths. The verifier logic was then run against the exact PR-branch fixture and HTML contents (both byte-for-byte matched the inspected local copies, and the verifier matched after only normalizing its input paths). Result: **PASS** for six intervals, source/load balances, explicit HVAC shift/rebound, claim restrictions, and table alignment. This remains a static synthetic example check; it does not validate a live site, tariff, optimizer, visual rendering or device behavior.
