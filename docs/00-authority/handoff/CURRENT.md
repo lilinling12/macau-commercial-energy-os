@@ -375,3 +375,7 @@ A local browser observation found a material v0.7 comparison defect: `.workspace
 ## Product UX review update — v0.9 responsive observation — 2026-10-04
 
 v0.8 still overflowed horizontally at 320 CSS px because the body's 320px minimum width exceeded the 305px client width after the vertical scrollbar. Preserved v0.8 and added [prototype v0.9](https://github.com/lilinling12/macau-commercial-energy-os/blob/docs/product-architecture-roadmap/docs/02-product/prototype/v0.9/index.html), removing the minimum width. Browser viewport inspection at 320/375/768/1024/1440 CSS px found no document or mode-selector horizontal overflow and exactly one visible workspace at each width; screenshots showed the wrapped selector at 320 and the side-by-side evidence rail at 1440. 200% zoom remains unverified because the browser zoom shortcut did not change the viewport. Full keyboard traversal, assistive-technology, localization and WP-4 user evidence remain outstanding. v0.9 is the current IA stimulus; A/B/C are unselected.
+
+## PRD-to-delivery traceability follow-up — 2026-10-04
+
+The PRD-to-architecture traceability document now includes one joined map from PR-01–PR-09 to product flows/screens, planned WP-4 probes, detailed designs, vertical slices, and the current evidence needed before acceptance. The map makes missing customer/site validation and runtime proof explicit; it records no completed user study and does not advance any requirement to implementation-ready.
