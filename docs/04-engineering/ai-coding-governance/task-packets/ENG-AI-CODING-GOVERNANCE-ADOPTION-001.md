@@ -30,6 +30,7 @@
 - Separate written expectations from currently enforced repository controls.
 - Stage governance across research/design, pre-implementation, MVP implementation, production readiness and pilot.
 - Ground the proposal in mature engineering/security/reliability practices and adapt them to team and domain risk.
+- Align the existing Authority Validation and Repository Hygiene entrypoint checks with the canonical directory structure present on `main`, so focused PRs can receive reliable repository feedback.
 
 ### Out of scope
 
@@ -49,6 +50,7 @@
 6. The governance README links to the baseline and adoption plan; templates capture their task/review requirements. Lifecycle charter, roadmap and CURRENT integration is coordinated with PR #8 and remains pending that broader review.
 7. The reusable task-packet and PR templates capture accountable human ownership/review, risk tier, authority, exact-revision checks and relevant security/compatibility/operations review.
 8. Exact-head documentation/workflow results and limitations are recorded; no application behavior or tests are claimed.
+9. Authority Validation and Repository Hygiene check only canonical files present on the base branch and pass on the exact PR revision.
 
 ## Verification and evidence
 
@@ -59,7 +61,7 @@
 ## Completion record
 
 - **Changes/deliverables:** Prepared the proposed staged adoption plan and stack-neutral quality baseline as an independently reviewable policy package. The plan defines the AI-assisted change lifecycle, risk tiers, human accountability, staged enforcement and official mature-practice references. Lifecycle-charter/roadmap/handoff integration remains in the broader PR #8.
-- **Files updated:** AI-CODING-GOVERNANCE-ADOPTION-PLAN-v0.1.md; AI-CODING-QUALITY-BASELINE-v0.1.md; governance README; TASK-PACKET-TEMPLATE.md; .github/PULL_REQUEST_TEMPLATE.md; this packet.
+- **Files updated:** AI-CODING-GOVERNANCE-ADOPTION-PLAN-v0.1.md; AI-CODING-QUALITY-BASELINE-v0.1.md; governance README; TASK-PACKET-TEMPLATE.md; .github/PULL_REQUEST_TEMPLATE.md; `.github/scripts/validate-authority.sh`; `.github/workflows/repository-hygiene.yml`; this packet.
 - **Evidence / decisions / unknowns:** At the review snapshot, four CI workflows exist (Authority Validation, Repository Hygiene, Runtime Bootstrap, Contracts Validation), but GitHub reports main unprotected, required status checks disabled and no repository rulesets. PR-triggered actions also exercise existing scaffold checks; those results are recorded against the exact head in PR #8 and do not validate the governance proposal's operational enforcement. This task changed no application implementation. Owner adoption, reviewer ownership, stack-specific enforcement, service SLOs and release policy remain open.
 - **PR/branch:** This focused policy package is on branch `docs/ai-coding-governance-baseline`; lifecycle-charter, roadmap and handoff integration remains in broader PR #8.
 - **Gate status:** No research Gate closed; this is cross-cutting governance proposal work.
