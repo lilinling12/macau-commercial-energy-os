@@ -83,3 +83,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 
 - **Change:** Added an evidence qualification to D-003 in the Decision Register: HVAC/chiller remains the first-priority design/discovery hypothesis while G2 is OPEN, not a validated dispatchable asset, approved control target or savings claim. Reaffirmation or supersession requires named-site evidence and owner/site review.
 - **Status:** The original priority is preserved; no controllability or pilot selection is asserted.
+
+
+## 2026-10-04 — Macau data-protection and cross-border-flow review
+
+- **Change:** Added an official-source research note on Law 8/2005 and GPDP guidance, registered the evidence, and added U-027 for project dataset/flow classification and case-specific privacy/legal review. Updated the owner review item, master index and CURRENT handoff.
+- **Status:** Research only. No dataset was classified, provider region selected, legal advice obtained, transfer authorized or deployment decision made. Customer-data intake/external AI processing remains dependent on actual-flow review.
+- **Evidence:** `docs/01-research/evidence/MACAU-PERSONAL-DATA-AND-CROSS-BORDER-FLOW-REVIEW-2026-10.md`; official sources are linked within that note.
