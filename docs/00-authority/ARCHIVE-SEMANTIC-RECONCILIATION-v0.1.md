@@ -234,3 +234,57 @@ PR #8 adds a Step 3D readiness proposal and extensive product/architecture docum
 ### Practical consequence
 
 There is more original technical research than current main's Gate pages alone reveal, but several important results remain only in the supplied archive. The next migration/crosswalk must preserve source version and hashes, map each artifact to an exact current or proposed repository path, and state whether code/result was rerun, merely copied, summarized, superseded or absent. Do not recreate an archive experiment as new work until its existing implementation and results have been traced and assessed.
+
+
+## Source-package coverage and integrity audit — 2026-10-05
+
+### Inventory scope and verification
+
+The supplied project folder was enumerated at `D:\dev\project\lilinling\macau-commercial-energy-os`. Its indexed source set is 44 ZIP packages and two loose Authority Markdown files. The ZIP set contains 40 Macau Energy OS packages (472 member files) and four separately categorized remote-control research packages (34 member files, excluded from Macau product/architecture conclusions). There are 506 ZIP member files in total, plus the two loose Authority files. The two Deep Research reports are separate Downloads files and are fingerprinted below.
+
+An independent Python `zipfile`/SHA-256 pass checked each ZIP's digest, member count, member paths, and every member file's byte length and SHA-256 against `work/archive-deep-index.json`. It also rechecked the two loose files. Result: all 44 archive digests, all 506 member records, and both loose-file records matched; no archive was unreadable and no path/size/content-hash mismatch was found. This establishes index/source integrity and enumeration coverage. It does **not** establish semantic review of every source document or prove that the prior text extraction correctly interpreted every document.
+
+| Source group | Packages/files | Verification result |
+|---|---:|---|
+| Macau Energy OS ZIPs | 40 / 472 members | SHA-256, member paths, counts, sizes and member hashes match index |
+| Excluded remote-control ZIPs | 4 / 34 members | Integrity checked; excluded from Macau OS research conclusions |
+| Loose Authority snapshots | 2 Markdown files | Size/SHA-256 match index |
+| Deep Research reports | 2 Markdown files | Independently fingerprinted; semantic review is recorded elsewhere |
+| Original shared ChatGPT conversation | 2 share URLs attempted | Both return cache miss; chat archive returns four recent turns, `hasMore=false`, no older cursor |
+
+Loose snapshot fingerprints:
+
+- `macau-energy-os-research-authority-v2.0.md`: 1,609 bytes; SHA-256 `bd705a40a34dbe9be1248b6b8bd792913ed92b398a32ec32e42d99829a1b4661`.
+- `macau-energy-os-research-authority-v2.1.md`: 1,943 bytes; SHA-256 `93af2811b278fa7b1099a6f5fbd69a2a9f7b60cd26ecdaabecbc82676524a373`.
+
+Deep Research report fingerprints:
+
+- `D:\Downloads\deep-research-report (6).md`: 52,037 bytes; SHA-256 `1e0118807dbfdca3d13ae1949383b4cbfefb80db0cd867d13bd6c8dc0d744495`.
+- `D:\Downloads\deep-research-report (7).md`: 55,834 bytes; SHA-256 `5db518cbe85402e0a8ad2682b9e52a7782d17748ec95c60f43b4bb748b6cac82`.
+
+### Version conflicts that require source precedence
+
+The inventory identifies eight repeated relative paths with different content among Authority snapshots. This is evidence of version divergence, not by itself evidence that the later text supersedes an earlier executable result.
+
+| Repeated source path | Distinct indexed contents |
+|---|---:|
+| `authority-manifest.json` | 8 |
+| `decisions.md` | 8 |
+| `evidence/evidence-register.md` | 6 |
+| `handoff/current.md` | 8 |
+| `handoff/history.md` | 6 |
+| `open-questions.md` | 7 |
+| `readme.md` | 8 |
+| `technology/g6.9-r2-tech-stack-bakeoff.md` | 2 |
+
+The already documented high-impact conflict remains: v1.6.2 records G6.9-R2 Step 3A–3C evidence and Step 3D integration as pending; later snapshots broaden the “research complete” claim but the inspected packages still do not provide a Step 3D comparative run result. Loose Authority v2.0/v2.1 also assert later completion/transition states without supplying that missing run artifact. Current GitHub main's authority remains the active repository baseline until formally changed. Preserve both the historical gate claim and the evidence gap; do not infer a measured framework winner.
+
+### Semantic-review boundary
+
+The current semantic review directly reads the high-impact sources and artifacts cited in `RESEARCH-TIMELINE-AND-AUTHORITY-v0.1.md`, `ARCHIVE-SEMANTIC-RECONCILIATION-v0.1.md`, `G7.9-STEP3-DESIGN-RECONCILIATION-v0.1.md`, and the G7.9 acceptance/repository trace. It includes direct rereads of the supplied G7.9 Step 2 and G7.8 ADR packages, the detailed G7.6 Step 2 package, Authority v1.6.2, loose v2.0/v2.1, and Deep Research (6)/(7). The 44-package index provides names, paths, text headings/markers and hashes for the broader set; that inventory must not be described as a line-by-line semantic review of all 472 Macau package files.
+
+The full original share-conversation transcript remains unavailable through both supplied share URLs and the conversation archive API. Therefore its older turns and attached outputs remain an explicit unknown; conclusions here are limited to the readable archives, reports, local artifacts and GitHub evidence.
+
+### GitHub placement
+
+This audit is appended to the existing archive reconciliation artifact in PR #8 (`docs/product-architecture-roadmap`). PR #8 is open and unmerged; this does not move archive files into main or approve the gate/stack claims. PR #10 remains a separate draft for the dispatch-first product and G7.9 Step 3 proposal. Exact Actions results for the new PR #8 head must be checked before describing repository validation as passed.
