@@ -167,4 +167,4 @@ The WP-4 plan adds a comparative IA protocol: assign each participant one focal 
 
 ## Logical architecture diagram stack-neutrality — 2026-10-04
 
-A cross-review found the context diagram labeled the logical Edge boundary “Go” while Go remains only a provisional technology/responsibility candidate. The diagram now says “Site Edge Energy Runtime + Safety Kernel”; the technology comparison table still records Go as an unapproved proposal. No runtime decision changed.
+A cross-review found the context diagram labeled the logical Edge boundary “Go” while Go remains only a provisional technology/responsibility candidate. The diagram now says “Site Edge Energy Runtime + Safety Kernel”; the technology comparison table explicitly labels both Python AI responsibilities and Go Edge responsibilities as provisional proposals, with workload/hardware/deployment validation still open. No runtime decision changed.
