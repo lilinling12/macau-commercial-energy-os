@@ -99,3 +99,11 @@
 - Application/Event Contract Catalog APP-03, its asynchronous transition table, and §5.3 use those same boundaries and explicitly avoid exactly-once or heuristic deduplication claims.
 - **Finding:** no semantic conflict was found among these three draft documents for the reviewed receipt, publication, consumer-acknowledgement and identity rules.
 - **Limit:** this was a bounded static document-consistency review, not independent protocol validation or runtime proof. Owner decision #12, connector-specific ACK mapping, source event identity, physical persistence/topology, security/tenant enforcement, and fault-injection evidence remain open. No application code or tests changed.
+
+## G3 graph/telemetry identity cross-review — 2026-10-04
+
+- Cross-reviewed the telemetry envelope and receipt identity against Energy Graph resolution, the persistence boundary, APP-03/APP-04 and the prepared G3 evidence packet.
+- The accepted-record correlation key is the durable platform raw-capture ID. A producer/source event ID remains optional and must be authenticated and namespace-scoped before any future idempotency use; neither the capture ID nor correlation metadata proves two independent first captures are duplicate source publications.
+- The Energy Graph consumes the capture reference for lineage but resolves point/device mappings from source namespace and identifiers at measurement valid time plus system-time cutoff. Mapping expiry is represented as `EXPIRED_MAPPING`; freshness, coverage and clock quality remain telemetry-quality results.
+- Updated Energy Graph, APP-04, the G3 evidence packet, readiness audit and CURRENT. The task remains Review because owner decision #12, connector ACK mapping and architecture authority are open.
+- Static document review only. No producer identity, connector, site mapping, runtime state transition, fault-injection result or Gate closure was validated. Exact-head repository checks are recorded in PR #8.
