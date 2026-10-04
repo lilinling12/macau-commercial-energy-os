@@ -47,3 +47,35 @@ The CSS now gives both buttons and links 44 × 44 CSS-pixel navigation targets a
 The refreshed tree also reconfirms that this version is Traditional Chinese only, labels all scenario data synthetic, blocks bill-level economics when tariff/contract evidence is absent, explains HVAC rebound and the higher full-horizon peak, and marks equipment control disabled. It explicitly says the review action is page-local and non-persistent. English/Portuguese localization, date/number/currency formatting, runtime keyboard walkthrough, contrast, screen-reader chart equivalence, and real operator validation remain open.
 
 **Interaction scope:** source inspection confirms the rail controls are anchors to existing IDs. This pass did not activate the modal, table toggle, scenario control or page-local review button; their runtime behavior remains unverified. The visual screenshot dimensions for this refreshed load were not available in the browser accessibility observation, so no new visual or responsive conformance claim is made.
+
+
+## Responsive and interaction recheck — 2026-10-05
+
+**Exact prototype source:** PR #10 commit `8ffc60820c5a9883a0124f8a4a7a7dce0bc16eae`; HTML blob `8800da66fdf3034364bb2c54f1b12038f24113c6`. The exact branch file was re-fetched, served locally for inspection, and loaded in the in-app browser.
+
+### Rendered viewport observations
+
+| CSS viewport | Document width | Result observed |
+|---|---:|---|
+| 1440 × 900 | 1425 px | No document-level horizontal overflow; desktop navigation uses 56 × 44 px links. |
+| 768 × 1024 | 753 px | No document-level horizontal overflow; the 760 px mobile breakpoint is not active; desktop rail remains in use. |
+| 375 × 812 | 360 px | No document-level horizontal overflow; mobile layout is active; site identity and synthetic-data badge are separated cleanly; four navigation links measure 44 × 44 px. |
+
+The 768 px table is contained by its own horizontal scroll wrapper when that section is opened; the page itself remains within the viewport. These are browser-render measurements, not device testing. The data table's narrow-screen discoverability still merits review because its overflow is intentionally internal.
+
+### Interaction verification
+
+At 375 × 812, browser interaction checks on the exact source verified:
+
+- “Energy model” rail link changes the fragment to `#site-model`.
+- Evidence modal opens and closes.
+- Data table button sets `aria-expanded=true`.
+- Candidate scenario becomes selected and updates the comparison-focus text.
+- Page-local review changes to “reviewed” state without claiming persistence or control.
+- No console errors were recorded for the fresh final-version page.
+
+The first interaction attempt exposed an extra closing parenthesis in the page-local review handler. This syntax error prevented the entire inline script from parsing, so the modal, scenario, table and review handlers were all inert despite existing source text. The extra parenthesis was removed in the source listed above; Node's syntax check passed and the browser interactions then passed. This corrects the earlier review record's weaker source-only claim.
+
+### Remaining UI review limits
+
+Only Traditional Chinese is implemented. English/Portuguese translations, locale switching and localized date/number/currency formatting remain open. This pass did not verify full keyboard traversal, measured WCAG contrast, screen-reader chart/table equivalence, reduced-motion behavior across all transitions, or real operator task success. No site data, solver result, or customer-facing performance claim was validated.
