@@ -70,6 +70,9 @@ The MVP is SHADOW/advisory. It has no device-write authorization. The future Edg
 - A producer authorized for one site cannot submit a different tenant/site/device/point; forged, expired and revoked credentials are rejected; denial is attributable without logging credentials.
 - Two tenant requests over reused pooled connections, concurrent jobs, shared queues, caches and evidence links cannot inherit each other's scope.
 - Unauthorized export, support access and tenant-scoped backup restore are rejected and audited. A two-tenant restore can recover the selected tenant without exposing the other.
+- Organization membership administration does not implicitly grant site-data reads; the effective site set and economic/operational permissions are explicit, auditable grants.
+- Delegated partner access is attributable to its sponsor, restricted to the named organization/site and action set, and rejected after expiry or revocation; partner credentials cannot be reused as human or ingestion identities.
+- A replay request authorizes the evidence record and every referenced source/result for the actor's persisted scope; an unentitled cross-site reference fails closed, while an explicitly authorized multi-site scope remains possible.
 - Invalid units, timestamps, mappings, source identities or contract versions cannot become authoritative economic output. A corrected input creates new lineage; old results remain explainable.
 - A malicious evidence document or prompt-like data cannot change system instructions, request secrets, call tools, bypass evidence eligibility or produce an executable recommendation.
 - Per-tenant rate/queue/worker/storage limits prevent an abusive tenant from consuming unbounded shared resources; degraded health is visible and recovery is bounded.
