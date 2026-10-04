@@ -167,6 +167,14 @@ The separate provisional architecture proposal names React + TypeScript for the 
 
 If the owner wants frontend implementation included in the technology comparison, amend the pack to include equivalent browser workflows for A/B/C+ and separate UI effort/review metrics. Neither interpretation selects the production frontend. React + TypeScript remains a proposal until separately reviewed.
 
+### Next.js backend/API candidate fit — Owner decision #16
+
+Official Next.js documentation confirms that Route Handlers expose server-side HTTP endpoints and describes Next.js backend capabilities as an API/BFF layer, while cautioning that this is not a full backend replacement. Next.js 16 requires Node.js 20.9 or later, so the current proposed Step 3D Node 24.21.0 pin meets its documented minimum. Self-hosting on a Node.js server or Docker is supported, and the App Router supports streaming; however, the full deployment path must preserve chunked/HTTP/2 streaming and avoid proxy buffering. Serverless deployment behavior can impose timeouts and restrictions on persistent connections, so host choice must be pinned and measured.
+
+This establishes **technical plausibility for an API/BFF candidate**, not bake-off compatibility, performance, or production suitability. If Owner decision #16 includes Next.js, define it as an API/backend candidate with the same contract, auth, telemetry/live-stream and workflow acceptance cases; specify whether browser rendering is excluded and whether Temporal runs in a separate authentic Node worker. Pin Next.js/React and lockfiles, and amend the G6.9-R2 experiment authority before runner freeze. If it becomes a fourth candidate and the current per-candidate 10-task × 2-agent × 2-repetition AI trial design remains, the trial count changes from 120 to 160. If it is deferred, record “not assessed” without changing the current A/B/C+ candidate list.
+
+Sources: [Next.js Backend for Frontend guidance](https://nextjs.org/docs/app/guides/backend-for-frontend), [Route Handlers](https://nextjs.org/docs/app/getting-started/route-handlers), [Next.js 16 Node requirement](https://nextjs.org/docs/app/guides/upgrading/version-16), [self-hosting and streaming](https://nextjs.org/docs/app/guides/self-hosting), [platform deployment requirements](https://nextjs.org/docs/app/guides/deploying-to-platforms).
+
 ## 6. Ordered execution packet
 
 1. Resolve the candidate UI scope using the source-backed evidence in §5; record whether browser rendering is excluded (common UI contract/API/stream tests only) or added equally to all candidates, then preserve the approved interpretation in G6.9-R2 authority.
