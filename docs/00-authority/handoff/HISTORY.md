@@ -97,3 +97,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Change:** Rechecked the official Node.js release schedule and Temporal TypeScript SDK support. Clarified that Node 22.16.0 is the historical Step 3C pin; Node 22 remains Maintenance LTS through 2027-04-30; Node 24 is the v0.3.0 Step 3D candidate line and is Active LTS as of this review, with 24.21.0 pinned for repeatability. Node 26 remains Current as of this review and is not substituted into the pack.
 - **Status:** The exact Node 24 pin is a Step 3D experiment requirement only, not a production-runtime decision. Recheck compatible patches/support status at runner freeze; a major-line change requires authority update and comparable rerun.
 - **References:** Node.js release schedule https://nodejs.org/en/about/previous-releases and https://github.com/nodejs/Release#release-schedule; Node 22.23.3 https://nodejs.org/en/blog/release/v22.23.3; Node 24.21.0 https://nodejs.org/en/blog/release/v24.21.0; Temporal SDK support https://github.com/temporalio/sdk-typescript.
+
+
+## 2026-10-04 — G2 customer-group classification boundary
+
+- **Change:** Updated CURRENT and owner decision #2 after reviewing the DSEC Q3 2025 statistical note. Electricity users are classified by use declared when applying for supply; the reviewed sources do not provide a one-to-one crosswalk between DSEC Establishments and CEM Commercial. Hotel counts therefore cannot be used to infer a share of CEM commercial-customer sales.
+- **Status:** Aggregate sources remain valid for context only. No target segment or first pilot site is selected; G2 remains open pending site-level measurement.
+- **Evidence:** `docs/01-research/evidence/G2-MACAU-COMMERCIAL-LOAD-FLEXIBILITY-EVIDENCE-2026-10.md`.
