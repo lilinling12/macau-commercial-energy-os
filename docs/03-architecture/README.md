@@ -19,3 +19,5 @@ PRD and research-Gate traceability, current design gaps, and implementation audi
 Stack-neutral STRIDE threat model and verification scenarios (draft; no G6 closure): `detailed-design/SECURITY-THREAT-MODEL-v0.1.md`.
 
 Stack-neutral localization / internationalization design proposal (language set and implementation remain open): `detailed-design/LOCALIZATION-AND-I18N-DESIGN-v0.1.md`.
+
+Stack-neutral data persistence and schema evolution design proposal (owner/data/security review pending; no physical database or migration selected): detailed-design/DATA-PERSISTENCE-AND-SCHEMA-EVOLUTION-DETAILED-DESIGN-v0.1.md.
