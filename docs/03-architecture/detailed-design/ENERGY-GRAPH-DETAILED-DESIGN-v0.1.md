@@ -80,7 +80,7 @@ A graph resolution request includes:
 - event/measurement valid time, plus a system-time cutoff for historical replay;
 - optional expected measurement role or settlement purpose;
 - requested resolution profile (telemetry-to-asset, meter-to-settlement, or topology traversal);
-- immutable source event identity and provenance references.
+- the durable raw-capture record ID for an accepted telemetry record, plus provenance references; include a producer/source event ID only when the authenticated integration provides one. The capture ID identifies this platform receipt, not a source publication across independently received captures.
 
 A request-body tenant/site selector is only a requested scope. The resolver must compare it with authorization context; caller-supplied IDs are not authorization.
 
@@ -94,9 +94,9 @@ Return an explicit status:
 - `CONFLICT`: overlapping/inconsistent authoritative relationships or incompatible source facts.
 - `OUT_OF_SCOPE`: requested entity belongs to another tenant/site or is not authorized for the caller.
 - `INVALID_INPUT`: required source identifiers, metric, unit or time are malformed.
-- `STALE`: source identity is known, but current valid relationship expired or its freshness requirement fails.
+- `EXPIRED_MAPPING`: a known mapping is not valid at the requested measurement time and no applicable historical revision resolves it. Measurement freshness is telemetry quality, not a graph-resolution status; report it separately from mapping resolution.
 
-On success, return canonical measurement meaning/unit; source-to-canonical conversion reference (if any); physical asset and electrical boundary; settlement role/context only where explicitly linked; selected entity/edge IDs and revisions; evidence status; coverage/quality policy reference; and warnings. Never return a bare `assetRef`/ `meterRef`/ `contractRef` tuple without the path and temporal snapshot that justified it.
+On success, return canonical measurement meaning/unit; source-to-canonical conversion reference (if any); physical asset and electrical boundary; settlement role/context only where explicitly linked; selected entity/edge IDs and revisions; evidence status; coverage/quality policy reference; and warnings. Return mapping resolution separately from telemetry freshness/quality eligibility. Never return a bare `assetRef`/ `meterRef`/ `contractRef` tuple without the path and temporal snapshot that justified it.
 
 On non-success, return stable reason codes and the missing/conflicting references. Do not invoke exact tariff evaluation or optimizer ranking using an unresolved graph context.
 
@@ -127,7 +127,7 @@ Conflicting evidence is retained and raised for review. It must not silently ove
 
 ## 7. Integration with Tariff & Settlement and Energy OS
 
-- Telemetry ingestion calls graph resolution only after authentication and schema validation; preserve the raw event and source identity.
+- Telemetry ingestion calls graph resolution only after authentication and schema validation; pass the durable raw-capture record ID and preserve optional source event identity separately. Graph mapping resolution is independent of telemetry freshness/quality eligibility.
 - Resolved graph context supplies canonical quantities and references to settlement meter, account, contract and tariff context. The Tariff Engine independently validates effective dates, policies and rates.
 - The Energy Graph does not compute demand Pu; it identifies the meter/measurement boundary and may reference a verified demand policy. The Tariff Engine consumes utility-settled Pu or a policy-backed derivation with sufficient measurements (U-001).
 - Recommendations and Evidence Records pin graph snapshot ID and mapping revisions. Reprocessing after a mapping correction creates a new assessment/replay; it does not rewrite the past result.
@@ -140,7 +140,7 @@ Conflicting evidence is retained and raised for review. It must not silently ove
 |---|---|---|
 | Unknown BMS point or vendor namespace | preserve raw event; `UNMAPPED`; request reviewed mapping | no asset attribution or economic ranking |
 | Conflicting point mappings | `AMBIGUOUS` or `CONFLICT`; show candidate edges and validity | block exact calculation for affected quantity |
-| Expired mapping / late event | resolve against event valid time if historical version exists; otherwise `STALE` | no current mapping substitution |
+| Expired mapping / late event | resolve against event valid time and knowledge-time cutoff; if no revision applies, return `EXPIRED_MAPPING` (or `UNMAPPED` when no prior mapping is known) | no current mapping substitution; source freshness remains a separate telemetry-quality result |
 | Unauthorized cross-tenant/site reference | `OUT_OF_SCOPE`, security audit, no information leak through candidate list | deny tariff, evidence and optimizer access |
 | Utility meter vs submeters disagree | surface reconciliation discrepancy and source coverage; do not pick one silently | block bill-grade total until settlement boundary is established |
 | Import/export direction unknown | preserve unsigned/unknown flow semantics; do not net generation against load | block PV credit and signed economic roll-up |
