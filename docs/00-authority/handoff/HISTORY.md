@@ -232,3 +232,9 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Research protocol:** Added an optional comparative IA method to the WP-4 plan: assign a focal version for unaided task performance, balance variants across participants and role/site context where feasible, rotate optional comparison order, and distinguish observed performance from stated preference. The existing 5–8-person formative target is not sufficient by itself to rank all three options across user/site groups.
 - **Links:** Product README, owner review packet, owner decision summary, Master Index, Roadmap and CURRENT handoff updated.
 - **Status:** Synthetic design study only. No rendering/accessibility evaluation, participant recruitment/session, customer data, product decision or user finding is claimed. Product and visual direction remain open for owner review.
+
+## 2026-10-04 — v0.7 source contrast review
+
+- **Change:** Added a limited source-color calculation to the product review packet and CURRENT handoff: body text/canvas 14.29:1; muted text/canvas 5.85:1; amber status text/background 7.40:1; selected-mode text/background 11.38:1; focus outline/canvas 5.00:1.
+- **Boundary:** Selected source pairs only. They do not establish rendered contrast in every state, non-text contrast, focus appearance conformance, responsive behavior, zoom, forced-colors behavior, screen-reader support or WCAG conformance.
+- **Review limitation:** The available in-app browser rejected the local-file preview URL under its URL security policy. No alternate route was used. v0.7 remains without browser-rendered review or user evaluation.
