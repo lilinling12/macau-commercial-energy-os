@@ -28,7 +28,7 @@ Productization does not replace technical authority; it derives from it.
 - [Prototype v0.9 — workspace organization comparison](prototype/v0.9/index.html) is the comparative IA stimulus only. It presents one synthetic blocked-demand case in evidence-first, exceptions-first and guided-assessment layouts; it does not represent the full screen set or validate any user outcome. 200% zoom, assistive-technology and user evaluation remain open.
 - 中文 Owner 评审摘要 v0.1：[OWNER-REVIEW-BRIEF-zh-CN-v0.1.md](OWNER-REVIEW-BRIEF-zh-CN-v0.1.md)。它是英文决策队列的中文评审入口，不记录任何已批准决定。
 
-- [Prototype v0.10 — core product workflow](prototype/v0.10/index.html) is the current nine-destination interaction study. At 320/375/768/1024/1440 CSS px, the page had no document-level horizontal overflow; any wide synthetic table stayed inside its labeled scroll wrapper. All nine destinations switched to their matching view and URL state, browser Back restored Recommendations after Evidence & replay, and ArrowUp+Enter changed the narrow selector while focus moved to the destination heading. This bounded local observation is not user validation, screen-reader review, a 200% zoom check or WCAG conformance.
+- [Prototype v0.11 — core product workflow](prototype/v0.11/index.html) is the current nine-destination interaction study; v0.10 is retained as the prior stimulus. It preserves the same synthetic task and interaction flow while clarifying that demo review choices change only the page state, reset on reload, and are not saved, executed or measured. v0.10's bounded viewport/navigation observations carry forward only as historical observations; v0.11 has not received full rendered, screen-reader, localization, user or WCAG-conformance validation.
 
 ## Visual direction palette comparison v0.1
 
