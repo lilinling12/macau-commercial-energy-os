@@ -130,3 +130,35 @@ The current record now contains three distinct stages that must remain visible:
 Therefore the previous shorthand “no production framework direction was selected anywhere” was too broad: **G7.6/G7.8 do record a concrete accepted Fastify-based MVP baseline.** The unresolved question is whether that historical accepted baseline is the currently controlling production decision, was later superseded by an approved change, or was implemented differently without a recorded deviation. Main's NestJS path alone cannot answer that. Likewise, the data/event records contain a concrete PostgreSQL-only initial-store and NATS+JetStream baseline that conflicts with current provisional PostgreSQL+Timescale/event-candidate wording.
 
 Before any architecture freeze, maintainers should trace each ADR-068/071/072/073/074/075/076 into the current decision register and implementation paths, identify explicit supersession/deviation records, and compare the actual lockfiles/workflows/deployment files. The G6.9 Step 3D status conflict remains open; the package-level accepted ADRs should not be erased merely because main has a different scaffold.
+
+
+## Addendum — Exact main implementation and G7.9 domain boundary (2026-10-04)
+
+Current main files and its recursive Git tree were fetched directly after the archive comparison.
+
+### Runtime and repository implementation actually present on main
+
+| Area | Main-branch evidence | Interpretation |
+|---|---|---|
+| Platform API | `implementation/platform-api/package.json`: Node `24.21.x`, npm `11.19.x`, Nest `12.0.3` with `@nestjs/platform-express`, TypeScript `6.0.3`. | Actual Candidate B-style NestJS bootstrap, not Fastify. The main handoff explicitly says it does not prove a bake-off winner. |
+| Go Edge | `implementation/edge-runtime/go.mod`: Go `1.27.1`; typed telemetry event and test exist. | Small implementation slice; not production site protocol/safety commissioning. |
+| Python optimizer | `implementation/optimizer/pyproject.toml`: Python `>=3.14,<3.15`, no runtime dependencies declared. | Recommendation-boundary skeleton, not a demonstrated solver or forecast stack. |
+| Monorepo/package governance | Recursive main tree shows per-area directories but no root pnpm workspace, Turborepo config, Docker/Compose file, database migration tree, NATS/Timescale deployment config or application lockfile under `implementation/`. | The detailed G7.6 Step 2 bootstrap tree/tooling baseline has not been imported wholesale into main. Presence/absence here is scoped to the inspected recursive tree and paths. |
+| CI | Main has authority, contract-fixture, repository-hygiene and runtime-bootstrap workflows. | Some checks are active; this does not prove every G7.6 proposed gate (DB migrations, NATS/Postgres integration, security/secret scans, optimizer evaluation fixtures) is adopted. |
+
+Thus the repo's concrete toolchain is more specific than the main architecture summary: Node 24.21/npm 11.19/Nest 12 Express adapter/TS 6.0.3, Go 1.27.1, Python 3.14.x. Those are implementation facts, not a resolution of the conflicting Fastify ADR and G6.9 Step 3D status.
+
+### G7.9 Step 1/2 scope versus source/load scheduling
+
+The supplied G7.9 Step 1 package marks its domain foundation complete. Its `MVP_SCOPE.md` includes tenant isolation, building/asset/device registration, telemetry, an energy dashboard and basic recommendations; it excludes direct control, autonomous complex AI and a full billing system. Its vertical slice is simulator → Edge → telemetry contract → platform/storage → optimizer → recommendation → portal. This is the earlier implementation foundation, but it does not yet make interval-aligned grid/PV/ESS/flexible-load economic schedule comparison an explicit first-class user workflow.
+
+The Step 2 package marks domain/data/contracts complete and says **“No business implementation code yet.”** It lists Tenant, Organization, Site, Building, Energy Asset, Device, Telemetry Point/Record, Optimization Run and Recommendation; however, its relationship sketch omits Site. Its telemetry example contains tenant/site/device IDs, metric, value, unit and timestamp, while quality/provenance, separate observed/received time, interval semantics, idempotency and settlement evidence are not fully specified. Its next gate is G7.9 Step 3 Service Boundary and Implementation Design with Platform API, Edge, Optimizer and repository tasks.
+
+Main later implements Phase C VS-001 typed telemetry/evidence/recommendation/replay semantics. That bounded vertical slice and PR #10's APP-11 source/load assessment proposal are relevant implementation/design advances, but neither demonstrates a complete site-level economic dispatch engine, bill-grade Macau settlement, all G7.9 Step 3 outputs or pilot validation.
+
+### Corrected architecture/product status
+
+- Historical package ADRs do record an **accepted MVP baseline** (Node 24 + Fastify 5, PostgreSQL 18 without an initial dedicated time-series store, NATS JetStream, modular monolith).
+- Current main records a **different implemented path** (Node 24.21 + NestJS 12 / Express adapter), but explicitly leaves Candidate B unselected while G6.9 Step 3D is pending and C+ is provisional.
+- Therefore use “historically accepted G7.6 baseline” for the Fastify/PostgreSQL/NATS decisions and “currently implemented, still provisional main path” for NestJS. Do not collapse these into one current approved stack.
+- Product-wise, the direction is coherent at the mission level (economic source/load orchestration under constraints), but the early G7.1/G7.5 go-to-market phases and G7.9 dashboard/recommendation MVP defer dispatch relative to the present dispatch-first requirement. PR #10 is the current draft proposing that product-flow reconciliation.
