@@ -114,3 +114,40 @@ The earliest Authority v1.0 decision register and handoff were checked against c
 The current main decision register still lists D-001 through D-010 as ACTIVE (D-010 explicitly a hypothesis to validate with GTM); its current handoff also says G1 is OPEN and bill/settlement unknowns remain. Therefore the product direction itself is not evidenced as wrong. The important outstanding choices are scope/prioritization and evidence maturity: confirm initial buyer/site and promise, keep HVAC/chiller first, decide whether the first increment is physical feasibility only or evidence-qualified economics, and define whether UI work before G1/G3 closure is research-only. PR #8 materials correctly label these as unapproved/validation-pending; that status must stay visible.
 
 This crosswalk does not approve any PRD, prototype or UI direction and does not supersede the current main authority.
+
+## 9. G6.9-R2 execution boundary, candidate pins, and repository trace
+
+### What the source authority and pack evidence say
+
+The Library Research Authority v1.6.2 is explicit: G6.9-R2 Steps 3A/3B/3C are complete, while framework-native pinned Step 3D remains pending. Step 3B's 22 Node/Go protocol-case assertions and Step 3C's TypeScript/Node + Go semantic slices are evidence that protocol/business semantics can be shared across the tested shells. Step 3C explicitly did not run Temporal, Postgres/Timescale, NATS, MQTT, Hono/Effect or NestJS/Fastify together. Its runtimes (Node 22.16, Go 1.23.2, Python 3.13.5) are historical semantic-test versions, not candidate performance pins or selected production versions.
+
+The v0.2.0 pack supplies the experiment specification/contracts/corpus/validator. v0.3.0 adds Step 3C source and recorded results. Neither archive contains a completed Step 3D result set or a runnable pinned all-candidate integration. Their validators check pack structure/selected JSON and hashes; passing them cannot close Step 3D.
+
+PR #8 adds a 2026-10-04 preflight review and a machine-readable Step 3D manifest. The report records that host review found the required Docker/Compose, Bun, Go and Node 24.21.0 pin unavailable on the task host (Node 24.9.0 was installed but did not meet the pack pin), and no Step 3D command was run. The proposed dedicated disposable Linux x86-64 host is a recommendation only; no host, cost, execution, network, or evidence-retention arrangement has been approved.
+
+### Manifest state and blockers
+
+The manifest itself says draft-not-frozen, executionReady false, and selectsProductionArchitecture false. It leaves null or pending: Linux image/kernel/CPU/memory/disk and clean-runner procedure; several platform digests; Postgres/Temporal credentials/schema/health/reset; Temporal/NATS/MQTT/OTel configuration; candidate package locks; workload seeds, commit SHAs, schema hashes, agent versions, repetitions and raw-result retention. It also has unresolved scope decisions for common browser/API task coverage and the use of a separate Temporal PG16 runner database.
+
+Candidate pins in this file are experiment proposals, not production stack decisions:
+
+| Candidate | Manifest's proposed Step 3D runtime pin | Status |
+|---|---|---|
+| A | Bun 1.4.2 + Hono 4.13.12 + Effect 4.0.0 API; Node 24.21.0 + Temporal TypeScript worker | Unfrozen candidate |
+| B | Node 24.21.0 + NestJS 12.1.1/Fastify 5.12.5 + Temporal TypeScript worker | Unfrozen candidate |
+| C+ | Go 1.27.1 + Temporal Go; thin Bun/Hono BFF | Unfrozen candidate; C+ is only the repository's provisional topology hypothesis |
+| Shared intelligence/infrastructure | Python 3.14.8; Timescale PostgreSQL 18.6 app DB; proposed separate PostgreSQL 16.15 for Temporal persistence; Temporal server 1.32.0; NATS 2.15.0; Mosquitto 2.1.2; OTel Collector 0.162.0; Prometheus 3.15.0 | Experiment pins/blockers, not an approved deployment bill of materials |
+
+The draft manifest's freeze blockers include image digests and reproducible BOPTEST build; service credentials, schemas, health checks, limits and reset; dependency lockfiles; one same-host 24-hour soak; protected runner trust boundary; candidate source commits and workload/agent/repetition pins; raw evidence retention; and a common UI/API scope. Until each is resolved, elapsed time or green ordinary repository CI cannot be represented as bake-off evidence.
+
+### Next.js and the layer-summary authority mismatch
+
+Deep Research (7) discusses Next.js conditionally for a public/customer portal or where server-rendering/server features are useful; it does not select it as the authenticated Energy OS backend, and it is absent from A/B/C+ in the v1.6.2 bake-off authority. The newer PR #8 draft manifest introduces Owner decision #16: whether to add Next.js as a fourth backend/API candidate, replace Candidate B, or explicitly defer, with a corresponding pack amendment if included. That is a newly surfaced unresolved scope question, not proof that Next.js was a historical G6.9 candidate or selected backend. It must be reconciled with the original research and the user's distinction between “researched” and “decided” before changing bake-off scope.
+
+There is also a wording conflict across authority snapshots: current main CURRENT calls the React/TypeScript, TS/Go, Temporal, PostgreSQL/Timescale, NATS, Python, Go Edge and Wasm/WASI list an owner-confirmed provisional layer summary; PR #8's technology-selection README calls that same layer list “pending owner review.” Both sources distinguish it from the C+ topology matrix, but its approval status needs a dated cross-reference to avoid asking the owner to reconfirm something already recorded as provisional or accidentally treating it as a production freeze.
+
+### Repository status and exit conclusion
+
+The exact readiness plan, draft manifest and G6.9 selection README are in PR #8's changed-file list, but are not in main because PR #8 is open/unmerged. Main's 2026-10-04 CURRENT still marks Step 3D pending; PR #8's own G6.9 document likewise says unexecuted. The separate PR #14 Python optimizer prototype is not Step 3D and does not establish framework-native integration or a technology winner. Therefore G6.9-R2 is not complete on available evidence; its next substantive gate remains a frozen, reproducible, owner-authorized Step 3D common-runner execution, followed by the authority-defined candidate comparison/decision.
+
+This crosswalk does not authorize runner provisioning, add Next.js to the bake-off, change the provisional architecture, or close G6.9.
