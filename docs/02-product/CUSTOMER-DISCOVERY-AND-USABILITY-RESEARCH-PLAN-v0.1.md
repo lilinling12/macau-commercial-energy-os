@@ -131,7 +131,7 @@ Do not infer willingness to pay from hypothetical price reactions alone. Record 
 
 ## 5. Prototype usability session (45 minutes)
 
-Use synthetic prototype v0.6 for the established task flow, or v0.7 for a comparative workspace-organization session; label all records as synthetic and do not connect either prototype to a live site or enter credentials. v0.7 presents one demand-evidence case in three organizations (evidence-first, exceptions-first, guided assessment) with the content and visual styling held constant. Navigation and workflow remain hypotheses. Retain v0.2–v0.5 only when the session explicitly evaluates their historical interaction changes. Tell participants the interface is being evaluated, not their expertise. Ask them to think aloud while allowing natural work. Where relevant, compare the result-kind choices and review dispositions without coaching.
+Use synthetic prototype v0.6 for the established task flow, or v0.8 for a comparative workspace-organization session; label all records as synthetic and do not connect either prototype to a live site or enter credentials. v0.8 presents one demand-evidence case in three organizations (evidence-first, exceptions-first, guided assessment) with the content and visual styling held constant. Navigation and workflow remain hypotheses. Do not use v0.7 for comparative sessions: rendered review found that all variants remained visible because the grid display rule overrode the inactive sections' native `hidden` state. Retain v0.2–v0.5 only when the session explicitly evaluates their historical interaction changes. Tell participants the interface is being evaluated, not their expertise. Ask them to think aloud while allowing natural work. Where relevant, compare the result-kind choices and review dispositions without coaching.
 
 Choose the tasks relevant to the participant's role:
 
@@ -161,7 +161,7 @@ Record per task:
 
 Task time is contextual only; do not compare users with different task familiarity as if it were a benchmark. For task 8, success requires independently finding both secondary views at phone size and returning with browser back while the visible selection follows the active view. A task is not successful if the participant reaches the right screen but misunderstands bill reconstruction vs interval estimate vs modeled comparison; review disposition vs execution vs measured outcome; verified vs assumed; SHADOW vs execution; or consumer vs PV-export settlement.
 
-### v0.7 comparative information-architecture protocol
+### v0.8 comparative information-architecture protocol
 
 Use this extension only when the study question is which workspace organization helps a particular role understand and progress the evidence task. The prototype is a discussion stimulus, not a realistic operational system.
 
@@ -258,3 +258,8 @@ Finding IDs:
 - The role, site and workflow hypotheses remain open.
 - This plan is an executable preparation artifact for WP-4; it does not authorize contacting participants, collecting customer data or altering the PRD based on invented evidence.
 - The next research action is to arrange authorized access to representative Macau site users, then conduct the discovery wave and assign either the v0.6 workflow tasks or the v0.7 comparative IA protocol according to the approved study question, while continuing independent Gate research.
+
+
+### v0.8 rendering note
+
+A bounded browser observation at the available narrow viewport confirmed that only the selected variant is exposed after switching and that the A/B/C selector wraps instead of requiring horizontal scrolling. Keyboard Shift+Tab/Space changed the selected variant and exposed its corresponding workspace in the accessibility tree. This is one local browser context and does not establish fixed CSS viewport coverage, screen-reader behavior, full keyboard traversal, or target-user success. Recheck the exact deployed prototype version before any authorized participant session.
