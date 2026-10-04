@@ -99,7 +99,7 @@ Reviewed the official design/accessibility sources and award materials again whi
 
 **Application to this product:** the schedule canvas should make the site's current context, source/load comparison, units, claim eligibility, constraints and next review action legible before decorative treatment. Motion can explain a schedule transition or provide concise feedback, but it must not obscure interval data or delay a frequent operator task. Responsive layout must preserve comparison and evidence access; at compact widths it may change the composition or switch to a table rather than shrink a desktop chart. The marketing-site aspiration for expressive storytelling remains separate from the persistent operations console.
 
-This reference review does not revise the prior render coverage: the browser blocked the updated GitHub raw prototype; only traditional Chinese appears in the prototype; no current 1440/1024/768/375 rendered comparison, measured contrast or full keyboard/screen-reader verification has been performed. No award-level, WCAG-conformance or user-validation claim is made.
+At the time of this reference review, the updated v0.3 product-flow prototype had not been rendered at named viewport sizes. A subsequent review of the separate v0.1 layout-direction study is recorded below; it does not retroactively validate v0.3. Measured contrast, screen-reader review, full keyboard coverage, complete localization and user validation remain unperformed. No award-level, WCAG-conformance or user-validation claim is made.
 
 ## 2026-10-04 targeted design-system fit and dispatch-flow revision
 
@@ -109,7 +109,7 @@ Targeted UI/UX Pro Max results were useful for native selection semantics, acces
 
 The source review also uncovered and corrected the misleading 430 kW “peak” label. The entire synthetic horizon has a baseline peak of 485 kW and candidate peak of 510 kW at the HVAC rebound interval. This changes the interpretation of the candidate: a 15:00 interval reduction does not prove a lower peak or economic benefit. The view now puts the whole-horizon effect first and keeps cost/settlement claims blocked pending applicable evidence.
 
-Verification remains source-level plus the static synthetic fixture check. The CUA inventory reported no open browser tabs; a prior raw GitHub preview load returned ERR_BLOCKED_BY_CLIENT. No local server or alternate browser route was used. Current rendered composition, 1440/1024/768/375 px layout, all interaction states, measured contrast, WCAG conformance, full Portuguese/English localization and operator usability remain unverified.
+For the v0.3 product-flow prototype, verification remains source-level plus the static synthetic fixture check. It has not received a rendered viewport review, measured contrast audit, complete Portuguese/English localization, full keyboard/screen-reader review or operator usability evaluation. Separately, the v0.1 layout-direction study has been rendered at 1440×900, 1024×900, 768×900 and 375×812 CSS pixels in Traditional Chinese, with its A/B/C and page-only SHADOW interactions checked; those results and limits are in `directions/v0.1/REVIEW.md`.
 
 ## Cross-prototype task coverage check — PR #8 source review
 
@@ -121,4 +121,38 @@ The v0.10 initial view is Portfolio overview. Its navigation covers Portfolio, S
 
 The PR #10 v0.3 dispatch study is therefore a complementary, focused task prototype rather than a replacement for v0.10's broader workflow. It makes grid import, site PV, ESS discharge, HVAC shift/rebound, whole-horizon comparison, tariff evidence and SHADOW review visible together. It remains a single Traditional Chinese synthetic screen and does not provide the full path from contract/data verification through replay/M&V. These are coverage limits to resolve in the integrated PRD and user-flow review.
 
-The broad UI Pro Max patterns returned a marketing/conversion or operations landing page; neither should replace the operator workflow. The palette study remains unselected. No rendered UI or user test was performed in this cross-source review.
+The broad UI Pro Max patterns returned a marketing/conversion or operations landing page; neither should replace the operator workflow. The palette study remains unselected. At the time of this cross-source review, no rendered UI or user test had been performed. The later v0.1 layout-study rendering is a limited responsive/interactions check, not a user test.
+
+
+## Macau localization scope and evidence review — 2026-10-04
+
+### What the public evidence supports
+
+- The Macao Government Tourism Office states that Chinese and Portuguese are the official languages, Cantonese is most widely spoken, official languages are used for government documents/communications, and English is generally used in trade, tourism and commerce ([official language guidance](https://www.macaotourism.gov.mo/en/article/about-macao/language)).
+- The Macao Government Information Bureau's overview reports 2021 Census language figures: more than 81% speak Cantonese, 2.3% Portuguese, 45% Putonghua and 22.7% English ([Macao Government fact sheet](https://www.gcs.gov.mo/news/factSheet/en)). These are general population figures, not evidence about commercial-building energy operators, their procurement requirements or their preferred interface language.
+- These sources establish strong Macao context for Chinese/Portuguese and a credible commercial use case for English. They do not, by themselves, establish that a private commercial energy SaaS must provide a particular number of UI locales. Public-sector, concession, procurement or customer-contract obligations need separate review.
+
+### Product recommendation — proposed, not owner-approved
+
+Design the product for complete **Traditional Chinese, Portuguese and English** locale support. Make these selectable per user, with a tenant/site default only as an onboarding convenience; never let UI language change a calculation, tariff rule, evidence state, stored identifier or unit. Before committing the first pilot's launch languages, validate the actual operator, finance and facilities roles and any CEM/procurement/customer-document requirements. A few translated labels in the existing v0.10 prototype do not count as localization.
+
+Localize the entire critical dispatch task, not only navigation: evidence onboarding, meter/site-model terms, forecasts, baseline/candidate schedules, blocked/partial/infeasible explanations, tariff/settlement claims, SHADOW review, review history, alerts, empty/error/loading states, keyboard/accessibility labels, chart descriptions and any customer-facing export included in scope. Establish a human-reviewed energy/settlement glossary for Macao terminology; do not rely on machine translation for tariff, safety, comfort or financial explanations.
+
+### Locale implementation and acceptance proposal
+
+- Keep source content in locale catalogs with typed keys and a completeness check. Missing critical strings should fail release validation instead of silently mixing languages in the operator workflow; development may expose missing-key markers.
+- Format dates, times, decimal/group separators and MOP display using locale-aware presentation. Store instants, quantities, units, evidence and tariff semantics independently of locale; preserve the configured site timezone and do not infer settlement intervals from display format.
+- Check CJK and Latin font coverage, line wrapping, table density, chart labels, numeric alignment, focus/error states, and text enlargement separately in each locale. Every chart needs direct labels plus an equivalent accessible description/table.
+- Pilot acceptance should show complete reviewed translations for all in-scope states in each selected locale, consistent technical terminology, no clipped/overlapping strings at compact/medium/desktop sizes, correct date/number/currency presentation, keyboard and screen-reader name coverage, and zero missing critical keys. Localization review is separate from WCAG conformance and operator validation.
+
+### Actual prototype coverage at this date
+
+The v0.1 layout-direction study was rendered only in Traditional Chinese at 1440×900, 1024×900, 768×900 and 375×812 CSS pixels; A/B/C switching, the page-only SHADOW state, skip-link focus and first direction-button focus were exercised. No Portuguese or English rendering, translation expansion test or locale-specific terminology review was performed. The v0.3 six-stage product-flow prototype remains unrendered in this review. Therefore multilingual support remains **proposed and unverified**, not implemented.
+
+### Owner questions retained for the product decision review
+
+1. Must the first pilot provide full workflows and exports in all three languages, or can a named pilot cohort validate a staged launch?
+2. Which roles need Portuguese and English, and which customer/legal/procurement materials require bilingual or trilingual delivery?
+3. Should locale preference be per user only, or should a site default also be configurable for shared control-room workstations?
+
+No language scope is frozen by this review.
