@@ -39,6 +39,7 @@
 .outcome-item strong{display:block;font-size:12px}.outcome-item span{display:block;margin-top:5px;color:var(--muted);font-size:11px}
 @media(max-width:1050px){.flow-nav{grid-template-columns:repeat(3,minmax(0,1fr))}.flow-grid{grid-template-columns:1fr}}
 @media(max-width:760px){.flow-nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.flow-step{min-height:60px;padding:8px}.flow-head{align-items:start;flex-direction:column;gap:8px}.flow-section{margin:19px 0;padding:15px 0 18px}.flow-pane{padding:14px}.flow-balance{grid-template-columns:1fr;gap:8px}.flow-arrow{transform:rotate(90deg);justify-self:center}.outcome-grid{grid-template-columns:1fr}.flow-table table{min-width:650px}}
+@media(max-width:600px){.top{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;align-items:start}.site{flex-wrap:nowrap;gap:8px}.site-name,.site .small{white-space:nowrap}.topright{justify-content:space-between}.badge{white-space:nowrap}}
 </style>
 </head>
 <body>
@@ -46,7 +47,7 @@
 <div class="frame">
 <aside class="rail" aria-label="主導覽"><div class="brand" aria-label="Macau Energy OS">M.</div><nav class="railnav" aria-label="主要流程"><a href="#mainContent" aria-label="組合概覽">⌂</a><a href="#dispatchComparison" class="active" aria-label="來源調度" aria-current="page">⌁</a><a href="#site-model" aria-label="能源模型">⌘</a><a href="#evidence-check" aria-label="證據">◷</a></nav><div class="railend">v0.4</div></aside>
 <main class="main" id="mainContent" tabindex="-1">
-<header class="top"><div><div class="crumb">Energy operations / dispatch</div><div class="site"><span class="site-mark">⌂</span> 示範商業站點 <span class="small">· 澳門情境</span></div></div><div class="topright"><span class="badge"><i class="dot"></i>合成情境 · 非現場資料</span><div class="avatar" aria-label="使用者">AC</div></div></header>
+<header class="top"><div><div class="crumb">Energy operations / dispatch</div><div class="site"><span class="site-mark">⌂</span><span class="site-name">示範商業站點</span><span class="small">· 澳門情境</span></div></div><div class="topright"><span class="badge"><i class="dot"></i>合成情境 · 非現場資料</span><div class="avatar" aria-label="使用者">AC</div></div></header>
 <section class="head"><div><div class="eyebrow">來源與負荷 · 調度工作區</div><h1>把能源安排，<br>放回每個時段。</h1><p class="sub">比較供能來源與可調負荷的候選安排。先核對現場證據，再理解成本、約束與不確定性。</p></div><div class="controls"><select class="select" aria-label="選擇規劃日期"><option>示例日期 · 合成情境</option></select><select class="select" aria-label="選擇時間粒度"><option>1 小時示例粒度</option></select><button class="outline" id="evidenceBtn" aria-haspopup="dialog" aria-controls="modal">查看輸入依據</button></div></section>
 <div class="strip" aria-label="目前規劃條件"><div class="stripitem"><strong>規劃時段</strong>12:00–18:00 · 澳門時間示例</div><div class="stripitem"><strong>輸入快照</strong>合成資料 · 版本 DEMO-03</div><div class="stripitem"><strong>建議狀態</strong>情境比較 · Shadow</div><div class="stripitem"><strong>計費規則</strong>未核實 · 暫不提供帳單級金額</div></div>
 
