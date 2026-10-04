@@ -7,7 +7,7 @@
 
 ## 1. Product intent
 
-Macau Commercial Energy OS helps a commercial-site team understand the economic meaning of energy data, evaluate constrained optimization recommendations, and verify what happened. It joins site metering and building-system data with physical/settlement topology, customer contracts, and applicable tariff rules.
+Macau Commercial Energy OS helps commercial-site teams plan and review evidence-bounded economic source/load dispatch. Its primary workflow compares interval-aligned baseline and candidate schedules for grid imports, on-site PV, ESS and site-qualified flexible loads, then explains technical constraints, supported economics and later measured outcomes. It joins telemetry and the physical energy model to contracts, tariffs and settlement evidence without conflating energy flow with billing rights.
 
 The first release must make evidence gaps visible. It must not present assumed settlement inputs, synthetic reference-building outcomes, or an AI-generated explanation as verified customer economics.
 
@@ -30,10 +30,12 @@ Before fixing role permissions or navigation, validate who uses each workflow, w
 
 For an in-scope site, an authorized user can:
 
-1. see whether the relevant data is present, fresh, mapped, and trustworthy;
-2. understand which meter, contract, tariff version, and settlement evidence support a cost result;
-3. inspect a shadow recommendation together with its baseline, constraints, uncertainty, and source inputs; and
-4. replay the evidence used to produce the result.
+1. qualify the source snapshot, contract evidence, meter mappings and site-time horizon;
+2. resolve which grid, on-site PV, ESS and flexible-load resources are supported for that site and interval;
+3. compare a baseline and candidate source/load schedule over the same intervals, including constraints and whole-horizon effects;
+4. inspect cost only when applicable tariff, demand and settlement evidence supports it, otherwise see an explicit blocked state;
+5. record a SHADOW review that does not authorize or execute a device action; and
+6. preserve and replay inputs, versions, schedule and review state against later measurements.
 
 ### Included in the first product increment
 
@@ -41,6 +43,7 @@ For an in-scope site, an authorized user can:
 - Telemetry ingestion and visible data quality/provenance.
 - Energy Graph resolution for the in-scope site, meters, assets, contracts, and tariff references.
 - Effective-dated tariff resolution and cost/bill analysis only when required inputs are supported.
+- Source/load dispatch assessment and schedule comparison over a shared horizon, with verified eligibility and limits for each included resource; unknown parameters block feasibility/economic claims.
 - Forecast and optimizer integration through versioned contracts, operating in shadow/advisory mode.
 - Recommendation explanation with baseline, constraints, assumptions, uncertainty, and expected effect.
 - Evidence Record, audit trail, and deterministic replay.
@@ -112,6 +115,16 @@ The interface must keep recommendation, review/approval, authorization, command,
 The responsible user must be able to identify whether source integrations are connected, delayed, failing, or producing rejected/unmapped data, and understand which product results are affected.
 
 **Acceptance:** A failed or stale source is surfaced with its effect on coverage and downstream calculations rather than hidden behind a green aggregate status.
+
+### PR-10 — Economic source/load dispatch
+
+The product must let an authorized user inspect and compare a baseline and candidate energy schedule for the same site, horizon, timezone and interval grid. The candidate may include grid import, on-site PV, ESS charge/discharge, and in-scope flexible loads such as HVAC, EV charging or hot water only when the source, mapping, capability, contract/site authority and applicable operating limits are evidenced for that period.
+
+Each interval must make source contribution and load demand inspectable, preserve energy-balance semantics and expose applicable technical/comfort constraints, storage state/efficiency/reserve where supported, and full-horizon effects such as rebound. Physical energy flow must remain separate from customer settlement and bill calculation. Unknown constraints must not be treated as zero, unlimited or permissive. If applicable tariff, demand-window, contract or settlement inputs are unresolved, the system may present a clearly labelled physical scenario comparison but must block monetary totals, savings, export credits and ROI.
+
+The first product increment is SHADOW/advisory. A schedule review records a human disposition only; it does not create a command, authorize a device write or prove an outcome.
+
+**Acceptance:** For synthetic fixtures, an operator can inspect the same-horizon baseline/candidate schedule in both chart and data-table form, trace each included resource to its evidence/status, see a blocked reason for unresolved capability/economic inputs, and identify whole-horizon rebound or peak changes. The interface labels all synthetic values, exposes no device-execution affordance, and does not state realized savings. These checks do not prove a Macau site, optimizer or tariff result.
 
 ## 5. Product-level quality requirements
 
