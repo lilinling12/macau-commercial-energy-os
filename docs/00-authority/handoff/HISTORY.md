@@ -713,3 +713,11 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - Clarification to the governance-template entry above: although this documentation change did not edit application or test files and no local application tests were initiated, the PR's configured GitHub Actions automatically ran the existing Runtime Bootstrap workflow because the PR also changes that workflow.
 - At exact head 3cc910ae57daee0873d36f8466afee78a03cf7f0, the seven named checks passed: authority structure, repository hygiene, JSON contract syntax, platform API, Edge Runtime, Optimizer and Contract Fixtures. Runtime checks exercise the current scaffold and fixtures; they do not validate the new logical application/event design or establish production readiness.
 - The latest exact PR-head validation is maintained in PR #8; future commits trigger another run. No application code or test files were changed by this governance update.
+
+
+## Recommendation demo feedback clarity — prototype v0.11 (2026-10-04)
+
+- UI/UX Pro Max targeted searches and a source/browser review found v0.10's phrase “saved locally” overstated an in-memory DOM state change: no storage, persistence API or server request exists for the demo review dispositions.
+- Preserved v0.10 and created v0.11. The status now says the change is displayed only on the page, resets on reload, and is neither persisted nor a measured outcome/command. Product README, WP-4 session protocol, visual-design evaluation, CURRENT and ROADMAP now identify v0.11 as the current nine-destination study stimulus.
+- Source checks also found 44px minimum action buttons, visibly disabled controls, text-bearing status badges and the existing polite live-status region. A fresh browser tree showed the initial items unreviewed and controls enabled; an already open browser page showed the resulting in-memory reviewed state.
+- No refresh, full keyboard/screen-reader, contrast, localization, user or WCAG-conformance session was performed. No product meaning, launch language, palette, framework or persistent production review behavior is approved.
