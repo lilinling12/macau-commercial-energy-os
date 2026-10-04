@@ -45,6 +45,7 @@ Research → Decision → Architecture → Engineering → Implementation.
 - Logical system architecture and technology decision states: `docs/03-architecture/ARCHITECTURE-DESIGN.md`
 - VS-001 component-level detailed design draft (shadow-mode; not production authorization): `docs/03-architecture/detailed-design/VS-001-DETAILED-DESIGN-v0.1.md`
 - Data Persistence and Schema Evolution detailed design v0.1 (stack-neutral logical proposal; retention, physical schema, migrations and owner review remain open): `docs/03-architecture/detailed-design/DATA-PERSISTENCE-AND-SCHEMA-EVOLUTION-DETAILED-DESIGN-v0.1.md`
+- MVP Application and Event Contract Catalog v0.1 (logical operation/state proposal; endpoints, wire format and user semantics remain open): `docs/03-architecture/detailed-design/MVP-APPLICATION-AND-EVENT-CONTRACT-CATALOG-v0.1.md`
 - Tariff & Settlement Engine detailed design v0.1 (stack-neutral; G1 blocked; not bill-grade approved): `docs/03-architecture/detailed-design/TARIFF-SETTLEMENT-DETAILED-DESIGN-v0.1.md`
 - Energy Graph detailed design v0.1 (stack-neutral; G3/site validation pending): `docs/03-architecture/detailed-design/ENERGY-GRAPH-DETAILED-DESIGN-v0.1.md`
 - Telemetry Ingestion & Data Quality detailed design v0.1 (stack-neutral; contract parity and site policies pending): `docs/03-architecture/detailed-design/TELEMETRY-INGESTION-AND-DATA-QUALITY-DETAILED-DESIGN-v0.1.md`
