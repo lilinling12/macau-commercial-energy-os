@@ -10,7 +10,7 @@
 - **Gap:** no sufficiently specific design/contract is currently linked.
 - **Not audited:** implementation-to-requirement mapping and runtime acceptance evidence have not yet been reviewed in this matrix.
 
-No row is considered complete solely because a concept or schema exists.
+No row is considered complete solely because a concept or schema exists. The [MVP Application and Event Contract Catalog](MVP-APPLICATION-AND-EVENT-CONTRACT-CATALOG-v0.1.md) provides a logical operation/state crosswalk; it does not select wire contracts or endpoints.
 
 ## Requirement traceability
 
@@ -75,6 +75,7 @@ Gate status is controlled by the individual Gate record and Authority register. 
 5. **G7 pilot evidence:** PR-06 and customer value acceptance depend on reproducible baselines and live evidence; simulation and Macau-site measurements remain distinct.
 6. **Product validation:** role permissions, usability, deployment mode, SLOs, localization and commercial acceptance remain unvalidated and must feed PRD revision before scope is frozen.
 7. **Persistence and evolution:** the new logical design connects raw capture, tenant scope, time-versioned domain facts, durable derived evidence, replay, retention, backup/restore and schema migration. It is a draft; selected physical stores, retention/deletion, RPO/RTO and migration tooling remain open.
+8. **Application contract boundary:** the [logical operation catalog](MVP-APPLICATION-AND-EVENT-CONTRACT-CATALOG-v0.1.md) maps the user tasks to authorization, asynchronous statuses and capability owners. Product semantics, owner decisions, connector behavior, endpoint protocol and canonical schema format remain open.
 
 ## Preliminary source audit: existing VS-001 scaffold
 
