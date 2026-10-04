@@ -157,3 +157,8 @@ The current nine-destination prototype is v0.10. In one local browser context, s
 ## Localization and language selection hypothesis
 
 The current screens and task flows are English-first research stimuli, not a supported-language decision. Treat locale choice and terminology as a cross-cutting open product requirement. Validate languages per user, task and artifact with WP-4 participants; official-language context alone does not establish that every role needs every locale. Candidate discovery set: Traditional Chinese (`zh-Hant`), Portuguese (`pt`, regional variant unresolved) and English (`en`). Test long labels, mixed scripts, data dates/numbers/currency, chart legends, alerts, screen-reader language and role handoffs. Keep source bills, contracts, tariff notices and user-provided labels distinguishable from any reviewed translation. Acceptance and initial locale set require user evidence and owner review. See `docs/03-architecture/detailed-design/LOCALIZATION-AND-I18N-DESIGN-v0.1.md`.
+
+
+## Follow-up: v0.11 temporary recommendation feedback — 2026-10-04
+
+The current nine-destination study stimulus is v0.11; v0.10 is retained as its historical predecessor. This is the same synthetic task flow and recommendation-review hypothesis, with the confirmation copy corrected: the demo state changes only on the current page, resets on reload, and is not persisted, sent to a service, or evidence of execution/outcome. Product review semantics and durable production audit behavior remain subject to user and owner validation.
