@@ -65,10 +65,10 @@ h2{font-size:16px;letter-spacing:-.025em;line-height:1.22;margin:4px 0 0}
 h3{font-size:12px;margin:0}
 .help{font-size:10px;color:var(--muted);margin:5px 0 0}
 .chart-wrap{padding:0 9px 4px}
-.chart-wrap svg{display:block;width:100%;height:auto;min-height:220px}
+.chart-wrap svg{display:block;width:100%;height:auto;min-height:220px}.chart-wrap .plot-mobile{display:none}
 .axis{stroke:#e4ebe6;stroke-width:1}
 .gridline{stroke:#b6c7bf;stroke-width:1;stroke-dasharray:4 5}
-.label{fill:#697b7e;font:10px ui-sans-serif,system-ui,sans-serif}
+.label{fill:#697b7e;font:10px ui-sans-serif,system-ui,sans-serif}.plot-mobile .label{font-size:12px}.plot-mobile .point-label{font-size:12px}
 .point-label{fill:#314c52;font:600 10px ui-sans-serif,system-ui,sans-serif}
 .series-baseline{fill:none;stroke:var(--baseline);stroke-width:2.5;stroke-dasharray:6 5;stroke-linejoin:round}
 .series-candidate{fill:none;stroke:var(--candidate);stroke-width:3.2;stroke-linejoin:round}
@@ -157,7 +157,7 @@ h1{font-size:32px}
 .workspace.layout-evidence{grid-template-areas:"readiness" "chart" "evidence" "comparison" "review"}
 .panel-head{padding:14px 14px 8px}
 .chart-wrap{padding:0 4px}
-.chart-wrap svg{min-height:190px}
+.chart-wrap .plot-desktop{display:none}.chart-wrap .plot-mobile{display:block;min-height:0}
 .legend{padding:2px 14px 12px}
 table{min-width:700px}
 .footer-note{flex-direction:column;gap:5px}
@@ -193,7 +193,7 @@ table{min-width:700px}
     <header class="panel-head"><div><div class="eyebrow">01 · 電網輸入時序</div><h2 id="chart-title">候選時段較低，但全時段尖峰更高。</h2><p class="help">虛線為基線，實線為候選 · 小時平均 kW · 合成值</p></div><span class="pill alert">候選最大值 +25 kW</span></header>
     <div class="chart-wrap">
       <figure aria-labelledby="chart-title chart-caption">
-        <svg viewBox="0 0 860 275" role="img" aria-labelledby="plotTitle plotDesc">
+        <svg class="plot-desktop" viewBox="0 0 860 275" role="img" aria-labelledby="plotTitle plotDesc">
           <title id="plotTitle">基線與候選電網輸入，12時至18時</title>
           <desc id="plotDesc">基線最大輸入485千瓦，發生於16時至17時。候選最大輸入510千瓦，發生於17時至18時的空調回彈時段。15時至16時候選為430千瓦，較基線480千瓦低50千瓦。</desc>
           <line class="axis" x1="74" y1="218" x2="790" y2="218"/><line class="axis" x1="74" y1="30" x2="74" y2="218"/>
@@ -209,7 +209,21 @@ table{min-width:700px}
           <text class="point-label" x="474" y="128">430</text><text class="point-label" x="696" y="75">510 · 回彈</text>
           <text class="label" x="687" y="47">全時段最大</text>
         </svg>
-        <figcaption id="chart-caption" class="help">18:00 是規劃結束邊界，不代表該時刻量測值。圖表表示區間平均功率，不推算 kWh 或費用。</figcaption>
+        <svg class="plot-mobile" viewBox="0 0 360 265" role="img" aria-labelledby="mobilePlotTitle mobilePlotDesc">
+          <title id="mobilePlotTitle">流動版：基線與候選電網輸入，12時至18時</title>
+          <desc id="mobilePlotDesc">小時平均千瓦。候選在15時至16時為430千瓦，較基線480低50；17時至18時候選回彈至510，超過基線480。完整數值見下方時段表。</desc>
+          <line class="axis" x1="45" y1="218" x2="312" y2="218"/><line class="axis" x1="45" y1="30" x2="45" y2="218"/>
+          <line class="axis" x1="45" y1="168" x2="312" y2="168"/><line class="axis" x1="45" y1="118" x2="312" y2="118"/><line class="axis" x1="45" y1="68" x2="312" y2="68"/>
+          <text class="label" x="3" y="221">300</text><text class="label" x="3" y="171">380</text><text class="label" x="3" y="121">460</text><text class="label" x="3" y="71">540</text><text class="label" x="3" y="43">kW</text>
+          <text class="label" x="34" y="241">12</text><text class="label" x="122" y="241">14</text><text class="label" x="210" y="241">16</text><text class="label" x="298" y="241">18</text>
+          <path class="series-baseline" d="M45 187 H89 V153 H133 V122 H177 V106 H221 V102 H265 V106 H312"/>
+          <path class="series-candidate" d="M45 187 H89 V153 H133 V122 H177 V137 H221 V102 H265 V87 H312"/>
+          <circle cx="199" cy="137" r="4" fill="#fff" stroke="var(--candidate)" stroke-width="3"/>
+          <circle cx="288" cy="87" r="4.5" fill="#fff" stroke="var(--signal)" stroke-width="3"/>
+          <text class="point-label" x="179" y="129">430</text><text class="point-label" x="271" y="76">510</text>
+          <text class="label" x="270" y="57">回彈</text>
+        </svg>
+        <figcaption id="chart-caption" class="help">18:00 是規劃結束邊界，不代表該時刻量測值。圖表表示區間平均功率，不推算 kWh 或費用。窄屏精簡時序標籤；完整逐時數值見下方可捲動表格。</figcaption>
       </figure>
     </div>
     <div class="legend"><span><i class="line-sample base"></i>基線 · 合成參照</span><span><i class="line-sample"></i>候選 · 情境示例</span><span>標示直接顯示尖峰與回彈</span></div>
