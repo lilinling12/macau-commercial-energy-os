@@ -300,3 +300,12 @@ This is a deliberate prototype-coverage limit, not evidence that the product sho
 - The screenshot showed a compact header/selector, visible synthetic-data notice and vertically flowing content in the narrow preview. This does not establish exact CSS viewport dimensions, no-overflow behavior at specified breakpoints, touch-target sizing, 200% zoom, desktop layout, full keyboard order, screen-reader behavior, or WCAG conformance. A temporary wide viewport override produced a capture whose bounds were not reliable for desktop layout review; repeat desktop review with a measurable browser surface.
 
 **Boundary:** No prototype source was changed in this follow-up. No customer/user session, assistive-technology session, or production-interface acceptance is claimed. Keep visual direction and product scope unapproved pending owner review and authorized WP-4 research.
+
+
+## Follow-up: SHADOW review and evidence replay journey observation (2026-10-04)
+
+**Method:** Manually traversed the Recommendations and Evidence & replay views in the existing synthetic v0.6 preview. This checks the prototype's visible product boundary and response states only; it is not user research or runtime acceptance.
+
+- Recommendations states “Review is not approval to execute” and “no command endpoint.” Marking a proposal reviewed saves a local demo annotation, labels it reviewed (demo), disables the demo disposition controls, and announces that the annotation is not approval or an outcome. The proposal remains SHADOW and shows no verified savings. This path is consistent with the intended review-only product boundary in this browser context.
+- Evidence & replay identifies the record as synthetic, shows replay status “Not run in this visual prototype,” separates measured outcome from review disposition, and discloses that repository replay is fixture-based. Activating the demo control results in “Replay not connected” and “no runtime replay executed”; it does not imply that a replay ran.
+- These states support the draft's non-authorizing, evidence-bounded interaction. They do not validate whether target users understand the distinction, whether copy is understandable in Chinese/Portuguese, or whether a real review/audit workflow is complete. No UI decision, production flow, customer evidence, or runtime capability is approved.
