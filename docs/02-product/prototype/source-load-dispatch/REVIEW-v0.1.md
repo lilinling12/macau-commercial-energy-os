@@ -71,3 +71,11 @@ A direct check of the PR branch found the verifier still referenced the earlier 
 ## 2026-10-04 rendered-preview access follow-up
 
 The current in-app browser exposed no task tabs. Opening PR #10's raw GitHub HTML returned `net::ERR_BLOCKED_BY_CLIENT`. No local server or alternate route was used to bypass the browser block. The updated prototype still has no current screenshot, measured viewport, or interactive browser walkthrough; pixel-level visual, responsive and interaction findings remain unverified.
+
+## 2026-10-04 dispatch KPI and review-flow correction
+
+A source/data consistency audit found a high-severity label error: the prototype called 430 kW the candidate “peak” even though it is only the 15:00–16:00 interval. Across the displayed six-interval horizon, the candidate maximum is 510 kW at 17:00–18:00, while the baseline maximum is 485 kW at 16:00–17:00. The candidate therefore raises the illustrative maximum by 25 kW during HVAC rebound. The screen now labels the 15:00–16:00 value as an interval comparison, separately surfaces the whole-horizon maximum and rebound, and states that tariff/demand-charge effects remain unknown. This example now shows that the candidate can be economically unattractive under some demand rules; it does not claim an actual bill result.
+
+The baseline/candidate selector now visibly emphasizes the selected curves while retaining both curves, updates an aria-live focus label, and continues to clarify that the change is page-only. The review panel now has a page-only “record reviewed” affordance whose state resets on reload and does not authorize, persist or execute any action. Added a keyboard skip link to the main content and raised compact mobile navigation and key controls to 44×44 px with at least 8 px spacing.
+
+The updated static fixture verifier passed against the exact PR-branch HTML, verifier and JSON fixture in a temporary local verification folder. It checks six aligned power balances, HVAC shift/rebound, the 485→510 kW horizon peak, withheld claims, review-state copy and table alignment. This is internal synthetic consistency evidence only. No rendered screenshot, CSS-pixel viewport, keyboard/browser interaction, contrast measurement, screen-reader test, tariff or site validation was performed; prior browser access was blocked and no alternate route was used.
