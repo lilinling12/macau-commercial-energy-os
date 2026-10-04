@@ -1,5 +1,13 @@
 # Evidence Register
 
+## Cross-cutting — Macau personal data and cross-border flows
+
+- **Claim:** Law 8/2005 provides a fact-specific framework for processing personal data and transfers outside Macau; GPDP guidance identifies foreign-server hosting as a potential transfer scenario.
+- **Status:** VERIFIED for the cited statutory/regulator guidance; **UNKNOWN** for classification and legal treatment of any Energy OS dataset or actual provider flow.
+- **Evidence:** `docs/01-research/evidence/MACAU-PERSONAL-DATA-AND-CROSS-BORDER-FLOW-REVIEW-2026-10.md`; Macau Law 8/2005 Arts. 4(1)(1), 19–21; GPDP transfer guidance.
+- **Limit:** No project data-flow/vendor inventory or legal/privacy review is complete. Do not infer a Macau-only hosting mandate, compliance from location alone, or a blanket personal/non-personal classification for telemetry. U-027 remains open.
+
+
 All important claims and decisions must track evidence status.
 
 Statuses:
