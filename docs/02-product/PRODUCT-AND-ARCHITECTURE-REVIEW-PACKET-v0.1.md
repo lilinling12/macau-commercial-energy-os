@@ -367,3 +367,15 @@ This is a deliberate prototype-coverage limit, not evidence that the product sho
 - **Still open:** Browser zoom did not change under the attempted keyboard shortcut; 200% zoom remains unverified. Full keyboard traversal, screen-reader announcements, translated terminology, and WP-4 user performance remain open. This limited viewport observation is not a WCAG conformance claim.
 
 **Boundary:** v0.9 is a comparison stimulus, not an approved product IA or production UI. A/B/C remain unselected.
+
+
+## Follow-up: v0.6 full-workflow 320px overflow and v0.10 core-flow review (2026-10-04)
+
+**Method:** Rendered the synthetic full-workflow prototype locally, inspected its accessibility tree and screenshots, selected each of the nine destinations, used Browser Back, and applied viewport overrides at 320/375/768/1024/1440 CSS px.
+
+- **v0.6 finding:** at 320px, the body minimum width remained 320px while the vertical scrollbar reduced the available client width to 305px, producing document-level horizontal overflow.
+- **v0.10 correction:** preserved v0.6 and removed that minimum width in docs/02-product/prototype/v0.10/index.html. At the five observed widths, document scroll width matched client width. At 320px, the wide synthetic data table remained within its labeled horizontal-scroll wrapper rather than expanding the page.
+- **Observed interactions:** all nine destination options exposed their corresponding screen and URL hash. Browser Back from Evidence & replay returned to Recommendations and synchronized the selector. On the narrow native selector, ArrowUp+Enter moved from Evidence & replay to Recommendations, changed the URL, and moved focus to the page heading.
+- **Prototype boundaries:** content and actions are synthetic. Recommendation annotations and replay controls do not invoke production services. The walkthrough did not observe 200% zoom, a screen reader, complete keyboard order, localization, target-user results or WCAG conformance.
+
+**Status:** v0.10 is the current core-workflow study stimulus; v0.9 remains the distinct IA comparison. Neither determines approved product scope, workflow, visual system or frontend framework.
