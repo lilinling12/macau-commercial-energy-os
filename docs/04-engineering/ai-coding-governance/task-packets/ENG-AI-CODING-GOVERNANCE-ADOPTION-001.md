@@ -19,7 +19,7 @@
 ## Authority and constraints
 
 - **Authority:** docs/04-engineering/ai-coding-governance/AI-CODING-QUALITY-BASELINE-v0.1.md; docs/00-authority/PRODUCT-ARCHITECTURE-DELIVERY-GOAL-v0.1.md; docs/00-authority/ROADMAP.md; existing Research Authority and Decision Records.
-- **Current state:** Baseline and adoption plan are proposals. Production language/framework, repository branch protections, reviewer ownership, stack-specific commands, service SLOs and release processes are not established by this task.
+- **Current state:** Baseline and adoption plan are proposals. Production language/framework, reviewer ownership, stack-specific commands, service SLOs and release processes are not established by this task. GitHub reports main unprotected, required status checks disabled and no repository rulesets; four CI workflows exist but are not required merge gates.
 - **Constraints:** Do not claim compliance or certification; do not set arbitrary coverage/velocity targets; do not authorize customer-data processing, merge/release changes, live control or pilot operations; preserve owner decision boundaries and SHADOW/advisory scope.
 
 ## Scope
