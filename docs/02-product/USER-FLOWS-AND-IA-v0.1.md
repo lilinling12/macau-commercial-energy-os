@@ -147,3 +147,8 @@ For each primary flow, recruit representative energy/facilities, operator and fi
 - approve pilot metrics, support expectations and localization.
 
 Until then, this v0.1 is a design hypothesis and basis for prototype validation, not frozen product scope.
+
+
+## Follow-up: v0.10 core-workflow prototype review — 2026-10-04
+
+The current nine-destination prototype is v0.10. In one local browser context, selecting each destination exposed its corresponding view and synchronized the URL hash; browser Back restored the previous page and selected navigation state. On the narrow selector, ArrowUp and Enter changed the view and moved focus to the destination heading. At 320, 375, 768, 1024 and 1440 CSS px, document scroll width equaled client width. Wide sample tables remain inside their labeled horizontal-scroll wrappers. These observations do not establish task comprehension, a production workflow, 200% zoom behavior, screen-reader support, localization or WCAG conformance. The screen/flow design remains a hypothesis until authorized WP-4 research and Owner approval.
