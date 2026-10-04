@@ -90,3 +90,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Change:** Added an official-source research note on Law 8/2005 and GPDP guidance, registered the evidence, and added U-027 for project dataset/flow classification and case-specific privacy/legal review. Updated the owner review item, master index and CURRENT handoff.
 - **Status:** Research only. No dataset was classified, provider region selected, legal advice obtained, transfer authorized or deployment decision made. Customer-data intake/external AI processing remains dependent on actual-flow review.
 - **Evidence:** `docs/01-research/evidence/MACAU-PERSONAL-DATA-AND-CROSS-BORDER-FLOW-REVIEW-2026-10.md`; official sources are linked within that note.
+
+
+## 2026-10-04 — Node 22/24 lifecycle clarification
+
+- **Change:** Rechecked the official Node.js release schedule and Temporal TypeScript SDK support. Clarified that Node 22.16.0 is the historical Step 3C pin; Node 22 remains Maintenance LTS through 2027-04-30; Node 24 is the v0.3.0 Step 3D candidate line and is Active LTS as of this review, with 24.21.0 pinned for repeatability. Node 26 remains Current as of this review and is not substituted into the pack.
+- **Status:** The exact Node 24 pin is a Step 3D experiment requirement only, not a production-runtime decision. Recheck compatible patches/support status at runner freeze; a major-line change requires authority update and comparable rerun.
+- **References:** Node.js release schedule https://nodejs.org/en/about/previous-releases and https://github.com/nodejs/Release#release-schedule; Node 22.23.3 https://nodejs.org/en/blog/release/v22.23.3; Node 24.21.0 https://nodejs.org/en/blog/release/v24.21.0; Temporal SDK support https://github.com/temporalio/sdk-typescript.
