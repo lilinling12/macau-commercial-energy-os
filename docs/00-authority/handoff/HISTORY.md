@@ -783,3 +783,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - Corrected traceability rows to identify prototype v0.11 as the current core-flow stimulus (v0.10 predecessor); v0.9 remains the separate IA comparison. Updated CURRENT.
 - QLR-01 localization remains a proposed cross-cutting requirement; launch locales and terminology are not selected or user-validated.
 - This is a bounded document/source audit, not a full source-code/runtime audit, user study or Gate decision. No requirement is called complete and the lifecycle goal remains active.
+
+## Owner review packet prototype-status correction (2026-10-04)
+
+- Reconciled the front section of the Product and Architecture Review Packet with its later prototype history and the current handoff.
+- Corrected the stale statement that no IA comparison existed and that v0.7 was the usable A/B/C stimulus: v0.7 had a rendered variant-isolation defect, v0.8 overflowed at 320px, v0.9 is the corrected A/B/C comparison stimulus, and v0.11 is the current nine-destination core-flow stimulus (v0.10 predecessor).
+- Recorded bounded browser observations and explicitly retained limits: no participant findings, complete accessibility/localization evaluation, IA winner or owner approval.
+- Linked the nine-PRD readiness audit from the Owner Decision Summary. No decision was approved by these edits.
