@@ -39,7 +39,7 @@ The following is illustrative JSON-like structure, not a committed schema:
         "accountRef": "settlement account/stream reference or null for a site scenario",
         "aggregationPolicyRef": "required and versioned for a site-economics roll-up; otherwise null"
       },
-      "resultStatus": "COMPLETE | PARTIAL | SCENARIO | BLOCKED",
+      "resultStatus": "COMPLETE | PARTIAL | BLOCKED",
       "evidenceStatus": "VERIFIED | DERIVED | HYPOTHESIS | PROJECT_ASSUMPTION | UNKNOWN | CONTRACT_VERIFIED",
       "settlementReadiness": "BILL_GRADE_ELIGIBLE | SCENARIO_ONLY | NOT_CALCULATED",
       "currency": "ISO currency code",
@@ -87,7 +87,8 @@ The following is illustrative JSON-like structure, not a committed schema:
 
 - COMPLETE means the calculation ran against all required declared inputs. It does not by itself claim a verified customer bill.
 - PARTIAL means a clearly bounded subset was evaluated; excluded components, periods and input coverage must be visible.
-- SCENARIO means at least one material input/rule is a PROJECT_ASSUMPTION; monetary output must be visibly scenario-labelled.
+- Scenario basis is expressed through `evidenceStatus: PROJECT_ASSUMPTION` and `settlementReadiness: SCENARIO_ONLY`; it is not a calculation-result status. A completed scenario calculation may be COMPLETE or PARTIAL but is not bill-grade eligible.
+- FAILED belongs to the assessment request lifecycle when execution terminates without a result; no CostResult or amount is emitted for that failed request.
 - BLOCKED means a required input or rule is missing/conflicting and no authoritative amount is emitted.
 - BILL_GRADE_ELIGIBLE is allowed only when every tariff, contract, meter and measurement rule required for the declared scope has sufficient evidence, and the applicable Golden Bill gate is satisfied. Before that, use SCENARIO_ONLY or NOT_CALCULATED. G1 remains open.
 - VERIFIED, DERIVED, HYPOTHESIS, PROJECT_ASSUMPTION, UNKNOWN and CONTRACT_VERIFIED retain the existing EvidenceRecordV1 meanings; do not assign VERIFIED merely because software returned a value.
