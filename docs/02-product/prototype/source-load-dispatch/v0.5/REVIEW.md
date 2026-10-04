@@ -2,8 +2,8 @@
 
 **Status:** synthetic interaction/design study; no owner approval, site validation, tariff evaluation, user validation, or production UI claim.
 **Locale:** Traditional Chinese only.
-**Prototype:** [macau-energy-os-dispatch-workflow-prototype-v0.5.html](macau-energy-os-dispatch-workflow-prototype-v0.5.html)
-**Fixture:** [source-load-dispatch-workflow-fixture-v0.2.json](source-load-dispatch-workflow-fixture-v0.2.json)
+**Prototype:** [index.html](index.html)
+**Fixture:** [fixtures/synthetic-dispatch.json](fixtures/synthetic-dispatch.json)
 **Design guidance used:** project `macau-energy-os-ui-ux` skill and the local `ui-ux-pro-max` skill. The skill's design-system search leaned toward a marketing/conversion site and a generic organic palette, which does not match a persistent energy-operations workspace. A targeted product search did return a data-dense comparative analytics pattern; only that broad comparative principle was relevant. It did not select the product's palette, typography, or final visual system. No palette or architecture choice is frozen here.
 
 ## Change from v0.4
@@ -31,11 +31,11 @@ This check verifies only internal synthetic arithmetic and source-to-screen alig
 
 | Area | Observed | Still open |
 |---|---|---|
-| Product flow | Six linked stages appear in the current in-app browser accessibility tree: evidence readiness, physical model, aligned schedule, constraints/economics, SHADOW review, and outcome/replay. | Operator task validation and role/site scope. |
-| Energy semantics | Physical quantities are separated from tariff settlement; sample provenance, interval units and no-control state are stated. | Confirm terminology with Macau operators and finance users. |
+| Product flow | The current v0.5 in-app browser accessibility tree exposes all six stages: evidence readiness, physical model, aligned schedule, constraints/economics, SHADOW review, and outcome/replay. It also confirms the version rail says v0.5. | Operator task validation and role/site scope. |
+| Energy semantics | The v0.5 browser tree exposes the 15:00–16:00 discharge, 16:00–17:00 charge, 40→17.778→40 kWh SOC path, 509.691 kW recharge-period import, synthetic assumptions, and no-control state. It retains the separation from tariff settlement. | Confirm terminology with Macau operators and finance users. The interval table remained collapsed in this browser observation. |
 | ESS/HVAC | Candidate now exposes an explicit charge/discharge and SOC trajectory; HVAC shift/rebound is unchanged and fully interval-labelled. | Site-specific battery limits, thermal comfort/service model, response and safety constraints. |
-| Interaction/accessibility | Existing source includes native scenario buttons, labels, focus styling, a skip link, page-only review, a data-table alternative, reduced-motion handling and a keyboard-contained evidence dialog. | This turn did not re-run a keyboard/dialog walkthrough, measure contrast, inspect screen-reader speech, or verify WCAG conformance. |
-| Responsive | Source retains 1050/760/390 px layout breakpoints and a horizontally scrollable data table. | Pixel/render inspection at 1440, 1024, 768 and 375 CSS px; text enlargement and no-overflow checks. |
+| Interaction/accessibility | Source includes native scenario buttons, labels, focus styling, a skip link, page-only review, a data-table alternative, reduced-motion handling and a keyboard-contained evidence dialog. Browser accessibility-tree content was observed at the local preview. | This turn did not exercise the controls by keyboard, measure contrast, inspect screen-reader speech, or verify WCAG conformance. |
+| Responsive | Source retains 1050/760/390 px layout breakpoints and a horizontally scrollable data table. | This turn did not capture pixel screenshots or measure the active viewport; render inspection at 1440, 1024, 768 and 375 CSS px, text enlargement and no-overflow checks remain open. |
 | Localization | Traditional Chinese is visible in the current browser tree. | Portuguese and English complete flow, terminology, locale metadata, date/time/currency and long-string reflow. No multilingual support is claimed. |
 | Originality/visual direction | The composition puts the six-stage source/load decision ahead of generic portfolio metrics. Project skill calls for comparing complete task compositions and treating award sites as craft references, not templates. | Compare substantially different compositions and palettes on the same operator task; no owner selection or user validation yet. |
 

@@ -138,6 +138,7 @@ def main() -> int:
         for fragment in (
             "ESS 充電 候選", "SOC 候選 kWh", "24.691", "17.7778", "509.691",
             "ESS 充放電與 SOC", "設備控制未啟用", "預測、外部操作和量測結果分開記錄",
+            "Dispatch workflow study v0.5", '<div class="railend">v0.5</div>',
         ):
             require(fragment in html, f"prototype missing required text/data: {fragment}")
         require('id="evidence-check"' in html and 'id="site-model"' in html and 'id="dispatchComparison"' in html, "six-stage workflow anchors must remain")
