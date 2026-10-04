@@ -279,3 +279,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 
 - **Change:** The English Owner Decision Summary and Chinese owner brief now group the 15 open decisions by the earliest safe decision point and their evidence prerequisites. This distinguishes decisions available for directional review now, Step 3D runner-only choices, pre-customer-data governance/authorization, connector-dependent telemetry semantics, post-domain contract tooling, site-specific PV/asset claims, and later security verification.
 - **Status:** Prioritization aid only. No decision was approved, no Gate was closed, and production architecture remains subject to Owner review and evidence.
+
+
+## G1 concession-fee classification lead — 2026-10-04
+
+- **Change:** Rechecked official CEM and Gazette sources for U-009. Added a bounded note and evidence-register entry on the 2007 concession-contract Article 36 distinction between periodic tariffs for subscribed capacity/energy and fees for concessionaire services, alongside the 2025 extension/amendment effective 2026-01-01 and CEM's current “Taxa de Exploração” description.
+- **Finding:** This is a concrete review lead only. It does not establish that the current B/C/D monthly installation-use charge is the contract-defined service fee or reveal its legal basis/formula. U-009 remains UNKNOWN and excluded from bill-grade totals; G1 remains OPEN.
+- **Evidence:** `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`, `docs/01-research/evidence/EVIDENCE-REGISTER.md`, and `docs/00-authority/handoff/CURRENT.md`. Official sources are linked in the evidence note.
