@@ -797,3 +797,11 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - Replaced the stale active-delivery summary that highlighted v0.6/v0.7 with the current product/architecture status: v0.11 is the core-flow stimulus, v0.9 is the A/B/C IA comparison, and v0.7/v0.8 are historical defective stimuli. Updated the WP-4 summary to reflect bounded browser observations and continuing user/accessibility/localization gaps.
 - Corrected the Chinese owner-review brief reference from 16 to 17 decisions, including localization item #17. The Owner Decision Summary itself remains a review aid and records no owner approvals.
 - The readiness audit still finds PR-01–PR-09 partial/unaccepted. This documentation cleanup changes no product decision, Gate status, implementation or approval boundary.
+
+
+## Live AI coding governance enforcement recheck (2026-10-04)
+
+- Rechecked the live GitHub branch metadata and rulesets while preparing the proposed governance adoption model: `main` reports `protected: false`; required-status-check enforcement is off with no contexts; repository rulesets are empty.
+- PR #8 head `a5b94a7b968990a3fa608a01ef18d98f442bb9e4` had four passing workflows but no submitted reviews or inline review threads. These workflow results are not merge gates.
+- The linked integration cannot read the exact protection endpoint (403) and exposes no branch-protection/ruleset write operation. No setting or permission was changed. Requiring GitHub approval needs a second authorized reviewer if the PR author is the sole maintainer; an owner-attestation alternative must not be represented as peer review.
+- Updated the adoption plan, task packet and CURRENT with an unactivated stack-neutral proposal and evidence boundary. Owner policy adoption, reviewer model, admin bypass and applying repository rules remain open. No application tests or behavior changes were made.
