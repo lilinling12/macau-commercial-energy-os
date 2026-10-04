@@ -20,7 +20,7 @@ The repository contains useful research-derived product and architecture drafts.
 
 ### Research-derived proposal
 
-Macau Commercial Energy OS is proposed as an energy-intelligence and orchestration product for commercial buildings and sites. It joins metering and building-system data with site/asset topology, customer contracts, tariffs, and settlement evidence. Its initial value proposition is traceable cost intelligence and explainable, shadow-mode recommendations, with evidence that can be replayed and compared.
+Macau Commercial Energy OS is currently directed by the user toward economic scheduling of electricity sources and flexible loads at commercial sites. The proposed operator loop qualifies meter, topology, contract, tariff, forecast and asset-constraint evidence; compares same-horizon source/load schedules; explains physical, operational and separately settled economic effects; records a non-executable SHADOW review; then monitors and replays only when measured site evidence exists. Cost analysis, recommendation review and evidence replay support this dispatch task. This is a controlling design direction for the current proposal, not an owner-approved or frozen product scope.
 
 This proposal excludes autonomous control, unsupported bill-grade claims, and treating remote PV as another building's bill credit without settlement evidence. The amended electricity concession contract effective 2026-01-01 contemplates private self-generated distribution only within the same land parcel and with prior written SAR authorization; this does not establish cross-parcel customer bill credits. These boundaries follow the current research authority and remain subject to product-owner review.
 
@@ -32,7 +32,7 @@ These are not yet validated role rankings or final navigation. Discovery must co
 
 ### Product decisions requested
 
-1. Is the proposed initial product promise (traceable cost intelligence + shadow-mode recommendation + replayable evidence) the right first product?
+1. The user has directed the product design to center on economic source/load scheduling. Which first supported outcome should the owner review: physical import/peak-shaping assessment with economics blocked unless eligible evidence exists; economic schedule comparison only for evidence-qualified sites; or two separately gated modes? This review does not reopen the dispatch-first direction; it determines its initial evidence-bounded scope.
 2. Which user and site type should lead the first workflow and pilot discovery? Current roles/sites are hypotheses; please name a preferred lead role/site or request more evidence before choosing.
 3. Are there product capabilities or exclusions that should change before detailed design proceeds?
 4. D-003 currently prioritizes HVAC/chiller as the first controllable asset, but the G2 Gate and Macau evidence review classify this as a pilot-priority hypothesis; public evidence does not establish any site's flexible capacity, control access, service/comfort limits or rebound. Should the product retain HVAC/chiller as a working hypothesis until a named site's G2 evidence exists, compare it with ESS/other loads during discovery, or revisit the priority after site selection? Until validated, do not describe it as a confirmed pilot asset or claim dispatchable capacity/savings.
