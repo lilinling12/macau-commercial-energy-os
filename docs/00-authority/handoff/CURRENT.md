@@ -45,6 +45,9 @@ Definition of done spans: customer/problem validation; product requirements and 
 
 **Future control-path design draft:** `docs/03-architecture/detailed-design/COMMAND-ARBITRATION-AND-EDGE-SAFETY-KERNEL-DETAILED-DESIGN-v0.1.md` now specifies the proposed cloud authorization → Edge local veto → device acknowledgement → observed-effect boundary. It is review-only; the MVP remains SHADOW/advisory, the implementation tree has no command runtime/Safety Kernel, U-022/U-024 remain open, and G6 is not closed.
 
+
+
+- **G7.9 — MVP Domain Foundation / Service Boundary:** archival cross-check only; this is not in main's current authority. The supplied Step 1 domain-foundation package marks its design complete; the supplied Step 2 domain/data/contracts package (SHA-256 `B70CAFDA01B6F19FAC8731154A90D24930CB2A66ADA449EA9BB8E5AA4B149A6C`) marks Step 2 complete and names Step 3 Service Boundary and Implementation Design next. Step 2 specifies four Step 3 outputs: Platform API modules, Edge boundary, Optimizer boundary and repository implementation tasks. Its entity/relationship and core-table lists omit Site despite listing it as an entity; its API list has no account/tariff/settlement/dispatch/review/replay operations; no schema or generator files were supplied. PR #10's open proposal maps these omissions to Step 3 acceptance and an APP-11 logical dispatch-assessment boundary; PR #14 remains a separate draft assessment/search experiment. These are review proposals, not accepted contracts, implementation, Gate closure or production architecture. Keep G7.9 Step 3 **OPEN** and cross-track with G6.9-R2 Step 3D, G1 evidence and G7.2; do not let this note supersede the current main authority or claim a completed MVP.
 ## Repository implementation state
 
 Completed on main:
@@ -84,6 +87,7 @@ Immediate work:
 4. Review product scope, user workflows, visual direction, and the technology decision packet with the product owner before treating drafts or candidates as approved baselines; continue user validation in parallel.
 5. Extend component-level detailed design beyond VS-001 after product workflows and dependent Gate inputs are validated; close contract gaps and retain unresolved items explicitly.
 6. Only then revise technology decisions and authorize dependent production implementation.
+7. In parallel, continue G7.9 Step 3 as review-only service-boundary and implementation design: reconcile its four required outputs with PR #10's acceptance trace, finish contract/tenant/persistence/Edge/optimizer ownership and acceptance evidence, and leave the Gate open until owner-reviewed exit criteria are met.
 
 ### Active design progress on PR #8
 - `docs/03-architecture/detailed-design/MVP-APPLICATION-AND-EVENT-CONTRACT-CATALOG-v0.1.md` maps PR-01..PR-09 product tasks to logical queries, commands, asynchronous status transitions, authorization scopes, failure/retry semantics and existing slice/design authorities. It selects no endpoint, API protocol or wire format; monetary semantics, owner decisions #8/#12/#14, connector behavior and canonical contract generation remain open.
