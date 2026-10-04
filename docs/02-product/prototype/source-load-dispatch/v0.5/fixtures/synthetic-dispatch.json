@@ -1,0 +1,242 @@
+{
+  "schemaVersion": "dispatch.scenario-fixture.v2",
+  "fixtureId": "macau-synthetic-hvac-ess-cycle-6h-v2",
+  "title": "Synthetic six-hour HVAC shift and ESS cycle with explicit rebound",
+  "evidenceClass": "SYNTHETIC",
+  "assessmentClass": "SCENARIO_ONLY",
+  "site": {
+    "siteId": "synthetic-site-01",
+    "timezone": "Asia/Macau",
+    "localDate": "2026-10-04"
+  },
+  "horizon": {
+    "start": "2026-10-04T12:00:00+08:00",
+    "end": "2026-10-04T18:00:00+08:00",
+    "intervalSeconds": 3600,
+    "intervalConvention": "start-inclusive-end-exclusive; all listed values are interval-average kW",
+    "settlementIntervalVerified": false
+  },
+  "physicalBoundary": {
+    "gridImportSign": "positive_into_site",
+    "pvQuantity": "onsite_generation_used_scenario",
+    "essQuantity": "candidate_ac_side_charge_and_discharge_scenario",
+    "exportKw": 0,
+    "essChargeKw": "candidate_interval_average_ac_side_charge_kw",
+    "conversionLossesModelled": true,
+    "energyIntegrationPerformed": true,
+    "essSoc": "candidate_interval_start_and_end_kwh",
+    "socUpdate": "end = start + charge_kw * interval_hours * charge_efficiency - discharge_kw * interval_hours / discharge_efficiency"
+  },
+  "claimPolicy": {
+    "tariffApplicability": "UNVERIFIED",
+    "billGradeCostEnabled": false,
+    "savingsEnabled": false,
+    "pvExportCreditEnabled": false,
+    "crossSiteNettingEnabled": false,
+    "deviceControlEnabled": false,
+    "allowedClaims": [
+      "SYNTHETIC_PHYSICAL_SCENARIO"
+    ],
+    "withheldClaims": [
+      "BILL_COST",
+      "SAVINGS",
+      "PV_EXPORT_CREDIT",
+      "CROSS_SITE_NETTING",
+      "FIELD_CONTROL"
+    ]
+  },
+  "assetEvidence": {
+    "hvacShiftability": "SCENARIO_ASSUMPTION_UNVERIFIED",
+    "hvacComfortBounds": "SYNTHETIC_POWER_BOUNDS_ONLY_NOT_THERMAL_COMFORT_VALIDATION",
+    "hvacReboundPolicy": "ILLUSTRATIVE_EXPLICIT_30_KWH_SHIFT_AND_REBOUND",
+    "essSoc": "SYNTHETIC_INTERVAL_ENERGY_STATE",
+    "essEfficiency": "SYNTHETIC_90_PERCENT_CHARGE_AND_DISCHARGE_EACH_DIRECTION",
+    "essDegradation": "NOT_MODELLED"
+  },
+  "intervals": [
+    {
+      "start": "2026-10-04T12:00:00+08:00",
+      "end": "2026-10-04T13:00:00+08:00",
+      "baseline": {
+        "gridImportKw": 350,
+        "pvUsedKw": 170,
+        "essDischargeKw": 0,
+        "nonHvacLoadKw": 340,
+        "hvacLoadKw": 180,
+        "siteLoadKw": 520,
+        "essChargeKw": 0,
+        "essSocStartKwh": 40,
+        "essSocEndKwh": 40
+      },
+      "candidate": {
+        "gridImportKw": 350,
+        "pvUsedKw": 170,
+        "essDischargeKw": 0,
+        "nonHvacLoadKw": 340,
+        "hvacLoadKw": 180,
+        "siteLoadKw": 520,
+        "essChargeKw": 0,
+        "essSocStartKwh": 40,
+        "essSocEndKwh": 40
+      }
+    },
+    {
+      "start": "2026-10-04T13:00:00+08:00",
+      "end": "2026-10-04T14:00:00+08:00",
+      "baseline": {
+        "gridImportKw": 405,
+        "pvUsedKw": 145,
+        "essDischargeKw": 0,
+        "nonHvacLoadKw": 350,
+        "hvacLoadKw": 200,
+        "siteLoadKw": 550,
+        "essChargeKw": 0,
+        "essSocStartKwh": 40,
+        "essSocEndKwh": 40
+      },
+      "candidate": {
+        "gridImportKw": 405,
+        "pvUsedKw": 145,
+        "essDischargeKw": 0,
+        "nonHvacLoadKw": 350,
+        "hvacLoadKw": 200,
+        "siteLoadKw": 550,
+        "essChargeKw": 0,
+        "essSocStartKwh": 40,
+        "essSocEndKwh": 40
+      }
+    },
+    {
+      "start": "2026-10-04T14:00:00+08:00",
+      "end": "2026-10-04T15:00:00+08:00",
+      "baseline": {
+        "gridImportKw": 455,
+        "pvUsedKw": 125,
+        "essDischargeKw": 0,
+        "nonHvacLoadKw": 360,
+        "hvacLoadKw": 220,
+        "siteLoadKw": 580,
+        "essChargeKw": 0,
+        "essSocStartKwh": 40,
+        "essSocEndKwh": 40
+      },
+      "candidate": {
+        "gridImportKw": 455,
+        "pvUsedKw": 125,
+        "essDischargeKw": 0,
+        "nonHvacLoadKw": 360,
+        "hvacLoadKw": 220,
+        "siteLoadKw": 580,
+        "essChargeKw": 0,
+        "essSocStartKwh": 40,
+        "essSocEndKwh": 40
+      }
+    },
+    {
+      "start": "2026-10-04T15:00:00+08:00",
+      "end": "2026-10-04T16:00:00+08:00",
+      "baseline": {
+        "gridImportKw": 480,
+        "pvUsedKw": 110,
+        "essDischargeKw": 0,
+        "nonHvacLoadKw": 370,
+        "hvacLoadKw": 220,
+        "siteLoadKw": 590,
+        "essChargeKw": 0,
+        "essSocStartKwh": 40,
+        "essSocEndKwh": 40
+      },
+      "candidate": {
+        "gridImportKw": 430,
+        "pvUsedKw": 110,
+        "essDischargeKw": 20,
+        "nonHvacLoadKw": 370,
+        "hvacLoadKw": 190,
+        "siteLoadKw": 560,
+        "essChargeKw": 0,
+        "essSocStartKwh": 40,
+        "essSocEndKwh": 17.777778
+      }
+    },
+    {
+      "start": "2026-10-04T16:00:00+08:00",
+      "end": "2026-10-04T17:00:00+08:00",
+      "baseline": {
+        "gridImportKw": 485,
+        "pvUsedKw": 85,
+        "essDischargeKw": 0,
+        "nonHvacLoadKw": 360,
+        "hvacLoadKw": 210,
+        "siteLoadKw": 570,
+        "essChargeKw": 0,
+        "essSocStartKwh": 40,
+        "essSocEndKwh": 40
+      },
+      "candidate": {
+        "gridImportKw": 509.691358,
+        "pvUsedKw": 85,
+        "essDischargeKw": 0,
+        "nonHvacLoadKw": 360,
+        "hvacLoadKw": 210,
+        "siteLoadKw": 570,
+        "essChargeKw": 24.691358,
+        "essSocStartKwh": 17.777778,
+        "essSocEndKwh": 40
+      }
+    },
+    {
+      "start": "2026-10-04T17:00:00+08:00",
+      "end": "2026-10-04T18:00:00+08:00",
+      "baseline": {
+        "gridImportKw": 480,
+        "pvUsedKw": 60,
+        "essDischargeKw": 0,
+        "nonHvacLoadKw": 360,
+        "hvacLoadKw": 180,
+        "siteLoadKw": 540,
+        "essChargeKw": 0,
+        "essSocStartKwh": 40,
+        "essSocEndKwh": 40
+      },
+      "candidate": {
+        "gridImportKw": 510,
+        "pvUsedKw": 60,
+        "essDischargeKw": 0,
+        "nonHvacLoadKw": 360,
+        "hvacLoadKw": 210,
+        "siteLoadKw": 570,
+        "essChargeKw": 0,
+        "essSocStartKwh": 40,
+        "essSocEndKwh": 40
+      }
+    }
+  ],
+  "assets": {
+    "ess": {
+      "capacityKwh": 100,
+      "initialSocKwh": 40,
+      "minimumSocKwh": 10,
+      "maximumSocKwh": 90,
+      "maximumChargeKw": 25,
+      "maximumDischargeKw": 20,
+      "chargeEfficiency": 0.9,
+      "dischargeEfficiency": 0.9,
+      "evidenceClass": "SYNTHETIC_UNVERIFIED_SITE_CAPABILITY"
+    },
+    "hvac": {
+      "illustrativePowerBoundsKw": {
+        "minimum": 180,
+        "maximum": 220
+      },
+      "comfortModel": "NOT_MODELLED",
+      "evidenceClass": "SYNTHETIC_UNVERIFIED_SITE_CAPABILITY"
+    }
+  },
+  "notes": [
+    "All asset ratings, efficiency and load values are synthetic and are not site evidence.",
+    "The candidate discharges 20 kW AC from 15:00-16:00, then charges at 24.691358 kW AC from 16:00-17:00 to restore the illustrative 40 kWh SOC.",
+    "SOC is interval-integrated using separate 90% charge and discharge efficiencies; HVAC comfort, ESS degradation, tariff economics and forecast uncertainty remain unmodelled.",
+    "The 16:00-17:00 charging period raises candidate grid import to 509.691358 kW; the 17:00-18:00 HVAC rebound remains the horizon peak at 510 kW."
+  ]
+}
+
