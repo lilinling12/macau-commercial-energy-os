@@ -225,3 +225,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Change:** Replaced the visual-style-first recommendation with three IA/workflow hypotheses: evidence-first workbench, exception-led site workspace, and guided assessment workflow. Reframed visual styling as an independent, later design-system decision. Withdrew the prior light-first/A recommendation because no user or site evidence supports it.
 - **Decision readiness:** Updated owner decision #3 to request selection of an IA direction to validate, or a request for further evidence. WP-4 observation probes remain the proposed evaluation basis.
 - **Status:** Design hypotheses only; no direction, visual system, product scope or frontend framework is approved. No participant study or accessibility-conformance review was performed.
+
+## 2026-10-04 — Workspace organization comparison prototype v0.7
+
+- **Change:** Added prototype v0.7 with three unapproved organizations of the same synthetic demand-evidence task: evidence-first workbench, exception-led site workspace and guided assessment. Content and styling are held constant to foreground information architecture. Local controls switch variants; native details disclosures expose the same synthetic evidence requirements.
+- **Research protocol:** Added an optional comparative IA method to the WP-4 plan: assign a focal version for unaided task performance, balance variants across participants and role/site context where feasible, rotate optional comparison order, and distinguish observed performance from stated preference. The existing 5–8-person formative target is not sufficient by itself to rank all three options across user/site groups.
+- **Links:** Product README, owner review packet, owner decision summary, Master Index, Roadmap and CURRENT handoff updated.
+- **Status:** Synthetic design study only. No rendering/accessibility evaluation, participant recruitment/session, customer data, product decision or user finding is claimed. Product and visual direction remain open for owner review.
