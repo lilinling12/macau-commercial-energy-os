@@ -169,6 +169,40 @@ class DispatchOptimizerTests(unittest.TestCase):
         self.assertEqual(result.search_scope, "EXACT_WITHIN_DECLARED_DISCRETE_ACTION_SPACE")
         self.assertGreater(result.transitions_examined, 0)
 
+    def test_search_coordinates_hvac_ev_and_hot_water_windows(self):
+        ends = tuple(START + timedelta(hours=index) for index in range(1, 5))
+        starts = (START, *ends[:-1])
+        baselines = (
+            (FlexibleLoadFlow("hvac-1", FlexibleLoadKind.HVAC, D("2")),),
+            (FlexibleLoadFlow("ev-1", FlexibleLoadKind.EV, D("2")),),
+            (FlexibleLoadFlow("water-1", FlexibleLoadKind.HOT_WATER, D("2")),),
+            (),
+        )
+        baseline = Schedule(tuple(
+            interval(grid=str(5 + sum((flow.power_kw for flow in flows), D("0"))), pv="0", load="5",
+                     start=start, end=end, pv_generation_kw=D("0"), flexible_loads=flows)
+            for start, end, flows in zip(starts, ends, baselines, strict=True)
+        ))
+        rates = tuple(ImportEnergyRate(start, end, rate, VERIFIED) for start, end, rate in zip(starts, ends, (D("4"), D("3"), D("2"), D("1")), strict=True))
+        tasks = (
+            FlexibleEnergyTask("hvac-1", FlexibleLoadKind.HVAC, D("2"), (True, True, False, False), D("2"), D("2"), VERIFIED),
+            FlexibleEnergyTask("ev-1", FlexibleLoadKind.EV, D("2"), (False, True, True, False), D("2"), D("2"), VERIFIED),
+            FlexibleEnergyTask("water-1", FlexibleLoadKind.HOT_WATER, D("2"), (False, False, True, True), D("2"), D("2"), VERIFIED),
+        )
+        result = generate_candidate(DispatchSearchRequest(
+            tenant_id="tenant-demo", site_id="site-demo", site_timezone="Asia/Macau",
+            baseline=baseline, flexible_tasks=tasks, fixed_flexible_load_limits=(),
+            physical_evidence=(VERIFIED,), economic_context=EconomicContext(VERIFIED, VERIFIED, VERIFIED, rates),
+            power_step_kw=D("2"), soc_step_kwh=D("1"),
+        ))
+        candidate_by_asset = {
+            task.asset_id: tuple(index for index, row in enumerate(result.candidate.intervals)
+                                 if any(flow.asset_id == task.asset_id and flow.power_kw > 0 for flow in row.flexible_loads))
+            for task in tasks
+        }
+        self.assertEqual(candidate_by_asset, {"hvac-1": (1,), "ev-1": (2,), "water-1": (3,)})
+        self.assertEqual(result.assessment.import_energy_charge_delta_mop, D("-6"))
+
     def test_search_dispatches_pv_surplus_through_storage_with_terminal_soc(self):
         end2 = END + timedelta(hours=1)
         baseline = Schedule((
