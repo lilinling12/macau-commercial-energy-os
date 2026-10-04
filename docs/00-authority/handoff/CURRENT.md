@@ -172,3 +172,6 @@ A cross-review found the context diagram labeled the logical Edge boundary “Go
 ## Identity / tenant authorization cross-review — 2026-10-04
 
 The VS-001 identity design now maps PRD/IA workflows to server-side action families and exact scope: site qualification/integration, cost/evidence, SHADOW review, replay, membership administration, delegated partner access and machine ingestion. It adds negative verification cases for organization membership versus site-data access, partner expiry/revocation, and replay scope. These are design constraints and acceptance scenarios, not role grants. Owner decision #14 and PR-01 traceability now call out role-to-action mapping, site/portfolio entitlements, admin data access, delegated support and proposal/approval rules. The same isolation cases are synchronized to the Security Threat Model §5 and VS-002 acceptance. Identity provider, final role grants, cross-site finance policy and implementation remain open; no production identity is implemented.
+## Owner review entrypoint — Chinese
+
+Added `docs/02-product/OWNER-REVIEW-BRIEF-zh-CN-v0.1.md` as a Chinese review aid for the current 14-item Owner decision queue, candidate technology status, and lifecycle sequence. It mirrors the English summary and preserves all approval boundaries; it records no owner decisions.
