@@ -379,3 +379,10 @@ This is a deliberate prototype-coverage limit, not evidence that the product sho
 - **Prototype boundaries:** content and actions are synthetic. Recommendation annotations and replay controls do not invoke production services. The walkthrough did not observe 200% zoom, a screen reader, complete keyboard order, localization, target-user results or WCAG conformance.
 
 **Status:** v0.10 is the current core-workflow study stimulus; v0.9 remains the distinct IA comparison. Neither determines approved product scope, workflow, visual system or frontend framework.
+
+
+## Visual direction palette comparison v0.1
+
+A new static study compares three contemporary, non-glass palette directions on the same synthetic portfolio and demand-review task: Harbor Teal, Mineral Blue, and Night Graphite. It includes actual-versus-forecast line styles, uncertainty, blocked/stale evidence, a primary action, and short Traditional Chinese/Portuguese/English label samples. [View the study](prototype/visual-directions/v0.1/index.html).
+
+The palette names and colors are review candidates only. Contrast ratios shown are calculated source pairs, not rendered-page conformance evidence. User preference, long-session readability, localization, chart interpretation, focus visibility, 200% zoom, screen-reader use and the final light/dark policy remain open. Do not select a visual direction until the owner reviews rendered alternatives against target-user and accessibility evidence.
