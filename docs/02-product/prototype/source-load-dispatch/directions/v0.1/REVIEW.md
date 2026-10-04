@@ -29,6 +29,12 @@ All directions use the same task, six interval values, evidence states, claims, 
 - Support keyboard focus, skip navigation, narrow screens, and reduced motion in source. These are design intentions pending browser and assistive-technology checks.
 - Treat Macau localization as an open product requirement. This artifact is Traditional Chinese only and is not a localization study.
 
+## UI/UX Pro Max and visual-quality reference
+
+The skill's design-system search was run for the energy operations console. Its closest pattern returned an operations landing page, and the narrower retry still returned landing-page sections plus an unrelated OLED/academe style and typography. Those results do not fit an operator dispatch workspace and were rejected rather than copied. The targeted chart and UX results support a visible data table, direct labels and distinct line styles, keyboard focus, and horizontally scrollable tables on narrow screens; the prototype reflects these as source-level choices.
+
+Large internet products and Awwwards/Webby/FWA winners are quality references for clarity, craft, responsive behavior, interaction feedback and polish. Their promotional landing-page structures are not a product model for dispatch operations. This study tests operational hierarchy and interaction intent; it does not claim award-level visual finish.
+
 ## Color exploration status
 
 A uses a restrained green/teal operational palette, B uses indigo to differentiate the comparison framing, and C uses a quieter evidence-oriented teal palette. They are early hypotheses for testing hierarchy and meaning, not approved brand colors or semantic tokens. Any selected system still needs contrast measurement and validation with status meanings, color-vision differences, light/dark requirements, and localized content.
