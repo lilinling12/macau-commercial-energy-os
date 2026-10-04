@@ -23,7 +23,9 @@ CEM's Chinese B-group tariff page labels the invoice line “政府稅” and de
 
 ### Smart meter deployment and data access
 
-CEM's January 2025 press release says smart-meter coverage is complete, remote readings and real-time monitoring/data recording are available to CEM, and its app lets customers view daily electricity consumption for the previous 30 days. CEM's Smart Meter page (May 2025) reports more than 280,000 meters and full residential, commercial and industrial coverage; it also says CEM is studying further use of real-time data for service processes. These claims establish utility-side AMI deployment and a customer-facing daily summary, not the customer's raw interval resolution, an external third-party API, export format, retention, or commercial access terms. U-003 remains **UNKNOWN** for third-party high-frequency AMI access. The first pilot must remain viable through authorized local meters/BMS or another documented data path.
+CEM's January 2025 press release says smart-meter coverage is complete, remote readings and real-time monitoring/data recording are available to CEM, and its app lets customers view daily electricity consumption for the previous 30 days. CEM's Smart Meter page (May 2025) reports more than 280,000 meters and full residential, commercial and industrial coverage; it also says CEM is studying further use of real-time data for service processes. CEM's 2024 Sustainability Report says it retrieves data from more than 280,000 smart meters, has more than 800 customer substations connected through fiber and another 800-plus through 4G, and ran pilots to obtain customer-substation telemetry. This supports utility-side AMI and grid telemetry capability; the report does not establish customer/third-party access to those feeds.
+
+The reviewed official sources establish customer-facing daily aggregates for the past 30 days and CEM-side meter/grid data capabilities. They do not establish customer raw interval resolution, third-party API availability, export format, latency/backfill, retention, authorization requirements or commercial terms. U-003 remains **UNKNOWN** for third-party high-frequency AMI access. The first pilot must remain viable through an authorized local meter/BMS or another documented data path.
 
 ## Product and architecture implications
 
@@ -54,3 +56,5 @@ CEM's January 2025 press release says smart-meter coverage is complete, remote r
 - CEM — historical Group A tariff leaflet (former legal framework; not evidence of current B/C/D rule): https://www.cem-macau.com/uploads/pdf_education_Tariff_A_eng_e2e7123386.pdf
 - CEM — Smart-meter coverage and customer daily-use summary (2025-01-16): https://www.cem-macau.com/en/press-release/681/
 - CEM — Smart Energy Management press release (2025-01-16): https://www.cem-macau.com/en/press-release/681/
+
+- CEM — 2024 Sustainability Report (AMI and customer-substation telemetry pilots): https://www.cem-macau.com/uploads/CEM_Sustainability_Report_2024_EN_FINAL_4a7a4cdc56.pdf

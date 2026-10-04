@@ -15,10 +15,10 @@
 
 ## U-003 — Third-party high-frequency CEM AMI access
 **Status:** UNKNOWN  
-**Verified public boundary (2026-10-04):** CEM reports full smart-meter coverage and customer-facing daily consumption history. The reviewed official material does not establish an external third-party API, high-frequency interval, export format, retention or commercial access terms.  
-**Question:** Is a supported real-time/high-frequency API available to commercial third parties?  
-**Resolution path:** CEM technical/commercial confirmation.  
-**Design implication:** first pilot must be viable with local metering/BMS data.
+**Verified public boundary (2026-10-04):** CEM reports full AMI coverage, utility-side smart-meter data retrieval and customer-facing daily consumption history for the past 30 days. Its 2024 Sustainability Report also describes CEM-side customer-substation telemetry pilots. These sources do not establish that customer or third-party systems can access those feeds, nor an external API, interval, export format, latency/backfill, retention, authorization or commercial terms.  
+**Question:** Can an authorized commercial customer or its named third-party service provider obtain a supported high-frequency interval feed from CEM, by API or another documented channel, and under what data, security and commercial conditions?  
+**Resolution path:** Obtain current written CEM technical/commercial confirmation tied to the commercial use case and account-authorized access; require a sanitized sample/schema and protocol/interval specification before selecting a connector. No request has been sent.  
+**Design implication:** keep local meter/BMS or another authorized data path viable until access is evidenced.
 
 ## U-004 — Commercial ESS grid export
 **Status:** UNKNOWN  

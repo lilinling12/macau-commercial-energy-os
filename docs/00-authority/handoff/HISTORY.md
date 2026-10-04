@@ -125,3 +125,11 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Change:** Added DSPA/CEM 2026 Q1 and Q2 customer-group sales and system-peak evidence to the G2 note. Commercial sales were 828 GWh and 1,059 GWh; maximum system load was 844 MW and 1,130 MW. The sequential changes are explicitly unadjusted; the Q2 source attributes high demand partly to above-average temperatures.
 - **Interpretation:** This strengthens current sector/system context only. It does not isolate drivers, provide commercial-building interval profiles, or quantify flexible capacity, response, comfort/service impact or rebound. DSEC Establishments and CEM Commercial remain separate statistical populations; G2 remains OPEN.
 - **Evidence:** https://www.dspa.gov.mo/energyfigures/tc/en-chn_q126.pdf ; https://www.dspa.gov.mo/energyfigures/tc/en-chn_q226.pdf
+
+
+## 2026-10-04 — G1 smart-meter access boundary and U-003 request bundle
+
+- **Change:** Expanded the G1 smart-meter evidence note with CEM's 2024 Sustainability Report: utility-side data retrieval across more than 280,000 meters and customer-substation telemetry pilots over fiber/4G. CEM's public customer-facing history is daily use for the past 30 days.
+- **Interpretation:** These sources establish CEM-side AMI/telemetry capability and daily customer summaries, not third-party interval-feed access. U-003 remains UNKNOWN. Added a prepared U-003 request bundle with channel, granularity, latency/backfill, corrections, retention, authorization/security and commercial-term sufficiency criteria.
+- **Status:** Prepared only. No inquiry was sent, no customer account data was requested, and no CEM interface/access conclusion was inferred. G1 remains OPEN.
+- **Evidence:** `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`; `docs/01-research/gates/G1-EVIDENCE-ACQUISITION-PACKET-v0.1.md`.

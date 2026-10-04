@@ -2,7 +2,7 @@
 
 **Status:** Prepared request/collection plan; not sent to CEM or a customer.  
 **Gate:** G1 — Macau Tariff & Settlement Foundation  
-**Purpose:** Turn the outstanding demand-window, monthly-charge and Golden Bill unknowns into bounded, auditable evidence requests. This packet does not assert that evidence is available and does not close G1.
+**Purpose:** Turn the outstanding demand-window, monthly-charge, Golden Bill and CEM AMI-access unknowns into bounded, auditable evidence requests. This packet does not assert that evidence is available and does not close G1.
 
 ## Handling rules
 
@@ -50,6 +50,18 @@ For at least two different tariff classes, request one complete anonymized bill 
 
 **Acceptance procedure:** pin the evidence case and tariff version; parse inputs without changing source values; independently calculate each supported component; reconcile line by line and invoice total; report both absolute and percentage error, precision/rounding policy and every residual. G1's current target is ≤0.5% invoice reconstruction error with zero unexplained balancing adjustment. A case lacking matching measurements is contextual evidence, not a Golden Bill.
 
+## Request bundle D — CEM AMI high-frequency access (U-003)
+
+For a willing commercial account and its authorized representative, request:
+
+1. Whether CEM supports account-holder access or delegated third-party access to interval meter data; identify the actual portal, API, file-exchange or other supported channel and any required application/consent documents.
+2. The eligible customer/tariff classes, meter/register scope, data granularity and interval semantics; distinguish interval energy, instantaneous values, demand registers and daily summaries.
+3. Delivery behavior: historical backfill, publication latency, correction/revision handling, retention, timezone/clock convention, units, quality flags, missing intervals and meter replacement behavior.
+4. Data-security and commercial conditions: permitted users/purposes, delegation/revocation, authentication, fees, rate limits, terms of use and supported test environment.
+5. A sanitized sample payload/file and schema, plus written CEM confirmation linking the documented feed and cadence to the requested commercial use case. Account-level evidence requires contract-holder authorization and approved secure intake.
+
+**Sufficient to resolve U-003 for a scope:** written CEM technical/commercial specification or account-specific confirmation establishing a supported access channel, eligible scope, granularity/cadence, authorized recipient and terms, corroborated by a sanitized sample or read-only test. A CEM smart-meter coverage statement, utility-side AMI/substation telemetry pilot, public report, customer app daily summary, or account holder's ability to view data does not alone establish third-party high-frequency access.
+
 ## Evidence register record
 
 For each artifact, capture privately:
@@ -66,10 +78,10 @@ Only sanitized claim summaries and non-identifying source references belong in t
 
 1. Product owner authorizes whether to pursue CEM clarification and/or a consenting pilot customer; this packet itself sends no request.
 2. Confirm the approved secure intake location and retention/access rules before accepting private evidence.
-3. Request bundles A and B first because U-001/U-009 block tariff semantics; collect bundle C only with matching records and permission.
-4. Review the records with the tariff owner, update U-001/U-009/U-010/U-011, the evidence note and Tariff & Settlement detailed design.
+3. Request bundles A and B first because U-001/U-009 block tariff semantics; collect bundle C only with matching records and permission. Pursue bundle D only when CEM access clarification and a consenting account/use case are authorized.
+4. Review the records with the relevant owner; update U-001/U-003/U-009/U-010/U-011, linked evidence and designs.
 5. Keep G1 OPEN until its exit criteria are met and the owner records a Gate decision.
 
 ## Current known boundary
 
-Public CEM B/C/D tariff pages describe Pu as the highest measured demand within the billing period but do not state the numeric integration window. CEM identifies the monthly installation-use line but does not publish its B/C/D formula. These public-source findings do not replace the request bundles or establish bill-grade reconstruction. See `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`, `docs/00-authority/decisions/OPEN-QUESTIONS.md`, and `docs/01-research/gates/G1-tariff-settlement.md`.
+Public CEM B/C/D tariff pages describe Pu as the highest measured demand within the billing period but do not state the numeric integration window. CEM identifies the monthly installation-use line but does not publish its B/C/D formula. These public-source findings do not replace the request bundles or establish bill-grade reconstruction. CEM reports full AMI coverage, customer-facing daily summaries for the past 30 days, and CEM-side meter/substation data capabilities; third-party high-frequency access remains undocumented under U-003. See `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`, `docs/00-authority/decisions/OPEN-QUESTIONS.md`, and `docs/01-research/gates/G1-tariff-settlement.md`.
