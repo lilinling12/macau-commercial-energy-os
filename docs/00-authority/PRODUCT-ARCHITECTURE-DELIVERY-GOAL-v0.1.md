@@ -50,6 +50,12 @@ The goal is complete only when all applicable items below have reviewable, curre
    - Pilot evidence separates simulation from live site results and modeled effects from measured outcomes.
    - Owner/customer records an expand, remediate or stop decision; runbooks, known limits, rollback/recovery and operational ownership are accepted.
 
+7. **Sustainable engineering governance**
+   - The owner reviews and adopts the project AI Coding Quality Baseline and governance adoption plan, with named human accountability for product, architecture, security/data and operations decisions.
+   - Before production implementation, repository ownership, reviewer rules, required CI/security checks, dependency and contract/migration controls, release/rollback responsibilities and exception handling are mapped to the approved stack and enforced in the repository where technically available.
+   - Quality and service indicators have a measured baseline and owners before targets are set; delivery volume or code coverage alone is not used as a proxy for product or code quality.
+   - AI-assisted changes retain task-to-authority traceability, exact-revision verification evidence and human review. No AI agent can approve its own code, risk acceptance, merge or release.
+
 A green CI run, prototype, research memo, architecture draft, bake-off manifest, simulator result or passing isolated slice is evidence only for the claims it directly validates. None alone satisfies the complete goal.
 
 ## Delivery stages and decision boundaries
