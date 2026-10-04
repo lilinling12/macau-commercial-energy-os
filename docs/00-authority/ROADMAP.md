@@ -142,3 +142,5 @@ This capability applies across G0–G7 and G6.9-R2; it is not a new domain Gate 
 - **Governance boundary:** AI may research, draft, implement, and validate within scope; a person reviews Authority changes, architecture decisions, and operational authorization.
 
 This workstream is now documented by the cross-conversation protocol and reusable task packet template. Its effectiveness should be checked by using them at the start and end of each subsequent research or coding task.
+
+- Core-workflow prototype v0.10: docs/02-product/prototype/v0.10/index.html (**nine synthetic destinations; observed at 320/375/768/1024/1440 CSS px without page-level horizontal overflow; all destinations synchronized view/hash; Browser Back and narrow native-selector keyboard navigation observed; not user-tested, 200% zoom, screen-reader, language review and WCAG conformance remain outstanding**)
