@@ -47,7 +47,8 @@
 4. AI is explicitly unable to self-approve, accept risk, merge, release, grant access, define unknown business semantics or authorize device commands.
 5. The plan references applicable mature practices and states that references do not equal certification.
 6. Goal charter, governance README, baseline, roadmap and CURRENT provide consistent links/status.
-7. Exact-head documentation/workflow results and limitations are recorded; no application behavior or tests are claimed.
+7. The reusable task-packet and PR templates capture accountable human ownership/review, risk tier, authority, exact-revision checks and relevant security/compatibility/operations review.
+8. Exact-head documentation/workflow results and limitations are recorded; no application behavior or tests are claimed.
 
 ## Verification and evidence
 
@@ -58,7 +59,7 @@
 ## Completion record
 
 - **Changes/deliverables:** Added the proposed staged governance adoption plan and linked it to the existing quality baseline, lifecycle completion evidence, roadmap and CURRENT handoff. The plan defines the AI-assisted change lifecycle, risk tiers, human accountability, staged enforcement and official mature-practice references.
-- **Files updated:** AI-CODING-GOVERNANCE-ADOPTION-PLAN-v0.1.md; AI-CODING-QUALITY-BASELINE-v0.1.md; governance README; PRODUCT-ARCHITECTURE-DELIVERY-GOAL-v0.1.md; ROADMAP.md; CURRENT.md; HISTORY.md; this packet.
+- **Files updated:** AI-CODING-GOVERNANCE-ADOPTION-PLAN-v0.1.md; AI-CODING-QUALITY-BASELINE-v0.1.md; governance README; TASK-PACKET-TEMPLATE.md; .github/PULL_REQUEST_TEMPLATE.md; PRODUCT-ARCHITECTURE-DELIVERY-GOAL-v0.1.md; ROADMAP.md; CURRENT.md; HISTORY.md; this packet.
 - **Evidence / decisions / unknowns:** At the review snapshot, four CI workflows exist (Authority Validation, Repository Hygiene, Runtime Bootstrap, Contracts Validation), but GitHub reports main unprotected, required status checks disabled and no repository rulesets. This is an observed configuration, not a control change. Owner adoption, reviewer ownership, stack-specific enforcement, service SLOs and release policy remain open.
 - **PR/branch:** PR #8, docs/product-architecture-roadmap, open/unmerged.
 - **Gate status:** No research Gate closed; this is cross-cutting governance proposal work.
