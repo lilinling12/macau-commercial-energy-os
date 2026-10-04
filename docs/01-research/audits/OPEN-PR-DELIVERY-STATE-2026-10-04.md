@@ -118,3 +118,12 @@ The supplied G7.9 Step 2 package says Steps 1 and 2 are complete and names Step 
 ### Scope and source limits
 
 The exact current PR metadata, changed-file counts and Actions runs were retrieved on 2026-10-05. This refresh does not re-read the full original shared ChatGPT transcript, which remains unavailable in the logged-out share view and limited archive record. It updates delivery state and G7.9 placement only; it does not replace the source-package timeline or assert that every repository document has been semantically re-reviewed.
+
+
+## PR #14 finite-horizon schedule-search delivery update — 2026-10-05
+
+PR #14 is open and Draft at exact head `ca880796f6c741b52f7aa7b3d02e7e14edd4d44e`, based on current main `a897bf0b1e7e6ceea3862d7d87fa288ecca08203`. It adds a bounded supplied-schedule assessment and a finite-horizon dynamic-programming schedule search to the Python optimizer scaffold. The search is exact only within explicitly discrete flexible-load/ESS action steps and its configured state/transition budget. It preserves required task energy and baseline ESS start/terminal SOC, treats PV surplus as curtailed when not self-used/stored, and minimizes only the provided grid-import energy-rate objective.
+
+On the exact PR head, Runtime Bootstrap run [37230901556](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37230901556) succeeded: Python 3.14.8 Optimizer ran 17 tests (16 focused assessment/search cases plus the existing recommendation test), and Platform API, Go Edge and Contract Fixtures also succeeded. Exact-head Authority Validation run [37230901560](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37230901560) failed at `Required authority file is missing`; Repository Hygiene run [37230901562](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37230901562) failed at `Ensure handoff entrypoint exists`. These retain the documented mismatch between the legacy paths on main and canonical docs tree; PR #13's repair is separate and unmerged.
+
+This moves beyond the previous schedule-validation-only scaffold but is not a production optimizer or integrated APP-11 contract. It does not model demand charges/windows, export credit, degradation/reserves, equipment/comfort/service dynamics, forecast uncertainty or safety interlocks; caller evidence references remain unauthenticated. It closes no Gate, selects no architecture, establishes no Macau site/tariff facts, and provides no pilot-readiness result. Main remains unchanged.
