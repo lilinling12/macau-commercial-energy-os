@@ -74,7 +74,7 @@ Hard safety and site-policy constraints are not soft objective penalties. Comfor
 2. Build search inputs from eligible forecasts, initial state, equipment capabilities and versioned constraints.
 3. Generate candidate schedules with a replaceable solver/controller module.
 4. Reject hard-constraint violations; record infeasible or partially constrained runs.
-5. Re-evaluate baseline and candidates through the exact tariff/settlement evaluator, using the solver-friendly model compiled from the same tariff package (D-028).
+5. Re-evaluate baseline and candidates through the exact tariff/settlement evaluator, using the solver-friendly model compiled from the same tariff package (D-028). Preserve resolver/component findings and project them to the shared CostResult vocabulary in Tariff & Settlement §4; failed requests and incomplete replay cannot produce an economic amount.
 6. Compare only compatible scopes and shared exogenous assumptions; distinguish paired dispatch value from absolute site bill.
 7. Record objective decomposition, active constraints/margins, uncertainty/scenarios, solver status/gap, rationale and evidence lineage.
 8. Run simulation/replay where authorized and produce a SHADOW recommendation only if eligibility rules pass.
