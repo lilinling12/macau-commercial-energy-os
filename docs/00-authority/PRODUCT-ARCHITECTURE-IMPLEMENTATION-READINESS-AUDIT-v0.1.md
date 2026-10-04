@@ -32,7 +32,7 @@ The objective is not complete when a PRD, prototype, architecture diagram, detai
 
 ### Product design
 
-A coherent first product hypothesis exists: traceable cost intelligence, evidence-linked analysis and explainable SHADOW recommendations, with data quality, site topology and replay context. The PRD and IA describe role hypotheses, task flows, result categories, unknown states and safety boundaries. Prototype v0.6 is a synthetic review surface; it remains source-checked only and is not a validated product design.
+A coherent first product hypothesis exists: traceable cost intelligence, evidence-linked analysis and explainable SHADOW recommendations, with data quality, site topology and replay context. The PRD and IA describe role hypotheses, task flows, result categories, unknown states and safety boundaries. Prototype v0.6 is a synthetic review surface; limited browser accessibility-tree output is available, but this is not visual, responsive, accessibility or user validation.
 
 This is enough for focused owner review and formative research. It is not validated product design: lead role/site, commercial promise, first-release scope, actual access workflow, language, final navigation and visual direction remain open. The prototype is not the production UI and has not been validated with target users.
 
