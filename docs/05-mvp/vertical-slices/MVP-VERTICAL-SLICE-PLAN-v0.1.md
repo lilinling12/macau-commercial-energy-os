@@ -90,4 +90,5 @@ Review this sequencing alongside the product/architecture owner packet and PRD. 
 - Existing end-to-end target: `docs/05-mvp/vertical-slices/VS-001-energy-intelligence-loop.md`
 - Research-to-delivery roadmap: `docs/00-authority/ROADMAP.md`
 - Requirement and implementation gap audit: `docs/03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md`
+- Logical application and event operation/state catalog (review draft; no wire schema selected): `docs/03-architecture/detailed-design/MVP-APPLICATION-AND-EVENT-CONTRACT-CATALOG-v0.1.md`
 - Current status: `docs/00-authority/handoff/CURRENT.md`
