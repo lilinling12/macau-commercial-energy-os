@@ -15,7 +15,7 @@ It does not define the complete accounting algorithm: the exact denomination mea
 
 CEM's public B/C/D tariff pages describe Pu as the highest measured demand during the billing period. Administrative Regulation 25/2022 defines Group B Pu in Article 10 as the highest periodically measured average active power; Group C applies Article 10 through Article 17, and Article 24 states the corresponding rule for Group D. Article 14 also prescribes loss-compensation calculations for low-voltage Group B. The law and reviewed CEM pages do not state the numeric averaging interval, fixed/block versus rolling semantics, boundary/clock convention, or meter/register configuration. U-001 remains **UNKNOWN / G1 BLOCKER**; do not hard-code a 15-minute interval.
 
-CEM's simplified Standard Conditions of Supply separately say that energy-consumption readings are monthly and bills are issued monthly. This describes the customer reading/billing cycle; it does not supply the internal Pu averaging interval. Likewise, CEM's B-tariff full-load/low-load clock bands are energy-price periods, not a stated Pu demand interval. Keep these three concepts separate: monthly read/billing period, tariff energy-price periods, and the meter's periodic average-power measurement interval. The last remains unspecified in the reviewed public sources.
+CEM's currently published simplified Standard Conditions say that consumption readings and billing occur monthly. The full May 2009 Standard Conditions, which the current CEM page links, state in clauses 17.1/17.3 that consumption and subscribed demand are evaluated by metering equipment and the meter is read periodically on pre-established dates; clause 19.1 says billing is monthly. These statements describe the measuring apparatus and customer read/billing cadence, not the interval used to calculate the maximum periodic average in Pu. The full conditions do not provide the numeric integration window or fixed/block versus rolling semantics. Likewise, CEM's B-tariff full-load/low-load clock bands are energy-price periods, not a stated Pu demand interval. Keep these concepts separate: monthly read/billing period, tariff energy-price periods, and the meter's periodic average-power measurement interval. The last remains unspecified in the reviewed public sources.
 
 ### Government tax / installation-use charge
 
@@ -44,7 +44,8 @@ The reviewed official sources establish customer-facing daily aggregates for the
 - CEM — Tariff Group D: https://www.cem-macau.com/zh/customer-service/billing-service/tariff-group-d/
 - Official Gazette — Administrative Regulation 25/2022: https://bo.io.gov.mo/bo/i/2022/26/regadm25.asp
 - CEM — Smart Meters: https://www.cem-macau.com/en/smart-living/smartcity/smartmeters/
-- CEM — Standard Conditions of Supply (simplified): https://www.cem-macau.com/en/about-cem/power-supply-technical-information/standard-condition-of-supply
+- CEM — Standard Conditions of Supply (simplified/current page): https://www.cem-macau.com/en/about-cem/supply-quality/standard-condition-of-supply/
+- CEM — full Standard Conditions of Supply (May 2009 version linked by CEM): https://www.cem-macau.com/uploads/pdf_Supply_Elec2009_56f0d4116d.pdf
 
 - Official Gazette — Administrative Regulation 25/2022 (current tariff system; Articles 3, 8, 36): https://bo.dsaj.gov.mo/bo/i/2022/26/regadm25.asp
 - Official Gazette — Executive Order 105/2022 (tariff parameters and annex): https://bo.dsaj.gov.mo/bo/i/2022/26/despce.asp
