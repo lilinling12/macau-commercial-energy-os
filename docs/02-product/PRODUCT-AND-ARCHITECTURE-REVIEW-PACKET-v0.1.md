@@ -343,3 +343,15 @@ This is a deliberate prototype-coverage limit, not evidence that the product sho
 - **Next evidence:** inspect rendered layouts and keyboard traversal; use screen-reader and localization review for Chinese/Portuguese; then run the authorized WP-4 tasks with task completion, wrong inferences, evidence retrieval, recovery and viewport barriers recorded separately from preference. Keep all three IA options unselected until owner review and target-user evidence.
 
 **Boundary:** No code or visual direction was approved by this heuristic review. No rendered-device, assistive-technology, participant, WCAG-conformance, product-acceptance or production-framework conclusion is made.
+
+
+## Follow-up: v0.7 rendering defect and corrected v0.8 comparison stimulus (2026-10-04)
+
+**Method:** Opened the PR-branch HTML in a local browser preview and inspected the rendered narrow view, accessibility tree, pointer selection and keyboard switching. This is a bounded manual observation, not formal viewport coverage or user research.
+
+- **Material v0.7 defect:** the shared `.workspace{display:grid}` author rule overrode the browser's user-agent `[hidden]{display:none}` rule. In the rendered page, all three A/B/C workspaces appeared simultaneously; clicking a variant changed `aria-pressed` and the hint but did not isolate the selected content. The earlier source-only review did not catch this. v0.7 is not a fair comparative IA stimulus and must not be used for participant comparison.
+- **v0.8 correction:** preserved v0.7 and created `docs/02-product/prototype/v0.8/index.html`. The new explicit `.workspace[hidden]{display:none}` rule restores the expected one-variant view. The selector wraps at narrow widths instead of horizontally scrolling. Version header identifies v0.8.
+- **Observed in one local browser context:** the accessibility tree exposed only the selected workspace after initial load and after switching to B/C; Shift+Tab and Space selected B and changed the exposed workspace; screenshot showed the A/B/C controls wrap across two rows without partial clipping at the available narrow browser view. No exact CSS viewport size was captured.
+- **Remaining evidence:** repeat at specified widths and 200% zoom; inspect full keyboard order and screen-reader announcements; review Chinese/Portuguese content; then run the authorized WP-4 protocol. The prototype remains one synthetic demand-evidence case. User comprehension, preference and task success remain unknown.
+
+**Boundary:** This observation corrects a prototype implementation defect only. It does not approve any A/B/C IA, product scope, visual system, production frontend, accessibility conformance or customer workflow.
