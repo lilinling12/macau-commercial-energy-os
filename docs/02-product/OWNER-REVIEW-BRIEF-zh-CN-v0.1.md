@@ -10,6 +10,8 @@
 
 这只确认了目标和交付标准，**没有批准**目前的产品假设、界面方向、技术栈或部署。文档、原型和绿色 CI 检查都不等于产品验证或交付完成。完整退出标准见[目标章程](../00-authority/PRODUCT-ARCHITECTURE-DELIVERY-GOAL-v0.1.md)和[实施就绪审计](../00-authority/PRODUCT-ARCHITECTURE-IMPLEMENTATION-READINESS-AUDIT-v0.1.md)。
 
+逐项追踪见[PRD 到产品与交付追踪矩阵](../03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md)：它把九项 PRD 需求连到用户流程/屏幕、WP-4 观察任务、详细设计和交付切片，并标出目前尚无用户研究结果或现场验收证据。
+
 ## 当前产品假设
 
 初始产品假设是：把商业站点的能耗数据、物理/结算关系、合同和电价规则连接起来，给出可追溯的成本/需求分析、SHADOW 建议及可回放证据。角色、核心工作流、首发范围和商业价值仍待澳门客户/站点证据验证。
