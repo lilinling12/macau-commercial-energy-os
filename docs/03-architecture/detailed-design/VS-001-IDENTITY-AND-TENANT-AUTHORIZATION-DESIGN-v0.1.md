@@ -140,7 +140,7 @@ Database row-level security may be evaluated as defense in depth when the persis
 - Missing/invalid authentication returns an unauthenticated result. Authenticated but unauthorized operations are denied.
 - A request for a resource outside the caller's site scope must not return the resource, its tenant identity, contract data or evidence references. The exact 403 versus indistinguishable 404 policy is a product/security decision to record consistently.
 - Do not reveal whether a foreign tenant's site, meter, recommendation or evidence ID exists.
-- Denials and privileged configuration changes record principal, action, target scope, outcome, policy version, timestamp and trace reference; never log bearer tokens, passwords, secret material or full sensitive payloads.
+- Successful access to data classified as sensitive evidence, and privileged actions such as export, support access, restore and break-glass, must produce an auditable event; denied cross-scope attempts are audited. The data-classification policy must identify which read classes require access-event logging. Each event minimally records principal, action, target scope/resource reference, outcome, policy version, timestamp and trace reference; never log bearer tokens, passwords, secret material or full sensitive payloads.
 - Retain authorization audit separately from ordinary diagnostic logs and apply an approved retention/access policy.
 - Access revocation must take effect within a defined policy/cache bound; the duration is not yet specified and must be decided before production.
 
