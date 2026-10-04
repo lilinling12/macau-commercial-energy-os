@@ -288,3 +288,8 @@ The full original share-conversation transcript remains unavailable through both
 ### GitHub placement
 
 This audit is appended to the existing archive reconciliation artifact in PR #8 (`docs/product-architecture-roadmap`). PR #8 is open and unmerged; this does not move archive files into main or approve the gate/stack claims. PR #10 remains a separate draft for the dispatch-first product and G7.9 Step 3 proposal. Exact Actions results for the new PR #8 head must be checked before describing repository validation as passed.
+
+
+### Default-branch authority and Gate adoption check — 2026-10-05
+
+Separately fetched the default-branch `docs/00-authority/handoff/CURRENT.md` (Contents API blob `5b3da3af0a7e267c34a8a743a30cfc89d8fb24ca`). It names Library Research Authority v1.6.2, says G6.9-R2 Steps 3A–3C complete with pinned Step 3D pending, keeps G7.2 live baseline/no-op pending and C+ provisional, and suspends Java Phase D. It contains no G7.9 reference. Therefore the supplied G7.9 Step 1/2 packages and detailed Step 3 proposals on unmerged PRs have **not** been adopted into main's controlling handoff. The main-vs-archive/PR status is a repository governance gap to resolve; this audit does not silently advance the gate or replace the main authority.
