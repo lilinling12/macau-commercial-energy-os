@@ -111,3 +111,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Change:** Added a site-neutral evidence acquisition packet covering scope/permission, electrical topology/meters, assets and source points, authorized telemetry samples, settlement references, site constraints, optional PV/ESS/EV evidence, restricted evidence manifests, and mapping/review outputs. Linked it from G3, the master index, CURRENT, roadmap and owner decision source list.
 - **Status:** Prepared, not sent. No pilot site was selected; no contact or data intake occurred or was authorized. U-027 privacy/legal review, secure intake and explicit owner/site permission remain prerequisites. G3 stays OPEN.
 - **Boundary:** The packet does not duplicate G1 Golden Bill or G2 flexibility acceptance and does not authorize field control, production schema selection or Gate closure.
+
+
+## 2026-10-04 — DSEC quarterly Establishments electricity context
+
+- **Change:** Added DSEC Q1/Q2/Q3 2025 Establishments electricity totals (819/1,069/1,200 million kWh) and year-on-year changes (-2.3%/-0.1%/+1.7%) to the G2 evidence note. Recorded the 46.5% Q1-to-Q3 aggregate increase only as an unadjusted comparison; it does not isolate seasonality, weather, business activity, site counts or building load shape. Added Q1/Q2 source links.
+- **Status:** Public aggregate context only. DSEC Establishments and DSPA/CEM Commercial have no one-to-one crosswalk in reviewed sources; G2 remains OPEN for site-level flexibility evidence.
+- **Related:** G2 evidence note, Evidence Register and CURRENT handoff.
