@@ -181,6 +181,9 @@ def verify_prototype_matches_fixture(fixture: dict) -> None:
         require(f'href="#{flow_id}"' in html, f"missing workflow navigation link: {flow_id}")
     require('aria-label="調度工作流程"' in html, "workflow navigation must have an accessible label")
     require("未提供證據，經濟輸出阻擋" in html, "workflow must keep economic readiness blocked")
+    require('href="#reviewBtn"' in html and 'href="#reviewBox"' not in html, "review jump must target the actual review control")
+    require("預測與方案" not in html, "synthetic scenario must not be labelled as a forecast")
+    require('class="tag">SHADOW</span>' not in html, "synthetic candidate must not imply an optimizer-generated SHADOW result")
     require("預測、外部操作和量測結果分開記錄" in html, "workflow must separate outcomes and replay")
 
 
