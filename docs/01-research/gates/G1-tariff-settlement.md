@@ -64,6 +64,7 @@ A partially scoped pass must name the included customer classes, calculation typ
 - Public CEM material partially clarifies amount-due rounding/odd-amount carry-forward (U-011), but calculation order, component rounding, negative adjustments and Golden Bill behavior remain open.
 - Public sources reviewed do not specify the CEM Pu integration window (U-001), authoritative B/C/D installation-use/tax formula (U-009), or third-party high-frequency AMI API terms (U-003).
 - No real commercial Golden Bill set with matched interval/load-profile evidence is recorded (U-010).
+- CEM public A/B/C/D charge and quarterly TCA listings are captured in `docs/01-research/evidence/G1-CEM-TARIFF-RATE-SNAPSHOT-2026-10-04.md`. The official Gazette resolves that C1/C2 share the same energy-period parameters while their demand parameters differ; this public schedule evidence does not establish customer applicability or close U-001/U-009/U-010/U-011.
 - PV-to-grid interconnection and producer feed-in purchase are documented. The 2025 concession amendment effective 2026-01-01 constrains the private self-generation distribution exception to the same concession/private land parcel with prior written SAR authorization; it does not establish ordinary cross-parcel private bill credits or virtual netting (U-025 remains open).
 - CEM and DSPA both report 12 PV systems in the reviewed public sources, but reference dates, installed/connected/selling status, capacity and generation scope remain unreconciled (U-026 partially resolved).
 
