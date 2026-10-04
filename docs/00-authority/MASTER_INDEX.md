@@ -26,6 +26,7 @@ Research → Decision → Architecture → Engineering → Implementation.
 - Product design approval and engineering delivery governance (proposed): `docs/04-engineering/PRODUCT-DESIGN-AND-DELIVERY-GOVERNANCE-v0.1.md`
 - Research-derived product scope and user workflow: `docs/02-product/PRODUCT-DESIGN.md`
 - Product and architecture owner review packet (unapproved; choices and Pro Max synthesis): `docs/02-product/PRODUCT-AND-ARCHITECTURE-REVIEW-PACKET-v0.1.md`
+- Chinese owner review brief for product/architecture decisions (translation and decision guide; no approvals): `docs/02-product/OWNER-REVIEW-BRIEF-zh-CN-v0.1.md`
 - Concise owner decision summary (review aid; no product/technology choices approved): `docs/02-product/OWNER-DECISION-SUMMARY-v0.1.md`
 - G6.9-R2 Step 3D readiness audit and execution packet (not execution results): `docs/01-research/G6.9-technology-research/STEP-3D-READINESS-AND-EXECUTION-PLAN-v0.1.md`
 - G6.9-R2 Step 3D machine-readable runner manifest (draft; pins and freeze blockers, not a runnable Compose environment): `docs/01-research/G6.9-technology-research/STEP-3D-RUNNER-MANIFEST-v0.1.json`
