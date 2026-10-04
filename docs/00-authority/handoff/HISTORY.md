@@ -749,3 +749,9 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - Cross-reviewed Cost Analysis/Evidence Replay, the CostResult/ReplayManifest proposal, application/event status catalog, recommendation design and D-026.
 - Reconciled inconsistent draft vocabulary: economic-result status is COMPLETE/PARTIAL/BLOCKED when a result exists; FAILED belongs to request lifecycle and yields no CostResult/amount; assumption-led scenarios use PROJECT_ASSUMPTION evidence and SCENARIO_ONLY readiness rather than an overloaded result status.
 - Kept the contract proposal noncanonical. Product monetary meaning, decimal/rounding rules, G1 evidence, replay identity and D-065 owner review remain open. Static document review only; no application tests or generated bindings were run, and no Gate was closed.
+
+## G4/G5 economic handoff and tariff status mapping (2026-10-04)
+
+- Cross-reviewed G4/G5 Gates, Forecasting/Optimization, Tariff & Settlement, Cost Analysis/Evidence Replay, CostResult/ReplayManifest, the application status catalog and relevant decisions.
+- Clarified that Tariff context/component states (including UNKNOWN/CONFLICT), economic result status (COMPLETE/PARTIAL/BLOCKED), evidence basis (including PROJECT_ASSUMPTION), settlement readiness (BILL_GRADE_ELIGIBLE/SCENARIO_ONLY), failed request lifecycle and incomplete replay outcome are separate dimensions. Updated Tariff §§4/7 and cross-references from Forecasting, CostResult and the application catalog.
+- Exact bill-grade status still depends on G1/Golden Bill evidence; G4/G5/G6/G7 remain open. No runtime tests, simulator run, Macau-site validation, production implementation or Gate closure is claimed.
