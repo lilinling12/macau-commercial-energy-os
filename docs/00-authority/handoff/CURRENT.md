@@ -425,3 +425,8 @@ A static consistency review across Energy Graph, Tariff & Settlement, Cost Analy
 ## Operability and tenant-authorization cross-review — 2026-10-04
 
 A static review across Deployment/Operability/Recovery, the Security Threat Model and VS-001 Identity found their tenant scope, failure-state, restore and G6 boundaries aligned. It exposed one audit-detail gap: successful access to sensitive evidence and privileged export/support/restore/break-glass paths were not explicit in the identity design. Identity §6 now requires auditable events for data classified as sensitive and these privileged paths; data classification, retention/access policy and implementation remain open. No runtime verification or Gate closure is claimed. See the [readiness audit](../PRODUCT-ARCHITECTURE-IMPLEMENTATION-READINESS-AUDIT-v0.1.md#follow-up-operability-and-tenant-authorization-cross-design-review--2026-10-04).
+
+
+## Cost-result and request-state cross-review — 2026-10-04
+
+Static cross-review found that the cost design treated `failed` as a result status while the application catalog treats it as a request-lifecycle outcome; the result proposal also used `SCENARIO` as a result status despite separate evidence/readiness fields. The three drafts now distinguish COMPLETE/PARTIAL/BLOCKED results, FAILED requests that emit no result/amount, and scenario basis via PROJECT_ASSUMPTION plus SCENARIO_ONLY. The contract remains noncanonical; product monetary semantics, decimal rules, G1 evidence and D-065 approval are open. No code or tests changed. See the [readiness audit](../PRODUCT-ARCHITECTURE-IMPLEMENTATION-READINESS-AUDIT-v0.1.md#follow-up-cost-result-and-request-state-cross-design-review--2026-10-04).
