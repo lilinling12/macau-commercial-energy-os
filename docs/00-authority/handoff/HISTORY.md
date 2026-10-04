@@ -140,3 +140,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Change:** Clarified that Administrative Regulation 25/2022 defines the maximum periodically measured average active power for Group B (Article 10), applies that rule to Group C through Article 17, and states the corresponding rule for Group D (Article 24); Article 14 adds low-voltage Group B loss-compensation calculations.
 - **Status:** Scope clarification only. The numeric demand interval, fixed/block versus rolling semantics, clock/boundary convention, and meter/register configuration remain unresolved. U-001 remains UNKNOWN and G1 remains OPEN; no 15-minute default or Gate closure is introduced.
 - **Source:** [Official Chinese text of Administrative Regulation 25/2022](https://bo.dsaj.gov.mo/bo/i/2022/26/regadm25_cn.asp).
+
+## 2026-10-04 — Implementation runtime labels clarified
+
+- **Change:** Audited the executable implementation tree against current G6.9-R2 authority. The module READMEs described Node/NestJS, Go and Python as runtime directions, which could be mistaken for approved production choices. Clarified their candidate status and bounded current implementation maturity; documented that Step 3D is unexecuted and Step 4 is pending.
+- **Evidence:** The Platform API is partial Candidate B implementation evidence with a missing route authorization guard, fail-closed graph/tariff adapters and in-memory evidence storage. The Edge entrypoint only logs bootstrap status; a telemetry event struct exists but protocol ingestion/durable capture is absent. The Python optimizer module currently contains a recommendation data model, not a validated forecast/optimizer. Static source inspection only.
+- **Status:** Documentation correction only; no runtime code, contract, technology decision, Gate, or production authority changed. No application tests or runtime experiments were run. PR #8 remains open/unmerged.
+- **Related records:** `implementation/README.md`, `implementation/platform-api/README.md`, `implementation/edge-runtime/README.md`, `implementation/optimizer/README.md`, and G6.9 technology authority.

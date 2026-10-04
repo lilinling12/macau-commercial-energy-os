@@ -4,6 +4,8 @@ This tree contains executable product code and machine-readable contracts.
 
 It is downstream of repository Authority. Implementation must not redefine research, tariff semantics, safety boundaries, or evidence status.
 
+**Maturity and architecture boundary:** This tree currently contains scaffolds and limited vertical-slice artifacts; it is not an accepted MVP. Module languages and frameworks describe existing candidate code or proposed responsibilities, not an approved production architecture. The project-layer proposal and G6.9-R2 A/B/C+ topologies remain provisional; Step 3D is not executed and Step 4 is pending. See `docs/03-architecture/technology-authority/G6.9-technology-selection/README.md` and the owner review packet before treating any stack as selected.
+
 ## Modules
 
 - `contracts/` — versioned cross-module contracts and schemas.
