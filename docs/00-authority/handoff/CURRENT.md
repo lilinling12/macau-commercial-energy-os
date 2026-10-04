@@ -145,3 +145,11 @@ Read:
 15. Read additional authority files referenced by the current task.
 
 GitHub live state, exact-head CI, verified evidence, and Decision Records take precedence over chat memory.
+
+
+## Latest research update — CEM tariff and TCA (2026-10-04)
+
+- Added a dated public-rate snapshot for CEM A/B/C/D published charges and TCA. CEM lists 2026 Q3 TCA as MOP 0.36/kWh effective 2026-07-22; its A-group illustrative example still uses 0.340 and is stale for the current quarter.
+- The Tariff & Settlement detailed design now explicitly separates base tariff schedule and quarterly TCA as effective-dated inputs. See `docs/01-research/evidence/G1-CEM-TARIFF-RATE-SNAPSHOT-2026-10-04.md`.
+- G1 remains OPEN. U-001, U-009, U-010 and U-011 remain unresolved; C2 table cell attribution and all customer-specific applicability must be verified before implementation. No bill-grade claim, customer savings claim, product/technology approval or Gate closure is implied.
+- **Next:** continue G1 evidence acquisition against the existing packet; keep tariff parameters versioned by source, class and effective date. Product/architecture drafts and G6.9-R2 work continue under existing owner-review boundaries.
