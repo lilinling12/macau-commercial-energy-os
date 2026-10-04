@@ -110,3 +110,15 @@ Targeted UI/UX Pro Max results were useful for native selection semantics, acces
 The source review also uncovered and corrected the misleading 430 kW “peak” label. The entire synthetic horizon has a baseline peak of 485 kW and candidate peak of 510 kW at the HVAC rebound interval. This changes the interpretation of the candidate: a 15:00 interval reduction does not prove a lower peak or economic benefit. The view now puts the whole-horizon effect first and keeps cost/settlement claims blocked pending applicable evidence.
 
 Verification remains source-level plus the static synthetic fixture check. The CUA inventory reported no open browser tabs; a prior raw GitHub preview load returned ERR_BLOCKED_BY_CLIENT. No local server or alternate browser route was used. Current rendered composition, 1440/1024/768/375 px layout, all interaction states, measured contrast, WCAG conformance, full Portuguese/English localization and operator usability remain unverified.
+
+## Cross-prototype task coverage check — PR #8 source review
+
+Fetched the current PR #8 prototype source at:
+- v0.10 core workflow: blob SHA 5d148b4990e353c7a400b7401216066f35ed68cf.
+- Visual direction study v0.1: blob SHA 986f7f6bd1f7c01506ac6cc41a3b3430d9d8309c.
+
+The v0.10 initial view is Portfolio overview. Its navigation covers Portfolio, Site overview, Data health, Site model, Economics, Tariff & contract evidence, Integrations & site access, Recommendations, and Evidence & replay. Its source truthfully labels synthetic data and advisory/no-control boundaries, but the initial task is evidence/readiness scanning; it does not make source/load economic dispatch the dominant task. The visual direction study applies three palettes to portfolio readiness and demand review. Its Traditional Chinese and Portuguese content is a sample freshness label, not full page localization or validated terminology.
+
+The PR #10 v0.3 dispatch study is therefore a complementary, focused task prototype rather than a replacement for v0.10's broader workflow. It makes grid import, site PV, ESS discharge, HVAC shift/rebound, whole-horizon comparison, tariff evidence and SHADOW review visible together. It remains a single Traditional Chinese synthetic screen and does not provide the full path from contract/data verification through replay/M&V. These are coverage limits to resolve in the integrated PRD and user-flow review.
+
+The broad UI Pro Max patterns returned a marketing/conversion or operations landing page; neither should replace the operator workflow. The palette study remains unselected. No rendered UI or user test was performed in this cross-source review.
