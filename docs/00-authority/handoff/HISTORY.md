@@ -77,3 +77,9 @@ Append-only record of material changes to the cross-conversation handoff. This f
 
 - **Change:** Restored owner decision #12 for durable telemetry-capture receipt semantics in the owner decision summary, matching the existing architecture review packet, task packet and CURRENT handoff. Corrected spelling in the CURRENT heading and readiness-audit title.
 - **Status:** Decision #12 is a review proposal, not owner approval. It defines the logical distinction among protocol ACK, recoverable raw-capture receipt and downstream processing; database, broker, schema and production architecture remain undecided.
+
+
+## 2026-10-04 — D-003 evidence qualification
+
+- **Change:** Added an evidence qualification to D-003 in the Decision Register: HVAC/chiller remains the first-priority design/discovery hypothesis while G2 is OPEN, not a validated dispatchable asset, approved control target or savings claim. Reaffirmation or supersession requires named-site evidence and owner/site review.
+- **Status:** The original priority is preserved; no controllability or pilot selection is asserted.
