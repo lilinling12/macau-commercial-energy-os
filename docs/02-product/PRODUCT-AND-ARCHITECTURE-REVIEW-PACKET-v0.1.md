@@ -441,3 +441,32 @@ Traditional Chinese, Portuguese and English are candidate locale needs for Macau
 | Production stack and module allocation | Complete G6.9-R2 Step 3D evidence and reconcile G7.8 Fastify, current NestJS implementation and report (6)/(7) recommendations before selecting. | Affects contract generation, workflow, database/event boundary and runtime implementation. Next.js has not been selected as the backend or default operator console. |
 
 This addendum records the now-explicit dispatch-first design direction and the evidence still required. It does not answer the listed owner decisions, approve the linked PRs, close G7.9 Step 3, or freeze product, UI/UX or production architecture.
+
+
+## Owner decision follow-up — APP-11 and G7.8/G6.9 authority (2026-10-05)
+
+The owner summary and Chinese brief now include Decision #20 for the logical ownership of the source/load dispatch assessment.
+
+| Option | Logical product/application boundary | Trade-offs |
+|---|---|---|
+| A — Add APP-11 logical capability (recommended for review) | Name one source/load dispatch assessment workflow with its own authorized request, lifecycle and composite result. Reuse APP-05 economic evaluation, APP-06 result read, APP-07 SHADOW disposition and APP-08 replay/evidence where their reviewed semantics fit. | Makes the user's dispatch-first task explicit and gives a clear authorization/result trace. It does not require a new service, endpoint, schema, worker, deployment or runtime. Still needs catalog ownership and contract review. |
+| B — Keep APP-01…APP-10 | Represent dispatch only as a documented composition of existing operations. | Avoids a new catalog row, but requires proof that current APP-05/06 semantics cover physical schedules and independent physical/economic readiness, plus a coherent request lifecycle, idempotency and immutable common-horizon result. Extending existing operations could change their contract semantics. |
+
+**Recommendation:** choose A at the logical capability level, then reuse existing sub-capabilities. Treat the dispatch workflow as a first-class product task without deciding the technical service topology. Final owner approval remains open.
+
+### Evidence and dependency order
+
+- PR #8's current catalog defines APP-05 economic assessment request, APP-06 cost-result read, APP-07 SHADOW review, and APP-08 evidence/replay; its catalog currently ends at APP-10. PR #10's APP-11 is a separate proposal, not canonical.
+- The directly read G7.9 Step 2 archive SHA-256 is B70CAFDA01B6F19FAC8731154A90D24930CB2A66ADA449EA9BB8E5AA4B149A6C. It declares Step 2 complete and Step 3 next, but omits Site from its core table list despite listing Site as an entity, and lists no account/contract/meter-settlement/dispatch/review/replay API. Its scope states no business implementation code.
+- Main D-013 requires separate physical/economic topology linked explicitly; D-015/017/024 require effective-time and knowledge-time version lineage; D-027 makes the demand-measurement window first-class; D-028 separates exact settlement from optimizer representation; D-029 makes real Golden Bills a tariff release gate. The new logical model is an additive Step 3 proposal that must preserve these constraints.
+- The G7.8 Step 3 package SHA-256 BD82412488C041FF3879A245F479D091C768B9FCEA9286D5266B835EB8E817E3 records a completed Fastify + OpenAPI/JSON Schema freeze. Active main D-064 leaves C+ provisional pending the common bake-off; D-065 requires generated cross-language contracts but does not select a format; D-068 requires common-slice evidence; D-069 suspends Java implementation authority. This status conflict requires a dated owner/authority decision before a production stack or canonical contract is frozen.
+
+### Recommended sequence
+
+1. Confirm or defer Decision #19 (authority precedence) and #20 (logical APP-11 ownership). If #19 is deferred, keep all new contracts schema-neutral.
+2. Reconcile the Step 2 Site/Building/entity-table mismatch and map APP-11 to existing APP-05/06/07/08 without changing their semantics implicitly.
+3. Complete domain/account/tariff evidence semantics and the canonical candidate boundary.
+4. Resolve Decision #15's contract authoring/generation evidence gate, then produce canonical wire fixtures and bindings.
+5. Continue G6.9-R2 Step 3D; no production framework winner can be inferred from the completed G7.8 source archive or the current NestJS scaffold alone.
+
+No owner approval is implied by this recommendation or the open PR.
