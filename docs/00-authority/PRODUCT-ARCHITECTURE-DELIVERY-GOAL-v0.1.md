@@ -1,9 +1,9 @@
 # Product, Architecture and Delivery Goal Charter v0.1
 
-**Status:** Proposed project goal; owner confirmation is pending.
+**Status:** Active lifecycle goal; owner confirmed continuation on 2026-10-04. Product scope, UX baseline, and production architecture still require separate owner decisions.
 **Prepared:** 2026-10-04
 **Authority:** Original G0–G7 research framework, G6.9-R2 technology authority, current Decision Records, product/architecture review packet, and delivery governance.
-**Purpose:** Define the project end state and evidence required to call the product-design-to-pilot lifecycle complete. This charter organizes existing authority; it does not approve product scope, close a Gate, or select a production stack.
+**Purpose:** Define the project end state and evidence required to call the product-design-to-pilot lifecycle complete. The owner has instructed that work continue under this full lifecycle goal. This confirms the goal and its tracking boundary; it does not approve product scope, close a Gate, select a production stack, or authorize implementation/deployment decisions that have separate approval boundaries.
 
 ## Goal
 
@@ -54,7 +54,7 @@ A green CI run, prototype, research memo, architecture draft, bake-off manifest,
 
 | Stage | Work and exit evidence | Owner decision boundary |
 |---|---|---|
-| 0. Authority and goal baseline | Reconcile original research authority, current repository state, open Gates/questions, and this completion checklist. | Confirm or amend the full lifecycle goal and any scope constraints. |
+| 0. Authority and goal baseline | Reconcile original research authority, current repository state, open Gates/questions, and this completion checklist. The owner confirmed continuation under the lifecycle goal on 2026-10-04. | Amend the full goal or add scope constraints if needed; this does not approve downstream product or architecture decisions. |
 | 1. Research and discovery | Progress G0–G7 evidence, customer discovery, site evidence preparation and technology research in parallel when dependencies permit. | Authorize contacts, customer/site data intake and site-specific measurement where required. |
 | 2. Product definition and UX | Validate roles/jobs; review PRD, workflows, visual direction and prototype; record usability evidence and product acceptance criteria. | Approve product promise, MVP boundary, roles/flows and major interaction/visual decisions. |
 | 3. Architecture and technology | Complete G6.9-R2 Step 3D/4; compare evidence; resolve cross-cutting boundaries and record ADRs. | Approve the production architecture and consequential technology choices after evidence review. |
