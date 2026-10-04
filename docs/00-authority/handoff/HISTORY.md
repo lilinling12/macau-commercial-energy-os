@@ -706,3 +706,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - Strengthened the reusable .github/PULL_REQUEST_TEMPLATE.md and TASK-PACKET-TEMPLATE.md to require accountable human ownership/review, risk tier and rationale, governing authority, exact-revision validation evidence, skipped-check reasons, security/privacy/tenant/safety impacts, compatibility, operations and recovery considerations.
 - Linked the PR template from the AI coding governance README and reflected its role and limits in the adoption plan, governance task packet and CURRENT handoff.
 - These templates improve change context but are not repository-enforced gates. main remains unprotected, required status checks are disabled, and no repository rulesets exist. No permissions or branch settings changed; no application behavior or application tests were involved.
+
+
+## PR-triggered CI scope clarification (2026-10-04)
+
+- Clarification to the governance-template entry above: although this documentation change did not edit application or test files and no local application tests were initiated, the PR's configured GitHub Actions automatically ran the existing Runtime Bootstrap workflow because the PR also changes that workflow.
+- At exact head 3cc910ae57daee0873d36f8466afee78a03cf7f0, the seven named checks passed: authority structure, repository hygiene, JSON contract syntax, platform API, Edge Runtime, Optimizer and Contract Fixtures. Runtime checks exercise the current scaffold and fixtures; they do not validate the new logical application/event design or establish production readiness.
+- The latest exact PR-head validation is maintained in PR #8; future commits trigger another run. No application code or test files were changed by this governance update.
