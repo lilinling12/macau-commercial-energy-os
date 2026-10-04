@@ -69,7 +69,19 @@ Use fast unit tests for rapid feedback and smaller numbers of integration/contra
 - Record release identity, configuration, approvals, known limitations, operational owner and post-release observation plan.
 - Do not deploy to a customer/site or enable live energy control without the separate site/customer authorization and Gate evidence required by project authority.
 
-## 5. AI-specific evidence and handoff
+## 5. Software supply-chain and build provenance
+
+Before a release can be deployed to a customer or pilot environment, preserve a machine-readable inventory of the software components actually shipped and evidence tying each release artifact to its reviewed source revision and controlled build. This is a risk control for dependency exposure, incident response and reproducibility; it does not require a particular hosting vendor, build platform, SBOM format or SLSA level.
+
+- Maintain lockfiles and review direct/transitive dependency changes for maintenance status, known vulnerabilities, license obligations and integrity. Keep development, build and production dependencies distinguishable where the toolchain permits.
+- Generate a release SBOM from the built artifact or final image, record its format/tool version and completeness limitations, and retain it with the release record. An SBOM is an inventory aid; it does not prove an artifact is vulnerability-free.
+- Record artifact digest, source commit, build workflow/toolchain identity and build inputs. Add a verifiable provenance/attestation when the selected release platform supports it; verify that evidence before deployment rather than trusting a tag or filename.
+- Define vulnerability triage, remediation ownership and exception expiry before production. Do not invent universal remediation-day or severity thresholds; set them from the approved threat model and operating commitment.
+- For AI-assisted changes, preserve human author/reviewer accountability and task/commit linkage. Do not store prompts or model transcripts that contain secrets or customer data as a substitute for software provenance.
+
+For the stack-specific annex, select practical SCA/SBOM, secret scanning, artifact-signing/attestation and verification tools after the build and release architecture is approved. Start with supported native capabilities and keep exported evidence portable.
+
+## 6. AI-specific evidence and handoff
 
 For every substantial AI-assisted coding task, the completion record states:
 
@@ -82,7 +94,7 @@ For every substantial AI-assisted coding task, the completion record states:
 
 The final human reviewer should be able to understand the code and its tests without relying on the AI conversation. Persist required decisions, rationale, research and handoff in repository artifacts.
 
-## 6. Quality signals
+## 7. Quality signals
 
 Use production and engineering signals to find systemic weaknesses, not to reward output volume. Establish baselines before setting targets. Review, as the service matures:
 
@@ -96,7 +108,7 @@ Use production and engineering signals to find systemic weaknesses, not to rewar
 
 Use measures to improve the system and workflow. Do not use lines of generated code, raw PR count, or test coverage alone as quality proxies.
 
-## 7. Stack-specific annex after architecture approval
+## 8. Stack-specific annex after architecture approval
 
 After G6.9-R2 Step 4 and owner architecture decisions, create or update a stack-specific standard with concrete tools and commands for:
 
@@ -109,7 +121,7 @@ After G6.9-R2 Step 4 and owner architecture decisions, create or update a stack-
 
 Until then, keep the baseline technology-neutral. Node/NestJS, React/TypeScript, Go, Python, Temporal, PostgreSQL/Timescale and other candidates retain their current provisional status.
 
-## 8. Mature practice references
+## 9. Mature practice references
 
 Use the relevant principles and record retrieval date when they materially inform a decision:
 
@@ -117,11 +129,14 @@ Use the relevant principles and record retrieval date when they materially infor
 - [DORA: test automation](https://dora.dev/capabilities/test-automation/) and [continuous delivery](https://dora.dev/capabilities/continuous-delivery/) — build quality throughout delivery and reduce release risk.
 - [Google SRE: production readiness review](https://sre.google/sre-book/evolving-sre-engagement-model/) and [release engineering](https://sre.google/sre-book/release-engineering/) — production ownership, observability, repeatable release, staged rollout and rollback.
 - [OWASP Application Security Verification Standard 5.0](https://github.com/OWASP/ASVS/tree/master/5.0) — verifiable application-security requirements.
-- [OpenSSF Secure Software Development Framework (SSDF)](https://csrc.nist.gov/Projects/ssdf) — secure development practices across the lifecycle.
+- [NIST SP 800-218 SSDF v1.1](https://csrc.nist.gov/pubs/sp/800/218/final) — secure development practices across the lifecycle.
+- [NIST SBOM definition](https://csrc.nist.gov/glossary/term/sbom) and [OWASP Dependency Graph & SBOM guidance](https://cheatsheetseries.owasp.org/cheatsheets/Dependency_Graph_SBOM_Cheat_Sheet.html) — component inventory, relationship/completeness caveats and release tracking.
+- [SLSA v1.2 provenance](https://slsa.dev/spec/v1.2/provenance) — verifiable information about where, when and how an artifact was produced.
+- [GitHub artifact attestations](https://docs.github.com/en/actions/concepts/security/artifact-attestations) — an example of platform support for signed provenance/SBOM evidence, not a project platform choice.
 
 These references are not certifications or automatic proof of compliance. Select applicable controls based on the approved threat model, system scope, applicable law and owner-approved risk posture.
 
 
-## 9. Governance adoption
+## 10. Governance adoption
 
 The risk-based quality rules above are the project baseline; this adoption plan identifies which controls are currently documented, which require owner adoption, and which must wait for the approved production stack: [AI-CODING-GOVERNANCE-ADOPTION-PLAN-v0.1.md](AI-CODING-GOVERNANCE-ADOPTION-PLAN-v0.1.md). Do not describe a proposed control as enforced until repository settings, workflows and reviewer ownership demonstrate it. After architecture approval, publish the stack-specific annex and enable required checks before production implementation is treated as merge-ready.
