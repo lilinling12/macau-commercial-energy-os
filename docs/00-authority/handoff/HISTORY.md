@@ -256,3 +256,9 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Change:** Added a workflow-to-authorization review map to the VS-001 identity design, distinguishing stable enforcement invariants from role-grant decisions. Added verification scenarios for membership administration versus site-data access, partner expiry/revocation and replay's persisted scope. Expanded PR-01 gap traceability.
 - **Owner review:** Added decision #14 for role-to-action/site-entitlement policy and linked the identity detailed design. Exact role grants, identity provider, cross-site finance policy, partner delegation, separation of duties and customer deployment context remain unapproved.
 - **Status:** Design and traceability only. No authorization roles/grants, customer identities, production identity implementation or security verification are claimed.
+
+## 2026-10-04 — Authorization acceptance evidence synchronized
+
+- **Change:** Propagated the VS-002 workflow-to-authorization review cases into the Security Threat Model SHADOW-MVP verification scenarios and the VS-002 acceptance statement.
+- **Covered cases:** Site-data access is not implied by membership administration; partner grants are scoped, attributable, expiring and revocable; replay references remain within the persisted authorized scope. Explicit multi-site grants may be supported after owner/site policy validation.
+- **Status:** Acceptance design only. No executable authorization tests, role grants, identity integration, customer access or G6-09 closure are claimed.
