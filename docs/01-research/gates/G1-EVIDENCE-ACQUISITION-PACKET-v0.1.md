@@ -2,7 +2,7 @@
 
 **Status:** Prepared request/collection plan; not sent to CEM or a customer.  
 **Gate:** G1 — Macau Tariff & Settlement Foundation  
-**Purpose:** Turn the outstanding demand-window, monthly-charge, Golden Bill and CEM AMI-access unknowns into bounded, auditable evidence requests. This packet does not assert that evidence is available and does not close G1.
+**Purpose:** Turn the outstanding tariff, meter-access, Golden Bill and PV procurement/settlement unknowns into bounded, auditable evidence requests. This packet does not assert that evidence is available and does not close G1.
 
 ## Handling rules
 
@@ -62,6 +62,20 @@ For a willing commercial account and its authorized representative, request:
 
 **Sufficient to resolve U-003 for a scope:** written CEM technical/commercial specification or account-specific confirmation establishing a supported access channel, eligible scope, granularity/cadence, authorized recipient and terms, corroborated by a sanitized sample or read-only test. A CEM smart-meter coverage statement, utility-side AMI/substation telemetry pilot, public report, customer app daily summary, or account holder's ability to view data does not alone establish third-party high-frequency access.
 
+## Request bundle E — PV export, third-party ownership and remote settlement (U-025)
+
+The general PV grid-interconnection and CEM feed-in-purchase route is already established by the public-source evidence note. This bundle addresses the different, still-unresolved commercial questions: who may own/finance a host-site system, who contracts and receives export proceeds, how host self-consumption is treated, and whether generation or environmental attributes can be procured for another customer/site.
+
+After product-owner authorization, request from CEM and the relevant DSSCU/DSPA offices:
+
+1. Current PV application, interconnection, feed-in purchase and any standard producer contract forms, including effective dates, eligible applicant/contracting-party definitions, site-use-right requirements, metering and settlement clauses.
+2. Written clarification for a host-site arrangement where the building/roof-right holder, PV equipment owner/operator, electricity-supply account holder and CEM purchase-contract party are different entities. Ask which parties may apply/sign, what approvals and site rights are required, who receives feed-in payments, and how host self-consumption versus export is metered and settled.
+3. For any claimed remote procurement, PPA, wheeling, virtual allocation or bill credit: the exact legal/contractual authority, required approvals, eligible parties and parcels/accounts, meter topology, allocation method, invoice/settlement treatment, tariff/charges, and a current executed or standard contract covering that arrangement. Ask the authority to distinguish a private customer arrangement from the SAR public-generation offset in Annex VIII.
+4. If renewable certificates (GECs) are proposed instead of physical electricity procurement, the applicable customer offer/contract, eligibility, price, certificate vintage, retirement/claim rules and evidence of retirement. Keep this separate from electricity delivery and CEM bill settlement.
+5. Where the customer/site authorizes it, an anonymized example contract, single-line/meter diagram, producer export/purchase statement and the associated host or remote consumer bill/credit record. Do not request unredacted personal, account or operational data in public channels.
+
+**Sufficient to resolve U-025 for a specific product claim:** current written CEM/regulatory interpretation and the applicable contract/approval must identify the parties, site/land-parcel scope, authorization, metering path and settlement/payee behavior. A claimed operating arrangement also needs appropriately authorized, anonymized meter and settlement evidence. For a customer bill-credit claim, evidence must connect the generator/export, eligible remote account and actual credit mechanism; a feed-in tariff, grid connection, rooftop permission, PPA label, GEC purchase or public-sector offset alone is insufficient. If those records are not available, keep remote allocation and third-party host economics UNKNOWN and exclude the unsupported claim from the declared product scope; absence of a public example is not proof that no approved arrangement exists.
+
 ## Evidence register record
 
 For each artifact, capture privately:
@@ -72,16 +86,17 @@ For each artifact, capture privately:
 - Received date, original timezone/units, transformations and reviewer.
 - Claim supported, confidence/limitations, and whether the evidence is public, contractual, customer-provided, measured or derived.
 
+- For U-025, separately record generator, host/site-right holder, supply-account holder, contract buyer/payee, land parcel, import/export meters, approval and settlement path; distinguish electricity from GEC attributes.
 Only sanitized claim summaries and non-identifying source references belong in the public Evidence Register.
 
 ## Execution sequence and decisions
 
 1. Product owner authorizes whether to pursue CEM clarification and/or a consenting pilot customer; this packet itself sends no request.
 2. Confirm the approved secure intake location and retention/access rules before accepting private evidence.
-3. Request bundles A and B first because U-001/U-009 block tariff semantics; collect bundle C only with matching records and permission. Pursue bundle D only when CEM access clarification and a consenting account/use case are authorized.
+3. Request bundles A and B first because U-001/U-009 block tariff semantics; collect bundle C only with matching records and permission. Pursue bundle D when CEM access clarification and a consenting account/use case are authorized. Pursue bundle E only after owner authorization; obtain written scope/contract clarification before asking for any customer-specific example.
 4. Review the records with the relevant owner; update U-001/U-003/U-009/U-010/U-011, linked evidence and designs.
 5. Keep G1 OPEN until its exit criteria are met and the owner records a Gate decision.
 
 ## Current known boundary
 
-Public CEM B/C/D tariff pages describe Pu as the highest measured demand within the billing period but do not state the numeric integration window. CEM identifies the monthly installation-use line but does not publish its B/C/D formula. These public-source findings do not replace the request bundles or establish bill-grade reconstruction. CEM reports full AMI coverage, customer-facing daily summaries for the past 30 days, and CEM-side meter/substation data capabilities; third-party high-frequency access remains undocumented under U-003. See `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`, `docs/00-authority/decisions/OPEN-QUESTIONS.md`, and `docs/01-research/gates/G1-tariff-settlement.md`.
+Public CEM B/C/D tariff pages describe Pu as the highest measured demand within the billing period but do not state the numeric integration window. CEM identifies the monthly installation-use line but does not publish its B/C/D formula. These public-source findings do not replace the request bundles or establish bill-grade reconstruction. The official PV-to-grid feed-in route is established, but U-025 host/third-party and remote-account settlement questions remain UNKNOWN; bundle E is prepared only and has not been sent. CEM reports full AMI coverage, customer-facing daily summaries for the past 30 days, and CEM-side meter/substation data capabilities; third-party high-frequency access remains undocumented under U-003. See `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`, `docs/00-authority/decisions/OPEN-QUESTIONS.md`, and `docs/01-research/gates/G1-tariff-settlement.md`.
