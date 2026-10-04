@@ -293,3 +293,78 @@ This audit is appended to the existing archive reconciliation artifact in PR #8 
 ### Default-branch authority and Gate adoption check — 2026-10-05
 
 Separately fetched the default-branch `docs/00-authority/handoff/CURRENT.md` (Contents API blob `5b3da3af0a7e267c34a8a743a30cfc89d8fb24ca`). It names Library Research Authority v1.6.2, says G6.9-R2 Steps 3A–3C complete with pinned Step 3D pending, keeps G7.2 live baseline/no-op pending and C+ provisional, and suspends Java Phase D. It contains no G7.9 reference. Therefore the supplied G7.9 Step 1/2 packages and detailed Step 3 proposals on unmerged PRs have **not** been adopted into main's controlling handoff. The main-vs-archive/PR status is a repository governance gap to resolve; this audit does not silently advance the gate or replace the main authority.
+
+
+---
+
+# Authority snapshot deltas — source-level reconciliation
+
+**Audit date:** 2026-10-05  
+**Purpose:** explain the eight repeatedly versioned Authority paths using the ZIP packages themselves. This records what each snapshot says; it does not make an owner decision or silently revise current repository authority.
+
+## Source identity
+
+The package digests below were independently verified against the supplied source directory and archive index. The archive integrity audit is in `ARCHIVE-COVERAGE-AUDIT-2026-10-05.md`.
+
+| Snapshot | Source package SHA-256 |
+|---|---|
+| Authority v1.0.0 | `e86ed7a5cf6e17dc9e82e22685c072101e6b88e89577ef7cab654fce869268fb` |
+| Authority v1.1.0 | `d7cf498f778070751c5b6525d3a2f65389c9df7dcc192f94461720960172146b` |
+| Authority v1.2.0 | `6a9b58873cdccd10d552363d16340a26cc2cf51921724c166a1966dc8a0a9354` |
+| Authority v1.3.0 | `6a234e0e5945d71a0a6c064eeefa9fd11c0a75e68620de94fd1f1538d59b6be5` |
+| Authority v1.4.0 | `f2131af2eb2e460cbc7c6b67ecbe5c51c0a2ab61a26a15d0c2d578a1e8bf0590` |
+| Authority v1.5.0 | `7cff3a45c3f3ad76735cc514d5d194ee22a911496724b4620757b13179a73586` |
+| Authority v1.6.1 | `28123be1b8f23582d9006138f4c855ab2d2ab5f2cee3b323f4d2d54ddf9e6a46` |
+| Authority v1.6.2 | `6559bd62b1617da046bb5be64715a5a723144534a62395f7811b20c5b9de0989` |
+| Authority v1.7.0 | `fb98ee32aadad185b0cbc18134d5f5576223225eb65853fe7f7f4abbb2357b84` |
+| Authority v1.7.1 | `b23f71bc29b2db911d3d1612a286a8901b24e5957f20f8953e07a1abd1204adb` |
+| Authority v1.8.0 | `071b60f1e156f5b79ca318adcd5801d2c10cd8efee0649e8c35bdd9f14d71200` |
+| Authority v1.9.0 | `165cff61b07d36d45a2268bf55a3b4c485623a35e5435bf6393524965998c1d1` |
+| Authority v2.0 recovery | `3936f35ed0dde8cd968699c5a81a23b1a6e6ea7ca46868ec3201498ea214572f` |
+| Authority v2.0 mapping audit | `fdd02600da691bb4511b9165b1bb9c95f3bf931ff7d233f03baab2de90a5cba6` |
+| Authority v2.0 architecture consolidation | `a798691969566240258ef4ed69638cc0c9980827be948811403c44cba2644a4e` |
+| Authority v2.0 repository preparation | `c74690ec9b7e47a49e90740d9091f31946157a22823710b031e7fb7de3f171a7` |
+
+## Timeline and status matrix
+
+| Source snapshot | Recorded work and next step | Evidence classification |
+|---|---|---|
+| v1.0.0 | G1 active; G1.2 Tariff Engine implementation architecture next. | **Verified snapshot text**; early gate state. |
+| v1.1.0 | G1.2 completed; G7.1 controller/economics research next. D-030 records Java 25 + Spring Boot 4.1 as the initial tariff implementation stack and marks it active. | **Accepted in that snapshot**, later explicitly superseded for implementation language/runtime. |
+| v1.2.0 | G1 remains open; G7.1 design recorded complete; G7.2 live R0 baseline/no-op next. | **Design completion**, not live harness evidence. |
+| v1.3.0 | G7.2 static preflight completed, but live execution explicitly pending; G7.3 design may proceed in parallel. | **Verified preflight / pending live execution**. |
+| v1.4.0 | G7.3 SitePowerComposer + Macau energy/TCA replay design recorded complete; G7.4 controller specification next; G7.2 still live-pending. | **Design complete**, no live R0 closure. |
+| v1.5.0 | G7.4 deterministic TariffShaper v0 and offline policy tests recorded complete; G6.1 Safety Kernel next; G7.2 live work and G1 evidence acquisition still pending. | **Offline/design evidence**, not live performance validation. |
+| v1.6.1 | G6.9-R2 Steps 3A/3B complete; Step 3C pending; G7.2 remains live-pending. D-064 labels C+ provisional. | **Protocol evidence**, not final stack selection. |
+| v1.6.2 | Step 3C semantic end-to-end slice complete. Step 3D pinned framework-native integration is the explicit next task; U-021/U-023/U-024 remain open. G7.2 live baseline/no-op remains pending. | **Semantic slice verified in the snapshot; framework-native comparison not evidenced complete**. |
+| v1.7.0 / v1.7.1 | Broad consolidation/recovery transition is asserted, while later handoff text still describes the framework-native bake-off as pending or cloud framework as open. | **Gate-consolidation assertion; no Step 3D result supplied in these packages**. |
+| v1.8.0 / v1.9.0 | Top-level authority claims broader G6.9/G7 research completion and advances engineering/repository preparation. v1.9 says repository creation is next. | **Later status assertion**, not a benchmark artifact or measured winner. Historical repository status, since GitHub now exists. |
+| v2.0 recovery/steps 2–4 | Recovery, mapping, architecture consolidation and repository-preparation outputs are marked complete; the loose v2.0 Authority calls G6.9-R2 3G.1 complete and 3G.2 next. | **Preparation/mapping outputs**; do not prove the distinct Step 3D experiment ran. |
+| v2.1 loose Authority | Says G6.9 Technology Selection/AI Native Engineering complete and G7.1 next. | **Later closure assertion**; no Step 3D run ID/results, measured winner, approver, or explicit supersession record was located in the inspected file. |
+| Current GitHub default-branch `CURRENT.md` | Names v1.6.2, says 3A–3C complete / 3D pending, G7.2 live baseline pending and C+ provisional; it does not mention G7.9. | **Current repo authority** until changed through governance; exact fetched blob `5b3da3af0a7e267c34a8a743a30cfc89d8fb24ca`. |
+
+## What the eight divergent paths establish
+
+The 8 paths are `authority-manifest.json`, `decisions.md`, `evidence/evidence-register.md`, `handoff/current.md`, `handoff/history.md`, `open-questions.md`, `readme.md`, and `technology/g6.9-r2-tech-stack-bakeoff.md`.
+
+1. **Manifest, handoff/current, README, and history:** the snapshots are a changing research log, not a single timeless status. v1.2–v1.5 explicitly keep G7.2 live execution open while completing adjacent design work. v1.6.1 advances the next task to G6.9-R2 3C; v1.6.2 advances it to 3D after recording 3C complete.
+2. **Decision register:** D-030's Java 25/Spring Boot implementation choice is active in v1.1–v1.5. v1.6.1/1.6.2 introduce D-069, which supersedes **only the implementation stack choice** while retaining the tariff semantic architecture. The same later snapshots introduce D-064 C+ as an **active provisional default**, D-065 generated cross-language contracts, and D-068 requiring semantic and AI-engineering bake-off evidence. Java therefore appears in the original research but is not the current production implementation authority.
+3. **G6.9 bake-off source:** v1.6.1 ends after protocol conformance/Step 3B and names 3C next. v1.6.2 adds 3C semantic-slice evidence and names 3D pinned integration, including framework-native A/B/C+ execution with durable workflow, broker, persistence and fault-injection evidence. The inspected source packages identify 3D as next and contain no 3D result.
+4. **Open questions and evidence register:** unresolved economic and runtime questions persist while research designs advance. Evidence that a harness/API or offline policy works does not substitute for the missing pinned framework comparison or live G7.2 baseline.
+
+## Reconciliation
+
+The two claims below refer to different evidence levels and should remain distinct:
+
+- Later Authority releases declared broad G6.9 research/consolidation complete.
+- The supplied v1.6.2 checkpoint, current GitHub handoff and inspected bake-off artifacts do not show G6.9-R2 Step 3D completion or a measured production framework winner.
+
+Thus no production runtime should be described as benchmark-selected. The current repository records C+ as provisional; NestJS exists in code as an implementation path but did not thereby win; the historical G7.8 Fastify ADR and later G6.9 candidate process still need authority precedence reconciliation. The loose v2.0/v2.1 files and later summary packages do not resolve that conflict because they do not point to Step 3D result artifacts or an explicit superseding owner decision.
+
+## G7.9 placement
+
+The supplied G7.9 Step 1/2 packages mark their domain/design work complete and name Step 3 Service Boundary and Implementation Design next. The current main `CURRENT.md` does not mention G7.9. The G7.9 Step 3 acceptance/repository map and APP-11 dispatch design are on open PR #10; PR #8 carries broader product/roadmap proposals. Neither PR is merged. Therefore G7.9 design is **partly proposed in GitHub PRs, not adopted into main authority, and not closed**.
+
+## Next evidence-led action
+
+Resolve repository authority precedence before a production framework freeze: either run the missing Step 3D experiment in its pinned environment, or prepare an owner-reviewed dated supersession ADR that explicitly waives it with evidence. In parallel, update the main handoff through its normal review process so that G7.9's verified package status and unmerged design proposals are represented without implying gate closure. Do not merge or freeze based on this audit alone.
