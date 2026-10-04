@@ -769,3 +769,9 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - Added the graph/telemetry identity and status cross-review to ARCH-INGEST-RELIABILITY-001 and recorded APP-04 vocabulary alignment in ARCH-APP-CONTRACT-CATALOG-001.
 - Both packets remain Review pending owner decision #12, connector-specific receipt semantics, D-065 contract authority and architecture approval. No source identity, runtime behavior or site evidence was validated.
 - This closes the documentation traceability loop for the static G3 review; it does not pass G3 or establish production readiness.
+
+## PRD-to-slice G3 state alignment review (2026-10-04)
+
+- Cross-reviewed PR-02/PR-03, Flow A, S-03/S-04, the PRD-to-architecture matrix and VS-003/VS-004 against the G3 Energy Graph/Telemetry design.
+- Found product/acceptance language still referred to a “stale mapping” after architecture semantics had split mapping validity from measurement freshness. Updated the PRD, user flows, traceability matrix, vertical-slice acceptance plan, readiness audit and CURRENT handoff.
+- The product now describes `EXPIRED_MAPPING` separately from stale/invalid telemetry. This improves design-to-acceptance consistency; no target-user comprehension, Macau site behavior, runtime, or Gate evidence is claimed.
