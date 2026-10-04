@@ -204,3 +204,33 @@ PR #8 CURRENT records a live GitHub settings observation dated 2026-10-04: main 
 5. Keep current PRs unmerged until their coherent review groups and owner decisions are completed.
 
 This section records research and implementation status only; it does not adopt the policy or approve the visual direction.
+
+## 12. v1.6.2 G6.9/G7 executable evidence versus current main
+
+### Direct archive read
+
+Directly re-read all Markdown, Python, YAML and JSON entries listed by the user-supplied Authority v1.6.2 archive inventory (26 entries; archive SHA-256 6559BD62B1617DA046BB5BE64715A5A723144534A62395F7811B20C5B9DE0989). Its own authority manifest and handoff say G1 is OPEN, G6.9-R2 Steps 3A/3B/3C complete with Step 3D pending, and G7.2 live baseline/no-op not executed. Individual files further qualify the design/execution status:
+
+| Gate/source artifact | Archive's own status and evidence | What must not be inferred |
+|---|---|---|
+| G6.9-R2 Step 3B | 22 Node 22.16 / Go 1.23.2 protocol-case assertions passed; Bun unavailable; exact command/envelope semantics fixed for the conformance fixture. | Production command signing/key lifecycle: U-022 remains OPEN / G6 SECURITY; HMAC is explicitly fixture-only. No framework/runtime winner. |
+| G6.9-R2 Step 3C | Node/Go/Python semantic slice with tenant rejection, deduplication, fixed 15-minute aggregate, deterministic proposal/command IDs, signed command semantics and crash-after-field-write replay scenario. | It did not run Temporal, Postgres/Timescale, MQTT, NATS, Bun/Hono/Effect or NestJS/Fastify together; not the 100-kill recovery gate or comparative Step 3D. |
+| G1.2 Tariff Implementation Architecture v1 | “DESIGN COMPLETE / IMPLEMENTATION-READY / NOT PRODUCTION-VERIFIED”; deterministic rule model, effective-date replay, exact arithmetic and PostgreSQL 18 are specified. The document proposes Java 25 + Spring Boot 4.1.1 for the production wrapper. | Java implementation portion is historical, not current production authority: current main D-069 suspends that part of D-030 while G6.9 is open. The semantic tariff architecture remains active; no Java tariff service is present in current main's tree. |
+| G7.1 controller/economics loop | Design complete; harness implementation not yet executed. Its design acceptance is architecture/scenario proof, not Macau hotel ROI. | No live or site-calibrated savings claim. |
+| G7.2 R0 preflight | Static preflight complete; live BOPTEST baseline/no-op not executed; file marks the gate partially complete and requires live paired runs. | No live baseline, controller outcome, or savings claim. |
+| G7.3 SitePowerComposer/replay | Offline reference implementation and golden tests are claimed in this archive; live R0 trajectory remains pending. Uses PROJECT_ASSUMPTION inputs and explicitly says production settlement authority is the G1 Tariff Engine design. | Offline tests do not establish a live BOPTEST result, a real CEM bill, or production tariff truth. |
+| G7.4 supervisory controller | Offline deterministic policy tests pass; live closed-loop execution pending. SAT/CHWS, comfort, stale inputs, site-power guard and rebound cases are specified; U-001 interval ambiguity must not be relabelled as verified Pu. | No actual equipment response or safe field-control proof. G6 command authorization/key lifecycle remains open. |
+
+This also distinguishes “G6.9” (technology stack research) from “G6” (Safety & Control). Current main's G6 gate page contains only high-level boundary principles; main OPEN-QUESTIONS explicitly leaves production signing/device identity/provisioning/rotation/revocation and hardware-backed key storage open under U-022. G6 therefore cannot be reported as completed on the current evidence.
+
+### Exact current-main tree comparison
+
+Fetched GitHub's recursive current-main tree at commit a897bf0b1e7e6ceea3862d7d87fa288ecca08203 (167 entries; not truncated). The tree includes a high-level G6.9 trend-research folder, technology-selection summaries, the G6.9 selection README, a Java Evaluation document, generic G1–G7 gate pages, current decisions/unknowns, and the Phase B/C implementation scaffold.
+
+The tree does not contain the v1.6.2 archive's exact G6.9 Step-3B/Step-3C evidence documents or raw runner outputs; it does not contain the Authority's reference-building directory, G7.1–G7.4 specification files, R0 YAML/JSON binding/manifests, Python replay/controller source, or the associated reference tests; it does not contain the G1.2 Tariff Implementation Architecture v1. A directory/name check also found no equivalent filenames in the tree. Some decisions and status summaries are represented elsewhere in main, but the source artifacts and executable research assets themselves were not imported under their archive paths. The main gate pages are high-level summaries and do not substitute for those source materials.
+
+PR #8 adds a Step 3D readiness proposal and extensive product/architecture documents, and PR #12 adds an archive/status audit; both remain unmerged. Neither imports the v1.6.2 reference-building code/test artifacts into main. Report these assets as “archive present, exact main artifact absent; decision/status summarized” until they are imported or a specific equivalent is proven.
+
+### Practical consequence
+
+There is more original technical research than current main's Gate pages alone reveal, but several important results remain only in the supplied archive. The next migration/crosswalk must preserve source version and hashes, map each artifact to an exact current or proposed repository path, and state whether code/result was rerun, merely copied, summarized, superseded or absent. Do not recreate an archive experiment as new work until its existing implementation and results have been traced and assessed.
