@@ -10,6 +10,10 @@ What can public Macau evidence establish about commercial electricity use and co
 
 ## Findings supported by Macau primary sources
 
+### Data release watch (reviewed 2026-10-04)
+
+DSPA's official quarterly series currently lists the 2026 Q2 Energy and Services report as its latest release. DSEC's official release calendar schedules **Energy Statistics for 3rd Quarter 2026** for **2026-11-20**. Therefore, Q2 2026 remains the latest located DSPA/CEM commercial-customer electricity-sales evidence for this review; there is no Q3 2026 result to add yet. Recheck the release calendar and update this note after the scheduled publication. This is a data-currency checkpoint only; it adds no inference about Q3 usage or building flexibility.
+
 ### 1. Official statistics establish commercial-sector scale and rising seasonal demand, not site flexibility
 
 The newest located official quarterly source is DSPA's 2026 Q2 Energy and Services synthesis (page updated 2026-09-25). It reports CEM-supplied total electricity consumption of 1,710 GWh (+3% year on year), CEM sales of 1,669 GWh (+3%), and a system maximum load of 1,130 MW, a record. Its electricity sales table breaks the total down by customer group:
@@ -105,6 +109,8 @@ Until those conditions are met, G2 remains OPEN, no site-level dispatchable capa
 - DSPA, **Energy intensity trends, 2021–2025** (official indexed values): https://www.dspa.gov.mo/richtext.aspx?a_id=1598253440
 - DSPA, **Energy and Services Comprehensive Data, 1st Quarter 2026** (CEM sales by customer group; peak load and electricity totals): https://www.dspa.gov.mo/energyfigures/tc/en-chn_q126.pdf
 - DSPA, **Energy and Services Comprehensive Data, 2nd Quarter 2026** (CEM sales by customer group; peak load and electricity totals): https://www.dspa.gov.mo/energyfigures/tc/en-chn_q226.pdf
+- DSEC, **Official Release Calendar** (reviewed 2026-10-04; schedules Q3 2026 Energy Statistics for 2026-11-20): https://www.dsec.gov.mo/TimeTables.aspx?lang=en-US
+- DSPA, **Quarterly electricity and natural-gas statistics, 2008–2026** (currently lists 2026 Q2 as the latest report): https://www.dspa.gov.mo/richtext.aspx?a_id=1598253482
 - DSPA, **2023 Macao Green Hotel Awardees — Gold Award — Galaxy** (last modified 2024-04-25): https://www.dspa.gov.mo/h_award_detail.aspx?a_id=1710484470
 - DSEC, **Package tours and hotel occupancy rate for December and the whole year of 2025** (2026-01-30): https://www.gov.mo/en/news/392646/
 - CEM, **Macao Energy Saving Activity 2026 Hotel / Resort Group**: https://www.cem-macau.com/en/event/75/
