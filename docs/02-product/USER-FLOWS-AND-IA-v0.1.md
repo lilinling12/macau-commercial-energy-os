@@ -7,13 +7,13 @@
 
 ## 1. Design intent
 
-The interface should help a commercial-site team answer, in order:
+The interface's primary job is to help an authorized site user prepare and review evidence-bounded source/load schedules. The task order is:
 
-1. Is the site data current and trustworthy?
-2. Which measurements, mappings, contracts and tariff versions support this result?
-3. What economic conclusion is supported, and what remains unknown?
-4. What does the system recommend in shadow mode, against which baseline and constraints?
-5. Can the result be reproduced and reviewed later?
+1. Which site, horizon and evidence snapshot are in scope?
+2. Which grid/PV/ESS/load resources and operating constraints are supported for that period?
+3. How does the candidate schedule compare with a same-horizon baseline, interval by interval and across the full horizon?
+4. Which physical, economic and contractual conclusions are supported, and what is blocked or uncertain?
+5. How can a person record a SHADOW review and later compare replay with measured outcomes?
 
 Evidence status must be visible where users interpret a number or recommendation. Distinguish telemetry recency from settlement truth, predicted from measured outcomes, and project assumptions from verified customer evidence.
 
@@ -34,16 +34,16 @@ No role is assumed to have device-execution permission in the MVP. Reviewing a r
 ## 3. Proposed information architecture
 
     Organization / Portfolio
-    ├── Portfolio overview
     ├── Sites
     │   └── Site workspace
-    │       ├── Overview
-    │       ├── Data health
-    │       ├── Site model: Assets & points / Settlement relationships
-    │       ├── Economics: Cost analysis / Tariff & contract evidence
-    │       ├── Recommendations (SHADOW)
-    │       └── Evidence & replay
-    ├── Integrations (site-scoped)
+    │       ├── Dispatch workspace (primary task)
+    │       ├── Site readiness overview (supporting)
+    │       ├── Data health and integrations
+    │       ├── Site model: physical/electrical topology / settlement relationships
+    │       ├── Economics: cost assessment / tariff and contract evidence
+    │       ├── SHADOW assessment review
+    │       └── Monitoring, evidence and replay
+    ├── Portfolio overview (supporting; not the primary task destination)
     └── Organization access & audit
 
 Keep organization and site visible in titles and breadcrumbs. Give sites stable deep links. Put unresolved issues near affected results. Do not label a feed “Live” without current source data; show last observed and received times. Avoid global green health badges that hide a failed source or blocked calculation. Link recommendations and evidence by stable IDs.
@@ -57,19 +57,25 @@ Select/create site → connect an approved telemetry source → inspect points a
 **Outcome:** the operator understands what is measured and what is missing.  
 **Behavior:** never infer asset, unit, contract or tariff from point names alone. Mapping changes are versioned, attributed and effective-dated. Unresolved or cross-site mappings cannot feed authoritative economic results.
 
-### Flow B — Explain a cost or demand result
+### Flow B — Build and compare a source/load schedule (primary task)
 
-Choose site and period → inspect coverage and quality → choose meter/settlement view → inspect contract, tariff version and demand policy → view component results and source measurements → inspect uncertainty/excluded inputs → save/share evidence-linked result.
+Choose site and horizon → pin the data/evidence snapshot → confirm physical meter/source/load mappings separately from settlement links → identify eligible grid import, on-site PV, ESS and site-qualified flexible loads → compare baseline and candidate schedules on the same intervals → inspect source/load balance, storage trajectory where supported, technical/comfort constraints and horizon-wide effects such as rebound → review cost only if applicable contract/tariff/demand evidence resolves → mark the assessment SHADOW and record a review disposition.
+
+**Behavior:** eligibility and limits are evidence-qualified for the requested period. Unknown capacity, SOC, efficiency, comfort limit, control authority or settlement term is a blocker, never zero, unlimited or permissive. Physical flow and settlement remain separate. When economics are incomplete, allow only an explicitly labelled physical scenario comparison; suppress bill-grade totals, savings, export credits and ROI. A SHADOW review never sends a command.
+
+### Flow C — Explain an economic result when supported
+
+Choose site and period → inspect coverage and quality → choose meter/settlement view → inspect contract, tariff version and demand policy → view supported cost components and source measurements → inspect uncertainty/excluded inputs → save or replay the evidence-linked result.
 
 **Behavior:** unknown tariff or measurement rules produce “Not calculated” or a clearly labelled scenario, never a verified bill total or savings value. Never use sampling interval as Pu settlement window without verification. Show site consumption and PV producer feed-in/export separately; off-site PV is not a customer bill credit without verified entitlement.
 
-### Flow C — Review a shadow recommendation
+### Flow D — Review a SHADOW assessment
 
-Open recommendation queue → filter by site, period, state and evidence coverage → inspect proposal → compare baseline and current operation → review action, horizon, constraints and assumptions → record reviewed/dismissed/needs-data/comment → revisit later measured outcomes.
+Open an assessment → inspect its schedule, source snapshot, baseline, validity horizon, constraints, economic eligibility and uncertainty → record reviewed/needs-data/rejected/comment → revisit later measured outcomes.
 
-**Behavior:** prominently show SHADOW, safetyReviewRequired, validity interval, model/build version, baseline, forecast uncertainty, operating constraints and input coverage. Review actions only annotate the proposal. No “Apply”, “Send” or execution affordance exists in this MVP. Predicted effects remain separate from measured outcomes.
+**Behavior:** prominently show SHADOW, model/build version, baseline, schedule horizon, forecast uncertainty, operating constraints and input coverage. Review actions only annotate the assessment. No “Apply”, “Send” or execution affordance exists in this MVP. Predicted effects remain separate from measured outcomes.
 
-### Flow D — Reproduce and assess evidence
+### Flow E — Reproduce and assess evidence
 
 Open evidence → inspect status and source references → inspect input/mapping/tariff/model versions → start replay if all inputs retained → compare replay and stored result → record outcome and limitations.
 
@@ -103,6 +109,12 @@ Show evidence ID, status, subject, recorded time, source links, derivation, note
 
 ### S-09 Integration and site access
 Disclose required permissions before credentials are entered. Separate connector authentication from data quality. Show role and site scope; never reveal stored secrets. Identity/delegation UX remains provisional until security architecture is decided.
+
+### S-10 Dispatch workspace (primary task)
+
+Make the selected site, timezone, planning horizon, interval, evidence snapshot and SHADOW state visible before users interpret a schedule. Show baseline and candidate on the same time axis with source contributions, total load, import, PV and storage series only where present in the evidence. Provide an equivalent interval table and direct labels; line style, labels and shape must supplement color. Mark synthetic, measured, forecast, estimated and unknown values distinctly.
+
+Keep the physical/electrical balance separate from the tariff/settlement view. Expose resource eligibility, data freshness, mapping provenance, applicable technical/comfort limits and blockers beside the intervals they affect. Show full-horizon peak/rebound summaries as well as interval deltas. When tariff/contract/demand evidence is missing, state that monetary impact is blocked and do not display savings or ROI. Review controls record SHADOW disposition only; no equipment-control affordance appears.
 
 ## 6. Cross-cutting interaction and visual rules
 
@@ -162,3 +174,8 @@ The current screens and task flows are English-first research stimuli, not a sup
 ## Follow-up: v0.11 temporary recommendation feedback — 2026-10-04
 
 The current nine-destination study stimulus is v0.11; v0.10 is retained as its historical predecessor. This is the same synthetic task flow and recommendation-review hypothesis, with the confirmation copy corrected: the demo state changes only on the current page, resets on reload, and is not persisted, sent to a service, or evidence of execution/outcome. Product review semantics and durable production audit behavior remain subject to user and owner validation.
+
+
+## Dispatch-first alignment — 2026-10-04
+
+The existing v0.11 prototype opens on a synthetic portfolio/readiness overview and is retained as a supporting workflow study. It does not demonstrate the primary dispatch task. The standalone six-stage source/load prototype in PR #10 is the current dispatch-flow stimulus: input/contract qualification → physical site model → same-horizon schedule comparison → constraints/evidence → SHADOW review → monitoring/replay. The two prototypes therefore cover different workflow layers; neither has owner/user approval, and the focused dispatch flow still needs integration into a complete product shell and representative usability review.
