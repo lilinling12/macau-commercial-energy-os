@@ -289,3 +289,14 @@ This is a deliberate prototype-coverage limit, not evidence that the product sho
 - Preserved v0.5 unchanged at `docs/02-product/prototype/v0.5/index.html`; v0.6 is at `docs/02-product/prototype/v0.6/index.html`.
 
 **Verification boundary:** static source inspection confirms all nine destinations are present, selection is synchronized with `showView` and URL hash navigation, and the old threshold hex no longer appears. A limited local in-app-browser render was then inspected through its accessibility tree: one browser context exposed the compact selector, a second exposed the desktop navigation, and a `#tariffs` deep link showed the tariff view and matching breadcrumb. Exact CSS viewport dimensions were not captured and no screenshot-level visual assessment was performed. Review at 320/375/768/1024/1440 CSS px, 200% zoom, keyboard traversal, assistive technology, participant sessions and WCAG conformance remains outstanding. v0.6 remains synthetic and unvalidated; product scope, interaction direction, frontend framework and production architecture remain unapproved.
+
+
+## Follow-up: limited rendered and keyboard observation for v0.6 (2026-10-04)
+
+**Method:** Opened the existing synthetic prototype in the Codex in-app browser, inspected its rendered narrow-panel view and accessibility tree, then exercised visible controls by keyboard/pointer. This is a bounded exploratory review of one browser surface, not a formal responsive or accessibility test.
+
+- The narrow-screen native view selector exposed all nine destinations. ArrowDown followed by Enter changed Portfolio overview to Site overview; the URL hash changed to `#site`, the selected option updated, and the page heading/content changed. This confirms that this single selector path is keyboard-operable in this browser context.
+- In Economics, selecting Baseline comparison changed the result state to “Unavailable” because no validated baseline/candidate pair exists; no modeled delta or realized-savings amount was shown. This supports the draft's conservative result boundary in this one interaction.
+- The screenshot showed a compact header/selector, visible synthetic-data notice and vertically flowing content in the narrow preview. This does not establish exact CSS viewport dimensions, no-overflow behavior at specified breakpoints, touch-target sizing, 200% zoom, desktop layout, full keyboard order, screen-reader behavior, or WCAG conformance. A temporary wide viewport override produced a capture whose bounds were not reliable for desktop layout review; repeat desktop review with a measurable browser surface.
+
+**Boundary:** No prototype source was changed in this follow-up. No customer/user session, assistive-technology session, or production-interface acceptance is claimed. Keep visual direction and product scope unapproved pending owner review and authorized WP-4 research.
