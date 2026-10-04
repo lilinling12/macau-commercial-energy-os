@@ -186,3 +186,12 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Finding:** CEM continues to describe Pu as the maximum measured demand in the billing period; the regulation defines the maximum periodically measured average active power. No numeric measurement window, block/rolling method, meter register configuration or clock-boundary rule was found. Public AMI material still does not specify a third-party raw interval interface.
 - **Status:** U-001 and U-003 remain OPEN. Do not hard-code 15 minutes; seek CEM register configuration or matched bill + interval/load-profile evidence. No Gate closed and no product/technology decision changed.
 - **Source note:** `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`.
+
+
+## 2026-10-04 — CEM tariff and TCA public-source snapshot
+
+- **Change:** Added a dated evidence note recording CEM's public A/B/C/D tariff listings and quarterly TCA values, and linked the note from the Evidence Register, Master Index and CURRENT handoff. The Tariff & Settlement detailed design now treats base schedule and quarterly TCA as separate effective-dated inputs.
+- **Finding:** CEM's page lists 2026 Q3 TCA as MOP 0.36/kWh effective 2026-07-22. The A-group illustrative example's 0.340 is stale example data, not the current Q3 TCA.
+- **Status:** Public-source snapshot only. G1 remains OPEN; customer-specific applicability, Pu interval, B/C/D monthly installation-use formula, real Golden Bills and invoice arithmetic remain unresolved. C2 tariff-table cell attribution requires rendered/controlled-source verification. No bill-grade claim, customer savings claim or Gate closure is implied.
+- **Sources:** CEM tariff-group and TCA pages; Administrative Regulation 25/2022; Executive Decree 105/2022. See the evidence note for direct links and limits.
+- **Validation boundary:** Documentation-only update. Exact-head repository workflows must be checked; no application test, customer-data intake or runtime tariff implementation was performed.
