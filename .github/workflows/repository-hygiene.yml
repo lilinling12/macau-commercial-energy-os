@@ -22,7 +22,7 @@ jobs:
       - name: Reject merge-conflict markers
         shell: bash
         run: |
-          if grep -RInE '^(<<<<<<<|=======|>>>>>>>)' .             --exclude-dir=.git             --exclude='*.lock'; then
+          if grep -RInE '^(<<<<<<<|=======|>>>>>>>)' . --exclude-dir=.git --exclude='*.lock'; then
             echo "::error::Merge conflict markers found"
             exit 1
           fi
@@ -37,6 +37,6 @@ jobs:
             exit 1
           fi
 
-      - name: Ensure handoff entrypoint exists
+      - name: Ensure canonical handoff entrypoint exists
         shell: bash
-        run: test -f docs/handoff/CURRENT.md && test -f docs/handoff/CONTINUE-PROMPT.md
+        run: test -f docs/00-authority/handoff/CURRENT.md && test -f docs/00-authority/handoff/CONTINUE-PROMPT.md
