@@ -183,3 +183,10 @@ No direct contradiction remains across the reviewed state handoffs. Static docum
 - **Still open:** G1 bill/demand/tax/rounding evidence; G2 site capability/response/recovery; G3 graph and metering; G4/G5 measured model/solver evidence; G6 controls; G7 live baseline/M&V; canonical D-065 contract generation and product meaning. This static review closes no Gate and authorizes no production implementation or field control.
 
 No other direct semantic contradiction was found in this bounded review. No application/runtime tests, simulator experiment or Macau-site validation were performed.
+
+## Follow-up — G3 mapping identity and freshness boundary (2026-10-04)
+
+- Cross-reviewed Energy Graph, Telemetry Ingestion/Data Quality, the logical application/event catalog and the prepared G3 site evidence packet.
+- Found two interface ambiguities: Energy Graph required an immutable source event identity even though telemetry V1 has no producer event ID; and graph `STALE` conflated expired mapping validity with measurement freshness. The capture identity is now the durable platform raw-capture record reference, while producer/source event identity is optional when an authenticated integration supplies it. Graph mapping results now use `EXPIRED_MAPPING`; telemetry freshness/quality remains a separate dimension.
+- Aligned APP-04 and the G3 packet's machine vocabulary (`CONFLICT`, `EXPIRED_MAPPING`) and recorded measurement quality separately.
+- This is a static design correction only. No site evidence, runtime contract, source-ID stability, resolver behavior, tests, Gate closure or production schema was validated. G3 remains OPEN; U-027/secure intake and site authorization remain prerequisites.
