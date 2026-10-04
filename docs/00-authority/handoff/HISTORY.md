@@ -56,6 +56,11 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Next:** Render and inspect supported viewport sizes and keyboard/focus behavior; then use authorized WP-4 formative sessions to validate task discoverability and comprehension. Keep product direction and architecture pending owner review and required research/bake-off evidence.
 
 
+## 2026-10-04 — Step 3D host preflight recheck
+
+- **Change:** Rechecked the task host after the latest design review. Node 22.20.0 is the PATH default; Node 24.9.0 is installed separately but does not meet the proposed 24.21.0 pin. Bun, Go, Docker and Docker Compose are absent; the machine is Windows 10 AMD64 and has no installed WSL Linux distribution.
+- **Status:** The local task host cannot run Step 3D's pinned Linux x86-64 common-service environment. No software was installed and no application/runtime experiment was run. A clean isolated Linux runner and explicit security/ownership choice remain necessary.
+
 ## 2026-10-04 — Limited local browser render check for v0.6
 
 - **Change:** Opened the exact v0.6 HTML through a local preview in the Codex in-app browser after direct access to the raw GitHub URL was blocked by the browser. Accessibility-tree output showed the compact selector in one browser context, desktop navigation in a second, and the `#tariffs` deep link opening the matching tariff view and breadcrumb.
