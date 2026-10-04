@@ -143,7 +143,8 @@
     "produce reproducible BOPTEST v0.9.0 build inputs and image digests",
     "freeze dependency lockfiles and package-manager versions for every candidate",
     "record the owner-approved browser UI scope for Step 3D: recommended reading is common UI contract/API/live-stream tests only, matching T01/T07 and current metrics; clarify C+ BFF/UI scope or amend the pack to add equivalent browser tasks for all candidates",
-    "pin workload, candidate commits, AI agent versions, trial repetitions and raw-result retention"
+    "pin workload, candidate commits, AI agent versions, trial repetitions and raw-result retention",
+    "resolve Owner decision #16: include Next.js as a fourth backend/API candidate, replace Candidate B, or explicitly defer; if included, amend the experiment authority, runtime pins, common acceptance/workload, and controlled-trial count before runner freeze"
   ],
   "imageDigestEvidence": {
     "platform": "linux/amd64",
