@@ -355,3 +355,15 @@ This is a deliberate prototype-coverage limit, not evidence that the product sho
 - **Remaining evidence:** repeat at specified widths and 200% zoom; inspect full keyboard order and screen-reader announcements; review Chinese/Portuguese content; then run the authorized WP-4 protocol. The prototype remains one synthetic demand-evidence case. User comprehension, preference and task success remain unknown.
 
 **Boundary:** This observation corrects a prototype implementation defect only. It does not approve any A/B/C IA, product scope, visual system, production frontend, accessibility conformance or customer workflow.
+
+
+## Follow-up: v0.8 320px overflow and v0.9 responsive correction (2026-10-04)
+
+**Method:** Applied the browser's viewport override at 320, 375, 768, 1024 and 1440 CSS px; inspected rendered screenshots at 320 and 1440; read page/client scroll widths, mode-selector dimensions and visible workspace state in the browser context.
+
+- **v0.8 finding:** At a 320 CSS px viewport, `body{min-width:320px}` combined with a vertical scrollbar whose client width was 305px, causing 15px of page-level horizontal overflow. The selector itself wrapped; the remaining overflow came from the body's minimum width.
+- **v0.9 correction:** Preserved v0.8 and removed the body minimum width in `docs/02-product/prototype/v0.9/index.html`.
+- **Observed v0.9 results:** At all five specified widths, document scroll width equaled document client width, modebar scroll width equaled its client width, and exactly the selected workspace was visible. The 320px screenshot showed the three selector buttons stacked and the content reflowed; the 1440px screenshot showed the evidence workspace and evidence rail side by side.
+- **Still open:** Browser zoom did not change under the attempted keyboard shortcut; 200% zoom remains unverified. Full keyboard traversal, screen-reader announcements, translated terminology, and WP-4 user performance remain open. This limited viewport observation is not a WCAG conformance claim.
+
+**Boundary:** v0.9 is a comparison stimulus, not an approved product IA or production UI. A/B/C remain unselected.
