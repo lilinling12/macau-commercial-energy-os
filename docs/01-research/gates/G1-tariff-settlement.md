@@ -7,7 +7,7 @@
 
 ## Evidence acquisition execution packet
 
-Before any customer/CEM request, use `docs/01-research/gates/G1-EVIDENCE-ACQUISITION-PACKET-v0.1.md`. It defines the exact U-001 demand-register, U-009 charge-basis/formula and U-010/U-011 matched Golden Bill evidence bundles, privacy-safe handling, sufficiency criteria and a request/receipt workflow. The packet is a prepared plan only: no request was sent, no customer data was received, and owner authorization plus an approved secure intake path are prerequisites.
+Before any customer/CEM request, use `docs/01-research/gates/G1-EVIDENCE-ACQUISITION-PACKET-v0.1.md`. It defines the U-001 demand-register, U-009 charge-basis/formula, U-010/U-011 matched Golden Bill and U-025 PV-contract/settlement evidence bundles, with privacy-safe handling, sufficiency criteria and a request/receipt workflow. Bundle E is prepared only and does not authorize or send an external request. The packet is a prepared plan only: no request was sent, no customer data was received, and owner authorization plus an approved secure intake path are prerequisites.
 
 ## Research questions
 
