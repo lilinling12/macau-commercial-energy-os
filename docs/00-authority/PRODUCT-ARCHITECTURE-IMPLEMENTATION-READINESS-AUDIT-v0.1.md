@@ -249,3 +249,12 @@ The source/load economic-dispatch workflow remains the product's first-class des
 **No status change:** This crosswalk closes no research Gate, approves no owner decision, authorizes no external request/data intake, and changes neither the PRD's SHADOW boundary nor the production-stack decision status.
 
 **Primary records reviewed:** `docs/01-research/gates/G1-tariff-settlement.md`, `G2-load-flexibility.md`, `G3-energy-graph.md`, `G4-forecasting.md`, `G5-optimization.md`, `G6-safety-control.md`, `G7-pilot-validation.md`; `docs/02-product/PRD-v0.1.md`; `docs/03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md`; `docs/05-mvp/vertical-slices/MVP-VERTICAL-SLICE-PLAN-v0.1.md`.
+
+
+## User-supplied archive semantic reconciliation — first pass (2026-10-05)
+
+Added a source-hashed, versioned reconciliation at [`ARCHIVE-SEMANTIC-RECONCILIATION-v0.1.md`](ARCHIVE-SEMANTIC-RECONCILIATION-v0.1.md). It distinguishes the early G7 Reference Simulator sequence (v1.0–v1.6.2) from the repurposed G7 Productization numbering (v1.7.1 onward), and records the old/current G6.9 completion conflict, G7.6 Step 2 duplicate freeze archives, G7.8 accepted Fastify/OpenAPI+JSON Schema ADR versus current G6.9 provisional bake-off, and G7.9 Step 2 package omissions. It also states the thin evidence depth of the separate G7.1/G7.2 ZIPs and the proposed/not validated status of pilot assumptions.
+
+All 44 ZIPs were opened and indexed (40 Macau, four unrelated and excluded; 1,071,834 uncompressed bytes; no read failures), but that inventory is not a semantic reading of every file. This first pass reviewed the named status/decision and core design documents only; the report gives the remaining archive audit sequence and does not close a Gate. The shared ChatGPT link returned Cache miss, while `read_thread` yielded five recent turns with no older cursor. These transcript gaps remain explicit.
+
+The report preserves source statuses rather than normalizing them: the current GitHub main `CURRENT.md` remains the controlling repository snapshot (G1 OPEN, G6.9-R2 3D pending, G7.2 live baseline/no-op pending; C+ provisional). Supplied archive labels are historical evidence unless a dated authority decision reconciles them.
