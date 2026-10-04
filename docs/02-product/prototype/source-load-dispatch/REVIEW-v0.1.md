@@ -27,6 +27,14 @@ The local browser opened the prototype through a loopback server. Its accessibil
 5. Labeled the balance as power only and noted ESS conversion loss is omitted.
 6. Kept the tariff unresolved, withheld bill-grade economics, preserved the SHADOW boundary, and kept equipment control disabled.
 
+## 2026-10-04 interval-model consistency pass
+
+A source review found that the plotted values were described as hourly averages but drawn as interpolated lines, the 18:00 horizon boundary looked like another point, and the chart displayed multiple ESS bars while the table only explained one discharge interval. Updated v0.3 to use six interval-aligned step series from 12:00–18:00, mark 18:00 as the exclusive horizon end, show only the candidate 20 kW ESS discharge during 15:00–16:00 in a separately labelled annotation lane, and expose all six intervals in the data table. The fixture and table now use the same baseline/candidate values and HVAC −30 kW at 15:00 / +30 kW rebound at 17:00.
+
+Added `source-load-dispatch-fixture-v0.1.json` and a standard-library static checker `validate-source-load-dispatch-fixture-v0.1.py`. The checker passed: all six baseline and candidate source/load balances, one-hour interval continuity and +08:00 offsets, total HVAC shift/rebound neutrality, allowed/withheld-claim policy, and all prototype table values/formula strings match. It also checks that the SVG uses step geometry and discloses omitted ESS charge/SOC/efficiency/losses. This validates internal synthetic-example consistency only. It does not prove energy integration, battery feasibility, comfort, tariff/settlement, savings, field capability, or optimizer behavior.
+
+The updated prototype was re-opened in the local browser at its default viewport. Its accessibility tree confirms the six-interval step-chart description, 18:00 end boundary, selected comparison data, unverified tariff, and disabled equipment control. The actual CSS-pixel viewport is still not captured; pixel-level inspection at 1440/1024/768/375, the table-toggle interaction, keyboard/focus/dialog behavior, measured contrast, and screen-reader operation remain unverified.
+
 The figures are still incomplete as an energy schedule: the ESS charge history/SOC path, conversion losses, full-horizon interval integration, comfort limits, constraints and all site mappings are not validated. No saving claim or PV export credit is displayed.
 
 ## Inspection coverage
