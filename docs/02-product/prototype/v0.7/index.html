@@ -103,13 +103,12 @@ p{line-height:1.5}
       <h2>Resolve what is blocking trusted assessment</h2>
       <p class="muted">Demo site: Harbour View Hotel · Synthetic snapshot</p>
       <div class="grid2">
-        <div class="stat"><span class="kicker">Freshness gaps</span><b>2</b><span class="muted">One affects cost assessment</span></div>
-        <div class="stat"><span class="kicker">Unverified rules</span><b>1</b><span class="muted">Demand window blocks result</span></div>
+        <div class="stat"><span class="kicker">Mapped demo sources</span><b>1</b><span class="muted">Mapping is synthetic; interval unknown</span></div>
+        <div class="stat"><span class="kicker">Missing evidence items</span><b>2</b><span class="muted">Demand interval and matched bill</span></div>
       </div>
       <div class="cardlist">
         <div class="row"><div><h3>Demand-register interval unknown</h3><p>Blocks Pu cost calculation and baseline comparison · source: tariff evidence review</p></div><span class="tag">Blocks result</span></div>
-        <div class="row"><div><h3>Chiller return-temperature feed stale</h3><p>Affects equipment context only · last received 18 hours ago</p></div><span class="tag">Review source</span></div>
-        <div class="row"><div><h3>PV export settlement mapping absent</h3><p>No producer/export value included · no consumer credit inferred</p></div><span class="tag">Out of scope</span></div>
+        <div class="row"><div><h3>Matched bill not attached</h3><p>Required to reconcile the demand-cost assessment · no bill-grade total can be shown</p></div><span class="tag">Evidence missing</span></div>
       </div>
       <div class="callout"><h3>Selected exception: demand-register interval</h3><p class="muted">Next evidence: confirm the meter register configuration and attach a matched bill plus interval/load-profile evidence. This review action does not request data or change a site.</p><details><summary class="action">Inspect evidence</summary><p class="muted">Evidence checklist: meter-register configuration; matched bill; interval/load-profile sample; confirmed site supply-point mapping. No request has been sent and no source connector is configured.</p></details></div>
     </article>
@@ -122,8 +121,8 @@ p{line-height:1.5}
       <h2>Complete a trusted cost assessment</h2>
       <p class="muted">Progress is illustrative. No workflow state is persisted.</p>
       <div class="steps" aria-label="Assessment steps">
-        <div class="step done"><span class="num">STEP 1</span><b>Connect site</b><small>Demo source attached</small></div>
-        <div class="step done"><span class="num">STEP 2</span><b>Qualify evidence</b><small>Coverage reviewed</small></div>
+        <div class="step done"><span class="num">STEP 1</span><b>Connect site</b><small>One meter source mapped · synthetic</small></div>
+        <div class="step done"><span class="num">STEP 2</span><b>Qualify evidence</b><small>Source mapped; interval unknown; matched bill absent</small></div>
         <div class="step active"><span class="num">STEP 3</span><b>Assess cost</b><small>Paused: Pu interval unknown</small></div>
         <div class="step"><span class="num">STEP 4</span><b>Review SHADOW</b><small>Not available</small></div>
         <div class="step"><span class="num">STEP 5</span><b>Inspect outcome</b><small>Not measured</small></div>
