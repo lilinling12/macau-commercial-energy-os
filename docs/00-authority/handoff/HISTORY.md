@@ -292,3 +292,9 @@ Append-only record of material changes to the cross-conversation handoff. This f
 
 - **Change:** Corrected the lifecycle readiness audit's immediate WP-4 instruction, which only named v0.6 after the v0.7 three-way information-architecture protocol had been added. The audit now directs the study owner to select core workflow tasks and/or the comparative IA protocol based on the research question, preserve task parity/counterbalancing, separate observed performance from stated preference, and avoid an unsupported winner claim from a small formative sample.
 - **Status:** Preparation guidance only. No recruitment, contact, participant session, product approval or usability finding is claimed or authorized.
+
+
+## Owner review runtime note — 2026-10-04
+
+- **Change:** Synchronized the English and Chinese Owner review summaries with the Step 3D runtime evidence: Node 22.16.0 is historical Step 3C only; Node 24.21.0 is the v0.3.0 Step 3D test pin for TypeScript candidates/Temporal worker, subject to recheck at runner freeze. The note also clarifies that Next.js is not in the current G6.9-R2 candidate set or evaluated as a backend framework; evaluating it would require an authority update and comparable evidence.
+- **Status:** Test-runtime clarification only. No production Node version, Next.js usage or production architecture is approved.
