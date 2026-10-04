@@ -82,3 +82,18 @@ PR #10 now contains v0.4, a six-stage synthetic workflow study. Its branch verif
 - G7.9 Step 3 remains open: APP-11 in PR #10 is a proposed partial input, not completion of the API module catalog, Edge and optimizer contracts, implementation task map, or their acceptance evidence.
 
 **Scope:** selected authority summaries, package status files, selected G7.8/G7.9 design files, PR metadata and exact-head Actions runs were checked for this addendum. This does not claim a fresh line-by-line re-read of every archive entry or a complete owner-approved authority migration.
+
+## Exact-head recheck after canonical-path repair — 2026-10-04 14:40 UTC
+
+The open-PR state was refreshed against GitHub metadata and checks. PRs #6 and #7 are closed and merged; #8–#13 are open. Exact checked heads and conclusions at this review point:
+
+| PR | Branch | Exact SHA checked | Checks and result | Boundary |
+|---|---|---|---|---|
+| #8 | docs/product-architecture-roadmap | 579f6a7089256fa6b094fd71ea60ef56923c0070 | Authority, repository hygiene, contracts, runtime bootstrap and four runtime contract fixtures: all 7 check runs succeeded. | Structural/runtime fixture checks; broad proposal and owner decisions remain unapproved. |
+| #9 | docs/ai-coding-governance-baseline | 3da63b433758ca10ab198547edb03c316369666e | Authority Validation and Repository Hygiene: both succeeded. | Does not mean policy adoption or branch protection is active. |
+| #10 | product/source-load-economic-dispatch | afe248533be6c0ff6f02c856f674d435e04fe68d | Authority Validation and Repository Hygiene: both succeeded after the three canonical-path files from #13 were copied to this branch. | Product/architecture proposals and synthetic prototype remain drafts; no merge or Gate closure. |
+| #11 | research/technology-report-reconciliation | 9d78662abdd5d845a374e38e2f5e2c0f13be65d4 | Authority Validation and Repository Hygiene: both succeeded after the same path repair. | Technical status reconciliation is not a selected stack or Step 3D result. |
+| #12 | audit/research-authority-and-archive-inventory-v0-1 | fe615d2190f4fc08825f1df07e8cce478e3b0c45 | Authority Validation and Repository Hygiene: both succeeded after the same path repair. | This is the path-repair predecessor. The current audit-text update creates a newer head and must be checked separately. |
+| #13 | fix/canonical-authority-ci-paths | 68c955b936faddfbdbdbdf043688b3696efa87a3 | Authority Validation and Repository Hygiene: both succeeded. | #13 remains a separate open draft; no PR was merged by this follow-up. |
+
+Earlier failure rows in this document remain historical and must not be read as the current result for the repaired exact heads. The latest successful #10 head also contains the compact narrow-screen chart source correction and dispatch design coverage addendum. None of these results is application end-to-end validation, Macau site/user validation, or proof that branch protection is enforced on main.
