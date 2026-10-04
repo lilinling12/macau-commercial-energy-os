@@ -147,3 +147,11 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Evidence:** The Platform API is partial Candidate B implementation evidence with a missing route authorization guard, fail-closed graph/tariff adapters and in-memory evidence storage. The Edge entrypoint only logs bootstrap status; a telemetry event struct exists but protocol ingestion/durable capture is absent. The Python optimizer module currently contains a recommendation data model, not a validated forecast/optimizer. Static source inspection only.
 - **Status:** Documentation correction only; no runtime code, contract, technology decision, Gate, or production authority changed. No application tests or runtime experiments were run. PR #8 remains open/unmerged.
 - **Related records:** `implementation/README.md`, `implementation/platform-api/README.md`, `implementation/edge-runtime/README.md`, `implementation/optimizer/README.md`, and G6.9 technology authority.
+
+## 2026-10-04 — Frontend and API/BFF candidate boundary clarified
+
+- **Change:** Reviewed the 64 changed Markdown/JSON/YAML files in PR #8 for Next.js, Java/Spring and candidate-stack authority. The changed-file set contains no statement selecting Next.js; D-030 is marked superseded in implementation by D-069; React + TypeScript remains a separate, unapproved browser-UI proposal.
+- **Finding:** The G6.9-R2 pack's C+ “product BFF/UI” wording and whether browser rendering is included in Step 3D remain an owner decision. This is not resolved by the candidate-stack scan.
+- **Update:** Added this boundary to the lifecycle readiness audit and CURRENT handoff. No technology choice, research Gate or production authority changed.
+- **Validation:** Exact-head repository checks are pending for the updated docs; this was a documentation-only change, not an application test or bake-off.
+- **Related:** docs/00-authority/PRODUCT-ARCHITECTURE-IMPLEMENTATION-READINESS-AUDIT-v0.1.md, docs/00-authority/handoff/CURRENT.md, docs/03-architecture/ARCHITECTURE-DESIGN.md, and owner Step 3D browser-UI-scope decision.
