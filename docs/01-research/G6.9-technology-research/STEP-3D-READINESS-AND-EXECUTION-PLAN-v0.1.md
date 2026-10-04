@@ -49,7 +49,7 @@ Sources:
 
 ### Task-host preflight
 
-A read-only inventory on the current task host found PATH-default Node v22.20.0 and Python 3.11.9; Docker/Compose, Bun and Go were unavailable on PATH. A later check found NVM-installed Node v24.9.0 at D:\\dev\\nvm\\v24.9.0\\node.exe. The Step 3D plan proposes exact Node 24.21.0 pins, so v24.9.0 is not the pinned runtime; Bun, Go and the full shared-service runner remain unavailable. This host therefore does not satisfy the pack's Step 3D runner requirements. No Step 3D command, application test, benchmark, or environment mutation was performed.
+A refreshed read-only inventory on 2026-10-04 confirmed PATH Node v22.20.0, Python 3.11.9, and NVM Node v24.9.0 at D:\\dev\\nvm\\v24.9.0\\node.exe. Bun, Go, Docker and Docker Compose remain absent; the host is Windows 10.0.26200 AMD64, and WSL reports no installed Linux distribution. The required Node 24.21.0 pin is not installed. This host therefore cannot satisfy the pinned Linux x86-64 Step 3D runner requirements locally. No Step 3D command, application test, benchmark, software installation or environment mutation was performed.
 
 ### GitHub Actions execution-host fit (official documentation review, 2026-10-04)
 
