@@ -378,7 +378,7 @@ This is a deliberate prototype-coverage limit, not evidence that the product sho
 - **Observed interactions:** all nine destination options exposed their corresponding screen and URL hash. Browser Back from Evidence & replay returned to Recommendations and synchronized the selector. On the narrow native selector, ArrowUp+Enter moved from Evidence & replay to Recommendations, changed the URL, and moved focus to the page heading.
 - **Prototype boundaries:** content and actions are synthetic. Recommendation annotations and replay controls do not invoke production services. The walkthrough did not observe 200% zoom, a screen reader, complete keyboard order, localization, target-user results or WCAG conformance.
 
-**Status:** v0.10 is the current core-workflow study stimulus; v0.9 remains the distinct IA comparison. Neither determines approved product scope, workflow, visual system or frontend framework.
+**Status:** v0.11 is the current core-workflow study stimulus; it preserves v0.10's task flow while correcting the temporary demo-state message. v0.10 remains the prior stimulus and v0.9 remains the distinct IA comparison. Neither determines approved product scope, workflow, visual system or frontend framework.
 
 
 ## Visual direction palette comparison v0.1
