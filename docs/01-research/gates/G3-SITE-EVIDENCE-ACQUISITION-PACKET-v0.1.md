@@ -81,3 +81,40 @@ A mapping is not resolved until supporting evidence agrees on identity, scope, d
 6. Submit the reviewed evidence packet to the G3 Gate approver. Record what is validated, excluded and unresolved, the approver, date and downstream consequences.
 
 This preparation packet does not itself pass G3, approve production schemas or graph technology, authorize customer contact/data intake, close G1/G2/G6/G7, or permit field control. Until the site-specific evidence and review exist, G3 remains OPEN.
+
+
+## Dispatch-workflow evidence overlay (optional; G1/G2/G3 boundaries preserved)
+
+Use this overlay only if the owner later authorizes source/load scheduling research for a selected site. It is a prepared checklist, not a data request, site approval, customer contact, or evidence that a pilot is ready. Select only bundles that answer an approved question; record excluded assets and boundaries.
+
+### Dispatch-specific evidence prompts
+
+| Evidence prompt | Minimum sanitized or restricted evidence | Readiness purpose and limit |
+|---|---|---|
+| Common site-time and measurement grid | Representative read-only intervals from the grid connection meter and only the in-scope source/load meters; IANA site timezone/clock and daylight/clock policy; interval start/end convention; observed vs received timestamp, multiplier/unit/direction, quality, gaps and commissioning changes. | Determine whether observed series can support a common physical comparison horizon. Sampling cadence is not the tariff demand window; G1/D-027/U-001 owns Pu policy. |
+| Physical source/load linkage | Versioned single-line/topology plus point-to-asset-to-meter/feeder mappings for grid import/export, PV generation/self-use/export (if present), ESS charge/discharge/SOC, HVAC/chiller, EV charging, hot water or other explicitly in-scope loads. | Establish what can be reconciled at a common electrical boundary. Do not double-count a feeder and its child submeters; unknown flows remain unmapped. Physical linkage does not establish account settlement. |
+| Asset capability and service envelope | For assets proposed for a physical scenario, site-reviewed operating ranges, direction, max/min power, ramp/delay, duration, availability, recovery/rebound, SOC/efficiency/protection limits, zones/service dependencies, comfort/humidity/service bounds and override/maintenance states. Link each value to G2 measurement/document/operator evidence and effective period. | Establish whether a bounded schedule scenario can be formed. Nameplate ratings, generic equipment assumptions or operator labels alone do not prove dispatchable capacity. G2 owns measured flexibility/response and active-test approval. |
+| Forecast and exogenous input provenance | Existing load/PV/weather/occupancy-operating-calendar inputs only where approved and minimized; issue/recorded time, valid interval, model/source version, uncertainty, quality and missing periods. Prefer aggregated operating schedules; no room-level or person-identifiable activity by default. | Expose data coverage and forecast limits. Do not silently substitute synthetic values for a site forecast; scenario-only inputs must be labeled. |
+| Economic-boundary linkage | G1-approved account/contract/bill evidence references; installation/service point, applicable tariff group/class, billed meter(s), effective period, import vs producer/export stream, and explicit physical meter-to-account association. Restricted raw bills remain outside GitHub. | Determine whether an independent economic evaluation is even eligible. G1 owns tariff interpretation, Golden Bill reconciliation, CEM demand window, PV payment/payee and cross-site rights. No physical graph edge becomes a bill credit. |
+| SHADOW review and operating authorization | Named human review role and site entitlement, permitted read scope, escalation/override path, evidence review responsibility and audit/retention conditions; confirm that this research phase is read-only. | Support a human-reviewed recommendation flow only. A review or site agreement in this packet does not authorize setpoint writes or active tests; those require separate explicit G6/site approval. |
+
+### Claim/readiness ladder for site intake
+
+| Evidence result | Permitted next claim | Still withheld |
+|---|---|---|
+| Authorized topology records and reviewed mappings only | Sanitized site topology inventory; missing/conflicting relationships surfaced. | Schedule feasibility, controllability, economics, savings or control. |
+| Aligned, quality-qualified physical meter/asset series plus complete in-scope hard constraints | A bounded physical scenario can be assessed for the stated horizon, subject to explicit omitted terms and solver evidence. | Tariff cost, bill-grade demand/savings, equipment response, comfort or service guarantee without their own evidence. |
+| G1-matched contract/account/meter rules, required demand/energy inputs and eligible exact evaluator | Scoped economic result for the covered components/horizon; Golden Bill and applicable M&V gates still apply. | Uncovered tariff components, export compensation, cross-site allocation, realized savings. |
+| G2-approved paired baseline/response evidence and explicit site test authorization | Measured response/recovery for the named site/asset/test conditions. | Generalized site capacity, untested assets, cloud/device actuation authority. |
+
+### Intake completeness checklist before a dispatch shadow study
+
+- Every included interval series resolves to a site, timezone, physical point, asset and measurement boundary with unit/sign/quality provenance.
+- The physical flow equation reconciles at the selected grid boundary; child metering is not added twice, and unknown/loss terms are called out.
+- Each proposed load/source has either a reviewed capability/operating envelope or is marked non-dispatchable/out of scope; safety, comfort and recovery limits cannot default to unlimited.
+- Any settlement scope is separately evidenced for the same effective period and linked to the actual billed meter/account. Pu uses the verified D-027 measurement policy; dispatch intervals are never substituted.
+- PV export is modeled as a physical quantity first; any money/credit requires the producer-side contract, approved interconnection, export meter, effective tariff and payee/account evidence under G1/U-025.
+- The output can remain physical-only/SHADOW when economics are blocked; no site-specific cost/saving is displayed from synthetic or incomplete settlement inputs.
+- Authorization, privacy classification, restricted storage, minimized export, retention/deletion and named reviewer are approved before any actual collection. No production write/control capability is included.
+
+This overlay connects the current product workflow to the existing G1/G2/G3 evidence boundaries. It does not close any Gate, select a pilot site, authorize collection/contact, prove customer settlement or approve device control.
