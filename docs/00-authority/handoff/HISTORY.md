@@ -812,3 +812,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - Added Owner Decision Summary item #18 for adoption of the AI Coding Quality Baseline, human reviewer model, administrator bypass policy and staged repository enforcement. The decision is independent of production-stack selection and remains unapproved.
 - Corrected the decision-summary count to 18 and aligned its dependency sequence; linked the governance plan and task packet. Updated CURRENT and the governance task packet to reference decision #18.
 - This is an owner-review aid only. GitHub branch protection and required checks remain disabled; no policy or settings were adopted or changed.
+
+
+## AI coding supply-chain and build-provenance refinement (2026-10-04)
+
+- Cross-reviewed the proposed AI Coding Quality Baseline against current primary references: NIST SP 800-218 SSDF v1.1, NIST's SBOM definition, OWASP Dependency Graph & SBOM guidance, SLSA v1.2 provenance, and GitHub's artifact-attestation documentation.
+- Added stack-neutral release evidence expectations: reviewable dependency lockfiles; ownership for vulnerability triage; retained release SBOM with completeness caveats; deployed artifact digest linked to reviewed source commit/build workflow; and verification of supported provenance/attestation before deployment. Prompts/transcripts are not treated as provenance, and secrets/customer data must not be persisted in them.
+- Kept tool/format choice, SLSA level, remediation thresholds, signing platform and retention policy open for architecture/threat-model/owner review. No scanning tool or repository policy was activated. Updated the governance adoption plan and task packet; no application code or tests changed.
