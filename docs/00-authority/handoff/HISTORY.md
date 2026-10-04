@@ -167,3 +167,8 @@ Append-only record of material changes to the cross-conversation handoff. This f
 
 - **Change:** Refined the delivery-goal charter sequence so PRD and user-flow drafts continue evolving under explicit research hypotheses while owner approval remains the gate for baselining scope and dependent implementation. This avoids treating owner approval as a prerequisite for useful draft research, while preserving the no-silence-as-approval rule.
 - **Status:** Documentation clarification on PR #8; no product choice, user validation or production architecture is approved.
+
+## 2026-10-04 — CURRENT handoff aligned with hypothesis-driven design
+
+- **Change:** Updated the CURRENT next-work statement to review existing detailed-design drafts against the current evidence-backed product hypothesis while retaining open choices, and to require owner approval before product baseline and production implementation. This aligns the live handoff with the delivery-goal charter.
+- **Status:** Documentation clarification on PR #8; no product direction or technology decision was approved.
