@@ -27,7 +27,7 @@ Use `docs/00-authority/handoff/CONTINUATION-PROTOCOL.md` to run and persist the 
 
 ## AI-assisted implementation requirements
 
-Follow [`AI-CODING-QUALITY-BASELINE-v0.1.md`](AI-CODING-QUALITY-BASELINE-v0.1.md) for task-risk-based verification, human review, security/compatibility/operability evidence, and release readiness. The standard stays stack-neutral until the owner-approved architecture is selected.
+Follow [`AI-CODING-QUALITY-BASELINE-v0.1.md`](AI-CODING-QUALITY-BASELINE-v0.1.md) for task-risk-based verification, human review, security/compatibility/operability evidence, and release readiness. Use [`AI-CODING-GOVERNANCE-ADOPTION-PLAN-v0.1.md`](AI-CODING-GOVERNANCE-ADOPTION-PLAN-v0.1.md) to distinguish documented policy from enforced controls and to stage adoption. Both remain proposed and stack-neutral until owner review and architecture approval.
 
 1. Define scope, non-goals, relevant Authority, contracts, safety constraints, acceptance evidence, and rollback/recovery expectations in a task packet.
 2. Routine work may proceed under existing Authority. Architecture, contract, safety, settlement, or research-direction changes require an explicit Decision Record / ADR before implementation.
