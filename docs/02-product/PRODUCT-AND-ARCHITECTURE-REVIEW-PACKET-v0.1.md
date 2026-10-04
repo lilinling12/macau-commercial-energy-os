@@ -103,6 +103,8 @@ The supplied v0.3.0 pack defines A as Bun/Hono/Effect product/API services, B as
 
 The repository has detailed-design drafts for VS-001, result/replay, identity/tenant authorization, and PRD-to-architecture traceability. They are not production-ready merely because they are detailed.
 
+A stack-neutral proposal for the future command arbitration and Edge Safety Kernel is now available at `docs/03-architecture/detailed-design/COMMAND-ARBITRATION-AND-EDGE-SAFETY-KERNEL-DETAILED-DESIGN-v0.1.md`. It is a review draft; site scope, hazard review, G6 evidence, cryptographic design and owner/security approval remain open. The MVP stays SHADOW/advisory.
+
 Before implementation of a design area is treated as ready, resolve or explicitly scope:
 
 - approved product workflow and acceptance evidence;
