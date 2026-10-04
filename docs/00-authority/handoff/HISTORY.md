@@ -721,3 +721,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - Preserved v0.10 and created v0.11. The status now says the change is displayed only on the page, resets on reload, and is neither persisted nor a measured outcome/command. Product README, WP-4 session protocol, visual-design evaluation, CURRENT and ROADMAP now identify v0.11 as the current nine-destination study stimulus.
 - Source checks also found 44px minimum action buttons, visibly disabled controls, text-bearing status badges and the existing polite live-status region. A fresh browser tree showed the initial items unreviewed and controls enabled; an already open browser page showed the resulting in-memory reviewed state.
 - No refresh, full keyboard/screen-reader, contrast, localization, user or WCAG-conformance session was performed. No product meaning, launch language, palette, framework or persistent production review behavior is approved.
+
+
+## G1 U-025 PV contract and settlement evidence bundle (2026-10-04)
+
+- Extended the prepared G1 evidence packet with bundle E for current PV application/interconnection/feed-in contracts, third-party host ownership and self-consumption, any remote allocation/PPA/wheeling/bill-credit arrangement, and a separate GEC offer/retirement path.
+- Defined claim-level sufficiency: written current authority/contract terms plus named party, parcel, approval, metering and settlement behavior; an actual customer-credit claim additionally needs authorized matched meter/settlement evidence. A public feed-in tariff, PPA label, GEC purchase or SAR public-generation offset alone does not establish remote CEM bill credit.
+- Linked the bundle from G1, U-025 resolution path, CURRENT and Master Index. The packet is not sent; no CEM/customer contact, customer data intake or Gate closure occurred. G1/U-025 remain open.
