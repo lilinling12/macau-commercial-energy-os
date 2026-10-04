@@ -168,6 +168,13 @@ def verify_prototype_matches_fixture(fixture: dict) -> None:
     require("候選尖峰電網輸入" not in html, "prototype must not mislabel the 430 kW interval as the horizon peak")
     require("id=\"reviewBtn\"" in html and "重新載入後重設" in html, "review state must be visibly page-only")
 
+    require('<a class="skip-link" href="#mainContent">跳至主要內容</a>' in html, "keyboard users must have a skip link")
+    require('id="mainContent" tabindex="-1"' in html, "skip link must target the main region")
+    require('class="content focus-baseline"' in html and 'classList.toggle("focus-candidate",isCandidate)' in html, "scenario selection must visibly emphasize the chosen curve")
+    require('id="comparisonFocus" class="small" aria-live="polite"' in html, "scenario change must announce its focus")
+    require(".railnav button{width:44px;height:44px}" in html, "narrow navigation target must meet 44px minimum")
+
+
 
 def main() -> int:
     try:
