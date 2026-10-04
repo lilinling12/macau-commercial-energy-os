@@ -384,3 +384,8 @@ The PRD-to-architecture traceability document now includes one joined map from P
 ## Product UX review update — core workflow v0.10 — 2026-10-04
 
 The nine-destination core-workflow prototype is now v0.10; v0.9 remains the separate three-way IA comparison. v0.10 removes v0.6's body minimum-width overflow at 320 CSS px. Browser observation at 320/375/768/1024/1440 CSS px found no document-level horizontal overflow; table overflow is contained in labeled wrappers. All nine destinations exposed the corresponding view/hash, Browser Back restored the prior view, and ArrowUp+Enter in the narrow native selector moved focus to the destination heading. Content/actions remain synthetic and disconnected. User tasks, 200% zoom, full keyboard/screen-reader, localization and WCAG evidence remain open; no UX direction or frontend framework is approved.
+
+
+## AI coding quality baseline — 2026-10-04
+
+Added `docs/04-engineering/ai-coding-governance/AI-CODING-QUALITY-BASELINE-v0.1.md` as a proposed, technology-neutral standard. It adds risk-based test selection, exact-revision validation, human review, security/dependency/contract/migration/operability evidence, and release readiness for AI- and human-authored changes. Mature practice references include Google Engineering Practices, DORA, Google SRE, OWASP ASVS 5.0 and NIST SSDF. The lifecycle goal now includes these as completion evidence; no stack/tooling decision or owner approval is implied. Next, apply the baseline to the first approved implementation task packet, then choose concrete stack-specific tools only after the technology decision.
