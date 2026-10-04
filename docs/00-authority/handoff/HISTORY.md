@@ -54,3 +54,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Change:** Added the preserved v0.6 synthetic prototype. At narrow widths, a native selector exposes all nine workspace views, including tariff-evidence and integration/site-access subviews; its value follows view and URL-hash navigation. Darkened the dashed chart-threshold stroke and legend swatch to `#875300` (source calculation: approximately 6.43:1 against white). Updated the product index, review packet, roadmap and readiness audit.
 - **Status:** Static source review only. No rendered viewport/zoom inspection, keyboard traversal, assistive-technology review, participant session or WCAG conformance claim. No product or production technology decision is implied.
 - **Next:** Render and inspect supported viewport sizes and keyboard/focus behavior; then use authorized WP-4 formative sessions to validate task discoverability and comprehension. Keep product direction and architecture pending owner review and required research/bake-off evidence.
+
+
+## 2026-10-04 — WP-4 usability protocol aligned with v0.6
+
+- **Change:** Updated the formative usability protocol to use the current synthetic v0.6 prototype. Added a no-coaching, phone-sized task to find tariff and integration/access subviews and return with browser history; defined task-specific success and observation measures for selector discoverability and state synchronization.
+- **Status:** Research preparation only. No participant recruitment, user contact or session is authorized or claimed. The mobile selector remains a design hypothesis until rendered review and authorized formative sessions.
+- **Next:** Render the prototype at relevant widths and inspect keyboard/focus behavior, then conduct WP-4 only after participant access is authorized.
