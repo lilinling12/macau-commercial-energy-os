@@ -389,3 +389,8 @@ The nine-destination core-workflow prototype is now v0.10; v0.9 remains the sepa
 ## AI coding quality baseline — 2026-10-04
 
 Added `docs/04-engineering/ai-coding-governance/AI-CODING-QUALITY-BASELINE-v0.1.md` as a proposed, technology-neutral standard. It adds risk-based test selection, exact-revision validation, human review, security/dependency/contract/migration/operability evidence, and release readiness for AI- and human-authored changes. Mature practice references include Google Engineering Practices, DORA, Google SRE, OWASP ASVS 5.0 and NIST SSDF. The lifecycle goal now includes these as completion evidence; no stack/tooling decision or owner approval is implied. Next, apply the baseline to the first approved implementation task packet, then choose concrete stack-specific tools only after the technology decision.
+
+
+## Visual direction palette study — 2026-10-04
+
+Added `docs/02-product/prototype/visual-directions/v0.1/index.html`, a static comparison of Harbor Teal, Mineral Blue and Night Graphite on the same synthetic site-readiness and demand-review task. It demonstrates semantic evidence states, actual-versus-forecast line styles, uncertainty and short Chinese/Portuguese/English labels. Sample text contrast pairs were calculated from source colors; this is not rendered accessibility evidence, localization validation or user research. No palette or theme is approved. Next, use rendered alternatives in an owner/user review and evaluate long-label reflow, focus, 200% zoom, assistive technology and long-session readability.
