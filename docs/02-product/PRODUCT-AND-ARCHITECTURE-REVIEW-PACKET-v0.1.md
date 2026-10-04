@@ -276,3 +276,14 @@ This is a deliberate prototype-coverage limit, not evidence that the product sho
 **Next review artifact:** a prototype iteration should correct the threshold contrast and compare a mobile navigation alternative at 375, 768, 1024 and 1440 CSS px, including 200% zoom, keyboard/focus checks and a rendered chart fallback. Follow that with authorized WP-4 formative tasks before treating the interaction design as validated.
 
 **Boundary:** static source/color review only. No browser/device rendering, zoom, keyboard traversal, assistive-technology, participant or WCAG-conformance test was performed. Product scope, user roles, visual direction and frontend framework remain open.
+
+
+## Follow-up: v0.6 mobile navigation and chart-threshold iteration (2026-10-04)
+
+**Method:** Applied the prior static findings to a new, preserved prototype version using the UI/UX Pro Max workflow and the existing evidence-first workspace direction. No production framework or visual direction is selected.
+
+- Replaced the narrow-screen horizontally scrolling primary navigation with a compact native selector. Its nine options cover all seven primary destinations plus the tariff-evidence and integration/site-access subviews. Selection updates the active view and URL hash; browser back/forward continues to synchronize through the existing hash handler.
+- Darkened the chart's dashed scenario-threshold stroke and legend swatch from `#d68a16` to `#875300`. The new foreground color calculates to approximately **6.43:1 against white**. This is a source-color calculation only; adjacent chart/grid colors and rendered contrast have not been evaluated.
+- Preserved v0.5 unchanged at `docs/02-product/prototype/v0.5/index.html`; v0.6 is at `docs/02-product/prototype/v0.6/index.html`.
+
+**Verification boundary:** static source inspection confirms all nine destinations are present, selection is synchronized with `showView` and URL hash navigation, and the old threshold hex no longer appears. No browser rendering at 320/375/768/1024/1440 CSS px, 200% zoom, keyboard traversal, assistive-technology check, participant session or WCAG-conformance evaluation has been performed. v0.6 remains synthetic, local-only and unvalidated; product scope, interaction direction, frontend framework and production architecture remain unapproved.
