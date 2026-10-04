@@ -159,3 +159,6 @@ GitHub live state, exact-head CI, verified evidence, and Decision Records take p
 
 - Reconciled the CEM C-group merged table with Executive Decree 105/2022 Article 7: C1 and C2 share the seasonal energy-period parameters; demand parameters differ (19.797 vs 21.484 MOP/kW). C2 loss adjustments and customer-specific applicability still need contract/bill evidence.
 - Updated the dated rate snapshot, G1 Gate and Evidence Register. This resolves a public schedule-reading ambiguity; it does not close G1 or U-001/U-009/U-010/U-011.
+## Product UX review update — 2026-10-04
+
+The owner review packet now records that the UI/UX Pro Max “Real-Time / Operations Landing” result is a marketing-page pattern and should not drive the authenticated operations workspace structure. It adds four WP-4 observation probes for provenance/freshness, cost-result semantics/evidence, accessible actual-versus-forecast chart reading, and SHADOW/replay/outcome comprehension. WCAG 2.2 AA/AAA target-size and reflow criteria are cited accurately. These are design-review criteria only; no product direction, user finding or conformance claim is approved. See docs/02-product/PRODUCT-AND-ARCHITECTURE-REVIEW-PACKET-v0.1.md.
