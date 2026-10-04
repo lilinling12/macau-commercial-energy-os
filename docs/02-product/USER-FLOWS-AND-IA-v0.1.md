@@ -52,7 +52,7 @@ Keep organization and site visible in titles and breadcrumbs. Give sites stable 
 
 ### Flow A — Connect and qualify a site
 
-Select/create site → connect an approved telemetry source → inspect points and timestamps → map point to site/device/asset/metric/unit → resolve unknown, conflicting or stale mappings → confirm meter/contract relationships separately → review readiness and remaining blockers.
+Select/create site → connect an approved telemetry source → inspect points and timestamps → map point to site/device/asset/metric/unit → resolve unmapped, ambiguous, conflicting or expired mappings separately from stale/invalid measurement quality → confirm meter/contract relationships separately → review readiness and remaining blockers.
 
 **Outcome:** the operator understands what is measured and what is missing.  
 **Behavior:** never infer asset, unit, contract or tariff from point names alone. Mapping changes are versioned, attributed and effective-dated. Unresolved or cross-site mappings cannot feed authoritative economic results.
@@ -84,10 +84,10 @@ Show registered sites, source freshness, required-data coverage, unresolved bloc
 Show site identity, local timezone, integration health, data freshness, evidence status, and links to Economics, Recommendations and Evidence. Never show an unqualified savings tile. Display observedAt and receivedAt separately. For offline sources, retain last known result but mark it stale and show its timestamp. Explain each unknown and affected downstream function.
 
 ### S-03 Data health
-Filterable/searchable points table: source/device/point, canonical asset/metric, unit, quality, last observed, last received, mapping version/status and downstream impact. Support keyboard use, visible focus, text status plus color, and responsive cards or contained horizontal scrolling. Mapping edits show before/after, effective time, actor, validation and confirmation.
+Filterable/searchable points table: source/device/point, canonical asset/metric, unit, measurement quality/freshness, last observed, last received, Energy Graph mapping version/status and downstream impact as separate fields. Show `EXPIRED_MAPPING` distinctly from stale measurement quality. Support keyboard use, visible focus, text status plus color, and responsive cards or contained horizontal scrolling. Mapping edits show before/after, effective time, actor, validation and confirmation.
 
 ### S-04 Site model
-Show physical/electrical relationships separately from settlement/economic relationships. Each link displays provenance, valid time, review state and related meters/contracts. Make ambiguous, orphaned or overlapping links inspectable; provide a table/list alternative to graph visualization.
+Show physical/electrical relationships separately from settlement/economic relationships. Each link displays provenance, valid time, review state and related meters/contracts. Make ambiguous, orphaned, overlapping or expired links inspectable; provide a table/list alternative to graph visualization. Do not fold telemetry freshness into the relationship's mapping status.
 
 ### S-05 Economics
 Make the selected result kind explicit and keep three separate views: (1) bill reconstruction, with invoice reconciliation and a blocked state until applicable G1/Golden Bill evidence passes; (2) interval assessment, labelled as an estimate with period and tariff assumptions; and (3) baseline comparison, labelled as a modeled counterfactual rather than realized savings. Do not show one result as interchangeable with another. Each view states site, period/timezone, meter/contract/tariff version, included/excluded components, coverage, provenance, unresolved rules and blockers. Show components only when the evaluator supplies them. Charts label axes, units, currency, period boundaries, missing-data gaps and quality filters; any forecast uses a different line style and an accessible table/narrative summary.
