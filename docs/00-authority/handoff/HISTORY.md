@@ -267,3 +267,9 @@ Append-only record of material changes to the cross-conversation handoff. This f
 
 - **Change:** Added `docs/02-product/OWNER-REVIEW-BRIEF-zh-CN-v0.1.md`, a Chinese-language review entrypoint summarizing the 14 open product, UX, architecture, security and Step 3D decisions, the provisional stack boundaries, and the full research-to-pilot sequence.
 - **Status:** Translation/decision aid only; it does not approve a decision or replace the linked English authorities. Silence remains non-approval.
+
+## 2026-10-04 — Canonical contract authority added to Owner decision queue
+
+- **Finding:** The architecture review packet already compared OpenAPI 3.1, JSON Schema 2020-12 and Protobuf and required a pinned TypeScript/Go evidence slice, but the Owner decision summary did not list the eventual canonical contract authoring/versioning/code-generation policy as a separate decision.
+- **Change:** Added Owner decision #15 and synchronized the Chinese review brief/current handoff. The decision is explicitly deferred until domain semantics and candidate boundaries are ready; the evidence gate covers cross-runtime generation/validation, evolution, money/time rules, HTTP/event representations, semantic replay identity, errors and toolchain/supply-chain cost.
+- **Status:** No format/toolchain selected. Evidence plan only; production contract V2 and code generation remain unapproved.
