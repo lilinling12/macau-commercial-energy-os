@@ -120,3 +120,8 @@ Use the relevant principles and record retrieval date when they materially infor
 - [OpenSSF Secure Software Development Framework (SSDF)](https://csrc.nist.gov/Projects/ssdf) — secure development practices across the lifecycle.
 
 These references are not certifications or automatic proof of compliance. Select applicable controls based on the approved threat model, system scope, applicable law and owner-approved risk posture.
+
+
+## 9. Governance adoption
+
+The risk-based quality rules above are the project baseline; this adoption plan identifies which controls are currently documented, which require owner adoption, and which must wait for the approved production stack: [AI-CODING-GOVERNANCE-ADOPTION-PLAN-v0.1.md](AI-CODING-GOVERNANCE-ADOPTION-PLAN-v0.1.md). Do not describe a proposed control as enforced until repository settings, workflows and reviewer ownership demonstrate it. After architecture approval, publish the stack-specific annex and enable required checks before production implementation is treated as merge-ready.
