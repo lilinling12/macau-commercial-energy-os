@@ -69,11 +69,11 @@ A decision may be explicitly deferred with its evidence dependency and safe work
 At preparation, the repository contains research-derived product and PRD drafts, prototype v0.6, stack-neutral logical/detailed-design drafts, a vertical-slice plan and an implementation-readiness audit. The owner decision packet remains unanswered; G1–G7 are open/incomplete as recorded in CURRENT; G6.9-R2 Step 3D has not run; no production stack is selected; the codebase is a partial scaffold rather than a complete MVP; and no customer/site pilot evidence is recorded.
 
 Next sequence:
-1. Record the owner's product-promise decision (approve as a hypothesis, narrow it, or defer pending discovery), then update PRD/flows and review dependencies without promoting hypotheses to facts.
-2. Continue independent domain evidence work and user research preparation; obtain explicit authorization before contacting participants or receiving customer/site data.
-3. Complete owner-approved UI/UX review and customer validation before baselining the product design.
+1. Continue refining the PRD and user flows against the current evidence-backed product hypothesis; label assumptions, alternatives and unresolved choices. Keep these as review drafts rather than treating silence as approval.
+2. Continue independent domain evidence work and prepare customer research. Obtain explicit authorization before contacting participants or receiving customer/site data.
+3. Present the concrete PRD, flows and prototype for owner review, then validate with authorized target users. Record approval before baselining product scope or starting dependent implementation.
 4. Freeze and execute Step 3D only after its manifest blockers and runner trust boundary are resolved; review results before any production technology decision.
-5. Complete approved detailed designs, then implement only dependency-ready slices through governed task packets.
+5. Complete owner-approved detailed designs, then implement only dependency-ready slices through governed task packets.
 6. Verify pilot prerequisites and obtain site/customer authorization before any live deployment.
 
 ## Current authority links
