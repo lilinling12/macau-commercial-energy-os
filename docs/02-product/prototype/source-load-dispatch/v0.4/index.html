@@ -23,7 +23,7 @@
 .flow-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:16px}
 .flow-pane{padding:17px 18px;border:1px solid var(--line);border-radius:14px;background:#fff}
 .flow-pane h3{font-size:14px;margin:0 0 8px}.flow-pane p{margin:5px 0;color:#53666c;font-size:12px}
-.flow-table{overflow:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+.flow-table{overflow:auto;border:1px solid var(--line);border-radius:12px;background:#fff}.flow-table:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
 .flow-table table{min-width:700px}
 .flow-status{display:inline-flex;align-items:center;min-height:26px;padding:3px 8px;border-radius:99px;background:#fff0e7;color:#87411f;font-size:10px;font-weight:650}
 .flow-status.ready{background:#e7f3ef;color:#176256}
@@ -62,7 +62,7 @@
 <section class="flow-section" id="evidence-check" aria-labelledby="evidenceTitle">
 <header class="flow-head"><div><div class="eyebrow">01 · 資料與合約核驗</div><h2 id="evidenceTitle">先看輸入是否可用，再看能否作經濟判斷。</h2></div><p>以下只展示合成欄位。本站點、表計、合約及設備點位均未連接；狀態不能當成澳門現場資料。</p></header>
 <div class="flow-grid">
-<div class="flow-table"><table><caption class="small" style="text-align:left;padding:10px 14px">合成來源清單 · 尚未核實的項目不帶入帳單級結果</caption><thead><tr><th>輸入類別</th><th>原型示例</th><th>可用狀態</th><th>進入現場模型前需核實</th></tr></thead><tbody>
+<div class="flow-table" tabindex="0" role="region" aria-label="合成來源清單，可水平捲動"><table><caption class="small" style="text-align:left;padding:10px 14px">合成來源清單 · 尚未核實的項目不帶入帳單級結果</caption><thead><tr><th>輸入類別</th><th>原型示例</th><th>可用狀態</th><th>進入現場模型前需核實</th></tr></thead><tbody>
 <tr><td>電網進線</td><td>示意電表／小時平均 kW</td><td><span class="flow-status">合成</span></td><td>表計映射、時鐘、資料品質及帳戶關係</td></tr>
 <tr><td>現場光伏</td><td>示意發電曲線</td><td><span class="flow-status">合成</span></td><td>逆變器、接線點、可用性與輸出邊界</td></tr>
 <tr><td>儲能</td><td>情境放電；無 SOC 軌跡</td><td><span class="flow-status">部分情境</span></td><td>功率/容量、SOC、效率、保留值及安全界限</td></tr>
@@ -108,7 +108,7 @@
 <section class="flow-section" id="constraint-analysis" aria-labelledby="constraintTitle">
 <header class="flow-head"><div><div class="eyebrow">04 · 成本、約束與證據</div><h2 id="constraintTitle">區間改善不等於全時段或經濟改善。</h2></div><p>候選在 15:00–16:00 降低該區間的電網輸入，但回彈令全時段最大電網輸入增加 25 kW。此處不把該變化換算成費用。</p></header>
 <div class="flow-grid">
-<div class="flow-table"><table><caption class="small" style="text-align:left;padding:10px 14px">成本與限制狀態 · 合成方案</caption><thead><tr><th>項目</th><th>目前狀態</th><th>影響</th><th>所需證據</th></tr></thead><tbody>
+<div class="flow-table" tabindex="0" role="region" aria-label="成本與限制狀態，可水平捲動"><table><caption class="small" style="text-align:left;padding:10px 14px">成本與限制狀態 · 合成方案</caption><thead><tr><th>項目</th><th>目前狀態</th><th>影響</th><th>所需證據</th></tr></thead><tbody>
 <tr><td>電價/有效期/帳戶關聯</td><td><span class="flow-status">未提供</span></td><td>帳單級成本 BLOCKED</td><td>客戶合同、電價及表計帳戶映射</td></tr>
 <tr><td>Pu 需量窗口</td><td><span class="flow-status">未知</span></td><td>不能判斷費用影響</td><td>CEM 配置或匹配的電量曲線與帳單</td></tr>
 <tr><td>HVAC 舒適/服務界限</td><td><span class="flow-status">示意</span></td><td>候選可行性未驗證</td><td>已批准的運行界限及站點數據</td></tr>
