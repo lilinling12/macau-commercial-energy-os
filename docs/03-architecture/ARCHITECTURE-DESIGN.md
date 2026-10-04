@@ -100,7 +100,7 @@ Solid paths show the initial telemetry, analysis, SHADOW and evidence loop. Dash
 | Cloud-core candidates | A, B, and C+ remain in bake-off. C+ is provisional default, not winner. |
 | Existing Node/NestJS code | Candidate B implementation path; not a stack-selection result. |
 | Java tariff implementation | D-030 semantic tariff architecture remains relevant; Java/Spring implementation authority is suspended by D-069 pending bake-off or a separately approved boundary. |
-| Next.js | Not an approved architecture decision. |
+| Next.js backend candidate | Inclusion in G6.9-R2 Step 3D is open under Owner decision #16; not selected or rejected. |
 
 See `docs/03-architecture/technology-authority/` and the G6.9-R2 bake-off Authority for exact candidate topology and decision rules.
 
