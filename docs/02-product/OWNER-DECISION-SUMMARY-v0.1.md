@@ -57,7 +57,7 @@ If a decision is deferred, preserve it as an explicit open dependency. No item i
 
 ## Runtime version note
 
-The v0.3.0 pack records Node 22.16.0 only for the historical Step 3C semantic run. Its proposed Step 3D runner pin is Node 24.21.0 for the TypeScript candidates/Temporal worker; at the 2026-10-04 check, Node 24.21.0 is the latest 24.x LTS patch and Node 22.23.3 is the latest 22.x patch. Keep the pack pin for a comparable Step 3D experiment, then recheck it at runner freeze. This is a test pin, not a production-runtime approval. Next.js is not included in the current G6.9-R2 candidate set or tested as the backend framework; if it is to be evaluated for that role, update the comparison authority and run it on equivalent evidence before any selection.
+The v0.3.0 pack records Node 22.16.0 only for the historical Step 3C semantic run. Its proposed Step 3D runner pin is Node 24.21.0 for the TypeScript candidates/Temporal worker; at the 2026-10-04 check, Node 24.21.0 is the latest 24.x LTS patch and Node 22.23.3 is the latest 22.x patch. Keep the pack pin for a comparable Step 3D experiment, then recheck it at runner freeze. This is a test pin, not a production-runtime approval. Owner decision #16 records whether Next.js should be added/replaced in the Step 3D backend candidate comparison or explicitly deferred; no inclusion decision is made here.
 
 ## After owner review
 
