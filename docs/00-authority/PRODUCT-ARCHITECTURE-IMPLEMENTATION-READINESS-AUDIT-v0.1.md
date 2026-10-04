@@ -171,3 +171,15 @@ No other direct semantic contradiction was found in this bounded review. Product
 - **Still open:** canonical contract owner/version, monetary display meaning, decimal grammar/scale/rounding, evidence and replay identity/canonicalization, applicability of G1 rules, and product validation. The proposal remains noncanonical; generated bindings and runtime changes are not authorized by this review.
 
 No direct contradiction remains across the reviewed state handoffs. Static documentation review only; no application tests, generated contract validation, customer validation, bill acceptance, Gate closure or production readiness is claimed.
+
+## Follow-up: G4/G5 economic handoff and tariff status mapping — 2026-10-04
+
+**Method:** Static cross-reading of G4/G5 Gate criteria; Forecasting and Optimization §§2–9; Tariff & Settlement §§4–7; Cost Analysis/Evidence Replay; CostResult/ReplayManifest; Application/Event Status Catalog; and D-002/D-018/D-028/D-033/D-040/D-050/D-059–D-061/D-074.
+
+- **Forecast/time boundary is consistent:** day-ahead/intraday grids are evaluation choices, not CEM demand-window definitions or universal command cadence. U-001 remains the authority for the unresolved Pu measurement window.
+- **Economic evaluation boundary is consistent:** total economic cost/value (D-002), same tariff-rule package for solver representation and exact re-evaluation (D-018/D-028), and paired modeled dispatch value versus absolute site bill (D-050/SitePowerComposer) are preserved. BOPTEST KPIs remain engineering diagnostics, and G1/G2/G3/G4/G5/G6/G7 evidence boundaries are not collapsed.
+- **Safety/recommendation boundary is consistent:** hard constraints and Demand Guard can veto; optimization has no privileged command path; only eligible outputs become SHADOW proposals; review, modeled delta and measured outcome remain distinct.
+- **Interface gap found and corrected:** Tariff & Settlement previously exposed BILL_GRADE, PROJECT_ASSUMPTION and FAILED in one overall-status field, while the CostResult proposal separates result status, evidence status, settlement readiness, request lifecycle and replay state. Its resolver states (UNKNOWN/CONFLICT) also lacked explicit projection rules. Tariff design §4/§7 now maps COMPLETE/PARTIAL/BLOCKED results, BILL_GRADE_ELIGIBLE/SCENARIO_ONLY, PROJECT_ASSUMPTION, FAILED requests and INCOMPLETE_REPLAY independently; it preserves component/resolver reasons and emits no amount on request failure. Forecasting and the application catalog now point to the shared mapping.
+- **Still open:** G1 bill/demand/tax/rounding evidence; G2 site capability/response/recovery; G3 graph and metering; G4/G5 measured model/solver evidence; G6 controls; G7 live baseline/M&V; canonical D-065 contract generation and product meaning. This static review closes no Gate and authorizes no production implementation or field control.
+
+No other direct semantic contradiction was found in this bounded review. No application/runtime tests, simulator experiment or Macau-site validation were performed.
