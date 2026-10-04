@@ -18,6 +18,7 @@ The project objective is to complete and validate the product design, complete t
 Definition of done spans: customer/problem validation; product requirements and tested workflows; passed domain/safety/technology gates or explicitly bounded pilot limitations; approved architecture and detailed designs; implementation mapped to requirements; security/reliability/acceptance evidence; site authorization; pilot measurement; and an expand/remediate/stop decision.
 
 **Lifecycle readiness audit:** `docs/00-authority/PRODUCT-ARCHITECTURE-IMPLEMENTATION-READINESS-AUDIT-v0.1.md` consolidates current evidence, open decisions, required completion proof and stage dependencies. It is a review aid, not approval or closure evidence.
+**Full lifecycle goal and completion checklist:** `docs/00-authority/PRODUCT-ARCHITECTURE-DELIVERY-GOAL-v0.1.md` (proposed charter; owner confirmation pending; not product or technology approval).
 
 **Active architecture task packet:** `docs/04-engineering/ai-coding-governance/task-packets/ARCH-INGEST-RELIABILITY-001.md` records the telemetry durable-capture/publication design, owner decision #12, implementation acceptance, evidence limits and dependencies. Status is Review; no runtime behavior or Gate is certified.
 
