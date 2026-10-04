@@ -38,6 +38,8 @@ Every parameter and formula must point to evidence: issuing authority, document/
 
 Known current constraints:
 
+- CEM's published base tariff schedule and quarterly TCA are separate effective-dated inputs. The 2026-10-04 public snapshot records Q3 2026 TCA at MOP 0.36/kWh effective 2026-07-22; an A-group illustrative bill still showing 0.340 is stale example data. Use the dated evidence note and re-check against the customer bill and applicable Gazette amendments; never fold TCA into a timeless base rate: `docs/01-research/evidence/G1-CEM-TARIFF-RATE-SNAPSHOT-2026-10-04.md`.
+
 - Pu/demand integration policy is first-class and distinct from telemetry sample cadence, optimizer step and control cadence (D-027, D-040). U-001 is unresolved; never assume 15 minutes.
 - The monthly “政府稅” / “Taxa de Exploração” line is visible in CEM materials; its B/C/D formula and legal/contractual characterization remain unresolved (U-009). A-group/EV examples are not B/C/D authority.
 - Invoice amount rounding / odd-amount carry-forward is partially clarified by CEM's published explanation; exact B/C/D calculation order, ledger behavior and adjustments remain unverified (U-011).
