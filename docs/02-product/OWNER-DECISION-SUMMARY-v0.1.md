@@ -46,6 +46,7 @@ Record accepted product choices in the PRD and decision register; update the dis
 - Product and architecture review packet: `docs/02-product/PRODUCT-AND-ARCHITECTURE-REVIEW-PACKET-v0.1.md`
 - Macau personal-data and cross-border-flow review (official Law 8/2005/GPDP sources; project-specific classification and legal review remain open under U-027): `docs/01-research/evidence/MACAU-PERSONAL-DATA-AND-CROSS-BORDER-FLOW-REVIEW-2026-10.md`
 - G2 official commercial-sales, hotel-scale, and site-flexibility evidence (aggregate only; no site profiles): `docs/01-research/evidence/G2-MACAU-COMMERCIAL-LOAD-FLEXIBILITY-EVIDENCE-2026-10.md`
+- G3 site evidence acquisition packet (prepared, not sent; used only after a site/scope is selected and authorized): `docs/01-research/gates/G3-SITE-EVIDENCE-ACQUISITION-PACKET-v0.1.md`
 - Product requirements: `docs/02-product/PRD-v0.1.md`
 - Discovery and usability protocol: `docs/02-product/CUSTOMER-DISCOVERY-AND-USABILITY-RESEARCH-PLAN-v0.1.md`
 - Step 3D readiness and execution plan: `docs/01-research/G6.9-technology-research/STEP-3D-READINESS-AND-EXECUTION-PLAN-v0.1.md`
