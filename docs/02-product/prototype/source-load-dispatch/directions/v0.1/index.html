@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Dispatch layout study v0.1 · Macau Energy OS</title>
+<style>
+:root{--ink:#18313a;--muted:#586d72;--canvas:#f1f4ef;--surface:#fff;--surface2:#e9efea;--line:#d6e0da;--source:#087776;--candidate:#087776;--baseline:#71847f;--pv:#bfda61;--load:#8a9b95;--ess:#7655a8;--signal:#d16a43;--focus:#165fd4;--radius:17px;--shadow:0 18px 46px rgba(25,50,58,.08)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--canvas);color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible,[tabindex="0"]:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.skip{position:absolute;left:14px;top:-55px;z-index:8;padding:10px 14px;border-radius:9px;background:#fff;color:var(--ink);border:2px solid var(--focus);min-height:44px}
+.skip:focus{top:12px}
+.shell{display:grid;grid-template-columns:66px minmax(0,1fr);min-height:100vh}
+.rail{background:#18313a;color:#e7eeea;display:flex;flex-direction:column;align-items:center;padding:16px 8px;gap:17px}
+.mark{width:40px;height:40px;border-radius:13px;background:#d3e66e;color:#153139;display:grid;place-items:center;font-weight:850;font-size:14px;letter-spacing:-1px}
+.rail-label{writing-mode:vertical-rl;font-size:10px;letter-spacing:.16em;color:#bbcbc7}
+.main{max-width:1620px;width:100%;margin:auto;padding:24px clamp(16px,3.5vw,52px) 48px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-bottom:17px;border-bottom:1px solid var(--line)}
+.context{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.site{display:flex;align-items:center;gap:9px;margin-top:5px;font-size:13px;font-weight:680}
+.site-badge{width:25px;height:25px;display:grid;place-items:center;border-radius:8px;background:var(--surface2);color:var(--source)}
+.top-right{display:flex;align-items:center;gap:9px}
+.tag{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:10px;color:#435b61;white-space:nowrap}
+.tag:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--signal)}
+.demo-mark{font-size:10px;color:var(--muted)}
+.intro{display:flex;justify-content:space-between;align-items:end;gap:26px;padding:28px 0 17px}
+.kicker{font-size:10px;font-weight:750;letter-spacing:.15em;text-transform:uppercase;color:var(--source)}
+h1{font-size:clamp(27px,3.6vw,43px);line-height:1.08;letter-spacing:-.05em;margin:7px 0 9px;font-weight:700}
+.intro p{max-width:720px;color:var(--muted);font-size:13px;margin:0}
+.horizon{display:grid;grid-template-columns:repeat(3,minmax(100px,1fr));border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--surface);min-width:min(420px,42vw)}
+.horizon div{padding:10px 13px;border-right:1px solid var(--line)}
+.horizon div:last-child{border-right:0}
+.horizon strong{display:block;font-size:12px}
+.horizon span{display:block;font-size:10px;color:var(--muted)}
+.direction-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:8px 0 14px;padding:12px 14px;background:#e6ece7;border:1px solid #d7e0da;border-radius:14px}
+.direction-label strong{display:block;font-size:12px}
+.direction-label span{display:block;color:var(--muted);font-size:10px}
+.direction-options{display:flex;gap:7px;flex-wrap:wrap}
+.direction-option{display:flex;align-items:center;gap:9px;min-height:44px;padding:7px 11px;border:1px solid transparent;border-radius:10px;background:transparent;text-align:left}
+.direction-option:hover{background:#fff}
+.direction-option[aria-pressed="true"]{background:#fff;border-color:var(--line);box-shadow:0 2px 8px rgba(24,49,58,.06)}
+.option-index{display:grid;place-items:center;width:25px;height:25px;flex:0 0 25px;border:1px solid #b8c8c0;border-radius:50%;font-size:10px;font-weight:750}
+.direction-option strong{display:block;font-size:11px}
+.direction-option small{display:block;font-size:9px;color:var(--muted)}
+.live-note{min-height:1.4em;margin:-5px 0 10px;color:var(--muted);font-size:10px}
+.snapshot{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:13px}
+.snapshot span{padding:6px 9px;border-radius:8px;background:#e5ebe6;color:#435a5f;font-size:10px}
+.workspace{display:grid;gap:14px;align-items:start}
+.workspace.layout-timeline{grid-template-columns:minmax(0,1fr) 295px;grid-template-areas:"chart readiness" "comparison comparison" "evidence review"}
+.workspace.layout-delta{grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr);grid-template-areas:"comparison comparison" "chart evidence" "readiness review"}
+.workspace.layout-evidence{grid-template-columns:250px minmax(0,1fr) 270px;grid-template-areas:"readiness chart evidence" "readiness comparison review"}
+.panel{min-width:0;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow);overflow:hidden}
+#readiness{grid-area:readiness}
+#chart{grid-area:chart}
+#comparison{grid-area:comparison}
+#evidence{grid-area:evidence}
+#review{grid-area:review}
+.panel-head{display:flex;align-items:start;justify-content:space-between;gap:14px;padding:17px 18px 9px}
+.eyebrow{font-size:9px;font-weight:760;letter-spacing:.13em;text-transform:uppercase;color:var(--source)}
+h2{font-size:16px;letter-spacing:-.025em;line-height:1.22;margin:4px 0 0}
+h3{font-size:12px;margin:0}
+.help{font-size:10px;color:var(--muted);margin:5px 0 0}
+.chart-wrap{padding:0 9px 4px}
+.chart-wrap svg{display:block;width:100%;height:auto;min-height:220px}
+.axis{stroke:#e4ebe6;stroke-width:1}
+.gridline{stroke:#b6c7bf;stroke-width:1;stroke-dasharray:4 5}
+.label{fill:#697b7e;font:10px ui-sans-serif,system-ui,sans-serif}
+.point-label{fill:#314c52;font:600 10px ui-sans-serif,system-ui,sans-serif}
+.series-baseline{fill:none;stroke:var(--baseline);stroke-width:2.5;stroke-dasharray:6 5;stroke-linejoin:round}
+.series-candidate{fill:none;stroke:var(--candidate);stroke-width:3.2;stroke-linejoin:round}
+.area-under{fill:#dceddf;opacity:.62}
+.legend{display:flex;gap:14px;flex-wrap:wrap;padding:3px 17px 14px;color:#53686b;font-size:10px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.line-sample{width:18px;height:0;border-top:3px solid var(--candidate)}
+.line-sample.base{border-top:2px dashed var(--baseline)}
+.callout{margin:0 17px 16px;padding:11px 12px;border-left:3px solid var(--signal);border-radius:0 10px 10px 0;background:#fff5ef;color:#674433;font-size:11px}
+.callout strong{display:block;color:#50362c;margin-bottom:3px}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line)}
+.metric{padding:13px 15px}
+.metric:nth-child(odd){border-right:1px solid var(--line)}
+.metric:nth-child(-n+2){border-bottom:1px solid var(--line)}
+.metric span{display:block;font-size:9px;color:var(--muted)}
+.metric strong{display:block;margin-top:3px;font-size:19px;letter-spacing:-.04em}
+.metric small{font-size:9px;color:var(--signal)}
+.status-row{display:flex;align-items:start;gap:10px;padding:11px 0;border-bottom:1px solid #ebf0ed}
+.status-row:last-child{border-bottom:0}
+.status-symbol{display:grid;place-items:center;width:24px;height:24px;flex:0 0 24px;border-radius:8px;background:#fff1e8;color:#a95331;font-size:11px;font-weight:800}
+.status-symbol.neutral{background:#e9efea;color:#49615e}
+.status-row b{display:block;font-size:10px}
+.status-row small{display:block;margin-top:2px;color:var(--muted);font-size:9px;line-height:1.4}
+.readiness-body,.evidence-body,.review-body{padding:0 17px 17px}
+.readiness-banner{margin-top:9px;padding:10px 11px;border-radius:10px;background:#fbf4e6;color:#684e23;font-size:10px}
+.readiness-banner strong{display:block;margin-bottom:2px;color:#4f3b1d}
+.table-scroll{overflow:auto;border-top:1px solid var(--line)}
+.table-scroll:focus-visible{outline-offset:-3px}
+table{width:100%;min-width:720px;border-collapse:collapse}
+caption{padding:9px 15px;text-align:left;color:var(--muted);font-size:10px}
+th,td{padding:9px 11px;border-bottom:1px solid #edf1ee;text-align:right;white-space:nowrap;font-size:10px}
+th{background:#f7f9f7;color:#627578;font-size:9px;font-weight:700;letter-spacing:.04em}
+th:first-child,td:first-child{text-align:left}
+tr:last-child td{border-bottom:0}
+.pill{display:inline-flex;padding:3px 6px;border-radius:6px;background:#edf2ef;color:#4a625d;font-size:8px;font-weight:700}
+.pill.alert{background:#fff0e6;color:#9c4c2b}
+.compact-facts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.fact{padding:10px;border-radius:10px;background:#f2f6f2}
+.fact span{display:block;font-size:9px;color:var(--muted)}
+.fact strong{display:block;margin-top:2px;font-size:15px}
+.detail-list{display:grid;gap:8px;margin-top:11px}
+.detail{padding:10px 11px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.detail strong{display:block;font-size:10px}
+.detail p{margin:3px 0 0;color:var(--muted);font-size:9px}
+.review-state{display:flex;justify-content:space-between;align-items:center;gap:9px;padding:10px 0;border-bottom:1px solid var(--line);font-size:10px}
+.review-state strong{font-size:10px}
+.review-badge{padding:4px 7px;border-radius:999px;background:#f5eee1;color:#7a5d2b;font-size:8px;white-space:nowrap}
+.review-body p{font-size:10px;color:var(--muted)}
+.review-button{width:100%;min-height:44px;border:0;border-radius:10px;background:#18313a;color:#fff;font-weight:690;font-size:10px}
+.review-button:hover{background:#284b52}
+.review-note{min-height:1.4em;font-size:9px;color:var(--muted)}
+.footer-note{display:flex;align-items:start;justify-content:space-between;gap:14px;margin-top:14px;color:#6b7d7e;font-size:9px}
+.timeline-first{--canvas:#f1f4ef;--ink:#18313a;--surface:#fff;--source:#087776;--candidate:#087776;--focus:#165fd4;--signal:#d16a43;--radius:17px;--shadow:0 18px 46px rgba(25,50,58,.08)}
+.delta-first{--canvas:#f2f4fa;--ink:#1c2742;--surface:#fff;--surface2:#e7ebf4;--line:#d8deed;--source:#435fe0;--candidate:#435fe0;--focus:#194ab4;--signal:#cb5f43;--radius:11px;--shadow:0 9px 25px rgba(28,39,66,.06)}
+.evidence-first{--canvas:#edf2f0;--ink:#18333a;--surface:#fbfdfc;--surface2:#e2ece8;--line:#ccdad4;--source:#006e67;--candidate:#006e67;--focus:#2256c4;--signal:#b77427;--radius:9px;--shadow:0 5px 16px rgba(21,52,55,.045)}
+.delta-first .panel-head{padding-left:20px;padding-right:20px}
+.delta-first .panel{box-shadow:0 5px 18px rgba(25,36,60,.045)}
+.evidence-first .panel-head{padding:14px 15px 8px}
+.evidence-first .tag,.evidence-first .snapshot span{border-radius:5px}
+@media(max-width:1150px){
+.workspace.layout-timeline,.workspace.layout-delta{grid-template-columns:minmax(0,1fr) 285px}
+.workspace.layout-evidence{grid-template-columns:220px minmax(0,1fr);grid-template-areas:"readiness chart" "readiness evidence" "comparison comparison" "review review"}
+}
+@media(max-width:780px){
+.shell{grid-template-columns:1fr}
+.rail{position:sticky;top:0;z-index:4;height:55px;flex-direction:row;justify-content:space-between;padding:6px 12px}
+.mark{width:36px;height:36px}
+.rail-label{writing-mode:horizontal-tb;letter-spacing:.09em}
+.main{padding:15px 13px 30px}
+.top{align-items:start}
+.top-right{flex-direction:column;align-items:end;gap:4px}
+.tag{font-size:9px;padding:6px 8px}
+.demo-mark{font-size:8px}
+.intro{align-items:start;flex-direction:column;gap:12px;padding:22px 0 14px}
+h1{font-size:32px}
+.intro p{font-size:12px}
+.horizon{width:100%;min-width:0}
+.direction-bar{align-items:start;flex-direction:column;padding:10px}
+.direction-options{display:grid;grid-template-columns:1fr;gap:3px;width:100%}
+.direction-option{width:100%;min-height:44px}
+.snapshot{gap:5px}
+.snapshot span{font-size:9px}
+.workspace.layout-timeline,.workspace.layout-delta,.workspace.layout-evidence{grid-template-columns:minmax(0,1fr)}
+.workspace.layout-timeline{grid-template-areas:"chart" "readiness" "comparison" "evidence" "review"}
+.workspace.layout-delta{grid-template-areas:"comparison" "chart" "evidence" "readiness" "review"}
+.workspace.layout-evidence{grid-template-areas:"readiness" "chart" "evidence" "comparison" "review"}
+.panel-head{padding:14px 14px 8px}
+.chart-wrap{padding:0 4px}
+.chart-wrap svg{min-height:190px}
+.legend{padding:2px 14px 12px}
+table{min-width:700px}
+.footer-note{flex-direction:column;gap:5px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+</head>
+<body class="timeline-first">
+<a class="skip" href="#main">跳至主要內容</a>
+<div class="shell">
+<aside class="rail" aria-label="產品導覽"><div class="mark" aria-label="Macau Energy OS">M.</div><div class="rail-label">DISPATCH STUDY</div></aside>
+<main class="main" id="main" tabindex="-1">
+<header class="top">
+  <div><div class="context">Macau Energy OS / Operations</div><div class="site"><span class="site-badge" aria-hidden="true">M</span>示範商業站點 <span class="demo-mark">· 澳門情境</span></div></div>
+  <div class="top-right"><span class="tag">合成情境 · 非現場資料</span><span class="demo-mark">STUDY v0.1</span></div>
+</header>
+<section class="intro" aria-labelledby="page-title">
+  <div><div class="kicker">來源與負荷 · 設計方向比較</div><h1 id="page-title">同一個調度任務，<br>三種工作區組織。</h1><p>比較同一站點、時段和合成數據下的三種資訊佈局。線條與表格是情境示例；合同、電價、設備能力和節省均未核實。</p></div>
+  <div class="horizon" aria-label="本次比較範圍"><div><strong>12:00–18:00</strong><span>澳門時間 · 六個小時</span></div><div><strong>同一快照</strong><span>基線與候選對比</span></div><div><strong>SHADOW</strong><span>不會下發控制</span></div></div>
+</section>
+<section class="direction-bar" aria-labelledby="direction-label">
+  <div class="direction-label"><strong id="direction-label">切換資訊組織</strong><span>同一內容，改變主次與閱讀路徑；沒有選定正式視覺方向。</span></div>
+  <div class="direction-options" role="group" aria-label="設計方向">
+    <button class="direction-option" type="button" data-layout="timeline" aria-pressed="true" data-order="chart readiness comparison evidence review"><span class="option-index">A</span><span><strong>時序主導</strong><small>先看曲線與全時段尖峰</small></span></button>
+    <button class="direction-option" type="button" data-layout="delta" aria-pressed="false" data-order="comparison chart evidence readiness review"><span class="option-index">B</span><span><strong>差異主導</strong><small>先讀基線／候選逐時變化</small></span></button>
+    <button class="direction-option" type="button" data-layout="evidence" aria-pressed="false" data-order="readiness chart evidence comparison review"><span class="option-index">C</span><span><strong>證據主導</strong><small>先看就緒度與可支持的結論</small></span></button>
+  </div>
+</section>
+<p class="live-note" id="layoutAnnouncement" aria-live="polite">目前方向：時序主導。未選定作正式設計。</p>
+<div class="snapshot" aria-label="共用情境條件"><span>時間粒度：1 小時示例</span><span>輸入：SYN-06</span><span>資費：未核實</span><span>設備約束：未驗證</span><span>不計算帳單金額</span></div>
+<div class="workspace layout-timeline" id="workspace">
+  <section class="panel" id="chart" aria-labelledby="chart-title">
+    <header class="panel-head"><div><div class="eyebrow">01 · 電網輸入時序</div><h2 id="chart-title">候選時段較低，但全時段尖峰更高。</h2><p class="help">虛線為基線，實線為候選 · 小時平均 kW · 合成值</p></div><span class="pill alert">候選最大值 +25 kW</span></header>
+    <div class="chart-wrap">
+      <figure aria-labelledby="chart-title chart-caption">
+        <svg viewBox="0 0 860 275" role="img" aria-labelledby="plotTitle plotDesc">
+          <title id="plotTitle">基線與候選電網輸入，12時至18時</title>
+          <desc id="plotDesc">基線最大輸入485千瓦，發生於16時至17時。候選最大輸入510千瓦，發生於17時至18時的空調回彈時段。15時至16時候選為430千瓦，較基線480千瓦低50千瓦。</desc>
+          <line class="axis" x1="74" y1="218" x2="790" y2="218"/><line class="axis" x1="74" y1="30" x2="74" y2="218"/>
+          <line class="axis" x1="74" y1="168" x2="790" y2="168"/><line class="axis" x1="74" y1="118" x2="790" y2="118"/><line class="axis" x1="74" y1="68" x2="790" y2="68"/>
+          <line class="gridline" x1="74" y1="43" x2="790" y2="43"/>
+          <text class="label" x="17" y="221">300</text><text class="label" x="17" y="171">380</text><text class="label" x="17" y="121">460</text><text class="label" x="17" y="71">540 kW</text>
+          <text class="label" x="66" y="241">12:00</text><text class="label" x="187" y="241">13:00</text><text class="label" x="307" y="241">14:00</text><text class="label" x="428" y="241">15:00</text><text class="label" x="548" y="241">16:00</text><text class="label" x="668" y="241">17:00</text><text class="label" x="773" y="241">18:00</text>
+          <path class="area-under" d="M74 187 L194 153 L314 122 L434 104 L554 100 L674 104 L790 218 L74 218 Z"/>
+          <path class="series-baseline" d="M74 187 L194 153 L314 122 L434 104 L554 100 L674 104"/>
+          <path class="series-candidate" d="M74 187 L194 153 L314 122 L434 135 L554 100 L674 84"/>
+          <circle cx="434" cy="135" r="4.5" fill="#ffffff" stroke="var(--candidate)" stroke-width="3"/>
+          <circle cx="674" cy="84" r="5.5" fill="#fff" stroke="var(--signal)" stroke-width="3"/>
+          <text class="point-label" x="408" y="125">430</text><text class="point-label" x="646" y="72">510 · 回彈</text>
+          <text class="label" x="687" y="47">全時段最大</text>
+        </svg>
+        <figcaption id="chart-caption" class="help">18:00 是規劃結束邊界，不代表該時刻量測值。圖表表示區間平均功率，不推算 kWh 或費用。</figcaption>
+      </figure>
+    </div>
+    <div class="legend"><span><i class="line-sample base"></i>基線 · 合成參照</span><span><i class="line-sample"></i>候選 · 情境示例</span><span>標示直接顯示尖峰與回彈</span></div>
+    <div class="callout"><strong>15:00–16:00 區間下降，不等於全日成本下降</strong>該區間由 480 降至 430 kW；候選全時段最大值則由 485 升至 510 kW。需量規則和帳單影響未知。</div>
+  </section>
+  <section class="panel" id="readiness" aria-labelledby="readiness-title">
+    <header class="panel-head"><div><div class="eyebrow">就緒度</div><h2 id="readiness-title">先分清能算甚麼。</h2></div></header>
+    <div class="readiness-body">
+      <div class="status-row"><span class="status-symbol">!</span><div><b>物理模型 · 合成</b><small>有示例平衡，站點接線和設備能力未核實。</small></div></div>
+      <div class="status-row"><span class="status-symbol">!</span><div><b>經濟評估 · BLOCKED</b><small>未提供適用合同、電價和需量計算規則。</small></div></div>
+      <div class="status-row"><span class="status-symbol neutral">?</span><div><b>可調能力 · UNKNOWN</b><small>空調移峰只是假設；舒適界限與設備響應未驗證。</small></div></div>
+      <div class="readiness-banner"><strong>不作最佳方案宣稱</strong>這是合成情境，不是優化器輸出、可行性證明或現場控制能力。</div>
+    </div>
+  </section>
+  <section class="panel" id="comparison" aria-labelledby="comparison-title">
+    <header class="panel-head"><div><div class="eyebrow">02 · 同一時段的供能與用能</div><h2 id="comparison-title">基線與候選 · 六個一小時區間</h2><p class="help">來源與負荷平衡；沒有計入損耗、ESS 充電、SOC 或儲能效率。</p></div><span class="pill">共用情境資料</span></header>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="可水平捲動的六時段調度資料表">
+      <table id="scheduleTable">
+        <caption>功率 kW · 15:00–16:00 以時段平均值比較；HVAC 回彈顯示於 17:00–18:00</caption>
+        <thead><tr><th>時段</th><th>電網基線</th><th>電網候選</th><th>PV 自用</th><th>ESS 放電</th><th>負荷基線</th><th>負荷候選</th><th>HVAC 變化</th></tr></thead>
+        <tbody>
+          <tr><td>12:00–13:00</td><td>350</td><td>350</td><td>170</td><td>0</td><td>520</td><td>520</td><td>0</td></tr>
+          <tr><td>13:00–14:00</td><td>405</td><td>405</td><td>145</td><td>0</td><td>550</td><td>550</td><td>0</td></tr>
+          <tr><td>14:00–15:00</td><td>455</td><td>455</td><td>125</td><td>0</td><td>580</td><td>580</td><td>0</td></tr>
+          <tr><td>15:00–16:00</td><td>480</td><td>430</td><td>110</td><td>20</td><td>590</td><td>560</td><td>−30</td></tr>
+          <tr><td>16:00–17:00</td><td>485</td><td>485</td><td>85</td><td>0</td><td>570</td><td>570</td><td>0</td></tr>
+          <tr><td>17:00–18:00</td><td>480</td><td>510</td><td>60</td><td>0</td><td>540</td><td>570</td><td>+30 · 回彈</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="metrics"><div class="metric"><span>基線 · 全時段最大進口</span><strong>485 kW</strong><small>16:00–17:00</small></div><div class="metric"><span>候選 · 全時段最大進口</span><strong>510 kW</strong><small>17:00–18:00 · 回彈</small></div></div>
+  </section>
+  <section class="panel" id="evidence" aria-labelledby="evidence-title">
+    <header class="panel-head"><div><div class="eyebrow">證據邊界</div><h2 id="evidence-title">物理流與結算分開。</h2></div></header>
+    <div class="evidence-body">
+      <div class="detail"><strong>物理流 · 合成示例</strong><p>15:00–16:00：電網 430 + PV 自用 110 + ESS 放電 20 = 負荷 560 kW。</p></div>
+      <div class="detail"><strong>結算 · 未核實</strong><p>沒有適用合同、電價、需量窗或帳戶映射；不顯示帳單金額、節省或 PV 抵扣。</p></div>
+      <div class="detail"><strong>儲能與空調約束 · 未完整建模</strong><p>ESS SOC、效率、損耗及 HVAC 舒適/恢復界限均未證實。</p></div>
+    </div>
+  </section>
+  <section class="panel" id="review" aria-labelledby="review-title">
+    <header class="panel-head"><div><div class="eyebrow">SHADOW 審查</div><h2 id="review-title">評論不會下發控制。</h2></div></header>
+    <div class="review-body">
+      <div class="review-state"><strong>審查狀態</strong><span class="review-badge" id="reviewStatus">未審閱 · 示意</span></div>
+      <p>此頁按鈕只更新本頁狀態，重新載入後重設；沒有保存、批准或執行行為。</p>
+      <button class="review-button" type="button" id="reviewButton">記錄示意已閱</button>
+      <p class="review-note" id="reviewAnnouncement" aria-live="polite"></p>
+    </div>
+  </section>
+</div>
+<footer class="footer-note"><span>設計研究 · 繁體中文單一語言 · 不代表完整本地化或 WCAG 驗證。</span><span>方向 A/B/C 僅比較佈局假設；色彩、品牌和最終視覺系統未選定。</span></footer>
+</main>
+</div>
+<script>
+const workspace=document.getElementById("workspace");
+const directionButtons=[...document.querySelectorAll(".direction-option")];
+const directionNames={timeline:"時序主導",delta:"差異主導",evidence:"證據主導"};
+for(const button of directionButtons){
+  button.addEventListener("click",()=>{
+    const name=button.dataset.layout;
+    directionButtons.forEach(item=>item.setAttribute("aria-pressed",String(item===button)));
+    workspace.classList.remove("layout-timeline","layout-delta","layout-evidence");
+    workspace.classList.add("layout-"+name);
+    document.body.classList.remove("timeline-first","delta-first","evidence-first");
+    document.body.classList.add(name+"-first");
+    for(const id of button.dataset.order.split(" ")){workspace.append(document.getElementById(id));}
+    document.getElementById("layoutAnnouncement").textContent="目前方向："+directionNames[name]+"。所有合成數據和證據狀態保持相同；未選定作正式設計。";
+  });
+}
+document.getElementById("reviewButton").addEventListener("click",()=>{
+  document.getElementById("reviewStatus").textContent="已閱 · 僅此頁";
+  document.getElementById("reviewAnnouncement").textContent="已更新本頁示意狀態；重新載入後重設，不會保存或下發控制。";
+});
+</script>
+</body>
+</html>
