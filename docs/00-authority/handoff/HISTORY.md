@@ -286,3 +286,9 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Change:** Rechecked official CEM and Gazette sources for U-009. Added a bounded note and evidence-register entry on the 2007 concession-contract Article 36 distinction between periodic tariffs for subscribed capacity/energy and fees for concessionaire services, alongside the 2025 extension/amendment effective 2026-01-01 and CEM's current “Taxa de Exploração” description.
 - **Finding:** This is a concrete review lead only. It does not establish that the current B/C/D monthly installation-use charge is the contract-defined service fee or reveal its legal basis/formula. U-009 remains UNKNOWN and excluded from bill-grade totals; G1 remains OPEN.
 - **Evidence:** `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`, `docs/01-research/evidence/EVIDENCE-REGISTER.md`, and `docs/00-authority/handoff/CURRENT.md`. Official sources are linked in the evidence note.
+
+
+## WP-4 readiness pointer aligned with v0.7 protocol — 2026-10-04
+
+- **Change:** Corrected the lifecycle readiness audit's immediate WP-4 instruction, which only named v0.6 after the v0.7 three-way information-architecture protocol had been added. The audit now directs the study owner to select core workflow tasks and/or the comparative IA protocol based on the research question, preserve task parity/counterbalancing, separate observed performance from stated preference, and avoid an unsupported winner claim from a small formative sample.
+- **Status:** Preparation guidance only. No recruitment, contact, participant session, product approval or usability finding is claimed or authorized.
