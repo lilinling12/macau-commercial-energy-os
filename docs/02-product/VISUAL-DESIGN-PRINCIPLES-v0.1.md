@@ -55,6 +55,15 @@ The current prototype v0.11 remains a synthetic workflow study, not a final visu
 - **Browser observation:** a fresh tab opened the Recommendations view with both synthetic items unreviewed and their demo controls available. The already-open tab showed a post-action “Reviewed (demo)” state with those controls disabled. The page's source initializes items as unreviewed and contains no persistence path; a reload-reset behavior is inferred from that source and was not separately tested by refreshing.
 - **Limits:** no full keyboard path, screen-reader session, contrast calculation, language review, user session or WCAG-conformance test was performed for v0.11. The page remains English-only, synthetic and unapproved. The existing Harbor Teal, Mineral Blue and Night Graphite options remain alternatives; no palette, typography or design system is selected.
 
+## UI/UX Pro Max targeted visual follow-up — 2026-10-04
+
+A fresh Pro Max run used the product-specific design-system query `commercial energy analytics workspace dense data evidence` (balanced-modern variance, subtle motion, dense-dashboard setting), followed by targeted style, color and chart searches.
+
+- **Pattern fit:** the aggregate search returned **Enterprise Gateway**, a public marketing/site-selection pattern; this is not appropriate evidence for the signed-in product workspace. Its separate **Data-Dense Dashboard** style is relevant as an information-density reference for analytics, but its compact 12–14px suggestion is not a default body-text rule. Density must be balanced with sustained reading and long localized labels.
+- **Palette fit:** targeted color results returned generic **Analytics Dashboard** blue/amber and **Sustainable Energy / Climate Tech** green palettes. They are comparison inputs only, not Macau brand or product decisions. Blue/amber must be checked against chart/status semantics; green must not imply positive performance or savings when it is only a brand accent. Each foreground/background and non-text pair requires contrast evaluation in rendered states.
+- **Chart fit:** the time-series result supports solid actual versus dashed forecast, a named uncertainty range, and a visible table/summary alternative. These align with current product principles; they do not choose a chart library or color values.
+- **Decision boundary:** no palette, theme, font, frontend framework or component system is selected. No stack-specific search was run because the production UI stack remains unapproved. The existing Harbor Teal, Mineral Blue and Night Graphite study remains a set of hypotheses to compare on the same task, with target-user and accessibility evidence still required.
+
 ## Source links
 
 - Material Design 3, Foundations: <https://m3.material.io/foundations/>
