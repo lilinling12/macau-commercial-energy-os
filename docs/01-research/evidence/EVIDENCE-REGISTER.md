@@ -75,3 +75,11 @@ Evidence discipline applies to research, architecture and implementation decisio
 - **Status:** REPORTED by the G6.9 authority and reviewed archives; Step 3D is **NOT EXECUTED**, Step 4 is **PENDING**, and no measured production-stack winner exists.
 - **Evidence:** `docs/03-architecture/technology-authority/G6.9-technology-selection/README.md`; `docs/01-research/G6.9-technology-research/STEP-3D-READINESS-AND-EXECUTION-PLAN-v0.1.md`; draft runner blockers in `STEP-3D-RUNNER-MANIFEST-v0.1.json`; user-provided v0.2.0/v0.3.0 archive audit recorded in the readiness plan.
 - **Limit:** Included archive validators check selected pack structure/JSON/hash outputs; they do not execute the applications. Step 3C is not Step 3D, a performance bake-off, a safety certification or production approval. C+ remains provisional; Node/NestJS remains an existing candidate implementation path; Java implementation is suspended by D-069.
+
+
+## G1 — CEM public tariff rate and quarterly TCA snapshot
+
+- **Claim:** CEM's published base charges and quarterly Tariff Clause Adjustment are separate inputs. Its public page lists 2026 Q3 TCA as MOP 0.36/kWh effective 2026-07-22 for A and B/C/D; the A-group bill example still showing 0.340 is not the current quarter rate.
+- **Status:** VERIFIED as a dated snapshot of CEM's published pages; not independently validated against a customer's bill or full applicable legal amendment chain.
+- **Evidence:** `docs/01-research/evidence/G1-CEM-TARIFF-RATE-SNAPSHOT-2026-10-04.md`; CEM tariff group pages and TCA history; Executive Decree 105/2022.
+- **Limit:** Customer group/class, effective billing period, meter/contract modifiers, monthly installation-use charge, Pu policy and invoice arithmetic still require their own evidence. C2 cell-level table attribution needs a rendered/controlled source check. G1 remains OPEN; this snapshot does not authorize bill-grade claims.
