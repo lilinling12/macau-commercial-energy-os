@@ -20,11 +20,11 @@ The snapshot below records public page values. It does not establish the complet
 | A4 | — | 0.429 | — | Eligibility restricted to qualifying social-assistance residential customers |
 | B1 | 19.797/kW | Full-load 0.874; low-load 0.767 | Full-load 0.348; low-load 0.116 | Full-load 09:00–20:00; low-load 00:00–09:00 and 20:00–24:00 |
 | B2/B3 | 21.484/kW | Same listed energy rates, with class-specific loss adjustments | Same listed reactive rates; class-specific treatment applies | B2/B3 transformer/network adjustments apply |
-| C1 | 19.797/kW | High season: peak 1.432, full 0.885, low 0.749; low season: peak/full 0.776, low 0.724 | Peak/full 0.348; low 0.116 | High season June–September; low season October–May; CEM publishes separate time bands |
-| C2 | 21.484/kW | CEM table lists the C2 adjustments/values by season and tariff period; verify the original table before encoding per-class cells | Class-specific treatment applies | MV supply with LV metering; 1% loss adjustments described |
+| C1 | 19.797/kW | High season: peak 1.432, full 0.885, low 0.749; low season: peak/full 0.776, low 0.724 (shared C1/C2 schedule) | Peak/full 0.348; low 0.116 (shared C1/C2 schedule) | High season June–September; low season October–May; CEM publishes separate time bands |
+| C2 | 21.484/kW | Same published C1/C2 schedule; C2 loss treatment is a separate adjustment | Same published C1/C2 schedule; verify any bill-specific adjustments | MV supply with LV metering; CEM describes 1% transformer-loss adjustments |
 | D | 21.980/kW | Busy 0.770; non-busy 0.530 | Busy 0.350; non-busy 0.120 | Busy 08:00–23:00; non-busy 23:00–08:00 |
 
-All amounts are MOP. The C-group HTML table extraction has merged cells; the entries above preserve the displayed values but **C2 cell-level attribution requires checking against a rendered CEM table or controlled source copy before implementation**. Do not infer a missing cell.
+All amounts are MOP. The official Gazette resolves the merged CEM table: Executive Decree 105/2022 Article 7(3) states that C1 and C2 use the same energy-period schedule and parameter values. C1 demand parameter is MOP 19.797/kW and C2 is MOP 21.484/kW (Article 7(1)–(2)). CEM separately describes C2 loss treatment; preserve that as a class-specific adjustment rather than changing the shared energy-rate table. Customer-specific contract and bill applicability still require confirmation.
 
 ## Quarterly TCA snapshot
 
@@ -56,4 +56,5 @@ This snapshot does not resolve U-001 (Pu integration interval/register semantics
 - CEM D tariff page: https://www.cem-macau.com/zh/customer-service/billing-service/tariff-group-d/
 - CEM Tariff Clause Adjustment (TCA) history: https://www.cem-macau.com/zh/customer-service/billing-service/tariff-clause-adjustment/
 - Administrative Regulation 25/2022: https://bo.dsaj.gov.mo/bo/i/2022/26/regadm25_cn.asp
-- Executive Decree 105/2022: https://bo.dsaj.gov.mo/bo/i/2022/26/despce_cn.asp
+- Executive Decree 105/2022 (official Gazette, Article 7(1)–(3), C1/C2 demand and shared seasonal energy parameters): https://bo.dsaj.gov.mo/bo/i/2022/26/despce_cn.asp?printer=1
+- Administrative Regulation 25/2022 (official Gazette): https://bo.dsaj.gov.mo/bo/i/2022/26/regadm25_cn.asp?printer=1
