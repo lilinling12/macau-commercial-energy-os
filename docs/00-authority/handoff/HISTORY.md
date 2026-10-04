@@ -118,3 +118,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Change:** Added DSEC Q1/Q2/Q3 2025 Establishments electricity totals (819/1,069/1,200 million kWh) and year-on-year changes (-2.3%/-0.1%/+1.7%) to the G2 evidence note. Recorded the 46.5% Q1-to-Q3 aggregate increase only as an unadjusted comparison; it does not isolate seasonality, weather, business activity, site counts or building load shape. Added Q1/Q2 source links.
 - **Status:** Public aggregate context only. DSEC Establishments and DSPA/CEM Commercial have no one-to-one crosswalk in reviewed sources; G2 remains OPEN for site-level flexibility evidence.
 - **Related:** G2 evidence note, Evidence Register and CURRENT handoff.
+
+
+## 2026-10-04 — G2 CEM commercial sales and peak-load update
+
+- **Change:** Added DSPA/CEM 2026 Q1 and Q2 customer-group sales and system-peak evidence to the G2 note. Commercial sales were 828 GWh and 1,059 GWh; maximum system load was 844 MW and 1,130 MW. The sequential changes are explicitly unadjusted; the Q2 source attributes high demand partly to above-average temperatures.
+- **Interpretation:** This strengthens current sector/system context only. It does not isolate drivers, provide commercial-building interval profiles, or quantify flexible capacity, response, comfort/service impact or rebound. DSEC Establishments and CEM Commercial remain separate statistical populations; G2 remains OPEN.
+- **Evidence:** https://www.dspa.gov.mo/energyfigures/tc/en-chn_q126.pdf ; https://www.dspa.gov.mo/energyfigures/tc/en-chn_q226.pdf

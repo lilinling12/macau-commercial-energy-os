@@ -22,7 +22,9 @@ The newest located official quarterly source is DSPA's 2026 Q2 Energy and Servic
 | Industrial | 42 | 0% |
 | Total | 1,669 | +3% |
 
-Using the published rounded values, commercial customers account for approximately 63.5% of Q2 sales (1,059 / 1,669); H1 2026 commercial sales are 1,887 GWh, approximately 64.6% of the 2,920 GWh H1 total. These are utility customer-group aggregates, not a hotel/retail/site count, an addressable market estimate, or a building load profile. The report attributes the quarter's higher total electricity consumption partly to above-average temperatures. Its total-consumption definition excludes the waste-incineration centre's own-use and private-facility self-generation. DSEC's 2025 quarterly Energy Statistics separately report electricity use in its broad `Establishments` category:
+Using the published rounded values, commercial customers account for approximately 63.5% of Q2 sales (1,059 / 1,669); H1 2026 commercial sales are 1,887 GWh, approximately 64.6% of the 2,920 GWh H1 total. These are utility customer-group aggregates, not a hotel/retail/site count, an addressable market estimate, or a building load profile. The two 2026 quarterly reports also permit an unadjusted within-year comparison. Q1 CEM sales were 1,251 GWh, including 828 GWh commercial; Q2 sales were 1,669 GWh, including 1,059 GWh commercial. The rounded quarter-to-quarter increases are about 33% for total sales and 28% for commercial sales. The reported system maximum load rose from 844 MW in Q1 to 1,130 MW in Q2 (+34%); the Q2 report attributes high demand partly to above-average temperatures. These comparisons do not separate seasonality, weather, occupancy, visitor activity, customer counts or other drivers, and must not be interpreted as site-level load shape, coincident building peaks or flexible capacity.
+
+The report attributes the quarter's higher total electricity consumption partly to above-average temperatures. Its total-consumption definition excludes the waste-incineration centre's own-use and private-facility self-generation. DSEC's 2025 quarterly Energy Statistics separately report electricity use in its broad `Establishments` category:
 
 | DSEC Establishments electricity use | Million kWh (GWh) | Year-on-year |
 |---|---:|---:|
@@ -101,7 +103,8 @@ Until those conditions are met, G2 remains OPEN, no site-level dispatchable capa
 - DSEC, **Energy Statistics, 3rd Quarter 2025** (published 2025-11; electricity-user grouping follows use declared by customers when applying for supply): https://www.dsec.gov.mo/getAttachment/f7256b86-0c0a-4d1f-b35a-c37369890410/E_ENE_FR_2025_Q3.aspx
 - DSPA, **Final energy consumption and GDP trends, 2021–2025** (page last modified 2026-03-20): https://www.dspa.gov.mo/richtext.aspx?a_id=1598253357
 - DSPA, **Energy intensity trends, 2021–2025** (official indexed values): https://www.dspa.gov.mo/richtext.aspx?a_id=1598253440
-- DSPA, **Energy and Services Comprehensive Data, 2nd Quarter 2026** (page last modified 2026-09-25; report includes CEM-supplied electricity demand/sales, customer-group sales, and system peak): https://www.dspa.gov.mo/energyfigures/tc/en-chn_q226.pdf
+- DSPA, **Energy and Services Comprehensive Data, 1st Quarter 2026** (CEM sales by customer group; peak load and electricity totals): https://www.dspa.gov.mo/energyfigures/tc/en-chn_q126.pdf
+- DSPA, **Energy and Services Comprehensive Data, 2nd Quarter 2026** (CEM sales by customer group; peak load and electricity totals): https://www.dspa.gov.mo/energyfigures/tc/en-chn_q226.pdf
 - DSPA, **2023 Macao Green Hotel Awardees — Gold Award — Galaxy** (last modified 2024-04-25): https://www.dspa.gov.mo/h_award_detail.aspx?a_id=1710484470
 - DSEC, **Package tours and hotel occupancy rate for December and the whole year of 2025** (2026-01-30): https://www.gov.mo/en/news/392646/
 - CEM, **Macao Energy Saving Activity 2026 Hotel / Resort Group**: https://www.cem-macau.com/en/event/75/
