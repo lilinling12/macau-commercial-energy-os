@@ -6,7 +6,7 @@
 
 ## Confirmed process constraints
 
-The product, interaction design, technical architecture, and detailed designs must be reviewed with the product owner before they become approved baselines. Use UI/UX Pro Max as a design reference, alongside mature product and accessibility practice; validate the resulting workflows with target users. Engineering must follow governed, traceable delivery. These process constraints do not approve a product scope, framework, or production stack.
+The product, interaction design, technical architecture, and detailed designs must be reviewed with the product owner before they become approved baselines. Use UI/UX Pro Max as a design reference, alongside mature product and accessibility practice; validate the resulting workflows with target users. Engineering must follow governed, traceable delivery. These process constraints do not approve a product scope, framework, or production stack. The [PRD-to-delivery traceability map](../03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md) connects all nine PRD requirements to proposed user flows/screens, planned WP-4 probes, detailed designs, delivery slices, and current evidence gaps; the probes are plans, not user findings.
 
 ## Decisions to review
 
