@@ -59,10 +59,10 @@
 
 ## Completion record
 
-- **Changes/deliverables:** To be recorded after catalog drafting and cross-reference updates.
-- **Sources or files updated:** This packet and linked architecture/authority files.
-- **Checks run and results:** To be recorded at the exact resulting PR head. No runtime contract, endpoint or application test is authorized by this task.
-- **New evidence / decisions / unknowns:** To be recorded after catalog review.
+- **Changes/deliverables:** Added the logical MVP application and event contract catalog v0.1, mapping PR-01…PR-09 user tasks to operation ownership, authorization scope, durability/status semantics, async events, failures/retry, and vertical-slice evidence. The design keeps endpoint paths, protocol, wire format, schema generator and runtime unselected.
+- **Sources or files updated:** Catalog; architecture README; implementation contract README; Master Index; PRD-to-architecture traceability; MVP vertical-slice plan; roadmap; CURRENT and append-only HISTORY.
+- **Checks run and results:** On exact content head 5aa3a66862fc740a9dbf14a1032059d0562afede, Authority Validation, Repository Hygiene, Runtime Bootstrap and Contracts Validation passed. Runtime Bootstrap is baseline-only and does not validate the design or application behavior. No application tests, endpoints, runtime contracts, external integrations or customer data were changed. Final packet-record revision is subject to the current PR-head checks recorded in PR #8.
+- **New evidence / decisions / unknowns:** No owner or architecture decision was made. Decisions #8/#12/#14, wire contract/schema authority, telemetry event identity/ACK semantics, G1/G3/G6/G6.9-R2 evidence and runtime implementation remain open.
 - **PR/branch and review state:** PR #8, docs/product-architecture-roadmap, open/unmerged.
 - **Gate or task status after work:** Review; no Gate closed.
 - **Next task and dependencies:** owner review of user operations/status vocabulary and decisions #8/#12/#14; G6.9-R2 Step 3D/4 for protocol/framework/contract tooling evidence; then freeze canonical wire contracts and implement them through a separate approved task packet.
