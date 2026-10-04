@@ -104,3 +104,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Change:** Updated CURRENT and owner decision #2 after reviewing the DSEC Q3 2025 statistical note. Electricity users are classified by use declared when applying for supply; the reviewed sources do not provide a one-to-one crosswalk between DSEC Establishments and CEM Commercial. Hotel counts therefore cannot be used to infer a share of CEM commercial-customer sales.
 - **Status:** Aggregate sources remain valid for context only. No target segment or first pilot site is selected; G2 remains open pending site-level measurement.
 - **Evidence:** `docs/01-research/evidence/G2-MACAU-COMMERCIAL-LOAD-FLEXIBILITY-EVIDENCE-2026-10.md`.
+
+
+## 2026-10-04 — G3 site evidence acquisition preparation
+
+- **Change:** Added a site-neutral evidence acquisition packet covering scope/permission, electrical topology/meters, assets and source points, authorized telemetry samples, settlement references, site constraints, optional PV/ESS/EV evidence, restricted evidence manifests, and mapping/review outputs. Linked it from G3, the master index, CURRENT, roadmap and owner decision source list.
+- **Status:** Prepared, not sent. No pilot site was selected; no contact or data intake occurred or was authorized. U-027 privacy/legal review, secure intake and explicit owner/site permission remain prerequisites. G3 stays OPEN.
+- **Boundary:** The packet does not duplicate G1 Golden Bill or G2 flexibility acceptance and does not authorize field control, production schema selection or Gate closure.
