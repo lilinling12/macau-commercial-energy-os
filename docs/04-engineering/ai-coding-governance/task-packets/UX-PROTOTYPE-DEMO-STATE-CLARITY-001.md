@@ -56,10 +56,10 @@
 
 ## Completion record
 
-- **Changes/deliverables:** To be recorded after PR-head workflow results.
-- **Files updated:** Prototype v0.11; product README; WP-4 research protocol; visual-design evaluation; CURRENT/ROADMAP/HISTORY; this packet.
-- **Checks run and results:** Documentation/source review only; automatic PR CI result will be listed against the exact head in PR #8.
-- **New evidence / decisions / unknowns:** No owner decision is made. Launch locale, review behavior, visual direction and production persistence remain open.
+- **Changes/deliverables:** Created prototype v0.11 by preserving v0.10 and replacing the inaccurate “saved locally” confirmation with a truthful page-only, reset-on-reload, non-persistent status. The recommendation workflow, task content and visual direction did not change.
+- **Files updated:** Prototype v0.11; product README; WP-4 research protocol; visual-design evaluation; CURRENT; ROADMAP; HISTORY; this packet.
+- **Checks run and results:** Static source inspection found no storage/API persistence path, and a fresh browser accessibility tree showed the initial unreviewed state with demo controls enabled. Exact-head CI and its existing workflow scope are listed in PR #8. No user/screen-reader/WCAG session or manual application test was run.
+- **New evidence / decisions / unknowns:** This corrects prototype copy only; no owner decision is made. Launch locale, product review semantics, visual direction and production persistence remain open.
 - **PR/branch and review state:** PR #8, docs/product-architecture-roadmap, open/unmerged.
 - **Gate or task status after work:** Review; WP-4 remains open.
 - **Next task and dependencies:** Owner review and authorized WP-4 sessions; no prototype result is treated as production design evidence until validated.
