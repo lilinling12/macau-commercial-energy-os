@@ -41,3 +41,9 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Change:** Inspected the original user-provided v0.3.0 bake-off archive after recording the runner-host assessment. Corrected decision and readiness wording from “continuous 24-hour soak” to the pack's actual “24h mixed load” requirement and preserved its same Linux x86-64 runner condition. The pack does not explicitly require a single uninterrupted GitHub Actions job; splitting jobs is only acceptable if it preserves the same controlled host and workload state and remains within the pack's authority.
 - **Evidence:** `spec/METRICS.md` in `macau-energy-os-stack-bakeoff-v0.3.0.zip` states “Soak | 24h mixed load”; `README.md` step 6 requires runtime/load/chaos/24h soak on the same Linux x86-64 runner.
 - **Status:** Documentation clarification only; no Step 3D execution or architecture decision.
+
+## 2026-10-04 — v0.5 UI/UX Pro Max follow-up
+
+- **Change:** Re-reviewed the v0.5 synthetic interaction prototype using UI/UX Pro Max. The repeated design-system result (operations landing page + conditional Glassmorphism) was rejected as a poor match for a signed-in analytical workspace. Recorded source-level text-contrast samples, the 2.80:1 amber chart-threshold line for next-iteration correction/review under WCAG 2.2 SC 1.4.11, and narrow-screen seven-item horizontal navigation as a discoverability/render-validation concern. Synced the product/architecture readiness audit and CURRENT.
+- **Status:** Static source and color calculation only. No browser/device, zoom, keyboard, assistive-technology, user-session or WCAG conformance validation; no final visual direction or frontend framework approved.
+- **References:** docs/02-product/PRODUCT-AND-ARCHITECTURE-REVIEW-PACKET-v0.1.md follow-up section; W3C WCAG 2.2 Understanding SC 1.4.11: https://www.w3.org/WAI/WCAG22/understanding/non-text-contrast.html.
