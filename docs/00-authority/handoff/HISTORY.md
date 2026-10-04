@@ -305,3 +305,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Change:** Added Owner decision #16 in the English and Chinese review summaries and linked it from the logical architecture and CURRENT handoff. The question is whether to add Next.js as a fourth backend/API candidate, replace Candidate B's NestJS/Fastify path, or explicitly defer it while retaining the current A/B/C+ pack. It requires an equivalent workload and explicit boundary for browser rendering, worker behavior, live streaming and deployment.
 - **Evidence:** Official Next.js docs support server-side Route Handlers and a backend-for-frontend/API-layer pattern while cautioning that this is not a full backend replacement. See https://nextjs.org/docs/app/guides/backend-for-frontend and https://nextjs.org/docs/app/getting-started/route-handlers.
 - **Status:** No choice recorded. Next.js is neither selected nor rejected. The Step 3D pack is unchanged; any inclusion/replacement requires owner decision and an authority/pack amendment before runner freeze.
+
+
+## Next.js Step 3D feasibility evidence — 2026-10-04
+
+- **Change:** Added an official-documentation-based fit assessment for Owner decision #16 to the Step 3D readiness plan and bilingual owner summaries; added the unresolved scope choice to the runner manifest's freeze blockers.
+- **Evidence:** Next.js Route Handlers support an API/BFF role; Next.js 16 requires Node 20.9+, which is below the proposed Node 24.21.0 test pin; self-hosted Node/Docker supports streaming, subject to end-to-end proxy/load-balancer streaming behavior. Serverless constraints are host-dependent. Next.js documentation cautions that its API layer is not a full backend replacement.
+- **Status:** Plausible backend/API candidate for controlled evaluation only. No Step 3D pack amendment, candidate inclusion, production decision, or performance evidence exists. A fourth candidate would raise the current 120 controlled AI trial count to 160 if the same per-candidate matrix is retained. Owner decision #16 remains open.
