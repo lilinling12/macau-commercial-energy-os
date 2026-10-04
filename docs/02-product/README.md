@@ -29,3 +29,7 @@ Productization does not replace technical authority; it derives from it.
 - 中文 Owner 评审摘要 v0.1：[OWNER-REVIEW-BRIEF-zh-CN-v0.1.md](OWNER-REVIEW-BRIEF-zh-CN-v0.1.md)。它是英文决策队列的中文评审入口，不记录任何已批准决定。
 
 - [Prototype v0.10 — core product workflow](prototype/v0.10/index.html) is the current nine-destination interaction study. At 320/375/768/1024/1440 CSS px, the page had no document-level horizontal overflow; any wide synthetic table stayed inside its labeled scroll wrapper. All nine destinations switched to their matching view and URL state, browser Back restored Recommendations after Evidence & replay, and ArrowUp+Enter changed the narrow selector while focus moved to the destination heading. This bounded local observation is not user validation, screen-reader review, a 200% zoom check or WCAG conformance.
+
+## Visual direction palette comparison v0.1
+
+[Open the side-by-side prototype](prototype/visual-directions/v0.1/index.html). It compares Harbor Teal, Mineral Blue and Night Graphite on the same synthetic portfolio/demand-review task, including evidence status, forecast uncertainty and concise Traditional Chinese, Portuguese and English labels. Sample contrast ratios are source calculations only; rendered accessibility and target-user evaluation remain outstanding. No palette is selected.
