@@ -60,6 +60,7 @@ Research → Decision → Architecture → Engineering → Implementation.
 - G0 Thesis & Market Rationale Gate (substantially complete at thesis level; customer/buyer/commercial validation remains open): `docs/01-research/gates/G0-thesis.md`
 - G1 Macau Tariff & Settlement Gate (OPEN; Golden Bills and material tariff/settlement blockers remain): `docs/01-research/gates/G1-tariff-settlement.md`
 - G1 evidence acquisition packet v0.1 (prepared, not sent; customer/CEM authorization and secure intake required): `docs/01-research/gates/G1-EVIDENCE-ACQUISITION-PACKET-v0.1.md`
+- G3 site evidence acquisition packet v0.1 (prepared, not sent; no site selected and owner/site authorization, U-027 review and secure intake required): `docs/01-research/gates/G3-SITE-EVIDENCE-ACQUISITION-PACKET-v0.1.md`
 - G3 Energy Digital Twin / Energy Graph Gate (OPEN; logical design exists, Macau pilot-site topology and settlement mapping remain unvalidated): `docs/01-research/gates/G3-energy-graph.md`
 - G7 Reference Simulator & Pilot Validation Gate (ACTIVE / INCOMPLETE; G7.2 live baseline/no-op pending; preflight evidence gap recorded): `docs/01-research/gates/G7-pilot-validation.md`
 
