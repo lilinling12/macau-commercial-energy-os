@@ -76,3 +76,5 @@ Every implementation decision must trace to an approved decision and supporting 
 ## Rule
 
 When adding or moving documentation, update this index and every affected internal link in the same change.
+
+- G1 CEM published A/B/C/D tariff rate and quarterly TCA snapshot (captured 2026-10-04; research only, G1 remains OPEN): `docs/01-research/evidence/G1-CEM-TARIFF-RATE-SNAPSHOT-2026-10-04.md`
