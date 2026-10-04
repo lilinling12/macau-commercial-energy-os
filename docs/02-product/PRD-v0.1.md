@@ -121,7 +121,8 @@ The responsible user must be able to identify whether source integrations are co
 - **Auditability:** material configuration, calculation, review, and command-state changes have attributable records.
 - **Resilience:** duplicate or retried telemetry/commands do not create duplicate business effects; outage behavior is explicit.
 - **Transparency:** users can distinguish verified, derived, hypothesis, project assumption, and unknown information.
-- **Accessibility, localization, response time, availability, retention, and support targets:** to be set after user discovery and architecture/SLO design; this draft does not invent numeric targets.
+- **QLR-01 Localization readiness (proposed):** externalize user-visible text and keep domain contracts locale-neutral so the validated pilot language set can be supported without changing domain calculations. Candidate locales for WP-4 are Traditional Chinese (`zh-Hant`), Portuguese (`pt`, regional preference to be confirmed), and English (`en`); no locale is selected. Date/number/currency formatting, fallback, translation provenance, accessibility metadata and language preference precedence are specified in a separate design proposal and require user/owner review.
+- **Accessibility, response time, availability, retention, and support targets:** to be set after user discovery and architecture/SLO design; this draft does not invent numeric targets.
 
 ## 6. Pilot acceptance and success measures
 
@@ -151,7 +152,7 @@ Do not publish a savings or ROI result until the customer baseline, applicable t
 3. What meter/BMS data access is available at an acceptable integration cost?
 4. Which bill/cost/savings evidence will the customer accept contractually?
 5. Which deployment mode (Shared, Dedicated, Private) and pricing approach fit the first pilot?
-6. What languages, accessibility needs, and local operational practices must the interface support?
+6. Which pilot roles need which written interface, notification, report and support languages? Investigate Traditional Chinese, Portuguese and English as candidates, but confirm language per role/site and terminology in WP-4; official-language status and business use are discovery context, not proof that all locales belong in MVP.
 7. Which service-level, retention, and support commitments are required?
 
 Resolve these through interviews, site observation, sample artifacts, and pilot evidence. Record findings in the relevant Gate/evidence and Decision registers before treating them as settled.
@@ -166,6 +167,7 @@ Primary project constraints represented here include:
 - D-032/D-037/D-043/D-044/D-047/D-048/D-055: simulation vs Macau evidence boundaries and R0 limitations.
 - D-070/D-073/D-074/D-075: canonical command identity, observability separation, fixed aggregation windows, and replay protection.
 - D-077/U-025: PV export and cross-site settlement boundary.
+- Proposed QLR-01 and `docs/03-architecture/detailed-design/LOCALIZATION-AND-I18N-DESIGN-v0.1.md`: locale-ready UI/content separation, source-language provenance, and WP-4 validation; launch languages remain undecided.
 - U-001/U-006/U-007/U-008/U-009/U-010/U-011/U-012/U-014/U-016/U-017/U-022: unresolved billing, site data, comfort, calibration, command security, and live response questions.
 
 See `docs/02-product/PRODUCT-DESIGN.md`, `docs/00-authority/decisions/DECISIONS.md`, `docs/00-authority/decisions/OPEN-QUESTIONS.md`, and the G1/G7 evidence records. Update this draft when evidence changes; do not silently convert an assumption into a requirement.
