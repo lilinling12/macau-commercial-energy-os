@@ -64,3 +64,11 @@
 - **PR/branch:** PR #8, docs/product-architecture-roadmap, open/unmerged.
 - **Gate status:** No research Gate closed; this is cross-cutting governance proposal work.
 - **Next dependency:** Owner review; then inventory live repository controls. Write and enforce a stack-specific annex after the production architecture is approved and before production code merge.
+
+## Repository enforcement readiness recheck — 2026-10-04
+
+- **Live repository state:** `main` branch metadata reports `protected: false` and required-status-check enforcement `off` with no required contexts. The repository rulesets endpoint returns `[]`. The linked integration receives 403 from the exact branch-protection endpoint; it has no exposed branch-protection/ruleset write operation. No repo rule or permission was changed.
+- **PR #8 review state:** exact head `a5b94a7b968990a3fa608a01ef18d98f442bb9e4` is open/mergeable, with zero submitted reviews and zero inline review threads. The four PR workflows pass on that head, but are not merge gates.
+- **Practical adoption boundary:** requiring one GitHub approval is not directly workable if the sole maintainer is also the PR author; GitHub will not count self-approval. The owner must choose a second authorized reviewer or a documented manual owner-attestation model. Do not claim enforced peer review without a distinct reviewer.
+- **Stack-neutral proposal for owner review:** require PRs to `main`; require the currently stable Authority Validation, Repository Hygiene, Contracts Validation and Runtime Bootstrap checks; prevent force-push/deletion; and decide administrator bypass. Re-evaluate the required-check set after stack approval, when formatter/type/build/security/behavioral tests and ownership can be named. This proposal has not been activated.
+- **Completion / open decision:** no policy adoption, GitHub settings change or code change occurred. Owner adoption, reviewer model and an administrative path to apply rules remain open; stack-specific policy still waits for architecture approval.
