@@ -755,3 +755,11 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - Cross-reviewed G4/G5 Gates, Forecasting/Optimization, Tariff & Settlement, Cost Analysis/Evidence Replay, CostResult/ReplayManifest, the application status catalog and relevant decisions.
 - Clarified that Tariff context/component states (including UNKNOWN/CONFLICT), economic result status (COMPLETE/PARTIAL/BLOCKED), evidence basis (including PROJECT_ASSUMPTION), settlement readiness (BILL_GRADE_ELIGIBLE/SCENARIO_ONLY), failed request lifecycle and incomplete replay outcome are separate dimensions. Updated Tariff §§4/7 and cross-references from Forecasting, CostResult and the application catalog.
 - Exact bill-grade status still depends on G1/Golden Bill evidence; G4/G5/G6/G7 remain open. No runtime tests, simulator run, Macau-site validation, production implementation or Gate closure is claimed.
+
+## G3 Energy Graph and telemetry identity/status cross-review (2026-10-04)
+
+- Cross-reviewed the Energy Graph design, Telemetry Ingestion/Data Quality, logical application/event catalog, persistence boundary and prepared G3 site evidence packet.
+- Corrected the graph request lineage to use the durable raw-capture record ID for an accepted telemetry record; an authenticated producer/source event ID remains optional and separate. The capture ID must not imply duplicate source publications are the same event.
+- Split graph mapping validity from telemetry freshness: a known mapping with no applicable revision returns `EXPIRED_MAPPING` (no prior mapping remains `UNMAPPED`); telemetry freshness/coverage/clock quality is a separate quality dimension. Aligned APP-04 and the evidence packet machine vocabulary.
+- Updated the readiness audit and CURRENT. Static design review only: no runtime tests, site evidence, source identity guarantees or Gate closure. G3 remains OPEN.
+- AI coding governance is already present as a proposed stack-neutral quality baseline and adoption plan with Google Engineering Practices, DORA, Google SRE, OWASP ASVS and NIST SSDF references. Owner adoption and actual enforcement remain separate work; stack-specific rules wait for architecture approval.
