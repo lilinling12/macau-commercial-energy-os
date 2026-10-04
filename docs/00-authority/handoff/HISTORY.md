@@ -641,3 +641,11 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Change:** Preserved v0.7 and created v0.8 with explicit `.workspace[hidden]{display:none}` and a wrapping narrow-screen variant selector. Updated product README, WP-4 protocol, review packet, Chinese owner brief and CURRENT to identify v0.8 as current and v0.7 as historical/unsuitable for comparative sessions.
 - **Evidence:** In one local browser context, initial load exposed only A; clicking B/C and keyboard Shift+Tab/Space changed the accessibility tree to only the selected workspace. A narrow-view screenshot showed all three selector controls wrapped without partial horizontal clipping. Exact CSS viewport size was not captured.
 - **Status:** Prototype correction and bounded browser observation only. No A/B/C winner, user validation, complete keyboard/screen-reader review, localization review, WCAG conformance, product/visual/framework approval or architecture decision is claimed.
+
+
+## v0.8 narrow overflow / v0.9 responsive correction — 2026-10-04
+
+- **Finding:** At 320 CSS px, v0.8's `body{min-width:320px}` exceeded the 305px client width after the vertical scrollbar, creating page-level horizontal overflow even though the selector wrapped.
+- **Change:** Preserved v0.8 and created v0.9 without a body minimum width. Updated product README, WP-4 stimulus/version, owner review packet, Chinese owner brief and CURRENT.
+- **Evidence:** At 320/375/768/1024/1440 CSS px, document scroll width equaled client width, selector scroll width equaled its client width, and only the selected workspace was visible. Screenshots were inspected at 320 and 1440.
+- **Status:** Bounded local browser observation. 200% zoom remains unverified; no full keyboard, screen-reader, localization or user validation is claimed. v0.9 is not an approved IA/product design and A/B/C remain unselected.
