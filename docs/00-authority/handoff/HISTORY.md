@@ -162,3 +162,8 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Status:** Proposed charter on PR #8; owner confirmation remains pending. It does not approve product scope, close a research Gate, select a production stack, authorize implementation beyond existing approved scope, or authorize deployment/control.
 - **Current-state basis:** Existing roadmap, lifecycle readiness audit, owner decision packet, detailed-design drafts, vertical-slice plan and handoff were inspected. They establish substantial planning/design drafts, while product approval, user validation, G6.9-R2 Step 3D/4, implementation completion and authorized Macau pilot evidence remain outstanding.
 - **Next:** Obtain the owner's product-promise decision; continue independent evidence and research work; then follow the charter's product → architecture → detailed design → implementation → pilot completion criteria.
+
+## 2026-10-04 — Product hypothesis work boundary clarified
+
+- **Change:** Refined the delivery-goal charter sequence so PRD and user-flow drafts continue evolving under explicit research hypotheses while owner approval remains the gate for baselining scope and dependent implementation. This avoids treating owner approval as a prerequisite for useful draft research, while preserving the no-silence-as-approval rule.
+- **Status:** Documentation clarification on PR #8; no product choice, user validation or production architecture is approved.
