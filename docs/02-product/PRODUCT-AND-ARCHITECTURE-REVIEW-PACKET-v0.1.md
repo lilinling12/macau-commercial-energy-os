@@ -72,6 +72,8 @@ Prototype v0.2 lets reviewers switch among bill reconstruction, interval assessm
 
 **Prototype v0.4 static review:** CSS foreground/background pairs were sampled from the source: body text 15.86:1; muted text 5.48:1; chart axis text 4.87:1; focus outline on white 4.72:1; semantic status labels 5.77:1–7.68:1; demo/alert text 7.47:1–9.00:1. This supports the selected sampled combinations against the 4.5:1 normal-text threshold; it does not cover every rendered component/state, transparency/composited colors, browser zoom, keyboard/screen-reader behavior, or all responsive layouts. v0.4 has not received rendered browser, assistive-technology, real-device, or WCAG-conformance testing.
 
+**Prototype v0.7 static color-source check:** sampled source pairs calculate to body text 14.29:1 on the canvas, muted text 5.85:1 on the canvas and 5.60:1 on white, amber status text 7.40:1 on its pale background, selected-mode white text 11.38:1 on navy, and the blue focus outline 5.00:1 on the canvas. These selected pairs exceed the corresponding 4.5:1 normal-text threshold where applicable; this calculation does not assess rendered states, non-text contrast, focus appearance beyond the sampled edge, zoom, forced colors, viewport behavior or assistive technology. A rendered browser review could not be performed in the available preview surface because its browser policy rejected the local-file URL. v0.7 has no browser-rendered, participant or WCAG-conformance review.
+
 ### Interaction principles to evaluate
 
 - Make data provenance visible: measurement/source, time range, freshness, coverage, and uncertainty.
