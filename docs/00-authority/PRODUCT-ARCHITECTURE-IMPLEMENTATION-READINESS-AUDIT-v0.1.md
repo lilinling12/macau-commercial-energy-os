@@ -159,3 +159,15 @@ A bounded static cross-review compared the G1 PV evidence note and U-025 with th
 - **Still unresolved:** validated user roles/site grants; identity provider and workload identity; deployment/isolation mode; data classification and Macau-specific privacy/legal review; log/audit retention; revocation bounds; numeric SLO/RPO/RTO; support/on-call ownership; and executable negative, restore and failure-recovery evidence. The design checklists are not test results and do not close G6-08/09/10.
 
 No other direct semantic contradiction was found in this bounded review. Product/security/operations owner review and runtime verification remain required; this review does not authorize customer-data processing or field control.
+
+
+## Follow-up: cost-result and request-state cross-design review — 2026-10-04
+
+**Method:** Static cross-reading of Cost Analysis and Evidence Replay §§3–9, the VS-001 CostResult/ReplayManifest proposal, the MVP Application and Event Contract Catalog §§5.1–5.2/6, the Recommendation and Operator Review design, and D-026. This checks state semantics in drafts; it does not approve or implement a canonical wire contract.
+
+- **Mismatch found:** the cost-analysis design listed `failed` as a calculation-result status, while the application catalog places `failed` in request lifecycle. The result proposal omitted `FAILED` but included `SCENARIO` in `resultStatus`, even though it already defined `evidenceStatus` and `settlementReadiness` for assumption/scenario basis.
+- **Drafts reconciled:** economic-result status is now `COMPLETE | PARTIAL | BLOCKED` when a CostResult exists. Request execution failure is `FAILED` in request lifecycle and emits no CostResult or amount. Scenario basis uses `PROJECT_ASSUMPTION` evidence and `SCENARIO_ONLY` settlement readiness; its completed calculation may be COMPLETE or PARTIAL, but is not bill-grade eligible. Cost design, contract proposal and application catalog now state this consistently.
+- **Semantics preserved:** BLOCKED remains a usable result explaining missing/conflicting required evidence and emits no authoritative amount; PARTIAL is explicitly bounded; COMPLETE describes computation completeness, not bill correctness. RecommendationV1 `estimatedValue` remains non-authoritative under D-026; review acknowledgement remains separate from measured outcome and command execution.
+- **Still open:** canonical contract owner/version, monetary display meaning, decimal grammar/scale/rounding, evidence and replay identity/canonicalization, applicability of G1 rules, and product validation. The proposal remains noncanonical; generated bindings and runtime changes are not authorized by this review.
+
+No direct contradiction remains across the reviewed state handoffs. Static documentation review only; no application tests, generated contract validation, customer validation, bill acceptance, Gate closure or production readiness is claimed.
