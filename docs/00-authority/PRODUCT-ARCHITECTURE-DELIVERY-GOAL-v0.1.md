@@ -25,6 +25,7 @@ The goal is complete only when all applicable items below have reviewable, curre
    - PRD requirements have observable acceptance criteria and trace to user evidence, screens/flows, detailed designs, implementation slices and validation.
    - UI/UX Pro Max findings are evaluated against actual users, mature product practice, responsive behavior and accessibility; the chosen design is not treated as approved until owner review.
    - Representative users complete the critical workflows with recorded usability findings and unresolved problems.
+   - The launch language/locale set and terminology policy are based on WP-4 role/site evidence and owner review; locale-ready content, formatting, source-language provenance, accessibility and fallback behavior are accepted for that declared scope.
 
 3. **Evidence-backed architecture**
    - G1–G7 and G6.9-R2 evidence is either passed for the declared product scope or explicitly bounded with owner-approved limitations and safe fallbacks.
@@ -84,5 +85,6 @@ Next sequence:
 - Lifecycle readiness audit: `docs/00-authority/PRODUCT-ARCHITECTURE-IMPLEMENTATION-READINESS-AUDIT-v0.1.md`
 - Owner review and pending choices: `docs/02-product/OWNER-DECISION-SUMMARY-v0.1.md` and `docs/02-product/PRODUCT-AND-ARCHITECTURE-REVIEW-PACKET-v0.1.md`
 - Product/design and engineering governance: `docs/04-engineering/PRODUCT-DESIGN-AND-DELIVERY-GOVERNANCE-v0.1.md`
+- Localization/i18n detailed design proposal: `docs/03-architecture/detailed-design/LOCALIZATION-AND-I18N-DESIGN-v0.1.md`
 - AI coding quality baseline: `docs/04-engineering/ai-coding-governance/AI-CODING-QUALITY-BASELINE-v0.1.md` (proposed; stack-neutral)
 - Candidate implementation sequence: `docs/05-mvp/vertical-slices/MVP-VERTICAL-SLICE-PLAN-v0.1.md`
