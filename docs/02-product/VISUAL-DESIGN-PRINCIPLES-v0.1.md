@@ -37,7 +37,7 @@ These results are not a design decision. The dark/glass recommendation may be a 
 
 ## Evaluation before visual approval
 
-For each serious visual direction, create comparable rendered alternatives using identical workflow and data. Review:
+For an initial source-level comparison, see [Visual Direction Study v0.1](prototype/visual-directions/v0.1/index.html). It is a static concept comparison, not rendered or user validation. Continue to rendered alternatives using identical workflow and data. Review:
 
 - Light and dark surfaces (when both solve a demonstrated need), color roles, type scale, density, chart palette, borders, focus, and status states.
 - Actual, forecast, estimated, missing, stale, blocked, and verified states, including print/export and chart/table alternatives.
