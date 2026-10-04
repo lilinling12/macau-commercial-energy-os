@@ -6,6 +6,9 @@
 
 ## Project objective
 
+The full end-state and evidence required for lifecycle completion are defined in `docs/00-authority/PRODUCT-ARCHITECTURE-DELIVERY-GOAL-v0.1.md`. This roadmap sequences the work; the charter defines when the overall goal is actually complete.
+
+
 Deliver a Macau commercial-building Energy OS that connects metering, building systems, assets, site topology, customer contracts, and tariff/settlement rules. It should explain economic energy performance, produce safe optimization recommendations, and preserve evidence for replay and measurement and verification.
 
 The first product validates an intelligence loop in shadow/advisory mode. It is not a BMS replacement, a generic dashboard, or an autonomous controller.
