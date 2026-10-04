@@ -32,6 +32,10 @@ The governing principle is: every change has a human owner, a traceable authorit
 
 A risk tier sets a floor, not a ceiling. The task packet may require stronger review. Numerical coverage, latency or delivery targets are set only after a measured baseline and owner-approved service objectives exist.
 
+## Repository controls observed for this proposal
+
+At the 2026-10-04 repository review, the PR workflow exposed Authority Validation, Repository Hygiene, Runtime Bootstrap and Contracts Validation. GitHub's branch metadata reports main as unprotected with required status checks disabled, and the repository returns no rulesets. The workflows provide useful validation when run, but they are not currently enforced merge gates. This observation must be rechecked before policy adoption; no repository permission or protection setting was changed by this task.
+
 ## Governance controls by lifecycle stage
 
 | Stage | Required policy/control | Project status |
