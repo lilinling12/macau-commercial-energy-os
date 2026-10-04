@@ -15,7 +15,19 @@ The new stages state which inputs are synthetic or missing, keep physical flow s
 
 The branch verifier checks the six stages, anchor navigation, claims boundary, workflow labels, source/load fixture balance, HVAC rebound, corrected horizon peak, table alignment, scenario-focus and page-only-review source behavior. It is a static source/fixture check, not browser interaction, keyboard traversal, visual rendering, contrast measurement, site/contract truth, optimizer output or user research.
 
-No rendered checks are claimed for desktop, tablet, mobile or alternate languages; browser preview remains unavailable in this task. The review handoff should record the screen/viewport/state when a permitted browser surface becomes available.
+## Rendered browser review — 2026-10-04
+
+The exact PR branch HTML was fetched and rendered in the Codex in-app browser. The browser page title and six-stage workflow match v0.4; a desktop screenshot at 1265 × 712 shows the dispatch workspace, planning context, six workflow anchors and input-evidence stage. Prior viewport measurements on this same exact HTML covered 1440, 1024, 768 and 375 CSS px. At each width the document itself did not overflow horizontally; at 375 px the data table is contained by its own horizontal-scroll wrapper. This is layout evidence only, not device testing or full user validation.
+
+The browser accessibility tree exposed the six stage headings and anchors, chart name/description and a disabled equipment-control button. The Traditional Chinese footer correctly says that this is not full multilingual support. Only Traditional Chinese is present; Portuguese and English coverage, locale switching, date/number formatting and translation completeness remain unreviewed.
+
+The visible rail badge said v0.3 while the document title and footer identified v0.4. This inconsistency was corrected on this branch to v0.4.
+
+Interaction verification is incomplete. The current browser automation focused/scroll-positioned the input-evidence, table and scenario controls but did not produce observable activation or state change; therefore the modal, table toggle, scenario highlight and page-only review action are not claimed as runtime verified. Source handlers exist, but static source inspection is not interaction proof.
+
+A separate rendering of product prototype v0.11 showed that its initial workspace remains a portfolio dashboard with a conventional left rail and KPI cards. It is useful as an overview hypothesis, but it does not make source/load dispatch the primary task. The v0.4 dispatch workflow is the stronger current proposal for the requested dispatch-first direction; both remain unapproved prototypes.
+
+The screenshot and viewport checks do not establish WCAG conformance. Contrast ratios, keyboard traversal through all controls, reduced-motion behavior, chart data-table equivalence, Portuguese/English layouts and customer usability still require explicit review.
 
 ## Source-review corrections — follow-up
 
