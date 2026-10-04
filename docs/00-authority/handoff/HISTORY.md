@@ -742,3 +742,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - Cross-reviewed Deployment/Operability/Recovery §§3–9, Security Threat Model §§1–6C and VS-001 Identity/Tenant Authorization §§4–8. Tenant scope, degraded-state, recovery, release and G6 boundaries agree across the drafts.
 - Found that the deployment design required sensitive-evidence access logging while the identity draft did not explicitly cover successful sensitive reads or export/support/restore/break-glass paths. Updated identity §6 to require auditable events for data classified as sensitive and those privileged paths; exact read classes remain tied to data classification, and retention/access policy remains open.
 - No runtime tests or recovery drills were performed. User/security/operations decisions, actual authorization/restore evidence and G6 closure remain outstanding.
+
+
+## Cost-result and request-state cross-design review (2026-10-04)
+
+- Cross-reviewed Cost Analysis/Evidence Replay, the CostResult/ReplayManifest proposal, application/event status catalog, recommendation design and D-026.
+- Reconciled inconsistent draft vocabulary: economic-result status is COMPLETE/PARTIAL/BLOCKED when a result exists; FAILED belongs to request lifecycle and yields no CostResult/amount; assumption-led scenarios use PROJECT_ASSUMPTION evidence and SCENARIO_ONLY readiness rather than an overloaded result status.
+- Kept the contract proposal noncanonical. Product monetary meaning, decimal/rounding rules, G1 evidence, replay identity and D-065 owner review remain open. Static document review only; no application tests or generated bindings were run, and no Gate was closed.
