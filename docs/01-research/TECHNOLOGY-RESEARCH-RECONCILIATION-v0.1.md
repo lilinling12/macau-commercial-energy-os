@@ -101,3 +101,32 @@ The lettered G6.9 workstream entries (for example, Step 3G.1/3G.2) are not evide
 4. Update main CURRENT.md, the gate register, and technology ADR only after that review; until then preserve the conflicting assertions as unresolved history.
 
 This addendum is a reconciliation correction only. It closes no Gate, selects no stack, and does not supersede main authority.
+
+
+## Addendum — G7.6 Step 2 accepted MVP ADRs (2026-10-04)
+
+A second G7.6 Step 2 archive is materially more detailed than the short 7-entry package: `macau-commercial-energy-os-g7.6-step2-engineering-foundation-v0.1(1).zip` (39 entries; Authority v1.7.1). Its detailed package includes ADRs marked Accepted for the MVP baseline:
+
+| ADR / artifact | Accepted package decision | Current reconciliation |
+|---|---|---|
+| ADR-068 | TypeScript/Node product platform, Python intelligence, Go Edge runtime. | Corroborates the language split, but not the current NestJS-vs-Fastify or Go-core decision. |
+| ADR-071 | Start the platform as one deployable modular monolith; preserve explicit/testable domain modules. Reject separate identity/tenant/asset/telemetry/energy/report services absent demonstrated scale/team needs. | More specific than G7.5 Step 3's proposed initial microservice list; it explicitly clarifies those as logical boundaries, not a mandate for separate deployables. |
+| ADR-072 | Node.js 24 LTS + Fastify 5 stable baseline. | Stronger and more specific historical framework/runtime decision than G7.8's generic TypeScript backend. It conflicts with main's NestJS bootstrap and with the G6.9 current handoff that still marks the framework-native comparison pending. |
+| ADR-073 | PostgreSQL 18 as initial transactional system of record and telemetry store using partitioning; defer a dedicated time-series/OLAP database until actual pressure remains after partitioning/indexing/rollups/retention. | Conflicts with reports (6)/(7) and current main's provisional PostgreSQL + Timescale baseline. The evidence does not show that Timescale was measured necessary or that ADR-073 was superseded in a current accepted ADR. |
+| ADR-074 | NATS + JetStream as low-latency/durable event backbone. | An explicit historical accepted choice, not merely a report recommendation. Its current status must be reconciled against G6.9 provisional event architecture and current implementation. |
+| ADR-075 | Contract-first versioned HTTP/event boundaries; generated clients/types derive from contract; no direct database coupling across deployable runtimes. | Strongly corroborates contract-first governance; exact schema source, protocol coverage and CI enforcement still require repository mapping. |
+| ADR-076 | No direct cloud-to-equipment control; cloud creates recommendations or future CommandProposal, physical execution passes Edge safety boundary. | Strongly corroborates the advisory MVP boundary; does not prove a production command/safety system exists. |
+
+The package's `CURRENT.md` calls this engineering shape frozen and marks the related decisions Accepted. Its `NEXT_GATE.md` asks the following Step 3 to bootstrap a simulated chiller vertical slice with tenant-scoped API checks, determinism and recovery. The ZIP also contains a prototype bootstrap tree, CI baseline and AI coding governance; those package files are proposed implementation artifacts until matched to the actual GitHub tree and verified behavior.
+
+### Updated stack timeline interpretation
+
+The current record now contains three distinct stages that must remain visible:
+
+1. **G6.9-R2 v1.6.2:** Step 3C semantic slice complete; pinned framework-native Step 3D still pending.
+2. **G7.6 Step 2 / G7.8 Step 3:** explicit package decisions accept Node 24 + Fastify, PostgreSQL 18 without a separate time-series store initially, NATS JetStream, contract-first boundaries and modular-monolith deployment.
+3. **Current GitHub main and later research:** main has a NestJS platform bootstrap; main handoff calls the larger stack provisional and Step 3D pending; report (6) recommends conditional C+; report (7) recommends NestJS/Go-ingestion/Kafka-target. These later implementation/research facts do not silently revoke the accepted Fastify/PostgreSQL/NATS ADRs.
+
+Therefore the previous shorthand “no production framework direction was selected anywhere” was too broad: **G7.6/G7.8 do record a concrete accepted Fastify-based MVP baseline.** The unresolved question is whether that historical accepted baseline is the currently controlling production decision, was later superseded by an approved change, or was implemented differently without a recorded deviation. Main's NestJS path alone cannot answer that. Likewise, the data/event records contain a concrete PostgreSQL-only initial-store and NATS+JetStream baseline that conflicts with current provisional PostgreSQL+Timescale/event-candidate wording.
+
+Before any architecture freeze, maintainers should trace each ADR-068/071/072/073/074/075/076 into the current decision register and implementation paths, identify explicit supersession/deviation records, and compare the actual lockfiles/workflows/deployment files. The G6.9 Step 3D status conflict remains open; the package-level accepted ADRs should not be erased merely because main has a different scaffold.
