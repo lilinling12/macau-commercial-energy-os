@@ -94,8 +94,8 @@ Solid paths show the initial telemetry, analysis, SHADOW and evidence loop. Dash
 | Workflow | Temporal is a candidate; framework-native behavior is part of G6.9-R2 Step 3D. |
 | Persistence | PostgreSQL + Timescale is the baseline for evaluation. |
 | Eventing | NATS JetStream is a candidate. |
-| AI / optimization / forecasting / simulation | Python responsibility. |
-| Site Edge and safety-critical execution | Go responsibility. |
+| AI / optimization / forecasting / simulation | Python is a provisional responsibility proposal; model/library/runtime, workload isolation and deployment remain open. |
+| Site Edge and safety-critical execution | Go is a provisional responsibility proposal; target hardware, protocols, local storage, updates and key custody remain to be validated. |
 | Future plugin isolation | Wasm/WASI direction; outside the first MVP. |
 | Cloud-core candidates | A, B, and C+ remain in bake-off. C+ is provisional default, not winner. |
 | Existing Node/NestJS code | Candidate B implementation path; not a stack-selection result. |
