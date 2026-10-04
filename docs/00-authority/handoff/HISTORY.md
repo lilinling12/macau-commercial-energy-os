@@ -238,3 +238,9 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Change:** Added a limited source-color calculation to the product review packet and CURRENT handoff: body text/canvas 14.29:1; muted text/canvas 5.85:1; amber status text/background 7.40:1; selected-mode text/background 11.38:1; focus outline/canvas 5.00:1.
 - **Boundary:** Selected source pairs only. They do not establish rendered contrast in every state, non-text contrast, focus appearance conformance, responsive behavior, zoom, forced-colors behavior, screen-reader support or WCAG conformance.
 - **Review limitation:** The available in-app browser rejected the local-file preview URL under its URL security policy. No alternate route was used. v0.7 remains without browser-rendered review or user evaluation.
+
+## 2026-10-04 — Logical Edge diagram made stack-neutral
+
+- **Finding:** The opening logical architecture diagram named a “Go Edge” runtime even though the authority table and status clearly keep Go as an unapproved responsibility proposal.
+- **Change:** Renamed the diagram boundary to “Site Edge Energy Runtime + Safety Kernel”. The later technology table continues to identify Go as a proposal and preserves the unresolved site/hardware/security decisions.
+- **Status:** Documentation consistency correction only; no production technology decision or implementation authority changed.
