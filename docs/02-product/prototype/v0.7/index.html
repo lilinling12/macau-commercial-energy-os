@@ -44,7 +44,7 @@ p{line-height:1.5}
 .lineage li:before{content:"";position:absolute;left:8px;top:5px;width:10px;height:10px;border:2px solid #6683a1;border-radius:50%;background:#fff}
 .lineage li:not(:last-child):after{content:"";position:absolute;left:12px;top:18px;bottom:0;border-left:1px solid #c5d0dc}
 .lineage li.pending:before{border-color:#a96800;background:#fff2ce}
-.action{border:1px solid #b9c7d6;background:#f7f9fb;border-radius:8px;padding:10px 12px;font-weight:650}
+.action{border:1px solid #b9c7d6;background:#f7f9fb;border-radius:8px;padding:10px 12px;font-weight:650;min-height:44px;display:inline-flex;align-items:center;cursor:pointer}
 .cardlist{display:grid;gap:10px;margin-top:14px}
 .row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px;border:1px solid #e0e5ea;border-radius:10px}
 .row p{margin:5px 0 0;font-size:13px;color:#596779}
@@ -92,7 +92,7 @@ p{line-height:1.5}
         <div class="stat"><span class="kicker">Result status</span><p><span class="status amber"><span class="dot"></span>Blocked</span></p><span class="muted">Pu interval evidence is missing</span></div>
         <div class="stat"><span class="kicker">Amount</span><b>—</b><span class="muted">No bill-grade amount shown</span></div>
       </div>
-      <div class="callout"><h3>What would unblock this result?</h3><p class="muted">Confirm the meter demand-register interval and attach a matched bill with interval/load-profile evidence. Do not assume a 15-minute window.</p><button class="action" type="button" aria-label="View missing tariff and meter evidence">View missing evidence</button></div>
+      <div class="callout"><h3>What would unblock this result?</h3><p class="muted">Confirm the meter demand-register interval and attach a matched bill with interval/load-profile evidence. Do not assume a 15-minute window.</p><details><summary class="action">View missing evidence</summary><p class="muted">Required evidence: (1) demand-register interval/configuration for the in-scope meter; (2) matched customer bill; (3) interval/load-profile data covering the billing period. Status: not supplied in this synthetic study.</p></details></div>
     </article>
     <aside class="surface rail"><span class="kicker">Evidence path</span><ol class="lineage"><li><b>Meter demand series</b><br><small class="muted">Source mapping confirmed · interval unknown</small></li><li><b>Site supply point</b><br><small class="muted">Demo mapping · synthetic only</small></li><li class="pending"><b>Pu demand rule</b><br><small class="muted">Measurement interval not verified</small></li><li class="pending"><b>Matched bill</b><br><small class="muted">Not attached</small></li></ol><span class="status amber"><span class="dot"></span>Evidence incomplete</span></aside>
   </section>
@@ -111,7 +111,7 @@ p{line-height:1.5}
         <div class="row"><div><h3>Chiller return-temperature feed stale</h3><p>Affects equipment context only · last received 18 hours ago</p></div><span class="tag">Review source</span></div>
         <div class="row"><div><h3>PV export settlement mapping absent</h3><p>No producer/export value included · no consumer credit inferred</p></div><span class="tag">Out of scope</span></div>
       </div>
-      <div class="callout"><h3>Selected exception: demand-register interval</h3><p class="muted">Next evidence: confirm the meter register configuration and attach a matched bill plus interval/load-profile evidence. This review action does not request data or change a site.</p><button class="action" type="button" aria-label="Inspect evidence for the selected exception">Inspect evidence</button></div>
+      <div class="callout"><h3>Selected exception: demand-register interval</h3><p class="muted">Next evidence: confirm the meter register configuration and attach a matched bill plus interval/load-profile evidence. This review action does not request data or change a site.</p><details><summary class="action">Inspect evidence</summary><p class="muted">Evidence checklist: meter-register configuration; matched bill; interval/load-profile sample; confirmed site supply-point mapping. No request has been sent and no source connector is configured.</p></details></div>
     </article>
     <aside class="surface rail"><span class="kicker">Affected work</span><h3 style="margin-top:12px">Demand-cost result</h3><p class="muted">Current state: <b>Blocked</b></p><div class="divider"></div><h3>Dependent views</h3><ul class="muted"><li>Demand exposure</li><li>Baseline comparison</li><li>Recommendation value</li></ul><div class="divider"></div><span class="status amber"><span class="dot"></span>No bill-grade output</span></aside>
   </section>
@@ -128,7 +128,7 @@ p{line-height:1.5}
         <div class="step"><span class="num">STEP 4</span><b>Review SHADOW</b><small>Not available</small></div>
         <div class="step"><span class="num">STEP 5</span><b>Inspect outcome</b><small>Not measured</small></div>
       </div>
-      <div class="callout"><h3>Assessment paused — evidence needed</h3><p class="muted">The demand-register interval and a matched bill are required before this workflow can show a bill-grade demand-cost result. No 15-minute default is assumed, no recommendation is generated, and no action can be executed.</p><button class="action" type="button" aria-label="Review the evidence needed to continue">Review required evidence</button></div>
+      <div class="callout"><h3>Assessment paused — evidence needed</h3><p class="muted">The demand-register interval and a matched bill are required before this workflow can show a bill-grade demand-cost result. No 15-minute default is assumed, no recommendation is generated, and no action can be executed.</p><details><summary class="action">Review required evidence</summary><p class="muted">To continue this synthetic flow: verify the demand-register interval, attach a matched bill and interval/load-profile evidence, then review coverage and calculation provenance. These are prerequisites, not a request or authorization.</p></details></div>
     </article>
     <aside class="surface rail"><span class="kicker">Current step</span><h3 style="margin-top:12px">3 of 5 · Assess cost</h3><p class="muted">Why paused: demand window and matched bill evidence are incomplete.</p><div class="divider"></div><h3>Safe next step</h3><p class="muted">Inspect the source requirements. This study does not send requests or change site data.</p><span class="status amber"><span class="dot"></span>Cannot continue yet</span></aside>
   </section>
