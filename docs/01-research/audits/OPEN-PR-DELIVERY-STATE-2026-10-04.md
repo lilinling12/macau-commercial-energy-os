@@ -55,3 +55,30 @@ The earlier combined-status calls returned empty lists. A subsequent direct GitH
 | #13 | `68c955b936faddfbdbdbdf043688b3696efa87a3` | [Authority Validation #941](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37205213613); [Repository Hygiene #940](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37205213621) | Both completed successfully. This focused path-repair PR verifies its own exact head; it has not been merged, so it does not change the checks still run by #10/#11/#12 against main. |
 
 PR #13's static source check also confirmed its 14 required authority paths exist on main, six Evidence Register classes are present, the canonical handoff path is used, and the design entrypoints remain conditional while #8 is unmerged. This does not establish application test coverage, branch protection or production governance enforcement.
+
+
+## Recheck after v0.4 workflow and source audit — 2026-10-04
+
+This section supersedes the earlier PR #10 row above where its head/check status differs. Older rows and run numbers remain historical snapshots, not current evidence.
+
+| PR | Exact head rechecked | Actions evidence on that head |
+|---|---|---|
+| #8 | `ebb576fc0cb18fd64266ed9395ebdcba7a06ff69` | Authority Validation #913, Repository Hygiene #912, Contracts Validation #124 and Runtime Bootstrap #354 completed successfully. These checks do not approve its product/architecture proposal. |
+| #10 | `6428f60cbd4104ce4c2b5c6034f74e7a4038ec23` | [Authority Validation #956](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37207513284) and [Repository Hygiene #955](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37207513297) failed. Logs identify the missing required authority file and the old `docs/handoff/CURRENT.md` / `CONTINUE-PROMPT.md` requirement. |
+| #11 | `1fa89a21cea1ba917dba854e9e8c1826f2718451` | Repository Hygiene #930 and Authority Validation #931 failed on the same main-base path assumptions. |
+| #12 | `9a04276d9d08f2d64247c4e57bbdb8dcb65c0d8d` | Authority Validation #942 and Repository Hygiene #941 failed on the same main-base path assumptions. |
+| #13 | `68c955b936faddfbdbdbdf043688b3696efa87a3` | Authority Validation #941 and Repository Hygiene #940 passed on #13's own head. PR #13 remains open/unmerged and does not change checks for other PRs against main. |
+
+### Latest PR #10 prototype evidence
+
+PR #10 now contains v0.4, a six-stage synthetic workflow study. Its branch verifier was fetched and run after the latest source review: **PASS** for interval balance, rebound, corrected whole-horizon peak, claim boundaries, prototype/table alignment, synthetic-vs-forecast labeling, and the review-button anchor. A source audit corrected a misleading forecast/SHADOW badge and a broken stage-5 jump link. Browser rendering and operator validation remain unverified. Candidate peak rises from 485 to 510 kW in this synthetic example; no tariff or bill effect is claimed.
+
+### Authority/package interpretation refreshed
+
+- The loose Authority v2.1 file says the current gate is G7 and names G7.1 as next. It does not mention G7.9 or reconcile the earlier G6.9-R2 Step 3D open status.
+- The supplied G7.9 Step 2 package identifies its own authority as v1.9.0, marks Step 2 complete, and names G7.9 Step 3 Service Boundary and Implementation Design as next. Treat these as distinct versioned snapshots; do not infer a unified currently approved roadmap from their version numbers alone.
+- The supplied G7.8 Step 3 technology archive records a TypeScript cloud backend/Node LTS, explicitly says “Start with Fastify-based architecture,” and labels Step 3 complete. Current main's NestJS scaffold is implementation evidence, but the reviewed sources do not supply a dated superseding ADR that explains the framework change.
+- Deep Research (6) recommends pre-bake-off C+ (Go core, Bun/Hono surface, Temporal Go, NATS/Timescale/Python); report (7) recommends a TS/Node/NestJS hybrid and mentions Next.js only conditionally for portal/server-side composition. Neither report proves a measured winner. Next.js is not the selected Energy OS backend in the inspected evidence.
+- G7.9 Step 3 remains open: APP-11 in PR #10 is a proposed partial input, not completion of the API module catalog, Edge and optimizer contracts, implementation task map, or their acceptance evidence.
+
+**Scope:** selected authority summaries, package status files, selected G7.8/G7.9 design files, PR metadata and exact-head Actions runs were checked for this addendum. This does not claim a fresh line-by-line re-read of every archive entry or a complete owner-approved authority migration.
