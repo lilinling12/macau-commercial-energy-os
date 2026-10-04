@@ -649,3 +649,9 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Change:** Preserved v0.8 and created v0.9 without a body minimum width. Updated product README, WP-4 stimulus/version, owner review packet, Chinese owner brief and CURRENT.
 - **Evidence:** At 320/375/768/1024/1440 CSS px, document scroll width equaled client width, selector scroll width equaled its client width, and only the selected workspace was visible. Screenshots were inspected at 320 and 1440.
 - **Status:** Bounded local browser observation. 200% zoom remains unverified; no full keyboard, screen-reader, localization or user validation is claimed. v0.9 is not an approved IA/product design and A/B/C remain unselected.
+
+## PRD-to-delivery traceability consolidation — 2026-10-04
+
+- **Change:** Added a consolidated PR-01–PR-09 map linking proposed user flows/screens, numbered WP-4 probes, detailed-design authority, candidate delivery slices and current validation evidence. Synchronized the readiness audit and CURRENT handoff.
+- **Finding:** The prior architecture matrix linked designs and runtime gaps, while product IA and MVP plan separately linked screens/flows and slices. Joining these references exposed the status of the evidence edge: every WP-4 item remains a planned probe, not a participant finding; v0.9 covers only one synthetic demand-evidence case.
+- **Status:** Traceability artifact is more complete; user/site evidence, Owner approval, Gate evidence, production architecture and implementation remain incomplete. No readiness claim was upgraded.
