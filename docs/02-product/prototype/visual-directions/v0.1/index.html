@@ -49,7 +49,7 @@ header p{color:#45596b;line-height:1.6;margin:8px 0}
 .actual-line{fill:none;stroke:var(--actual);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 .forecast-line{fill:none;stroke:var(--forecast);stroke-width:3;stroke-dasharray:7 5;stroke-linecap:round}
 .band{fill:var(--forecast);opacity:.13}
-.axis{font:9px "Segoe UI",sans-serif;fill:var(--muted)}
+.axis{font:11px "Segoe UI",sans-serif;fill:var(--muted)}
 .legend{display:flex;gap:13px;flex-wrap:wrap;color:var(--muted);font-size:10px;margin-top:4px}
 .legend span{display:inline-flex;gap:5px;align-items:center}
 .key{width:15px;border-top:3px solid var(--actual)}
@@ -64,14 +64,14 @@ header p{color:#45596b;line-height:1.6;margin:8px 0}
 .tokens{border-top:1px solid var(--line);padding:13px 15px}
 .tokens h4{font-size:11px;margin:0 0 9px}
 .swatches{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
-.swatch{font-size:9px;color:var(--muted);min-width:0}
+.swatch{font-size:10px;color:var(--muted);min-width:0}
 .chip{height:18px;border:1px solid var(--line);border-radius:5px;margin-bottom:4px}
-.swatch code{font:9px ui-monospace,monospace;color:var(--ink)}
+.swatch code{font:10px ui-monospace,monospace;color:var(--ink)}
 .locale{font-size:10px;line-height:1.55;color:var(--muted);margin-top:10px;border-top:1px solid var(--line);padding-top:8px}
 .locale strong{color:var(--ink)}
 footer{margin-top:18px;color:#45596b;font-size:12px;line-height:1.6;max-width:1000px}
 @media(max-width:1050px){.directions{grid-template-columns:1fr}.direction{max-width:780px;width:100%;margin:auto}.content{padding:18px}.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:400px){.page{padding:18px 12px}.sample-head{padding:14px}.content{padding:12px}.kpi{padding:8px}.kpi strong{font-size:18px}.nav .site{max-width:110px}}
+@media(max-width:400px){.page{padding:18px 12px}.sample-head{padding:14px}.content{padding:12px}.kpi{padding:8px}.kpi strong{font-size:18px}.nav .site{max-width:110px}.swatches{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
 </head>
@@ -109,7 +109,7 @@ footer{margin-top:18px;color:#45596b;font-size:12px;line-height:1.6;max-width:10
 <div class="swatch"><div class="chip" style="background:#145B59"></div>Primary<br><code>#145B59</code></div>
 <div class="swatch"><div class="chip" style="background:#A25510"></div>Forecast<br><code>#A25510</code></div>
 <div class="swatch"><div class="chip" style="background:#795300"></div>Warning<br><code>#795300</code></div></div>
-<div class="locale"><strong>Label fit:</strong> Data freshness · 資料新鮮度 · Atualidade dos dados</div></div>
+<div class="locale"><strong>Label fit:</strong> Data freshness · <span lang="zh-Hant">資料新鮮度</span> · <span lang="pt">Atualidade dos dados</span></div></div>
 </article>
 <article class="direction" data-theme="mineral" aria-labelledby="mineral-title">
 <div class="sample-head"><div><h2 id="mineral-title">02 · Mineral blue</h2><p>Cool paper · architectural blue · warm evidence accent</p></div><span class="rank">LIGHT</span></div>
