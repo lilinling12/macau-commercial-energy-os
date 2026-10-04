@@ -790,3 +790,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - Corrected the stale statement that no IA comparison existed and that v0.7 was the usable A/B/C stimulus: v0.7 had a rendered variant-isolation defect, v0.8 overflowed at 320px, v0.9 is the corrected A/B/C comparison stimulus, and v0.11 is the current nine-destination core-flow stimulus (v0.10 predecessor).
 - Recorded bounded browser observations and explicitly retained limits: no participant findings, complete accessibility/localization evaluation, IA winner or owner approval.
 - Linked the nine-PRD readiness audit from the Owner Decision Summary. No decision was approved by these edits.
+
+## CURRENT handoff deduplication and prototype-state reconciliation (2026-10-04)
+
+- Audited the full branch version of CURRENT.md after finding two duplicate top-level snapshots. Compared the repeated sections before consolidation; retained the newer, more complete first snapshot and its current G3/product/governance updates, and discarded the repeated older snapshot. Distinct append-only update entries after that duplicate are preserved.
+- Replaced the stale active-delivery summary that highlighted v0.6/v0.7 with the current product/architecture status: v0.11 is the core-flow stimulus, v0.9 is the A/B/C IA comparison, and v0.7/v0.8 are historical defective stimuli. Updated the WP-4 summary to reflect bounded browser observations and continuing user/accessibility/localization gaps.
+- Corrected the Chinese owner-review brief reference from 16 to 17 decisions, including localization item #17. The Owner Decision Summary itself remains a review aid and records no owner approvals.
+- The readiness audit still finds PR-01–PR-09 partial/unaccepted. This documentation cleanup changes no product decision, Gate status, implementation or approval boundary.
