@@ -684,3 +684,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - The design states durability/acknowledgement and cross-store failure boundaries, bitemporal/versioned lineage, tenant scope, append-only correction semantics, retention/privacy and backup/restore questions, plus an additive expand–migrate–contract and rollback policy.
 - Linked the design from the logical architecture, architecture README, Master Index, PRD-to-architecture traceability and VS-003/VS-005 acceptance plan. Updated CURRENT and ROADMAP; physical stores, database, migrations, retention/deletion, RPO/RTO and owner decisions remain open.
 - This is an architecture review draft only. No schema or application code was changed; no database, migration, application test, backup/restore drill, customer-data access or Gate closure is claimed.
+
+## Logical MVP application and event contract catalog (2026-10-04)
+
+- Opened task packet ARCH-APP-CONTRACT-CATALOG-001 and added MVP-APPLICATION-AND-EVENT-CONTRACT-CATALOG-v0.1.md to map product tasks across PR-01…PR-09 to logical operations, capability owners, authorization scope, status/durability semantics, event boundaries and vertical-slice evidence.
+- The catalog separates accepted requests, durable capture, publication, consumer completion, economic eligibility, SHADOW recommendation/review and replay outcomes. It preserves D-065 as the contract authority and does not choose endpoint paths, API protocol, wire format, schema generator or runtime.
+- Linked it from the architecture README, Master Index, implementation contract README, PRD-to-architecture traceability, MVP slice plan, roadmap, CURRENT and PR #8.
+- Owner decisions #8/#12/#14, wire-contract and event-identity decisions, G1/G3/G6/G6.9-R2 evidence and runtime implementation remain open. No application schema/code was changed and no application tests or external integrations were run.
