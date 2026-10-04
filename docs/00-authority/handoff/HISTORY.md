@@ -763,3 +763,9 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - Split graph mapping validity from telemetry freshness: a known mapping with no applicable revision returns `EXPIRED_MAPPING` (no prior mapping remains `UNMAPPED`); telemetry freshness/coverage/clock quality is a separate quality dimension. Aligned APP-04 and the evidence packet machine vocabulary.
 - Updated the readiness audit and CURRENT. Static design review only: no runtime tests, site evidence, source identity guarantees or Gate closure. G3 remains OPEN.
 - AI coding governance is already present as a proposed stack-neutral quality baseline and adoption plan with Google Engineering Practices, DORA, Google SRE, OWASP ASVS and NIST SSDF references. Owner adoption and actual enforcement remain separate work; stack-specific rules wait for architecture approval.
+
+## G3 task-packet traceability update (2026-10-04)
+
+- Added the graph/telemetry identity and status cross-review to ARCH-INGEST-RELIABILITY-001 and recorded APP-04 vocabulary alignment in ARCH-APP-CONTRACT-CATALOG-001.
+- Both packets remain Review pending owner decision #12, connector-specific receipt semantics, D-065 contract authority and architecture approval. No source identity, runtime behavior or site evidence was validated.
+- This closes the documentation traceability loop for the static G3 review; it does not pass G3 or establish production readiness.
