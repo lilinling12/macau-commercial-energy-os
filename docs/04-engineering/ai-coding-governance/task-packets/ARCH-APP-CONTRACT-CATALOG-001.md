@@ -54,14 +54,14 @@
   3. Unresolved owner decisions and G1/G3/G6/G6.9 dependencies are explicit; no endpoint or schema format is implicitly approved.
   4. Event and retry descriptions do not invent producer IDs, exactly-once delivery, ordering, or transport guarantees absent a selected protocol.
   5. Catalog is linked from PRD/architecture traceability and slices; existing V1 schemas and result/replay proposal remain separately identified with their limitations.
-  6. Exact-head Authority Validation, Repository Hygiene and Runtime Bootstrap are inspected; no application tests are claimed for documentation-only design.
+  6. Inspect the exact-head repository and runtime checks, and distinguish existing scaffold validation from the new logical design; passing baseline tests do not validate the draft contracts.
 - **Evidence to preserve:** operation/state catalog; traceability links; referenced contract versions and limitations; decision dependencies; exact revision and CI outcomes.
 
 ## Completion record
 
 - **Changes/deliverables:** Added the logical MVP application and event contract catalog v0.1, mapping PR-01…PR-09 user tasks to operation ownership, authorization scope, durability/status semantics, async events, failures/retry, and vertical-slice evidence. The design keeps endpoint paths, protocol, wire format, schema generator and runtime unselected.
 - **Sources or files updated:** Catalog; architecture README; implementation contract README; Master Index; PRD-to-architecture traceability; MVP vertical-slice plan; roadmap; CURRENT and append-only HISTORY.
-- **Checks run and results:** On exact content head 5aa3a66862fc740a9dbf14a1032059d0562afede, Authority Validation, Repository Hygiene, Runtime Bootstrap and Contracts Validation passed. Runtime Bootstrap is baseline-only and does not validate the design or application behavior. No application tests, endpoints, runtime contracts, external integrations or customer data were changed. Final packet-record revision is subject to the current PR-head checks recorded in PR #8.
+- **Checks run and results:** On exact content head 5aa3a66862fc740a9dbf14a1032059d0562afede, Authority Validation, Repository Hygiene, Runtime Bootstrap and Contracts Validation passed. Runtime Bootstrap exercises the existing scaffold (platform API typecheck/tests/deterministic replay, Edge tests/build, optimizer unit tests and contract fixture validation); it does not validate the newly drafted logical contracts or full product/business outcomes. This documentation task changed no application implementation or test files and initiated no separate local test run; PR-triggered GitHub Actions execute automatically. The exact latest PR-head results are recorded in PR #8.
 - **New evidence / decisions / unknowns:** No owner or architecture decision was made. Decisions #8/#12/#14, wire contract/schema authority, telemetry event identity/ACK semantics, G1/G3/G6/G6.9-R2 evidence and runtime implementation remain open.
 - **PR/branch and review state:** PR #8, docs/product-architecture-roadmap, open/unmerged.
 - **Gate or task status after work:** Review; no Gate closed.
