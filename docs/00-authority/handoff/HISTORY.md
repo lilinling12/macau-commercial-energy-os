@@ -677,3 +677,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - The matrix explicitly treats every proposed grant as unapproved and default-deny; it separates site entitlement from organization membership, telemetry summaries from raw data, reads from export, mapping proposal from approval, and customer identity from workload identity. No device-execution grant exists for the SHADOW MVP. Possible second-person review for settlement-impacting changes is a question, not an adopted policy.
 - Reconciled the design with NIST SP 800-162 ABAC concepts and OWASP ASVS 5.0 V8 authorization verification prompts (V8.1.1, V8.2.1–V8.2.2, V8.3.1, V8.4.1). These are design references, not compliance claims.
 - Updated owner decision #14, PRD-to-architecture traceability, CURRENT and ROADMAP. Role mapping, site scope, approval separation, identity provider, implementation and cross-tenant runtime evidence remain open; no customer data access is authorized.
+
+## Logical persistence and schema-evolution design (2026-10-04)
+
+- Opened task packet ARCH-PERSISTENCE-BOUNDARY-001 and added DATA-PERSISTENCE-AND-SCHEMA-EVOLUTION-DETAILED-DESIGN-v0.1.md, a stack-neutral logical design spanning tenant/access state, graph and settlement facts, raw/normalized telemetry, analyses/replay, recommendation/review evidence and publication/workflow state.
+- The design states durability/acknowledgement and cross-store failure boundaries, bitemporal/versioned lineage, tenant scope, append-only correction semantics, retention/privacy and backup/restore questions, plus an additive expand–migrate–contract and rollback policy.
+- Linked the design from the logical architecture, architecture README, Master Index, PRD-to-architecture traceability and VS-003/VS-005 acceptance plan. Updated CURRENT and ROADMAP; physical stores, database, migrations, retention/deletion, RPO/RTO and owner decisions remain open.
+- This is an architecture review draft only. No schema or application code was changed; no database, migration, application test, backup/restore drill, customer-data access or Gate closure is claimed.
