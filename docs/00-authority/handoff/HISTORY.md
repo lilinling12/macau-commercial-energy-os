@@ -298,3 +298,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 
 - **Change:** Synchronized the English and Chinese Owner review summaries with the Step 3D runtime evidence: Node 22.16.0 is historical Step 3C only; Node 24.21.0 is the v0.3.0 Step 3D test pin for TypeScript candidates/Temporal worker, subject to recheck at runner freeze. The note also clarifies that Next.js is not in the current G6.9-R2 candidate set or evaluated as a backend framework; evaluating it would require an authority update and comparable evidence.
 - **Status:** Test-runtime clarification only. No production Node version, Next.js usage or production architecture is approved.
+
+
+## Next.js backend-candidate scope added to Owner review — 2026-10-04
+
+- **Change:** Added Owner decision #16 in the English and Chinese review summaries and linked it from the logical architecture and CURRENT handoff. The question is whether to add Next.js as a fourth backend/API candidate, replace Candidate B's NestJS/Fastify path, or explicitly defer it while retaining the current A/B/C+ pack. It requires an equivalent workload and explicit boundary for browser rendering, worker behavior, live streaming and deployment.
+- **Evidence:** Official Next.js docs support server-side Route Handlers and a backend-for-frontend/API-layer pattern while cautioning that this is not a full backend replacement. See https://nextjs.org/docs/app/guides/backend-for-frontend and https://nextjs.org/docs/app/getting-started/route-handlers.
+- **Status:** No choice recorded. Next.js is neither selected nor rejected. The Step 3D pack is unchanged; any inclusion/replacement requires owner decision and an authority/pack amendment before runner freeze.
