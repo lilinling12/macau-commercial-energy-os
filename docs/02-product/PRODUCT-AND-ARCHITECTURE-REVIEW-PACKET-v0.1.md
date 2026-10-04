@@ -386,3 +386,12 @@ This is a deliberate prototype-coverage limit, not evidence that the product sho
 A new static study compares three contemporary, non-glass palette directions on the same synthetic portfolio and demand-review task: Harbor Teal, Mineral Blue, and Night Graphite. It includes actual-versus-forecast line styles, uncertainty, blocked/stale evidence, a primary action, and short Traditional Chinese/Portuguese/English label samples. [View the study](prototype/visual-directions/v0.1/index.html).
 
 The palette names and colors are review candidates only. A local browser preview confirmed the content and stacked narrow-screen composition. Explicit 320px and 1440px captures were clipped/scaled in the in-app preview, so exact overflow and full desktop readability remain unverified. Contrast ratios are source calculations, not rendered-page conformance evidence. User preference, long-session readability, full localization, chart interpretation, focus visibility, 200% zoom, screen-reader use and the final light/dark policy remain open. Do not select a visual direction until rendered alternatives are reviewed against target-user and accessibility evidence.
+
+
+### Decision #17 — Localization and pilot languages
+
+Macao's official languages are Chinese and Portuguese; Cantonese is most widely spoken and English is generally used in trade, tourism and commerce. These facts justify discovery, but do not establish the language needs of every energy manager, operator, finance team or site. Review the proposed [stack-neutral localization/i18n design](../03-architecture/detailed-design/LOCALIZATION-AND-I18N-DESIGN-v0.1.md).
+
+**Proposal for decision:** establish localization readiness from the first implementation increment while leaving the launch locale subset to WP-4. Validate Traditional Chinese (`zh-Hant`), Portuguese (`pt`, regional tag unresolved) and English (`en`) by user, task and site. Keep official tariff, bill and contract source content authoritative; any reviewed translation must expose provenance and status. User preference precedence, fallback behavior, translation ownership, bilingual outputs and third-party/AI translation remain open. Do not infer that all three must launch together.
+
+**Requested decision:** approve the architecture-readiness constraint, request revision, or defer pending user evidence. Locale scope, terminology and translation process require target-user evidence and owner approval before product/UI contracts are frozen.
