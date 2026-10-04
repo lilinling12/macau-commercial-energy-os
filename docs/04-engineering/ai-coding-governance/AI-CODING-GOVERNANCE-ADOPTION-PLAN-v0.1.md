@@ -48,6 +48,10 @@ At the 2026-10-04 live recheck, GitHub's `main` branch metadata reports `protect
 | Production readiness | Service owner and on-call/support model; SLOs and error-budget policy; dashboards/alerts/runbooks; staged rollout, rollback, backup/restore and incident response evidence; dependency and vulnerability remediation process | Required before any customer-facing production release or pilot; currently design requirements, not demonstrated operational controls. |
 | Pilot and expansion | Site/customer authorization, privacy/data-flow review, operational acceptance, baseline and measurement plan, incident/stop criteria, measured expand/remediate/stop decision | Separate authorization and Gate evidence required; no pilot permission is implied. |
 
+## Software supply-chain controls to stage
+
+The stack-neutral baseline also requires release traceability for third-party components and build outputs. Before production implementation, select supported dependency and secret scanning for the approved languages/toolchain, establish vulnerability ownership and exception expiry, and keep dependency lockfiles reviewable. Before a pilot or production release, generate and retain a release SBOM and tie each deployed artifact digest to the reviewed source revision and build workflow; verify available provenance/attestation evidence before deployment. The SBOM and provenance are evidence artifacts, not proof of vulnerability-free software or a SLSA certification. Choose formats, signing, retention and remediation objectives after the build/deployment design and threat model are approved.
+
 ## Human accountability and AI boundaries
 
 - Every task has a human owner and a reviewer accountable for the affected code or domain.
