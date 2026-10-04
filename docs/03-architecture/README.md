@@ -21,3 +21,5 @@ Stack-neutral STRIDE threat model and verification scenarios (draft; no G6 closu
 Stack-neutral localization / internationalization design proposal (language set and implementation remain open): `detailed-design/LOCALIZATION-AND-I18N-DESIGN-v0.1.md`.
 
 Stack-neutral data persistence and schema evolution design proposal (owner/data/security review pending; no physical database or migration selected): detailed-design/DATA-PERSISTENCE-AND-SCHEMA-EVOLUTION-DETAILED-DESIGN-v0.1.md.
+
+Logical MVP application and event contract catalog (review draft; no endpoint or wire format selected): detailed-design/MVP-APPLICATION-AND-EVENT-CONTRACT-CATALOG-v0.1.md.
