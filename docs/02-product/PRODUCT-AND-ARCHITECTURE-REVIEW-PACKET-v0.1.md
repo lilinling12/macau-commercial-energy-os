@@ -50,15 +50,21 @@ The design-system query “enterprise energy operations dashboard dense analytic
 
 These are search results, not user evidence. The landing-page pattern is not automatically appropriate for the signed-in operations workspace. The frosted/blurred glass style may reduce clarity or contrast in sustained, information-dense energy analysis; it should not be applied without prototyping and accessibility checks. Font-family and palette suggestions also require fit review. No stack-specific search was run because the frontend framework is unapproved.
 
-### Visual directions for owner review
+### Workspace organization alternatives for owner review
 
-| Direction | Description | Strengths to evaluate | Risks/questions |
+The current synthetic prototype explores visible states and navigation, but it does not compare alternative information architectures. The next design decision should test how users reach and complete the evidence-based jobs; color mode and decorative treatment are a later, independent design-system choice.
+
+| Direction | Primary organization | What to evaluate | Main risk |
 |---|---|---|---|
-| **A. Clear operational workspace** | Light-first neutral surfaces; restrained brand accents; clear typography; strong hierarchy for cost, freshness, uncertainty, and exceptions; optional dark mode later. | Long-session readability, dense tables/charts, clear evidence provenance, lower dependence on decorative effects. | Does it feel sufficiently distinctive and suited to an Energy OS? |
-| **B. Dark operations console** | Dark neutral canvas with restrained semantic status colors; high-contrast data panels; clear separation between live, stale, and synthetic evidence. Avoid heavy blur by default. | May suit control-room environments and reduce glare in some settings; aligns partly with Pro Max's dark operations suggestion. | Validate contrast, daylight use, print/export, and role preferences; dark mode must not hide data quality. |
-| **C. Expressive layered interface** | Selective depth/translucency for navigation or overlays, with opaque reading surfaces for charts, tables, and evidence. | Could provide modern brand character while limiting blur to low-risk surfaces. | Requires performance and contrast checks; easy to overuse and make the interface dated or decorative. |
+| **A. Evidence-first workbench** | Start with a user question/result and provide a traceable path from result → assessment → meter/source → contract/tariff/evidence. | Whether finance and energy roles can explain a displayed amount and find the evidence that permits or blocks it. | Can feel like a forensic tool that hides site-wide operational exceptions. |
+| **B. Exception-led site workspace** | Start with site readiness, freshness, coverage, unmapped points and blocked results; open each exception into its affected workflows. | Whether an operator can find what is stale/missing, understand its impact and recover without losing context. | May overemphasize system health and make economic analysis hard to discover. |
+| **C. Guided assessment workflow** | Organize around the progression qualify site → assess interval/cost → review SHADOW proposal → inspect evidence/replay. | Whether users understand prerequisites, result semantics, decision authority and the next useful action. | Can be rigid for experienced users who need cross-site or direct investigation. |
 
-**Working recommendation for review, not approval:** prototype A as the baseline and use C only as a limited visual accent if it improves orientation. Keep B available as a testable alternative for control-room users. Validate with actual target users before freezing a design system.
+These are workflow/IA hypotheses, not three approved designs. Keep the content, synthetic data, visual styling and task prompts as comparable as practical when prototyping alternatives, so review can distinguish navigation/workflow effects from visual novelty. Prototype v0.6 is a mixed exploratory prototype, not a fair comparison of A/B/C.
+
+**Visual language is a separate open question.** Light/dark surfaces, typography, color, density, motion and selective layering should be evaluated against the chosen lead users, site conditions, long-session readability, chart/table work and accessibility. The previous working preference for A as a light-first baseline is not supported by customer evidence and is withdrawn as a recommendation; no visual direction is selected. The Pro Max landing-page/glassmorphism search result is not a workspace template.
+
+**Review recommendation:** compare the three workflow organizations using the existing WP-4 tasks (provenance/freshness, cost-result meaning/evidence, actual-versus-forecast interpretation, SHADOW/replay/outcome comprehension). Then ask the owner to choose the direction to validate further, or request more evidence. Final IA and visual system require both target-user findings and explicit owner approval.
 
 ### Prototype iteration evidence
 
