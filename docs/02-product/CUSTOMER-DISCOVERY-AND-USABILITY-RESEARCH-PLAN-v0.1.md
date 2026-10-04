@@ -131,7 +131,7 @@ Do not infer willingness to pay from hypothetical price reactions alone. Record 
 
 ## 5. Prototype usability session (45 minutes)
 
-Use synthetic prototype v0.6; label all records as synthetic and do not connect it to a live site or enter credentials. It adds context-reachable tariff/contract evidence and integration/site-access views, and a compact selector at narrow widths that covers all nine views. Navigation remains a hypothesis to validate. Retain v0.2–v0.4 for comparison only when the session explicitly evaluates interaction changes. Tell participants the interface is being evaluated, not their expertise. Ask them to think aloud while allowing natural work. Where relevant, compare the result-kind choices and review dispositions without coaching.
+Use synthetic prototype v0.6 for the established task flow, or v0.7 for a comparative workspace-organization session; label all records as synthetic and do not connect either prototype to a live site or enter credentials. v0.7 presents one demand-evidence case in three organizations (evidence-first, exceptions-first, guided assessment) with the content and visual styling held constant. Navigation and workflow remain hypotheses. Retain v0.2–v0.5 only when the session explicitly evaluates their historical interaction changes. Tell participants the interface is being evaluated, not their expertise. Ask them to think aloud while allowing natural work. Where relevant, compare the result-kind choices and review dispositions without coaching.
 
 Choose the tasks relevant to the participant's role:
 
@@ -160,6 +160,18 @@ Record per task:
 - proposed design change and the evidence supporting it.
 
 Task time is contextual only; do not compare users with different task familiarity as if it were a benchmark. For task 8, success requires independently finding both secondary views at phone size and returning with browser back while the visible selection follows the active view. A task is not successful if the participant reaches the right screen but misunderstands bill reconstruction vs interval estimate vs modeled comparison; review disposition vs execution vs measured outcome; verified vs assumed; SHADOW vs execution; or consumer vs PV-export settlement.
+
+### v0.7 comparative information-architecture protocol
+
+Use this extension only when the study question is which workspace organization helps a particular role understand and progress the evidence task. The prototype is a discussion stimulus, not a realistic operational system.
+
+- Assign one focal organization per participant for the unaided core task. Balance the focal organization across role and site-context categories as recruitment permits; do not let every participant begin with the same version.
+- After the focal task, participants may inspect the other two organizations in a rotated order. Ask where they expected to find the blocker, source evidence, affected work and safe next step. Record stated preference separately from observed task performance.
+- Do not repeat the exact task three times and compare task times as if the variants were controlled benchmarks: later attempts benefit from learning the scenario. If all three organizations must be tested for task success, design separate, matched scenario prompts and counterbalance variant/task order before recruitment.
+- Keep every fact and task-critical status identical across variants. Record any content mismatch or visual imbalance as a prototype confound, not as a user preference.
+- The existing 5–8 participant target is an initial formative iteration size, not enough by itself to rank three IA options across all user/site roles. Report variant-level signals and uncertainty; do not declare a winner from vote counts or stated preference. If the owner needs a comparative conclusion, propose an adequate role-balanced sample and session plan before recruitment.
+
+No recruitment, comparison session or user finding is authorized or claimed by this protocol update.
 
 ## 6. Evidence handling and synthesis
 
@@ -245,4 +257,4 @@ Finding IDs:
 - No customer interviews, artifact reviews or prototype usability sessions are evidenced by this plan.
 - The role, site and workflow hypotheses remain open.
 - This plan is an executable preparation artifact for WP-4; it does not authorize contacting participants, collecting customer data or altering the PRD based on invented evidence.
-- The next research action is to arrange authorized access to representative Macau site users, then conduct the discovery wave and v0.6 prototype tasks, including narrow-screen navigation discoverability, while continuing independent Gate research.
+- The next research action is to arrange authorized access to representative Macau site users, then conduct the discovery wave and assign either the v0.6 workflow tasks or the v0.7 comparative IA protocol according to the approved study question, while continuing independent Gate research.
