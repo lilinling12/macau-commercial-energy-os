@@ -775,3 +775,11 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - Cross-reviewed PR-02/PR-03, Flow A, S-03/S-04, the PRD-to-architecture matrix and VS-003/VS-004 against the G3 Energy Graph/Telemetry design.
 - Found product/acceptance language still referred to a “stale mapping” after architecture semantics had split mapping validity from measurement freshness. Updated the PRD, user flows, traceability matrix, vertical-slice acceptance plan, readiness audit and CURRENT handoff.
 - The product now describes `EXPIRED_MAPPING` separately from stale/invalid telemetry. This improves design-to-acceptance consistency; no target-user comprehension, Macau site behavior, runtime, or Gate evidence is claimed.
+
+## Nine-PRD requirement closure audit (2026-10-04)
+
+- Re-read PR-01–PR-09 against the current PRD, user flows/screens, PRD-to-architecture traceability, vertical-slice plan, implementation-status evidence and current prototype record.
+- Added a requirement-by-requirement closure table to the readiness audit. All nine remain partial/unaccepted: product requirements and logical designs are substantial, but customer validation, domain Gates, canonical/approved contracts, runtime implementation and acceptance evidence are incomplete by requirement.
+- Corrected traceability rows to identify prototype v0.11 as the current core-flow stimulus (v0.10 predecessor); v0.9 remains the separate IA comparison. Updated CURRENT.
+- QLR-01 localization remains a proposed cross-cutting requirement; launch locales and terminology are not selected or user-validated.
+- This is a bounded document/source audit, not a full source-code/runtime audit, user study or Gate decision. No requirement is called complete and the lifecycle goal remains active.
