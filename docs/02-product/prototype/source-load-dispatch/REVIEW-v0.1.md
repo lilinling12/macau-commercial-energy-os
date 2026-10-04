@@ -66,3 +66,8 @@ The schedule-first job follows the explicit user direction and the product objec
 ## 2026-10-04 fixture-verifier execution follow-up
 
 A direct check of the PR branch found the verifier still referenced the earlier local filenames, while the committed fixture and prototype are `v0.3/fixtures/synthetic-dispatch.json` and `v0.3/index.html`. Updated `validate-fixture.py` to use those committed paths. The verifier logic was then run against the exact PR-branch fixture and HTML contents (both byte-for-byte matched the inspected local copies, and the verifier matched after only normalizing its input paths). Result: **PASS** for six intervals, source/load balances, explicit HVAC shift/rebound, claim restrictions, and table alignment. This remains a static synthetic example check; it does not validate a live site, tariff, optimizer, visual rendering or device behavior.
+
+
+## 2026-10-04 rendered-preview access follow-up
+
+The current in-app browser exposed no task tabs. Opening PR #10's raw GitHub HTML returned `net::ERR_BLOCKED_BY_CLIENT`. No local server or alternate route was used to bypass the browser block. The updated prototype still has no current screenshot, measured viewport, or interactive browser walkthrough; pixel-level visual, responsive and interaction findings remain unverified.
