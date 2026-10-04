@@ -691,3 +691,11 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - The catalog separates accepted requests, durable capture, publication, consumer completion, economic eligibility, SHADOW recommendation/review and replay outcomes. It preserves D-065 as the contract authority and does not choose endpoint paths, API protocol, wire format, schema generator or runtime.
 - Linked it from the architecture README, Master Index, implementation contract README, PRD-to-architecture traceability, MVP slice plan, roadmap, CURRENT and PR #8.
 - Owner decisions #8/#12/#14, wire-contract and event-identity decisions, G1/G3/G6/G6.9-R2 evidence and runtime implementation remain open. No application schema/code was changed and no application tests or external integrations were run.
+
+
+## AI coding governance adoption model (2026-10-04)
+
+- Added AI-CODING-GOVERNANCE-ADOPTION-PLAN-v0.1.md and task packet ENG-AI-CODING-GOVERNANCE-ADOPTION-001.md to turn the existing proposed AI Coding Quality Baseline into a staged, risk-based operating model for a long-lived commercial product.
+- Linked governance adoption to the lifecycle goal's completion evidence, governance README, quality baseline, roadmap and CURRENT handoff. The plan distinguishes written policy from repository controls actually enforced and preserves the requirement for owner adoption.
+- References Google Engineering Practices, DORA CI/test automation, Google SRE production readiness/release engineering, NIST SP 800-218 SSDF 1.1 and OWASP ASVS 5.0. These guide adaptation; no compliance/certification claim is made.
+- Production stack, stack-specific toolchain, branch/reviewer enforcement, SLOs, and release/rollback authority remain open. No application code or tests, repository permissions, branch protections, customer-data workflow or production release were changed.
