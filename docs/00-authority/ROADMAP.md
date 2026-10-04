@@ -139,7 +139,8 @@ This capability applies across G0–G7 and G6.9-R2; it is not a new domain Gate 
 
 - **Continuity authority:** `docs/00-authority/handoff/CONTINUATION-PROTOCOL.md`, `CURRENT.md`, `CONTINUE-PROMPT.md`, and the task packet.
 - **Research process:** question and Gate → primary evidence with provenance → synthesis and uncertainty → Decision/Open Question update → product/architecture impact → next dependency-ready packet.
-- **Coding process:** approved Authority → explicit task packet → bounded change → required validation and evidence → human review → updated handoff.
+- **Coding process:** approved Authority → explicit task packet → bounded change → risk-tiered validation → human review → updated handoff.
+- **AI coding policy:** [`AI-CODING-QUALITY-BASELINE-v0.1.md`](../04-engineering/ai-coding-governance/AI-CODING-QUALITY-BASELINE-v0.1.md) and [`AI-CODING-GOVERNANCE-ADOPTION-PLAN-v0.1.md`](../04-engineering/ai-coding-governance/AI-CODING-GOVERNANCE-ADOPTION-PLAN-v0.1.md) define proposed, stack-neutral rules. Before production implementation, verify actual repository enforcement for human owners/reviewers, required CI/security checks, dependency and contract/migration policy, release/rollback authority, and exceptions; policy text alone is not evidence of enforcement.
 - **Persistent memory:** write conclusions, assumptions, rejected hypotheses, source provenance, decisions, and next steps into versioned repository files. Do not rely on conversation history as the only record.
 - **Governance boundary:** AI may research, draft, implement, and validate within scope; a person reviews Authority changes, architecture decisions, and operational authorization.
 
