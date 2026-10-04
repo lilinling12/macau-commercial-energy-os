@@ -131,3 +131,12 @@ A second pass across CEM's official tariff pages shows that a Group B-only repre
 - CEM, [Tariff Clause Adjustment](https://www.cem-macau.com/en/customer-service/billing-service/tariff-clause-adjustment/) (effective-dated quarterly TCA table; accessed 2026-10-05).
 
 This is a public-rule comparison, not a customer tariff ruling, site classification, bill reconstruction, optimizer calculation or approval of multi-building settlement.
+
+
+## Demand measurement and time-axis clarification — 2026-10-05
+
+A closer read of Administrative Regulation 25/2022 strengthens the public-rule statement without resolving U-001. Article 10 states that Group B Pu is the greatest value of the periodically measured **average active power** P; Article 24 applies the same highest-average-periodic-measurement concept to Group D, with Group C referring to the relevant Group B provisions. The rule/public summaries reviewed do not specify the candidate customer's averaging duration, subinterval alignment, meter configuration or read-quality/missing-data handling. So “Pu averaging details unknown” is not “the law says only max instantaneous kW”; the legally described quantity is an average over periodic measurements, while the exact meter period remains to be evidenced.
+
+The regulation's Article 3 says energy charges may vary by tariff periods/season and that concrete periods/times are defined by Chief Executive dispatch. Thus dispatch timestep, meter observation interval, Pu averaging window, tariff time band, billing period and TCA effective period are separate temporal axes. The new PR #10 design artifact DISPATCH-METERING-AND-SETTLEMENT-TIME-BOUNDARIES-v0.1.md turns this into product/domain acceptance requirements. It does not change current G1 closure criteria or D-055's initial R0 scope.
+
+Official primary sources: [Regulation 25/2022 Chinese text](https://bo.dsaj.gov.mo/bo/i/2022/26/regadm25_cn.asp), [Regulation 25/2022 Portuguese text](https://bo.io.gov.mo/bo/i/2022/26/regadm25.asp), [CEM Group B](https://www.cem-macau.com/en/customer-service/billing-service/tariff-group-b/), [CEM Group D](https://www.cem-macau.com/en/customer-service/billing-service/tariff-group-d/), and [CEM tariff-clause adjustments](https://www.cem-macau.com/en/customer-service/billing-service/tariff-clause-adjustment/). Accessed 2026-10-05.
