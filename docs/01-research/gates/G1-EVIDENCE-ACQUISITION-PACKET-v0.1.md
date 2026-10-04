@@ -15,7 +15,7 @@
 
 ## Request bundle A — Pu demand measurement (U-001)
 
-Request one matching B/C/D customer-period sample that includes:
+Request one matching B/C/D customer-period sample that reconciles to the legal quantity: Group B under Administrative Regulation 25/2022 Article 10, Group C through Article 17 applying Article 10, and Group D under Article 24 (with Article 14 low-voltage Group B loss-compensation treatment where applicable). Include:
 
 1. Tariff group and subgroup (B1/B2/B3, C1/C2 or D), supply voltage, billing-period start/end, and effective tariff version.
 2. Meter model/register type and the relevant demand-register configuration; account for any CT/PT multiplier and engineering-unit conversion.

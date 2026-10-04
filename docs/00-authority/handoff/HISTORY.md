@@ -133,3 +133,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Interpretation:** These sources establish CEM-side AMI/telemetry capability and daily customer summaries, not third-party interval-feed access. U-003 remains UNKNOWN. Added a prepared U-003 request bundle with channel, granularity, latency/backfill, corrections, retention, authorization/security and commercial-term sufficiency criteria.
 - **Status:** Prepared only. No inquiry was sent, no customer account data was requested, and no CEM interface/access conclusion was inferred. G1 remains OPEN.
 - **Evidence:** `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`; `docs/01-research/gates/G1-EVIDENCE-ACQUISITION-PACKET-v0.1.md`.
+
+
+## 2026-10-04 — G1 Pu statutory scope clarification
+
+- **Change:** Clarified that Administrative Regulation 25/2022 defines the maximum periodically measured average active power for Group B (Article 10), applies that rule to Group C through Article 17, and states the corresponding rule for Group D (Article 24); Article 14 adds low-voltage Group B loss-compensation calculations.
+- **Status:** Scope clarification only. The numeric demand interval, fixed/block versus rolling semantics, clock/boundary convention, and meter/register configuration remain unresolved. U-001 remains UNKNOWN and G1 remains OPEN; no 15-minute default or Gate closure is introduced.
+- **Source:** [Official Chinese text of Administrative Regulation 25/2022](https://bo.dsaj.gov.mo/bo/i/2022/26/regadm25_cn.asp).

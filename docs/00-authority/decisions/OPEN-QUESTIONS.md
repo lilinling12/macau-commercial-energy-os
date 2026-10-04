@@ -2,7 +2,7 @@
 
 ## U-001 — CEM Pu averaging/integration interval
 **Status:** UNKNOWN / G1 BLOCKER  
-**Verified public boundary (2026-10-04):** Administrative Regulation 25/2022 defines Group B Pu through the maximum periodically measured average active power. Current CEM B/C/D tariff pages describe Pu as the highest measured demand during a billing period. The reviewed public sources do not state the meter demand-integration interval or the precise settlement averaging window.  
+**Verified public boundary (2026-10-04):** Administrative Regulation 25/2022 defines Group B Pu in Article 10 as the highest periodically measured average active power; Group C applies Article 10 through Article 17, and Article 24 states the corresponding rule for Group D. Article 14 prescribes loss-compensation calculations for low-voltage Group B. Current CEM B/C/D tariff pages describe Pu as the highest measured demand during a billing period. The reviewed sources do not state the numeric interval, fixed/block versus rolling semantics, boundary/clock convention, or meter/register configuration.  
 **Unknown:** Exact averaging/integration window used for settlement (e.g. 15 min, 30 min or another period), including class/topology-specific differences.  
 **Resolution path:** obtain the CEM demand-register/configuration specification and matched B/C/D bill plus interval/load-profile data; written CEM confirmation if the meter profile does not expose the settlement interval.  
 **Production behavior:** never hard-code 15 minutes.  

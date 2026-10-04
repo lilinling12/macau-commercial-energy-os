@@ -13,7 +13,7 @@ It does not define the complete accounting algorithm: the exact denomination mea
 
 ### Demand (Pu) averaging window
 
-CEM's public B/C/D tariff pages describe Pu as the highest measured demand during the billing period. Administrative Regulation 25/2022 defines the B-group quantity by reference to the maximum periodically measured average active power. The cited public materials do not state the numeric averaging/integration interval. U-001 remains **UNKNOWN / G1 BLOCKER**; do not hard-code a 15-minute interval.
+CEM's public B/C/D tariff pages describe Pu as the highest measured demand during the billing period. Administrative Regulation 25/2022 defines Group B Pu in Article 10 as the highest periodically measured average active power; Group C applies Article 10 through Article 17, and Article 24 states the corresponding rule for Group D. Article 14 also prescribes loss-compensation calculations for low-voltage Group B. The law and reviewed CEM pages do not state the numeric averaging interval, fixed/block versus rolling semantics, boundary/clock convention, or meter/register configuration. U-001 remains **UNKNOWN / G1 BLOCKER**; do not hard-code a 15-minute interval.
 
 CEM's simplified Standard Conditions of Supply separately say that energy-consumption readings are monthly and bills are issued monthly. This describes the customer reading/billing cycle; it does not supply the internal Pu averaging interval. Likewise, CEM's B-tariff full-load/low-load clock bands are energy-price periods, not a stated Pu demand interval. Keep these three concepts separate: monthly read/billing period, tariff energy-price periods, and the meter's periodic average-power measurement interval. The last remains unspecified in the reviewed public sources.
 
