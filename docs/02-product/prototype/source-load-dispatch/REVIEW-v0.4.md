@@ -16,3 +16,9 @@ The new stages state which inputs are synthetic or missing, keep physical flow s
 The branch verifier checks the six stages, anchor navigation, claims boundary, workflow labels, source/load fixture balance, HVAC rebound, corrected horizon peak, table alignment, scenario-focus and page-only-review source behavior. It is a static source/fixture check, not browser interaction, keyboard traversal, visual rendering, contrast measurement, site/contract truth, optimizer output or user research.
 
 No rendered checks are claimed for desktop, tablet, mobile or alternate languages; browser preview remains unavailable in this task. The review handoff should record the screen/viewport/state when a permitted browser surface becomes available.
+
+## Source-review corrections — follow-up
+
+A focused source audit found two prototype semantics issues after v0.4 was added: the scenario-only example was labelled as a forecast/SHADOW result, and the stage-5 jump link targeted a nonexistent `#reviewBox` id. The follow-up changes relabel stage 3 as a time-series/scenario comparison, mark the candidate as synthetic, remove the static current-step marker from a page that does not track scroll position, and point the review jump at the actual review button. The opening copy also uses consistent Traditional Chinese wording.
+
+The verifier now guards those labels and the destination anchor. These checks confirm source-level consistency only; they do not replace rendered interaction or accessibility review.
