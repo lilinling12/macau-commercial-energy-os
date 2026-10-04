@@ -52,6 +52,12 @@ The figures are still incomplete as an energy schedule: the ESS charge history/S
 
 Render at agreed desktop/tablet/mobile sizes, inspect hierarchy and horizontal overflow, measure text/status/chart contrast, test all controls by keyboard and assistive technology, and compare the schedule-first view with an evidence-first composition on the same tasks. Translate full flows only after the intended role/site language scope is reviewed. Domain-review a complete interval/SOC-balanced fixture before using it to accept optimizer or product behavior.
 
+## 2026-10-04 source-level accessibility follow-up
+
+A static source pass on the PR #10 prototype changed the two scenario choices from `div[role=button]` to native `button` elements with `aria-pressed`, added visible `:focus-visible` styling, and added `aria-controls`/`aria-expanded` to the table toggle. The evidence dialog now traps Tab focus, closes on Escape/backdrop, and restores focus to its opener. The table's programmatic scroll checks `prefers-reduced-motion`. These are source-level changes, not validated browser behavior.
+
+The previous browser accessibility-tree observation applies to the earlier source. A fresh preview of the updated local HTML was rejected because the browser tool blocks its local-file URL; no alternate serving or browser route was attempted. Therefore current rendered layout, viewport dimensions, candidate switching, table toggle, focus order/dialog behavior, measured contrast and screen-reader behavior remain unchecked. Do not treat these source changes as WCAG conformance or accessibility sign-off.
+
 ## Source and authority notes
 
 The schedule-first job follows the explicit user direction and the product objective/boundaries in `main` D-001/002/003/004/005/006/009/013/019/055/056/060/061/077. Product requirements, visual direction, pilot/user hypotheses, locales and production architecture remain proposed until the applicable owner review and evidence are recorded. This review does not close G1/G2/G3/G6/G6.9/G7/G7.9, validate PR #8, or authorize a device write path.
