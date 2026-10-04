@@ -107,6 +107,8 @@ This addendum is a reconciliation correction only. It closes no Gate, selects no
 
 A second G7.6 Step 2 archive is materially more detailed than the short 7-entry package: `macau-commercial-energy-os-g7.6-step2-engineering-foundation-v0.1(1).zip` (39 entries; Authority v1.7.1). Its detailed package includes ADRs marked Accepted for the MVP baseline:
 
+**Duplicate status discrepancy verified:** the short `macau-commercial-energy-os-g7.6-step2-engineering-foundation-v0.1.zip` has SHA-256 `18704C677AF55A53886806A219A1A5EE22DEA9EF3A0256E286EC9429DD7F2785`; its seven-entry `DECISION_LOG_UPDATE.md` labels ADR-068 **Proposed** and it contains no separate ADR files. The 39-entry `(1)` archive has SHA-256 `F3955862E9902166F82126A2C489E798413676CF93000D4F3F68F650867D47EB`; it contains detailed ADR-068/071–076 files all marked **Accepted**, and `TECH_STACK_FREEZE.md` is dated 2026-10-03. These are distinct local artifacts with conflicting status, not merely two names for one byte-identical file. Preserve the discrepancy until an authority/lineage record identifies which package supersedes the other.
+
 | ADR / artifact | Accepted package decision | Current reconciliation |
 |---|---|---|
 | ADR-068 | TypeScript/Node product platform, Python intelligence, Go Edge runtime. | Corroborates the language split, but not the current NestJS-vs-Fastify or Go-core decision. |
