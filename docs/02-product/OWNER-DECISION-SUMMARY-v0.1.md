@@ -55,6 +55,10 @@ The 15 review items do not need to be approved all at once. Use the earliest saf
 
 If a decision is deferred, preserve it as an explicit open dependency. No item is approved by silence, and no decision window bypasses its Gate or owner-approval boundary.
 
+## Runtime version note
+
+The v0.3.0 pack records Node 22.16.0 only for the historical Step 3C semantic run. Its proposed Step 3D runner pin is Node 24.21.0 for the TypeScript candidates/Temporal worker; at the 2026-10-04 check, Node 24.21.0 is the latest 24.x LTS patch and Node 22.23.3 is the latest 22.x patch. Keep the pack pin for a comparable Step 3D experiment, then recheck it at runner freeze. This is a test pin, not a production-runtime approval. Next.js is not included in the current G6.9-R2 candidate set or tested as the backend framework; if it is to be evaluated for that role, update the comparison authority and run it on equivalent evidence before any selection.
+
 ## After owner review
 
 Record accepted product choices in the PRD and decision register; update the discovery/usability plan and test the chosen workflows with target users. Record the Step 3D scope, runner service topology and execution-host/trust boundary in its readiness plan and manifest; clear the remaining environment/lock/build blockers, then execute the bake-off. Review its evidence before recording any technology decision. Complete and approve the dependent detailed designs, map implementation slices to those designs and acceptance evidence, and proceed through safety, site-authorization, pilot-measurement, and operational-handoff gates.
