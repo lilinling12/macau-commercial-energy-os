@@ -179,3 +179,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Status:** Public aggregate context only; G2 remains OPEN. No Q3 2026 use data, site load shape or flexibility inference is claimed.
 - **Next:** Recheck official releases after 2026-11-20 and update the G2 evidence note if published.
 - **Sources:** https://www.dspa.gov.mo/richtext.aspx?a_id=1598253482; https://www.dsec.gov.mo/TimeTables.aspx?lang=en-US
+
+## 2026-10-04 — U-001 public-source recheck
+
+- **Change:** Re-opened current CEM B/C tariff pages, the CEM B leaflet, CEM smart-meter page and Administrative Regulation 25/2022. Added a live-source recheck to the G1 billing/demand evidence note.
+- **Finding:** CEM continues to describe Pu as the maximum measured demand in the billing period; the regulation defines the maximum periodically measured average active power. No numeric measurement window, block/rolling method, meter register configuration or clock-boundary rule was found. Public AMI material still does not specify a third-party raw interval interface.
+- **Status:** U-001 and U-003 remain OPEN. Do not hard-code 15 minutes; seek CEM register configuration or matched bill + interval/load-profile evidence. No Gate closed and no product/technology decision changed.
+- **Source note:** `docs/01-research/evidence/G1-CEM-BILLING-AND-DEMAND-UNKNOWN-REVIEW-2026-10.md`.
