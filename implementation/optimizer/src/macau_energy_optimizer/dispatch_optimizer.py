@@ -308,7 +308,10 @@ def _check_baseline_service(request: DispatchSearchRequest) -> None:
         if baseline_energy != task.required_energy_kwh:
             raise DispatchSearchError(f"Baseline energy for {task.asset_id} must equal required service energy.")
         for index, row in enumerate(rows):
-            power = sum((flow.power_kw for flow in row.flexible_loads if flow.asset_id == task.asset_id), Decimal("0"))
+            task_flows = tuple(flow for flow in row.flexible_loads if flow.asset_id == task.asset_id)
+            power = sum((flow.power_kw for flow in task_flows), Decimal("0"))
+            if any(flow.kind is not task.kind for flow in task_flows):
+                raise DispatchSearchError(f"Baseline load kind does not match the task for {task.asset_id}.")
             if power and (not task.available_intervals[index] or power < task.min_on_power_kw or power > task.max_power_kw):
                 raise DispatchSearchError(f"Baseline operation for {task.asset_id} violates its availability or power envelope.")
     if any(not isinstance(row.base_load_kw, Decimal) or not row.base_load_kw.is_finite() or row.base_load_kw < 0 for row in rows):
