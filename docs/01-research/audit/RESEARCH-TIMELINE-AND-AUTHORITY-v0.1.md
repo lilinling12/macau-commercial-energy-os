@@ -110,3 +110,14 @@ The audit remains partial at the per-file semantic level. The manifest gives com
 
 - Reopened the original share URL in the in-app browser: the page title is visible, but its message area is empty and the page shows a Login action. Re-read the related conversation record through the archive tool: exactly four recent turns are returned, with no next cursor and hasMore=false. The share URL and conversation record therefore still do not prove access to the complete original research dialogue.
 - The local project-specific UI/UX skill and its two references are now present on open PR #8 under `.agents/skills/macau-energy-os-ui-ux/`; root `AGENTS.md` links UI work to it. This is a proposal branch, not merged main authority. Exact PR #8 head `91a184603cc4f8ffeb8b89afbe0daac3fe7c8ec1` passed Authority Validation #962, Repository Hygiene #961, Contracts Validation #128 and Runtime Bootstrap #358. Those checks do not validate visual rendering or user experience.
+
+
+## Public Macau tariff/PV current-source follow-up — 2026-10-05
+
+This is a dated source update, not a change to the repository's controlling Authority or a Gate closure. Selected public CEM tariff/PV pages and Official Gazette regulations were checked and recorded in `docs/01-research/G1-SETTLEMENT-AND-R0-EVIDENCE-READOUT-v0.1.md` on the open audit branch:
+
+- CEM's public Group B page states eligibility conditions and billed-demand formula `0.2Pc + 0.8Pu`; it defines Pu as the billing-period highest measured demand. The actual customer class, Pc, meter setup and Pu measurement window are still unverified (U-001).
+- CEM's TCA table shows the 2026 Q3 parameter and effective date; this is a dated published value, not a complete customer invoice.
+- Macao's PV interconnection regulation and CEM's published feed-in schedule document public interconnection/purchase mechanisms subject to applicable conditions. They do not establish a particular installation's approval, payee/account or another building's bill-credit/netting rights (U-002/U-004/U-025).
+
+Placement/status at this update: the evidence readout and research timeline are on PR #12's open Draft audit branch; PR #10's open Draft dispatch proposal now references the Group B rule and maps U-001/PV gates into provisional G7.9 Step 3 acceptance cases. Neither PR is merged. Main's authority, G1 status, G7.9 Step 3 status and product/architecture approval are unchanged. Main code, user/site bills and Golden Bill evidence do not establish customer-specific economics.
