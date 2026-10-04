@@ -45,7 +45,15 @@ For an initial source-level comparison, see [Visual Direction Study v0.1](protot
 - Long-session readability and task completion with target users. Separate preference reactions from observed comprehension, error recovery, and task performance.
 - All choices as versioned design tokens, with the reasons, trade-offs, unresolved risks, and explicit owner decision recorded.
 
-The current prototype v0.10 is a synthetic workflow study, not a final visual system. Its bounded viewport observations do not establish accessibility conformance, localization readiness, or user preference.
+## Prototype v0.11 source-level interaction review
+
+The current prototype v0.11 remains a synthetic workflow study, not a final visual system. A targeted UI/UX Pro Max review searched the UX guidance for disabled-state clarity and action feedback, then inspected the actual prototype source and a fresh browser accessibility tree.
+
+- **Finding:** v0.10 changed recommendation-card state in the page DOM and disabled the card's follow-up controls, but its confirmation said “saved locally”. Source inspection found no browser storage, persistence API or server request for these annotations. That wording could imply a durable record.
+- **Change:** v0.11 preserves v0.10 and clarifies that the reviewed/dismissed/needs-data demo state appears only on this page, resets on reload, and is not persisted, executed or a measured outcome. The WP-4 protocol now points new task sessions to v0.11.
+- **Positive source signals:** action buttons have a 44px minimum height; disabled controls reduce emphasis and use a not-allowed cursor; the review message is in a polite live region; status badges carry text as well as semantic color. These are source observations, not conformance findings.
+- **Browser observation:** a fresh tab opened the Recommendations view with both synthetic items unreviewed and their demo controls available. The already-open tab showed a post-action “Reviewed (demo)” state with those controls disabled. The page's source initializes items as unreviewed and contains no persistence path; a reload-reset behavior is inferred from that source and was not separately tested by refreshing.
+- **Limits:** no full keyboard path, screen-reader session, contrast calculation, language review, user session or WCAG-conformance test was performed for v0.11. The page remains English-only, synthetic and unapproved. The existing Harbor Teal, Mineral Blue and Night Graphite options remain alternatives; no palette, typography or design system is selected.
 
 ## Source links
 
