@@ -69,3 +69,12 @@ Specific award-winning site case studies were not reviewed in this iteration. Th
 ## Narrow-screen chart correction
 
 Source review found that scaling the 860-unit desktop SVG to a 341px chart area would scale its 10px labels to roughly 4px. Added a narrow-screen chart with a compact 360-unit viewBox, larger axis labels, key time marks and direct 430/510 kW labels. The full six-interval values remain available in the table. This is a source-level correction; no rendered 375px browser screenshot or visual-fit check is claimed.
+
+
+## Rendered responsive and interaction review — 2026-10-04
+
+Rendered the PR #10 direction-study page in the local browser at 1440×900, 1024×900, 768×900 and 375×812 CSS pixels. The full viewport document widths were 1425, 1009, 753 and 360 pixels respectively (the difference is the browser's reserved scrollbar width); none exceeded its viewport. At 1440 and 1024 the desktop chart was visible. At 768 and 375 the compact mobile chart was visible and the desktop SVG was hidden. At 375, the comparison table's 700-pixel content width remained inside its 332-pixel scroll container; horizontal scrolling was contained by that table region rather than the page. At 1024 and 768 the table fit its available panel width; at 1440 the table also kept its overflow inside the table region.
+
+Interaction review: the A, B and C native buttons each became the sole `aria-pressed=true` choice when selected, updated the live direction note and reordered the same content without changing scenario values. The “記錄示意已閱” action changed only the page's review state to “已閱 · 僅此頁”; its copy states that the state is not saved and does not issue control. After reload it returns to the initial state. Keyboard review confirmed that the first Tab reaches the visible “跳至主要內容” skip link and the next Tab reaches the selected A direction button with a visible focus outline.
+
+This is a browser rendering and limited interaction check of the prototype, not operator/user validation, cross-browser/device coverage, measured contrast, screen-reader review, full keyboard walkthrough, WCAG conformance, locale validation, or real-site/dispatch feasibility evidence. The page remains Traditional Chinese only, and no layout or palette is selected by this review. The 375px screenshot showed the expected compact chart and contained table; full data remains available in the horizontally scrollable table.
