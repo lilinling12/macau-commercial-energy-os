@@ -210,13 +210,16 @@ def assess_schedule(request: AssessmentRequest) -> AssessmentResult:
         physical_status = PhysicalStatus.SCENARIO_ONLY if assumed else PhysicalStatus.VALIDATED_WITHIN_SCOPE
         scope = ClaimScope.SCENARIO_ONLY if assumed else ClaimScope.VERIFIED_BOUNDED
         economic = _evaluate_economics(request.economic_context, request, assumed)
+        reasons = economic[1]
+        if assumed:
+            reasons += ("One or more physical inputs use project assumptions; all resulting comparisons are scenario-only.",)
         return AssessmentResult(
             tenant_id=request.tenant_id,
             site_id=request.site_id,
             physical_status=physical_status,
             economic_status=economic[0],
             claim_scope=scope,
-            reasons=economic[1],
+            reasons=reasons,
             baseline_import_energy_kwh=baseline_energy,
             candidate_import_energy_kwh=candidate_energy,
             baseline_peak_grid_import_kw=baseline_peak,
