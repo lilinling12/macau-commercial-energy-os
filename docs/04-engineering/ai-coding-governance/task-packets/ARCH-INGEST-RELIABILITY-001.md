@@ -89,3 +89,13 @@
 - **PR/branch and review state:** `https://github.com/lilinling12/macau-commercial-energy-os/pull/8`, `docs/product-architecture-roadmap`, open/unmerged.
 - **Gate or task status after work:** Review; no Gate closed.
 - **Next task and dependencies:** review owner decision #12; inventory the first authorized connector(s); then revise connector contract and implementation packet to the selected protocol/topology and complete the fault-injection plan. Do not begin production connector implementation until product/data/security and runtime authority are recorded.
+
+
+## Cross-design consistency review — 2026-10-04
+
+- Rechecked the latest PR #8 head `e612a15a9ca8364c29d44e2668f50bc68decbb2f` across the three linked design authorities.
+- Telemetry Ingestion §9 and its failure rules distinguish transport/protocol acknowledgement, durable platform capture receipt, pending publication, publication, and normalized-durable state. They prohibit value/time/hash-based collapse without a stable source identity.
+- Persistence §§4.1–4.2 require recoverable payload-plus-receipt metadata before capture acknowledgement, recovery of pending publication, and a durable consumer-effect/idempotency boundary before downstream acknowledgement.
+- Application/Event Contract Catalog APP-03, its asynchronous transition table, and §5.3 use those same boundaries and explicitly avoid exactly-once or heuristic deduplication claims.
+- **Finding:** no semantic conflict was found among these three draft documents for the reviewed receipt, publication, consumer-acknowledgement and identity rules.
+- **Limit:** this was a bounded static document-consistency review, not independent protocol validation or runtime proof. Owner decision #12, connector-specific ACK mapping, source event identity, physical persistence/topology, security/tenant enforcement, and fault-injection evidence remain open. No application code or tests changed.
