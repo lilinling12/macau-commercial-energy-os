@@ -218,3 +218,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Design-review probes:** Added four WP-4 observation checks for freshness/provenance, cost-result semantics and supporting evidence, actual-versus-forecast/chart alternatives, and comprehension of SHADOW review versus execution and replay versus measured outcome.
 - **Accessibility criteria:** Clarified WCAG 2.2 AA reflow at 320 CSS px and minimum target size at 24×24 CSS px subject to exceptions; 44×44 CSS px is the enhanced AAA criterion. Linked the normative W3C sources.
 - **Status:** Documentation update only. Visual directions, product navigation, product scope, and frontend framework remain unapproved. The probes are not participant findings; no WP-4 user session or WCAG conformance test was performed.
+
+## 2026-10-04 — Product design review refocused on workflow architecture
+
+- **Finding:** The owner packet's A/B/C directions compared light, dark and translucent styling but did not compare how users navigate and complete the product's core work. Prototype v0.6 is an exploratory mixed flow, not an equal comparison of workspace organization.
+- **Change:** Replaced the visual-style-first recommendation with three IA/workflow hypotheses: evidence-first workbench, exception-led site workspace, and guided assessment workflow. Reframed visual styling as an independent, later design-system decision. Withdrew the prior light-first/A recommendation because no user or site evidence supports it.
+- **Decision readiness:** Updated owner decision #3 to request selection of an IA direction to validate, or a request for further evidence. WP-4 observation probes remain the proposed evaluation basis.
+- **Status:** Design hypotheses only; no direction, visual system, product scope or frontend framework is approved. No participant study or accessibility-conformance review was performed.
