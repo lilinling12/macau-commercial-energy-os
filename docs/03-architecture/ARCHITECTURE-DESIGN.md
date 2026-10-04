@@ -12,7 +12,7 @@ Commercial building / site
                          |
              site protocols / adapters
                          |
-          Go Edge Energy Runtime + Safety Kernel
+          Site Edge Energy Runtime + Safety Kernel
              local buffering · validation · audit
                          |
               authenticated secure channel
