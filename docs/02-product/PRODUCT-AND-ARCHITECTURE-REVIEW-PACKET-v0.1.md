@@ -395,3 +395,49 @@ Macao's official languages are Chinese and Portuguese; Cantonese is most widely 
 **Proposal for decision:** establish localization readiness from the first implementation increment while leaving the launch locale subset to WP-4. Validate Traditional Chinese (`zh-Hant`), Portuguese (`pt`, regional tag unresolved) and English (`en`) by user, task and site. Keep official tariff, bill and contract source content authoritative; any reviewed translation must expose provenance and status. User preference precedence, fallback behavior, translation ownership, bilingual outputs and third-party/AI translation remain open. Do not infer that all three must launch together.
 
 **Requested decision:** approve the architecture-readiness constraint, request revision, or defer pending user evidence. Locale scope, terminology and translation process require target-user evidence and owner approval before product/UI contracts are frozen.
+
+
+## Addendum — source/load economic dispatch as a first-class product task (2026-10-04)
+
+**User direction:** the design work is to center on commercial-site electricity-source and flexible-load scheduling. This is a controlling direction for the current proposal, not yet an owner-approved/frozen product scope. It extends the earlier cost-intelligence and SHADOW workflow; it does not make the separate PR #10 branch or its design approved.
+
+### Proposed operator task
+
+For an authorized site and planning horizon, qualify the available meter, topology, contract, tariff, forecast and asset-constraint evidence; compare baseline and candidate schedules over the same intervals; understand the physical, operational and separately settled economic effects; record a non-executable SHADOW review; then monitor and replay only when measured site evidence exists.
+
+The proposal treats grid import, evidenced on-site PV, ESS charging/discharging, and evidenced flexible loads (HVAC/chiller, EV, hot water) as separate scheduled quantities. It requires explicit site topology, forecast horizon/uncertainty, equipment capability, SOC/reserve/efficiency, comfort/service constraints, rebound/recovery and Demand Guard where applicable. Unknown limits are not set to zero or relaxed.
+
+### Proposed six-stage workflow
+
+1. **Qualify data and contract evidence:** source/meter mapping, identity, clock, units, freshness/quality, applicable account, tariff/contract version and unresolved rules.
+2. **Review the site physical model:** inspect grid, PV, storage, load and meter paths independently from settlement/account relationships.
+3. **Compare time-aligned scenarios:** display baseline and candidate source/load schedules over the same horizon and resolution, with forecasting explicitly marked by issue time, validity, model and uncertainty when forecast evidence exists.
+4. **Explain economics, constraints and claims:** separate physical quantities from componentized bill/cost analysis; state which result is complete, partial, blocked or scenario-only and why.
+5. **Review SHADOW:** allow reviewed, request-evidence or dismissed dispositions as review metadata only; no command authorization or device execution.
+6. **Monitor and replay:** distinguish proposed schedules from later observations, customer-approved baselines and M&V outcomes; pin original input/model/rule versions for replay.
+
+PR #10 contains the companion source/load product design, synthetic v0.4 workflow study and stack-neutral G7.9 Step 3 contract/implementation map. Those materials are linked proposals, not site validation or a Gate closure.
+
+### Required MVP truth boundaries
+
+The MVP remains advisory. A SHADOW recommendation cannot produce an equipment-write request. Physical power balance does not establish bill allocation or settlement credit. Missing tariff/account evidence withholds bill-grade cost and savings; missing export or cross-site agreement evidence withholds PV compensation/netting claims. A physically valid scenario may be shown separately if its limitations are explicit. Synthetic fixture values and BOPTEST/reference-simulator output are not Macau customer evidence.
+
+The direction now favors a dispatch workspace in the operator console rather than a generic energy dashboard with dispatch relegated to a recommendation card. Portfolio, site health, evidence, economics and replay remain supporting workflows, not discarded product capabilities.
+
+### Design and locale status
+
+The project UI/UX skill is available on the open PR #8 branch under `.agents/skills/macau-energy-os-ui-ux/`. It requires task-based composition, current platform/accessibility guidance, responsive and locale checks, and truthful evidence labels. PR #8 also contains its v0.10 and visual-direction study; PR #10 contains a separate dispatch study. Neither branch has a rendered review of its current/latest dispatch view. Palette, typography, density, motion and layout direction remain unselected; existing palette studies are not an owner decision.
+
+Traditional Chinese, Portuguese and English are candidate locale needs for Macau-facing operation. Exact release languages, locale variants, fallback behavior, reviewed domain terminology, number/time/currency formatting and translation ownership still require owner/customer confirmation. A few translated labels do not establish full localization.
+
+### Decisions to resolve before freezing
+
+| Owner decision | Concrete choices to review | Evidence/impact |
+|---|---|---|
+| Lead user and first workflow | Energy/facilities manager; control-room/site operator; finance/asset owner; integration partner. Select a primary and secondary role after discovery, or keep the workflow role-neutral through pilot research. | Changes task priority, permissions, density and approval/review language. Current roles are hypotheses, not a selected persona. |
+| First supported outcome | Physical import-profile/peak shaping with economics blocked unless verified; bill-grade economic schedule comparison only when tariff/account evidence is eligible; or expose two separately gated result modes. | Determines required G1/G2 evidence and whether “economic dispatch” can be claimed for the first site. The proposal currently separates the two modes. |
+| Initial locale set | Traditional Chinese; Traditional Chinese + English; Traditional Chinese + Portuguese + English. | Determines translation review, date/time/currency rules, content length testing and pilot support cost. No language set is frozen. |
+| Visual direction | Compare meaningfully different dispatch compositions on the same task and fixture, then choose a direction for user validation; keep the current v0.4 visual as a neutral study until then. | Avoids treating a portfolio palette study or one synthetic page as a selected design system. No direction is currently approved. |
+| Production stack and module allocation | Complete G6.9-R2 Step 3D evidence and reconcile G7.8 Fastify, current NestJS implementation and report (6)/(7) recommendations before selecting. | Affects contract generation, workflow, database/event boundary and runtime implementation. Next.js has not been selected as the backend or default operator console. |
+
+This addendum records the now-explicit dispatch-first design direction and the evidence still required. It does not answer the listed owner decisions, approve the linked PRs, close G7.9 Step 3, or freeze product, UI/UX or production architecture.
