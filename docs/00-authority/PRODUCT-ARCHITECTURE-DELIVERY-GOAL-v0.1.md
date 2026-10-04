@@ -40,6 +40,7 @@ The goal is complete only when all applicable items below have reviewable, curre
 5. **Implemented and verified MVP**
    - All approved MVP vertical slices work end-to-end against approved contracts and architecture, with required positive, negative, authorization/isolation, failure and recovery evidence.
    - Product, architecture, security and operational acceptance criteria are met for the declared scope; application checks are recorded against the exact reviewed source revision.
+   - Human- and AI-authored changes satisfy the risk-based verification, security, compatibility, human-review and release-evidence requirements in the AI Coding Quality Baseline.
    - The MVP preserves SHADOW/advisory boundaries unless separately authorized control scope passes G6 and receives explicit site/customer approval.
 
 6. **Authorized pilot and handoff**
@@ -83,4 +84,5 @@ Next sequence:
 - Lifecycle readiness audit: `docs/00-authority/PRODUCT-ARCHITECTURE-IMPLEMENTATION-READINESS-AUDIT-v0.1.md`
 - Owner review and pending choices: `docs/02-product/OWNER-DECISION-SUMMARY-v0.1.md` and `docs/02-product/PRODUCT-AND-ARCHITECTURE-REVIEW-PACKET-v0.1.md`
 - Product/design and engineering governance: `docs/04-engineering/PRODUCT-DESIGN-AND-DELIVERY-GOVERNANCE-v0.1.md`
+- AI coding quality baseline: `docs/04-engineering/ai-coding-governance/AI-CODING-QUALITY-BASELINE-v0.1.md` (proposed; stack-neutral)
 - Candidate implementation sequence: `docs/05-mvp/vertical-slices/MVP-VERTICAL-SLICE-PLAN-v0.1.md`
