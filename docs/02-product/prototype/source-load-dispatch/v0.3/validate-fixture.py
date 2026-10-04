@@ -15,8 +15,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent
-FIXTURE_PATH = ROOT / "source-load-dispatch-fixture-v0.1.json"
-HTML_PATH = ROOT / "macau-energy-os-dispatch-prototype-v0.3.html"
+FIXTURE_PATH = ROOT / "fixtures" / "synthetic-dispatch.json"
+HTML_PATH = ROOT / "index.html"
 
 
 class DataTableParser(HTMLParser):
