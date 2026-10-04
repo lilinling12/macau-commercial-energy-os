@@ -172,3 +172,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 
 - **Change:** Updated the CURRENT next-work statement to review existing detailed-design drafts against the current evidence-backed product hypothesis while retaining open choices, and to require owner approval before product baseline and production implementation. This aligns the live handoff with the delivery-goal charter.
 - **Status:** Documentation clarification on PR #8; no product direction or technology decision was approved.
+
+## 2026-10-04 — G2 quarterly data release watch
+
+- **Change:** Rechecked official Macau quarterly energy sources. DSPA currently lists Q2 2026 as the latest Energy and Services report; DSEC's official calendar schedules Q3 2026 Energy Statistics for 2026-11-20. Added a release-watch checkpoint to the G2 evidence note and CURRENT.
+- **Status:** Public aggregate context only; G2 remains OPEN. No Q3 2026 use data, site load shape or flexibility inference is claimed.
+- **Next:** Recheck official releases after 2026-11-20 and update the G2 evidence note if published.
+- **Sources:** https://www.dspa.gov.mo/richtext.aspx?a_id=1598253482; https://www.dsec.gov.mo/TimeTables.aspx?lang=en-US
