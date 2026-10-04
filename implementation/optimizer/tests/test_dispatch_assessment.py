@@ -168,6 +168,13 @@ class DispatchOptimizerTests(unittest.TestCase):
         self.assertEqual(result.assessment.import_energy_charge_delta_mop, D("-4"))
         self.assertEqual(result.search_scope, "EXACT_WITHIN_DECLARED_DISCRETE_ACTION_SPACE")
         self.assertGreater(result.transitions_examined, 0)
+        repeated = generate_candidate(DispatchSearchRequest(
+            tenant_id="tenant-demo", site_id="site-demo", site_timezone="Asia/Macau",
+            baseline=baseline, flexible_tasks=(task,), fixed_flexible_load_limits=(),
+            physical_evidence=(VERIFIED,), economic_context=context,
+            power_step_kw=D("1"), soc_step_kwh=D("1"),
+        ))
+        self.assertEqual(result.candidate, repeated.candidate)
 
     def test_search_coordinates_hvac_ev_and_hot_water_windows(self):
         ends = tuple(START + timedelta(hours=index) for index in range(1, 5))
