@@ -38,6 +38,10 @@ Can the system accept an optimizer proposal and prove that only an authenticated
 
 The inspected `implementation/` tree contains no executable command arbitration, Safety Kernel, command signer/verifier, Edge identity/key lifecycle, physical-device adapter, offline control path, or manual override workflow. The current Platform API binds fail-closed VS-001 adapters and an in-memory evidence repository. The VS-001 controller is shadow evaluation, not an authorized command endpoint.
 
+
+
+A stack-neutral command arbitration and Edge Safety Kernel detailed-design proposal is now available at `docs/03-architecture/detailed-design/COMMAND-ARBITRATION-AND-EDGE-SAFETY-KERNEL-DETAILED-DESIGN-v0.1.md`. It defines future controlled-mode boundaries and evidence requirements only; it does not implement commands or close any G6 item.
+
 ### Open blockers
 
 - **U-022:** production command signing, Edge identity, provisioning, rotation, revocation and hardware-backed key storage choices remain open.
