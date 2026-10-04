@@ -273,3 +273,9 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Finding:** The architecture review packet already compared OpenAPI 3.1, JSON Schema 2020-12 and Protobuf and required a pinned TypeScript/Go evidence slice, but the Owner decision summary did not list the eventual canonical contract authoring/versioning/code-generation policy as a separate decision.
 - **Change:** Added Owner decision #15 and synchronized the Chinese review brief/current handoff. The decision is explicitly deferred until domain semantics and candidate boundaries are ready; the evidence gate covers cross-runtime generation/validation, evolution, money/time rules, HTTP/event representations, semantic replay identity, errors and toolchain/supply-chain cost.
 - **Status:** No format/toolchain selected. Evidence plan only; production contract V2 and code generation remain unapproved.
+
+
+## Owner decision dependency sequence — 2026-10-04
+
+- **Change:** The English Owner Decision Summary and Chinese owner brief now group the 15 open decisions by the earliest safe decision point and their evidence prerequisites. This distinguishes decisions available for directional review now, Step 3D runner-only choices, pre-customer-data governance/authorization, connector-dependent telemetry semantics, post-domain contract tooling, site-specific PV/asset claims, and later security verification.
+- **Status:** Prioritization aid only. No decision was approved, no Gate was closed, and production architecture remains subject to Owner review and evidence.
