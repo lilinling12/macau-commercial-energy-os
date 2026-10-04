@@ -79,3 +79,16 @@ The first interaction attempt exposed an extra closing parenthesis in the page-l
 ### Remaining UI review limits
 
 Only Traditional Chinese is implemented. English/Portuguese translations, locale switching and localized date/number/currency formatting remain open. This pass did not verify full keyboard traversal, measured WCAG contrast, screen-reader chart/table equivalence, reduced-motion behavior across all transitions, or real operator task success. No site data, solver result, or customer-facing performance claim was validated.
+
+
+## Contrast and keyboard access follow-up — 2026-10-05
+
+**Current prototype source:** PR #10 commit `a9415821ac7d76a8467487830a6f6f76aaa261a2`; HTML blob `34b88d07c61f23c7967fe9cfa3adceaf0c1ad765`.
+
+A focused color-contrast measurement found several small-text/status colors below the WCAG AA 4.5:1 text threshold in the preceding source: muted and teal labels were approximately 4.49:1 on the page canvas, warning text was 3.36:1 on its pale warning fill, chart ticks were 3.92:1 on white at 10 px, and the 10 px footer was 3.40:1. The dashed baseline series was 2.97:1 against white, just below the 3:1 non-text contrast target for meaningful chart graphics.
+
+The prototype now darkens the semantic muted, teal and warning foreground tokens; raises chart tick labels and table headers to 11 px; darkens the footer and baseline series; and leaves their pale semantic fills intact. Ratios calculated from the updated CSS colors and their declared backgrounds are: muted text 5.71:1 on the canvas, teal 5.81:1 on the canvas, warning text 5.16:1 on the warning fill, footer 5.35:1 on the canvas, chart tick labels 6.03:1 on white, and the dashed baseline 3.84:1 on white. This is a focused color-pair audit, not full WCAG conformance testing.
+
+Keyboard review found that both horizontally scrollable tables could receive focus without a useful accessible region name or the prototype's strong focus ring. Both wrappers now expose distinct Traditional Chinese region names and a 3 px focus-visible outline. The updated accessibility tree names “合成來源清單，可水平捲動” and “成本與限制狀態，可水平捲動”. On reload, Tab navigation reached the first named table region; the browser computed a visible teal solid focus outline. A 39-press navigation walk at 1280 × 720 covered the interface controls and wrapped to the beginning; this was a browser keyboard check, not assistive-technology testing.
+
+**Render provenance and limits:** the browser interaction review used the local review preview with the same color and table-accessibility changes mirrored into it; it was not a byte-for-byte render of the exact current GitHub blob. The exact branch file was fetched separately and its source changes verified. The browser viewport in this pass was 1280 × 720; no new narrow-screen render, Portuguese/English review, contrast review of every possible state, screen-reader session, or operator usability session was performed. Prior 1440/768/375 measurements predate these small text/label changes and are not represented as post-change responsive proof.
