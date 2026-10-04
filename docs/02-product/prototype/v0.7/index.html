@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Macau Commercial Energy OS — Workspace Organization Study v0.7</title>
+<style>
+:root{font-family:Inter,"Segoe UI",system-ui,-apple-system,sans-serif;color:#182536;background:#f4f6f8;font-size:16px;font-synthesis:none}
+*{box-sizing:border-box}
+body{margin:0;min-width:320px}
+button{font:inherit;color:inherit}
+button:focus-visible{outline:3px solid #155eef;outline-offset:3px}
+.shell{max-width:1440px;margin:auto;padding:24px clamp(16px,3vw,40px) 56px}
+.notice{display:flex;gap:10px;align-items:flex-start;background:#fff8e7;border:1px solid #efd796;border-radius:10px;padding:12px 15px;color:#533b08;font-size:14px;line-height:1.45}
+.notice strong{white-space:nowrap}
+.top{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0 18px;border-bottom:1px solid #dce2e8}
+.brand{display:flex;align-items:center;gap:12px}.mark{width:38px;height:38px;background:#155eef;color:#fff;border-radius:11px;display:grid;place-items:center;font-weight:750}.brand small,.eyebrow{display:block;color:#596779;font-size:12px;letter-spacing:.06em;text-transform:uppercase}.brand b{font-size:15px}
+.user{border:1px solid #d5dce4;background:#fff;border-radius:999px;padding:8px 12px;color:#425266;font-size:13px}
+h1{font-size:clamp(26px,3vw,36px);line-height:1.12;letter-spacing:-.035em;margin:30px 0 8px}
+.intro{max-width:780px;color:#516174;line-height:1.55;margin:0 0 22px}
+.modebar{display:flex;gap:8px;overflow:auto;padding:4px 2px 12px}
+.mode{white-space:nowrap;border:1px solid #cbd4de;background:#fff;padding:10px 15px;border-radius:9px;font-weight:650;min-height:44px}
+.mode[aria-pressed=true]{background:#183b63;border-color:#183b63;color:#fff}
+.modehint{margin:0 0 16px;color:#5a6879;font-size:13px}
+.workspace{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:18px;align-items:start}
+.surface{background:#fff;border:1px solid #dbe1e7;border-radius:14px;box-shadow:0 2px 8px rgba(17,34,51,.045)}
+.main{padding:22px}
+.rail{padding:20px;position:sticky;top:14px}
+.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:#667588;font-weight:700}
+h2{font-size:21px;letter-spacing:-.02em;margin:8px 0 6px}
+h3{font-size:15px;margin:0 0 8px}
+p{line-height:1.5}
+.muted{color:#5c6979}
+.status{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;border-radius:99px;padding:6px 10px}
+.status.amber{background:#fff3cf;color:#704600}
+.status.green{background:#e8f5ec;color:#155d37}
+.dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.stat{padding:15px;border:1px solid #e0e5ea;border-radius:10px}
+.stat b{display:block;font-size:23px;margin-top:8px}
+.lineage{list-style:none;padding:0;margin:15px 0}
+.lineage li{position:relative;padding:0 0 18px 28px;color:#344458}
+.lineage li:before{content:"";position:absolute;left:8px;top:5px;width:10px;height:10px;border:2px solid #6683a1;border-radius:50%;background:#fff}
+.lineage li:not(:last-child):after{content:"";position:absolute;left:12px;top:18px;bottom:0;border-left:1px solid #c5d0dc}
+.lineage li.pending:before{border-color:#a96800;background:#fff2ce}
+.action{border:1px solid #b9c7d6;background:#f7f9fb;border-radius:8px;padding:10px 12px;font-weight:650}
+.cardlist{display:grid;gap:10px;margin-top:14px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px;border:1px solid #e0e5ea;border-radius:10px}
+.row p{margin:5px 0 0;font-size:13px;color:#596779}
+.tag{font-size:12px;font-weight:700;color:#704600;background:#fff3cf;padding:6px 9px;border-radius:99px}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(110px,1fr));gap:8px;margin:20px 0}
+.step{padding:12px;border:1px solid #dce2e8;border-radius:10px;background:#fff}
+.step .num{font-size:12px;color:#667588;font-weight:700}
+.step b{display:block;font-size:13px;margin:7px 0 5px}
+.step small{color:#617084;line-height:1.4}
+.step.done{border-color:#b5d7c2;background:#f3faf5}
+.step.active{border-color:#a96800;background:#fff9ea}
+.callout{margin-top:16px;background:#f7f9fb;border-left:3px solid #a96800;padding:14px 16px;border-radius:0 9px 9px 0}
+.divider{height:1px;background:#e4e8ed;margin:18px 0}
+.taskchecks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:18px}
+.task{padding:13px;border:1px solid #e0e5ea;border-radius:10px;background:#fff}
+.task b{font-size:13px;display:block;margin-bottom:5px}
+.task span{font-size:12px;color:#5c6979;line-height:1.45}
+.footer{margin-top:28px;color:#677588;font-size:12px;line-height:1.5}
+@media(max-width:900px){.workspace{grid-template-columns:1fr}.rail{position:static}.taskchecks{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:560px){.shell{padding:14px 14px 36px}.top{padding:18px 0 14px}.user{display:none}.notice{display:block}.notice strong{display:block;margin-bottom:3px}.main,.rail{padding:16px}.grid2{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.taskchecks{grid-template-columns:1fr}.row{grid-template-columns:1fr}.modebar{margin-right:-14px;padding-right:14px}}
+</style>
+</head>
+<body>
+<main class="shell">
+  <div class="notice" role="note"><strong>Synthetic design study</strong><span>All values, sites and statuses on this page are illustrative. No meter, tariff, customer account, recommendation engine or replay service is connected.</span></div>
+  <header class="top">
+    <div class="brand"><span class="mark" aria-hidden="true">E</span><div><b>Macau Commercial Energy OS</b><small>Workspace organization study · v0.7</small></div></div>
+    <span class="user">Design review · Synthetic site</span>
+  </header>
+  <h1>How should a team move from evidence to action?</h1>
+  <p class="intro">Compare three ways to organize the same energy-assessment work. The dataset, visual styling and task questions stay constant; only the workspace structure changes. This is an information-architecture hypothesis study, not a selected product design.</p>
+  <div class="modebar" role="group" aria-label="Choose a workspace organization">
+    <button class="mode" type="button" aria-pressed="true" data-mode="evidence">A · Evidence-first</button>
+    <button class="mode" type="button" aria-pressed="false" data-mode="exceptions">B · Exceptions-first</button>
+    <button class="mode" type="button" aria-pressed="false" data-mode="guided">C · Guided assessment</button>
+  </div>
+  <p class="modehint" id="mode-hint" aria-live="polite">Start with a result or question, then follow its evidence lineage.</p>
+
+  <section class="workspace" id="view-evidence" aria-label="Evidence-first workbench">
+    <article class="surface main">
+      <span class="kicker">Evidence workbench / Demand exposure</span>
+      <h2>Why is the demand-cost result unavailable?</h2>
+      <p class="muted">Assessment <b>INT-2048</b> · Demo site: Harbour View Hotel · Period: 1–30 Sep 2026</p>
+      <div class="grid2">
+        <div class="stat"><span class="kicker">Result status</span><p><span class="status amber"><span class="dot"></span>Blocked</span></p><span class="muted">Pu interval evidence is missing</span></div>
+        <div class="stat"><span class="kicker">Amount</span><b>—</b><span class="muted">No bill-grade amount shown</span></div>
+      </div>
+      <div class="callout"><h3>What would unblock this result?</h3><p class="muted">Confirm the meter demand-register interval and attach a matched bill with interval/load-profile evidence. Do not assume a 15-minute window.</p><button class="action" type="button" aria-label="View missing tariff and meter evidence">View missing evidence</button></div>
+    </article>
+    <aside class="surface rail"><span class="kicker">Evidence path</span><ol class="lineage"><li><b>Meter demand series</b><br><small class="muted">Source mapping confirmed · interval unknown</small></li><li><b>Site supply point</b><br><small class="muted">Demo mapping · synthetic only</small></li><li class="pending"><b>Pu demand rule</b><br><small class="muted">Measurement interval not verified</small></li><li class="pending"><b>Matched bill</b><br><small class="muted">Not attached</small></li></ol><span class="status amber"><span class="dot"></span>Evidence incomplete</span></aside>
+  </section>
+
+  <section class="workspace" id="view-exceptions" aria-label="Exception-led site workspace" hidden>
+    <article class="surface main">
+      <span class="kicker">Site readiness / 30 Sep 2026</span>
+      <h2>Resolve what is blocking trusted assessment</h2>
+      <p class="muted">Demo site: Harbour View Hotel · Synthetic snapshot</p>
+      <div class="grid2">
+        <div class="stat"><span class="kicker">Freshness gaps</span><b>2</b><span class="muted">One affects cost assessment</span></div>
+        <div class="stat"><span class="kicker">Unverified rules</span><b>1</b><span class="muted">Demand window blocks result</span></div>
+      </div>
+      <div class="cardlist">
+        <div class="row"><div><h3>Demand-register interval unknown</h3><p>Blocks Pu cost calculation and baseline comparison · source: tariff evidence review</p></div><span class="tag">Blocks result</span></div>
+        <div class="row"><div><h3>Chiller return-temperature feed stale</h3><p>Affects equipment context only · last received 18 hours ago</p></div><span class="tag">Review source</span></div>
+        <div class="row"><div><h3>PV export settlement mapping absent</h3><p>No producer/export value included · no consumer credit inferred</p></div><span class="tag">Out of scope</span></div>
+      </div>
+      <div class="callout"><h3>Selected exception: demand-register interval</h3><p class="muted">Next evidence: confirm the meter register configuration and attach a matched bill plus interval/load-profile evidence. This review action does not request data or change a site.</p><button class="action" type="button" aria-label="Inspect evidence for the selected exception">Inspect evidence</button></div>
+    </article>
+    <aside class="surface rail"><span class="kicker">Affected work</span><h3 style="margin-top:12px">Demand-cost result</h3><p class="muted">Current state: <b>Blocked</b></p><div class="divider"></div><h3>Dependent views</h3><ul class="muted"><li>Demand exposure</li><li>Baseline comparison</li><li>Recommendation value</li></ul><div class="divider"></div><span class="status amber"><span class="dot"></span>No bill-grade output</span></aside>
+  </section>
+
+  <section class="workspace" id="view-guided" aria-label="Guided assessment workflow" hidden>
+    <article class="surface main">
+      <span class="kicker">Assessment flow / Demo site</span>
+      <h2>Complete a trusted cost assessment</h2>
+      <p class="muted">Progress is illustrative. No workflow state is persisted.</p>
+      <div class="steps" aria-label="Assessment steps">
+        <div class="step done"><span class="num">STEP 1</span><b>Connect site</b><small>Demo source attached</small></div>
+        <div class="step done"><span class="num">STEP 2</span><b>Qualify evidence</b><small>Coverage reviewed</small></div>
+        <div class="step active"><span class="num">STEP 3</span><b>Assess cost</b><small>Paused: Pu interval unknown</small></div>
+        <div class="step"><span class="num">STEP 4</span><b>Review SHADOW</b><small>Not available</small></div>
+        <div class="step"><span class="num">STEP 5</span><b>Inspect outcome</b><small>Not measured</small></div>
+      </div>
+      <div class="callout"><h3>Assessment paused — evidence needed</h3><p class="muted">The demand-register interval and a matched bill are required before this workflow can show a bill-grade demand-cost result. No 15-minute default is assumed, no recommendation is generated, and no action can be executed.</p><button class="action" type="button" aria-label="Review the evidence needed to continue">Review required evidence</button></div>
+    </article>
+    <aside class="surface rail"><span class="kicker">Current step</span><h3 style="margin-top:12px">3 of 5 · Assess cost</h3><p class="muted">Why paused: demand window and matched bill evidence are incomplete.</p><div class="divider"></div><h3>Safe next step</h3><p class="muted">Inspect the source requirements. This study does not send requests or change site data.</p><span class="status amber"><span class="dot"></span>Cannot continue yet</span></aside>
+  </section>
+
+  <section aria-labelledby="checks-title" style="margin-top:25px">
+    <span class="kicker">Same evaluation prompts across all three organizations</span>
+    <h2 id="checks-title">What a review should reveal</h2>
+    <div class="taskchecks">
+      <div class="task"><b>Find provenance</b><span>Can a user locate the source, interval, freshness and evidence still missing?</span></div>
+      <div class="task"><b>Explain the result</b><span>Can a user explain why the amount is withheld and which evidence would unblock it?</span></div>
+      <div class="task"><b>Preserve distinctions</b><span>Can a user separate bill reconstruction, interval assessment and baseline comparison?</span></div>
+      <div class="task"><b>Understand authority</b><span>Can a user distinguish review, execution, replay and measured outcome?</span></div>
+    </div>
+  </section>
+  <p class="footer">All content is synthetic and nonfunctional. The controls only switch local presentation states. No live tariff result, customer data, recommendation, runtime replay, savings or device control is represented. Not user-tested; not a WCAG conformance result. Product scope, workspace organization, visual system and frontend stack remain unapproved.</p>
+</main>
+<script>
+const labels={evidence:'Start with a result or question, then follow its evidence lineage.',exceptions:'Start with site-level exceptions, show which work is affected, and choose where to investigate.',guided:'Start with the desired assessment and move through prerequisites; blocked steps explain what is missing.'};
+document.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener('click',()=>{
+ const mode=button.dataset.mode;
+ document.querySelectorAll('[data-mode]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
+ document.querySelectorAll('.workspace').forEach(section=>section.hidden=section.id!=='view-'+mode);
+ document.querySelector('#mode-hint').textContent=labels[mode];
+}));
+</script>
+</body>
+</html>
