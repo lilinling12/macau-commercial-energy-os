@@ -17,7 +17,7 @@ Research → Decision → Architecture → Engineering → Implementation.
 
 ## Core planning and continuity documents
 
-- Research-to-delivery Gate sequence and work packets: `docs/00-authority/ROADMAP.md`
+- Full product, architecture, implementation and pilot goal with completion evidence: `docs/00-authority/PRODUCT-ARCHITECTURE-DELIVERY-GOAL-v0.1.md` (proposed; owner confirmation pending)\n- Research-to-delivery Gate sequence and work packets: `docs/00-authority/ROADMAP.md`
 - End-to-end product, architecture, implementation readiness audit and lifecycle completion criteria: `docs/00-authority/PRODUCT-ARCHITECTURE-IMPLEMENTATION-READINESS-AUDIT-v0.1.md` (draft; no scope, stack or Gate approval implied)
 - Cross-conversation research/coding continuity: `docs/00-authority/handoff/CONTINUATION-PROTOCOL.md`
 - New-conversation entry prompt: `docs/00-authority/handoff/CONTINUE-PROMPT.md`
