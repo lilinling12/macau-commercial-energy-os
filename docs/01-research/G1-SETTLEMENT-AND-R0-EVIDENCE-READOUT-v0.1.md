@@ -68,7 +68,7 @@ The preflight explicitly records live R0-00 baseline run #1/#2 and R0-01 full-tr
 
 ## Research-source limitations
 
-This readout directly extracts the named files from the supplied v1.6.2 archive and cross-checks the existing G7.1–G7.5 readout. It does not independently re-verify current CEM tariff values against live official sources; any archived prices are historical snapshots. It does not claim to have read every file in all archives or the full original ChatGPT shared conversation. The exact current branch and PR are verified separately in the current GitHub audit.
+The original 2026-10-04 readout directly extracted the named files from the supplied v1.6.2 archive and cross-checked the existing G7.1–G7.5 readout; at that time it did not independently re-verify current CEM tariff values, so archived prices were treated as historical snapshots. The 2026-10-05 public-source addendum below now checks selected current CEM pages and official Gazette records. Neither review claims to have read every file in all archives or the full original ChatGPT shared conversation. The exact current branch and PR are verified separately in the current GitHub audit.
 
 
 
