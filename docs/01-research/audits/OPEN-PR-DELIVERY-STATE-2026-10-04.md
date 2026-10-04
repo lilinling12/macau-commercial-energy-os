@@ -40,3 +40,18 @@ The delivery audit needs to distinguish the current pull-request head from older
 - Retrieved PR metadata for #8, #10, #11, and #12, including exact current head SHA, state, draft status, base and branch.
 - Retrieved combined status for each exact head SHA; all four responses contained an empty `statuses` list.
 - This check did not fetch or inspect every changed file in PR #8 or independently rerun its workflows. It does not verify branch protection, mergeability requirements, rendered UI, application behavior, site evidence, or user approval.
+
+
+## Actions evidence follow-up — exact heads
+
+The earlier combined-status calls returned empty lists. A subsequent direct GitHub Actions workflow-run lookup found the following pull-request-triggered runs for the exact SHAs recorded above; these run results are stronger evidence than the empty combined-status response.
+
+| PR | Exact SHA | Workflow runs | Result |
+|---|---|---|---|
+| #8 | `ebb576fc0cb18fd64266ed9395ebdcba7a06ff69` | Repository Hygiene #912; Authority Validation #913; Contracts Validation #124; Runtime Bootstrap #354 | All four completed successfully. These structural/bootstrap checks do not approve the 93-file design package or establish production readiness. |
+| #10 | `e2da54271a0d834e03480b465750d7214a8960c8` | [Repository Hygiene #938](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37204745642); [Authority Validation #939](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37204745641) | Both failed. The failing steps are “Ensure handoff entrypoint exists” and “Validate repository authority,” respectively, due the legacy path assumptions on the main base. |
+| #11 | `1fa89a21cea1ba917dba854e9e8c1826f2718451` | Repository Hygiene #930; Authority Validation #931 | Both failed on the same legacy path assumptions. |
+| #12 | `053d5d624eb773c32a0af87eebec155bf92975db` | Authority Validation #940; Repository Hygiene #939 | Both failed on the same legacy path assumptions. |
+| #13 | `68c955b936faddfbdbdbdf043688b3696efa87a3` | [Authority Validation #941](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37205213613); [Repository Hygiene #940](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37205213621) | Both completed successfully. This focused path-repair PR verifies its own exact head; it has not been merged, so it does not change the checks still run by #10/#11/#12 against main. |
+
+PR #13's static source check also confirmed its 14 required authority paths exist on main, six Evidence Register classes are present, the canonical handoff path is used, and the design entrypoints remain conditional while #8 is unmerged. This does not establish application test coverage, branch protection or production governance enforcement.
