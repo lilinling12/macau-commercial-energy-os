@@ -32,7 +32,7 @@ The product, interaction design, technical architecture, and detailed designs mu
 
 The recommendations above are research-based proposals to make review concrete. They do **not** record approval. In particular:
 
-- React + TypeScript remains provisional; Next.js is not approved.
+- React + TypeScript remains provisional. Next.js can serve a server-side API/BFF role, but its inclusion as a backend candidate is open under decision #16; it is neither selected nor rejected.
 - TypeScript/Go responsibilities, Temporal, PostgreSQL + Timescale, NATS JetStream, Python, Go Edge, and Wasm/WASI retain the candidate status recorded in the authority documents.
 - C+ remains provisional; no G6.9-R2 winner exists. Step 3D has not run.
 - The detailed designs are review drafts. The candidate ASVS 5.0.0 mapping is a proposed tailored checklist only; target scope/level and security verification are unapproved. G1, G3, G6, G6.9-R2 Step 3D/4, and G7 evidence remains open or incomplete as recorded in `CURRENT.md`.
@@ -40,7 +40,7 @@ The recommendations above are research-based proposals to make review concrete. 
 
 ## Decision dependency sequence
 
-The 15 review items do not need to be approved all at once. Use the earliest safe decision point; later decisions remain provisional until their evidence prerequisites exist.
+The 16 review items do not need to be approved all at once. Use the earliest safe decision point; later decisions remain provisional until their evidence prerequisites exist.
 
 | Decision window | Items | Required evidence / action |
 |---|---|---|
