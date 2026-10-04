@@ -66,3 +66,10 @@
 - **PR/branch and review state:** PR #8, docs/product-architecture-roadmap, open/unmerged.
 - **Gate or task status after work:** Review; no Gate closed.
 - **Next task and dependencies:** owner review of user operations/status vocabulary and decisions #8/#12/#14; G6.9-R2 Step 3D/4 for protocol/framework/contract tooling evidence; then freeze canonical wire contracts and implement them through a separate approved task packet.
+
+## G3 mapping and telemetry quality vocabulary follow-up — 2026-10-04
+
+- Aligned APP-04's mapping outcome with Energy Graph machine states: `RESOLVED`, `UNMAPPED`, `AMBIGUOUS`, `CONFLICT`, and `EXPIRED_MAPPING`.
+- Kept telemetry freshness, coverage and source-clock quality outside the graph mapping status so downstream product states preserve both dimensions and do not misdiagnose stale data as missing topology.
+- Updated the catalog and G3 evidence packet; owner, G1/G3/G6/G6.9-R2 and D-065 decisions remain open. The task stays Review.
+- Static design update only. No canonical wire contract, generated binding, application behavior, runtime validation or Gate closure is claimed. Exact-head workflow outcomes are recorded in PR #8.
