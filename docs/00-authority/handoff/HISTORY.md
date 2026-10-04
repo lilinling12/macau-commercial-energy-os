@@ -262,3 +262,8 @@ Append-only record of material changes to the cross-conversation handoff. This f
 - **Change:** Propagated the VS-002 workflow-to-authorization review cases into the Security Threat Model SHADOW-MVP verification scenarios and the VS-002 acceptance statement.
 - **Covered cases:** Site-data access is not implied by membership administration; partner grants are scoped, attributable, expiring and revocable; replay references remain within the persisted authorized scope. Explicit multi-site grants may be supported after owner/site policy validation.
 - **Status:** Acceptance design only. No executable authorization tests, role grants, identity integration, customer access or G6-09 closure are claimed.
+
+## 2026-10-04 — Chinese owner review brief
+
+- **Change:** Added `docs/02-product/OWNER-REVIEW-BRIEF-zh-CN-v0.1.md`, a Chinese-language review entrypoint summarizing the 14 open product, UX, architecture, security and Step 3D decisions, the provisional stack boundaries, and the full research-to-pilot sequence.
+- **Status:** Translation/decision aid only; it does not approve a decision or replace the linked English authorities. Silence remains non-approval.
