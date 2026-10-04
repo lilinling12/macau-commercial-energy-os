@@ -131,3 +131,7 @@ This audit consolidates the current PR branch; it does not replace research Gate
 - Detailed-design and implementation traceability: docs/03-architecture/detailed-design/PRD-ARCHITECTURE-TRACEABILITY-v0.1.md
 - Candidate delivery slices: docs/05-mvp/vertical-slices/MVP-VERTICAL-SLICE-PLAN-v0.1.md
 - Product and engineering governance: docs/04-engineering/PRODUCT-DESIGN-AND-DELIVERY-GOVERNANCE-v0.1.md
+
+## Follow-up: consolidated PRD-to-product evidence map — 2026-10-04
+
+Added a joined traceability view connecting PR-01–PR-09 to proposed user flows/screens, planned WP-4 probes, detailed-design authorities, candidate vertical slices, and current evidence gaps. This closes an artifact-linking gap in the traceability package, not the lifecycle evidence gap: WP-4 remains unperformed, v0.9 covers one synthetic IA case, PRD scope is unapproved, and G1/G2/G3/G4/G5/G6/G7 and G6.9-R2 remain subject to their recorded gates. No readiness category is advanced by adding the map.
