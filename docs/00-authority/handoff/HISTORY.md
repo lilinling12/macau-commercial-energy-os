@@ -249,3 +249,10 @@ Append-only record of material changes to the cross-conversation handoff. This f
 
 - **Change:** The logical architecture technology-authority table now describes Python AI/optimization responsibilities and Go Site Edge responsibilities as provisional proposals, and lists workload/deployment/hardware validation still open.
 - **Boundary:** The provisional candidate map remains: React + TypeScript UI proposal; TypeScript/Go cloud-core responsibility candidates under G6.9-R2; Temporal and NATS candidates; PostgreSQL + Timescale evaluation baseline; Python AI proposal; Go Edge proposal; Wasm/WASI future option. No item becomes approved by the diagram/table or by this documentation update. Java/Spring and Next.js remain unselected as previously recorded.
+
+## 2026-10-04 — Identity/tenant design mapped to product workflows
+
+- **Finding:** Identity design already specified server-derived action grants, default-deny scope propagation and tenant-isolation checks, but its candidate role mapping did not connect the PRD/IA's organization administrator, finance cross-site access, delegated integrator configuration, recommendation annotation, replay and service-ingestion workflows to explicit scope/evidence questions.
+- **Change:** Added a workflow-to-authorization review map to the VS-001 identity design, distinguishing stable enforcement invariants from role-grant decisions. Added verification scenarios for membership administration versus site-data access, partner expiry/revocation and replay's persisted scope. Expanded PR-01 gap traceability.
+- **Owner review:** Added decision #14 for role-to-action/site-entitlement policy and linked the identity detailed design. Exact role grants, identity provider, cross-site finance policy, partner delegation, separation of duties and customer deployment context remain unapproved.
+- **Status:** Design and traceability only. No authorization roles/grants, customer identities, production identity implementation or security verification are claimed.
