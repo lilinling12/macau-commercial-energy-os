@@ -102,3 +102,32 @@ This update checks public first-party CEM pages and Macao Official Gazette sourc
 - CEM, [PV Feed-in Tariff](https://twww.cem-macau.com/en/go-green/photovoltaic-system-%28pv%29/feed-in-tariff/) (published capacity tiers and rates; page states system effective 2018-07-01).
 
 This source review updates public-rule context only. It does not resolve site-specific tariff classification, actual Pu interval, contract applicability, PV ownership/interconnection, payment assignment, cross-building credit, actual bills or customer economics.
+
+
+### Public tariff-class and EV-charging boundary — 2026-10-05
+
+A second pass across CEM's official tariff pages shows that a Group B-only representation would be too narrow for a Macau site model. The product/settlement profile must carry the applicable CEM tariff group and class, account/contract and meter boundary, voltage/metering arrangement, billing period and effective-dated rule source. Public pages describe:
+
+| Public tariff scope | Publicly documented shape | Design consequence / limit |
+|---|---|---|
+| Group A | Low-voltage supply; charges include subscribed demand (kVA), energy (kWh), quarterly TCA and government tax; A1–A4 classes have different applicability/price structures. | Do not apply the Group B/C/D demand formula. Resolve the actual A class and account evidence. |
+| Group B | Eligible MV/LV accounts; demand uses 0.2Pc + 0.8Pu, with class-specific transformer/network loss treatment; time-of-use energy and reactive-energy provisions also apply. | Pc, Pu, meter/class, billing period, measured-peak interval and loss treatment need evidence. The published description alone does not reconstruct a bill. |
+| Group C | MV with subscribed demand at least 1,000 kVA or 857 kW; demand uses 0.2Pc + 0.8Pu, with C2 transformer-winding loss adjustment; seasonal peak/full/low energy periods and reactive-energy charges apply. | Reuse of the algebraic demand expression does not make the whole tariff interchangeable with B; model class, seasonal calendar, energy periods and reactive components separately. |
+| Group D | HV supply; demand uses 0.2Pc + 0.8Pu with D-specific Pc/Pu update rules; full/low energy periods and reactive-energy rules apply. | Preserve D-specific eligibility, Pc/Pu update and reactive rules; do not infer these from B/C. |
+| Private EV charging tariff | The CEM transport-charging tariff covers applicable MV/LV electricity used for transport charging; the general/private class applies to charging facilities not covered by the public tariff and has subscribed-demand and time-of-use energy components. | EV charging can be a flexible physical load, but its settlement profile may be a distinct tariff/account boundary. Determine actual supply contract, metering and tariff before assigning the building tariff or savings. The public-charging class has a separate stated scope. |
+
+**Product rule:** represent physical site energy flow and each settlement/account boundary as linked but distinct models. An EV charger remains a physical load in site power balance; its bill/cost belongs to the verified tariff and meter boundary that serves it. Do not assume that an EV submeter creates an independent tariff, or that a separate EV tariff automatically applies, without contract/account evidence.
+
+**Source boundaries:** Group B, C and D public descriptions all expose a 0.2Pc + 0.8Pu form, but use different eligibility, components and operating rules; Group A is structurally different. The 2026 Q3 TCA page currently reports MOP 0.36/kWh effective 2026-07-22 for tariff A, B/C/D and transport charging. Treat it only as effective-dated public data, not as a customer rate until class and period are verified. CEM's bill guide identifies contract number, tariff group, subscribed demand, consumption period, meter multiplier, demand/energy and tax fields as account-level evidence items.
+
+### Sources checked for tariff-class comparison
+
+- CEM, [Tariff Group A](https://www.cem-macau.com/en/customer-service/billing-service/tariff-group-a/) (LV scope, subscribed demand, energy, TCA/tax, tariff classes; accessed 2026-10-05).
+- CEM, [Tariff Group B](https://www.cem-macau.com/en/customer-service/billing-service/tariff-group-b/) (eligibility, demand, energy periods and class adjustments; accessed 2026-10-05).
+- CEM, [Tariff Group C](https://www.cem-macau.com/en/customer-service/billing-service/tariff-group-c/) (MV threshold, seasonal TOU, demand, reactive energy and C2 adjustment; accessed 2026-10-05).
+- CEM, [Tariff Group D](https://www.cem-macau.com/en/customer-service/billing-service/tariff-group-d/) (HV scope, demand update rules, TOU and reactive energy; accessed 2026-10-05).
+- CEM, [General Charging Tariff (Private Charging)](https://www.cem-macau.com/en/customer-service/billing-service/transportation-charging---general-/) and [Public Charging Tariff](https://www.cem-macau.com/en/customer-service/billing-service/transportation-charging---public/) (transport charging tariff scope; accessed 2026-10-05).
+- CEM, [Understand My Bill](https://www.cem-macau.com/en/customer-service/billing-service/understand-my-bill/) (account/bill evidence fields; accessed 2026-10-05).
+- CEM, [Tariff Clause Adjustment](https://www.cem-macau.com/en/customer-service/billing-service/tariff-clause-adjustment/) (effective-dated quarterly TCA table; accessed 2026-10-05).
+
+This is a public-rule comparison, not a customer tariff ruling, site classification, bill reconstruction, optimizer calculation or approval of multi-building settlement.
