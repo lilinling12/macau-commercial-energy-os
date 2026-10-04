@@ -77,6 +77,20 @@ Prototype v0.2 lets reviewers switch among bill reconstruction, interval assessm
 
 Reference material: UI/UX Pro Max local search; W3C WCAG 2.2 (https://www.w3.org/TR/WCAG22/); Material Design 3 foundations; Nielsen Norman Group usability heuristics. These are reference points, not visual templates. WCAG 2.2 AA is the proposed accessibility evaluation baseline, not a completed conformance claim.
 
+### UI/UX Pro Max fit audit — 2026-10-04
+
+A focused rerun of the Pro Max design-system search for a commercial energy analytics workspace again returned a “Real-Time / Operations Landing” pattern, whose examples are marketing landing pages, plus a generic glassmorphism direction. This is a category mismatch for the authenticated, task-oriented workspace in this product. Treat those results as search suggestions only: do not derive the product navigation, signed-in page structure, or visual baseline from the landing-page pattern; do not adopt blur, palette, or font recommendations without a task-based review. This makes the existing Pro Max interpretation explicit; it does not invalidate the earlier prototype explorations or approve direction A, B, or C.
+
+For the next design review, use the existing WP-4 workflow tasks to observe whether a target user can:
+1. Locate the source, coverage and freshness of a site value, and identify what is stale or missing.
+2. Explain whether an energy amount is a bill reconstruction, interval assessment, or baseline comparison, and identify the evidence that permits or blocks it.
+3. Read an actual-versus-forecast trend and uncertainty without relying on color alone, using the chart's text/table alternative when needed.
+4. Distinguish a SHADOW recommendation disposition from execution, then identify whether evidence replay actually ran and whether an outcome was measured.
+
+Record task completion, wrong inferences, evidence/source retrieval, recovery after an error, and keyboard/narrow-viewport barriers; do not treat a polished prototype or heuristic review as customer validation. WP-4 participant work remains subject to its existing authorization and data-handling prerequisites.
+
+For the proposed WCAG 2.2 AA review baseline, use criterion-level checks rather than a blanket “44 px AA” rule: reflow criterion 1.4.10 applies at 320 CSS px; minimum target size 2.5.8 is AA and generally 24 by 24 CSS px subject to its exceptions; 44 by 44 CSS px is enhanced target size criterion 2.5.5 at AAA. This distinction is a review guide, not a claim that the prototype conforms. See [WCAG 2.2](https://www.w3.org/TR/WCAG22/) and the [WCAG 2.2 change summary](https://www.w3.org/WAI/standards-guidelines/wcag/new-in-22/).
+
 ## 4. Architecture decision status for review
 
 ### Logical boundaries
