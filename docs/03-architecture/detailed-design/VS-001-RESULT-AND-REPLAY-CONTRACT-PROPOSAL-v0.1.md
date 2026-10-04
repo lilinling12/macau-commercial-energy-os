@@ -90,6 +90,7 @@ The following is illustrative JSON-like structure, not a committed schema:
 - Scenario basis is expressed through `evidenceStatus: PROJECT_ASSUMPTION` and `settlementReadiness: SCENARIO_ONLY`; it is not a calculation-result status. A completed scenario calculation may be COMPLETE or PARTIAL but is not bill-grade eligible.
 - FAILED belongs to the assessment request lifecycle when execution terminates without a result; no CostResult or amount is emitted for that failed request.
 - BLOCKED means a required input or rule is missing/conflicting and no authoritative amount is emitted.
+- Tariff resolver states (`RESOLVED`, `PARTIAL`, `UNKNOWN`, `CONFLICT`) remain component/context evidence; translate them to `COMPLETE`, `PARTIAL` or `BLOCKED` under Tariff & Settlement §4 rather than adding them to the CostResult status enum. Bill-grade is represented by `settlementReadiness: BILL_GRADE_ELIGIBLE`, not a result status.
 - BILL_GRADE_ELIGIBLE is allowed only when every tariff, contract, meter and measurement rule required for the declared scope has sufficient evidence, and the applicable Golden Bill gate is satisfied. Before that, use SCENARIO_ONLY or NOT_CALCULATED. G1 remains open.
 - VERIFIED, DERIVED, HYPOTHESIS, PROJECT_ASSUMPTION, UNKNOWN and CONTRACT_VERIFIED retain the existing EvidenceRecordV1 meanings; do not assign VERIFIED merely because software returned a value.
 - Monetary amounts are canonical decimal text, not binary floating-point JSON numbers. Rounding mode and scale must come from a versioned settlement policy; do not invent interval rounding.
