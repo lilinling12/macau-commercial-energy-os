@@ -166,6 +166,7 @@ class AssessmentRequest:
     pv_curtailment_evidence: EvidenceRef | None = None
     flexible_load_limits: tuple[FlexibleLoadLimit, ...] = ()
     ess_limits: EssLimits | None = None
+    ess_state_evidence: EvidenceRef | None = None
     grid_import_limit_kw: Decimal | None = None
     grid_import_limit_evidence: EvidenceRef | None = None
     economic_context: EconomicContext | None = None
@@ -331,7 +332,7 @@ def _claim_readiness(
         for row in schedule.intervals
     )
     if uses_ess:
-        ess_issue = next((item for item in unqualified if item.startswith("ESS:")), None)
+        ess_issue = next((item for item in unqualified if item.startswith("ESS:") or item.startswith("ESS state of charge:")), None)
         ess_ready = metrics_available and ess_issue is None and physical_status in (
             PhysicalStatus.VALIDATED_WITHIN_SCOPE,
             PhysicalStatus.SCENARIO_ONLY,
@@ -437,6 +438,11 @@ def _unqualified_resource_claims(request: AssessmentRequest) -> tuple[str, ...]:
         or request.ess_limits.evidence.state in (EvidenceState.UNKNOWN, EvidenceState.STALE)
     ):
         issues.append("ESS: active ESS schedule has no current verified operating evidence; its feasibility claim is withheld.")
+    if uses_ess and (
+        request.ess_state_evidence is None
+        or request.ess_state_evidence.state in (EvidenceState.UNKNOWN, EvidenceState.STALE)
+    ):
+        issues.append("ESS state of charge: SOC inputs have no current evidence reference; ESS feasibility is withheld.")
     load_limits = {item.asset_id: item for item in request.flexible_load_limits}
     for asset_id in sorted(_changed_flexible_load_ids(request)):
         limit = load_limits.get(asset_id)
@@ -583,6 +589,8 @@ def _validate_request_shape(request: AssessmentRequest) -> None:
         raise _Blocked("Site timezone must be a valid IANA timezone.") from error
     if request.pv_curtailment_evidence is not None and not _is_well_formed_evidence(request.pv_curtailment_evidence):
         raise _Blocked("PV curtailment evidence must have a non-empty ID and recognized state.")
+    if request.ess_state_evidence is not None and not _is_well_formed_evidence(request.ess_state_evidence):
+        raise _Blocked("ESS state evidence must have a non-empty ID and recognized state.")
     if request.grid_import_limit_kw is not None and (
         not isinstance(request.grid_import_limit_kw, Decimal)
         or not request.grid_import_limit_kw.is_finite()
@@ -616,6 +624,8 @@ def _applicable_evidence(request: AssessmentRequest) -> tuple[EvidenceRef, ...]:
     active_ess = any(row.ess_charge_kw > 0 or row.ess_discharge_kw > 0 for s in (request.baseline, request.candidate) for row in s.intervals)
     if active_ess and request.ess_limits is not None:
         items.append(request.ess_limits.evidence)
+    if active_ess and request.ess_state_evidence is not None:
+        items.append(request.ess_state_evidence)
     active_load_ids = {flow.asset_id for s in (request.baseline, request.candidate) for row in s.intervals for flow in row.flexible_loads}
     load_limits = {item.asset_id: item for item in request.flexible_load_limits}
     if len(load_limits) != len(request.flexible_load_limits):
