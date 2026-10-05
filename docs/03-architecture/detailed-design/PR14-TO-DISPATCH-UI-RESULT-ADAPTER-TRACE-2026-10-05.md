@@ -100,3 +100,31 @@ The older v2.3-specific sections above remain historical. v2.4's exact-source br
 The initial run exposed a test-only attribute typo (`ClaimReadiness.reason` instead of `reasons`); it was corrected on PR #14. The corrected exact head is `c235388db1678927f2c875bba6be88b0f01f25e2`, test blob `1f48655f21455c8f4918b82e3dcc15a4bcf2c170`. Runtime Bootstrap [#37336858769](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37336858769) passed all four jobs; the Optimizer job ran **32 tests**, including the new service-separation regression. Authority Validation [#37336858856](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37336858856) and Repository Hygiene [#37336858826](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37336858826) also passed.
 
 The test establishes only a code invariant for this bounded prototype: a supplied balanced HVAC schedule can be physically validated within scope while `DISPATCH_FEASIBILITY` is ALLOWED and `COMFORT_SERVICE` remains WITHHELD/NONE with a “not modeled” reason. It does not calculate comfort, establish real HVAC service, validate site inputs, or connect v2.4 to optimizer results. PR #14 and PR #10 remain proposals; no G7.9 exit or production architecture approval follows.
+
+## Exact-source refresh — 2026-10-06
+
+**Status:** Cross-branch source recheck; no runtime integration or architecture approval is implied.  
+**Compared revisions:** PR #10 remains Draft/open/unmerged; its latest exact head documented in the PR record is `f83e4963cf36fe6a108e2782b227a7e61a9cb854`. PR #14 remains Draft/open/unmerged; the reviewed follow-up head is `c235388db1678927f2c875bba6be88b0f01f25e2`. Main baseline remains `a897bf0b1e7e6ceea3862d7d87fa288ecca08203`.
+
+### Current source evidence
+
+- PR #14's dispatch assessor, bounded search and prototype boundary note remain at blobs `f53254eb41659a8284a0904115a61795adecc899`, `2d3256801f0ddce6b849c648c160f5a32fd90a27`, and `731dc465a5d23ef94d40b124a6e07c9ef7dbfe45`. The test source at the compared head is blob `1f48655f21455c8f4918b82e3dcc15a4bcf2c170`.
+- PR #14's final compared commit `c235388db1678927f2c875bba6be88b0f01f25e2` changes the comfort-withholding assertion to read the `reasons` collection. Its parent test had asserted a singular `reason` field. The PR #10 cross-branch record reports the corrected exact head's Runtime Bootstrap (32 optimizer tests plus three other jobs), Authority Validation and Repository Hygiene as passed. These checks verify the bounded prototype and repository checks only.
+- PR #10's v2.4 browser-study files are current at REVIEW blob `1216bc766784d42990c2681c9b7c5515ae58643e` and HTML blob `35b0843b6b87272c407bc5df2c80c641e69cad1e`. The page remains a synthetic six-stage study with static claims; it has no API DTO binding, optimizer invocation, durable assessment lifecycle, evidence-service lookup or persisted result/replay integration.
+- The PR #14 description still ends at the earlier ESS SOC follow-up head `0b69b7b5db04a2f2454bec691ecc8f609facc552`, while PR #10's cross-branch record and the fetched PR #14 test source include the later `c235...` correction. Treat the source and exact-commit record as the fresher evidence; consider refreshing the PR #14 description so its advertised head/check summary is not stale.
+
+### Integration conclusion
+
+The crosswalk is still a **design-time adapter proposal**, not an implemented connection. The independently checked files show no browser/API result adapter or canonical assessment contract. The current UI can display invented claim-state fixtures; the optimizer can assess supplied schedules and search a bounded discrete action space. Neither side currently invokes the other.
+
+The most consequential semantic invariant remains: a bounded electrical profile may be allowed while `COMFORT_SERVICE` is WITHHELD because comfort/service is not modeled. UI language must say service is “not assessed”; it must not imply operational acceptability, execution readiness or equipment control. A caller-provided `VERIFIED` marker remains an input assertion, not authenticated Macau evidence. Import-energy results remain scoped to eligible intervals and do not establish a complete tariff bill, demand charge, export compensation or savings.
+
+### Next implementation gate
+
+1. Reconcile the controlling architecture authority and record the owner decision on G7.8's completed Fastify/contract-authoring freeze versus the current-main G6.9-R2 pending/provisional state. Resolve APP-11 logical ownership and contract authoring authority before freezing a wire schema or runtime.
+2. Complete the domain review for evidence scope, independently evidenced physical and settlement boundaries, claim/reason semantics, and immutable assessment inputs. Keep this stack-neutral.
+3. After those decisions, create one application-owned contract fixture that represents (a) physical BLOCKED/PARTIAL, (b) economic import-energy PARTIAL with explicit covered intervals, (c) electrical feasibility ALLOWED while comfort/service is WITHHELD, and (d) SHADOW review with device control absent.
+4. Implement one read-only vertical slice that accepts a pinned synthetic input manifest, invokes the bounded assessor/search behind the selected platform boundary, returns the reviewed DTO to the six-stage UI, and stores an immutable result/review record. Verify repeatable replay and tenant/site authorization before calling it an MVP slice.
+5. Do not claim site, tariff, service, savings, production readiness or pilot readiness until their separate evidence gates pass. Keep live equipment commands outside this MVP slice.
+
+This refresh corrects version drift in the review record. It does not close G7.9 Step 3, approve production architecture, or connect the UI to PR #14.
