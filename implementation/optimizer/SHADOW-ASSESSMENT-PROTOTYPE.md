@@ -55,3 +55,8 @@ A rate window that splits a schedule interval does not exactly match it. Because
 For each eligible schedule interval, the result now carries a prototype-local economic component record: start/end instant, caller-supplied rate evidence reference, MOP/kWh rate, baseline and candidate import kWh, and each corresponding import-energy amount. Aggregate baseline/candidate/delta fields equal the sum of these records. The record improves review and replay diagnostics but does not authenticate the evidence reference or establish a canonical API/schema.
 
 For partial coverage, only returned interval records are included in the totals; the covered interval set and planned interval count remain explicit, with withheld intervals in reasons. Consumers must display the component as scoped to that coverage and must not call the delta savings or a full-period bill result.
+
+
+## PV curtailment evidence gate — 2026-10-05
+
+Candidate-side non-zero PV curtailment now requires an explicit site/inverter capability evidence reference in the bounded assessment request. Missing, unknown or stale evidence marks the physical assessment partial and withholds both the PV-curtailment and overall dispatch-feasibility claims; verified evidence permits only a bounded claim within the supplied assessment. Project-assumption evidence produces a scenario-only result. A candidate with zero declared curtailment does not require this capability evidence. This does not authorize or model a remote curtailment command, prove that a real site can curtail PV, or replace source/evidence authentication. Focused regression cases cover unknown and verified capability evidence and the zero-curtailment path.
