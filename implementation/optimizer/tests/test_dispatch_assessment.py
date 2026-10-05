@@ -6,7 +6,10 @@ from zoneinfo import ZoneInfo
 
 from macau_energy_optimizer.dispatch_assessment import (
     AssessmentRequest,
+    ClaimStatus,
+    ClaimType,
     EconomicContext,
+    EconomicStatus,
     EssLimits,
     EvidenceRef,
     EvidenceState,
@@ -77,6 +80,69 @@ class DispatchAssessmentTests(unittest.TestCase):
     def test_empty_evidence_reference_blocks_assessment(self):
         result = assess_schedule(request(physical_evidence=(EvidenceRef("  ", EvidenceState.VERIFIED),)))
         self.assertEqual(result.physical_status, PhysicalStatus.BLOCKED)
+
+    def test_unknown_ess_constraint_keeps_import_profile_and_withholds_ess_claim(self):
+        unknown = EvidenceRef("ess:unknown", EvidenceState.UNKNOWN)
+        limits = EssLimits(D("5"), D("5"), D("0"), D("10"), D("1"), D("1"), unknown)
+        baseline = interval(grid="10", load="15")
+        candidate = interval(
+            grid="8", load="15", ess_discharge_kw=D("2"),
+            ess_soc_start_kwh=D("5"), ess_soc_end_kwh=D("3")
+        )
+
+        result = assess_schedule(request(baseline, candidate, ess_limits=limits))
+        claims = {item.claim: item for item in result.claim_readiness}
+
+        self.assertEqual(result.physical_status, PhysicalStatus.PARTIAL)
+        self.assertEqual(result.baseline_import_energy_kwh, D("10.0"))
+        self.assertEqual(result.candidate_import_energy_kwh, D("8.0"))
+        self.assertEqual(claims[ClaimType.GRID_IMPORT_PROFILE].status, ClaimStatus.ALLOWED)
+        self.assertEqual(claims[ClaimType.ESS_DISPATCH].status, ClaimStatus.WITHHELD)
+        self.assertEqual(claims[ClaimType.DISPATCH_FEASIBILITY].status, ClaimStatus.WITHHELD)
+        self.assertIsNone(result.import_energy_charge_delta_mop)
+
+    def test_unknown_flexible_load_limit_keeps_profile_but_cost_is_scenario_only(self):
+        base_flow = FlexibleLoadFlow("hvac-1", FlexibleLoadKind.HVAC, D("4"))
+        candidate_flow = FlexibleLoadFlow("hvac-1", FlexibleLoadKind.HVAC, D("3"))
+        baseline = interval(grid="10", load="11", flexible_loads=(base_flow,))
+        candidate = interval(grid="8", load="10", flexible_loads=(candidate_flow,))
+        unknown = EvidenceRef("hvac-limit:stale", EvidenceState.STALE)
+        limit = FlexibleLoadLimit("hvac-1", D("0"), D("5"), unknown)
+        context = EconomicContext(
+            account_meter_mapping=VERIFIED,
+            contract=VERIFIED,
+            tariff=VERIFIED,
+            import_energy_rates=(ImportEnergyRate(START, END, D("1.25"), VERIFIED),),
+        )
+
+        result = assess_schedule(request(
+            baseline, candidate, flexible_load_limits=(limit,), economic_context=context
+        ))
+        claims = {item.claim: item for item in result.claim_readiness}
+
+        self.assertEqual(result.physical_status, PhysicalStatus.PARTIAL)
+        self.assertEqual(result.candidate_import_energy_kwh, D("8.0"))
+        self.assertEqual(result.economic_status, EconomicStatus.SCENARIO_ONLY)
+        self.assertEqual(result.candidate_import_energy_charge_mop, D("10.000"))
+        self.assertEqual(claims[ClaimType.GRID_IMPORT_PROFILE].status, ClaimStatus.ALLOWED)
+        self.assertEqual(claims[ClaimType.FLEXIBLE_LOAD_DISPATCH].status, ClaimStatus.WITHHELD)
+        self.assertEqual(claims[ClaimType.GRID_IMPORT_ENERGY_COMPONENT].status, ClaimStatus.ALLOWED)
+        self.assertEqual(claims[ClaimType.GRID_IMPORT_ENERGY_COMPONENT].scope, ClaimScope.SCENARIO_ONLY)
+        self.assertEqual(claims[ClaimType.SAVINGS].status, ClaimStatus.WITHHELD)
+
+    def test_unknown_grid_guard_withholds_only_guard_compliance_claim(self):
+        unknown = EvidenceRef("guard:unknown", EvidenceState.UNKNOWN)
+        result = assess_schedule(request(
+            grid_import_limit_kw=D("9"),
+            grid_import_limit_evidence=unknown,
+        ))
+        claims = {item.claim: item for item in result.claim_readiness}
+
+        self.assertEqual(result.physical_status, PhysicalStatus.PARTIAL)
+        self.assertEqual(result.candidate_import_energy_kwh, D("10.0"))
+        self.assertEqual(claims[ClaimType.GRID_IMPORT_PROFILE].status, ClaimStatus.ALLOWED)
+        self.assertEqual(claims[ClaimType.GRID_IMPORT_GUARD].status, ClaimStatus.WITHHELD)
+        self.assertEqual(claims[ClaimType.DISPATCH_FEASIBILITY].status, ClaimStatus.WITHHELD)
 
     def test_flexible_load_outside_verified_envelope_is_infeasible(self):
         flow = FlexibleLoadFlow("hvac-1", FlexibleLoadKind.HVAC, D("4"))
