@@ -271,6 +271,28 @@ class DispatchAssessmentTests(unittest.TestCase):
         self.assertEqual(claims[ClaimType.FLEXIBLE_LOAD_DISPATCH].status, ClaimStatus.WITHHELD)
         self.assertEqual(claims[ClaimType.DISPATCH_FEASIBILITY].status, ClaimStatus.WITHHELD)
 
+    def test_electrical_feasibility_does_not_assert_comfort_service(self):
+        baseline_flow = FlexibleLoadFlow("hvac-1", FlexibleLoadKind.HVAC, D("4"))
+        candidate_flow = FlexibleLoadFlow("hvac-1", FlexibleLoadKind.HVAC, D("3"))
+        baseline = interval(grid="10", load="11", flexible_loads=(baseline_flow,))
+        candidate = interval(grid="9", load="11", flexible_loads=(candidate_flow,))
+        limit = FlexibleLoadLimit("hvac-1", D("0"), D("5"), VERIFIED)
+
+        result = assess_schedule(request(
+            baseline, candidate, flexible_load_limits=(limit,)
+        ))
+        claims = {item.claim: item for item in result.claim_readiness}
+
+        self.assertEqual(result.physical_status, PhysicalStatus.VALIDATED_WITHIN_SCOPE)
+        self.assertEqual(
+            claims[ClaimType.DISPATCH_FEASIBILITY].status, ClaimStatus.ALLOWED
+        )
+        self.assertEqual(
+            claims[ClaimType.COMFORT_SERVICE].status, ClaimStatus.WITHHELD
+        )
+        self.assertEqual(claims[ClaimType.COMFORT_SERVICE].scope, ClaimScope.NONE)
+        self.assertIn("not modeled", claims[ClaimType.COMFORT_SERVICE].reason)
+
     def test_unknown_grid_guard_withholds_only_guard_compliance_claim(self):
         unknown = EvidenceRef("guard:unknown", EvidenceState.UNKNOWN)
         result = assess_schedule(request(
