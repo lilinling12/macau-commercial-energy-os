@@ -60,3 +60,28 @@ This is an alignment assessment, not a claim that the product design is approved
 ## Decision boundary
 
 This review concludes that the written research-derived product direction and the dispatch-first proposal are aligned; the earlier v0.10 presentation is behind that written direction. It does **not** conclude that the overall product design is complete or approved. The owner must review the first pilot outcome, user/role assumptions, initial site/resource scope, locale priorities and visual direction before those become baselines.
+
+
+## Current-state correction — 2026-10-05 (v1.6 and live PR heads)
+
+The sections above retain the v1.0 checkpoint and its contemporaneous evidence. Rechecking current branch contents shows that v1.0 is no longer the latest dispatch prototype.
+
+### Current research-derived product direction
+
+At PR #8 head `98e510700cf65be94a729ed01e81d9e8754d6c82`, `PRD-v0.1.md` (blob `22b129baf1a7c3d0cf11069d9f23fb414908d1d7`), `PRODUCT-DESIGN.md` (blob `4726a5bb7b74711054cee5eda056f2bd51c3da33`) and `USER-FLOWS-AND-IA-v0.1.md` (blob `41082c28d41386303fc991ba1217b3f7ba9f0e08`) already make economic source/load dispatch the primary operator task; portfolio/site overview is supporting. PRD PR-10 calls for shared-horizon source/load schedule comparison across grid imports, on-site PV, ESS and site-qualified flexible loads, while withholding bill-grade totals and savings when tariff, demand-window, contract or settlement evidence is unresolved. The user-flow draft explicitly separates physical topology from settlement links and keeps review non-executable SHADOW. PR #8 remains open, Ready for Review, and unmerged, so this is a research-derived proposal on a branch, not an approved/frozen product baseline.
+
+### Current dispatch prototype and evidence
+
+At PR #10 head `3ae590b0823f70802f4fe8a53020c018aaf41a21`, the latest prototype is v1.6: HTML blob `f16a80df67ae4504751d0a46473f181aa86cdcbb`, review blob `91cfacbe6e17e8f79a5baf670d4555c9c24d1b80`. It preserves the six-stage flow—data/contract qualification, physical site model, same-horizon schedule comparison, economics/constraints/evidence, SHADOW review, and monitoring/replay—while improving navigation and narrow-screen site context. Scenario values remain synthetic. It does not implement real onboarding, a production Energy Graph, forecasting, schedule generation, persisted review, monitoring or replay.
+
+The v1.6 review records renders at 1440×1000, 1024×900, 768×900, 680×900, 375×844 and 320×844 CSS px. Document width matched the viewport; mobile navigation labels and 50×50 px targets were checked; desktop targets are recorded as 44 px high. It checked accessible navigation names, current-page state, skip-link-first keyboard focus, visible focus outline and JavaScript page errors, and visually inspected desktop/mobile screenshots. These are bounded checks, not full keyboard, touch, screen-reader, contrast, text-scaling, WCAG-conformance, usability or production validation.
+
+Traditional Chinese is the only fully represented prototype locale. Portuguese and English remain unimplemented in this workflow; full three-language terminology, dates, number/currency, error and blocked-state coverage needs localization review. UI/UX Pro Max and the project skill informed the review, but its generic marketing-style recommendation was rejected for this operator workflow. Apple HIG, Material 3, WCAG 2.2, Awwwards, Webby and FWA are documented as principles/quality references; no award-level quality, user validation or final visual direction is claimed. The earlier v0.10 and palette study remain portfolio-first stimuli and do not select the dispatch product's palette.
+
+### Live repository state and next alignment work
+
+PR #10 is still open, Draft and unmerged; exact head above. Its latest added G7.9 map crosswalk is in commit `3ae590b0823f70802f4fe8a53020c018aaf41a21`; exact-head Authority Validation and Repository Hygiene both passed (runs `37271169821` and `37271169744`). These checks do not approve the product or prototype. PR #8 remains open and unmerged; PR #10 is an additive focused proposal, not a replacement for the PR #8 PRD/IA.
+
+The original shared page was opened in the browser and exposed some Phase B/Phase C outputs, but portions showed “Failed to fetch template.” Treat the source as partially accessible only; no claim is made that every turn, attachment or generated file was read.
+
+Next product-design work is to reconcile the full dispatch workflow into the complete operator shell, preserve evidence/status and physical-versus-settlement boundaries across every state, and validate language coverage and workflow with representative domain users. Keep product scope, first-pilot resource eligibility, visual system, locale priority and technical architecture proposed until reviewed. Do not infer operational scheduling capability from the synthetic prototype or the separate PR #14 optimizer experiment.
