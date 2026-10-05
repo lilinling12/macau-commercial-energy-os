@@ -199,3 +199,26 @@ These decisions require customer/security review and deployment context. Do not 
 - Current code finding: VS-001 HTTP path has no auth guard; AppModule binds synthetic/fail-closed adapters; no production identity or persistence module appears in the inspected implementation tree.
 
 This document narrows the design gap but does not prove implementation, customer role validation, production identity, complete tenant isolation, G6 closure or control authorization.
+
+
+## 2026-10-05 — APP-11 settlement-scope authorization extension
+
+The APP-11 proposal can evaluate one physical schedule against more than one economic settlement scope. The existing tenant/site policy remains the parent boundary; it is insufficient by itself to authorize every account-specific child result. This is an authorization-design requirement, not an approved role matrix or a claim that the current implementation enforces it.
+
+- A settlement account/contract relation in the Energy Graph describes legal/economic applicability. It does not itself grant product access. A product authorization policy must separately decide which principal may perform each action on each settlement scope.
+- A site grant may permit a physical schedule or site operation while a distinct account grant controls reading/requesting an economic evaluation, inspecting its source evidence, recording a review over that economic scope, replaying it or exporting it. These action families and their exact names remain proposals for owner/customer/security review under Decision #14.
+- Each APP-11 child EconomicEvaluation is authorized independently. Its persisted job context records the originating actor, action, authorized site, exact settlement scope, policy revision and the scope references actually selected. Background processing and replay may not broaden this set.
+- A client-supplied account/scope ID is only a selector. Resolve and authorize it through server-owned policy before loading/disclosing its account identity, tariff, evidence or result. Unknown and unauthorized references follow a consistent non-disclosure response.
+- For a multi-scope assessment, lists, statuses, counts, reason codes, review views and replay outputs include only the actor-authorized scope set. Do not reveal that a hidden second account exists. A physical-only result may be returned only under its own site authorization and readiness evidence.
+- A review annotation identifies the immutable assessment version and the scope results visible to that reviewer. It cannot imply review of hidden/unavailable economic children and cannot authorize execution.
+- When a grant is revoked, subsequent reads/replay use the current policy and deny that scope; historical assessment/review records remain immutable and auditable under the approved retention policy.
+
+**Additional authorization acceptance cases for WP-4 and G7.9**
+
+1. A user has a site-operation grant but no economic-account grant: the physical schedule can be returned if separately authorized; account identity, economic child, its count and tariff details remain undisclosed.
+2. A finance user has access to account A but not account B under the same site: only A's child result and evidence are returned; B's presence is not exposed in response, UI counts, errors or replay.
+3. A replay worker receives a persisted parent assessment containing multiple children: it rechecks each child scope and returns only those still authorized to the current actor; hidden child status is not exposed.
+4. An append-only review identifies exactly which visible child scopes were reviewed; it is not represented as a site-wide economic approval.
+5. Revocation of one account grant does not grant access through another account, organization membership or a service identity.
+
+The [G7.9 Step 3 multi-scope proposal](https://github.com/lilinling12/macau-commercial-energy-os/blob/product/source-load-economic-dispatch/docs/03-architecture/detailed-design/G7.9-STEP3-DISPATCH-CONTRACT-IMPLEMENTATION-MAP-v0.1.md) records the corresponding parent/child result, snapshot, idempotency, persistence and replay semantics. The candidate role/grant model, 403 versus indistinguishable 404 behavior, portfolio roll-up permissions and approval separation remain open. No customer-data intake, account role or production authorization is approved by this addendum.
