@@ -77,3 +77,8 @@ Therefore, treat v2.2 as a static service-state study, not the UI implementation
 ### v2.3 static mixed-state UI study update — 2026-10-05
 
 PR #10 now contains [prototype v2.3](prototype/source-load-dispatch/v2.3/index.html) and its [review record](prototype/source-load-dispatch/v2.3/REVIEW.md). It preserves v2.2's existing static 4/6 partial-rate example and adds selectable synthetic cases for incomplete rates, absent tariff applicability, unresolved meter mapping, and synthetic HVAC service violation. Each case updates physical/HVAC/ESS/economic states and a claim ledger. Exact branch source blob `d1a67a0b70acb149a44884dbbaab97efbbffe816` was fetched back; both inline scripts passed `node --check`. This is source-level syntax evidence only: no v2.3 browser render or interaction review has been performed; the fixture remains disconnected from optimizer/API/site/evidence and is Traditional-Chinese-only.
+
+
+### v2.3 fixture separation and consistency guard — 2026-10-05
+
+The mixed-state examples are now stored in `prototype/source-load-dispatch/v2.3/fixtures/mixed-claim-states.json`, embedded in the study HTML for offline rendering, and checked by `validate-claim-fixtures.py`. The verifier parses the embedded fixture and requires exact equality with the standalone JSON, then enforces claim boundaries for partial-rate coverage, absent tariff, blocked core mapping, synthetic service violation and no device control. On the exact fetched v2.3 branch source, both executable inline JS blocks passed `node --check`, and the Python verifier passed. This is prototype data/markup consistency evidence only; it does not validate the API, optimizer, browser render or production contract.
