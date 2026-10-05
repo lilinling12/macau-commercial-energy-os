@@ -11,6 +11,12 @@
 - Builder fails if the source HTML blob differs from the catalog's pinned source.
 - The preview is generated separately; it does not alter v1.9 or the current v2.7 proposal.
 
+From the `localization-study-v0.2` directory, reproduce the page with:
+
+```powershell
+python tools/build_localized_preview.py --source ../index.html --catalog ../localization/locale-catalog-draft-full-workflow-v0.3.json --output index.html
+```
+
 ## Browser check performed (2026-10-06)
 
 Opened the generated page in Codex In-app Browser at the `dispatchComparison` stage, separately loading `zh-Hant`, `en`, and `pt` via URL query parameter. Reviewed each initial page's accessibility tree. Checked the workflow/navigation labels, date and time selectors, synthetic-data and evidence boundaries, dispatch schedule, HVAC rebound, ESS/SOC explanation, unknown billing-period Pu, chart title/description, stage number, and prototype boundary.
