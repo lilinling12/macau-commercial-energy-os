@@ -1,26 +1,29 @@
 # Source/load dispatch prototype v1.5 review
 
 **Review date:** 2026-10-05  
-**Status:** Narrow-screen cost/evidence-table refinement; not production UX approval.  
-**Base:** v1.4 EV physical/economic boundary.  
-**Base HTML blob:** 54bb68a37c40a44480c40a63ae2edb473c663a50
+**Status:** Responsive cost/evidence-table refinement; not production UX approval.  
+**Base:** v1.4 EV physical/economic boundary.
 
 ## Change
 
-The cost/constraint stage retains its full four-column semantic table on wider screens. At widths up to 680 CSS px, each row is presented as a card with visible field labels for status, impact and required evidence. The table headers remain in the accessibility tree. Cell text wraps; the cost table no longer requires horizontal scrolling on narrow screens. The EV settlement-attribution row and its “do not presume the building tariff or allocation rule” boundary are unchanged.
+- At widths up to 680 CSS px, the cost/constraint matrix becomes a set of labeled cards. Long values wrap, and the table remains available as rows and cells in the accessibility tree.
+- At wider widths, the same four-column matrix uses fixed proportional column widths and wrapping so the evidence column remains visible without horizontal scrolling.
+- The EV settlement row and its boundary are unchanged: do not presume building-tariff inheritance or cost allocation; require the charger-serving meter, account, effective contract/tariff and corresponding bill.
 
-## Narrow-screen render
+## Rendered review
 
-Rendered the exact v1.5 source in Microsoft Edge inside a same-origin 375 CSS-pixel iframe review viewport at 375×680. The parent harness reads the embedded document's actual viewport and layout dimensions.
+**Desktop:** Microsoft Edge, available browser viewport 1265×712 CSS px, cost/constraint stage. The four columns, including the complete EV required-evidence cell, fit inside the table container; the table no longer needs horizontal scrolling. The two-column constraint explanation remains alongside it.
 
-- Embedded viewport: **375×680**.
+**Narrow viewport:** Microsoft Edge, exact v1.5 source inside a same-origin 375×680 CSS-pixel iframe viewport. The parent review harness measured:
+
+- Embedded viewport: **375×680px**.
 - Embedded document client width / scroll width: **360/360px**; no page-level horizontal overflow.
 - Cost-table container client width / scroll width: **332/332px**; no table-level horizontal scrolling.
-- The EV settlement row remains present. Its status, impact and required-evidence labels are visible in the accessibility tree.
-- The table remains exposed with rows and cells in the browser accessibility tree after the mobile presentation change.
+- EV settlement row is present, with visible status, impact and evidence labels in the accessibility tree.
+- The table remains exposed as a table with rows/cells in the browser accessibility tree after the responsive presentation change.
 
-The browser viewport was shorter than a common phone height, so this checks width/wrapping and internal scroll behavior rather than full-device task completion or touch ergonomics. The stage remains vertically long.
+The narrow-height render checks wrapping and width; it does not prove full phone task completion, touch ergonomics or all scroll states. The cost/constraint stage remains vertically long.
 
 ## Limits
 
-The review covers only the Traditional Chinese synthetic cost/constraint state. It does not establish tariff applicability, bill reconstruction, an EV schedule, real site/operator usability, or equipment control. Portuguese/English coverage, keyboard and screen-reader walkthrough, touch-device validation, text scaling, measured contrast, WCAG conformance, and customer/site validation remain open. Wider desktop rendering relies on the unchanged v1.4 table styles; a separate v1.5 desktop visual pass remains to be recorded.
+Only the Traditional Chinese synthetic cost/constraint state was reviewed. No customer/site usability, tariff applicability, bill reconstruction, EV schedule, optimizer result or equipment control is validated. Keyboard and screen-reader walkthrough, touch-device review, text scaling, measured contrast, complete Portuguese/English localization, WCAG conformance and customer/site validation remain open. Product scope, visual direction, locale scope and production architecture remain unapproved.
