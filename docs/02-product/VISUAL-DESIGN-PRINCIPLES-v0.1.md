@@ -70,3 +70,34 @@ A fresh Pro Max run used the product-specific design-system query `commercial en
 - IBM Design Language, Data visualization basics: <https://www.ibm.com/design/language/data-visualization/design/basics/>
 - W3C, Web Content Accessibility Guidelines (WCAG): <https://www.w3.org/WAI/standards-guidelines/wcag/>
 - W3C, WCAG 2.2 contrast minimum: <https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html>
+
+
+## Direct source and skill review — v0.10, palette study, 2026-10-05
+
+### Evidence read
+
+- Project skill [`.agents/skills/macau-energy-os-ui-ux/SKILL.md`](../../.agents/skills/macau-energy-os-ui-ux/SKILL.md), blob `133aa421796ad314a1e4678f3d3a65051f532178`, and its energy-operations, quality-review, and visual-reference case-study references were read directly from PR #8.
+- v0.10 source, blob `5d148b4990e353c7a400b7401216066f35ed68cf`, begins on **Portfolio overview**: a four-metric row (sites, point coverage, economic-result status, recommendations) followed by site readiness, evidence items and a synthetic trend. It does carry strong truth boundaries: synthetic data, incomplete evidence, no bill-grade claim, no remote-PV credit, SHADOW-only recommendations and no command path. Economics, tariff/contract evidence and a site/source model are secondary destinations; the opening hierarchy does not make the source/load economic dispatch the primary task.
+- The navigation exposes nine destinations on desktop and a single select on narrow screens. This is source inspection, not a current browser, keyboard, screen-reader or reflow result.
+- Visual-direction study v0.1, blob `986f7f6bd1f7c01506ac6cc41a3b3430d9d8309c`, compares Harbor Teal, Mineral Blue and Night Graphite on the **same synthetic portfolio-overview** task. It provides an actual/forecast line distinction, uncertainty band, labels and a locale label sample. It is a palette stimulus, not a dispatch-task comparison; it does not select a palette, theme, typography or product design system. The sample has one short localized label, so it cannot establish full Traditional Chinese/Portuguese/English layout fit.
+- This turn did not render either exact source in a browser. Prior review notes for earlier versions are not re-labeled as current-version rendered checks.
+
+### UI/UX Pro Max run and fit
+
+The required product-specific run used:
+
+`commercial energy operations dispatch evidence dense data`  
+`--design-system --variance 7 --motion 3 --density 7`
+
+The aggregate result routed to **Trust & Authority + Conversion** and **Organic Biophilic**, with a generic green sustainability palette, Fira type and marketing conversion elements. That is an explicit poor fit for a persistent commercial-energy operator console: conversion sections, logo carousel and nature/organic styling do not solve the dispatch review task. **None of this generated palette, typography or pattern is adopted or persisted.**
+
+Two narrow searches returned relevant, product-fit guidance:
+
+- UX query `contextual status evidence claim explanation` returned the rule to announce one meaningful contextual status through a single appropriate atomic live region without moving focus. This fits mixed readiness/claim feedback when it is implemented and checked in the actual interface.
+- Chart query `time series actual forecast uncertainty accessible table` returned direct labels, solid actual vs dashed forecast, a named uncertainty range, plus a visible data-table and concise-summary alternative. Those are useful conventions, not a library, color, or final chart design decision.
+
+### Directional conclusion
+
+The current sources establish a **product-hierarchy gap**, not a palette defect: v0.10 and the palette study explain readiness/evidence, but they place portfolio scan ahead of dispatch. Continue the approved-by-user *directional intent*—dispatch first, portfolio/readiness as supporting context—while keeping the product baseline and visual system pending owner review. Compare new visual options on the same dispatch decision task and same evidence states, including blocked/partial/economic-unavailable and SHADOW review. Preserve provenance, time range, units and uncertainty at the decision point; do not fill missing physical or settlement links for a more complete-looking graphic.
+
+**Coverage not established:** exact-source rendering, complete responsive interaction, full keyboard and assistive-technology review, 200% zoom, full-page contrast, complete locale strings/formatting, target-user comprehension or WCAG 2.2 AA conformance. The project quality-review checklist remains the acceptance method for those later checks.
