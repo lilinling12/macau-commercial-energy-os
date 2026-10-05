@@ -32,3 +32,8 @@ The change follows the proposed [Flexible-Load Service Boundary Design](../../..
 ## Claim-state integration follow-up
 
 The separate [Dispatch Claim-State Presentation Contract proposal](../../DISPATCH-CLAIM-STATE-PRESENTATION-CONTRACT-v0.1.md) maps future UI states to independent physical, resource-service, economic, evidence, claim, review, and execution dimensions. It records that this v2.2 study is not bound to PR #14/API output and enumerates mixed-state acceptance examples for a future vertical slice.
+
+
+## v2.3 mixed claim-state follow-up
+
+Versioned [v2.3 mixed claim-state study](../v2.3/index.html) and its [review record](../v2.3/REVIEW.md) preserve v2.2's partial 4/6 import-energy-rate sample and add four selectable, disconnected synthetic result combinations with independent physical, service, economic and claim-ledger displays. This does not imply API binding; v2.3 browser review remains pending.
