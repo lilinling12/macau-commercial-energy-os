@@ -125,3 +125,30 @@ The reports do not say “Next.js is the backend.” Report (7) explicitly recom
 - The inventory covers the supplied archive packages and readable text entries, but not a full semantic review of every text in all 735 project ZIP entries. A separate G7.3-named ZIP was not found.
 - Prototype source files were checked; only PR #10 v1.9 was inspected in the live browser during this audit. The earlier v0.10 and palette files were not treated as currently approved or fully accessibility-tested.
 - Green GitHub structural CI and historical merged PRs are evidence for their exact scope, not proof of a complete MVP, production architecture selection, research closure or pilot readiness.
+
+
+## 9. Focused G7.6–G7.8 implementation/governance package cross-check — 2026-10-06
+
+This follow-up semantically read selected files from five source ZIPs, identified by their archive SHA-256 (the D: source folder is a reference archive directory, not a Git checkout):
+
+| Archive | SHA-256 | Inspected conclusion |
+|---|---|---|
+| G7.6 Step 3 vertical-slice design | `A9ECD890FED6A25FF84A226D1873C899E0BF4AC8ED414AE590A8ABF89C980567` | Specifies an HVAC optimization recommendation loop: simulator → Go Edge → telemetry API → Energy Model → forecast/optimizer → recommendation API → React Portal. It establishes an earlier first-slice design, not a full source/load dispatch workflow or proof that the slice was implemented. |
+| G7.6 Step 5 MVP bootstrap | `E84EEA8553781A071ECDE6F37F9B0098875CA4BB2B03EC93E6611452D7BE030D` | AI coding protocol requires reading authority/ADR, contract-first changes, small PRs, validation evidence, and prohibits silent architecture or equipment-control changes. |
+| G7.7 Step 3 engineering governance | `A512103B8167FCDCBBB5E2DC2614E7D849A56C0B12704F9408A93ADC8249E324` | Final AGENTS draft says authority before implementation, contract before code, reversible changes and evidence-based validation; the AI coding workflow includes automated validation and human review. |
+| G7.8 Step 4 repository bootstrap | `3770F38952EE8D4ED8C44BFDEC0FEC7D96FFBC968678354A2E2516259CDAA222` | Proposes a pnpm monorepo with React/TypeScript portal, Fastify/TypeScript platform API, Go Edge, Python optimizer, contracts/schemas and simulator. It is a historical implementation blueprint, not proof of a winning production stack. |
+| G7.8 Step 5 CI bootstrap | `0CD05A69F4324E26DA1E093FFA775ED0A14F8A889EFE762C81698F38E90217DB` | Marks its package step completed and describes CI, contract validation, tests and review as merge gates; the status text is package-local evidence, not a GitHub merge record. |
+
+### Repository adoption check
+
+On inspected GitHub main, the general governance intent is **partially implemented**: `AGENTS.md`, `CONTRIBUTING.md`, a PR template, authority validation, repository hygiene, contract JSON validation, and runtime bootstrap workflows exist. The runtime workflow runs TypeScript typecheck/tests and deterministic VS-001 replay, Go tests/build, Python unit tests, and contract-fixture validation. These are real repository artifacts; they do not make every G7.7/G7.8 blueprint item complete.
+
+The current main tree also has a canonical-path inconsistency: its authority/handoff files are under `docs/00-authority/handoff`, while the inspected main repository-hygiene and authority-validation scripts still require legacy `docs/handoff`, `docs/decisions`, and related paths that were not found at those exact paths. This is directly addressed by separate open Draft PR #13, `fix/canonical-authority-ci-paths`, head `68c955b936faddfbdbdbdf043688b3696efa87a3`; its Authority Validation run #941 and Repository Hygiene run #940 succeeded. PR #10 also contains the canonical-path repair, but it remains a broad product/design proposal and is not merged. No branch protection or PR has been changed by this audit.
+
+The main branch's `contracts-validation.yml` and `runtime-bootstrap.yml` show that the source packages' general CI/test intent has concrete counterparts. However, the current main workflow names alone do not prove the full G7.8 gate coverage, an accepted review policy, code-owner enforcement, release governance, or source-package-to-file equivalence. Those need a dedicated repository-wide path/content crosswalk before claiming complete G7.7/G7.8 adoption.
+
+### Product/implementation implication
+
+The original G7.6 vertical slice prioritizes an HVAC recommendation loop. The later dispatch-first proposal broadens the operator task to coordinate grid import, verified on-site PV, ESS charge/discharge, and flexible loads under physical, tariff/contract, service, safety and evidence constraints. HVAC remains a key flexible asset and is consistent with the active main decision D-003; this is a product-scope evolution that needs explicit traceability, not evidence that the earlier package already specified or implemented the later dispatch loop.
+
+This focused read covers five packages and selected GitHub paths only. It does not complete semantic review of the remaining source archives or certify repository-wide adoption.
