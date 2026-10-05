@@ -24,6 +24,7 @@ class EvidenceState(StrEnum):
 class PhysicalStatus(StrEnum):
     VALIDATED_WITHIN_SCOPE = "VALIDATED_WITHIN_SCOPE"
     SCENARIO_ONLY = "SCENARIO_ONLY"
+    PARTIAL = "PARTIAL"
     BLOCKED = "BLOCKED"
     INFEASIBLE = "INFEASIBLE"
 
@@ -37,7 +38,31 @@ class EconomicStatus(StrEnum):
 class ClaimScope(StrEnum):
     VERIFIED_BOUNDED = "VERIFIED_BOUNDED"
     SCENARIO_ONLY = "SCENARIO_ONLY"
+    PARTIAL = "PARTIAL"
     NONE = "NONE"
+
+
+class ClaimType(StrEnum):
+    GRID_IMPORT_PROFILE = "GRID_IMPORT_PROFILE"
+    HORIZON_PEAK = "HORIZON_PEAK"
+    DISPATCH_FEASIBILITY = "DISPATCH_FEASIBILITY"
+    ESS_DISPATCH = "ESS_DISPATCH"
+    FLEXIBLE_LOAD_DISPATCH = "FLEXIBLE_LOAD_DISPATCH"
+    GRID_IMPORT_GUARD = "GRID_IMPORT_GUARD"
+    GRID_IMPORT_ENERGY_COMPONENT = "GRID_IMPORT_ENERGY_COMPONENT"
+    DEMAND_CHARGE = "DEMAND_CHARGE"
+    EXPORT_COMPENSATION = "EXPORT_COMPENSATION"
+    FULL_BILL = "FULL_BILL"
+    SAVINGS = "SAVINGS"
+    CONTROLLABILITY = "CONTROLLABILITY"
+    COMFORT_SERVICE = "COMFORT_SERVICE"
+    CROSS_SITE_CREDIT = "CROSS_SITE_CREDIT"
+    DEVICE_CONTROL = "DEVICE_CONTROL"
+
+
+class ClaimStatus(StrEnum):
+    ALLOWED = "ALLOWED"
+    WITHHELD = "WITHHELD"
 
 
 class FlexibleLoadKind(StrEnum):
@@ -160,12 +185,22 @@ class IntervalComparison:
 
 
 @dataclass(frozen=True, slots=True)
+class ClaimReadiness:
+    claim: ClaimType
+    status: ClaimStatus
+    scope: ClaimScope
+    reasons: tuple[str, ...]
+    subject: str | None = None
+
+
+@dataclass(frozen=True, slots=True)
 class AssessmentResult:
     tenant_id: str
     site_id: str
     physical_status: PhysicalStatus
     economic_status: EconomicStatus
     claim_scope: ClaimScope
+    claim_readiness: tuple[ClaimReadiness, ...]
     reasons: tuple[str, ...]
     baseline_import_energy_kwh: Decimal | None
     candidate_import_energy_kwh: Decimal | None
@@ -176,6 +211,181 @@ class AssessmentResult:
     candidate_import_energy_charge_mop: Decimal | None
     import_energy_charge_delta_mop: Decimal | None
     economic_component: str | None
+
+
+def _claim_readiness(
+    request: AssessmentRequest,
+    physical_status: PhysicalStatus,
+    economic_status: EconomicStatus,
+    scope: ClaimScope,
+    reasons: tuple[str, ...],
+    *,
+    metrics_available: bool,
+    economic_component_available: bool,
+    unqualified: tuple[str, ...] = (),
+) -> tuple[ClaimReadiness, ...]:
+    claims: list[ClaimReadiness] = []
+
+    def add(
+        claim: ClaimType,
+        status: ClaimStatus,
+        claim_scope: ClaimScope,
+        explanation: str,
+        subject: str | None = None,
+    ) -> None:
+        claims.append(ClaimReadiness(claim, status, claim_scope, (explanation,), subject))
+
+    profile_scope = (
+        ClaimScope.SCENARIO_ONLY
+        if scope is ClaimScope.SCENARIO_ONLY
+        else ClaimScope.VERIFIED_BOUNDED
+        if metrics_available
+        else ClaimScope.NONE
+    )
+    profile_state = ClaimStatus.ALLOWED if metrics_available else ClaimStatus.WITHHELD
+    profile_reason = (
+        "Profile is bounded to the supplied schedule window and evidence; the horizon peak is not billing-period Pu."
+        if metrics_available
+        else (reasons[0] if reasons else "Required physical inputs are unavailable.")
+    )
+    add(ClaimType.GRID_IMPORT_PROFILE, profile_state, profile_scope, profile_reason)
+    add(ClaimType.HORIZON_PEAK, profile_state, profile_scope, profile_reason)
+
+    feasibility_qualified = (
+        metrics_available
+        and physical_status in (PhysicalStatus.VALIDATED_WITHIN_SCOPE, PhysicalStatus.SCENARIO_ONLY)
+        and not unqualified
+    )
+    add(
+        ClaimType.DISPATCH_FEASIBILITY,
+        ClaimStatus.ALLOWED if feasibility_qualified else ClaimStatus.WITHHELD,
+        scope if feasibility_qualified else ClaimScope.NONE,
+        "All applicable schedule constraints are evidenced within this bounded prototype."
+        if feasibility_qualified
+        else "Schedule feasibility is withheld because one or more required resource constraints are unresolved.",
+    )
+
+    uses_ess = any(
+        row.ess_charge_kw > 0 or row.ess_discharge_kw > 0
+        for schedule in (request.baseline, request.candidate)
+        for row in schedule.intervals
+    )
+    if uses_ess:
+        ess_issue = next((item for item in unqualified if item.startswith("ESS:")), None)
+        ess_ready = metrics_available and ess_issue is None and physical_status in (
+            PhysicalStatus.VALIDATED_WITHIN_SCOPE,
+            PhysicalStatus.SCENARIO_ONLY,
+            PhysicalStatus.PARTIAL,
+        )
+        add(
+            ClaimType.ESS_DISPATCH,
+            ClaimStatus.ALLOWED if ess_ready else ClaimStatus.WITHHELD,
+            scope if ess_ready else ClaimScope.NONE,
+            "ESS schedule is bounded by its supplied evidence."
+            if ess_ready
+            else (ess_issue or "ESS feasibility is withheld because the physical assessment is unavailable."),
+        )
+
+    changed_loads = _changed_flexible_load_ids(request)
+    load_limits = {item.asset_id: item for item in request.flexible_load_limits}
+    for asset_id in sorted(changed_loads):
+        issue = next((item for item in unqualified if item.startswith(f"Flexible load {asset_id}:")), None)
+        load_ready = metrics_available and issue is None and physical_status in (
+            PhysicalStatus.VALIDATED_WITHIN_SCOPE,
+            PhysicalStatus.SCENARIO_ONLY,
+            PhysicalStatus.PARTIAL,
+        )
+        add(
+            ClaimType.FLEXIBLE_LOAD_DISPATCH,
+            ClaimStatus.ALLOWED if load_ready else ClaimStatus.WITHHELD,
+            scope if load_ready else ClaimScope.NONE,
+            "The changed flexible-load schedule is within its supplied evidence."
+            if load_ready
+            else (issue or f"Flexible-load feasibility for {asset_id} is withheld."),
+            asset_id,
+        )
+
+    if request.grid_import_limit_kw is not None:
+        guard_issue = next((item for item in unqualified if item.startswith("Grid import guard:")), None)
+        guard_ready = metrics_available and guard_issue is None and physical_status in (
+            PhysicalStatus.VALIDATED_WITHIN_SCOPE,
+            PhysicalStatus.SCENARIO_ONLY,
+            PhysicalStatus.PARTIAL,
+        )
+        add(
+            ClaimType.GRID_IMPORT_GUARD,
+            ClaimStatus.ALLOWED if guard_ready else ClaimStatus.WITHHELD,
+            scope if guard_ready else ClaimScope.NONE,
+            "The candidate remains within its supplied grid-import guard."
+            if guard_ready
+            else (guard_issue or "Grid-import guard compliance is withheld."),
+        )
+
+    economic_scope = (
+        ClaimScope.SCENARIO_ONLY
+        if economic_status is EconomicStatus.SCENARIO_ONLY
+        else ClaimScope.VERIFIED_BOUNDED
+        if economic_component_available and economic_status is EconomicStatus.COMPONENT_AVAILABLE
+        else ClaimScope.NONE
+    )
+    add(
+        ClaimType.GRID_IMPORT_ENERGY_COMPONENT,
+        ClaimStatus.ALLOWED if economic_component_available else ClaimStatus.WITHHELD,
+        economic_scope,
+        "Only the interval-matched grid-import energy component is available; this is not a full bill or realized savings."
+        if economic_component_available
+        else (reasons[0] if reasons else "Eligible economic evidence is unavailable."),
+    )
+
+    withheld_claims = (
+        (ClaimType.DEMAND_CHARGE, "Billing-period Pu and demand-charge rules are not evaluated by this prototype."),
+        (ClaimType.EXPORT_COMPENSATION, "Export remuneration, payee, and account applicability are not evaluated."),
+        (ClaimType.FULL_BILL, "Taxes, demand components, and other bill items are outside the calculated energy component."),
+        (ClaimType.SAVINGS, "A modeled import-energy component is not measured or realized savings."),
+        (ClaimType.CONTROLLABILITY, "No site-qualified equipment capability or control authorization is established."),
+        (ClaimType.COMFORT_SERVICE, "Thermal comfort and other service constraints are not modeled."),
+        (ClaimType.CROSS_SITE_CREDIT, "No cross-building or cross-account credit is established."),
+        (ClaimType.DEVICE_CONTROL, "This assessment has no equipment command path."),
+    )
+    for claim, reason in withheld_claims:
+        add(claim, ClaimStatus.WITHHELD, ClaimScope.NONE, reason)
+    return tuple(claims)
+
+
+def _changed_flexible_load_ids(request: AssessmentRequest) -> set[str]:
+    changed: set[str] = set()
+    for baseline, candidate in zip(request.baseline.intervals, request.candidate.intervals):
+        base = {flow.asset_id: flow.power_kw for flow in baseline.flexible_loads}
+        proposed = {flow.asset_id: flow.power_kw for flow in candidate.flexible_loads}
+        for asset_id in base.keys() | proposed.keys():
+            if base.get(asset_id, Decimal("0")) != proposed.get(asset_id, Decimal("0")):
+                changed.add(asset_id)
+    return changed
+
+
+def _unqualified_resource_claims(request: AssessmentRequest) -> tuple[str, ...]:
+    issues: list[str] = []
+    uses_ess = any(
+        row.ess_charge_kw > 0 or row.ess_discharge_kw > 0
+        for schedule in (request.baseline, request.candidate)
+        for row in schedule.intervals
+    )
+    if uses_ess and (
+        request.ess_limits is None
+        or request.ess_limits.evidence.state in (EvidenceState.UNKNOWN, EvidenceState.STALE)
+    ):
+        issues.append("ESS: active ESS schedule has no current verified operating evidence; its feasibility claim is withheld.")
+    load_limits = {item.asset_id: item for item in request.flexible_load_limits}
+    for asset_id in sorted(_changed_flexible_load_ids(request)):
+        limit = load_limits.get(asset_id)
+        if limit is None or limit.evidence.state in (EvidenceState.UNKNOWN, EvidenceState.STALE):
+            issues.append(f"Flexible load {asset_id}: changed load has no current verified operating envelope; its feasibility claim is withheld.")
+    if request.grid_import_limit_kw is not None and (
+        request.grid_import_limit_evidence is None
+        or request.grid_import_limit_evidence.state in (EvidenceState.UNKNOWN, EvidenceState.STALE)
+    ):
+        issues.append("Grid import guard: limit evidence is missing, unknown, or stale; compliance claim is withheld.")
+    return tuple(issues)
 
 
 class _Blocked(Exception):
@@ -195,10 +405,11 @@ def assess_schedule(request: AssessmentRequest) -> AssessmentResult:
     try:
         _validate_request_shape(request)
         evidence = _applicable_evidence(request)
-        if not evidence:
-            raise _Blocked("No evidence references were supplied for the physical assessment.")
-        if any(item.state in (EvidenceState.UNKNOWN, EvidenceState.STALE) for item in evidence):
-            raise _Blocked("Required physical evidence is unknown or stale.")
+        if not request.physical_evidence:
+            raise _Blocked("No core physical evidence was supplied for the schedule profile.")
+        if any(item.state in (EvidenceState.UNKNOWN, EvidenceState.STALE) for item in request.physical_evidence):
+            raise _Blocked("Core physical evidence is unknown or stale.")
+        unqualified = _unqualified_resource_claims(request)
 
         _validate_schedule(request.baseline, request, is_candidate=False)
         _validate_schedule(request.candidate, request, is_candidate=True)
@@ -208,18 +419,40 @@ def assess_schedule(request: AssessmentRequest) -> AssessmentResult:
         baseline_peak = max(row.grid_import_kw for row in request.baseline.intervals)
         candidate_peak = max(row.grid_import_kw for row in request.candidate.intervals)
         assumed = any(item.state is EvidenceState.PROJECT_ASSUMPTION for item in evidence)
-        physical_status = PhysicalStatus.SCENARIO_ONLY if assumed else PhysicalStatus.VALIDATED_WITHIN_SCOPE
-        scope = ClaimScope.SCENARIO_ONLY if assumed else ClaimScope.VERIFIED_BOUNDED
-        economic = _evaluate_economics(request.economic_context, request, assumed)
-        reasons = economic[1]
+        physical_status = (
+            PhysicalStatus.SCENARIO_ONLY
+            if assumed
+            else PhysicalStatus.PARTIAL
+            if unqualified
+            else PhysicalStatus.VALIDATED_WITHIN_SCOPE
+        )
+        scope = (
+            ClaimScope.SCENARIO_ONLY
+            if assumed
+            else ClaimScope.PARTIAL
+            if unqualified
+            else ClaimScope.VERIFIED_BOUNDED
+        )
+        economic = _evaluate_economics(request.economic_context, request, assumed or bool(unqualified))
+        reasons = economic[1] + unqualified
         if assumed:
-            reasons += ("One or more physical inputs use project assumptions; all resulting comparisons are scenario-only.",)
+            reasons += ("One or more physical inputs use project assumptions; resulting comparisons are scenario-only.",)
         return AssessmentResult(
             tenant_id=request.tenant_id,
             site_id=request.site_id,
             physical_status=physical_status,
             economic_status=economic[0],
             claim_scope=scope,
+            claim_readiness=_claim_readiness(
+                request,
+                physical_status,
+                economic[0],
+                scope,
+                reasons,
+                metrics_available=True,
+                economic_component_available=economic[2] is not None,
+                unqualified=unqualified,
+            ),
             reasons=reasons,
             baseline_import_energy_kwh=baseline_energy,
             candidate_import_energy_kwh=candidate_energy,
@@ -246,6 +479,15 @@ def _empty_result(request: AssessmentRequest, status: PhysicalStatus, reasons: t
         physical_status=status,
         economic_status=EconomicStatus.BLOCKED,
         claim_scope=ClaimScope.NONE,
+        claim_readiness=_claim_readiness(
+            request,
+            status,
+            EconomicStatus.BLOCKED,
+            ClaimScope.NONE,
+            reasons,
+            metrics_available=False,
+            economic_component_available=False,
+        ),
         reasons=reasons,
         baseline_import_energy_kwh=None,
         candidate_import_energy_kwh=None,
@@ -307,12 +549,9 @@ def _applicable_evidence(request: AssessmentRequest) -> tuple[EvidenceRef, ...]:
         raise _Blocked("Flexible-load operating envelopes must have unique asset IDs.")
     for asset_id in active_load_ids:
         limit = load_limits.get(asset_id)
-        if limit is None:
-            raise _Blocked(f"No evidenced operating envelope was supplied for flexible load {asset_id}.")
-        items.append(limit.evidence)
-    if request.grid_import_limit_kw is not None:
-        if request.grid_import_limit_evidence is None:
-            raise _Blocked("A grid-import limit requires a supporting evidence reference.")
+        if limit is not None:
+            items.append(limit.evidence)
+    if request.grid_import_limit_kw is not None and request.grid_import_limit_evidence is not None:
         items.append(request.grid_import_limit_evidence)
     if any(not _is_well_formed_evidence(item) for item in items):
         raise _Blocked("Every evidence reference must have a non-empty ID and a recognized state.")
@@ -361,7 +600,9 @@ def _validate_schedule(schedule: Schedule, request: AssessmentRequest, *, is_can
                 or flow.power_kw < 0
             ):
                 raise _Blocked("Flexible-load flows require an asset ID and finite non-negative Decimal kW.")
-            limit = load_limits[flow.asset_id]
+            limit = load_limits.get(flow.asset_id)
+            if limit is None:
+                continue
             if (
                 not isinstance(limit.min_power_kw, Decimal)
                 or not isinstance(limit.max_power_kw, Decimal)
@@ -372,36 +613,49 @@ def _validate_schedule(schedule: Schedule, request: AssessmentRequest, *, is_can
                 or limit.min_power_kw > limit.max_power_kw
             ):
                 raise _Blocked(f"Invalid operating envelope for flexible load {flow.asset_id}.")
-            if flow.power_kw < limit.min_power_kw or flow.power_kw > limit.max_power_kw:
+            if limit.evidence.state not in (EvidenceState.UNKNOWN, EvidenceState.STALE) and (
+                flow.power_kw < limit.min_power_kw or flow.power_kw > limit.max_power_kw
+            ):
                 raise _Infeasible(f"Flexible load {flow.asset_id} is outside its evidenced power envelope.")
 
         if row.ess_charge_kw > 0 and row.ess_discharge_kw > 0:
             raise _Infeasible("ESS cannot charge and discharge simultaneously in one interval.")
         active_ess = row.ess_charge_kw > 0 or row.ess_discharge_kw > 0
-        if active_ess and (row.ess_soc_start_kwh is None or row.ess_soc_end_kwh is None or ess is None):
-            raise _Blocked("ESS activity requires SOC endpoints and evidenced ESS limits.")
-        if row.ess_soc_start_kwh is not None or row.ess_soc_end_kwh is not None:
-            if row.ess_soc_start_kwh is None or row.ess_soc_end_kwh is None or ess is None:
-                raise _Blocked("ESS SOC endpoints must be paired with an evidenced ESS model.")
+        has_soc_pair = row.ess_soc_start_kwh is not None and row.ess_soc_end_kwh is not None
+        if (row.ess_soc_start_kwh is None) != (row.ess_soc_end_kwh is None):
+            raise _Blocked("ESS SOC endpoints must be supplied as a pair.")
+        if has_soc_pair:
             start_soc, end_soc = row.ess_soc_start_kwh, row.ess_soc_end_kwh
-            if not isinstance(start_soc, Decimal) or not isinstance(end_soc, Decimal):
-                raise _Blocked("ESS SOC values must be Decimal kWh values.")
-            if not start_soc.is_finite() or not end_soc.is_finite() or start_soc < ess.min_soc_kwh or end_soc < ess.min_soc_kwh or start_soc > ess.max_soc_kwh or end_soc > ess.max_soc_kwh:
-                raise _Infeasible("ESS SOC is outside its evidenced minimum/maximum range.")
-            if previous_soc is not None and start_soc != previous_soc:
-                raise _Blocked("ESS SOC is discontinuous between adjacent intervals.")
-            expected_soc = start_soc + row.ess_charge_kw * row.duration_hours * ess.charge_efficiency - row.ess_discharge_kw * row.duration_hours / ess.discharge_efficiency
-            _check_equal(expected_soc, end_soc, "ESS SOC transition does not match AC power, duration, and efficiency.")
-            previous_soc = end_soc
-            soc_tracking_started = True
+            if (
+                not isinstance(start_soc, Decimal)
+                or not isinstance(end_soc, Decimal)
+                or not start_soc.is_finite()
+                or not end_soc.is_finite()
+                or start_soc < 0
+                or end_soc < 0
+            ):
+                raise _Blocked("ESS SOC values must be finite, non-negative Decimal kWh values.")
+            if ess is not None and ess.evidence.state not in (EvidenceState.UNKNOWN, EvidenceState.STALE):
+                if start_soc < ess.min_soc_kwh or end_soc < ess.min_soc_kwh or start_soc > ess.max_soc_kwh or end_soc > ess.max_soc_kwh:
+                    raise _Infeasible("ESS SOC is outside its evidenced minimum/maximum range.")
+                if previous_soc is not None and start_soc != previous_soc:
+                    raise _Blocked("ESS SOC is discontinuous between adjacent intervals.")
+                expected_soc = start_soc + row.ess_charge_kw * row.duration_hours * ess.charge_efficiency - row.ess_discharge_kw * row.duration_hours / ess.discharge_efficiency
+                _check_equal(expected_soc, end_soc, "ESS SOC transition does not match AC power, duration, and efficiency.")
+                previous_soc = end_soc
+                soc_tracking_started = True
         elif soc_tracking_started:
             raise _Blocked("ESS SOC continuity is missing after SOC tracking has started.")
+        elif active_ess and ess is not None and ess.evidence.state is EvidenceState.VERIFIED:
+            raise _Blocked("ESS activity with verified limits requires SOC endpoints.")
 
-        if ess is not None:
+        if ess is not None and ess.evidence.state not in (EvidenceState.UNKNOWN, EvidenceState.STALE):
             if row.ess_charge_kw > ess.max_charge_kw or row.ess_discharge_kw > ess.max_discharge_kw:
                 raise _Infeasible("ESS power exceeds its evidenced charge/discharge rating.")
 
-        if is_candidate and request.grid_import_limit_kw is not None and row.grid_import_kw > request.grid_import_limit_kw:
+        guard_evidence = request.grid_import_limit_evidence
+        guard_qualified = guard_evidence is not None and guard_evidence.state not in (EvidenceState.UNKNOWN, EvidenceState.STALE)
+        if is_candidate and request.grid_import_limit_kw is not None and guard_qualified and row.grid_import_kw > request.grid_import_limit_kw:
             raise _Infeasible("Candidate grid import exceeds the evidenced import guard.")
 
 
