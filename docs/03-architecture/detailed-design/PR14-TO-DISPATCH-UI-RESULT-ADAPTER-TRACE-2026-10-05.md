@@ -134,3 +134,12 @@ This refresh corrects version drift in the review record. It does not close G7.9
 The prior phrase “static claims” referred to fixed fixture data and could be read as saying the claim display was not interactive. Exact-source inspection and a 375px browser pass confirm that v2.4 already has four selectable fixture cases and a separate HVAC service-state radio study. Both update visible state and the claim cases expose their selected state; this behavior is now documented in [the v2.4 review](../../02-product/prototype/source-load-dispatch/v2.4/REVIEW.md).
 
 The meaningful remaining gap is **cross-state and system integration**: the HVAC radio study and claim-fixture selector are separate local demonstrations, neither uses the selected dispatch schedule nor consumes PR #14/API results. Thus the prototype demonstrates UI state treatment but does not verify a single result contract or vertical flow. “Interactive synthetic fixtures” is the accurate current description; “runtime-connected assessment” is not.
+
+
+## Addendum — current timestamp validation evidence — 2026-10-06
+
+The original crosswalk above is preserved against its named historical revisions. The current PR #14 head is now `236c75a0eaecbff4bfc2099896a14efef7d4d704`. Its schedule assessor compares interval positivity, schedule continuity and baseline/candidate interval identity by UTC instant. This fixes fall-back DST behavior where equal local wall-clock values can represent different instants. The existing duration calculation already used UTC elapsed time.
+
+Two focused regression cases verify that a valid interval from 01:30 (first 01:00 hour) to 01:00 (second 01:00 hour) is accepted as 30 minutes and that a one-hour absolute gap between repeated 01:00 values is rejected. Runtime Bootstrap [#37354915526](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37354915526) passed all four jobs; Optimizer ran 34 tests. Authority Validation [#37354915531](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37354915531) and Repository Hygiene [#37354915545](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37354915545) passed at that exact head.
+
+This changes no presentation mapping, APP-11 status vocabulary, canonical contract, API integration, or product/architecture approval. PR #14 remains Draft and unmerged; PR #10 remains a review proposal. The experiment's caller-supplied evidence and single-scope limitations still apply.
