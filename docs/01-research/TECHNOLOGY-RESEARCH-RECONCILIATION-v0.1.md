@@ -198,6 +198,10 @@ The PR #14 description itself stops at the earlier `0b69...` entry. Its later `c
 - Main's G6.9 authority still requires Step 3D/Step 4 evidence and labels C+ provisional; the actual NestJS path is implementation evidence, not the comparative winner.
 - Reports (6) and (7) remain different pre-bake-off recommendations. Report (6) proposes C+ without Next.js. Report (7) recommends a React/TypeScript SPA and Node/NestJS control plane, with Next.js only a conditional public/customer portal/server-composition option.
 - PR #14 proves a bounded synthetic Python experiment only. It does not establish a production optimizer boundary or change the Node/Fastify/NestJS/Go-core decision.
-- PR #10's exact-source mapping concludes that the v2.4 UI is a synthetic static study and has no runtime path to the optimizer. The adapter contract, durable result lifecycle and replay remain design work.
+- PR #10's exact-source mapping and 2026-10-06 browser recheck show that v2.4 has interactive fixed-fixture claim cases plus a separate synthetic HVAC-state control, but neither is connected to the optimizer/API or one common assessment result. The adapter contract, durable result lifecycle and replay remain design work.
 
 The reviewed owner packet in PR #10 keeps authority precedence, APP-11 logical ownership, product scope/locales and contract authoring as explicit decisions with options and consequences. Until an owner-reviewed authority record resolves those dependencies, keep architecture comparisons evidence-based and stack-neutral. No Gate is closed by this refresh.
+
+### UI-state evidence wording correction — 2026-10-06
+
+The v2.4 source is not interaction-free: its synthetic claim fixture selector and separate HVAC radio group update visible statuses and announcements. At 375 CSS px, the four claim cases and four HVAC states were exercised without page errors or horizontal overflow. The fixed fixtures are local presentation studies, not runtime/API outputs; their separate controls are not connected to the same assessment, schedule or optimizer. This corrects only the interaction description, not the production integration status or architecture decision.
