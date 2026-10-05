@@ -57,6 +57,7 @@ def request(baseline=None, candidate=None, **changes):
         baseline=Schedule((baseline or interval(),)),
         candidate=Schedule((candidate or interval(),)),
         physical_evidence=(VERIFIED,),
+        ess_state_evidence=VERIFIED,
     )
     values.update(changes)
     return AssessmentRequest(**values)
@@ -162,6 +163,33 @@ class DispatchAssessmentTests(unittest.TestCase):
     def test_empty_evidence_reference_blocks_assessment(self):
         result = assess_schedule(request(physical_evidence=(EvidenceRef("  ", EvidenceState.VERIFIED),)))
         self.assertEqual(result.physical_status, PhysicalStatus.BLOCKED)
+
+    def test_missing_unknown_and_stale_ess_soc_evidence_withhold_feasibility(self):
+        baseline = interval(
+            grid="10", load="15",
+            ess_soc_start_kwh=D("5"), ess_soc_end_kwh=D("5"),
+        )
+        candidate = interval(
+            grid="8", load="15", ess_discharge_kw=D("2"),
+            ess_soc_start_kwh=D("5"), ess_soc_end_kwh=D("3"),
+        )
+        limits = EssLimits(D("5"), D("5"), D("0"), D("10"), D("1"), D("1"), VERIFIED)
+        unresolved = (
+            None,
+            EvidenceRef("ess-soc:unknown", EvidenceState.UNKNOWN),
+            EvidenceRef("ess-soc:stale", EvidenceState.STALE),
+        )
+        for evidence in unresolved:
+            with self.subTest(evidence=evidence):
+                result = assess_schedule(request(
+                    baseline, candidate, ess_limits=limits, ess_state_evidence=evidence
+                ))
+                claims = {item.claim: item for item in result.claim_readiness}
+
+                self.assertEqual(result.physical_status, PhysicalStatus.PARTIAL)
+                self.assertEqual(claims[ClaimType.ESS_DISPATCH].status, ClaimStatus.WITHHELD)
+                self.assertEqual(claims[ClaimType.DISPATCH_FEASIBILITY].status, ClaimStatus.WITHHELD)
+                self.assertIn("ESS state of charge:", " ".join(result.reasons))
 
     def test_unknown_ess_constraint_keeps_import_profile_and_withholds_ess_claim(self):
         unknown = EvidenceRef("ess:unknown", EvidenceState.UNKNOWN)
@@ -488,7 +516,8 @@ class DispatchOptimizerTests(unittest.TestCase):
             tenant_id="tenant-demo", site_id="site-demo", site_timezone="Asia/Macau",
             baseline=baseline, flexible_tasks=(), fixed_flexible_load_limits=(),
             physical_evidence=(VERIFIED,), economic_context=EconomicContext(VERIFIED, VERIFIED, VERIFIED, rates),
-            power_step_kw=D("2"), soc_step_kwh=D("2"), ess_limits=limits, initial_soc_kwh=D("0"),
+            power_step_kw=D("2"), soc_step_kwh=D("2"), ess_limits=limits,
+            ess_state_evidence=VERIFIED, initial_soc_kwh=D("0"),
         ))
         first, second = result.candidate.intervals
         self.assertEqual((first.ess_charge_kw, first.pv_used_kw, first.pv_curtailed_kw), (D("2"), D("5"), D("0")))
@@ -554,6 +583,7 @@ class DispatchOptimizerTests(unittest.TestCase):
                 physical_evidence=(VERIFIED,), economic_context=context,
                 power_step_kw=D("1"), soc_step_kwh=D("1"), max_transitions=1,
                 ess_limits=EssLimits(D("1"), D("1"), D("0"), D("1"), D("1"), D("1"), VERIFIED),
+                ess_state_evidence=VERIFIED,
                 initial_soc_kwh=D("0"),
             ))
 
