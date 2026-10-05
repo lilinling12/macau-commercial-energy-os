@@ -61,6 +61,7 @@ class DispatchSearchRequest:
     grid_import_limit_evidence: EvidenceRef | None = None
     max_states_per_interval: int = 100_000
     max_transitions: int = 1_000_000
+    pv_curtailment_evidence: EvidenceRef | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -202,6 +203,7 @@ def generate_candidate(request: DispatchSearchRequest) -> DispatchSearchResult:
         baseline=request.baseline,
         candidate=request.baseline,
         physical_evidence=request.physical_evidence,
+        pv_curtailment_evidence=request.pv_curtailment_evidence,
         flexible_load_limits=all_limits,
         ess_limits=ess,
         economic_context=request.economic_context,
@@ -277,6 +279,7 @@ def generate_candidate(request: DispatchSearchRequest) -> DispatchSearchResult:
         baseline=request.baseline,
         candidate=candidate,
         physical_evidence=request.physical_evidence,
+        pv_curtailment_evidence=request.pv_curtailment_evidence,
         flexible_load_limits=all_limits,
         ess_limits=ess,
         grid_import_limit_kw=request.grid_import_limit_kw,
