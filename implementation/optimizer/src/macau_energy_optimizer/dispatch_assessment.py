@@ -175,14 +175,30 @@ class IntervalComparison:
     end: datetime
     baseline_grid_import_kw: Decimal
     candidate_grid_import_kw: Decimal
+    baseline_base_load_kw: Decimal
+    candidate_base_load_kw: Decimal
+    baseline_flexible_loads: tuple[FlexibleLoadFlow, ...]
+    candidate_flexible_loads: tuple[FlexibleLoadFlow, ...]
     baseline_total_load_kw: Decimal
     candidate_total_load_kw: Decimal
+    baseline_pv_generation_kw: Decimal
+    candidate_pv_generation_kw: Decimal
     baseline_pv_used_kw: Decimal
     candidate_pv_used_kw: Decimal
+    baseline_pv_export_kw: Decimal
+    candidate_pv_export_kw: Decimal
+    baseline_pv_curtailed_kw: Decimal
+    candidate_pv_curtailed_kw: Decimal
+    baseline_losses_kw: Decimal
+    candidate_losses_kw: Decimal
     baseline_ess_charge_kw: Decimal
     candidate_ess_charge_kw: Decimal
     baseline_ess_discharge_kw: Decimal
     candidate_ess_discharge_kw: Decimal
+    baseline_ess_soc_start_kwh: Decimal | None
+    candidate_ess_soc_start_kwh: Decimal | None
+    baseline_ess_soc_end_kwh: Decimal | None
+    candidate_ess_soc_end_kwh: Decimal | None
 
 
 @dataclass(frozen=True, slots=True)
@@ -791,14 +807,30 @@ def _comparisons(baseline: Schedule, candidate: Schedule) -> tuple[IntervalCompa
             end=left.end,
             baseline_grid_import_kw=left.grid_import_kw,
             candidate_grid_import_kw=right.grid_import_kw,
+            baseline_base_load_kw=left.base_load_kw,
+            candidate_base_load_kw=right.base_load_kw,
+            baseline_flexible_loads=left.flexible_loads,
+            candidate_flexible_loads=right.flexible_loads,
             baseline_total_load_kw=left.total_load_kw,
             candidate_total_load_kw=right.total_load_kw,
+            baseline_pv_generation_kw=left.pv_generation_kw,
+            candidate_pv_generation_kw=right.pv_generation_kw,
             baseline_pv_used_kw=left.pv_used_kw,
             candidate_pv_used_kw=right.pv_used_kw,
+            baseline_pv_export_kw=left.pv_export_kw,
+            candidate_pv_export_kw=right.pv_export_kw,
+            baseline_pv_curtailed_kw=left.pv_curtailed_kw,
+            candidate_pv_curtailed_kw=right.pv_curtailed_kw,
+            baseline_losses_kw=left.losses_kw,
+            candidate_losses_kw=right.losses_kw,
             baseline_ess_charge_kw=left.ess_charge_kw,
             candidate_ess_charge_kw=right.ess_charge_kw,
             baseline_ess_discharge_kw=left.ess_discharge_kw,
             candidate_ess_discharge_kw=right.ess_discharge_kw,
+            baseline_ess_soc_start_kwh=left.ess_soc_start_kwh,
+            candidate_ess_soc_start_kwh=right.ess_soc_start_kwh,
+            baseline_ess_soc_end_kwh=left.ess_soc_end_kwh,
+            candidate_ess_soc_end_kwh=right.ess_soc_end_kwh,
         )
         for left, right in zip(baseline.intervals, candidate.intervals, strict=True)
     )
