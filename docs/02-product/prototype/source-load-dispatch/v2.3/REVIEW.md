@@ -2,7 +2,7 @@
 
 **Status:** Static synthetic UI study for product/domain/design review. It does not approve product behavior, visual direction, an API contract, accessibility conformance, or production architecture.  
 **Base:** PR #10 v2.2 HTML blob `35124c13d203bc1e5fe73ea215a94ad18b0a90aa`.  
-**v2.3 source blob:** recorded after the source and review are fetched back from the branch.  
+**v2.3 source blob:** `d1a67a0b70acb149a44884dbbaab97efbbffe816` (80,344 characters).  
 **Purpose:** Make different physical, service, economic, evidence, and claim outcomes inspectable in one review fixture.
 
 ## Correction and continuity from v2.2
@@ -26,7 +26,7 @@ A targeted skill search for “live status announcement scoped assessment” ret
 
 - Exact v2.2 source was fetched from the PR #10 branch and used as the base; the new source is versioned v2.3, including its rail badge.
 - The four fixture records update every visible dimension and replace the ledger rows from one selected state.
-- JavaScript syntax check: pending exact-source extraction and check.
+- Fetched the exact v2.3 source back from the PR branch and extracted both inline JavaScript blocks; `node --check` passed for both blocks (9,571 and 3,272 characters).
 - Browser rendering and interactive review: pending; no visual or runtime browser claim is made here.
 
 ## Not verified
