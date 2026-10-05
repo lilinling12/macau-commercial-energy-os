@@ -53,3 +53,12 @@ Used the `ui-ux-pro-max` responsive and chart guidance and the project-specific 
 Reference principles consulted include Apple HIG hierarchy/progressive disclosure, Material 3 adaptive layout, and WCAG 2.2 focus/accessibility guidance. Webby criteria cover content, structure/navigation, visual design, functionality, interactivity and overall experience; Awwwards emphasizes design, usability, creativity and content; FWA describes digital creativity, originality and technical excellence. These inform review dimensions only; this prototype does not copy an award site. No award-case study establishes operator usability.
 
 This review is Traditional-Chinese-only, synthetic and local-browser-only. It does not prove WCAG conformance, complete localization, screen-reader support, representative-user success, tariff/contract/site validity, forecast or optimizer quality, dispatch feasibility, savings, production architecture, Gate closure, or authorization to control equipment.
+
+
+## Exact-head warning-contrast correction — 2026-10-05
+
+- Warning status icons now use the dedicated foreground `#9e4d27` on `#fae7dc`; the earlier orange foreground `#c86131` measured 3.36:1 on that warning background. The corrected pair measures **4.95:1** using the WCAG relative-luminance contrast formula.
+- Selected comparison pairs were also rechecked: ink/paper 13.35:1, muted/paper 4.50:1, muted/white 4.93:1, teal/white 4.92:1, navigation/white 14.63:1, and focus/white 5.56:1.
+- The browser review was rerun against the v0.9 source submitted in the immediately preceding exact-head commit. At 1440, 1024, 768 and 375 CSS px, document width equaled viewport width; the stage navigation, next-stage control, evidence shortcut, data-table disclosure, SHADOW disposition state/reset, and keyboard-scrollable chart were exercised. No JavaScript errors were observed.
+- Latest HTML commit: `f709fd6c436a57d089b399ea04008725cef92cec`; GitHub Contents API blob SHA: `a5adb1ba0f2d6821190be36affe4ba0a570c34d8`.
+- These are selected color-pair checks and prototype interaction evidence only. They do not establish WCAG conformance, screen-reader usability, complete localization, production readiness, or user validation. PR #10 remains a draft proposal.
