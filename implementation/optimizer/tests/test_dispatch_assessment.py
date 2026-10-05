@@ -124,8 +124,8 @@ class DispatchAssessmentTests(unittest.TestCase):
     def test_utc_instants_are_accepted_for_site_scoped_schedule(self):
         utc_start = START.astimezone(timezone.utc)
         utc_end = END.astimezone(timezone.utc)
-        baseline = Schedule((replace(interval(), start=utc_start, end=utc_end),))
-        candidate = Schedule((replace(interval(), start=utc_start, end=utc_end),))
+        baseline = replace(interval(), start=utc_start, end=utc_end)
+        candidate = replace(interval(), start=utc_start, end=utc_end)
 
         result = assess_schedule(request(baseline, candidate))
 
