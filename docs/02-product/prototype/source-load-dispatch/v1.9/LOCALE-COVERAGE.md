@@ -40,3 +40,14 @@ The project UI/UX skill requires locale-aware terminology, dates, numbers and un
 
 This is source inventory, not translation, runtime locale switching, linguistic review, rendered text-expansion testing, WCAG evaluation, operator research or owner approval. The next prototype increment should implement one complete locale switch over the real workflow using reviewed messages, then expand and verify all six stages and meaningful states in each owner-approved locale. Macau-local energy, tariff, settlement, safety and comfort terminology needs qualified human review.
 
+## Progress update — single-screen study and coverage checker
+
+The next increment now includes a [separate one-screen locale study](localization-study-v0.1/REVIEW.md) for the dispatch-comparison task. It renders Traditional Chinese, English, and Portuguese draft copy, and records browser checks at 320, 375, 768, 1024, and 1440 CSS px. It covers interval selection and the accessible data-table disclosure; it does not localize this six-stage v1.9 source or fulfill the full-workflow requirement above. The companion review explicitly records that the translations need local technical review.
+
+A standard-library [catalog validator](localization/tools/validate_locale_catalog.py) now verifies the catalog's Git blob against the source, checks key/unit uniqueness and placeholder preservation, reports translation coverage by stage, and can enforce completeness with `--require-complete`. Run it from the repository root:
+
+```sh
+python docs/02-product/prototype/source-load-dispatch/v1.9/localization/tools/validate_locale_catalog.py docs/02-product/prototype/source-load-dispatch/v1.9/localization/locale-catalog-candidate.json docs/02-product/prototype/source-load-dispatch/v1.9/index.html
+```
+
+Against source blob `b2ebcaf4cfd59d0825fb105ed0d320808776b902`, the catalog integrity check passes for 337 units across six workflow stages plus shell and interaction messages. Current translation coverage is **0/337 for Portuguese and 0/337 for English**; the strict coverage mode reports `FAIL`. This is the verified incomplete state, not an approved localization gate or runtime implementation. The checker does not judge translation quality, rendered source parity, screen-reader behavior, or owner approval.
