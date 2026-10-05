@@ -69,19 +69,25 @@ class DispatchAssessmentTests(unittest.TestCase):
         self.assertEqual(result.baseline_import_energy_kwh, D("10.0"))
         self.assertIsNone(result.import_energy_charge_delta_mop)
 
-    def test_unverified_candidate_pv_curtailment_withholds_feasibility(self):
+    def test_missing_unknown_and_stale_candidate_pv_curtailment_withhold_feasibility(self):
         candidate = interval(
             grid="10", load="15",
             pv_generation_kw=D("7"), pv_used_kw=D("5"), pv_curtailed_kw=D("2"),
         )
-        unknown = EvidenceRef("pv-curtailment:unknown", EvidenceState.UNKNOWN)
-        result = assess_schedule(request(candidate=candidate, pv_curtailment_evidence=unknown))
-        claims = {item.claim: item for item in result.claim_readiness}
+        unresolved = (
+            None,
+            EvidenceRef("pv-curtailment:unknown", EvidenceState.UNKNOWN),
+            EvidenceRef("pv-curtailment:stale", EvidenceState.STALE),
+        )
+        for evidence in unresolved:
+            with self.subTest(evidence=evidence):
+                result = assess_schedule(request(candidate=candidate, pv_curtailment_evidence=evidence))
+                claims = {item.claim: item for item in result.claim_readiness}
 
-        self.assertEqual(result.physical_status, PhysicalStatus.PARTIAL)
-        self.assertEqual(claims[ClaimType.PV_CURTAILMENT].status, ClaimStatus.WITHHELD)
-        self.assertEqual(claims[ClaimType.DISPATCH_FEASIBILITY].status, ClaimStatus.WITHHELD)
-        self.assertIn("PV curtailment:", " ".join(result.reasons))
+                self.assertEqual(result.physical_status, PhysicalStatus.PARTIAL)
+                self.assertEqual(claims[ClaimType.PV_CURTAILMENT].status, ClaimStatus.WITHHELD)
+                self.assertEqual(claims[ClaimType.DISPATCH_FEASIBILITY].status, ClaimStatus.WITHHELD)
+                self.assertIn("PV curtailment:", " ".join(result.reasons))
 
     def test_verified_candidate_pv_curtailment_is_bounded_and_zero_curtailment_needs_no_capability(self):
         candidate = interval(
@@ -95,6 +101,13 @@ class DispatchAssessmentTests(unittest.TestCase):
         self.assertEqual(result.physical_status, PhysicalStatus.VALIDATED_WITHIN_SCOPE)
         self.assertEqual(claims[ClaimType.PV_CURTAILMENT].status, ClaimStatus.ALLOWED)
         self.assertEqual(claims[ClaimType.DISPATCH_FEASIBILITY].status, ClaimStatus.ALLOWED)
+
+        assumed = EvidenceRef("pv-curtailment:assumption", EvidenceState.PROJECT_ASSUMPTION)
+        scenario = assess_schedule(request(candidate=candidate, pv_curtailment_evidence=assumed))
+        scenario_claims = {item.claim: item for item in scenario.claim_readiness}
+        self.assertEqual(scenario.physical_status, PhysicalStatus.SCENARIO_ONLY)
+        self.assertEqual(scenario_claims[ClaimType.PV_CURTAILMENT].scope, ClaimScope.SCENARIO_ONLY)
+        self.assertEqual(scenario_claims[ClaimType.DISPATCH_FEASIBILITY].scope, ClaimScope.SCENARIO_ONLY)
 
         no_curtail = assess_schedule(request())
         no_curtail_claims = {item.claim: item for item in no_curtail.claim_readiness}
