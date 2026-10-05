@@ -6,6 +6,7 @@ wire translations at runtime, or establish an approved locale policy.
 from __future__ import annotations
 
 import copy
+import hashlib
 import json
 from pathlib import Path
 
@@ -13,6 +14,7 @@ ROOT = Path(__file__).parent
 DATA = ROOT.parent if ROOT.name == "tools" else ROOT
 SOURCE_CATALOG = DATA / "locale-catalog-draft-core-v0.2.json"
 OUTPUT = DATA / "locale-catalog-draft-full-workflow-v0.3.json"
+SOURCE_HTML = (DATA / "index.html") if (DATA / "index.html").exists() else (DATA.parent / "index.html")
 
 # key suffix -> (English draft, neutral Portuguese draft)
 TRANSLATIONS = {
@@ -116,6 +118,11 @@ TRANSLATIONS = {
 
 def main() -> None:
     catalog = json.loads(SOURCE_CATALOG.read_text(encoding="utf-8"))
+    source_bytes = SOURCE_HTML.read_bytes()
+    git_blob = hashlib.sha1(b"blob " + str(len(source_bytes)).encode("ascii") + b"\0" + source_bytes).hexdigest()
+    expected_blob = catalog.get("source", {}).get("blob")
+    if git_blob != expected_blob:
+        raise SystemExit(f"Pinned HTML source mismatch: expected {expected_blob}; got {git_blob}")
     draft = copy.deepcopy(catalog)
     missing = [m for m in draft["messages"] if not m["translations"].get("en") or not m["translations"].get("pt")]
     expected = {m["key"].rsplit(".", 1)[-1] for m in missing}
