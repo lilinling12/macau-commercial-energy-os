@@ -235,13 +235,12 @@ def _claim_readiness(
     ) -> None:
         claims.append(ClaimReadiness(claim, status, claim_scope, (explanation,), subject))
 
-    profile_scope = (
+    qualified_scope = (
         ClaimScope.SCENARIO_ONLY
         if scope is ClaimScope.SCENARIO_ONLY
         else ClaimScope.VERIFIED_BOUNDED
-        if metrics_available
-        else ClaimScope.NONE
     )
+    profile_scope = qualified_scope if metrics_available else ClaimScope.NONE
     profile_state = ClaimStatus.ALLOWED if metrics_available else ClaimStatus.WITHHELD
     profile_reason = (
         "Profile is bounded to the supplied schedule window and evidence; the horizon peak is not billing-period Pu."
@@ -259,7 +258,7 @@ def _claim_readiness(
     add(
         ClaimType.DISPATCH_FEASIBILITY,
         ClaimStatus.ALLOWED if feasibility_qualified else ClaimStatus.WITHHELD,
-        scope if feasibility_qualified else ClaimScope.NONE,
+        qualified_scope if feasibility_qualified else ClaimScope.NONE,
         "All applicable schedule constraints are evidenced within this bounded prototype."
         if feasibility_qualified
         else "Schedule feasibility is withheld because one or more required resource constraints are unresolved.",
@@ -280,7 +279,7 @@ def _claim_readiness(
         add(
             ClaimType.ESS_DISPATCH,
             ClaimStatus.ALLOWED if ess_ready else ClaimStatus.WITHHELD,
-            scope if ess_ready else ClaimScope.NONE,
+            qualified_scope if ess_ready else ClaimScope.NONE,
             "ESS schedule is bounded by its supplied evidence."
             if ess_ready
             else (ess_issue or "ESS feasibility is withheld because the physical assessment is unavailable."),
@@ -298,7 +297,7 @@ def _claim_readiness(
         add(
             ClaimType.FLEXIBLE_LOAD_DISPATCH,
             ClaimStatus.ALLOWED if load_ready else ClaimStatus.WITHHELD,
-            scope if load_ready else ClaimScope.NONE,
+            qualified_scope if load_ready else ClaimScope.NONE,
             "The changed flexible-load schedule is within its supplied evidence."
             if load_ready
             else (issue or f"Flexible-load feasibility for {asset_id} is withheld."),
@@ -315,7 +314,7 @@ def _claim_readiness(
         add(
             ClaimType.GRID_IMPORT_GUARD,
             ClaimStatus.ALLOWED if guard_ready else ClaimStatus.WITHHELD,
-            scope if guard_ready else ClaimScope.NONE,
+            qualified_scope if guard_ready else ClaimScope.NONE,
             "The candidate remains within its supplied grid-import guard."
             if guard_ready
             else (guard_issue or "Grid-import guard compliance is withheld."),
