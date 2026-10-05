@@ -16,7 +16,7 @@ Create a distinctive, trustworthy, contemporary energy operations experience. De
 - Read the active project authority, current prototype, and relevant decision records before changing a settled domain label or workflow. Treat the three palette studies as unselected alternatives until an owner decision exists.
 
 For dispatch-specific screen guidance, read [energy-operations-ux.md](references/energy-operations-ux.md).
-For visual review and iteration, use [quality-review.md](references/quality-review.md).
+For visual review and iteration, use [quality-review.md](references/quality-review.md). It links to sourced [visual reference case studies](references/visual-reference-case-studies.md) with product-specific transfer boundaries.
 
 ## Design workflow
 
