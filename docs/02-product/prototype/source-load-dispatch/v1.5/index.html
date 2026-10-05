@@ -104,6 +104,17 @@
 }
 </style>
 
+<style>
+/* Keep the evidence matrix fully readable on wider screens without horizontal scrolling. */
+@media(min-width:681px){
+  #constraint-analysis .flow-table table{width:100%;min-width:0;table-layout:fixed}
+  #constraint-analysis .flow-table th,#constraint-analysis .flow-table td{white-space:normal;overflow-wrap:anywhere;vertical-align:top}
+  #constraint-analysis .flow-table th:nth-child(1),#constraint-analysis .flow-table td:nth-child(1){width:20%}
+  #constraint-analysis .flow-table th:nth-child(2),#constraint-analysis .flow-table td:nth-child(2){width:18%}
+  #constraint-analysis .flow-table th:nth-child(3),#constraint-analysis .flow-table td:nth-child(3){width:27%}
+  #constraint-analysis .flow-table th:nth-child(4),#constraint-analysis .flow-table td:nth-child(4){width:35%}
+}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#mainContent">跳至主要內容</a>
