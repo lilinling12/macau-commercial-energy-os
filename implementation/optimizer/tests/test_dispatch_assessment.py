@@ -242,6 +242,15 @@ class DispatchAssessmentTests(unittest.TestCase):
         self.assertEqual(result.import_energy_charge_delta_mop, D("-1.250"))
         self.assertEqual(result.economic_covered_intervals, ((START, END),))
         self.assertEqual(result.economic_total_interval_count, 2)
+        self.assertEqual(len(result.economic_interval_components), 1)
+        component = result.economic_interval_components[0]
+        self.assertEqual((component.start, component.end), (START, END))
+        self.assertEqual(component.rate_evidence_ref, VERIFIED.ref)
+        self.assertEqual(component.rate_mop_per_kwh, D("1.25"))
+        self.assertEqual(component.baseline_import_kwh, D("10.0"))
+        self.assertEqual(component.candidate_import_kwh, D("9.0"))
+        self.assertEqual(component.baseline_charge_mop, D("12.500"))
+        self.assertEqual(component.candidate_charge_mop, D("11.250"))
         self.assertIn("1 of 2 schedule intervals", result.reasons[0])
         self.assertEqual(claims[ClaimType.GRID_IMPORT_ENERGY_COMPONENT].status, ClaimStatus.ALLOWED)
         self.assertEqual(claims[ClaimType.GRID_IMPORT_ENERGY_COMPONENT].scope, ClaimScope.PARTIAL)
@@ -264,6 +273,7 @@ class DispatchAssessmentTests(unittest.TestCase):
         self.assertEqual(result.economic_status, EconomicStatus.BLOCKED)
         self.assertIsNone(result.baseline_import_energy_charge_mop)
         self.assertEqual(result.economic_covered_intervals, ())
+        self.assertEqual(result.economic_interval_components, ())
         self.assertEqual(result.economic_total_interval_count, 1)
         self.assertIn("missing exact-interval import rate", result.reasons[1])
 
