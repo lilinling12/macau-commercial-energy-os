@@ -97,3 +97,8 @@ A prototype with a few translated navigation labels, a selector without translat
 - PR #8: [Localization and Internationalization Design v0.1](https://github.com/lilinling12/macau-commercial-energy-os/blob/docs/product-architecture-roadmap/docs/03-architecture/detailed-design/LOCALIZATION-AND-I18N-DESIGN-v0.1.md).
 - PR #8: [Product Requirements Draft v0.1](https://github.com/lilinling12/macau-commercial-energy-os/blob/docs/product-architecture-roadmap/docs/02-product/PRD-v0.1.md).
 - PR #10: [Source/load dispatch workflow v1.7](https://github.com/lilinling12/macau-commercial-energy-os/blob/product/source-load-economic-dispatch/docs/02-product/prototype/source-load-dispatch/v1.7/index.html).
+
+
+## v2.3 exact-source locale inventory — 2026-10-05
+
+The [v2.3 locale inventory](prototype/source-load-dispatch/v2.3/LOCALE-COVERAGE.md) was generated from exact branch blob `6f199ddaee1f2a416b9925ce310a073b0455b054` using a v2.3-adapted version of the source-pinned extractor. It found 520 static text nodes, 445 unique text values, 27 non-empty text attributes, 94 dynamic Chinese string candidates, and 489 contextual catalog units. v2.3 remains `zh-Hant` only; Portuguese and English have zero translated v2.3 units. English status enums are technical codes, not evidence of English UI coverage. This does not approve a locale set or claim runtime multilingual support.
