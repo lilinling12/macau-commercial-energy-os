@@ -61,3 +61,13 @@ Interaction evidence after the fix:
 - The assumptions modal opened and closed through its “明白” action.
 
 This verifies prototype navigation and these specific interactions only. It is not a manual assistive-technology review, complete keyboard audit, WCAG conformance, translation-quality review, user test, site validation, or approval of product/visual/architecture decisions. The review copy was derived from the PR branch response and exercised after applying the same patch; byte-for-byte local/git-blob identity is not claimed.
+
+## Claim-state interaction and source recheck — 2026-10-06
+
+The v2.4 page already has **interactive synthetic state studies**; it is inaccurate to describe all its claim presentation as static. The four claim cases are fixed synthetic fixtures selected interactively. A separate HVAC radio group changes only its own synthetic service status, asset card and live announcement. These controls are intentionally labeled as independent studies and neither is connected to the schedule, each other, an API, PR #14, a site registry or an evidence service.
+
+The live PR #10 HTML was fetched at blob `35b0843b6b87272c407bc5df2c80c641e69cad1e`. The local review copy used for this interaction pass matches the fetched contents after trimming its single trailing CRLF. At 375 CSS px, the HVAC control was changed through **unassessed, stale, constraint-not-met, and example-passed**; each selection changed its state text, resource card and complete `role=status` announcement. The four separate claim fixtures were also selected; their physical/HVAC/economic dimensions and `aria-pressed` state changed to the corresponding case. The example-passed state continued to label the outcome synthetic, leave economics unavailable, and keep control unavailable/SHADOW. No page JavaScript errors occurred.
+
+At 375 CSS px, the readiness study measured 338px wide, its radio labels were 42px high, and its live summary fit its own content width (274px client/scroll width). The document measured 360px against the 375px inner viewport, with no horizontal overflow. This source/interaction pass does not establish contrast conformance, assistive-technology behavior, complete keyboard coverage, translation, site validity, user validation or a canonical product state model.
+
+**Remaining boundary:** the prototype demonstrates how independent states could be presented, not one integrated result. The next UI/API acceptance must define whether those state studies become one selected assessment fixture and ensure the schedule, physical/economic/service claims, evidence, review and replay all render from that same pinned result. Keep the current studies explicitly synthetic until an approved result contract exists.
