@@ -1,6 +1,6 @@
 import unittest
 from dataclasses import replace
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from decimal import Decimal as D
 from zoneinfo import ZoneInfo
 
@@ -120,6 +120,18 @@ class DispatchAssessmentTests(unittest.TestCase):
     def test_bad_site_timezone_is_blocked(self):
         result = assess_schedule(replace(request(), site_timezone="Mars/Olympus"))
         self.assertEqual(result.physical_status, PhysicalStatus.BLOCKED)
+
+    def test_utc_instants_are_accepted_for_site_scoped_schedule(self):
+        utc_start = START.astimezone(timezone.utc)
+        utc_end = END.astimezone(timezone.utc)
+        baseline = Schedule((replace(interval(), start=utc_start, end=utc_end),))
+        candidate = Schedule((replace(interval(), start=utc_start, end=utc_end),))
+
+        result = assess_schedule(request(baseline, candidate))
+
+        self.assertEqual(result.physical_status, PhysicalStatus.VALIDATED_WITHIN_SCOPE)
+        self.assertEqual(result.baseline_import_energy_kwh, D("10.0"))
+        self.assertEqual(result.interval_comparisons[0].start.astimezone(TZ), START)
 
     def test_ess_soc_boundary_mismatch_withholds_economic_comparison(self):
         from macau_energy_optimizer.dispatch_assessment import EssLimits
