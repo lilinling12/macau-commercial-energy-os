@@ -69,6 +69,37 @@ class DispatchAssessmentTests(unittest.TestCase):
         self.assertEqual(result.baseline_import_energy_kwh, D("10.0"))
         self.assertIsNone(result.import_energy_charge_delta_mop)
 
+    def test_unverified_candidate_pv_curtailment_withholds_feasibility(self):
+        candidate = interval(
+            grid="10", load="15",
+            pv_generation_kw=D("7"), pv_used_kw=D("5"), pv_curtailed_kw=D("2"),
+        )
+        unknown = EvidenceRef("pv-curtailment:unknown", EvidenceState.UNKNOWN)
+        result = assess_schedule(request(candidate=candidate, pv_curtailment_evidence=unknown))
+        claims = {item.claim: item for item in result.claim_readiness}
+
+        self.assertEqual(result.physical_status, PhysicalStatus.PARTIAL)
+        self.assertEqual(claims[ClaimType.PV_CURTAILMENT].status, ClaimStatus.WITHHELD)
+        self.assertEqual(claims[ClaimType.DISPATCH_FEASIBILITY].status, ClaimStatus.WITHHELD)
+        self.assertIn("PV curtailment:", " ".join(result.reasons))
+
+    def test_verified_candidate_pv_curtailment_is_bounded_and_zero_curtailment_needs_no_capability(self):
+        candidate = interval(
+            grid="10", load="15",
+            pv_generation_kw=D("7"), pv_used_kw=D("5"), pv_curtailed_kw=D("2"),
+        )
+        verified = EvidenceRef("pv-curtailment:verified", EvidenceState.VERIFIED)
+        result = assess_schedule(request(candidate=candidate, pv_curtailment_evidence=verified))
+        claims = {item.claim: item for item in result.claim_readiness}
+
+        self.assertEqual(result.physical_status, PhysicalStatus.VALIDATED_WITHIN_SCOPE)
+        self.assertEqual(claims[ClaimType.PV_CURTAILMENT].status, ClaimStatus.ALLOWED)
+        self.assertEqual(claims[ClaimType.DISPATCH_FEASIBILITY].status, ClaimStatus.ALLOWED)
+
+        no_curtail = assess_schedule(request())
+        no_curtail_claims = {item.claim: item for item in no_curtail.claim_readiness}
+        self.assertEqual(no_curtail_claims[ClaimType.PV_CURTAILMENT].status, ClaimStatus.ALLOWED)
+
     def test_interval_comparison_exposes_source_load_and_storage_components(self):
         baseline = interval(
             grid="10", pv="5", load="15",
