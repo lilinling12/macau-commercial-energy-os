@@ -63,7 +63,7 @@ JS = r"""
     lastText.set(node, result);
   }
   function translateAttributes(element) {
-    for (const attr of ["aria-label", "title", "placeholder"]) {
+    for (const attr of ["aria-label", "title", "placeholder", "data-label"]) {
       if (!element.hasAttribute(attr)) continue;
       let originals = originalAttrs.get(element);
       let applied = lastAttrs.get(element);
