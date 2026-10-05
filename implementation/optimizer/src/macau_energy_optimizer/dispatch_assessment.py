@@ -46,6 +46,7 @@ class ClaimScope(StrEnum):
 class ClaimType(StrEnum):
     GRID_IMPORT_PROFILE = "GRID_IMPORT_PROFILE"
     HORIZON_PEAK = "HORIZON_PEAK"
+    PV_CURTAILMENT = "PV_CURTAILMENT"
     DISPATCH_FEASIBILITY = "DISPATCH_FEASIBILITY"
     ESS_DISPATCH = "ESS_DISPATCH"
     FLEXIBLE_LOAD_DISPATCH = "FLEXIBLE_LOAD_DISPATCH"
@@ -162,6 +163,7 @@ class AssessmentRequest:
     baseline: Schedule
     candidate: Schedule
     physical_evidence: tuple[EvidenceRef, ...]
+    pv_curtailment_evidence: EvidenceRef | None = None
     flexible_load_limits: tuple[FlexibleLoadLimit, ...] = ()
     ess_limits: EssLimits | None = None
     grid_import_limit_kw: Decimal | None = None
@@ -296,6 +298,33 @@ def _claim_readiness(
         else "Schedule feasibility is withheld because one or more required resource constraints are unresolved.",
     )
 
+    candidate_curtailed = any(row.pv_curtailed_kw > 0 for row in request.candidate.intervals)
+    curtailment_issue = next((item for item in unqualified if item.startswith("PV curtailment:")), None)
+    curtailment_ready = (
+        metrics_available
+        and curtailment_issue is None
+        and physical_status in (PhysicalStatus.VALIDATED_WITHIN_SCOPE, PhysicalStatus.SCENARIO_ONLY, PhysicalStatus.PARTIAL)
+    )
+    curtailment_scope = (
+        ClaimScope.SCENARIO_ONLY
+        if scope is ClaimScope.SCENARIO_ONLY
+        else ClaimScope.PARTIAL
+        if curtailment_issue is not None
+        else ClaimScope.VERIFIED_BOUNDED
+    )
+    add(
+        ClaimType.PV_CURTAILMENT,
+        ClaimStatus.ALLOWED if curtailment_ready else ClaimStatus.WITHHELD,
+        curtailment_scope if curtailment_ready else ClaimScope.NONE,
+        (
+            "Candidate PV curtailment is supported by its supplied evidence."
+            if candidate_curtailed and curtailment_ready
+            else "No candidate PV curtailment is declared."
+            if not candidate_curtailed and metrics_available
+            else curtailment_issue or "PV curtailment cannot be assessed because schedule metrics are unavailable."
+        ),
+    )
+
     uses_ess = any(
         row.ess_charge_kw > 0 or row.ess_discharge_kw > 0
         for schedule in (request.baseline, request.candidate)
@@ -418,6 +447,11 @@ def _unqualified_resource_claims(request: AssessmentRequest) -> tuple[str, ...]:
         or request.grid_import_limit_evidence.state in (EvidenceState.UNKNOWN, EvidenceState.STALE)
     ):
         issues.append("Grid import guard: limit evidence is missing, unknown, or stale; compliance claim is withheld.")
+    if any(row.pv_curtailed_kw > 0 for row in request.candidate.intervals) and (
+        request.pv_curtailment_evidence is None
+        or request.pv_curtailment_evidence.state in (EvidenceState.UNKNOWN, EvidenceState.STALE)
+    ):
+        issues.append("PV curtailment: candidate curtailment has no current verified site/inverter capability evidence; feasibility claim is withheld.")
     return tuple(issues)
 
 
@@ -547,6 +581,8 @@ def _validate_request_shape(request: AssessmentRequest) -> None:
         ZoneInfo(request.site_timezone)
     except (ZoneInfoNotFoundError, ValueError) as error:
         raise _Blocked("Site timezone must be a valid IANA timezone.") from error
+    if request.pv_curtailment_evidence is not None and not _is_well_formed_evidence(request.pv_curtailment_evidence):
+        raise _Blocked("PV curtailment evidence must have a non-empty ID and recognized state.")
     if request.grid_import_limit_kw is not None and (
         not isinstance(request.grid_import_limit_kw, Decimal)
         or not request.grid_import_limit_kw.is_finite()
@@ -590,6 +626,8 @@ def _applicable_evidence(request: AssessmentRequest) -> tuple[EvidenceRef, ...]:
             items.append(limit.evidence)
     if request.grid_import_limit_kw is not None and request.grid_import_limit_evidence is not None:
         items.append(request.grid_import_limit_evidence)
+    if any(row.pv_curtailed_kw > 0 for row in request.candidate.intervals) and request.pv_curtailment_evidence is not None:
+        items.append(request.pv_curtailment_evidence)
     if any(not _is_well_formed_evidence(item) for item in items):
         raise _Blocked("Every evidence reference must have a non-empty ID and a recognized state.")
     return tuple(items)
