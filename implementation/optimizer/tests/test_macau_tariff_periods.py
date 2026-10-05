@@ -1,7 +1,6 @@
 import unittest
-from datetime import date, datetime, time, timedelta
+from datetime import date, datetime, time, timedelta, timezone
 from decimal import Decimal as D
-from zoneinfo import ZoneInfo
 
 from macau_energy_optimizer.dispatch_assessment import EvidenceRef, EvidenceState
 from macau_energy_optimizer.macau_tariff_periods import (
@@ -13,7 +12,7 @@ from macau_energy_optimizer.macau_tariff_periods import (
 )
 
 
-TZ = ZoneInfo("Asia/Macau")
+TZ = timezone(timedelta(hours=8), name="Asia/Macau")
 ASSUMED = EvidenceRef("fixture:scenario-rate-card", EvidenceState.PROJECT_ASSUMPTION)
 
 
