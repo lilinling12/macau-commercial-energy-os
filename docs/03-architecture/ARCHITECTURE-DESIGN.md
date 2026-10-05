@@ -100,7 +100,7 @@ Solid paths show the initial telemetry, analysis, SHADOW and evidence loop. Dash
 | Cloud-core candidates | A, B, and C+ remain in bake-off. C+ is provisional default, not winner. |
 | Existing Node/NestJS code | Candidate B implementation path; not a stack-selection result. |
 | Java tariff implementation | D-030 semantic tariff architecture remains relevant; Java/Spring implementation authority is suspended by D-069 pending bake-off or a separately approved boundary. |
-| Next.js backend candidate | Inclusion in G6.9-R2 Step 3D is open under Owner decision #16; not selected or rejected. |
+| Next.js (API/BFF option; outside the original G6.9-R2 candidate set) | Report (7) conditionally discusses server-side composition/public portal/SSR; it recommends React SPA for the authenticated operator console. The current G6.9-R2 A/B/C+ pack does not test Next.js, and official Next.js documentation describes Route Handlers/BFF endpoints while stating they are not a full backend replacement. Treat Next.js as not assessed in this comparison; any later evaluation requires a concrete product workload and an owner-approved scope amendment or separate ADR. No selection or rejection follows. |
 
 See `docs/03-architecture/technology-authority/` and the G6.9-R2 bake-off Authority for exact candidate topology and decision rules.
 
