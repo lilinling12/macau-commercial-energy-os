@@ -2,7 +2,7 @@
 
 **Status:** Static synthetic UI study for product/domain/design review. It does not approve product behavior, visual direction, an API contract, accessibility conformance, or production architecture.  
 **Base:** PR #10 v2.2 HTML blob `35124c13d203bc1e5fe73ea215a94ad18b0a90aa`.  
-**v2.3 source blob:** `d1a67a0b70acb149a44884dbbaab97efbbffe816` (80,344 characters).  
+**v2.3 source blob:** `265ea7661c9bd54e659826dbc9db70a4c3a63d08` (85,179 characters).  
 **Purpose:** Make different physical, service, economic, evidence, and claim outcomes inspectable in one review fixture.
 
 ## Correction and continuity from v2.2
@@ -25,10 +25,11 @@ A targeted skill search for “live status announcement scoped assessment” ret
 ## Source-level verification
 
 - Exact v2.2 source was fetched from the PR #10 branch and used as the base; the new source is versioned v2.3, including its rail badge.
-- The four fixture records update the physical, HVAC, ESS, economic and claim-ledger content from one selected state; all four button keys have a matching data record.
-- Exact-source static inspection found no duplicate HTML IDs, verified the v2.3 title/rail labels, table column headers, one atomic polite summary, and responsive/reduced-motion rules at 900px, 680px and 380px.
-- Calculated contrast for the four new status/summary text-surface pairs using the WCAG relative-luminance formula: ALLOWED 6.90:1, PARTIAL 7.24:1, WITHHELD 6.99:1, summary 10.03:1. This is a source-token calculation, not a rendered-page or full-state contrast audit.
-- Fetched the exact v2.3 source back from the PR branch and extracted both inline JavaScript blocks; `node --check` passed for both blocks (9,571 and 3,272 characters).
+- Moved the four mixed-state records into [`fixtures/mixed-claim-states.json`](fixtures/mixed-claim-states.json); the prototype embeds the same JSON and reads that embedded fixture for rendering.
+- Added [`validate-claim-fixtures.py`](validate-claim-fixtures.py), a standard-library consistency guard. It parses the embedded JSON from the exact HTML, compares it with the standalone fixture, checks each case/dimension, enforces device-control withholding, and checks the missing-mapping, missing-tariff, partial-rate and service-violation rules.
+- The exact v2.3 source blob was fetched from the PR branch and used for checks. Both executable inline JavaScript blocks passed `node --check` (9,571 and 1,611 characters); `python validate-claim-fixtures.py` passed all four fixture-boundary checks.
+- Static inspection found no duplicate HTML IDs, verified the v2.3 title/rail labels, table column headers, one atomic polite summary, and responsive/reduced-motion rules at 900px, 680px and 380px.
+- Calculated contrast for four new status/summary text-surface pairs using the WCAG relative-luminance formula: ALLOWED 6.90:1, PARTIAL 7.24:1, WITHHELD 6.99:1, summary 10.03:1. This is a source-token calculation, not a rendered-page or full-state contrast audit.
 - Browser rendering and interactive review: pending; no visual or runtime browser claim is made here.
 
 ## Not verified
