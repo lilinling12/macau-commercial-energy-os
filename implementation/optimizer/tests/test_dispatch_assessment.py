@@ -227,11 +227,13 @@ class DispatchAssessmentTests(unittest.TestCase):
             import_energy_rates=(ImportEnergyRate(START, END, D("1.25"), VERIFIED),),
         )
 
-        result = assess_schedule(request(
+        req = request(economic_context=context)
+        req = replace(
+            req,
             baseline=Schedule((baseline_first, baseline_second)),
             candidate=Schedule((candidate_first, candidate_second)),
-            economic_context=context,
-        ))
+        )
+        result = assess_schedule(req)
         claims = {item.claim: item for item in result.claim_readiness}
 
         self.assertEqual(result.economic_status, EconomicStatus.PARTIAL)
