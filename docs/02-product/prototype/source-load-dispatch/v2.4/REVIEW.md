@@ -42,3 +42,22 @@ This improves the v2.3 study's narrow-screen and keyboard-table behavior. Produc
 ### Dynamic claim text at phone widths
 
 After the initial five-width layout pass, all four claim states were also selected at 375px and 320px. In all eight state/viewport combinations, document width stayed equal to the viewport and the claim-summary scroll width equalled its client width (288px at 375; 233px at 320). The longest missing-mapping and service-violation copy did not introduce clipping or page overflow. This supplements the original 1440px interaction pass; it does not extend the review to every workflow stage or locale.
+
+
+## Full six-stage navigation and SHADOW review follow-up — 2026-10-05
+
+A full-flow browser pass exposed a stage-ownership defect that the earlier claim-state-only review did not cover. Before this follow-up, the three disposition buttons lived in the Stage 03 comparison sidebar, while Stage 05 linked to `#disposition-actions`. Stage navigation hides inactive sections, so the link targeted controls inside the hidden Stage 03 section; Playwright resolved the controls but could not see or activate them. The review actions therefore were not usable from the advertised SHADOW review stage.
+
+The PR #10 branch now moves the status and three page-only actions (reviewed, request evidence, dismiss) into Stage 05. Stage 03 replaces its hidden actions with a visible link to Stage 05. The Stage 05 helper text now points to the controls below. The buttons remain explicitly non-persistent, do not grant authority, and do not issue device commands.
+
+The updated PR-derived local review copy was rendered in Microsoft Edge with Playwright at 1440, 1024, 768, 375 and 320 CSS-pixel widths. Each of the six stages was selected through the stage navigation at every width (30 stage/viewport combinations). The selected stage was visible, inactive workflow sections were hidden, and document width equalled the viewport in all combinations. No page JavaScript errors were observed. Desktop screenshots were captured for Stages 01, 03, 05 and 06; mobile screenshots for Stages 03 and 05.
+
+Interaction evidence after the fix:
+
+- Stage 03 candidate focus changed the announced comparison label; the data-table disclosure opened.
+- The Stage 03 link switched to Stage 05, where all three disposition actions were visible and usable.
+- The three actions updated the selected state and status copy as expected; copy continues to state that nothing is persisted or executed.
+- All four independent claim fixtures produced their expected physical/service/economic labels: partial rates `PARTIAL / NOT_ASSESSED / PARTIAL`; no tariff `COMPLETE / NOT_ASSESSED / NOT_CALCULATED`; missing meter map `BLOCKED / UNKNOWN / BLOCKED`; service violation `COMPLETE / VIOLATION / NOT_CALCULATED`.
+- The assumptions modal opened and closed through its “明白” action.
+
+This verifies prototype navigation and these specific interactions only. It is not a manual assistive-technology review, complete keyboard audit, WCAG conformance, translation-quality review, user test, site validation, or approval of product/visual/architecture decisions. The review copy was derived from the PR branch response and exercised after applying the same patch; byte-for-byte local/git-blob identity is not claimed.
