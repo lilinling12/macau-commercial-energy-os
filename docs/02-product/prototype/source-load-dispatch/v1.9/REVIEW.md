@@ -28,4 +28,6 @@ A full state/viewport sweep activated each of the six workflow stages (`evidence
 
 This is a narrow hierarchy/layout check, not a full UX or accessibility audit. It does not establish full keyboard-flow or screen-reader behavior, WCAG conformance, touch or text-scaling behavior, contrast compliance, Portuguese/English layout, complete localization, operator usability, Macau site/tariff validity, schedule feasibility, savings, or equipment control. The prototype remains Traditional Chinese, synthetic, and SHADOW-only. Product scope, visual direction, palette and production architecture remain unapproved.
 
+## Companion localization study
 
+A separate [one-screen localization study](localization-study-v0.1/REVIEW.md) now renders a complete dispatch-comparison view in Traditional Chinese, English, and Portuguese and records responsive/browser evidence. It does not modify this v1.9 prototype or change this review's statement that v1.9 itself is Traditional Chinese only. The companion covers only the comparison screen, not all six stages, and its translations still require Macau energy-domain review.
