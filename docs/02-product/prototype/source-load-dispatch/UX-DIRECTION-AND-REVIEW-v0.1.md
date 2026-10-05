@@ -193,3 +193,14 @@ The review bar uses platform guidance for concrete principles, not wholesale vis
 | Motion and craft | CSS contains responsive and reduced-motion rules; no new award-like motion was added | No visual craft conclusion without rendering. Prefer schedule comparison clarity and direct manipulation feedback over decorative motion. |
 
 The next useful UI step is an integrated, rendered comparison of the v1.2 dispatch task under the three still-unapproved visual directions, across the required breakpoints and complete candidate locale strings. Record screenshots, overflow/focus/contrast defects and fixes; do not call it user-tested or WCAG-conformant until those reviews are performed.
+
+
+### Macau localization evidence and dispatch requirements — 2026-10-05
+
+The Macao Government Tourism Office's English and Traditional Chinese language pages confirm Chinese and Portuguese as official languages, Cantonese as most widely spoken, and English as generally used in trade/tourism/commerce. This makes Traditional Chinese, Portuguese and English sensible candidates for the product study; it does not establish a legal three-locale requirement for a private commercial-energy console or prove the language needs of target operators. The Macao SAR Government Portal also marks its English law pages as reference translations from Chinese sources, reinforcing that customer/legal evidence must retain its original-language authority.
+
+PR #8 already contains a stack-neutral i18n architecture draft and deliberately leaves the launch locale set open. PR #10 now adds [MACAU-DISPATCH-LOCALIZATION-REQUIREMENTS-v0.1.md](../MACAU-DISPATCH-LOCALIZATION-REQUIREMENTS-v0.1.md), which proposes complete zh-Hant / pt / en coverage for owner review, maps required content across all six dispatch stages, records draft domain terminology, MOP/Asia-Macau formatting behavior, evidence-language provenance, and locale QA criteria. Draft terms require qualified Macau Portuguese/Chinese review and WP-4 comprehension validation.
+
+Prototype v1.7 remains Traditional-Chinese-only: no language selector, translated catalogs or multilingual reflow were implemented. Therefore it is a single-locale layout study, not multilingual support. No legal obligation, user preference, translation approval, launch scope or product freeze is claimed.
+
+Sources: [MGTO English language context](https://www.macaotourism.gov.mo/en/article/about-macao/language), [MGTO Traditional Chinese language context](https://www.macaotourism.gov.mo/zh-hant/travelessential/about-macao/language), [Macao Government Portal — Laws and English-translation limitation](https://www.gov.mo/en/laws/).
