@@ -10,7 +10,7 @@ Read-only inventory of `D:\dev\project\lilinling\macau-commercial-energy-os` fou
 
 This pass semantically read the Authority v1.0–v1.6.2 handoff/status and decision-register material; the v1.7.0–v2.0 transition/current files; the loose v2.0/v2.1 authorities; the G7.1/G7.2/G7.4/G7.5 package bodies; both G7.6 Step 2 variants; G7.8 Step 2/3 technology decisions; and the G7.9 Step 1/2 domain packages. The machine inventory is an audit aid, not evidence of a full content review of every file in every archive.
 
-The linked shared ChatGPT page was retried and returned **Cache miss**. `read_thread` can currently return five recent turns with `hasMore: false` and no older cursor; it does not expose the complete historic transcript. The two attached technology reports were readable: `deep-research-report (6).md` SHA-256 `1E0118807DBFDCA3D13AE1949383B4CBFEFB80DB0CD867D13BD6C8DC0D744495`; `(7).md` SHA-256 `5DB518CBE85402E0A8AD2682B9E52A7782D17748EC95C60F43B4BB748B6CAC82`.
+The normal web fetch for the linked shared ChatGPT page returned **Cache miss**. A later in-app browser open exposed part of the shared conversation, including Phase B and Phase C outputs, but also displayed two `Failed to fetch template` error blocks. The conversation archive API returned four recent turns with `hasMore: false` and no older cursor. These channels provide partial evidence only; they do not expose the complete historic transcript, every attachment, or every generated output. The two attached technology reports were readable: `deep-research-report (6).md` SHA-256 `1E0118807DBFDCA3D13AE1949383B4CBFEFB80DB0CD867D13BD6C8DC0D744495`; `(7).md` SHA-256 `5DB518CBE85402E0A8AD2682B9E52A7782D17748EC95C60F43B4BB748B6CAC82`.
 
 ## 2. Authority and Gate lineage
 
@@ -65,7 +65,7 @@ The two reports are competing recommendations with different boundaries and evid
 
 Current PR #8 contains a research/evidence register, Gate records, PRD, user-flow/IA, product review packet, architecture/detailed designs, traceability and readiness audit. PR #10 contains the dispatch-first product proposal, synthetic v0.3–v0.5 studies, the three layout study, and the G7.9 Step 3 proposal/map. Both PRs remain unmerged; they are reviewable proposals, not current main baselines. The PR changed-file lists do not contain the supplied ZIP archives themselves. This pass does not prove that every source document is represented or correctly traced in GitHub.
 
-The original shared page could not be fetched; `read_thread` exposes only five recent turns and no older cursor. That is an explicit source gap. The two Deep Research files and the named project folder archives above were directly readable.
+The shared conversation is only partially accessible: the in-app browser rendered some messages and Phase B/C outputs, while two response blocks failed to fetch templates; `read_thread` returned four recent turns and no older cursor. The full transcript, attached files and all generated outputs remain an explicit source gap. The two Deep Research files and the named project folder archives above were directly readable.
 
 ### Next audit sequence
 
@@ -250,7 +250,7 @@ An independent Python `zipfile`/SHA-256 pass checked each ZIP's digest, member c
 | Excluded remote-control ZIPs | 4 / 34 members | Integrity checked; excluded from Macau OS research conclusions |
 | Loose Authority snapshots | 2 Markdown files | Size/SHA-256 match index |
 | Deep Research reports | 2 Markdown files | Independently fingerprinted; semantic review is recorded elsewhere |
-| Original shared ChatGPT conversation | 2 share URLs attempted | Both return cache miss; chat archive returns four recent turns, `hasMore=false`, no older cursor |
+| Original shared ChatGPT conversation | Two URLs returned cache miss through web fetch; the referenced page later opened partially in the in-app browser | Some Phase B/C output text was visible, two template-fetch errors appeared, and the archive API returned four recent turns with `hasMore=false` and no older cursor; full transcript/attachments remain unverified |
 
 Loose snapshot fingerprints:
 
@@ -368,3 +368,8 @@ The supplied G7.9 Step 1/2 packages mark their domain/design work complete and n
 ## Next evidence-led action
 
 Resolve repository authority precedence before a production framework freeze: either run the missing Step 3D experiment in its pinned environment, or prepare an owner-reviewed dated supersession ADR that explicitly waives it with evidence. In parallel, update the main handoff through its normal review process so that G7.9's verified package status and unmerged design proposals are represented without implying gate closure. Do not merge or freeze based on this audit alone.
+
+
+### Share-page partial-access correction — 2026-10-05
+
+After the earlier web-fetch cache miss, the referenced share URL was opened in the in-app browser. The rendered accessibility tree exposed part of the conversation, including some research progress and Phase B/Phase C repository outputs, but showed two "Failed to fetch template" errors. The conversation archive API separately returned four recent turns with no older cursor. Accordingly, the share page is not wholly inaccessible, but neither is the full original dialogue verified. Older turns, inaccessible response templates, attachments and generated output files remain unreviewed unless independently available in the supplied archives or repository.
