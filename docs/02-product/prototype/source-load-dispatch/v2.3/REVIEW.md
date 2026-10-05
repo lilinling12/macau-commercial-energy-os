@@ -46,4 +46,4 @@ Inspect the exact v2.3 branch file at 1440, 1024, 768, 375 and 320 CSS pixels. E
 
 ## v2.3 locale coverage
 
-The exact v2.3 source has a separate [locale coverage inventory](LOCALE-COVERAGE.md) and [source-pinned extractor](localization/tools/extract_locale_catalog.py). Extraction found 520 text nodes and 489 contextual candidate units; the UI remains zh-Hant-only with no Portuguese/English translations. English state codes are not counted as translated content. This inventory is not runtime i18n or rendered multilingual validation.
+The exact v2.3 source has a separate [locale coverage inventory](LOCALE-COVERAGE.md), [source-pinned extractor](localization/tools/extract_locale_catalog.py), and checked-in [489-unit candidate catalog](localization/locale-catalog-candidate.json). Extraction found 520 text nodes and 489 contextual candidate units; source/catalog integrity validation passed with no errors, while coverage is incomplete: pt 0/489 and en 0/489. The UI remains zh-Hant-only with no Portuguese/English translations. English state codes are not counted as translated content. This inventory is not runtime i18n or rendered multilingual validation.
