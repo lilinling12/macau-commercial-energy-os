@@ -147,12 +147,37 @@ class DispatchAssessmentTests(unittest.TestCase):
         self.assertEqual(claims[ClaimType.GRID_IMPORT_ENERGY_COMPONENT].scope, ClaimScope.SCENARIO_ONLY)
         self.assertEqual(claims[ClaimType.SAVINGS].status, ClaimStatus.WITHHELD)
 
+    def test_missing_changed_flexible_load_limit_keeps_profile_and_withholds_claim(self):
+        base_flow = FlexibleLoadFlow("hvac-1", FlexibleLoadKind.HVAC, D("4"))
+        candidate_flow = FlexibleLoadFlow("hvac-1", FlexibleLoadKind.HVAC, D("3"))
+        baseline = interval(grid="10", load="11", flexible_loads=(base_flow,))
+        candidate = interval(grid="8", load="10", flexible_loads=(candidate_flow,))
+
+        result = assess_schedule(request(baseline, candidate))
+        claims = {item.claim: item for item in result.claim_readiness}
+
+        self.assertEqual(result.physical_status, PhysicalStatus.PARTIAL)
+        self.assertEqual(result.candidate_import_energy_kwh, D("8.0"))
+        self.assertEqual(claims[ClaimType.GRID_IMPORT_PROFILE].status, ClaimStatus.ALLOWED)
+        self.assertEqual(claims[ClaimType.FLEXIBLE_LOAD_DISPATCH].status, ClaimStatus.WITHHELD)
+        self.assertEqual(claims[ClaimType.DISPATCH_FEASIBILITY].status, ClaimStatus.WITHHELD)
+
     def test_unknown_grid_guard_withholds_only_guard_compliance_claim(self):
         unknown = EvidenceRef("guard:unknown", EvidenceState.UNKNOWN)
         result = assess_schedule(request(
             grid_import_limit_kw=D("9"),
             grid_import_limit_evidence=unknown,
         ))
+        claims = {item.claim: item for item in result.claim_readiness}
+
+        self.assertEqual(result.physical_status, PhysicalStatus.PARTIAL)
+        self.assertEqual(result.candidate_import_energy_kwh, D("10.0"))
+        self.assertEqual(claims[ClaimType.GRID_IMPORT_PROFILE].status, ClaimStatus.ALLOWED)
+        self.assertEqual(claims[ClaimType.GRID_IMPORT_GUARD].status, ClaimStatus.WITHHELD)
+        self.assertEqual(claims[ClaimType.DISPATCH_FEASIBILITY].status, ClaimStatus.WITHHELD)
+
+    def test_missing_configured_grid_guard_evidence_withholds_only_guard_claim(self):
+        result = assess_schedule(request(grid_import_limit_kw=D("9")))
         claims = {item.claim: item for item in result.claim_readiness}
 
         self.assertEqual(result.physical_status, PhysicalStatus.PARTIAL)
