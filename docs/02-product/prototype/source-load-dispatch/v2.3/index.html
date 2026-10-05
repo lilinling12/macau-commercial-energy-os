@@ -430,17 +430,262 @@ const initialHash=location.hash;const initialIndex=flowLinks.findIndex(link=>lin
 window.addEventListener('hashchange',()=>{const index=flowLinks.findIndex(link=>link.getAttribute('href')===location.hash);if(index>=0)showStage(index,false);});
 const planningContext = document.getElementById("planningContext");
 if (window.matchMedia("(max-width: 680px)").matches) planningContext.open = false;
-</script><script>
-(()=>{const data={
-partial:{summary:"物理評估 PARTIAL；示例進口電量費僅覆蓋 4 / 6 時段。HVAC 服務未評估；需求電費、全賬單與節省不得推斷。",physical:["PARTIAL","保留合格範圍；ESS 限制未核實。"],hvac:["NOT ASSESSED","舒適與恢復證據未評估。"],ess:["WITHHELD","合成 SOC/安全參數未驗證。"],economic:["PARTIAL","4 / 6 合成費率時段；不顯示金額。"],rows:[["進口電量曲線","ALLOWED · 示例","限明確映射的合成物理範圍。","allowed"],["進口電量費組件","PARTIAL · 示例","4 / 6 合成時段；不含金額。","partial"],["需求電費 / 全賬單 / 節省","WITHHELD","Pu、完整電價與合同適用性未核實。","withheld"],["HVAC 服務可行","WITHHELD","現場舒適與恢復模型未評估。","withheld"],["設備控制","WITHHELD","MVP 僅 SHADOW，沒有設備命令路徑。","withheld"]]},
-"no-tariff":{summary:"物理評估 COMPLETE（只限本合成範圍）。沒有適用合同/電價，經濟評估 NOT CALCULATED；不得推斷電費或節省。",physical:["COMPLETE","只限本合成邊界與時段，不是站點量測。"],hvac:["NOT ASSESSED","未提供服務模型與舒適界限。"],ess:["WITHHELD","ESS 能力未由現場證據核實。"],economic:["NOT CALCULATED","帳戶、合同適用性與電價缺失。"],rows:[["進口電量曲線","ALLOWED · 示例","限明確聲明的合成物理邊界。","allowed"],["進口電量費 / 全賬單","WITHHELD","沒有適用帳戶、合同和電價。","withheld"],["節省或成本排名","WITHHELD","缺少可比較的核實結算依據。","withheld"],["HVAC 服務可行","WITHHELD","服務模型與舒適界限未評估。","withheld"],["設備控制","WITHHELD","MVP 僅 SHADOW，沒有設備命令路徑。","withheld"]]},
-"missing-map":{summary:"物理評估 BLOCKED。核心站點/計量映射缺失會阻止受影響範圍的物理曲線與結算；本案例不顯示跨越未解映射的數值。",physical:["BLOCKED","計量點至站點邊界映射缺失。"],hvac:["UNKNOWN","資源映射未解，服務範圍不明。"],ess:["UNKNOWN","資源與計量邊界未能對應。"],economic:["BLOCKED","無法確定讀數所屬結算範圍。"],rows:[["受影響範圍進口曲線","WITHHELD","核心站點/計量映射缺失。","withheld"],["費用與賬單","WITHHELD","結算範圍不可識別。","withheld"],["服務可行性","WITHHELD","資產映射與適用時段不明。","withheld"],["節省、反送補償或跨帳戶抵扣","WITHHELD","依賴未識別的物理或結算範圍。","withheld"],["設備控制","WITHHELD","MVP 僅 SHADOW，沒有設備命令路徑。","withheld"]]},
-"service-violation":{summary:"物理評估 COMPLETE（只表示合成電氣範圍可核對）。HVAC 合成服務界限違反，因此候選不可標為服務合格或整體可行。",physical:["COMPLETE","電氣平衡可核對，不代表服務可行。"],hvac:["VIOLATION · 示例","合成溫度軌跡超界；不是現場觀測。"],ess:["WITHHELD","ESS 合成參數未驗證安全限制。"],economic:["NOT CALCULATED","合同與電價未核實。"],rows:[["合成進口電量曲線","ALLOWED · 示例","只展示合成電氣結果與邊界。","allowed"],["HVAC 服務可行","WITHHELD","合成服務界限違反；站點仍未評估。","withheld"],["整體候選可行","WITHHELD","服務違反不能由電氣平衡抵消。","withheld"],["全賬單 / 節省","WITHHELD","沒有核實的結算上下文。","withheld"],["設備控制","WITHHELD","MVP 僅 SHADOW，沒有設備命令路徑。","withheld"]]}
-};
-const text=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value};
-function select(key){const d=data[key];if(!d)return;document.querySelectorAll("[data-case]").forEach(button=>{const active=button.dataset.case===key;button.classList.toggle("active",active);button.setAttribute("aria-pressed",String(active))});text("claimSummary",d.summary);text("claimPhysical",d.physical[0]);text("claimPhysicalWhy",d.physical[1]);text("claimHVAC",d.hvac[0]);text("claimHVACWhy",d.hvac[1]);text("claimESS",d.ess[0]);text("claimESSWhy",d.ess[1]);text("claimEconomic",d.economic[0]);text("claimEconomicWhy",d.economic[1]);const tbody=document.getElementById("claimRows");tbody.replaceChildren(...d.rows.map(([name,status,reason,kind])=>{const row=document.createElement("tr"),n=document.createElement("th"),s=document.createElement("td"),r=document.createElement("td"),tag=document.createElement("span");n.scope="row";n.textContent=name;tag.className="claim-tag "+kind;tag.textContent=status;s.append(tag);r.textContent=reason;row.append(n,s,r);return row}))}
-document.querySelectorAll("[data-case]").forEach(button=>button.addEventListener("click",()=>select(button.dataset.case)));
-})();
+</script><script type="application/json" id="claim-fixtures">{
+  "meta": {
+    "evidenceClass": "SYNTHETIC",
+    "siteValidated": false,
+    "apiConnected": false,
+    "deviceControlEnabled": false,
+    "locale": "zh-Hant",
+    "purpose": "UI_PRESENTATION_STUDY"
+  },
+  "dimensions": [
+    "physical",
+    "hvacService",
+    "essCapability",
+    "economic"
+  ],
+  "cases": [
+    {
+      "id": "partial",
+      "summary": "物理評估 PARTIAL；示例進口電量費僅覆蓋 4 / 6 時段。HVAC 服務未評估；需求電費、全賬單與節省不得推斷。",
+      "dimensions": {
+        "physical": {
+          "status": "PARTIAL",
+          "detail": "保留合格範圍；ESS 限制未核實。"
+        },
+        "hvacService": {
+          "status": "NOT_ASSESSED",
+          "detail": "舒適與恢復證據未評估。"
+        },
+        "essCapability": {
+          "status": "WITHHELD",
+          "detail": "合成 SOC/安全參數未驗證。"
+        },
+        "economic": {
+          "status": "PARTIAL",
+          "detail": "4 / 6 合成費率時段；不顯示金額。"
+        }
+      },
+      "claims": [
+        {
+          "id": "import_profile",
+          "label": "進口電量曲線",
+          "status": "ALLOWED",
+          "reason": "限明確映射的合成物理範圍。",
+          "tone": "allowed"
+        },
+        {
+          "id": "import_energy_component",
+          "label": "進口電量費組件",
+          "status": "PARTIAL",
+          "reason": "4 / 6 合成時段；不含金額。",
+          "tone": "partial"
+        },
+        {
+          "id": "bill_and_savings",
+          "label": "需求電費 / 全賬單 / 節省",
+          "status": "WITHHELD",
+          "reason": "Pu、完整電價與合同適用性未核實。",
+          "tone": "withheld"
+        },
+        {
+          "id": "service_feasibility",
+          "label": "HVAC 服務可行",
+          "status": "WITHHELD",
+          "reason": "現場舒適與恢復模型未評估。",
+          "tone": "withheld"
+        },
+        {
+          "id": "device_control",
+          "label": "設備控制",
+          "status": "WITHHELD",
+          "reason": "MVP 僅 SHADOW，沒有設備命令路徑。",
+          "tone": "withheld"
+        }
+      ]
+    },
+    {
+      "id": "no-tariff",
+      "summary": "物理評估 COMPLETE（只限本合成範圍）。沒有適用合同/電價，經濟評估 NOT_CALCULATED；不得推斷電費或節省。",
+      "dimensions": {
+        "physical": {
+          "status": "COMPLETE",
+          "detail": "只限本合成邊界與時段，不是站點量測。"
+        },
+        "hvacService": {
+          "status": "NOT_ASSESSED",
+          "detail": "未提供服務模型與舒適界限。"
+        },
+        "essCapability": {
+          "status": "WITHHELD",
+          "detail": "ESS 能力未由現場證據核實。"
+        },
+        "economic": {
+          "status": "NOT_CALCULATED",
+          "detail": "帳戶、合同適用性與電價缺失。"
+        }
+      },
+      "claims": [
+        {
+          "id": "import_profile",
+          "label": "進口電量曲線",
+          "status": "ALLOWED",
+          "reason": "限明確聲明的合成物理邊界。",
+          "tone": "allowed"
+        },
+        {
+          "id": "bill_cost",
+          "label": "進口電量費 / 全賬單",
+          "status": "WITHHELD",
+          "reason": "沒有適用帳戶、合同和電價。",
+          "tone": "withheld"
+        },
+        {
+          "id": "savings",
+          "label": "節省或成本排名",
+          "status": "WITHHELD",
+          "reason": "缺少可比較的核實結算依據。",
+          "tone": "withheld"
+        },
+        {
+          "id": "service_feasibility",
+          "label": "HVAC 服務可行",
+          "status": "WITHHELD",
+          "reason": "服務模型與舒適界限未評估。",
+          "tone": "withheld"
+        },
+        {
+          "id": "device_control",
+          "label": "設備控制",
+          "status": "WITHHELD",
+          "reason": "MVP 僅 SHADOW，沒有設備命令路徑。",
+          "tone": "withheld"
+        }
+      ]
+    },
+    {
+      "id": "missing-map",
+      "summary": "物理評估 BLOCKED。核心站點/計量映射缺失會阻止受影響範圍的物理曲線與結算；本案例不顯示跨越未解映射的數值。",
+      "dimensions": {
+        "physical": {
+          "status": "BLOCKED",
+          "detail": "計量點至站點邊界映射缺失。"
+        },
+        "hvacService": {
+          "status": "UNKNOWN",
+          "detail": "資源映射未解，服務範圍不明。"
+        },
+        "essCapability": {
+          "status": "UNKNOWN",
+          "detail": "資源與計量邊界未能對應。"
+        },
+        "economic": {
+          "status": "BLOCKED",
+          "detail": "無法確定讀數所屬結算範圍。"
+        }
+      },
+      "claims": [
+        {
+          "id": "import_profile",
+          "label": "受影響範圍進口曲線",
+          "status": "WITHHELD",
+          "reason": "核心站點/計量映射缺失。",
+          "tone": "withheld"
+        },
+        {
+          "id": "bill_cost",
+          "label": "費用與賬單",
+          "status": "WITHHELD",
+          "reason": "結算範圍不可識別。",
+          "tone": "withheld"
+        },
+        {
+          "id": "service_feasibility",
+          "label": "服務可行性",
+          "status": "WITHHELD",
+          "reason": "資產映射與適用時段不明。",
+          "tone": "withheld"
+        },
+        {
+          "id": "savings_and_export",
+          "label": "節省、反送補償或跨帳戶抵扣",
+          "status": "WITHHELD",
+          "reason": "依賴未識別的物理或結算範圍。",
+          "tone": "withheld"
+        },
+        {
+          "id": "device_control",
+          "label": "設備控制",
+          "status": "WITHHELD",
+          "reason": "MVP 僅 SHADOW，沒有設備命令路徑。",
+          "tone": "withheld"
+        }
+      ]
+    },
+    {
+      "id": "service-violation",
+      "summary": "物理評估 COMPLETE（只表示合成電氣範圍可核對）。HVAC 合成服務界限違反，因此候選不可標為服務合格或整體可行。",
+      "dimensions": {
+        "physical": {
+          "status": "COMPLETE",
+          "detail": "電氣平衡可核對，不代表服務可行。"
+        },
+        "hvacService": {
+          "status": "VIOLATION",
+          "detail": "合成溫度軌跡超界；不是現場觀測。"
+        },
+        "essCapability": {
+          "status": "WITHHELD",
+          "detail": "ESS 合成參數未驗證安全限制。"
+        },
+        "economic": {
+          "status": "NOT_CALCULATED",
+          "detail": "合同與電價未核實。"
+        }
+      },
+      "claims": [
+        {
+          "id": "import_profile",
+          "label": "合成進口電量曲線",
+          "status": "ALLOWED",
+          "reason": "只展示合成電氣結果與邊界。",
+          "tone": "allowed"
+        },
+        {
+          "id": "service_feasibility",
+          "label": "HVAC 服務可行",
+          "status": "WITHHELD",
+          "reason": "合成服務界限違反；站點仍未評估。",
+          "tone": "withheld"
+        },
+        {
+          "id": "overall_feasibility",
+          "label": "整體候選可行",
+          "status": "WITHHELD",
+          "reason": "服務違反不能由電氣平衡抵消。",
+          "tone": "withheld"
+        },
+        {
+          "id": "bill_and_savings",
+          "label": "全賬單 / 節省",
+          "status": "WITHHELD",
+          "reason": "沒有核實的結算上下文。",
+          "tone": "withheld"
+        },
+        {
+          "id": "device_control",
+          "label": "設備控制",
+          "status": "WITHHELD",
+          "reason": "MVP 僅 SHADOW，沒有設備命令路徑。",
+          "tone": "withheld"
+        }
+      ]
+    }
+  ]
+}</script>
+<script>
+(()=>{const root=document.getElementById("claim-fixtures");const fixture=JSON.parse(root.textContent);const data=new Map(fixture.cases.map(item=>[item.id,item]));const text=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value};function select(key){const item=data.get(key);if(!item)return;document.querySelectorAll("[data-case]").forEach(button=>{const active=button.dataset.case===key;button.classList.toggle("active",active);button.setAttribute("aria-pressed",String(active))});text("claimSummary",item.summary);for(const name of fixture.dimensions){const value=item.dimensions[name];const target={physical:"claimPhysical",hvacService:"claimHVAC",essCapability:"claimESS",economic:"claimEconomic"}[name];const detail={physical:"claimPhysicalWhy",hvacService:"claimHVACWhy",essCapability:"claimESSWhy",economic:"claimEconomicWhy"}[name];text(target,value.status);text(detail,value.detail)}const tbody=document.getElementById("claimRows");tbody.replaceChildren(...item.claims.map(claim=>{const row=document.createElement("tr"),name=document.createElement("th"),state=document.createElement("td"),reason=document.createElement("td"),tag=document.createElement("span");name.scope="row";name.textContent=claim.label;tag.className="claim-tag "+claim.tone;tag.textContent=claim.status+(claim.status==="ALLOWED"||claim.status==="PARTIAL"?" · 合成示例":"");state.append(tag);reason.textContent=claim.reason;row.append(name,state,reason);return row}))}document.querySelectorAll("[data-case]").forEach(button=>button.addEventListener("click",()=>select(button.dataset.case)));select("partial")})();
 </script></body></html>
 
 
