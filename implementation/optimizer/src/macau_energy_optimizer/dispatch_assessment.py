@@ -8,7 +8,7 @@ when eligible, cover only an explicitly evidenced grid-import energy component.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timezone
 from decimal import Decimal
 from enum import StrEnum
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
@@ -83,7 +83,8 @@ class ScheduleInterval:
 
     @property
     def duration_hours(self) -> Decimal:
-        seconds = Decimal(str((self.end - self.start).total_seconds()))
+        # Duration is elapsed time between instants, even across local clock changes.
+        seconds = Decimal(str((self.end.astimezone(timezone.utc) - self.start.astimezone(timezone.utc)).total_seconds()))
         return seconds / Decimal("3600")
 
 
@@ -284,8 +285,11 @@ def _validate_request_shape(request: AssessmentRequest) -> None:
                 raise _Blocked("All interval timestamps must be timezone-aware.")
             if row.end <= row.start:
                 raise _Blocked("Each interval must have positive duration.")
-            if row.start.astimezone(site_zone).replace(tzinfo=None) != row.start.replace(tzinfo=None):
-                raise _Blocked("Interval timestamps must use the configured site timezone.")
+            # Timestamps identify instants and may be encoded in UTC or another
+            # explicit offset. site_timezone is the business/tariff clock, not a
+            # requirement that every timestamp retain that local wall-clock form.
+            # Validate the named zone above, preserve the input instant, and use
+            # the site zone only when interpreting local calendars/boundaries.
             if index and rows[index - 1].end != row.start:
                 raise _Blocked("Schedule intervals must be ordered, contiguous, and non-overlapping.")
 
