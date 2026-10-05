@@ -22,7 +22,7 @@
 
 ## Visual and interaction review
 
-Browser rendering, keyboard interaction, screen-reader review, contrast measurement and touch-device review were not performed for v1.2. The local HTML page could not be opened in the available browser due to its local-file URL security policy, and no alternate browser path was used. Existing v1.1 rendered measurements do not verify v1.2.
+**Browser follow-up (2026-10-05):** fetched the v1.2 HTML at blob `aa36108ad4781d8906afe00d41d2a3308e15f94f` from PR #10 head `d6f0ed55a5266b6a91be5002adbd90230b31d8fb` and rendered a local preview. The in-app browser accessibility tree was inspected at stages 3, 4 and 6: it exposes the demonstration-window peak separately from unknown billing-period Pu; a six-hour 20 kW discharge / 24.691 kW recharge SOC trajectory marked synthetic; a separate partial import-energy example (4/6 exact verified rate windows, no energy/rate/amount shown); and replay-unavailable behavior when snapshot identity is absent. The viewport dimensions and pixel layout were not captured, so this is rendered semantic inspection, not responsive visual sign-off. Keyboard interaction, screen-reader evaluation, contrast measurement and touch-device review remain unperformed. Existing v1.1 viewport measurements do not verify v1.2.
 
 ## Limits
 
