@@ -188,7 +188,7 @@ def main() -> None:
     if missing:
         raise SystemExit("Missing translation map entries for:\n" + "\n".join(missing))
 
-    catalog["catalogVersion"] = "0.2.0-draft-batch"
+    catalog["catalogVersion"] = "0.1.0-draft-batch"
     catalog["status"] = "PARTIAL_TRANSLATION_DRAFT_NOT_RUNTIME"
     catalog["defaultReviewState"] = "MISSING_OR_DRAFT_REQUIRES_HUMAN_REVIEW"
     catalog["translationBatch"] = {
