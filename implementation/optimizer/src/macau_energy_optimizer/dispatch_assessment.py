@@ -263,7 +263,7 @@ def _validate_request_shape(request: AssessmentRequest) -> None:
     if not request.tenant_id.strip() or not request.site_id.strip() or not request.site_timezone.strip():
         raise _Blocked("Tenant, site, and site timezone are required.")
     try:
-        site_zone = ZoneInfo(request.site_timezone)
+        ZoneInfo(request.site_timezone)
     except (ZoneInfoNotFoundError, ValueError) as error:
         raise _Blocked("Site timezone must be a valid IANA timezone.") from error
     if request.grid_import_limit_kw is not None and (
