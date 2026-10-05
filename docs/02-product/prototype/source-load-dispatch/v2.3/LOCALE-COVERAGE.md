@@ -3,7 +3,7 @@
 **Status:** Source inventory only. No launch locale or translation is approved; v2.3 remains a Traditional-Chinese-only research prototype.  
 **Source:** `docs/02-product/prototype/source-load-dispatch/v2.3/index.html`, Git blob `6f199ddaee1f2a416b9925ce310a073b0455b054`.  
 **Extraction:** Adapted the existing v1.9 standard-library HTML/script-literal inventory tool to v2.3 and ran it against the exact fetched source with the required blob check.  
-**Tool:** [`extract_locale_catalog.py`](localization/tools/extract_locale_catalog.py). Its output is a review candidate; it is not connected to the UI runtime.
+**Tool:** [`extract_locale_catalog.py`](localization/tools/extract_locale_catalog.py). The generated [`locale-catalog-candidate.json`](localization/locale-catalog-candidate.json) is checked in for review; it is not connected to the UI runtime. Catalog SHA-256: `632f909641948641945c863dbe1f538f901447c225424b7d9ac9fe5f4f8e3c46`.
 
 ## Current coverage evidence
 
@@ -30,7 +30,7 @@ Counts are not translation-unit guarantees: repeated strings may have separate c
 
 The new inventory includes the four mixed-state selector labels, per-case summary announcements, physical/HVAC/ESS/economic dimension details, claim labels/reasons, and synthetic/no-control boundaries. Dynamic text and JSON-embedded strings are included in extraction candidates; a reviewer must consolidate fragments and check each state in context.
 
-The v1.9 catalog remains pinned to its v1.9 source blob and must not be reused as though it covered v2.3. No catalog/runtime binding, language selector, persistence behavior, localized data formatting, screen-reader review, or text-expansion browser review is claimed.
+The v1.9 catalog remains pinned to its v1.9 source blob and must not be reused as though it covered v2.3. A generic source-pinned validation run against the v2.3 catalog and exact source passed catalog-integrity checks with no errors: 489 units, `pt` 0/489 (0.0%), `en` 0/489 (0.0%), coverage incomplete. This verifies catalog/source integrity and reports missing translation; it does not approve locale scope or establish i18n runtime support. No catalog/runtime binding, language selector, persistence behavior, localized data formatting, screen-reader review, or text-expansion browser review is claimed.
 
 ## Next localization evidence
 
