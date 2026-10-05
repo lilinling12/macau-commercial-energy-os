@@ -76,3 +76,20 @@ Correct the v2.3 claim fixture to represent claim **decision** and **scope** ind
 ## v2.3 reconciliation update — 2026-10-05
 
 The static UI fixtures were corrected to use separate claim `decision` and `scope` fields and to identify every scenario as a synthetic supplied-schedule assessment. A tariff-free scenario explicitly does not generate an optimizer candidate. The v2.3 fixture JSON was fetched back from PR #10 and its standalone copy matched the embedded JSON; both executable inline scripts passed `node --check` and the standard-library fixture validator passed. Current source blobs: HTML `6f199ddaee1f2a416b9925ce310a073b0455b054`, fixture `2d378478786b33ba24dc0024e0315a638d3d6624`, validator `ebd8c7bab94752a3cc1e9bc15e5b8df8454cc466`. No browser/API/optimizer integration is established.
+
+
+## v2.4 and service-separation regression update — 2026-10-05
+
+**Current compared revisions:** PR #14 head `99e0a7e943fdd66c987f28293658610b022b0a3b`; PR #10 v2.4 review source is recorded in `docs/02-product/prototype/source-load-dispatch/v2.4/REVIEW.md` (review blob `9350b7c38c892358bd6f887f61ec72414bc8664a`). These remain separate open proposal branches.
+
+The v2.4 browser study fixes the narrow-screen overflow found in v2.3 and makes the synthetic claim table keyboard-scrollable. It still uses static synthetic states and is not fed by PR #14. In particular, v2.4's synthetic HVAC service-violation selector is not evidence that the optimizer evaluates comfort or service outcomes.
+
+A missing regression assertion has now been added in PR #14 test blob `ffef3f40d8e46336160ebee2a29ec776628f26fd`:
+
+- Test: `test_electrical_feasibility_does_not_assert_comfort_service`.
+- With a balanced HVAC schedule and a supplied flexible-load limit, it asserts `PhysicalStatus.VALIDATED_WITHIN_SCOPE` and `DISPATCH_FEASIBILITY=ALLOWED`.
+- For the same assessment it asserts `COMFORT_SERVICE=WITHHELD`, scope `NONE`, with the reason that service constraints are “not modeled.”
+
+This pins the intended distinction in executable regression coverage without adding a comfort model, wire contract, device control, or canonical API. The check run started for PR #14 commit `99e0a7e943fdd66c987f28293658610b022b0a3b`; its completion and result must be verified separately before claiming the test passed.
+
+The older v2.3-specific sections above remain historical. v2.4's exact-source browser review covers the claim-state section at 1440, 1024, 768, 375, and 320 CSS px and the four synthetic claim states at desktop and phone widths. It does not establish complete workflow, locale, screen-reader, operator, or WCAG validation. No UI/API adapter binding exists.
