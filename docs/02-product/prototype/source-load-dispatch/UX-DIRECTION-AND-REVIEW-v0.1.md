@@ -156,3 +156,40 @@ The v0.1 layout-direction study was rendered only in Traditional Chinese at 1440
 3. Should locale preference be per user only, or should a site default also be configurable for shared control-room workstations?
 
 No language scope is frozen by this review.
+
+
+## Source and palette prototype reconciliation — 2026-10-05
+
+**Review mode:** source and document inspection only. I did not render a page in a browser or inspect keyboard, screen-reader, touch, contrast-pair, or user-study behavior in this pass. CSS breakpoints and ARIA/source attributes below are implementation evidence, not proof that the experience works at those viewports.
+
+### What the prototypes cover
+
+- The task-local `prototype-v0.10-review.html` matches PR #8's `docs/02-product/prototype/v0.10/index.html` exactly after normalizing line endings (Git blob SHA `5d148b4990e353c7a400b7401216066f35ed68cf`). It starts at Portfolio overview and has separate areas for site readiness, data health, physical/economic site model, economics, tariff evidence, recommendation review, and evidence/replay. It clearly marks synthetic data, separates physical relationships from settlement rights, and offers no device action. Its opening and navigation still center portfolio/readiness and evidence workflows; no source/load schedule comparison is the primary task.
+- The local `palette-study-v0.1.html` presents Harbor teal, Mineral blue and Night graphite around the same portfolio/demand task, with actual/forecast represented using different line styles. The PR #8 repository copy has blob SHA `986f7f6bd1f7c01506ac6cc41a3b3430d9d8309c` and is not byte-identical to the local file: its footer adds a previous browser-preview note and says attempted 320px/1440px captures were clipped/scaled. Treat those as different review artifacts; the local file alone does not carry that browser note. Both are palette comparisons, not a dispatch workflow or approved design tokens. Sample `zh-Hant` / Portuguese labels do not establish complete localization.
+- PR #10's dispatch prototype v1.2 (HTML blob `aa36108ad4781d8906afe00d41d2a3308e15f94f`) makes the requested six steps explicit: data and contract verification; site energy model; schedule options; cost and constraints; Shadow review; monitoring and replay. The schedule view names grid, on-site PV, ESS, HVAC, EV charging and hot-water load. It separates physical flow from settlement mapping, labels synthetic inputs, withholds bill-grade money where tariff rules are unverified, and states that recommendations cannot be executed. The six-stage workflow now centers the source/load decision, unlike v0.10.
+- v1.2 adds three synthetic blocker/partial states: no verified settlement scopes, import-rate coverage for only four of six intervals with missing values withheld, and replay unavailable when the original snapshot is missing. These improve the evidence boundary; they do not implement scope authorization, live inputs, immutable persistence, tariff settlement or replay.
+
+### Search fit and design references
+
+A fresh `ui-ux-pro-max` `--design-system` query for “commercial energy operations dispatch console” was run, followed by the narrower retry “energy dispatch operator console.” Both returned the same conversion/marketing sections, Organic Biophilic wellness style, and Syncopate/Space Mono typography. Those are off-target for an evidence-heavy, sustained B2B operator task and were rejected; no suggested palette or style was applied. The separate project skill draft remains the better domain guide, while the built-in skill's accessibility and chart guidance remains useful only when matched to a specific interaction.
+
+The review bar uses platform guidance for concrete principles, not wholesale visual imitation:
+
+- Apple HIG says custom motion should be purposeful, optional, brief and cancellable. For dispatch, transitions should explain schedule changes or feedback and must not hide state or delay work: https://developer.apple.com/design/human-interface-guidelines/motion/.
+- Material 3 uses semantic color roles and design tokens; use that principle to make evidence/status colors consistent and themeable, without importing the Material look as the product identity: https://m3.material.io/foundations/ and https://m3.material.io/styles/color/the-color-system.
+- WCAG 2.2 is the current W3C Recommendation used by the project skill. Its page-conformance model includes responsive variants, and its AA criteria include keyboard, reflow, focus visibility/not-obscured, non-text contrast and minimum target size. Full conformance is not established by source inspection: https://www.w3.org/TR/WCAG22/.
+- Awwwards examples expose distinct Design, Usability, Creativity and Content dimensions; one Site-of-the-Day example weights them 40/30/20/10. Webby site criteria include content, structure/navigation, visual design, overall experience, functionality and interactivity. FWA describes its focus as digital innovation, creativity, originality and technical excellence. These are useful critique lenses, not an operator-product specification or a claim that this prototype is award-ready: https://www.awwwards.com/sites/olivier-staub, https://www.webbyawards.com/about/webbyfact/, https://thefwa.com/FWA25/25.html.
+
+### Coverage ledger and next design work
+
+| Area | Evidence actually checked on 2026-10-05 | Status / next evidence needed |
+|---|---|---|
+| Primary task hierarchy | v0.10 navigation/section labels and v1.2 six workflow anchors | v0.10 is a broad portfolio shell; v1.2 centers dispatch. Owner still needs to approve the product task/scope. |
+| Palette and type | Three named alternatives in the palette study; source color tokens | Unselected. Render the same source/load task under alternatives before proposing a token decision. |
+| Responsive | CSS media rules present in v1.2 at 1050, 760, 680, 600 and 390 CSS px; no renders checked | Unverified. Review at 1440, 1024, 768 and 375 CSS px; the set must include workflow navigation, schedule comparison, state panels, long names and chart/table alternatives. |
+| Locale | v1.2 declares `zh-Hant`; v0.10 and palette study use English content, with only sample Traditional Chinese/Portuguese labels in the palette page | Not multilingual. Confirm release locale scope; then review complete critical paths, terminology, date/time/MOP formatting, long strings and missing-key behavior in each locale. |
+| Accessibility and interaction | Source has named workflow navigation, `aria-current`, a stage pager, `aria-live` status snippets, and reduced-motion CSS | Source-level signals only. Verify actual focus order, keyboard stage changes, announcements, contrast, target sizes and screen-reader behavior in a rendered build. |
+| Energy and money truth | Static copy labels synthetic input, distinguishes physical/settlement, withholds incomplete rates, and disables device action | Good proposal boundary; still requires product approval and integration against canonical result/state contracts. |
+| Motion and craft | CSS contains responsive and reduced-motion rules; no new award-like motion was added | No visual craft conclusion without rendering. Prefer schedule comparison clarity and direct manipulation feedback over decorative motion. |
+
+The next useful UI step is an integrated, rendered comparison of the v1.2 dispatch task under the three still-unapproved visual directions, across the required breakpoints and complete candidate locale strings. Record screenshots, overflow/focus/contrast defects and fixes; do not call it user-tested or WCAG-conformant until those reviews are performed.
