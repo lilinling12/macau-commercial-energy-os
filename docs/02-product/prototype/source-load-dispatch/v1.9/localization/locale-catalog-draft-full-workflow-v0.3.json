@@ -81,8 +81,8 @@
       "stage": "constraint-analysis",
       "sourceText": "4 / 6 時段具備精確且已核實的費率",
       "translations": {
-        "pt": "4 de 6 intervalos têm tarifas precisas e verificadas",
-        "en": "4 of 6 intervals have precise, verified tariffs"
+        "pt": "4 de 6 intervalos têm tarifas precisas e verificadas;",
+        "en": "4 of 6 intervals have precise, verified tariffs;"
       },
       "locations": [
         259
@@ -375,8 +375,8 @@
       "stage": "constraint-analysis",
       "sourceText": "；另 2 個時段因缺少有效費率而不計入。此示例不含電量、費率或金額，因此不顯示總額。",
       "translations": {
-        "pt": "; 2 outros intervalos são excluídos por não existir uma tarifa válida. Este exemplo não contém energia, tarifa ou montante monetário, pelo que não apresenta um total.",
-        "en": "; 2 other intervals are excluded because no valid tariff is available. This example contains no energy, tariff, or monetary amount, so no total is shown."
+        "pt": "2 outros intervalos são excluídos por não existir uma tarifa válida. Este exemplo não contém energia, tarifa ou montante monetário, pelo que não apresenta um total.",
+        "en": "2 other intervals are excluded because no valid tariff is available. This example contains no energy, tariff, or monetary amount, so no total is shown."
       },
       "locations": [
         259
@@ -3700,13 +3700,14 @@
       "stage": "shell",
       "sourceText": "放回每個時段。",
       "translations": {
-        "pt": "Mostrar novamente cada intervalo.",
-        "en": "Show each interval again."
+        "pt": "em cada intervalo.",
+        "en": "for every interval."
       },
       "locations": [
         164
       ],
-      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
     },
     {
       "key": "dispatch.v1_9.shell.text.45b9c6748c",
@@ -3798,13 +3799,14 @@
       "stage": "shell",
       "sourceText": "把能源安排，",
       "translations": {
-        "pt": "Planear o uso de energia,",
-        "en": "Plan energy use,"
+        "pt": "Planeie a utilização de energia",
+        "en": "Plan energy use"
       },
       "locations": [
         164
       ],
-      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
     },
     {
       "key": "dispatch.v1_9.shell.text.6cfd730dca",
@@ -3981,13 +3983,14 @@
       "stage": "shell",
       "sourceText": "繁體中文介面實驗 · 尚不代表完整多語支援或已核准視覺方向",
       "translations": {
-        "pt": "Estudo da interface em chinês tradicional · não representa suporte multilingue completo nem uma direção visual aprovada",
-        "en": "Traditional Chinese interface experiment · not complete multilingual support or an approved visual direction"
+        "pt": "Estudo multilingue da interface · não representa suporte linguístico completo nem uma direção visual aprovada",
+        "en": "Multilingual locale study · not complete language support or an approved visual direction"
       },
       "locations": [
         276
       ],
-      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
     },
     {
       "key": "dispatch.v1_9.shell.text.a197c684b4",
