@@ -4,6 +4,10 @@
 **Status:** additive product proposal for owner and domain review; not an approved production requirement, tariff model, algorithm, site capability or control authorization.  
 **Scope:** make commercial-site source/load scheduling an explicit first-class Energy OS task while preserving the existing research and safety authority.
 
+## Research source trace
+
+The early G7.1 market/ROI and G7.2 energy-economics packages establish a candidate market framework and high-level dispatch objective, not validated customer ROI, Macau site parameters, or a complete calibrated model. See [G7.1/G7.2 research-to-product trace](G7.1-G7.2-RESEARCH-TO-DISPATCH-PRODUCT-TRACE-v0.1.md) for archive fingerprints, what those packages do and do not establish, and the link to main decisions and the open PR #8 product baseline.
+
 ## 1. Why this proposal exists
 
 The current `main` mission and D-001/D-002 define a commercial Energy Orchestrator whose objective is total economic energy cost/value. D-003 prioritizes HVAC/chiller as the first controllable-asset hypothesis; D-004 makes ESS optional and site-economics-dependent; D-005 requires PV treatment to follow verified settlement contracts; D-006 makes Demand Guard a hard veto; D-009 includes the Energy Graph, tariff/contract and meter/settlement twins, HVAC model, SHADOW and M&V; D-013 separates physical from economic topology; D-055 limits initial bill-grade truth; D-056 requires deterministic tariff-aware supervisory logic before MPC; D-060 makes rebound/recovery explicit; D-061 denies MPC a privileged control path; D-077/U-025 prevent assuming cross-site PV settlement rights.
