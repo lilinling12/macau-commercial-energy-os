@@ -33,7 +33,7 @@ The four v2.3 scenarios are UI fixtures, not PR #14 output payloads. Their displ
 
 ## 3. Important cross-layer gaps
 
-1. **v2.3 claim status conflation:** its fixture currently uses `status=PARTIAL` for the covered import-energy component. PR #14 uses binary `ClaimStatus` plus separate `ClaimScope`; therefore the UI model should use `ALLOWED + PARTIAL scope` for covered, partial coverage, with the economic assessment dimension carrying `PARTIAL`.
+1. **v2.3 claim status correction:** the first fixture draft used `status=PARTIAL` for covered import energy, unlike PR #14's binary `ClaimStatus` and separate `ClaimScope`. This has now been corrected in the v2.3 branch fixture: `decision=ALLOWED, scope=PARTIAL`; the economic assessment dimension remains PARTIAL. The UI renders “ALLOWED · 部分覆蓋.” The standalone JSON and embedded HTML are checked for exact equality by `validate-claim-fixtures.py`.
 2. **Synthetic “COMPLETE”:** v2.3 uses `COMPLETE` for synthetic physical examples. PR #14 has no `COMPLETE` physical enum and explicitly scopes validation. The UI should make this a presentation label for its declared synthetic example and must never imply a site result. The application adapter should map an engine state, not infer one from UI copy.
 3. **No-tariff case:** `generate_candidate()` requires an `EconomicContext` with aligned import rates and optimizes the supplied import-energy charge. Its tariff-free UI case can demonstrate assessment of a supplied schedule or a blocked/not-calculated economic result; it cannot claim that the current PR #14 generator produced an optimized candidate without an economic context.
 4. **Service result:** the assessor's `COMFORT_SERVICE` claim remains withheld; it does not calculate an HVAC/EV/hot-water service outcome. v2.3's service-violation state is only a synthetic UI thought experiment.
@@ -71,3 +71,8 @@ Passing source checks or synthetic fixtures establishes no real tariff/site, ser
 ## 6. Next work
 
 Correct the v2.3 claim fixture to represent claim **decision** and **scope** independently; pin the PR #14-to-UI mapping in an adapter proposal; then implement a contract-conformant vertical slice only after T0/contract-authority approval. Keep the browser render/interaction review separately open.
+
+
+## v2.3 reconciliation update — 2026-10-05
+
+The static UI fixtures were corrected to use separate claim `decision` and `scope` fields and to identify every scenario as a synthetic supplied-schedule assessment. A tariff-free scenario explicitly does not generate an optimizer candidate. The v2.3 fixture JSON was fetched back from PR #10 and its standalone copy matched the embedded JSON; both executable inline scripts passed `node --check` and the standard-library fixture validator passed. Current source blobs: HTML `6f199ddaee1f2a416b9925ce310a073b0455b054`, fixture `2d378478786b33ba24dc0024e0315a638d3d6624`, validator `ebd8c7bab94752a3cc1e9bc15e5b8df8454cc466`. No browser/API/optimizer integration is established.
