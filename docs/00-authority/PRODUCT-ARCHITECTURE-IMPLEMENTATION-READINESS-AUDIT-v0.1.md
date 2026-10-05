@@ -258,3 +258,36 @@ Added a source-hashed, versioned reconciliation at [`ARCHIVE-SEMANTIC-RECONCILIA
 All 44 ZIPs were opened and indexed (40 Macau, four unrelated and excluded; 1,071,834 uncompressed bytes; no read failures), but that inventory is not a semantic reading of every file. This first pass reviewed the named status/decision and core design documents only; the report gives the remaining archive audit sequence and does not close a Gate. The shared ChatGPT link returned Cache miss, while `read_thread` yielded five recent turns with no older cursor. These transcript gaps remain explicit.
 
 The report preserves source statuses rather than normalizing them: the current GitHub main `CURRENT.md` remains the controlling repository snapshot (G1 OPEN, G6.9-R2 3D pending, G7.2 live baseline/no-op pending; C+ provisional). Supplied archive labels are historical evidence unless a dated authority decision reconciles them.
+
+
+## Evidence refresh — 2026-10-06
+
+This dated refresh supplements the 2026-10-04 snapshot below. It records current source access and open review-branch evidence; it does not replace main-branch authority, approve a decision, or close a Gate.
+
+### Original source access and limits
+
+The shared conversation `https://chatgpt.com/share/6ac10df8-a30c-83e9-8d4f-ab64eb078470` was opened in the in-app browser. Its accessible page showed early history including the initial broad G6.9-R2 research, Phase B Node/NestJS + Go Edge + Python Optimizer/contract work, the merge of PR #2, restoration of D-001…D-055/U-001…U-017, and the start of Phase C VS-001. The page exposes 136 “Prompt” controls, but the full transcript is not reliably rendered: two Deep Research responses show “Failed to fetch template,” and most of the thread text is not available in the captured page. The Codex `read_thread` lookup does not resolve this ChatGPT share ID, and direct web retrieval returned a cache miss. **The shared conversation has therefore only been partially inspected; this refresh does not claim a full transcript review.**
+
+The two supplied research reports are locally readable and their SHA-256 values match the research reconciliation record: report (6) `1E0118807DBFDCA3D13AE1949383B4CBFEFB80DB0CD867D13BD6C8DC0D744495`; report (7) `5DB518CBE85402E0A8AD2682B9E52A7782D17748EC95C60F43B4BB748B6CAC82`. The local project folder contains 46 top-level files (44 ZIP packs and two Authority Markdown files). The inspected G7.9 packages are Step 1 and Step 2; Step 2 marks Step 3 as next. There is no G7.9 Step 3 archive in that folder. Step 3 materials currently exist as open-branch proposals, not a completed/approved package.
+
+### Local visual artifacts and GitHub landing
+
+| Local source artifact | Matching repository artifact inspected | Current landing status |
+|---|---|---|
+| `work/prototype-v0.10-review.html` | `docs/02-product/prototype/v0.10/index.html` on PR #8 branch | Content lines match apart from one trailing blank line in the fetched copy. PR #8 is open and unmerged, so it is not on `main`. v0.11 is the later nine-destination stimulus. |
+| `work/palette-study-v0.1.html` | `docs/02-product/prototype/visual-directions/v0.1/index.html` on PR #8 branch | Line content matches. The repository copy is renamed/reframed as a three-palette visual-direction study; it explicitly says no direction is selected or user-tested. PR #8 is open and unmerged. |
+| Local project UI/UX skill draft | `.agents/skills/macau-energy-os-ui-ux/SKILL.md` and three reference files on PR #8 branch | Present in PR #8, not in `main` until that PR is merged. The skill is a project draft, not owner-approved design policy. |
+
+PR #8 head `14db04081f5c2efee64a590b4779bef3fd636e92` remains open, Ready for Review, unmerged. Authority Validation, Runtime Bootstrap, Contracts Validation and Repository Hygiene pass on that exact head. These checks do not approve its product, design or architecture proposals.
+
+### Source/load dispatch prototype update
+
+PR #10 now contains the newer six-stage source/load dispatch study at `docs/02-product/prototype/source-load-dispatch/v2.4/index.html`. A full browser pass at 1440, 1024, 768, 375 and 320 CSS-pixel widths selected each of the six stages (30 stage/viewport combinations); each selected stage rendered, document width stayed within the viewport, and no page JavaScript errors were observed. It exercised the scenario focus, table disclosure, four independent claim fixtures, the assumptions dialog and all three SHADOW review outcomes.
+
+The pass found a material workflow defect: review controls were in Stage 03 while Stage 05 linked to those now-hidden controls. PR #10 moves the controls into Stage 05 and replaces the Stage 03 controls with a Stage 05 link. The fix is recorded in source commit `0b1822c5776e7cbf12ac65b66edd6b62efb2284b`; the review evidence is in commit `6d6eca25e5a50f45068795e64e96bc9a8906ab90`. PR #10 remains an open Draft, unmerged; Authority Validation and Repository Hygiene pass on its recorded head. This is synthetic prototype interaction evidence only, not operator validation or accessibility conformance. The study is Traditional Chinese only and does not approve the product workflow or visual system.
+
+### Gate and technology interpretation
+
+Current main still says G6.9-R2 Steps 3A–3C complete and Step 3D pinned framework-native integration pending. D-062…D-076 are active/provisional/experiment boundaries, not a production-stack freeze. Candidate C+ remains a provisional default; A and B remain candidates. The Phase B Node/NestJS code is an existing Candidate B implementation path, not bake-off evidence that B won. Deep Research (6) recommends provisional C+ and does not mention Next.js. Deep Research (7) recommends React/TypeScript for the operator SPA and Node/NestJS for the control plane; it mentions Next.js conditionally for a public/customer portal or useful server-side UI composition. Neither report selects Next.js as the Energy OS backend, and neither report is the measured G6.9 winner.
+
+G7.9 Step 1 and Step 2 are marked complete in the supplied archives. Step 3 remains open: PR #10 contains proposed API/Edge/optimizer boundaries, APP-11 mapping, acceptance criteria and repository tasks; PR #14 contains a bounded SHADOW optimizer assessment proposal. Both remain Draft and unmerged. The next G7.9 work is to reconcile APP-11 with APP-05…APP-08, resolve contract authority and persistence/lifecycle semantics, review physical/economic/service/control claim boundaries, and obtain an authority-linked acceptance decision. Passing repository checks do not close Step 3.
