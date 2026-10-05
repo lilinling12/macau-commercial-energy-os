@@ -152,3 +152,19 @@ The main branch's `contracts-validation.yml` and `runtime-bootstrap.yml` show th
 The original G7.6 vertical slice prioritizes an HVAC recommendation loop. The later dispatch-first proposal broadens the operator task to coordinate grid import, verified on-site PV, ESS charge/discharge, and flexible loads under physical, tariff/contract, service, safety and evidence constraints. HVAC remains a key flexible asset and is consistent with the active main decision D-003; this is a product-scope evolution that needs explicit traceability, not evidence that the earlier package already specified or implemented the later dispatch loop.
 
 This focused read covers five packages and selected GitHub paths only. It does not complete semantic review of the remaining source archives or certify repository-wide adoption.
+
+
+## 10. G7.9 Step 1/2 scope and completion-claim cross-check — 2026-10-06
+
+The two supplied G7.9 package archives were read by their indexed entry contents and entry hashes:
+
+- Step 1, `macau-commercial-energy-os-g7.9-mvp-domain-foundation-v0.1.zip`, SHA-256 `CB144A2B57C612A78C80F39FD0A0BB2911CECE6453566DD0F90C70D5FD2CD30A`.
+- Step 2, `macau-commercial-energy-os-g7.9-step2-domain-data-contract-design-v0.1.zip`, SHA-256 `B70CAFDA01B6F19FAC8731154A90D24930CB2A66ADA449EA9BB8E5AA4B149A6C`.
+
+Step 1's `CURRENT.md` marks the domain-foundation package completed and points to Step 2. Its MVP scope is tenant isolation, building/asset/device registration, telemetry ingestion, an energy dashboard and basic recommendation output; it excludes direct control, autonomous AI and a full billing system. Its first slice is simulator → Edge → telemetry contract → Platform API → storage → optimizer, followed by a portal dashboard. This is a high-level foundation and older dashboard/recommendation-centered scope.
+
+Step 2's `CURRENT.md` marks its package complete and says G7.9 Step 3 Service Boundary and Implementation Design is next. Its model lists Tenant, Organization, Site, Building, Energy Asset, Device, Telemetry Point/Record, Optimization Run and Recommendation. Its illustrative storage list omits Site despite listing Site as an entity; the API examples are only `POST /telemetry`, `GET /buildings`, `GET /assets`, and `GET /recommendations`. It proposes shared-database `tenant_id` isolation and basic versioned contracts, but does not supply a concrete OpenAPI/JSON Schema file in this archive.
+
+Against the user's dispatch-first product objective, these two package completion labels do **not** mean that the business source/load dispatch model or operator workflow is complete. The inspected Step 1/2 texts do not define interval schedules, tariff/contract qualification, physical-versus-settlement scopes, grid/PV/ESS/flexible-load dispatch, forecast and service constraints, economics comparison, evidence-qualified claims, operator SHADOW review, or durable replay. Those semantics are proposed in the later PR #8/#10 design work and remain proposals pending authority/domain/owner review. Step 3 is therefore the next G7.9 package step in the supplied lineage; PR #10's detailed Step 3 map is not a Gate-completion record.
+
+This reading strengthens, but does not widen, the earlier source-conformance note: Step 1/2 were completed as small foundation/design packages; their “completed” status must not be promoted into completion of the later commercial dispatch product or implementation. Archive hashes identify the source packages; this section does not claim full semantic review of all 735 indexed project-folder text entries.
