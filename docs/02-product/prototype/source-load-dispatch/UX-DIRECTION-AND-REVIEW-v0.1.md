@@ -204,3 +204,43 @@ PR #8 already contains a stack-neutral i18n architecture draft and deliberately 
 Prototype v1.7 remains Traditional-Chinese-only: no language selector, translated catalogs or multilingual reflow were implemented. Therefore it is a single-locale layout study, not multilingual support. No legal obligation, user preference, translation approval, launch scope or product freeze is claimed.
 
 Sources: [MGTO English language context](https://www.macaotourism.gov.mo/en/article/about-macao/language), [MGTO Traditional Chinese language context](https://www.macaotourism.gov.mo/zh-hant/travelessential/about-macao/language), [Macao Government Portal — Laws and English-translation limitation](https://www.gov.mo/en/laws/).
+
+
+## Targeted visual-direction review — 2026-10-06
+
+**Status:** Design critique and candidate direction only. No palette, layout, product scope or brand has been approved. No new page render or user study was run in this update.
+
+### Guidance checked
+
+Applied the project UI/UX skill at `.agents/skills/macau-energy-os-ui-ux/` and the installed `ui-ux-pro-max` search.
+
+- Design-system query `commercial energy dispatch operator console source load` returned a “Trust & Authority + Conversion” page pattern and Organic Biophilic styling, with display/mono fonts suited to a kinetic brand. The one narrower retry, `energy dispatch operations workbench evidence comparison SaaS`, returned Hero + Features + CTA with glassmorphism and Calistoga/Inter. Both results are mismatched to a persistent, evidence-heavy operator workspace and were rejected. No generated brand palette or landing-page pattern was adopted.
+- The product-specific skill is the better fit: it requires user-task-first hierarchy, evidence-qualified energy semantics, a responsive decision canvas, multilingual coverage and a same-task comparison of meaningful concepts. Its references distinguish an operational console from a marketing site.
+- Targeted chart search `responsive operational energy flow comparison chart` recommends Sankey for multi-source/multi-target flow but explicitly warns against mobile-primary use, requires direct labels and a table fallback, and says color alone cannot carry meaning. For this product, that supports using an interval-aligned baseline/candidate schedule as the main comparison, with a separate physical-flow explanation and accessible table; a decorative Sankey should not replace the time-series decision task.
+- Targeted UX search `evidence status accessible focus keyboard` returned native button semantics, visible focus and complete keyboard operation. These support the existing v2.4 scroll-region and claim-state review criteria, but search output is guidance, not browser evidence.
+- Typography search `modern readable bilingual Chinese data product sans serif` returned Noto Sans TC as a relevant Traditional Chinese candidate. It remains unselected until the complete zh-Hant / Portuguese / English copy is rendered and font fallback, line wrapping, numeric alignment and local display are checked.
+
+### Visual artifacts inspected
+
+I viewed the saved 1440px v2.4 claim-state screenshot and the local 1440px palette-study screenshot. This was image review of saved artifacts, not a fresh browser run.
+
+- The palette study communicates three distinct color directions, but all three reuse the same portfolio/demand layout. It is a color comparison, not evidence that any direction solves the dispatch workflow or establishes a visual identity.
+- The v2.4 image has a clear synthetic-study label, generous panel spacing, direct statuses and reasons, and a visible SHADOW/no-command boundary. It also presents raw enum-like English labels (`PARTIAL`, `NOT_ASSESSED`, `WITHHELD`) among Traditional Chinese copy and uses a card-plus-table status layout. This is useful for claim-state semantics, but should not become the final main dispatch canvas without operator-language review.
+- The viewed v2.4 section is a state study, not the source/load schedule itself. It cannot by itself demonstrate the full comparison from grid/PV/ESS through HVAC/EV/hot-water load, interval costs, constraints and review. The six-stage workflow and schedule comparison exist in earlier branch prototypes; they need a cohesive, fresh review as one task rather than treating a later claim-state section as the whole product.
+- The image review did not measure contrast, test focus/keyboard/screen reader, render additional viewports, test translated copy, or establish full page visual quality.
+
+### Quality lenses translated to the operator task
+
+The Webby Awards' 2026/2027 website criteria separate content, structure/navigation, visual design, functionality, interactivity and overall experience; that prevents judging this product only by a polished first screen. Awwwards' published example exposes separate Design, Usability, Creativity and Content scores; use those as critique dimensions, not as an operational-product specification. FWA is a source of selected original digital work, but no project-applicable public scoring rubric was verified here. These references support craft goals only and do not justify copying their layouts or claiming award-level quality. See [Webby judging criteria](https://www.webbyawards.com/judging-criteria/), [Awwwards example and scoring dimensions](https://www.awwwards.com/sites/electronic-materials-office), and the previously reviewed [FWA25 overview](https://thefwa.com/FWA25/25.html).
+
+### Candidate next composition (unapproved)
+
+Use the existing six-stage task, but make its schedule decision the visual anchor:
+
+1. Keep site, time horizon, input freshness and synthetic/verified basis visible above the comparison.
+2. Give baseline and candidate one shared interval-aligned chart. Directly label grid import, PV used/exported only when evidenced, ESS charge/discharge and changed flexible loads; provide units, uncertainty and a table equivalent.
+3. Keep physical balance/constraints apart from settlement components. Show cost by eligible account/tariff scope and covered intervals; withheld components state why.
+4. Put evidence, readiness and SHADOW review in a contextual side panel at wide widths and a progressive section/drawer on compact screens. Never hide the boundary or whether a claim is synthetic.
+5. Let mobile switch to a clear interval/table-first comparison rather than compressing the desktop chart. Use restrained, purposeful motion only to explain a candidate change or save a review state.
+
+This proposal should be compared with one meaningfully different composition on the same synthetic task and data. Visual alternatives should vary hierarchy and evidence placement, not only palette. The next implementation/review should record source revision, actual browser viewports, states and locales inspected, measured contrast/focus issues, and changes made. Owner approval and operator feedback remain open; this update does not freeze the proposal or certify WCAG/award/user-test outcomes.
