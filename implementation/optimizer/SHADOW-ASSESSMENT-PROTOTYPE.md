@@ -65,3 +65,9 @@ Candidate-side non-zero PV curtailment now requires an explicit site/inverter ca
 ## ESS SOC evidence gate — 2026-10-05
 
 Active ESS schedules now also require an explicit evidence reference for the SOC inputs used by the bounded assessment. Missing, UNKNOWN or STALE SOC evidence downgrades the physical result to PARTIAL and withholds ESS-dispatch and overall feasibility claims; PROJECT_ASSUMPTION yields a scenario-only result; VERIFIED supports only the supplied bounded calculation. This evidence reference is distinct from the ESS operating-envelope reference in `EssLimits`. It remains caller-provided and is not authenticated or resolved against a meter/BMS source; per-interval SOC provenance and immutable input snapshot semantics remain open for the production contract.
+
+## Macau B1/C1 interval-rate mapping (bounded addition)
+
+The new `macau_energy_optimizer.macau_tariff_periods` module maps effective-dated, caller-supplied active-energy rate cards into the existing SHADOW optimizer's per-interval rate input. It recognizes the published Macau B1 busy/off-peak windows and C1 low/high-season windows in Asia/Macau time, adds the separately supplied effective-dated tariff-clause adjustment (TCA), and preserves the supplied evidence reference. It refuses naive timestamps, unsupported tariff subclasses, out-of-window intervals, and intervals that straddle midnight or tariff boundaries; callers must split at boundaries first.
+
+This is deliberately limited to B1/C1 interval active-energy pricing. It does not validate that the customer is entitled to the supplied tariff, authenticate rate or TCA evidence, reproduce demand/Pu/Pc charges, B2/B3/C2 transformer losses, reactive energy, tax, PV export/FIT, or a full bill. It does not upgrade the result from the existing `GRID_IMPORT_ENERGY_ONLY` component, and does not imply Macau site truth or equipment control. The test rate cards are synthetic `PROJECT_ASSUMPTION` fixtures.
