@@ -27,3 +27,8 @@ At 320 px, the source table region measured 275 px wide with 763 px of scrollabl
 
 The review covers rendered layout and this one keyboard interaction only. It does not establish screen-reader behavior, full keyboard-flow conformance, touch behavior, text enlargement, WCAG conformance, Portuguese or English localization, representative operator usability, Macau tariff/site validity, dispatch feasibility, savings, or control capability. The prototype remains Traditional Chinese, synthetic and SHADOW-only. Full locale coverage remains a separate planned review; this change does not count as multilingual support.
 
+
+
+## Locale surface inventory
+
+The source remains Traditional Chinese. A DOM and inline-interaction scan found 296 unique Chinese DOM text values, 23 Chinese accessibility-attribute values (22 unique), and 21 distinct Chinese inline-script literals; counts overlap and are not a deduplicated translation-unit total. See [`LOCALE-COVERAGE.md`](LOCALE-COVERAGE.md) for stage distribution, dynamic UI categories and completion criteria. This inventory is not translation or multilingual support.
