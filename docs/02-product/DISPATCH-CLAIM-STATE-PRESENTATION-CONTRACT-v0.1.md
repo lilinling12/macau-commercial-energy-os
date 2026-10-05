@@ -58,11 +58,11 @@ The visible acceptance criteria should be tested against the same pinned synthet
 The exact v2.2 source:
 - has independent static cells for synthetic electrical balance, HVAC service, bill economics and SHADOW/control;
 - provides four HVAC-only synthetic selector states and resource-specific evidence-needed text for HVAC, ESS, EV and hot water;
-- explicitly marks ESS evidence synthetic/unverified and excludes EV/hot water from the candidate;
-- does **not** represent claim-level `ALLOWED/WITHHELD`, assessment-level `PARTIAL/BLOCKED`, per-component economic coverage, or a mixed physical/economic/API result;
+- includes a separate static partial import-energy-rate example: 4/6 synthetic intervals covered, no amount displayed;
+- does **not** dynamically bind its HVAC/service and partial-economics examples into a selectable cross-dimension claim ledger, nor represent a shared physical/economic/API result;
 - is not connected to the optimizer, API, evidence store, site registry, or device path.
 
-Therefore, treat v2.2 as a static service-state study, not the UI implementation of PR #14 claim semantics. The next prototype increment should add one mixed-state review fixture with independent dimension/claim rows, then inspect the actual render at desktop, tablet, mobile and narrow-mobile widths and exercise state changes. Do not connect it to real site data or imply production readiness in this increment.
+Therefore, treat v2.2 as a static service-state study, not the UI implementation of PR #14 claim semantics. Prototype v2.3 now adds four selectable mixed synthetic fixtures with independent dimension/claim rows. Its exact-source inline JavaScript passed syntax checking, but the browser render and interactions remain unverified; inspect desktop, tablet, mobile and narrow-mobile widths and exercise all state changes next. Do not connect it to real site data or imply production readiness in this increment.
 
 ## 6. Traceability and open decisions
 
@@ -72,3 +72,8 @@ Therefore, treat v2.2 as a static service-state study, not the UI implementation
 - Open: canonical status/reason vocabulary; multi-account/meter settlement representation; authenticated evidence references and immutable snapshots; complete tariff and demand-charge semantics; localized production copy; mixed-state browser review; operator/domain review; accessibility review; product owner acceptance.
 - PR #10 and PR #14 remain Draft/open/unmerged. G7.9 Step 3 remains open. This document does not resolve APP-11 ownership, D-065 contract authority, G6.9/G7.8 stack precedence, or production architecture.
 
+
+
+### v2.3 static mixed-state UI study update — 2026-10-05
+
+PR #10 now contains [prototype v2.3](prototype/source-load-dispatch/v2.3/index.html) and its [review record](prototype/source-load-dispatch/v2.3/REVIEW.md). It preserves v2.2's existing static 4/6 partial-rate example and adds selectable synthetic cases for incomplete rates, absent tariff applicability, unresolved meter mapping, and synthetic HVAC service violation. Each case updates physical/HVAC/ESS/economic states and a claim ledger. Exact branch source blob `d1a67a0b70acb149a44884dbbaab97efbbffe816` was fetched back; both inline scripts passed `node --check`. This is source-level syntax evidence only: no v2.3 browser render or interaction review has been performed; the fixture remains disconnected from optimizer/API/site/evidence and is Traditional-Chinese-only.
