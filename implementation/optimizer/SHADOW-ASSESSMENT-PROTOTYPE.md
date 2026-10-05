@@ -60,3 +60,8 @@ For partial coverage, only returned interval records are included in the totals;
 ## PV curtailment evidence gate — 2026-10-05
 
 Candidate-side non-zero PV curtailment now requires an explicit site/inverter capability evidence reference in the bounded assessment request. Missing, unknown or stale evidence marks the physical assessment partial and withholds both the PV-curtailment and overall dispatch-feasibility claims; verified evidence permits only a bounded claim within the supplied assessment. Project-assumption evidence produces a scenario-only result. A candidate with zero declared curtailment does not require this capability evidence. This does not authorize or model a remote curtailment command, prove that a real site can curtail PV, or replace source/evidence authentication. Regression cases cover missing, unknown and stale capability evidence; project-assumption and verified evidence; and the zero-curtailment path. Evidence remains a caller-provided reference/state in this prototype.
+
+
+## ESS SOC evidence gate — 2026-10-05
+
+Active ESS schedules now also require an explicit evidence reference for the SOC inputs used by the bounded assessment. Missing, UNKNOWN or STALE SOC evidence downgrades the physical result to PARTIAL and withholds ESS-dispatch and overall feasibility claims; PROJECT_ASSUMPTION yields a scenario-only result; VERIFIED supports only the supplied bounded calculation. This evidence reference is distinct from the ESS operating-envelope reference in `EssLimits`. It remains caller-provided and is not authenticated or resolved against a meter/BMS source; per-interval SOC provenance and immutable input snapshot semantics remain open for the production contract.
