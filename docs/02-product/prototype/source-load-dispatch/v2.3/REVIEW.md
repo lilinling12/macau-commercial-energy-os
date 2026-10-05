@@ -25,14 +25,16 @@ A targeted skill search for “live status announcement scoped assessment” ret
 ## Source-level verification
 
 - Exact v2.2 source was fetched from the PR #10 branch and used as the base; the new source is versioned v2.3, including its rail badge.
-- The four fixture records update every visible dimension and replace the ledger rows from one selected state.
+- The four fixture records update the physical, HVAC, ESS, economic and claim-ledger content from one selected state; all four button keys have a matching data record.
+- Exact-source static inspection found no duplicate HTML IDs, verified the v2.3 title/rail labels, table column headers, one atomic polite summary, and responsive/reduced-motion rules at 900px, 680px and 380px.
+- Calculated contrast for the four new status/summary text-surface pairs using the WCAG relative-luminance formula: ALLOWED 6.90:1, PARTIAL 7.24:1, WITHHELD 6.99:1, summary 10.03:1. This is a source-token calculation, not a rendered-page or full-state contrast audit.
 - Fetched the exact v2.3 source back from the PR branch and extracted both inline JavaScript blocks; `node --check` passed for both blocks (9,571 and 3,272 characters).
 - Browser rendering and interactive review: pending; no visual or runtime browser claim is made here.
 
 ## Not verified
 
 - Desktop/tablet/mobile/narrow-mobile rendering, actual pointer and keyboard transitions, table scroll interaction and accessibility-tree announcement remain unverified.
-- No measured contrast, full keyboard/screen-reader review, localization, operator review, WCAG conformance, API binding, Macau site/tariff validation, optimizer correctness, or control path is claimed.
+- Full-page contrast across inherited and new styles, hover/focus/disabled combinations, browser rendering, keyboard/screen-reader review, localization, operator review, WCAG conformance, API binding, Macau site/tariff validation, optimizer correctness, or control path is not established.
 - This remains Traditional Chinese UI study content, not complete Traditional Chinese/Portuguese/English support.
 
 ## Next review
