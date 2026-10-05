@@ -34,3 +34,8 @@ The first visual pass exposed an inherited 850px table minimum that clipped clai
 - Values and evidence states are synthetic; no tariff, settlement, site, asset capability, forecast, optimizer result, savings, or pilot evidence is established.
 - The fixed schedule is a presentation fixture and does not change with the selected case. The state selector gates what may be shown; it does not simulate a real assessment or generate a dispatch plan.
 
+
+
+## Additional narrow-window review — 2026-10-06
+
+The existing controlled review matrix covers 320 CSS px and above. In this turn, the exact PR branch v2.7 file was opened in the Codex browser for an additional narrow-window stress review. The captured raster was 304 × 571 px; the CSS viewport dimensions were not directly available, so this observation is not recorded as a 304 CSS px breakpoint test. At that rendered width, the existing `min-width:320px` caused page-level horizontal overflow and wrapped the brand name. The review copy changed the body minimum width to zero and stacks the header metadata below 360 px. A second screenshot showed the page-level horizontal scrollbar gone and the brand on one line; the chart retains its own contained horizontal-scroll region. This is supplemental visual evidence only and does not replace the documented 320/375 CSS viewport matrix, a complete keyboard/screen-reader review, or a WCAG conformance audit.
