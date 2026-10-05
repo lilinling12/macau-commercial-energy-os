@@ -29,7 +29,7 @@ Source files:
 |---|---|---|---|
 | Energy-flow schedule | Grid import, local PV, storage and flexible load are represented as synthetic interval values | Performs bounded schedule checks/search; cannot establish a real site topology | Scenario/site evidence remains caller-supplied; no connected pilot meter |
 | Retail import energy | CEM tariff periods and rates vary by group/subclass; TCA is quarterly | Prices aligned intervals with supplied rates; evidence gate is a reference/state check | Can support a bounded input-rate component, but tariff classification, bill ingestion, effective-dated rate derivation and independent evidence authentication are absent |
-| Group B time-of-use | Full-load 09:00–20:00; low-load 00:00–09:00 and 20:00–24:00 | Search consumes one rate per schedule interval; no group-B tariff clock logic | Need effective-dated, site-timezone-aware period mapping and boundary tests before claiming Macau tariff replay |
+| Group C seasonal tariff | Executive Dispatch 105/2022 splits C into low season (Oct–May) and high season (Jun–Sep), with high-season full-load windows 10:30–13:00 and 14:30–16:00, busy periods 09:30–10:30, 13:00–14:30 and 16:00–20:30, and a low-load period 20:30–09:30; Group C applies to qualifying large MV customers under Regulation 25/2022 | No Group C classification, seasonal tariff clock, or C rate schedule | A major optimizer gap: eligible hotel/large-building sites could have a different optimal schedule; implement only against effective-dated, qualified tariff and contract evidence |\n| Group B time-of-use | Full-load 09:00–20:00; low-load 00:00–09:00 and 20:00–24:00 | Search consumes one rate per schedule interval; no group-B tariff clock logic | Need effective-dated, site-timezone-aware period mapping and boundary tests before claiming Macau tariff replay |
 | Demand charge | Group B uses 0.2Pc + 0.8Pu; Pu is highest measured demand in billing period; Pc has contract/update rules | Reports schedule-horizon import peak only and correctly withholds billing-period interpretation | No Pu/Pc history, tariff billing period, peak window integration, or demand-charge replay |
 | Reactive energy/losses | B includes reactive-energy treatment and B2/B3 loss adjustments | Not part of current economic component | Withhold full-bill comparison until meter and class-specific line items are modeled |
 | Quarterly TCA/tax | TCA changes quarterly; bill also includes applicable tax | Tax/full bill excluded; rate is supplied as input | Need effective dates, bill-period proration/settlement rules and bill-line reconciliation |
@@ -58,17 +58,17 @@ Do not fold physical PV export into import energy cost as a negative rate. Evalu
 ## Acceptance examples before bill-grade comparison
 
 1. **Incomplete contract or tariff evidence:** assessment may show physical schedule only; no monetary amount is displayed.
-2. **Group B interval boundary:** intervals starting/ending at 09:00, 20:00, 00:00 and midnight map to the correct full-/low-load period in Macau local time; daylight/time-zone conversion does not create duplicate or missing intervals.
-3. **Historical TCA change:** a billing horizon crossing an effective-date boundary applies the correct dated value to the right intervals and records the source.
-4. **Demand charge:** recompute baseline and candidate Pu over the *entire applicable billing period*, then apply the evidenced Pc/Pu rule; a shorter dispatch horizon's peak must never be substituted.
-5. **Demand history:** missing, stale or contradictory Pc/Pu evidence withholds demand-charge delta and full-bill claim while preserving any separately qualified import-energy component.
-6. **Reactive energy and tariff subclass:** B1/B2/B3 treatment cannot be interchanged; missing kvarh/register mapping withholds the affected bill component.
-7. **PV without export agreement:** retain physical PV export only as a scenario or withhold its field feasibility; do not add revenue.
-8. **Qualified PV export:** only a matching installation, approval, meter register and signed effective agreement permits a separately named FIT settlement line; unmatched interval/register coverage is partial.
-9. **Other building PV:** a different meter/account cannot reduce this site's settlement absent explicit approved allocation/contract evidence.
-10. **Historical bill reconciliation:** independently recompute line items from source bills and meter data, compare each line and total within agreed rounding/tolerance, and preserve the replay inputs and source versions.
-11. **Partial coverage:** only exactly covered, supported components appear; missing intervals are never priced at zero.
-12. **SHADOW-only:** review/acceptance states never invoke device control or imply execution.
+2. **Group C season and multi-window periods:** test October/May vs June/September, all six high-season boundary times, the two full-load windows, busy windows and night window against the effective legal tariff version; a Group C customer must never be priced with Group B hours.\n3. **Group B interval boundary:** intervals starting/ending at 09:00, 20:00, 00:00 and midnight map to the correct full-/low-load period in Macau local time; daylight/time-zone conversion does not create duplicate or missing intervals.
+4. **Historical TCA change:** a billing horizon crossing an effective-date boundary applies the correct dated value to the right intervals and records the source.
+5. **Demand charge:** recompute baseline and candidate Pu over the *entire applicable billing period*, then apply the evidenced Pc/Pu rule; a shorter dispatch horizon's peak must never be substituted.
+6. **Demand history:** missing, stale or contradictory Pc/Pu evidence withholds demand-charge delta and full-bill claim while preserving any separately qualified import-energy component.
+7. **Reactive energy and tariff subclass:** B1/B2/B3 treatment cannot be interchanged; missing kvarh/register mapping withholds the affected bill component.
+8. **PV without export agreement:** retain physical PV export only as a scenario or withhold its field feasibility; do not add revenue.
+9. **Qualified PV export:** only a matching installation, approval, meter register and signed effective agreement permits a separately named FIT settlement line; unmatched interval/register coverage is partial.
+10. **Other building PV:** a different meter/account cannot reduce this site's settlement absent explicit approved allocation/contract evidence.
+11. **Historical bill reconciliation:** independently recompute line items from source bills and meter data, compare each line and total within agreed rounding/tolerance, and preserve the replay inputs and source versions.
+12. **Partial coverage:** only exactly covered, supported components appear; missing intervals are never priced at zero.
+13. **SHADOW-only:** review/acceptance states never invoke device control or imply execution.
 
 ## Source and validation limits
 
