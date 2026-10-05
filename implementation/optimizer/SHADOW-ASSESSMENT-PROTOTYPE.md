@@ -26,3 +26,17 @@ These are code-level SHADOW boundary experiments, not an approved API, productio
 
 From `implementation/optimizer`, run `PYTHONPATH=src python -m unittest discover -s tests -v`. Project `pyproject.toml` currently requires Python `>=3.14,<3.15`; results on another interpreter are useful development evidence, not target-runtime proof.
 
+
+
+## Claim-specific readiness follow-up (T1 experiment)
+
+The assessment now distinguishes its overall physical status from a fixed claim-readiness ledger. If core site/meter/topology evidence is absent, unknown or stale, the physical assessment remains BLOCKED. If that core evidence qualifies but only a resource-specific constraint is unresolved, the implementation can retain the balanced grid-import profile while returning PHYSICAL PARTIAL and withholding the affected dispatch-feasibility claim:
+
+- Missing or unknown ESS operating evidence with an active ESS schedule withholds ESS and overall dispatch-feasibility claims; it does not erase a profile whose core physical inputs and power balance qualify.
+- Missing or unknown/stale flexible-load envelope evidence withholds the claim for a changed load. An unchanged load is treated as part of the supplied profile, not as a claim that the product can control it.
+- Missing or unknown/stale grid-import-guard evidence withholds guard compliance, while preserving an otherwise supported profile.
+- A verified import-energy component may still be calculated against exact intervals when these physical resource constraints are unresolved, but its economic status is SCENARIO_ONLY. It is not savings, a full bill, or proof that the candidate schedule is feasible.
+
+The result includes per-claim ALLOWED/WITHHELD status and a bounded scope. Demand charges, export compensation, full-bill totals, savings, controllability, comfort/service, cross-site credits and device control remain explicitly WITHHELD. Three focused tests cover unknown ESS evidence, a stale flexible-load envelope with scenario-only economic output, and an unknown grid guard.
+
+This is a prototype-level T1 advance, not the complete T1 acceptance matrix. Claim types and reason text are not canonical contracts; caller-provided evidence references are not retrieved or authenticated; the fixed ledger does not yet represent multiple independent meter/account scopes or evidence provenance at each interval; and real site topology, tariff applicability and operational feasibility remain unvalidated. Production schema/API changes require the separate authority and owner decisions.
