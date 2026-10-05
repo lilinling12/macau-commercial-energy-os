@@ -34,7 +34,7 @@ A targeted skill search for “live status announcement scoped assessment” ret
 
 ## Not verified
 
-- Desktop/tablet/mobile/narrow-mobile rendering, actual pointer and keyboard transitions, table scroll interaction and accessibility-tree announcement remain unverified.
+- No browser render or actual interaction session was run for v2.3. Desktop/tablet/mobile/narrow-mobile rendering, pointer and keyboard transitions, table scroll interaction and accessibility-tree announcement remain unverified.
 - Full-page contrast across inherited and new styles, hover/focus/disabled combinations, browser rendering, keyboard/screen-reader review, localization, operator review, WCAG conformance, API binding, Macau site/tariff validation, optimizer correctness, or control path is not established.
 - This remains Traditional Chinese UI study content, not complete Traditional Chinese/Portuguese/English support.
 
