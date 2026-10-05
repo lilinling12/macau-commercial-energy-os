@@ -291,7 +291,7 @@ class DispatchAssessmentTests(unittest.TestCase):
             claims[ClaimType.COMFORT_SERVICE].status, ClaimStatus.WITHHELD
         )
         self.assertEqual(claims[ClaimType.COMFORT_SERVICE].scope, ClaimScope.NONE)
-        self.assertIn("not modeled", claims[ClaimType.COMFORT_SERVICE].reason)
+        self.assertIn("not modeled", " ".join(claims[ClaimType.COMFORT_SERVICE].reasons))
 
     def test_unknown_grid_guard_withholds_only_guard_compliance_claim(self):
         unknown = EvidenceRef("guard:unknown", EvidenceState.UNKNOWN)
