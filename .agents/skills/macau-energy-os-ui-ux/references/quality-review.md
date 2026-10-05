@@ -48,6 +48,7 @@ Useful primary references:
 - Webby — [2026/2027 judging criteria](https://www.webbyawards.com/judging-criteria/) and [Best User Interface](https://winners.webbyawards.com/winners/websites-and-mobile-sites/features-design/best-user-interface).
 - Awwwards — [Site of the Day example and scoring dimensions](https://www.awwwards.com/sites/designed-by-women) (Design, Usability, Creativity, Content; developer criteria include responsive design/accessibility/performance).
 - FWA — [25th-anniversary overview](https://thefwa.com/FWA25/25.html) describing its focus on digital innovation, creativity, originality, and technical excellence.
+- Project-specific case study notes and transfer boundaries — [Visual Reference Case Studies](visual-reference-case-studies.md). These are desk-reviewed examples, not user validation or an approved visual direction.
 
 ## 6. Iteration and sign-off
 
