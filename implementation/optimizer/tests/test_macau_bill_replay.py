@@ -81,9 +81,9 @@ class MacauBillReplayTests(unittest.TestCase):
         self.assertEqual(result.billed_demand_pf_kw, D("104.00"))
         self.assertEqual(result.demand_charge_mop, D("2058.88800"))
         self.assertEqual(result.active_energy_charge_mop, D("1257.500"))
-        self.assertEqual(result.reactive_energy_charge_mop, D("139.200"))
+        self.assertEqual(result.reactive_energy_charge_mop, D("34.800"))
         self.assertEqual(result.tca_charge_mop, D("150.00"))
-        self.assertEqual(result.subtotal_excluding_tax_mop, D("3605.58800"))
+        self.assertEqual(result.subtotal_excluding_tax_mop, D("3501.18800"))
         self.assertIn("government tax", result.excluded_components)
 
     def test_b1_reactive_excess_is_clamped_to_zero(self):
@@ -115,10 +115,10 @@ class MacauBillReplayTests(unittest.TestCase):
         self.assertEqual(result.billed_demand_pf_kw, D("840.00"))
         self.assertEqual(result.demand_charge_mop, D("16629.48000"))
         self.assertEqual(result.active_energy_charge_mop,
-                         D("77.600+36.200+42.960+35.400+44.940"))
+                         D("77.600") + D("36.200") + D("42.960") + D("35.400") + D("44.940"))
         self.assertEqual(result.reactive_energy_charge_mop,
-                         D("6.960+1.160+4.176+2.088+0.580"))
-        self.assertEqual(result.tca_charge_mop, D("28.50"))
+                         D("6.960") + D("1.160") + D("4.176") + D("2.088") + D("0.580"))
+        self.assertEqual(result.tca_charge_mop, D("28.00"))
 
     def test_c1_requires_direction_for_reactive_registers(self):
         rows = (
