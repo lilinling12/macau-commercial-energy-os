@@ -6,6 +6,7 @@ from zoneinfo import ZoneInfo
 
 from macau_energy_optimizer.dispatch_assessment import (
     AssessmentRequest,
+    ClaimScope,
     ClaimStatus,
     ClaimType,
     EconomicContext,
