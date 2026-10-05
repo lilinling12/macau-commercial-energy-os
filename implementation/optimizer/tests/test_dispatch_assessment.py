@@ -458,12 +458,12 @@ class DispatchAssessmentTests(unittest.TestCase):
             end=datetime(2026, 11, 1, 1, 30, tzinfo=zone, fold=1),
         )
 
-        result = assess_schedule(
-            request(
-                baseline=Schedule((first, second)),
-                candidate=Schedule((first, second)),
-            )
+        req = replace(
+            request(),
+            baseline=Schedule((first, second)),
+            candidate=Schedule((first, second)),
         )
+        result = assess_schedule(req)
 
         self.assertEqual(result.physical_status, PhysicalStatus.BLOCKED)
         self.assertIn("contiguous", result.reasons[0])
