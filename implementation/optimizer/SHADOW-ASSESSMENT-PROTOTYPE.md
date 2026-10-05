@@ -47,3 +47,10 @@ This is a prototype-level T1 advance, not the complete T1 acceptance matrix. Cla
 The assessment now reports the exact schedule intervals whose import-energy rates have one unique, valid, VERIFIED exact-interval match. It calculates baseline and candidate energy charges only over those common covered intervals, returns their timestamp pairs and the total number of schedule intervals, and labels incomplete coverage `PARTIAL`. Uncovered, unverified, invalid or duplicate-rate intervals are disclosed in the reasons and are never treated as zero. If no interval qualifies, the energy component is BLOCKED.
 
 A rate window that splits a schedule interval does not exactly match it. Because this prototype has only an interval-average grid-import quantity and no finer-grained measured/forecast load profile to allocate kWh across the rate boundary, it withholds that schedule interval rather than applying either rate to the whole interval. Exact sub-interval allocation requires finer-grained source data and an approved tariff interval policy. This prototype result is still only the import-energy component, not demand charges, full bill, savings or settlement validation.
+
+
+## Per-interval economic component trace
+
+For each eligible schedule interval, the result now carries a prototype-local economic component record: start/end instant, caller-supplied rate evidence reference, MOP/kWh rate, baseline and candidate import kWh, and each corresponding import-energy amount. Aggregate baseline/candidate/delta fields equal the sum of these records. The record improves review and replay diagnostics but does not authenticate the evidence reference or establish a canonical API/schema.
+
+For partial coverage, only returned interval records are included in the totals; the covered interval set and planned interval count remain explicit, with withheld intervals in reasons. Consumers must display the component as scoped to that coverage and must not call the delta savings or a full-period bill result.
