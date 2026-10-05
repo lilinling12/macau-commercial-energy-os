@@ -3,7 +3,7 @@
 **Status:** Product and UX review proposal; no launch locale or translation is owner-approved.  
 **Date:** 2026-10-05  
 **Applies to:** PR #10 source/load dispatch flow; read with PR #8's [Localization and Internationalization Design v0.1](https://github.com/lilinling12/macau-commercial-energy-os/blob/docs/product-architecture-roadmap/docs/03-architecture/detailed-design/LOCALIZATION-AND-I18N-DESIGN-v0.1.md) and product PRD QLR-01.  
-**Prototype evidence:** PR #10 v1.7 is Traditional-Chinese-only; its Traditional Chinese labels do not establish multilingual support.
+**Prototype evidence:** PR #10 v1.7 and v1.8 are Traditional-Chinese-only; their labels do not establish multilingual support. The v1.8 [`locale surface inventory`](prototype/source-load-dispatch/v1.8/LOCALE-COVERAGE.md) records the source text/accessibility/dynamic-string coverage baseline.
 
 ## 1. Macau language evidence and product inference
 
