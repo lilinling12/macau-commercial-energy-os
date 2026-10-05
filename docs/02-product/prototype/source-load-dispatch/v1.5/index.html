@@ -88,8 +88,11 @@
 <style>
 /* EV settlement mobile card layout */
 @media(max-width:680px){
-  #constraint-analysis .flow-table{overflow:visible;border:0;background:transparent}
-  #constraint-analysis .flow-table table{width:100%;min-width:0;border-collapse:separate;border-spacing:0}
+  #constraint-analysis .flow-grid{grid-template-columns:minmax(0,1fr);min-width:0}
+  #constraint-analysis .flow-grid>*{min-width:0}
+  #constraint-analysis .flow-table{width:100%;min-width:0;overflow:visible;border:0;background:transparent}
+  #constraint-analysis .flow-table table{display:block;width:100%;min-width:0;border-collapse:separate;border-spacing:0}
+  #constraint-analysis .flow-table tbody,#constraint-analysis .flow-table tr{width:100%;min-width:0}
   #constraint-analysis .flow-table caption{display:block;width:100%;padding:10px 12px!important;border:1px solid var(--line);border-radius:12px 12px 0 0;background:#fff}
   #constraint-analysis .flow-table thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   #constraint-analysis .flow-table tbody{display:grid;gap:8px;padding:0}
