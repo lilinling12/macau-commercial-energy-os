@@ -214,6 +214,57 @@ class DispatchAssessmentTests(unittest.TestCase):
         self.assertEqual(result.economic_component, "GRID_IMPORT_ENERGY_ONLY")
         self.assertIn("full-bill settlement are excluded", result.reasons[0])
 
+    def test_partial_rate_coverage_prices_only_exactly_covered_intervals(self):
+        second_end = END + (END - START)
+        baseline_first = interval()
+        baseline_second = replace(interval(), start=END, end=second_end)
+        candidate_first = interval(grid="9", load="14")
+        candidate_second = replace(interval(), start=END, end=second_end)
+        context = EconomicContext(
+            account_meter_mapping=VERIFIED,
+            contract=VERIFIED,
+            tariff=VERIFIED,
+            import_energy_rates=(ImportEnergyRate(START, END, D("1.25"), VERIFIED),),
+        )
+
+        result = assess_schedule(request(
+            Schedule((baseline_first, baseline_second)),
+            Schedule((candidate_first, candidate_second)),
+            economic_context=context,
+        ))
+        claims = {item.claim: item for item in result.claim_readiness}
+
+        self.assertEqual(result.economic_status, EconomicStatus.PARTIAL)
+        self.assertEqual(result.baseline_import_energy_charge_mop, D("12.500"))
+        self.assertEqual(result.candidate_import_energy_charge_mop, D("11.250"))
+        self.assertEqual(result.import_energy_charge_delta_mop, D("-1.250"))
+        self.assertEqual(result.economic_covered_intervals, ((START, END),))
+        self.assertEqual(result.economic_total_interval_count, 2)
+        self.assertIn("1 of 2 schedule intervals", result.reasons[0])
+        self.assertEqual(claims[ClaimType.GRID_IMPORT_ENERGY_COMPONENT].status, ClaimStatus.ALLOWED)
+        self.assertEqual(claims[ClaimType.GRID_IMPORT_ENERGY_COMPONENT].scope, ClaimScope.PARTIAL)
+        self.assertEqual(claims[ClaimType.SAVINGS].status, ClaimStatus.WITHHELD)
+
+    def test_rate_boundary_inside_schedule_interval_is_withheld(self):
+        midpoint = START + (END - START) / 2
+        context = EconomicContext(
+            account_meter_mapping=VERIFIED,
+            contract=VERIFIED,
+            tariff=VERIFIED,
+            import_energy_rates=(
+                ImportEnergyRate(START, midpoint, D("1.00"), VERIFIED),
+                ImportEnergyRate(midpoint, END, D("2.00"), VERIFIED),
+            ),
+        )
+
+        result = assess_schedule(request(economic_context=context))
+
+        self.assertEqual(result.economic_status, EconomicStatus.BLOCKED)
+        self.assertIsNone(result.baseline_import_energy_charge_mop)
+        self.assertEqual(result.economic_covered_intervals, ())
+        self.assertEqual(result.economic_total_interval_count, 1)
+        self.assertIn("missing exact-interval import rate", result.reasons[1])
+
     def test_unverified_tariff_withholds_all_money(self):
         context = EconomicContext(
             account_meter_mapping=VERIFIED,
