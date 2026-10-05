@@ -601,22 +601,28 @@ def _validate_request_shape(request: AssessmentRequest) -> None:
     candidate = request.candidate.intervals
     if not baseline or len(baseline) != len(candidate):
         raise _Blocked("Baseline and candidate must contain the same non-empty interval count.")
-    if tuple((row.start, row.end) for row in baseline) != tuple((row.start, row.end) for row in candidate):
-        raise _Blocked("Baseline and candidate must use identical half-open time intervals.")
     for schedule in (request.baseline, request.candidate):
         rows = schedule.intervals
         for index, row in enumerate(rows):
             if row.start.tzinfo is None or row.start.utcoffset() is None or row.end.tzinfo is None or row.end.utcoffset() is None:
                 raise _Blocked("All interval timestamps must be timezone-aware.")
-            if row.end <= row.start:
+            start_utc = row.start.astimezone(timezone.utc)
+            end_utc = row.end.astimezone(timezone.utc)
+            if end_utc <= start_utc:
                 raise _Blocked("Each interval must have positive duration.")
             # Timestamps identify instants and may be encoded in UTC or another
             # explicit offset. site_timezone is the business/tariff clock, not a
             # requirement that every timestamp retain that local wall-clock form.
             # Validate the named zone above, preserve the input instant, and use
             # the site zone only when interpreting local calendars/boundaries.
-            if index and rows[index - 1].end != row.start:
+            if index and rows[index - 1].end.astimezone(timezone.utc) != start_utc:
                 raise _Blocked("Schedule intervals must be ordered, contiguous, and non-overlapping.")
+    if tuple(
+        (row.start.astimezone(timezone.utc), row.end.astimezone(timezone.utc)) for row in baseline
+    ) != tuple(
+        (row.start.astimezone(timezone.utc), row.end.astimezone(timezone.utc)) for row in candidate
+    ):
+        raise _Blocked("Baseline and candidate must use identical half-open time intervals.")
 
 
 def _applicable_evidence(request: AssessmentRequest) -> tuple[EvidenceRef, ...]:

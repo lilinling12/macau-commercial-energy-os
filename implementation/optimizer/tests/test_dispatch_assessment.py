@@ -435,6 +435,39 @@ class DispatchAssessmentTests(unittest.TestCase):
         self.assertEqual(result.baseline_import_energy_kwh, D("10.0"))
         self.assertEqual(result.interval_comparisons[0].start.astimezone(TZ), START)
 
+    def test_dst_fold_interval_uses_elapsed_utc_duration(self):
+        zone = ZoneInfo("America/New_York")
+        start = datetime(2026, 11, 1, 1, 30, tzinfo=zone, fold=0)
+        end = datetime(2026, 11, 1, 1, 0, tzinfo=zone, fold=1)
+        row = interval(start=start, end=end)
+
+        result = assess_schedule(request(row, row))
+
+        self.assertEqual(result.physical_status, PhysicalStatus.VALIDATED_WITHIN_SCOPE)
+        self.assertEqual(row.duration_hours, D("0.5"))
+        self.assertEqual(result.baseline_import_energy_kwh, D("5.0"))
+
+    def test_dst_fold_gap_is_not_mistaken_for_contiguous_intervals(self):
+        zone = ZoneInfo("America/New_York")
+        first = interval(
+            start=datetime(2026, 11, 1, 0, 30, tzinfo=zone),
+            end=datetime(2026, 11, 1, 1, 0, tzinfo=zone, fold=0),
+        )
+        second = interval(
+            start=datetime(2026, 11, 1, 1, 0, tzinfo=zone, fold=1),
+            end=datetime(2026, 11, 1, 1, 30, tzinfo=zone, fold=1),
+        )
+
+        result = assess_schedule(
+            request(
+                baseline=Schedule((first, second)),
+                candidate=Schedule((first, second)),
+            )
+        )
+
+        self.assertEqual(result.physical_status, PhysicalStatus.BLOCKED)
+        self.assertIn("contiguous", result.reasons[0])
+
     def test_ess_soc_boundary_mismatch_withholds_economic_comparison(self):
         from macau_energy_optimizer.dispatch_assessment import EssLimits
 
