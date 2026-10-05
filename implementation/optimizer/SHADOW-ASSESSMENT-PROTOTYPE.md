@@ -40,3 +40,10 @@ The assessment now distinguishes its overall physical status from a fixed claim-
 The result includes per-claim ALLOWED/WITHHELD status and a bounded scope. Demand charges, export compensation, full-bill totals, savings, controllability, comfort/service, cross-site credits and device control remain explicitly WITHHELD. Three focused tests cover unknown ESS evidence, a stale flexible-load envelope with scenario-only economic output, and an unknown grid guard.
 
 This is a prototype-level T1 advance, not the complete T1 acceptance matrix. Claim types and reason text are not canonical contracts; caller-provided evidence references are not retrieved or authenticated; the fixed ledger does not yet represent multiple independent meter/account scopes or evidence provenance at each interval; and real site topology, tariff applicability and operational feasibility remain unvalidated. Production schema/API changes require the separate authority and owner decisions.
+
+
+## Partial rate coverage and interval-boundary withholding
+
+The assessment now reports the exact schedule intervals whose import-energy rates have one unique, valid, VERIFIED exact-interval match. It calculates baseline and candidate energy charges only over those common covered intervals, returns their timestamp pairs and the total number of schedule intervals, and labels incomplete coverage `PARTIAL`. Uncovered, unverified, invalid or duplicate-rate intervals are disclosed in the reasons and are never treated as zero. If no interval qualifies, the energy component is BLOCKED.
+
+A rate window that splits a schedule interval does not exactly match it. Because this prototype has only an interval-average grid-import quantity and no finer-grained measured/forecast load profile to allocate kWh across the rate boundary, it withholds that schedule interval rather than applying either rate to the whole interval. Exact sub-interval allocation requires finer-grained source data and an approved tariff interval policy. This prototype result is still only the import-energy component, not demand charges, full bill, savings or settlement validation.
