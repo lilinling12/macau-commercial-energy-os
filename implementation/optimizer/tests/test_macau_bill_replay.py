@@ -133,6 +133,33 @@ class MacauBillReplayTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "requires reactive kind"):
             replay_b1_c1_bill_component(request, card(TariffVariant.C1))
 
+    def test_evidence_references_are_preserved_in_result(self):
+        result = replay_b1((
+            block(EnergyPeriod.B1_BUSY, "100", "0"),
+            block(EnergyPeriod.B1_LOW_LOAD, "100", "0"),
+        ))
+        self.assertEqual(result.tariff_evidence, CARD_EVIDENCE)
+        self.assertEqual(result.contract_evidence, ASSUMED)
+        self.assertEqual(result.demand_evidence, ASSUMED)
+        self.assertEqual(result.register_evidence, (ASSUMED, ASSUMED))
+        self.assertEqual(
+            {ref for row in result.period_breakdown for ref in row.evidence_refs},
+            {ASSUMED},
+        )
+
+    def test_c1_rejects_high_season_registers_outside_high_season(self):
+        rows = (
+            block(EnergyPeriod.C1_LOW_SEASON_BUSY, "0", "0", kind=ReactiveKind.INDUCTIVE),
+            block(EnergyPeriod.C1_LOW_SEASON_LOW_LOAD, "0", "0", kind=ReactiveKind.CAPACITIVE),
+            block(EnergyPeriod.C1_HIGH_SEASON_FULL_LOAD, "1", "0", kind=ReactiveKind.INDUCTIVE),
+            block(EnergyPeriod.C1_HIGH_SEASON_FULL_LOAD_PEAK, "0", "0", kind=ReactiveKind.INDUCTIVE),
+            block(EnergyPeriod.C1_HIGH_SEASON_LOW_LOAD, "0", "0", kind=ReactiveKind.CAPACITIVE),
+        )
+        request = BillReplayRequest(date(2026, 1, 1), date(2026, 2, 1), TariffVariant.C1,
+                                    D("1000"), D("800"), rows, ASSUMED, ASSUMED)
+        with self.assertRaisesRegex(ValueError, "High-season registers must be zero"):
+            replay_b1_c1_bill_component(request, card(TariffVariant.C1))
+
     def test_missing_register_bucket_blocks_replay(self):
         with self.assertRaisesRegex(ValueError, "Missing tariff-period register blocks"):
             replay_b1((block(EnergyPeriod.B1_BUSY, "100", "0"),))
