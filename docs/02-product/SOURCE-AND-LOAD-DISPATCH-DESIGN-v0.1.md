@@ -265,3 +265,7 @@ This addendum applies the project UI/UX skill's explicit-status, provenance, uni
 ### G7.9 implementation boundary cross-reference — 2026-10-05
 
 The product's one-physical-schedule / multiple-account-result requirement maps to the stack-neutral APP-11 cardinality in [G7.9 Step 3 Dispatch Contract and Implementation Map, multi-scope section](../03-architecture/detailed-design/G7.9-STEP3-DISPATCH-CONTRACT-IMPLEMENTATION-MAP-v0.1.md): one parent assessment and physical schedule, with zero or more independently authorized one-scope economic evaluations. Per-account grants and the role/action matrix remain unresolved under the PR #8 identity design and Owner decision #14. PR #14's implementation remains a single-scope experiment and does not implement this product acceptance. This cross-reference does not approve the API, persistence schema, role grants or deployment boundary.
+
+## G7.3–G7.9 archive and repository trace
+
+The design is a review proposal against a longer research lineage. See [G7.3–G7.9 research and repository status crosswalk](G7.3-G7.9-RESEARCH-AND-REPOSITORY-TRACE-v0.1.md) for each package's stated completion/next step, current main implementation boundary, open PR status and unresolved product/architecture authority conflicts. The crosswalk distinguishes package-complete design from live execution, adoption and site validation.
