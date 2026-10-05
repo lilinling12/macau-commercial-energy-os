@@ -20,12 +20,12 @@ ASSUMED = EvidenceRef("fixture:scenario-rate-card", EvidenceState.PROJECT_ASSUMP
 def card(tariff, *, valid_from=date(2026, 1, 1), valid_to=date(2027, 1, 1), tca=D("0.10")):
     if tariff is TariffVariant.B1:
         periods = (
-            PeriodRate(EnergyPeriod.B1_FULL_LOAD, D("0.874")),
+            PeriodRate(EnergyPeriod.B1_BUSY, D("0.874")),
             PeriodRate(EnergyPeriod.B1_LOW_LOAD, D("0.767")),
         )
     else:
         periods = (
-            PeriodRate(EnergyPeriod.C1_LOW_SEASON_FULL_LOAD, D("0.776")),
+            PeriodRate(EnergyPeriod.C1_LOW_SEASON_BUSY, D("0.776")),
             PeriodRate(EnergyPeriod.C1_LOW_SEASON_LOW_LOAD, D("0.724")),
             PeriodRate(EnergyPeriod.C1_HIGH_SEASON_FULL_LOAD, D("1.432")),
             PeriodRate(EnergyPeriod.C1_HIGH_SEASON_FULL_LOAD_PEAK, D("0.885")),
