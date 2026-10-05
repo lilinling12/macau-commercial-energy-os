@@ -26,9 +26,9 @@ class TariffVariant(StrEnum):
 
 
 class EnergyPeriod(StrEnum):
-    B1_FULL_LOAD = "B1_FULL_LOAD"
+    B1_BUSY = "B1_BUSY"
     B1_LOW_LOAD = "B1_LOW_LOAD"
-    C1_LOW_SEASON_FULL_LOAD = "C1_LOW_SEASON_FULL_LOAD"
+    C1_LOW_SEASON_BUSY = "C1_LOW_SEASON_BUSY"
     C1_LOW_SEASON_LOW_LOAD = "C1_LOW_SEASON_LOW_LOAD"
     C1_HIGH_SEASON_FULL_LOAD = "C1_HIGH_SEASON_FULL_LOAD"
     C1_HIGH_SEASON_FULL_LOAD_PEAK = "C1_HIGH_SEASON_FULL_LOAD_PEAK"
@@ -119,9 +119,9 @@ def build_import_energy_rates(
 
 def _required_periods(tariff: TariffVariant) -> set[EnergyPeriod]:
     if tariff is TariffVariant.B1:
-        return {EnergyPeriod.B1_FULL_LOAD, EnergyPeriod.B1_LOW_LOAD}
+        return {EnergyPeriod.B1_BUSY, EnergyPeriod.B1_LOW_LOAD}
     return {
-        EnergyPeriod.C1_LOW_SEASON_FULL_LOAD,
+        EnergyPeriod.C1_LOW_SEASON_BUSY,
         EnergyPeriod.C1_LOW_SEASON_LOW_LOAD,
         EnergyPeriod.C1_HIGH_SEASON_FULL_LOAD,
         EnergyPeriod.C1_HIGH_SEASON_FULL_LOAD_PEAK,
@@ -133,13 +133,13 @@ def _period_at(tariff: TariffVariant, local: datetime) -> EnergyPeriod:
     clock = local.timetz().replace(tzinfo=None)
     if tariff is TariffVariant.B1:
         if time(9, 0) <= clock < time(20, 0):
-            return EnergyPeriod.B1_FULL_LOAD
+            return EnergyPeriod.B1_BUSY
         return EnergyPeriod.B1_LOW_LOAD
 
     high_season = 6 <= local.month <= 9
     if not high_season:
         if time(9, 30) <= clock < time(20, 30):
-            return EnergyPeriod.C1_LOW_SEASON_FULL_LOAD
+            return EnergyPeriod.C1_LOW_SEASON_BUSY
         return EnergyPeriod.C1_LOW_SEASON_LOW_LOAD
 
     if time(10, 30) <= clock < time(13, 0) or time(14, 30) <= clock < time(16, 0):
