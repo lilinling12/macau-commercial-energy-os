@@ -168,3 +168,22 @@ Step 2's `CURRENT.md` marks its package complete and says G7.9 Step 3 Service Bo
 Against the user's dispatch-first product objective, these two package completion labels do **not** mean that the business source/load dispatch model or operator workflow is complete. The inspected Step 1/2 texts do not define interval schedules, tariff/contract qualification, physical-versus-settlement scopes, grid/PV/ESS/flexible-load dispatch, forecast and service constraints, economics comparison, evidence-qualified claims, operator SHADOW review, or durable replay. Those semantics are proposed in the later PR #8/#10 design work and remain proposals pending authority/domain/owner review. Step 3 is therefore the next G7.9 package step in the supplied lineage; PR #10's detailed Step 3 map is not a Gate-completion record.
 
 This reading strengthens, but does not widen, the earlier source-conformance note: Step 1/2 were completed as small foundation/design packages; their “completed” status must not be promoted into completion of the later commercial dispatch product or implementation. Archive hashes identify the source packages; this section does not claim full semantic review of all 735 indexed project-folder text entries.
+
+
+## 11. G7.9 Step 1/2 source-design detail crosswalk — 2026-10-06
+
+The source archives were also compared against the present dispatch-first design in more detail. Step 1 SHA-256 is `CB144A2B57C612A78C80F39FD0A0BB2911CECE6453566DD0F90C70D5FD2CD30A`; Step 2 SHA-256 is `B70CAFDA01B6F19FAC8731154A90D24930CB2A66ADA449EA9BB8E5AA4B149A6C`.
+
+| Concern | Step 1/2 package content | Consequence for current design |
+|---|---|---|
+| Domain | Tenant → Building → Energy Asset → Device → Telemetry Record → Recommendation; Step 2 extends names with Organization, Site, Telemetry Point and Optimization Run. | The source gives a useful asset/telemetry foundation, but does not yet specify site topology and economic/physical scopes deeply enough for multi-resource dispatch. |
+| API/events | Tenant/asset/device/telemetry/recommendation APIs; Step 2 examples cover telemetry, buildings, assets and recommendations. Events are registration, connection, telemetry and recommendation lifecycle examples. | Assessment, scenario comparison, operator review, evidence, decision/replay and settlement qualification need detailed Step 3 semantics. |
+| Economics | Step 1 explicitly excludes a full billing system. Neither inspected package defines the source/load schedule economics or Macau contract/tariff evidence required for bill-grade value. | The product must label economic outputs as unavailable/scenario-only until applicable meter, contract, tariff and settlement evidence are qualified. |
+| Data quality | Step 2 says contracts are versioned, breaking changes require migration, and shared-database `tenant_id` isolation is enforced in application and data-access layers. | This is a direction, not a concrete schema, threat model, RLS design, migration implementation or cross-tenant test result. |
+| Step status | Step 1 `CURRENT.md` says completed and points to Step 2. Step 2 `CURRENT.md` says completed and points to Step 3. | Package-local completion is verified; detailed current dispatch product/contract approval and implementation remain OPEN. |
+
+### Correspondence to current GitHub work
+
+PR #10's G7.9 Step 3 map, product workflow and UI studies are a concrete proposal for the missing dispatch-specific layer. The proposal is substantially more detailed than the archived Step 1/2 package, but remains an unmerged review branch; its synthetic fixture checks do not validate the source packages, Macau commercial tariffs, production contracts, field capability, or a live optimizer. Main's existing telemetry-to-SHADOW VS-001 code remains a fixture-level predecessor and does not supply the dispatch-specific contracts or operator lifecycle.
+
+Accordingly, the evidence-based next gate in the supplied G7.9 sequence is still **Step 3 Service Boundary and Implementation Design review/consolidation**. The owner must later approve any canonical contracts, persistence schema, module/service split and resulting implementation slice. No package status or PR body should be interpreted as Step 3 closure until those decisions and acceptance evidence are recorded.
