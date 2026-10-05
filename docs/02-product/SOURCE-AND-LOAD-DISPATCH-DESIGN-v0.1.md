@@ -269,3 +269,8 @@ The product's one-physical-schedule / multiple-account-result requirement maps t
 ## G7.3–G7.9 archive and repository trace
 
 The design is a review proposal against a longer research lineage. See [G7.3–G7.9 research and repository status crosswalk](G7.3-G7.9-RESEARCH-AND-REPOSITORY-TRACE-v0.1.md) for each package's stated completion/next step, current main implementation boundary, open PR status and unresolved product/architecture authority conflicts. The crosswalk distinguishes package-complete design from live execution, adoption and site validation.
+
+
+### Responsive dispatch hierarchy refinement — prototype v1.9
+
+A narrow-screen review found the schedule comparison began late in the compact page. The versioned [v1.9 prototype](prototype/source-load-dispatch/v1.9/index.html) and [review record](prototype/source-load-dispatch/v1.9/REVIEW.md) apply CSS-only compact-layout changes while preserving v1.8, the six-stage flow, synthetic data, evidence labels and SHADOW/no-control boundary. On matched local Edge renders at 320 and 375 CSS px, the schedule heading moved 114px and 121px earlier respectively; 768px was unchanged. The check found no document-level horizontal overflow and exercised each workflow stage and the schedule table disclosure. This is a bounded layout review only, not a palette/product approval, full accessibility audit, multilingual validation or user test.
