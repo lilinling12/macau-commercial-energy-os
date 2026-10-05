@@ -221,3 +221,38 @@ The dispatch workflow now cross-references [SITE-METER-ACCOUNT-SETTLEMENT-MODEL-
 ### Demand-window and billing-period boundary — 2026-10-05
 
 CEM's public tariff summary describes Pu as the highest measured demand in a billing period. Macau Administrative Regulation 25/2022 Article 10 defines Group B Pu as the greatest average active power periodically measured by the meter; Group D has the same highest-average-periodic concept, and Group C refers to the Group B method. The public sources reviewed do not identify this pilot account's meter averaging duration/alignment. The dispatch product must keep schedule timestep, source observation interval, Pu averaging window, tariff time band, billing period and quarterly TCA effective period distinct. A short-horizon peak is not automatically bill-period Pu or a demand saving. See DISPATCH-METERING-AND-SETTLEMENT-TIME-BOUNDARIES-v0.1.md. Demand-charge claims remain blocked under U-001 unless the account/meter window and billing-period context are evidenced.
+
+
+### 2026-10-05 — Settlement scope, partial coverage and snapshot identity in the operator workflow
+
+The operator must be able to tell which physical boundary a schedule describes and which independently evidenced settlement boundary supports each economic component. A product tenant, site, building, service installation, meter, utility account and payee are distinct identities. Physical aggregation follows verified topology; bill calculation follows each verified supply-installation/account and its applicable contract. A portfolio roll-up is allowed only when its component scope and aggregation rule are explicit.
+
+| Workflow stage | What the operator sees | Missing, conflicting or changed evidence | Required behavior / acceptance |
+|---|---|---|---|
+| 1. Data and contract qualification | Authorized site and horizon; each settlement scope available to the current role; scope label, serving meter/register, account reference, applicable contract/tariff profile, effective dates, evidence status, freshness and “as of” time | Unmapped meter, conflicting account link, expired mapping, unavailable or unauthorized scope | Do not expose whether an inaccessible account exists. Mark an authorized but unverified scope as unresolved; keep physical readiness separate from economic readiness. |
+| 2. Site energy model | Physical nodes and directed import, PV, ESS and load paths; settlement edges in a separate layer, each with its own evidence and effective period | Parent/submeter overlap, duplicate register, topology/account mapping conflict or unknown cross-boundary allocation | Detect and withhold dependent totals instead of double-counting. A conflict in one scope blocks only outputs dependent on that scope; do not infer cross-building sharing or netting. |
+| 3. Forecast and schedule comparison | Site boundary, site timezone, horizon, interval convention, baseline/candidate pair, input snapshot reference and forecast/optimizer versions | Evidence changes after snapshot; baseline and candidate use different snapshots, horizons or time grids | Bind both schedules to the same immutable input manifest. A changed input creates a new assessment; never silently replace the basis of an existing result. |
+| 4. Economic explanation | Separate component results by settlement scope and time interval; component status; covered/total interval count; rate/evidence reference and withheld reason | Missing, overlapping, unverified or conflicting rate; tariff boundary falls inside an unsplittable interval; account boundary not established | Price only exact eligible intervals. Show PARTIAL with eligible / total and named withheld intervals. Never zero-fill missing prices. Withhold a component total if its declared aggregation rule requires complete coverage. Keep demand/Pu, full bill, export proceeds, savings and cross-account allocation withheld unless their own evidence and calculation rules are satisfied. |
+| 5. SHADOW review | Recommendation version, physical boundary, settlement-scope references, snapshot reference, model versions, evidence and claim status; actor identity/authority from trusted server context | Review references stale or superseded recommendation, scope or snapshot | Append review against the immutable recommendation and scope. “Reviewed” is not command authorization or device execution. |
+| 6. Monitoring and replay | Original assessment and snapshot references; inputs/rules/model/optimizer versions; review history; later measured outcomes shown separately | Referenced snapshot, rule version or artifact is unavailable; actual operation record absent | Replay the pinned basis or report INCOMPLETE/UNAVAILABLE; never substitute latest data. Distinguish proposal, external operation and measured result. |
+
+**Design acceptance examples for the next contract and service review**
+
+1. Two separately metered, separately contracted accounts at one product site produce independent cost components; no combined demand peak is shown without an evidenced rule.
+2. A parent meter and a child meter cannot both be added into a site total unless the topology establishes non-overlapping registers.
+3. A meter with unknown or conflicting account mapping can appear as a physical measurement only when its physical mapping is verified; its economic component remains withheld.
+4. Site authorization does not grant account-scope authorization. An unauthorized scope is omitted without disclosing its existence.
+5. With one missing/unverified rate among six intervals, show partial coverage and the excluded intervals; do not present the missing value as zero.
+6. If a tariff boundary falls inside an interval, withhold that interval unless measured quantity can be split under an approved rule.
+7. A mapping or tariff revision after assessment creates a new snapshot/revision and does not mutate the prior result.
+8. Replay with a missing immutable input artifact is unavailable/incomplete, not a rerun against current inputs.
+
+**Prototype coverage and resulting gap**
+
+v1.1 is a single synthetic physical-site flow. It says account relationship needs verification, economics is blocked, review is page-only and replay is synthetic; it does not present a list of independent settlement scopes, per-scope economic status, partial interval coverage, an input-snapshot identifier/manifest, or replay availability tied to that identifier. v1.2 adds clearly labeled synthetic UI-state examples for scope visibility, partial coverage and unavailable snapshot. These examples describe interface semantics only; they are not connected to the schedule values above, a Macau account, customer tariff or implemented persistence.
+
+**UX acceptance for an operator review**
+
+For any displayed result, an operator must be able to answer: (a) which physical boundary and settlement scope it applies to, (b) which intervals are included, (c) what is withheld and why, and (d) which evidence/version snapshot the result uses. Physical feasibility and economic completeness must have separate status labels. At compact widths the status and scope identity remain visible before explanatory detail. Review controls remain non-executable SHADOW actions. Current prototype localization remains Traditional Chinese only; complete Traditional Chinese, Portuguese and English task coverage, terminology review and locale-specific formats are still open, not implied by this mock.
+
+This addendum applies the project UI/UX skill's explicit-status, provenance, unit, responsive-disclosure and no-unsupported-claim rules alongside the UI/UX Pro Max interaction/accessibility review. It does not claim complete WCAG conformance, representative-operator validation, an approved palette, or an award-level result.
