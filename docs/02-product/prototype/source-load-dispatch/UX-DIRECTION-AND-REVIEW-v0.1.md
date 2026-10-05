@@ -244,3 +244,12 @@ Use the existing six-stage task, but make its schedule decision the visual ancho
 5. Let mobile switch to a clear interval/table-first comparison rather than compressing the desktop chart. Use restrained, purposeful motion only to explain a candidate change or save a review state.
 
 This proposal should be compared with one meaningfully different composition on the same synthetic task and data. Visual alternatives should vary hierarchy and evidence placement, not only palette. The next implementation/review should record source revision, actual browser viewports, states and locales inspected, measured contrast/focus issues, and changes made. Owner approval and operator feedback remain open; this update does not freeze the proposal or certify WCAG/award/user-test outcomes.
+
+
+### Matched-palette layout comparison completed — 2026-10-06
+
+The proposed same-task A/B comparison already existed at v0.2.2, but it changed both information hierarchy and palette: A was light/time-axis-first and B dark/interval-first. To isolate layout, PR #10 now has v0.2.3, derived from v0.2.2, with the same six synthetic intervals and shared semantic palette in both directions. See [the v0.2.3 source](directions/v0.2.3/index.html) and [browser review](directions/v0.2.3/REVIEW.md).
+
+The exact v0.2.3 source was rendered in Edge at 1440, 1024, 900, 768, 640, 375, 360, 340 and 320 CSS px for both layouts. All 18 document widths matched the viewport; data-row numeric values matched; pointer and keyboard interval selection worked; the table disclosure opened; sampled touch controls were at least 44px after a review-button height correction; no page errors or low-contrast sampled DOM text pairs were observed. These checks and their scope limitations are in the versioned review.
+
+This satisfies the earlier proposed **desk comparison** of timeline-first versus interval-first hierarchy with palette held constant. It does not select either direction or replace representative operator testing, full six-stage workflow review, complete localization, screen-reader work or WCAG conformance review. Next work is decision-task evaluation and carrying the eventual owner-selected direction across all six stages, not another palette-only comparison.
