@@ -9,7 +9,7 @@
 
 ### Original conversation
 
-The Codex read_thread call for ChatGPT conversation 6abf4f5c-b2d4-83ea-b189-6534f517c5a1 returned a bounded recent slice: page limit 10, nextCursor null, hasMore false, and five returned turns. It does not expose the older research transcript or all attachments. Opening the supplied share URL https://chatgpt.com/share/6ac10df8-a30c-83e9-83bd-f8de8ec31ca1 returned Cache miss. Therefore this audit does not claim to have read the full original conversation or Library.
+The Codex read_thread call for ChatGPT conversation 6abf4f5c-b2d4-83ea-b189-6534f517c5a1 returned a bounded recent slice: page limit 10, nextCursor null, hasMore false, and five returned turns. The supplied public share URL is now readable in a browser for some messages, but this is not a full export: multiple research cards show `Failed to fetch template`, and only selected prompt jumps have been reviewed. This audit does not claim to have read every assistant response or attachment.
 
 ### Local project folder
 
@@ -198,3 +198,21 @@ After checking the published Macau tariff rules and the previous source-to-code 
 - The local focused suite passed under Python 3.11.9. The package declares Python `>=3.14,<3.15`; this local run is only a compatibility signal, not proof on the declared runtime. Runtime Bootstrap, Authority Validation and Repository Hygiene were queued for the exact PR #14 head when checked.
 
 This is only a period-to-rate input adapter. It does not qualify the customer's tariff, authenticate evidence, calculate B2/B3/C2 transformer-loss adjustments, Pu/Pc demand charges, reactive energy, taxes, PV feed-in settlement or a complete bill. It remains a PR #14 draft experiment; PR #14 and PR #10 are unmerged, and the main branch is unchanged. G7.9 Step 3 remains OPEN. The PR #10 gap crosswalk was updated to reflect this partial implementation rather than the earlier “no tariff clock” status.
+
+
+## 13. Original share transcript — prompt 1 and early product thesis (2026-10-06)
+
+The public share page was reopened and Prompt 1 selected. The first user request is: “目前想在澳门落地一个智能用电调度系统，可以让商业体省钱，请深入研究澳门目前的用电模式”. The visible first research answer explicitly frames the product as commercial energy dispatch/autopilot, not a generic energy dashboard. Its initial hypotheses include:
+
+- Segment tariff groups and whole-bill economics; it prioritizes large C-group commercial sites, with B as a secondary segment, and says small A-group merchants are not the first customer.
+- Coordinate grid import, site PV, ESS, HVAC/chilled-water/thermal storage, EV, and hot water; include TOU, Pu/Pc, reactive charges, degradation, comfort/service and business risk.
+- Treat HVAC/thermal inertia as a possible virtual battery, avoid assuming battery arbitrage is profitable, and include EV as flexible load.
+- Keep physical energy flow separate from tariff/contract settlement; PV export versus self-use/storage depends on actual FIT eligibility and contract rights.
+- Proposed product chain: meter/context → forecasts → constrained optimizer → dispatch → measurement and verification. First pilot hypothesis is one large C-group site with central chilled-water plant and BMS, beginning in SHADOW mode; later human approval/semi-automation/closed-loop control was described as a possible staged future, not first-stage capability.
+- The response itself states it had not found clear evidence of a high-frequency third-party CEM AMI API and says the first product should not depend on that assumption.
+
+The same answer contains specific tariff, TCA, C-group time-window, 2025 consumption, PV feed-in, EV-rate and savings figures. These are recorded as claims made by that historical answer only. They are time-sensitive and need independent source/date verification before product logic, prototype data or commercial ROI uses them. In particular, the answer's high-PV-feed-in comparison cannot establish any customer's eligibility, export rights, settlement, or realized revenue.
+
+This initial thesis is direct transcript evidence and clarifies that dispatch-first and source/load coordination were present from the first user request/research answer. It does not establish that the numerical Macau tariff/market claims remain current, that a customer segment is validated, or that the product/stack was owner-approved. The staged-control proposal must be read against current project scope: the MVP stays SHADOW-only unless a later explicit decision and safety/site evidence authorize more.
+
+Transcript read boundary: Prompt 1's visible exchange has been examined; the 136-button prompt index exists, but assistant answers, attachments, later Gate decisions and all package outputs have not been exhaustively read.
