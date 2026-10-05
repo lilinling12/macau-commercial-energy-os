@@ -23,8 +23,9 @@ Review actions remain page-local; there is no persistence, API, optimizer, site 
 - Results: one active `aria-pressed` case at a time; blocked mapping hides all schedule numerics; no-tariff state hides candidate curve/metrics/table columns; service-violation state keeps the warning visible; document width equals viewport width in every reviewed combination; zero page errors.
 - Interactions: Space activates the focused state button; interval table expands and collapses; the local-only review state updates. All passed.
 - Narrow chart uses a contained horizontal scroll region, with visible mobile guidance.
+- Selected text/background token pairs were measured from the exact CSS values: body ink/canvas 13.35:1, muted/canvas 4.72:1, summary/pale 7.05:1, chart axis/white 4.76:1, teal/white 4.92:1, partial badge/orange pale 4.98:1, warning/red pale 7.62:1, blue status/blue pale 5.82:1. The initial axis label was 4.48:1; darkened from #687a80 to #63767c, then rechecked at 4.76:1.
 
-The first visual pass exposed an inherited 850px table minimum that clipped claim text in the side panel. It was corrected with a zero-minimum, fixed-layout claim table and text wrapping; the final 1440px and 375px screenshots were visually rechecked.
+The first visual pass exposed an inherited 850px table minimum that clipped claim text in the side panel. It was corrected with a zero-minimum, fixed-layout claim table and text wrapping; the final 1440px and 375px screenshots were visually rechecked. Contrast results cover selected token pairs only, not every rendered state or a complete WCAG audit.
 
 ## Remaining validation
 
