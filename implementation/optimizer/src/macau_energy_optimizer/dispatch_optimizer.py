@@ -294,7 +294,9 @@ def generate_candidate(request: DispatchSearchRequest) -> DispatchSearchResult:
         assumptions.append(ess.evidence)
     assumptions.extend((request.economic_context.account_meter_mapping, request.economic_context.contract, request.economic_context.tariff))
     assumptions.extend(rate.evidence for rate in request.economic_context.import_energy_rates)
-    scenario_only = any(item.state is not EvidenceState.VERIFIED for item in assumptions)
+    if any(row.pv_curtailed_kw > 0 for row in candidate.intervals) and request.pv_curtailment_evidence is not None:
+        assumptions.append(request.pv_curtailment_evidence)
+    scenario_only = any(item.state is EvidenceState.PROJECT_ASSUMPTION for item in assumptions)
     return DispatchSearchResult(candidate, assessment, transitions, scenario_only)
 
 
