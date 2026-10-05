@@ -69,6 +69,43 @@ class DispatchAssessmentTests(unittest.TestCase):
         self.assertEqual(result.baseline_import_energy_kwh, D("10.0"))
         self.assertIsNone(result.import_energy_charge_delta_mop)
 
+    def test_interval_comparison_exposes_source_load_and_storage_components(self):
+        baseline = interval(
+            grid="10", pv="5", load="15",
+            ess_soc_start_kwh=D("4"), ess_soc_end_kwh=D("4"),
+        )
+        hvac = FlexibleLoadFlow("hvac-1", FlexibleLoadKind.HVAC, D("1"))
+        candidate = interval(
+            grid="12", pv="5", load="14",
+            pv_generation_kw=D("7"), pv_export_kw=D("2"),
+            flexible_loads=(hvac,),
+            ess_soc_start_kwh=D("4"), ess_soc_end_kwh=D("4"),
+        )
+        unknown_limit = FlexibleLoadLimit(
+            "hvac-1", D("0"), D("2"), EvidenceRef("hvac:unknown", EvidenceState.UNKNOWN)
+        )
+        result = assess_schedule(request(
+            baseline, candidate, flexible_load_limits=(unknown_limit,)
+        ))
+        row = result.interval_comparisons[0]
+        claims = {item.claim: item for item in result.claim_readiness}
+
+        self.assertEqual(
+            (row.baseline_pv_generation_kw, row.candidate_pv_generation_kw), (D("5"), D("7"))
+        )
+        self.assertEqual((row.baseline_pv_export_kw, row.candidate_pv_export_kw), (D("0"), D("2")))
+        self.assertEqual((row.baseline_pv_curtailed_kw, row.candidate_pv_curtailed_kw), (D("0"), D("0")))
+        self.assertEqual((row.baseline_base_load_kw, row.candidate_base_load_kw), (D("15"), D("14")))
+        self.assertEqual(row.baseline_flexible_loads, ())
+        self.assertEqual(row.candidate_flexible_loads, (hvac,))
+        self.assertEqual(
+            (row.baseline_ess_soc_start_kwh, row.baseline_ess_soc_end_kwh), (D("4"), D("4"))
+        )
+        self.assertEqual(
+            (row.candidate_ess_soc_start_kwh, row.candidate_ess_soc_end_kwh), (D("4"), D("4"))
+        )
+        self.assertEqual(claims[ClaimType.FLEXIBLE_LOAD_DISPATCH].status, ClaimStatus.WITHHELD)
+
     def test_unbalanced_power_is_blocked_and_withholds_metrics(self):
         result = assess_schedule(request(candidate=interval(grid="9")))
         self.assertEqual(result.physical_status, PhysicalStatus.BLOCKED)
