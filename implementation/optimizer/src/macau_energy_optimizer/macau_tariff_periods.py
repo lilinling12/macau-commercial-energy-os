@@ -11,12 +11,11 @@ from dataclasses import dataclass
 from datetime import date, datetime, time, timedelta, timezone
 from decimal import Decimal
 from enum import StrEnum
-from zoneinfo import ZoneInfo
 
 from .dispatch_assessment import EvidenceRef, ImportEnergyRate
 
 
-_MACAU = ZoneInfo("Asia/Macau")
+_MACAU = timezone(timedelta(hours=8), name="Asia/Macau")
 _UTC = timezone.utc
 
 
