@@ -228,8 +228,8 @@ class DispatchAssessmentTests(unittest.TestCase):
         )
 
         result = assess_schedule(request(
-            Schedule((baseline_first, baseline_second)),
-            Schedule((candidate_first, candidate_second)),
+            baseline=Schedule((baseline_first, baseline_second)),
+            candidate=Schedule((candidate_first, candidate_second)),
             economic_context=context,
         ))
         claims = {item.claim: item for item in result.claim_readiness}
