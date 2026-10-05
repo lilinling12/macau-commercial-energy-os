@@ -5,7 +5,8 @@
     "apiConnected": false,
     "deviceControlEnabled": false,
     "locale": "zh-Hant",
-    "purpose": "UI_PRESENTATION_STUDY"
+    "purpose": "UI_PRESENTATION_STUDY",
+    "resultOrigin": "SYNTHETIC_SUPPLIED_SCHEDULE_ASSESSMENT"
   },
   "dimensions": [
     "physical",
@@ -39,43 +40,48 @@
         {
           "id": "import_profile",
           "label": "進口電量曲線",
-          "status": "ALLOWED",
           "reason": "限明確映射的合成物理範圍。",
-          "tone": "allowed"
+          "tone": "allowed",
+          "decision": "ALLOWED",
+          "scope": "SCENARIO_ONLY"
         },
         {
           "id": "import_energy_component",
           "label": "進口電量費組件",
-          "status": "PARTIAL",
           "reason": "4 / 6 合成時段；不含金額。",
-          "tone": "partial"
+          "tone": "partial",
+          "decision": "ALLOWED",
+          "scope": "PARTIAL"
         },
         {
           "id": "bill_and_savings",
           "label": "需求電費 / 全賬單 / 節省",
-          "status": "WITHHELD",
           "reason": "Pu、完整電價與合同適用性未核實。",
-          "tone": "withheld"
+          "tone": "withheld",
+          "decision": "WITHHELD",
+          "scope": "NONE"
         },
         {
           "id": "service_feasibility",
           "label": "HVAC 服務可行",
-          "status": "WITHHELD",
           "reason": "現場舒適與恢復模型未評估。",
-          "tone": "withheld"
+          "tone": "withheld",
+          "decision": "WITHHELD",
+          "scope": "NONE"
         },
         {
           "id": "device_control",
           "label": "設備控制",
-          "status": "WITHHELD",
           "reason": "MVP 僅 SHADOW，沒有設備命令路徑。",
-          "tone": "withheld"
+          "tone": "withheld",
+          "decision": "WITHHELD",
+          "scope": "NONE"
         }
       ]
     },
     {
       "id": "no-tariff",
-      "summary": "物理評估 COMPLETE（只限本合成範圍）。沒有適用合同/電價，經濟評估 NOT_CALCULATED；不得推斷電費或節省。",
+      "summary": "輸入合成排程的物理評估可顯示；沒有適用合同/電價，經濟評估 NOT CALCULATED。此案例不生成優化候選，也不得推斷電費或節省。",
       "dimensions": {
         "physical": {
           "status": "COMPLETE",
@@ -98,37 +104,42 @@
         {
           "id": "import_profile",
           "label": "進口電量曲線",
-          "status": "ALLOWED",
           "reason": "限明確聲明的合成物理邊界。",
-          "tone": "allowed"
+          "tone": "allowed",
+          "decision": "ALLOWED",
+          "scope": "SCENARIO_ONLY"
         },
         {
           "id": "bill_cost",
           "label": "進口電量費 / 全賬單",
-          "status": "WITHHELD",
           "reason": "沒有適用帳戶、合同和電價。",
-          "tone": "withheld"
+          "tone": "withheld",
+          "decision": "WITHHELD",
+          "scope": "NONE"
         },
         {
           "id": "savings",
           "label": "節省或成本排名",
-          "status": "WITHHELD",
           "reason": "缺少可比較的核實結算依據。",
-          "tone": "withheld"
+          "tone": "withheld",
+          "decision": "WITHHELD",
+          "scope": "NONE"
         },
         {
           "id": "service_feasibility",
           "label": "HVAC 服務可行",
-          "status": "WITHHELD",
           "reason": "服務模型與舒適界限未評估。",
-          "tone": "withheld"
+          "tone": "withheld",
+          "decision": "WITHHELD",
+          "scope": "NONE"
         },
         {
           "id": "device_control",
           "label": "設備控制",
-          "status": "WITHHELD",
           "reason": "MVP 僅 SHADOW，沒有設備命令路徑。",
-          "tone": "withheld"
+          "tone": "withheld",
+          "decision": "WITHHELD",
+          "scope": "NONE"
         }
       ]
     },
@@ -157,43 +168,48 @@
         {
           "id": "import_profile",
           "label": "受影響範圍進口曲線",
-          "status": "WITHHELD",
           "reason": "核心站點/計量映射缺失。",
-          "tone": "withheld"
+          "tone": "withheld",
+          "decision": "WITHHELD",
+          "scope": "NONE"
         },
         {
           "id": "bill_cost",
           "label": "費用與賬單",
-          "status": "WITHHELD",
           "reason": "結算範圍不可識別。",
-          "tone": "withheld"
+          "tone": "withheld",
+          "decision": "WITHHELD",
+          "scope": "NONE"
         },
         {
           "id": "service_feasibility",
           "label": "服務可行性",
-          "status": "WITHHELD",
           "reason": "資產映射與適用時段不明。",
-          "tone": "withheld"
+          "tone": "withheld",
+          "decision": "WITHHELD",
+          "scope": "NONE"
         },
         {
           "id": "savings_and_export",
           "label": "節省、反送補償或跨帳戶抵扣",
-          "status": "WITHHELD",
           "reason": "依賴未識別的物理或結算範圍。",
-          "tone": "withheld"
+          "tone": "withheld",
+          "decision": "WITHHELD",
+          "scope": "NONE"
         },
         {
           "id": "device_control",
           "label": "設備控制",
-          "status": "WITHHELD",
           "reason": "MVP 僅 SHADOW，沒有設備命令路徑。",
-          "tone": "withheld"
+          "tone": "withheld",
+          "decision": "WITHHELD",
+          "scope": "NONE"
         }
       ]
     },
     {
       "id": "service-violation",
-      "summary": "物理評估 COMPLETE（只表示合成電氣範圍可核對）。HVAC 合成服務界限違反，因此候選不可標為服務合格或整體可行。",
+      "summary": "物理評估 COMPLETE（只表示合成電氣範圍可核對）。HVAC 合成服務界限違反，因此此輸入排程示例不可標為服務合格或整體可行。",
       "dimensions": {
         "physical": {
           "status": "COMPLETE",
@@ -216,37 +232,42 @@
         {
           "id": "import_profile",
           "label": "合成進口電量曲線",
-          "status": "ALLOWED",
           "reason": "只展示合成電氣結果與邊界。",
-          "tone": "allowed"
+          "tone": "allowed",
+          "decision": "ALLOWED",
+          "scope": "SCENARIO_ONLY"
         },
         {
           "id": "service_feasibility",
           "label": "HVAC 服務可行",
-          "status": "WITHHELD",
           "reason": "合成服務界限違反；站點仍未評估。",
-          "tone": "withheld"
+          "tone": "withheld",
+          "decision": "WITHHELD",
+          "scope": "NONE"
         },
         {
           "id": "overall_feasibility",
           "label": "整體候選可行",
-          "status": "WITHHELD",
           "reason": "服務違反不能由電氣平衡抵消。",
-          "tone": "withheld"
+          "tone": "withheld",
+          "decision": "WITHHELD",
+          "scope": "NONE"
         },
         {
           "id": "bill_and_savings",
           "label": "全賬單 / 節省",
-          "status": "WITHHELD",
           "reason": "沒有核實的結算上下文。",
-          "tone": "withheld"
+          "tone": "withheld",
+          "decision": "WITHHELD",
+          "scope": "NONE"
         },
         {
           "id": "device_control",
           "label": "設備控制",
-          "status": "WITHHELD",
           "reason": "MVP 僅 SHADOW，沒有設備命令路徑。",
-          "tone": "withheld"
+          "tone": "withheld",
+          "decision": "WITHHELD",
+          "scope": "NONE"
         }
       ]
     }
