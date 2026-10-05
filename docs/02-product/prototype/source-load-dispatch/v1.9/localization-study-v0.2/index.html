@@ -368,7 +368,7 @@ if (window.matchMedia("(max-width: 680px)").matches) planningContext.open = fals
     lastText.set(node, result);
   }
   function translateAttributes(element) {
-    for (const attr of ["aria-label", "title", "placeholder"]) {
+    for (const attr of ["aria-label", "title", "placeholder", "data-label"]) {
       if (!element.hasAttribute(attr)) continue;
       let originals = originalAttrs.get(element);
       let applied = lastAttrs.get(element);
