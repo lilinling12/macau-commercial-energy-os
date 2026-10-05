@@ -27,3 +27,8 @@
 ## Design basis
 
 The change follows the proposed [Flexible-Load Service Boundary Design](../../../../03-architecture/detailed-design/FLEXIBLE-LOAD-SERVICE-BOUNDARY-DESIGN-v0.1.md) and keeps the SHADOW-only boundary.
+
+
+## Claim-state integration follow-up
+
+The separate [Dispatch Claim-State Presentation Contract proposal](../../DISPATCH-CLAIM-STATE-PRESENTATION-CONTRACT-v0.1.md) maps future UI states to independent physical, resource-service, economic, evidence, claim, review, and execution dimensions. It records that this v2.2 study is not bound to PR #14/API output and enumerates mixed-state acceptance examples for a future vertical slice.
