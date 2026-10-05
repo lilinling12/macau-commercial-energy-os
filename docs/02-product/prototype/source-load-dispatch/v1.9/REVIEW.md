@@ -22,8 +22,9 @@ Compared the exact local v1.8 and v1.9 HTML using Microsoft Edge through Playwri
 
 The unchanged 768px result is expected: this refinement only changes compact layouts. A 320px render was visually inspected; the stage, schedule title, evidence warning and first interval cards remain visible in the viewport. The complete six-hour summary extends below the fold and is scrollable. A 375px and 768px DOM/layout sweep was recorded, but their screenshots were not separately inspected in this pass.
 
-All six workflow stages (`evidence-check`, `site-model`, `dispatchComparison`, `constraint-analysis`, `shadow-review`, `outcome-replay`) became active and rendered at their target widths without document overflow. The schedule data-table control expanded and exposed the table. The accessibility tree in the in-app browser still identifies the schedule title, synthetic-data warning, six hourly values, readiness blockers, baseline/candidate controls, and page-only review/no-control boundary.
+A full state/viewport sweep activated each of the six workflow stages (`evidence-check`, `site-model`, `dispatchComparison`, `constraint-analysis`, `shadow-review`, `outcome-replay`) at 320, 375, 768 and 1440 CSS px (24 stage/viewport combinations). Every stage fit its document viewport; no document-level horizontal overflow was observed. The schedule data-table control expanded and exposed the table. The accessibility tree in the in-app browser still identifies the schedule title, synthetic-data warning, six hourly values, readiness blockers, baseline/candidate controls, and page-only review/no-control boundary.
 
 ## Limits
 
 This is a narrow hierarchy/layout check, not a full UX or accessibility audit. It does not establish full keyboard-flow or screen-reader behavior, WCAG conformance, touch or text-scaling behavior, contrast compliance, Portuguese/English layout, complete localization, operator usability, Macau site/tariff validity, schedule feasibility, savings, or equipment control. The prototype remains Traditional Chinese, synthetic, and SHADOW-only. Product scope, visual direction, palette and production architecture remain unapproved.
+
