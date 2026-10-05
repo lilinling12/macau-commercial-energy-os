@@ -52,3 +52,23 @@ Preserve VS-001 as the small telemetry/economic-intelligence vertical slice and 
 6. Keep PR #10's technology-neutral service map provisional until the competing G6.9/G7.6/G7.8/Deep Research authority conflict is explicitly reconciled.
 
 The existing G7.9 map already lists similar work packages. This addendum ties them to exact current source boundaries and shows why passing unit/replay/bootstrap evidence is insufficient to claim APP-11 delivery. The design remains a proposal; product, security and architecture owners still need to review the scope and authority decisions.
+
+
+## Exact-head code-to-multi-scope reconciliation — 2026-10-05
+
+**Rechecked PR heads:** PR #10 `ebc6fe581666e94ba8c2aa0e43d8e67c79c5a8eb` (open Draft, unmerged); PR #14 `b7ae02fe8dd4b346961235a7db523471c239b883` (open Draft, unmerged). The current PR #10 stack-neutral G7.9 map has blob `c374d678483df8ce816a2cdafa5b4aceed9c39c0`. This is a new comparison point; the earlier “Compared revisions” header above remains the historical source pair for its original audit.
+
+The current PR #10 map proposes one physical `DispatchAssessment` with **zero or more** economic children, each evaluating that same schedule against exactly one separately authorized `SettlementScopeRevision` and its own settlement input manifest. The actor is authorized per child action; each scope has independent coverage, economic status, evidence lineage and replay. It further says child-by-child valuation does not define a site-wide optimization objective: a cross-scope optimum or combined savings claim needs a separately authorized and versioned aggregation policy. This is logical design text only; the APP-11 versus APP-05/06/07/08 decision remains unresolved.
+
+At PR #14's current code head, direct source inspection confirms the optimizer remains a **single economic scope** experiment:
+
+| Current code source | Directly observed shape | Gap relative to the proposal |
+|---|---|---|
+| PR #14 `dispatch_assessment.py`, blob `85ce0f2ac9a12bb30b7214b1caeb4a69b8edd53e` | `AssessmentRequest` has one `site_id` and optional `EconomicContext`; that context has one `account_meter_mapping`, one `contract`, one `tariff` and a rate series. `AssessmentResult` carries one site, no settlement-scope identifier/list/child result. | No independent account-child authorization, per-scope result cardinality, scope-specific replay or visibility filtering. |
+| PR #14 `dispatch_optimizer.py`, blob `4c360a30f6c1b031cb42a4f7789007c07e795032` | `DispatchSearchRequest` has one `site_id` and one `EconomicContext`; the bounded search aligns that context's rate series to the supplied schedule intervals. | No list of settlement scopes, child valuations or approved cross-scope objective. It must not rank a combined multi-account total. |
+| Main `implementation/platform-api/src/vs001/vs001.controller.ts`, blob `de93bc59354890f1e8be6274123ecf51f24fb3ca` | One `POST evaluate` request for VS-001. | It is not APP-11 assessment intake and does not declare action-specific settlement-scope authorization. |
+| Main `implementation/platform-api/src/vs001/contracts.ts`, blob `12d52da087a96f7c7249d183e85fb404fb3b9414` | One scalar `TelemetryEventV1` record with one observed timestamp/value/metric/unit. | It is not an interval-series horizon snapshot, physical schedule contract or per-meter/settlement-child result contract. |
+
+The caller-supplied `EvidenceRef` values in PR #14 are prototype readiness markers; the code does not authenticate them by resolving a trusted source manifest. PR #14 also has no immutable snapshot storage, multi-account replay, APP-11 API or durable lifecycle. Its partial per-interval import-energy evidence improves local explanation but does not close these trust and scope gaps.
+
+**Implementation consequence:** keep this code as an explicitly bounded experiment. Do not map `EconomicContext` directly to a production contract or count an optimizer test as multi-scope acceptance. Before any APP-11 implementation is accepted, resolve catalog ownership/contract authority; authorize each requested settlement child from trusted grants; resolve and pin one physical input snapshot plus each child manifest; keep physical and economic statuses separate; persist idempotently; and replay/re-authorize each child without substituting current inputs. If the product later chooses a cross-scope optimization objective, approve its included scopes, monetary components, demand treatment, effective periods, missing-child behavior and roll-up semantics first. No schema, endpoint, database, runtime or production optimizer is selected here.
