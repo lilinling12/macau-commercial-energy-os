@@ -4,6 +4,7 @@ The assessment module validates a schedule supplied by another component. The ad
 
 ## What it checks
 
+- Each interval comparison exposes separate baseline and candidate grid import, fixed load, per-asset flexible loads, total load, PV generation/on-site use/export/curtailment, losses, ESS charge/discharge, and ESS boundary SOC when supplied. This is an auditable scenario trace, not evidence that a device is controllable or that the schedule will execute.
 - Baseline and candidate use the same contiguous, site-timezone intervals.
 - PV generation reconciles to on-site use, export, or curtailment.
 - Each interval's AC power balance reconciles.
