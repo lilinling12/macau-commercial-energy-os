@@ -37,3 +37,8 @@ The four fixture controls were exercised by pointer. Observed physical/service/e
 - The four cases remain disconnected from the schedule, API, site registry, optimizer and evidence service. They are static synthetic UI fixtures, not Macau site results.
 
 This improves the v2.3 study's narrow-screen and keyboard-table behavior. Product and visual direction remain unapproved; no operator validation, device-control capability, savings, Gate completion, or production readiness is claimed.
+
+
+### Dynamic claim text at phone widths
+
+After the initial five-width layout pass, all four claim states were also selected at 375px and 320px. In all eight state/viewport combinations, document width stayed equal to the viewport and the claim-summary scroll width equalled its client width (288px at 375; 233px at 320). The longest missing-mapping and service-violation copy did not introduce clipping or page overflow. This supplements the original 1440px interaction pass; it does not extend the review to every workflow stage or locale.
