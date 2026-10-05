@@ -62,6 +62,7 @@ class DispatchSearchRequest:
     max_states_per_interval: int = 100_000
     max_transitions: int = 1_000_000
     pv_curtailment_evidence: EvidenceRef | None = None
+    ess_state_evidence: EvidenceRef | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -206,6 +207,7 @@ def generate_candidate(request: DispatchSearchRequest) -> DispatchSearchResult:
         pv_curtailment_evidence=request.pv_curtailment_evidence,
         flexible_load_limits=all_limits,
         ess_limits=ess,
+        ess_state_evidence=request.ess_state_evidence,
         economic_context=request.economic_context,
     ))
     if baseline_check.physical_status.value in ("BLOCKED", "INFEASIBLE"):
@@ -282,6 +284,7 @@ def generate_candidate(request: DispatchSearchRequest) -> DispatchSearchResult:
         pv_curtailment_evidence=request.pv_curtailment_evidence,
         flexible_load_limits=all_limits,
         ess_limits=ess,
+        ess_state_evidence=request.ess_state_evidence,
         grid_import_limit_kw=request.grid_import_limit_kw,
         grid_import_limit_evidence=request.grid_import_limit_evidence,
         economic_context=request.economic_context,
@@ -292,6 +295,8 @@ def generate_candidate(request: DispatchSearchRequest) -> DispatchSearchResult:
     assumptions.extend(limit.evidence for limit in request.fixed_flexible_load_limits)
     if ess is not None:
         assumptions.append(ess.evidence)
+        if request.ess_state_evidence is not None:
+            assumptions.append(request.ess_state_evidence)
     assumptions.extend((request.economic_context.account_meter_mapping, request.economic_context.contract, request.economic_context.tariff))
     assumptions.extend(rate.evidence for rate in request.economic_context.import_energy_rates)
     if any(row.pv_curtailed_kw > 0 for row in candidate.intervals) and request.pv_curtailment_evidence is not None:
