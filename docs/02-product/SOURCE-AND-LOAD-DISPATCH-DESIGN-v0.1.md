@@ -286,3 +286,8 @@ Visual reading remains exploratory: timeline-first A keeps whole-window behavior
 ### Keyboard scrolling follow-up — dispatch visual study v0.2.2
 
 A 320px keyboard check of v0.2.1 found the focusable chart/table scroll regions did not move when ArrowRight was pressed, despite their labels. Versioned [v0.2.2](prototype/source-load-dispatch/directions/v0.2.2/index.html) adds clamped 160px ArrowLeft/ArrowRight steps to chart and data-table regions; its [review record](prototype/source-load-dispatch/directions/v0.2.2/REVIEW.md) records A-chart and A/B-table movement, disclosure and interval selection checks. The change is an interaction affordance only and does not add any equipment command. This targeted keyboard test does not establish full keyboard or screen-reader conformance. A/B remains unselected.
+
+
+### 混合就緒狀態原型增補 — v2.1（瀏覽器審查待完成）
+
+為把「電氣平衡可核對」與舒適/服務可接受性分開呈現，PR #10 增加[混合狀態研究原型 v2.1](prototype/source-load-dispatch/v2.1/index.html)及[審查記錄](prototype/source-load-dispatch/v2.1/REVIEW.md)。四種服務證據示例為未評估、過期、約束未滿足和合成約束符合；電費仍明確不可計算，控制仍維持 SHADOW。四種狀態僅是本頁合成 UI，沒有 API 綁定、持久化或設備命令。來源腳本語法與 PR 倉庫治理門禁通過；本輪瀏覽器預覽因自動審查服務繁忙而被拒，故渲染、交互、響應式和鍵盤行為未驗證。這是產品設計研究增補，非批准基線、API 實作或 T7/G7.9 Gate 完成。
