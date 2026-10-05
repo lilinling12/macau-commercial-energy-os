@@ -21,7 +21,7 @@ TRANSLATIONS = {
     "0943908e8c": ("Item", "Item"),
     "0c9bd6277c": ("Required evidence", "Evidência necessária"),
     "0e3c2968bc": ("Next: review the SHADOW recommendation ↓", "Seguinte: rever a recomendação SHADOW ↓"),
-    "0f38b68739": ("4 of 6 intervals have precise, verified tariffs", "4 de 6 intervalos têm tarifas precisas e verificadas"),
+    "0f38b68739": ("4 of 6 intervals have precise, verified tariffs;", "4 de 6 intervalos têm tarifas precisas e verificadas;"),
     "1e247ae803": ("EV charging cost allocation", "Imputação do custo de carregamento de VE"),
     "217c9174a4": ("Not covered", "Não abrangido"),
     "22d49a1ced": ("Charger service meter, account, effective contract/tariff, and matching bill", "Contador do serviço de carregamento, conta, contrato/tarifa em vigor e fatura correspondente"),
@@ -42,7 +42,7 @@ TRANSLATIONS = {
     "5a1ab1da22": ("Approved operating limits and site data", "Limites operacionais aprovados e dados do local"),
     "5a4ddc887e": ("Bill-level cost BLOCKED", "Custo ao nível da fatura BLOQUEADO"),
     "65c83dfb47": ("Illustrative", "Ilustrativo"),
-    "6a71a42e6e": ("; 2 other intervals are excluded because no valid tariff is available. This example contains no energy, tariff, or monetary amount, so no total is shown.", "; 2 outros intervalos são excluídos por não existir uma tarifa válida. Este exemplo não contém energia, tarifa ou montante monetário, pelo que não apresenta um total."),
+    "6a71a42e6e": ("2 other intervals are excluded because no valid tariff is available. This example contains no energy, tariff, or monetary amount, so no total is shown.", "2 outros intervalos são excluídos por não existir uma tarifa válida. Este exemplo não contém energia, tarifa ou montante monetário, pelo que não apresenta um total."),
     "6cf9d4b3e7": ("HVAC comfort / service limits", "Limites de conforto / serviço do AVAC"),
     "756762e293": ("Not provided", "Não fornecido"),
     "7d379fe28e": ("Physical scenario increases by 25 kW; this is not Pu", "O cenário físico aumenta 25 kW; isto não corresponde a Pu"),
@@ -124,6 +124,22 @@ def main() -> None:
     if git_blob != expected_blob:
         raise SystemExit(f"Pinned HTML source mismatch: expected {expected_blob}; got {git_blob}")
     draft = copy.deepcopy(catalog)
+    # A rendered review found that the two-line hero translation lost the
+    # Chinese phrase's combined meaning. Keep the split line intentional in
+    # both candidate locales while preserving the source line break.
+    hero_copy = {
+        "把能源安排，": ("Plan energy use", "Planeie a utilização de energia"),
+        "放回每個時段。": ("for every interval.", "em cada intervalo."),
+        "繁體中文介面實驗 · 尚不代表完整多語支援或已核准視覺方向": (
+            "Multilingual locale study · not complete language support or an approved visual direction",
+            "Estudo multilingue da interface · não representa suporte linguístico completo nem uma direção visual aprovada",
+        ),
+    }
+    for message in draft["messages"]:
+        corrected = hero_copy.get(message["sourceText"])
+        if corrected:
+            message["translations"]["en"], message["translations"]["pt"] = corrected
+            message["reviewState"] = "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
     missing = [m for m in draft["messages"] if not m["translations"].get("en") or not m["translations"].get("pt")]
     expected = {m["key"].rsplit(".", 1)[-1] for m in missing}
     if expected != set(TRANSLATIONS):
