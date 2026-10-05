@@ -102,6 +102,22 @@ class DispatchAssessmentTests(unittest.TestCase):
         self.assertEqual(claims[ClaimType.DISPATCH_FEASIBILITY].status, ClaimStatus.WITHHELD)
         self.assertIsNone(result.import_energy_charge_delta_mop)
 
+    def test_missing_ess_limits_keeps_profile_and_withholds_ess_claim(self):
+        baseline = interval(grid="10", load="15")
+        candidate = interval(
+            grid="8", load="15", ess_discharge_kw=D("2"),
+            ess_soc_start_kwh=D("5"), ess_soc_end_kwh=D("3")
+        )
+
+        result = assess_schedule(request(baseline, candidate))
+        claims = {item.claim: item for item in result.claim_readiness}
+
+        self.assertEqual(result.physical_status, PhysicalStatus.PARTIAL)
+        self.assertEqual(result.candidate_import_energy_kwh, D("8.0"))
+        self.assertEqual(claims[ClaimType.GRID_IMPORT_PROFILE].status, ClaimStatus.ALLOWED)
+        self.assertEqual(claims[ClaimType.ESS_DISPATCH].status, ClaimStatus.WITHHELD)
+        self.assertEqual(claims[ClaimType.DISPATCH_FEASIBILITY].status, ClaimStatus.WITHHELD)
+
     def test_unknown_flexible_load_limit_keeps_profile_but_cost_is_scenario_only(self):
         base_flow = FlexibleLoadFlow("hvac-1", FlexibleLoadKind.HVAC, D("4"))
         candidate_flow = FlexibleLoadFlow("hvac-1", FlexibleLoadKind.HVAC, D("3"))
