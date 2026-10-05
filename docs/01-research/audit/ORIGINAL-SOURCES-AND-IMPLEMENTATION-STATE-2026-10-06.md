@@ -187,3 +187,14 @@ The source archives were also compared against the present dispatch-first design
 PR #10's G7.9 Step 3 map, product workflow and UI studies are a concrete proposal for the missing dispatch-specific layer. The proposal is substantially more detailed than the archived Step 1/2 package, but remains an unmerged review branch; its synthetic fixture checks do not validate the source packages, Macau commercial tariffs, production contracts, field capability, or a live optimizer. Main's existing telemetry-to-SHADOW VS-001 code remains a fixture-level predecessor and does not supply the dispatch-specific contracts or operator lifecycle.
 
 Accordingly, the evidence-based next gate in the supplied G7.9 sequence is still **Step 3 Service Boundary and Implementation Design review/consolidation**. The owner must later approve any canonical contracts, persistence schema, module/service split and resulting implementation slice. No package status or PR body should be interpreted as Step 3 closure until those decisions and acceptance evidence are recorded.
+
+
+## 12. Current PR #14 Macau tariff-period code slice — 2026-10-06
+
+After checking the published Macau tariff rules and the previous source-to-code gap, PR #14 (`poc/shadow-dispatch-assessment`) now includes a bounded period mapper at head `5d6392d3157335d21f3c0f3104f1f3bda250479b`:
+
+- `implementation/optimizer/src/macau_energy_optimizer/macau_tariff_periods.py`, blob `f3f2e7db37ad7b502788335b282596d7dca5aa41`: maps caller-supplied effective-dated rate cards for B1 and C1 into per-interval active-energy rates; recognizes B1 09:00–20:00 busy hours and C1 low/high seasons plus the separate high-season full-load and busy windows; adds caller-supplied TCA; preserves the rate evidence reference; rejects intervals crossing tariff/effective-date boundaries and rejects unsupported B2/B3/C2 variants.
+- `implementation/optimizer/tests/test_macau_tariff_periods.py`, blob `fb6a9364a96e1763bfe8ebebd537f06a1ada3a07`: 10 focused cases for tariff boundaries/seasons, TCA addition, effective-window rejection, interval validation, boundary crossing and evidence-reference preservation.
+- The local focused suite passed under Python 3.11.9. The package declares Python `>=3.14,<3.15`; this local run is only a compatibility signal, not proof on the declared runtime. Runtime Bootstrap, Authority Validation and Repository Hygiene were queued for the exact PR #14 head when checked.
+
+This is only a period-to-rate input adapter. It does not qualify the customer's tariff, authenticate evidence, calculate B2/B3/C2 transformer-loss adjustments, Pu/Pc demand charges, reactive energy, taxes, PV feed-in settlement or a complete bill. It remains a PR #14 draft experiment; PR #14 and PR #10 are unmerged, and the main branch is unchanged. G7.9 Step 3 remains OPEN. The PR #10 gap crosswalk was updated to reflect this partial implementation rather than the earlier “no tariff clock” status.
