@@ -35,11 +35,12 @@ The detailed check record, generated page, and reproducible builder are delivere
 
 - English and Portuguese rendered all six stages, including data/contracts, physical site model, source/load schedule, economics and constraints, SHADOW review, and monitoring/replay. Stage-2 rendering kept physical flows separate from account/tariff settlement and preserved the exclusion of evidence-deficient EV and hot-water loads.
 - Stage 4 exposed a punctuation seam across adjacent rich-text nodes (`tariffs ;` / `verificadas ;`). The translations were adjusted, the generated page rebuilt, and a fresh browser load showed the punctuation joined to the emphasized phrase.
+- Stage 4 also exposed untranslated Traditional Chinese in the responsive table's `data-label` attributes. The preview builder now translates `data-label` using the existing contextual labels; a fresh English/Portuguese browser load no longer exposed the Chinese labels in the accessibility tree.
 - The stage-3 dispatch comparison retained synthetic-data boundaries, HVAC rebound, ESS/SOC narrative, unknown billing-period Pu, localized chart title/description, and stage position in both draft locales. Traditional Chinese at stage 3 retained the source wording.
 - The stage-5 view showed page-only review actions and disabled equipment control in both locales. Stage 6 showed no site measurements or execution and the localized replay evidence requirements.
 - The locale menu keeps native language names, so `繁體中文` appears in the Portuguese and English menus by design. No obvious Traditional Chinese leakage appeared in the primary English or Portuguese content reviewed; brand/version strings and engineering abbreviations remain.
 - Locales were loaded by URL parameters. The selector was present, but switching it and preserving stage/review state were not tested.
-- This remains an accessibility-tree text review. No CSS viewport size, screenshot, responsive layout, or visual wrapping was checked, and it is not proof that every interaction/state or translation is correct.
+- This remains an accessibility-tree text review. No CSS viewport size, screenshot, responsive visual layout, or text wrapping was checked, and it is not proof that every interaction/state or translation is correct.
 - The page's own boundary copy continued to mark values as synthetic and denied claims of grid export, cross-building credits, savings, or executed equipment control.
 
 Viewport dimensions and screenshots were not captured. No mobile/tablet layout, all-stage render, keyboard-only flow, screen-reader announcement behavior, contrast, translation quality, or operator comprehension was tested. Browser tree evidence alone cannot establish visual quality, accessibility conformance, or localization approval.
