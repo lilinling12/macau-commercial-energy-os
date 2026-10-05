@@ -538,9 +538,7 @@ def _validate_request_shape(request: AssessmentRequest) -> None:
 def _applicable_evidence(request: AssessmentRequest) -> tuple[EvidenceRef, ...]:
     items = list(request.physical_evidence)
     active_ess = any(row.ess_charge_kw > 0 or row.ess_discharge_kw > 0 for s in (request.baseline, request.candidate) for row in s.intervals)
-    if active_ess:
-        if request.ess_limits is None:
-            raise _Blocked("ESS power/SOC/efficiency limits are required when the schedule uses storage.")
+    if active_ess and request.ess_limits is not None:
         items.append(request.ess_limits.evidence)
     active_load_ids = {flow.asset_id for s in (request.baseline, request.candidate) for row in s.intervals for flow in row.flexible_loads}
     load_limits = {item.asset_id: item for item in request.flexible_load_limits}
