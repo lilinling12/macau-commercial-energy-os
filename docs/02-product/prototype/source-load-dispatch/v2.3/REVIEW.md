@@ -42,3 +42,8 @@ A targeted skill search for “live status announcement scoped assessment” ret
 ## Next review
 
 Inspect the exact v2.3 branch file at 1440, 1024, 768, 375 and 320 CSS pixels. Exercise all four scenario controls using pointer and keyboard; check status announcement, focus retention, long text and table containment. Record only observed outcomes and repair any material issue before treating this version as reviewed.
+
+
+## v2.3 locale coverage
+
+The exact v2.3 source has a separate [locale coverage inventory](LOCALE-COVERAGE.md) and [source-pinned extractor](localization/tools/extract_locale_catalog.py). Extraction found 520 text nodes and 489 contextual candidate units; the UI remains zh-Hant-only with no Portuguese/English translations. English state codes are not counted as translated content. This inventory is not runtime i18n or rendered multilingual validation.
