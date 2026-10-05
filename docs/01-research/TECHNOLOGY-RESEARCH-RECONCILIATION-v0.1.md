@@ -177,3 +177,27 @@ The technology status above is supplemented by the separately reviewed implement
 - The Python experiment does not compare Python against Go/Node candidate implementations on the authorized common workload. It supplies evidence that one bounded algorithm can run in the existing Python workspace; it does not select Python as the production solver boundary or affect the NestJS/Fastify/Go-core/Next.js status matrix.
 
 Next.js remains a conditional public/customer portal or server-side composition option mentioned in report (7), absent from the defined G6.9 A/B/C+ candidates, and not selected. No new source in this update closes G6.9 Step 3D, resolves G7.6/G7.8 versus G6.9 authority precedence, or freezes the production stack.
+
+## Live GitHub state refresh — 2026-10-06
+
+This refresh updates only the repository implementation/proposal status. It does not supersede main authority or select a production stack.
+
+| Evidence | Current status checked |
+|---|---|
+| Main | Base remains `a897bf0b1e7e6ceea3862d7d87fa288ecca08203`; main's G6.9-R2 Step 3D is pending and C+ remains provisional. |
+| PR #8 | Readiness audit refresh `8b73b9ff4e0ab49e67ed6f293383cfd98ee26e55`; exact-head Authority Validation, Repository Hygiene, Contracts Validation and Runtime Bootstrap passed. Open/unmerged. |
+| PR #10 | Optimizer/UI cross-branch trace `c23ef73fe4952255e31cef444ade81d66972f626`; exact-head Authority Validation and Repository Hygiene passed. A follow-up owner-packet refresh `c827b6f9c7bf228c29a85c0ff1daff430bc8b386` is now on the same branch; its check was queued at this refresh. Open Draft/unmerged. |
+| PR #11 | Current source-reconciliation branch remains open Draft/unmerged; the prior recorded exact head is `8ec91db5ad08cb289daf6ba62ba79ac3603c818b`. |
+| PR #14 | The service-separation assertion correction is at `c235388db1678927f2c875bba6be88b0f01f25e2`; the PR #10 cross-review reports 32 optimizer tests and all Runtime Bootstrap, Authority Validation and Repository Hygiene checks passed. Open Draft/unmerged. |
+
+The PR #14 description itself stops at the earlier `0b69...` entry. Its later `c235...` test correction is evidenced by the source commit and the PR #10 cross-branch review; do not use the stale PR description as the latest code head.
+
+### Architecture decision status remains unchanged
+
+- The detailed supplied G7.6/G7.8 archives record accepted Fastify/Node, PostgreSQL-first-store, NATS JetStream and contract-first choices; distinct short and detailed G7.6 archives disagree on ADR-068 status. They remain local source evidence and are not all present in main as canonical decision artifacts.
+- Main's G6.9 authority still requires Step 3D/Step 4 evidence and labels C+ provisional; the actual NestJS path is implementation evidence, not the comparative winner.
+- Reports (6) and (7) remain different pre-bake-off recommendations. Report (6) proposes C+ without Next.js. Report (7) recommends a React/TypeScript SPA and Node/NestJS control plane, with Next.js only a conditional public/customer portal/server-composition option.
+- PR #14 proves a bounded synthetic Python experiment only. It does not establish a production optimizer boundary or change the Node/Fastify/NestJS/Go-core decision.
+- PR #10's exact-source mapping concludes that the v2.4 UI is a synthetic static study and has no runtime path to the optimizer. The adapter contract, durable result lifecycle and replay remain design work.
+
+The reviewed owner packet in PR #10 keeps authority precedence, APP-11 logical ownership, product scope/locales and contract authoring as explicit decisions with options and consequences. Until an owner-reviewed authority record resolves those dependencies, keep architecture comparisons evidence-based and stack-neutral. No Gate is closed by this refresh.
