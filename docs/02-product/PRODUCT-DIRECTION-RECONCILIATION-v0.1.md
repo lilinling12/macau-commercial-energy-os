@@ -85,3 +85,23 @@ PR #10 is still open, Draft and unmerged; exact head above. Its latest added G7.
 The original shared page was opened in the browser and exposed some Phase B/Phase C outputs, but portions showed “Failed to fetch template.” Treat the source as partially accessible only; no claim is made that every turn, attachment or generated file was read.
 
 Next product-design work is to reconcile the full dispatch workflow into the complete operator shell, preserve evidence/status and physical-versus-settlement boundaries across every state, and validate language coverage and workflow with representative domain users. Keep product scope, first-pilot resource eligibility, visual system, locale priority and technical architecture proposed until reviewed. Do not infer operational scheduling capability from the synthetic prototype or the separate PR #14 optimizer experiment.
+
+
+## Current prototype correction — v2.3 exact source (2026-10-05)
+
+The earlier current-state section above records v1.6 as the latest at its review time. That statement is historical and is no longer current. PR #10 now contains v2.3 HTML blob `6f199ddaee1f2a416b9925ce310a073b0455b054`, with a separate exact-source review `e93643559a9261ad340f7c2d0b998276252283c1`.
+
+v2.3 advances the **presentation of mixed readiness**: four synthetic supplied-schedule cases can independently show physical, HVAC/service, ESS, economic and claim states. The user can inspect why a claim is allowed, partial or withheld. In the no-tariff case the prototype says no optimized candidate is generated; in the partial-rate case, only independently covered energy components may be represented. The claim decision and claim scope are separate dimensions. Static fixture parity and source-level JavaScript checks are recorded in the v2.3 review.
+
+This is a refinement of the six-stage dispatch-first product proposal, not completion of the end-to-end operating workflow. The v2.3 case selector is disconnected from PR #14, a server/API, site/contract registry, authenticated evidence, forecasts, optimizer execution, persisted SHADOW decisions, monitoring and replay. It evaluates supplied synthetic schedules for the demonstration; it does not generate a live or site-qualified dispatch plan. Therefore the prototype does not yet prove the product can coordinate grid imports, PV, ESS, HVAC, EV and hot-water loads under a Macau site's verified commercial objective and operating constraints.
+
+The exact v2.3 review still records **no browser rendering or interaction session** for this version. It does not establish viewport behavior, keyboard transitions, screen-reader output, full-page contrast, WCAG conformance, operator usability or site validity. Earlier prototype-version renders and checks are not evidence for this exact v2.3 HTML.
+
+The checked-in v2.3 localization candidate contains 489 source/context units. Its source-pinned integrity validator reports no catalog/source errors, while Portuguese and English coverage remain 0/489 each. This is an extraction inventory only: no complete translations, runtime locale switching, localized date/number/currency formatting or multilingual rendered review is established. Locale scope is unapproved.
+
+### Product and implementation conclusion
+
+- The dispatch-first product direction remains a **research-derived proposal consistent with user direction**, not an owner-approved product baseline.
+- v2.3 improves claim explanation and truthful mixed-state presentation; it does not resolve the gap between synthetic UI, the separate bounded Python optimizer, and an integrated durable product workflow.
+- Keep the visible user workflow as qualification → site/energy model → comparable schedules → separate physical/economic constraints and evidence → SHADOW review → monitor/replay. Each transition needs an explicit state and recoverable reason. The prototype currently demonstrates only a small synthetic slice of the result-explanation step.
+- Next product evidence should first connect one immutable assessment fixture to a typed result adapter and verify that the UI renders the same result/claim states. That integration must remain synthetic and SHADOW-only until G7.9 ownership/contracts, security review and site evidence are approved. In parallel, complete v2.3 browser/keyboard review against the exact source; do not describe those checks as user validation.
