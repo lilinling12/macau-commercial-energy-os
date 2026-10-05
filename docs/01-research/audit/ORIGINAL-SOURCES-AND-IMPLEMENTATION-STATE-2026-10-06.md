@@ -260,3 +260,43 @@ The long answer after Prompt 3 also includes a later, more qualified proposal:
 Prompt 2–3 additionally contain specific FIT prices, tariff/TCA values, site examples, operating schedules, savings estimates and market statistics. They remain versioned source claims, not verified present-day parameters or commercial proof. Some examples simplify settlement and opportunity-cost assumptions. Do not use their numerical output as an ROI, customer promise, universal PV-export rule or approved architecture without revalidation.
 
 The first two prompts and Prompt 3 request/body are now directly visible from the shared transcript. This strengthens the original research lineage and explains why PR #10 centers source/load dispatch. It does not make the long response, candidate segment, control roadmap or architecture owner-approved.
+
+
+## 16. Original research-framework request — v1.0 structure and early Gate plan (2026-10-06)
+
+The shared conversation Prompt 6 asks for a durable research framework because the conversation may become too long and a new conversation may lose context. The immediately following response proposes “Research Authority + Handoff” and provides a detailed “Macau Multi-energy Commercial Dispatch System — Research & Product Authority Framework v1.0”. This is direct evidence that the project began with an intended persistent research framework and explicit repository-shaped knowledge structure, not only free-form discussion.
+
+### Proposed original information architecture
+
+The v1.0 proposal names root authority/handoff files (README.md, CURRENT.md, DECISIONS.md, OPEN-QUESTIONS.md) and these research/product domains:
+- 00-thesis/
+- 01-macau-energy-market/
+- 02-cem-tariff/
+- 03-energy-assets/
+- 04-energy-digital-twin/
+- 05-optimizer/
+- 06-reference-model/
+- 07-pilot/
+- 08-product/
+- 09-competition/
+- 10-evidence/
+- 11-decisions/
+- handoff/
+
+The proposal requires new conversations to restore README/handoff CURRENT/decisions/open questions first; only then read the current Gate's relevant authority. It asks that each research turn report new evidence, changed conclusions, decisions, unknowns, model impact, authority updates and next Gate. It recommends stable evidence/decision/unknown/assumption IDs and append-only handoff history.
+
+### Original preliminary Gate sequence and priority
+
+The v1.0 framework lists G0 Thesis, G1 Macau Electricity Economics, G2 Commercial Load Flexibility, G3 Energy Digital Twin, G4 Forecasting, G5 Optimization, G6 Safety & Control and G7 Reference Simulator, followed by product/pilot outputs. Initial G1 output is Tariff Engine v1; G3 output is Energy Graph v1. It puts tariff/settlement and meter topology first, then HVAC flexibility/reference building/M&V/pilot, with PV/EV/reactive/ESS, carbon and portfolio work at later priority tiers.
+
+Its historic CURRENT example says next: Tariff Engine v1 + Energy Graph v1, and expressly preserves as unknown the exact CEM Pu averaging interval, commercial PV settlement topology, third-party high-frequency AMI access, ESS export rules, actual C1/C2 transformer losses, BMS data quality and site HVAC flexibility. It says not to hardcode a 15-minute Pu interval, gross FIT eligibility or a Reference Building as real customer data, and not to start full product UI or an RL controller yet. These are historically strong research guardrails; the historical Gate labels are not the current G6.9/G7.9 status.
+
+### Substantive research immediately preceding the framework request
+
+The prior visible answer (Simulator v0.2 research) adds significant design detail beyond Prompts 1–3: Pu interval remained UNKNOWN; C1/C2 metering position and transformer loss were modeled separately; reactive-energy charges were included; PV capacity/settlement modes were evidence-gated; HVAC used empirical → grey-box → high-fidelity modeling levels; BOPTEST was proposed for control validation; Brick was proposed for equipment semantics; IPMVP-style M&V, a distinct deterministic safety kernel/Demand Guard and concrete pilot acceptance measures were proposed. It recommended a first SHADOW chain of bill + main meter + BMS/chiller → Energy Graph/twins → forecasting/MPC → Safety Kernel → SHADOW → M&V, then Tariff Engine v1 + Energy Graph schema as the next technical research. These are proposal-era content, not proof of accepted designs or measured site performance; all numeric examples remain synthetic/source claims pending verification.
+
+### Current-repository comparison remains a separate task
+
+This transcript confirms the original proposed structure, but does not prove it was implemented verbatim. The active repository uses its own docs/00-authority, docs/01-research, docs/02-product, docs/03-architecture, implementation/ and handoff/ organization, and the later G7.9 Step 3 outputs map selected artifacts into that organization. A file-by-file crosswalk is still required to identify preserved, renamed, split, absent and superseded v1.0 domains and to distinguish a semantic equivalent from the exact original directory structure. Do not call the original tree “strictly implemented” until that crosswalk is verified on main and relevant PR heads.
+
+This evidence corrects earlier claims that the original share could not be read. The public share exposes the Prompt 6 framework content, but many later research cards still fail to load; full chronology/attachment review remains incomplete.
