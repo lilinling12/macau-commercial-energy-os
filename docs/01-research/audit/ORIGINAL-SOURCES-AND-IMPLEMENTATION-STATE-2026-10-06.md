@@ -238,3 +238,25 @@ The Prompt 3 research response broadens the product and engineering frame:
 The responses repeatedly compare FIT revenues (including 2.8 MOP/kWh for >500 kW PV) to C-group import energy rates and illustrate export-first dispatch. Treat this as a research hypothesis with referenced public sources, not as a universal rule. Before implementation or ROI use, verify current effective tariff schedules, PV connection/FIT eligibility, export metering, whether the contract is full-output or surplus export, import/export account boundaries, network/transformer constraints, and any applicable settlement charges. A high FIT alone does not prove another-building PV can be shared or earns that rate.
 
 **Decision lineage implication:** dispatch-first product intent is verified from the original first three user turns; source/load economic orchestration is not a recent reinterpretation. The exact production architecture and product scope are still not approved by these research messages. The later GitHub main Authority and open proposals govern current implementation status, while this source establishes original research intent and evolving hypotheses.
+
+
+## 15. Source review correction — Prompt 2 is complete and Prompt 3 is broader (2026-10-06)
+
+The live share view exposes the first three user prompts and the corresponding first two research answers:
+1. Initial Macau commercial electricity-pattern research.
+2. Whether the product should dispatch between available PV and CEM grid power, and whether PV without storage is wasted.
+3. Explicit request to research a multi-energy commercial dispatch system.
+
+The answer following Prompt 2 is substantially broader than the short thesis summarized above. It proposes (as research, not accepted requirements) an interval decision among PV-to-building, PV-to-ESS, PV-export, grid-to-load, grid-to-ESS, ESS-to-load and flexible-load shifts. It describes CEM purchase of qualifying grid-connected PV under FIT, off-grid PV curtailment, separate energy/settlement graphs, and an optimizer objective that compares grid cost and PV FIT revenue with battery degradation, demand/reactive charges and comfort. This does **not** show another building's PV may be wheeled/shared with this customer. Cross-site energy sharing remains unknown until the applicable legal, market, account, meter, connection and contract mechanisms are proven.
+
+The long answer after Prompt 3 also includes a later, more qualified proposal:
+- **Pilot segment changed:** instead of first targeting a large resort, it leans toward a non-gaming C1/C2 commercial building around 1–5 MW, with an existing BMS, 15-minute-or-finer data, and a cooperative engineering team. PV/EV are preferred evidence opportunities, not mandatory prerequisites.
+- **Control maturity:** Stage 0 bill audit; Stage 1 data connection; Stage 2 SHADOW; Stage 3 advisory; Stage 4 human-approved dispatch; Stage 5 closed loop. Current project MVP remains SHADOW-only.
+- **Optimizer:** use constrained/replayable MPC or MILP/QP and forecast models for dispatch. Keep LLMs for explanation and reporting rather than unconstrained real-time control.
+- **Architecture direction:** cloud planning and business functions are separated from site-edge supervisory control, existing BMS/PLC loops and local safety interlocks. Offline fallback, manual override, audit, allowlists and segmented OT access are proposed. BACnet, Modbus, OPC UA and OCPP are candidate interfaces, not field-validated integrations.
+- **First functional slice suggested in the answer:** tariff engine, meter/data gateway, load forecast, demand guard, chiller/flexible-load model, MPC scheduler and savings M&V. PV/ESS/EV support can be modeled or phased; the first customer need not have all three.
+- **Model boundary:** tariff/contract digital twin (“money”) and physical asset/building digital twin (“physics”) should stay distinct and only join through qualified evidence, meter topology and settlement rules. GEC/carbon accounting is not physical dispatch.
+
+Prompt 2–3 additionally contain specific FIT prices, tariff/TCA values, site examples, operating schedules, savings estimates and market statistics. They remain versioned source claims, not verified present-day parameters or commercial proof. Some examples simplify settlement and opportunity-cost assumptions. Do not use their numerical output as an ROI, customer promise, universal PV-export rule or approved architecture without revalidation.
+
+The first two prompts and Prompt 3 request/body are now directly visible from the shared transcript. This strengthens the original research lineage and explains why PR #10 centers source/load dispatch. It does not make the long response, candidate segment, control roadmap or architecture owner-approved.
