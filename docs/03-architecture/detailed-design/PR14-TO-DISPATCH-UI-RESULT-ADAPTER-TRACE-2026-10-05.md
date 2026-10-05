@@ -93,3 +93,10 @@ A missing regression assertion has now been added in PR #14 test blob `ffef3f40d
 This pins the intended distinction in executable regression coverage without adding a comfort model, wire contract, device control, or canonical API. The check run started for PR #14 commit `99e0a7e943fdd66c987f28293658610b022b0a3b`; its completion and result must be verified separately before claiming the test passed.
 
 The older v2.3-specific sections above remain historical. v2.4's exact-source browser review covers the claim-state section at 1440, 1024, 768, 375, and 320 CSS px and the four synthetic claim states at desktop and phone widths. It does not establish complete workflow, locale, screen-reader, operator, or WCAG validation. No UI/API adapter binding exists.
+
+
+### Completed CI result for service-separation regression — 2026-10-05
+
+The initial run exposed a test-only attribute typo (`ClaimReadiness.reason` instead of `reasons`); it was corrected on PR #14. The corrected exact head is `c235388db1678927f2c875bba6be88b0f01f25e2`, test blob `1f48655f21455c8f4918b82e3dcc15a4bcf2c170`. Runtime Bootstrap [#37336858769](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37336858769) passed all four jobs; the Optimizer job ran **32 tests**, including the new service-separation regression. Authority Validation [#37336858856](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37336858856) and Repository Hygiene [#37336858826](https://github.com/lilinling12/macau-commercial-energy-os/actions/runs/37336858826) also passed.
+
+The test establishes only a code invariant for this bounded prototype: a supplied balanced HVAC schedule can be physically validated within scope while `DISPATCH_FEASIBILITY` is ALLOWED and `COMFORT_SERVICE` remains WITHHELD/NONE with a “not modeled” reason. It does not calculate comfort, establish real HVAC service, validate site inputs, or connect v2.4 to optimizer results. PR #14 and PR #10 remain proposals; no G7.9 exit or production architecture approval follows.
