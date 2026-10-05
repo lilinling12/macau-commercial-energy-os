@@ -62,3 +62,10 @@ This review is Traditional-Chinese-only, synthetic and local-browser-only. It do
 - The browser review was rerun against the v0.9 source submitted in the immediately preceding exact-head commit. At 1440, 1024, 768 and 375 CSS px, document width equaled viewport width; the stage navigation, next-stage control, evidence shortcut, data-table disclosure, SHADOW disposition state/reset, and keyboard-scrollable chart were exercised. No JavaScript errors were observed.
 - Latest HTML commit: `f709fd6c436a57d089b399ea04008725cef92cec`; GitHub Contents API blob SHA: `a5adb1ba0f2d6821190be36affe4ba0a570c34d8`.
 - These are selected color-pair checks and prototype interaction evidence only. They do not establish WCAG conformance, screen-reader usability, complete localization, production readiness, or user validation. PR #10 remains a draft proposal.
+
+
+## Chart annotation clipping correction — 2026-10-05
+
+Rendered visual review found two chart annotations exceeded the 800-unit SVG viewBox or crowded the HVAC-shift label. The peak annotation now starts at x=500; the HVAC rebound label is shortened to `17:00 HVAC 回彈` and placed at x=670. Re-render at 1440 CSS px shows both labels fully inside the chart with clear separation; responsive checks at 1024, 768 and 375 CSS px still show no document-level horizontal overflow. The six-stage navigation and workflow interaction review was rerun without JavaScript errors.
+
+Superseding HTML commit: `23e513415d581d7be23fbd4a4c30e01ff609d6d5`; GitHub Contents API blob SHA: `415761b3b11fd21961a0fd67d3d57b48bdb123b0`. This visual correction does not imply approval of the palette, complete accessibility, localization or product direction.
