@@ -110,7 +110,7 @@ The test establishes only a code invariant for this bounded prototype: a supplie
 
 - PR #14's dispatch assessor, bounded search and prototype boundary note remain at blobs `f53254eb41659a8284a0904115a61795adecc899`, `2d3256801f0ddce6b849c648c160f5a32fd90a27`, and `731dc465a5d23ef94d40b124a6e07c9ef7dbfe45`. The test source at the compared head is blob `1f48655f21455c8f4918b82e3dcc15a4bcf2c170`.
 - PR #14's final compared commit `c235388db1678927f2c875bba6be88b0f01f25e2` changes the comfort-withholding assertion to read the `reasons` collection. Its parent test had asserted a singular `reason` field. The PR #10 cross-branch record reports the corrected exact head's Runtime Bootstrap (32 optimizer tests plus three other jobs), Authority Validation and Repository Hygiene as passed. These checks verify the bounded prototype and repository checks only.
-- PR #10's v2.4 browser-study files are current at REVIEW blob `1216bc766784d42990c2681c9b7c5515ae58643e` and HTML blob `35b0843b6b87272c407bc5df2c80c641e69cad1e`. The page remains a synthetic six-stage study with static claims; it has no API DTO binding, optimizer invocation, durable assessment lifecycle, evidence-service lookup or persisted result/replay integration.
+- PR #10's v2.4 browser-study files are current at REVIEW blob `1216bc766784d42990c2681c9b7c5515ae58643e` and HTML blob `35b0843b6b87272c407bc5df2c80c641e69cad1e`. The page is a six-stage synthetic study with interactive, fixture-backed claim cases and a separate HVAC readiness control; those local controls are not bound to the same assessment or schedule. It has no API DTO binding, optimizer invocation, durable assessment lifecycle, evidence-service lookup or persisted result/replay integration.
 - The PR #14 description still ends at the earlier ESS SOC follow-up head `0b69b7b5db04a2f2454bec691ecc8f609facc552`, while PR #10's cross-branch record and the fetched PR #14 test source include the later `c235...` correction. Treat the source and exact-commit record as the fresher evidence; consider refreshing the PR #14 description so its advertised head/check summary is not stale.
 
 ### Integration conclusion
@@ -128,3 +128,9 @@ The most consequential semantic invariant remains: a bounded electrical profile 
 5. Do not claim site, tariff, service, savings, production readiness or pilot readiness until their separate evidence gates pass. Keep live equipment commands outside this MVP slice.
 
 This refresh corrects version drift in the review record. It does not close G7.9 Step 3, approve production architecture, or connect the UI to PR #14.
+
+### Correction — v2.4 already has interactive synthetic claim-state controls — 2026-10-06
+
+The prior phrase “static claims” referred to fixed fixture data and could be read as saying the claim display was not interactive. Exact-source inspection and a 375px browser pass confirm that v2.4 already has four selectable fixture cases and a separate HVAC service-state radio study. Both update visible state and the claim cases expose their selected state; this behavior is now documented in [the v2.4 review](../../02-product/prototype/source-load-dispatch/v2.4/REVIEW.md).
+
+The meaningful remaining gap is **cross-state and system integration**: the HVAC radio study and claim-fixture selector are separate local demonstrations, neither uses the selected dispatch schedule nor consumes PR #14/API results. Thus the prototype demonstrates UI state treatment but does not verify a single result contract or vertical flow. “Interactive synthetic fixtures” is the accurate current description; “runtime-connected assessment” is not.
