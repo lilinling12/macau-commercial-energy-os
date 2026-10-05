@@ -31,6 +31,7 @@ class PhysicalStatus(StrEnum):
 
 class EconomicStatus(StrEnum):
     COMPONENT_AVAILABLE = "COMPONENT_AVAILABLE"
+    PARTIAL = "PARTIAL"
     SCENARIO_ONLY = "SCENARIO_ONLY"
     BLOCKED = "BLOCKED"
 
@@ -210,6 +211,8 @@ class AssessmentResult:
     baseline_import_energy_charge_mop: Decimal | None
     candidate_import_energy_charge_mop: Decimal | None
     import_energy_charge_delta_mop: Decimal | None
+    economic_covered_intervals: tuple[tuple[datetime, datetime], ...]
+    economic_total_interval_count: int
     economic_component: str | None
 
 
@@ -323,6 +326,8 @@ def _claim_readiness(
     economic_scope = (
         ClaimScope.SCENARIO_ONLY
         if economic_status is EconomicStatus.SCENARIO_ONLY
+        else ClaimScope.PARTIAL
+        if economic_component_available and economic_status is EconomicStatus.PARTIAL
         else ClaimScope.VERIFIED_BOUNDED
         if economic_component_available and economic_status is EconomicStatus.COMPONENT_AVAILABLE
         else ClaimScope.NONE
@@ -461,6 +466,8 @@ def assess_schedule(request: AssessmentRequest) -> AssessmentResult:
             baseline_import_energy_charge_mop=economic[2],
             candidate_import_energy_charge_mop=economic[3],
             import_energy_charge_delta_mop=economic[4],
+            economic_covered_intervals=economic[5],
+            economic_total_interval_count=len(request.baseline.intervals),
             economic_component="GRID_IMPORT_ENERGY_ONLY" if economic[2] is not None else None,
         )
     except _Infeasible as error:
@@ -496,6 +503,8 @@ def _empty_result(request: AssessmentRequest, status: PhysicalStatus, reasons: t
         baseline_import_energy_charge_mop=None,
         candidate_import_energy_charge_mop=None,
         import_energy_charge_delta_mop=None,
+        economic_covered_intervals=(),
+        economic_total_interval_count=len(request.baseline.intervals),
         economic_component=None,
     )
 
@@ -656,16 +665,28 @@ def _validate_schedule(schedule: Schedule, request: AssessmentRequest, *, is_can
             raise _Infeasible("Candidate grid import exceeds the evidenced import guard.")
 
 
-def _evaluate_economics(context: EconomicContext | None, request: AssessmentRequest, assumed: bool) -> tuple[EconomicStatus, tuple[str, ...], Decimal | None, Decimal | None, Decimal | None]:
+def _evaluate_economics(
+    context: EconomicContext | None,
+    request: AssessmentRequest,
+    scenario_only: bool,
+) -> tuple[
+    EconomicStatus,
+    tuple[str, ...],
+    Decimal | None,
+    Decimal | None,
+    Decimal | None,
+    tuple[tuple[datetime, datetime], ...],
+]:
+    total_count = len(request.baseline.intervals)
     if context is None:
-        return EconomicStatus.BLOCKED, ("No account/meter/contract/tariff evidence was supplied; monetary output is withheld.",), None, None, None
-    evidence = (context.account_meter_mapping, context.contract, context.tariff, *(rate.evidence for rate in context.import_energy_rates))
-    if any(not _is_well_formed_evidence(item) for item in evidence):
-        return EconomicStatus.BLOCKED, ("Every economic evidence reference must have a non-empty ID and a recognized state.",), None, None, None
-    if any(item.state is not EvidenceState.VERIFIED for item in evidence):
-        return EconomicStatus.BLOCKED, ("Account, contract, tariff, and import-rate evidence must all be verified.",), None, None, None
-    if len(context.import_energy_rates) != len(request.baseline.intervals):
-        return EconomicStatus.BLOCKED, ("A verified import-energy rate is required for every schedule interval.",), None, None, None
+        return EconomicStatus.BLOCKED, ("No account/meter/contract/tariff evidence was supplied; monetary output is withheld.",), None, None, None, ()
+    context_evidence = (context.account_meter_mapping, context.contract, context.tariff)
+    rate_evidence = tuple(rate.evidence for rate in context.import_energy_rates)
+    if any(not _is_well_formed_evidence(item) for item in (*context_evidence, *rate_evidence)):
+        return EconomicStatus.BLOCKED, ("Every economic evidence reference must have a non-empty ID and a recognized state.",), None, None, None, ()
+    if any(item.state is not EvidenceState.VERIFIED for item in context_evidence):
+        return EconomicStatus.BLOCKED, ("Account, contract, and tariff applicability evidence must be verified.",), None, None, None, ()
+
     baseline_rows = request.baseline.intervals
     candidate_rows = request.candidate.intervals
     uses_ess = any(
@@ -679,20 +700,54 @@ def _evaluate_economics(context: EconomicContext | None, request: AssessmentRequ
         base_end = baseline_rows[-1].ess_soc_end_kwh
         candidate_end = candidate_rows[-1].ess_soc_end_kwh
         if None in (base_start, candidate_start, base_end, candidate_end):
-            return EconomicStatus.BLOCKED, ("Comparable ESS economics require evidenced SOC at the schedule-window start and end for both schedules.",), None, None, None
+            return EconomicStatus.BLOCKED, ("Comparable ESS economics require evidenced SOC at the schedule-window start and end for both schedules.",), None, None, None, ()
         if base_start != candidate_start or base_end != candidate_end:
-            return EconomicStatus.BLOCKED, ("ESS economics are withheld because baseline and candidate SOC boundary conditions differ.",), None, None, None
-    rates = {(rate.start, rate.end): rate for rate in context.import_energy_rates}
-    if len(rates) != len(context.import_energy_rates):
-        return EconomicStatus.BLOCKED, ("Import-energy rates contain duplicate intervals.",), None, None, None
-    for row in request.baseline.intervals:
-        rate = rates.get((row.start, row.end))
-        if rate is None or rate.rate_mop_per_kwh < 0 or not rate.rate_mop_per_kwh.is_finite():
-            return EconomicStatus.BLOCKED, ("Import-energy rates do not cover the exact schedule intervals.",), None, None, None
-    baseline = _import_charge(request.baseline, rates)
-    candidate = _import_charge(request.candidate, rates)
-    status = EconomicStatus.SCENARIO_ONLY if assumed else EconomicStatus.COMPONENT_AVAILABLE
-    return status, ("Only the evidenced grid-import energy component is calculated; demand, tax, export credit, and full-bill settlement are excluded.",), baseline, candidate, candidate - baseline
+            return EconomicStatus.BLOCKED, ("ESS economics are withheld because baseline and candidate SOC boundary conditions differ.",), None, None, None, ()
+
+    rates_by_interval: dict[tuple[datetime, datetime], list[ImportEnergyRate]] = {}
+    for rate in context.import_energy_rates:
+        rates_by_interval.setdefault((rate.start, rate.end), []).append(rate)
+    covered_rows: list[ScheduleInterval] = []
+    covered_rates: dict[tuple[datetime, datetime], ImportEnergyRate] = {}
+    withheld: list[str] = []
+    for row in baseline_rows:
+        key = (row.start, row.end)
+        matching = rates_by_interval.get(key, [])
+        if len(matching) != 1:
+            reason = "missing" if not matching else "ambiguous duplicate"
+            withheld.append(f"{row.start.isoformat()}–{row.end.isoformat()}: {reason} exact-interval import rate")
+            continue
+        rate = matching[0]
+        if rate.evidence.state is not EvidenceState.VERIFIED:
+            withheld.append(f"{row.start.isoformat()}–{row.end.isoformat()}: import-rate evidence is not verified")
+            continue
+        if not rate.rate_mop_per_kwh.is_finite() or rate.rate_mop_per_kwh < 0:
+            withheld.append(f"{row.start.isoformat()}–{row.end.isoformat()}: import rate is invalid")
+            continue
+        covered_rows.append(row)
+        covered_rates[key] = rate
+
+    covered_intervals = tuple((row.start, row.end) for row in covered_rows)
+    if not covered_rows:
+        summary = "No schedule interval has exactly matched, verified, valid import-rate evidence."
+        return EconomicStatus.BLOCKED, (summary, *withheld), None, None, None, ()
+
+    covered_schedule = Schedule(tuple(covered_rows))
+    baseline = _import_charge(covered_schedule, covered_rates)
+    candidate_schedule = Schedule(tuple(candidate_rows[index] for index, row in enumerate(baseline_rows) if (row.start, row.end) in covered_rates))
+    candidate = _import_charge(candidate_schedule, covered_rates)
+    delta = candidate - baseline
+    if scenario_only:
+        status = EconomicStatus.SCENARIO_ONLY
+        summary = "The import-energy component is scenario-only because at least one physical input or resource constraint is unresolved."
+    elif len(covered_rows) < total_count:
+        status = EconomicStatus.PARTIAL
+        summary = f"Import-energy component covers {len(covered_rows)} of {total_count} schedule intervals; uncovered intervals are excluded, not treated as zero."
+    else:
+        status = EconomicStatus.COMPONENT_AVAILABLE
+        summary = "Only the evidenced grid-import energy component is calculated; demand, tax, export credit, and full-bill settlement are excluded."
+    reasons = (summary, *withheld)
+    return status, reasons, baseline, candidate, delta, covered_intervals
 
 
 def _import_energy(schedule: Schedule) -> Decimal:
