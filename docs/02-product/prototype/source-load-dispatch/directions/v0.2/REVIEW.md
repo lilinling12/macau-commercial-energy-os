@@ -1,7 +1,7 @@
 # Dispatch visual direction study v0.2 — review record
 
 **Date:** 2026-10-05  
-**Artifact:** `dispatch-direction-v02-study.html`  
+**Artifact:** `index.html` (local study source: `work/dispatch-direction-v02-study.html`)  
 **Status:** exploratory; direction A and direction B are both unapproved. This review does not freeze product scope, palette, production UI, locale set, or architecture.
 
 ## Review task
