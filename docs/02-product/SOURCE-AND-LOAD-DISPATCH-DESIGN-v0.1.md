@@ -274,3 +274,10 @@ The design is a review proposal against a longer research lineage. See [G7.3–G
 ### Responsive dispatch hierarchy refinement — prototype v1.9
 
 A narrow-screen review found the schedule comparison began late in the compact page. The versioned [v1.9 prototype](prototype/source-load-dispatch/v1.9/index.html) and [review record](prototype/source-load-dispatch/v1.9/REVIEW.md) apply CSS-only compact-layout changes while preserving v1.8, the six-stage flow, synthetic data, evidence labels and SHADOW/no-control boundary. On matched local Edge renders at 320 and 375 CSS px, the schedule heading moved 114px and 121px earlier respectively; 768px was unchanged. The check found no document-level horizontal overflow and exercised each workflow stage and the schedule table disclosure. This is a bounded layout review only, not a palette/product approval, full accessibility audit, multilingual validation or user test.
+
+
+### Dispatch visual direction v0.2.1 — narrow-screen correction
+
+The preserved v0.2 study had a compact-width defect: at 320 CSS px, intrinsic widths in the summary-card grid caused page overflow (323px in direction A; 335px in direction B). Versioned [v0.2.1 direction study](prototype/source-load-dispatch/directions/v0.2.1/index.html) changes the three summary cards to a single column at ≤360px; v0.2 remains unchanged. Controlled Edge renders of both concepts at 1440, 1024, 900, 768, 640, 375, 360, 340 and 320 CSS px found page width equal to viewport in all 18 combinations. At 320px the graph and data table still scroll inside their named regions. The [review](prototype/source-load-dispatch/directions/v0.2.1/REVIEW.md) records interval interaction and screenshots reviewed at 1440 and 320 for A/B.
+
+Visual reading remains exploratory: timeline-first A keeps whole-window behavior and evidence in view; interval-first B strengthens the selected-interval explanation. Neither is selected. Review is desk-based, not operator preference or award qualification. Full keyboard/screen-reader coverage, locale completion and customer/site validation remain open.
