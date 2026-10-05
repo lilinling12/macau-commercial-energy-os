@@ -89,6 +89,7 @@ class PeriodReplay:
     billable_reactive_kvarh: Decimal
     reactive_energy_charge_mop: Decimal
     tca_charge_mop: Decimal
+    evidence_refs: tuple[EvidenceRef, ...]
 
 
 @dataclass(frozen=True, slots=True)
@@ -101,6 +102,10 @@ class BillReplayResult:
     tca_charge_mop: Decimal
     subtotal_excluding_tax_mop: Decimal
     period_breakdown: tuple[PeriodReplay, ...]
+    tariff_evidence: EvidenceRef
+    contract_evidence: EvidenceRef
+    demand_evidence: EvidenceRef
+    register_evidence: tuple[EvidenceRef, ...]
     excluded_components: tuple[str, ...] = (
         "government tax",
         "PV export/feed-in settlement",
@@ -152,6 +157,7 @@ def replay_b1_c1_bill_component(
                     "a missing or mismatched reactive register blocks replay."
                 )
 
+    _validate_c1_season_coverage(request)
     supplied = {block.period for block in request.registers}
     missing = required - supplied
     if missing:
@@ -183,6 +189,7 @@ def replay_b1_c1_bill_component(
                 billable_reactive_kvarh=billable_reactive,
                 reactive_energy_charge_mop=reactive_charge,
                 tca_charge_mop=tca,
+                evidence_refs=tuple(row.evidence for row in rows),
             )
         )
 
@@ -199,6 +206,10 @@ def replay_b1_c1_bill_component(
         tca_charge_mop=tca_total,
         subtotal_excluding_tax_mop=subtotal,
         period_breakdown=tuple(replay_rows),
+        tariff_evidence=card.tariff_evidence,
+        contract_evidence=request.contract_evidence,
+        demand_evidence=request.demand_evidence,
+        register_evidence=tuple(row.evidence for row in request.registers),
     )
 
 
@@ -212,6 +223,31 @@ def _periods(tariff: TariffVariant) -> set[EnergyPeriod]:
         EnergyPeriod.C1_HIGH_SEASON_FULL_LOAD_PEAK,
         EnergyPeriod.C1_HIGH_SEASON_LOW_LOAD,
     }
+
+
+def _validate_c1_season_coverage(request: BillReplayRequest) -> None:
+    if request.tariff is not TariffVariant.C1:
+        return
+    has_low_season = False
+    has_high_season = False
+    day = request.billing_period_start
+    while day < request.billing_period_end_exclusive:
+        if 6 <= day.month <= 9:
+            has_high_season = True
+        else:
+            has_low_season = True
+        day = date.fromordinal(day.toordinal() + 1)
+
+    for row in request.registers:
+        period_is_high = row.period in {
+            EnergyPeriod.C1_HIGH_SEASON_FULL_LOAD,
+            EnergyPeriod.C1_HIGH_SEASON_FULL_LOAD_PEAK,
+            EnergyPeriod.C1_HIGH_SEASON_LOW_LOAD,
+        }
+        if period_is_high and not has_high_season and (row.active_kwh != ZERO or row.reactive_kvarh != ZERO):
+            raise ValueError("High-season registers must be zero when the billing period has no high-season dates.")
+        if not period_is_high and not has_low_season and (row.active_kwh != ZERO or row.reactive_kvarh != ZERO):
+            raise ValueError("Low-season registers must be zero when the billing period has no low-season dates.")
 
 
 def _c1_reactive_kind(period: EnergyPeriod) -> ReactiveKind:
