@@ -82,3 +82,8 @@ PR #10 now contains [prototype v2.3](prototype/source-load-dispatch/v2.3/index.h
 ### v2.3 fixture separation and consistency guard — 2026-10-05
 
 The mixed-state examples are now stored in `prototype/source-load-dispatch/v2.3/fixtures/mixed-claim-states.json`, embedded in the study HTML for offline rendering, and checked by `validate-claim-fixtures.py`. The verifier parses the embedded fixture and requires exact equality with the standalone JSON, then enforces claim boundaries for partial-rate coverage, absent tariff, blocked core mapping, synthetic service violation and no device control. On the exact fetched v2.3 branch source, both executable inline JS blocks passed `node --check`, and the Python verifier passed. This is prototype data/markup consistency evidence only; it does not validate the API, optimizer, browser render or production contract.
+
+
+### PR #14 enum-to-presentation reconciliation — 2026-10-05
+
+The [implementation-grounded PR #14-to-UI mapping trace](../03-architecture/detailed-design/PR14-TO-DISPATCH-UI-RESULT-ADAPTER-TRACE-2026-10-05.md) compared exact optimizer enums to the static mixed-state study. It found and corrected a prototype data-model ambiguity: claim decision is ALLOWED/WITHHELD; PARTIAL belongs to claim scope/economic assessment, not a third claim decision. It also records that the current search requires EconomicContext, service outcome is not computed by PR #14, caller-supplied VERIFIED refs are unauthenticated, and the main VS-001 path does not serve these UI results. The v2.3 JSON fixture and embedded copy match; both executable scripts pass syntax check and its static validator passes. This remains a design reconciliation, not API binding or Gate completion.
