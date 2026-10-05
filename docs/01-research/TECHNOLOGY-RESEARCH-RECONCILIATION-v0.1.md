@@ -164,3 +164,16 @@ Main later implements Phase C VS-001 typed telemetry/evidence/recommendation/rep
 - Current main records a **different implemented path** (Node 24.21 + NestJS 12 / Express adapter), but explicitly leaves Candidate B unselected while G6.9 Step 3D is pending and C+ is provisional.
 - Therefore use “historically accepted G7.6 baseline” for the Fastify/PostgreSQL/NATS decisions and “currently implemented, still provisional main path” for NestJS. Do not collapse these into one current approved stack.
 - Product-wise, the direction is coherent at the mission level (economic source/load orchestration under constraints), but the early G7.1/G7.5 go-to-market phases and G7.9 dashboard/recommendation MVP defer dispatch relative to the present dispatch-first requirement. PR #10 is the current draft proposing that product-flow reconciliation.
+
+
+## 2026-10-05 — Current SHADOW optimizer experiment cross-check
+
+The technology status above is supplemented by the separately reviewed implementation experiment. This updates the implementation inventory, not the architecture authority.
+
+- `main` remains at `a897bf0b1e7e6ceea3862d7d87fa288ecca08203`. Its Python optimizer package remains a recommendation-boundary skeleton.
+- PR #14 `poc/shadow-dispatch-assessment` is a separate open Draft, unmerged branch at exact head `b7ae02fe8dd4b346961235a7db523471c239b883`. It adds a finite-horizon discrete dynamic-programming search and schedule assessor in Python. The code accepts one site, one EconomicContext and one account/meter/contract/tariff reference set; it calculates only interval-qualified grid-import energy charges and labels partial coverage. It does not add an integrated Platform API, authenticated evidence service, durable snapshot/replay, full tariff settlement, or device control.
+- At that exact head, Runtime Bootstrap `37255779321` passed Optimizer (27 tests), Platform API, Go Edge and Contract Fixtures. Authority Validation `37255779320` and Repository Hygiene `37255779342` failed on main-base authority/handoff path expectations. These results establish a bounded prototype execution, not a production optimizer or architecture benchmark.
+- PR #10's G7.9 Step 3 map now records this experiment at its exact head in commit `3ae590b0823f70802f4fe8a53020c018aaf41a21`; PR #10 remains open/Draft/unmerged, and the design still requires a canonical APP-11/service boundary, authority decision and authenticated, immutable multi-scope inputs before integration. The newer PR #10 product-direction reconciliation commit is `086dd675a0a3b0cfc4381e8d0551a4971990e2f5`.
+- The Python experiment does not compare Python against Go/Node candidate implementations on the authorized common workload. It supplies evidence that one bounded algorithm can run in the existing Python workspace; it does not select Python as the production solver boundary or affect the NestJS/Fastify/Go-core/Next.js status matrix.
+
+Next.js remains a conditional public/customer portal or server-side composition option mentioned in report (7), absent from the defined G6.9 A/B/C+ candidates, and not selected. No new source in this update closes G6.9 Step 3D, resolves G7.6/G7.8 versus G6.9 authority precedence, or freezes the production stack.
