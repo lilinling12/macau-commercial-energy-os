@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant-MO">
+<html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -157,7 +157,7 @@ error:"Não foi possível carregar os dados do cenário. Confirme que dispatch-p
 assumption1:"Janela de planeamento: 09:00 a 15:00; intervalos de uma hora; hora de Macau.",assumption2:"PV e carga fixa são dados sintéticos; não se infere exportação nem crédito na fatura.",assumption3:"A pesquisa usa tarifas presumidas; a avaliação económica continua bloqueada, sem apresentar custo ou poupança.",assumption4:"A energia das tarefas vem do fixture; inércia térmica HVAC, prazo de saída EV e serviço de água quente não são modelados.",assumption5:"SOC e limites de potência do armazenamento usam apenas pressupostos discretos do fixture; não descrevem equipamento no local.",assumption6:"Encargos de demanda, fatura completa, receita de exportação, incerteza da previsão e controlo de equipamentos ficam fora deste resultado.",
 loadObjective:"A pesquisa compara candidatos com tarifas horárias; todas as tarifas são pressupostos do projeto.",transitionLabel:"Transições de estado da pesquisa",timeZone:"Hora de Macau",chartAxis:"kW"
 }};
-const localeTag={"zh-Hant":"zh-Hant-MO","en":"en-MO","pt":"pt-MO"};
+const localeTag={"zh-Hant":"zh-Hant","en":"en","pt":"pt"};
 const claimCopy={
 GRID_IMPORT_PROFILE:["claimGrid","scopeScenario"],HORIZON_PEAK:["claimPeak","scopePeak"],DISPATCH_FEASIBILITY:["claimFeas","scopeFeas"],PV_CURTAILMENT:["claimPv","scopePv"],ESS_DISPATCH:["claimEss","scopeEss"],FLEXIBLE_LOAD_DISPATCH:["claimFlex","scopeFlex"],GRID_IMPORT_ENERGY_COMPONENT:["claimEnergy","withEnergy"],DEMAND_CHARGE:["claimDemand","withDemand"],EXPORT_COMPENSATION:["claimExport","withExport"],FULL_BILL:["claimBill","withBill"],SAVINGS:["claimSavings","withSavings"],CONTROLLABILITY:["claimControl","withControl"],COMFORT_SERVICE:["claimService","withService"],CROSS_SITE_CREDIT:["claimCredit","withCredit"],DEVICE_CONTROL:["claimDevice","withDevice"]};
 let currentLocale="zh-Hant",fixtureData=null,reviewChoice=null;
