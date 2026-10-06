@@ -145,3 +145,17 @@ A recursive GitHub tree read at `main` commit `a897bf0b1e7e6ceea3862d7d87fa288ec
 A small VS-001 replay fixture/runner does exist in main; do not confuse replay of that single input example with immutable dispatch assessment replay, persisted review history, measured-outcome monitoring or M&V.
 
 This exact-tree result confirms the prior status labels: **the repository has a narrow platform scaffold and contract/recommendation examples; the complete dispatch product remains design/prototype work plus an isolated PR #14 search experiment.** The tree check is structural and source-level evidence; it is not a runtime integration run or user/site validation.
+
+
+## Original v0.10 and palette-study artifact trace — 2026-10-07
+
+Two earlier HTML studies in the Codex task workspace were directly read by source structure and hashed. They are workspace artifacts, not files found in the supplied D: project folder. Fingerprints:
+
+- `prototype-v0.10-review.html` — SHA-256 `DF36E3B988631700491490968C823F9AEECE14545280FE00E7BFE6478CD8EC17`.
+- `palette-study-v0.1.html` — SHA-256 `8AEE95D1BCADE7116F4408D69704F9479374A0F788CB16A1D630FCE4ABC24FB8`.
+
+The v0.10 prototype's navigation/views are Portfolio, Site, Integrations & site access, Data health, Site model, Economics, Tariffs, Recommendations and Evidence. The portfolio view presents site readiness, open evidence items and a synthetic energy/demand trend; Economics changes among bill/interval/comparison presentation modes. Its site-model copy usefully separates physical/electrical relationships from settlement/economic relationships and explicitly labels synthetic/unverified PV and tariff data. However, there is no first-class source/load schedule-comparison view with baseline/candidate intervals, PV/ESS/flexible-load coordination, schedule constraints or dispatch review. It is a broad evidence/readiness workspace concept, not the dispatch-first product task.
+
+The palette study presents the same synthetic portfolio/readiness/demand-review task in three visual alternatives—Harbor teal, Mineral blue and Night graphite. It supports exploratory color comparison, semantic state contrast samples and solid-vs-dashed actual/forecast encoding. Its own review copy says none is selected or user-tested; selected text contrast pairs are not a page-level WCAG conformance result. This study does not establish the color system for the later dispatch workspace.
+
+These artifacts explain the product-design evolution: retain useful site/evidence/tariff/recommendation capabilities from the earlier broad workspace, but give the economic source/load comparison the primary workflow position specified by PR #10. The dedicated v1.9 six-stage flow and v2.9 mixed-claim result study provide the later synthetic interaction evidence described above; neither converts the early prototype/palette into an approved or implemented product.
