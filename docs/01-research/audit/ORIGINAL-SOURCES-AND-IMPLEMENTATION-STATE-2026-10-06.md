@@ -328,3 +328,46 @@ This reconciliation validates the bounded thread messages and named GitHub commi
 The stale Phase C source references identified above are corrected in open Draft PR #15, head a9865ec4686131e32120862e2f59361f09717a50. The change points emitted VS-001 evidence records to existing canonical VS-001, module-boundary, open-question and decision-register documents. A platform test exercises completed and fail-closed graph/site/tariff paths and checks every emitted documentation-path reference resolves. PR #15 also aligns the repository's existing Authority and Hygiene checks and AGENTS.md with the migrated canonical documentation paths.
 
 All six exact-head CI jobs passed on PR #15: Platform API, Edge Runtime, Optimizer, Contract Fixtures, Repository hygiene and Validate authority structure. PR #15 remains unmerged, so main still contains the stale references and stale-path checks until that proposal is reviewed and merged. These green checks validate the bounded code regression and repository gates only; they do not change the Phase C or product/architecture scope.
+
+
+
+## Direct semantic check of supplied G7.9 Step 1 and Step 2 packages — 2026-10-07
+
+The source archives were read file-by-file from the extracted read-only copies in the Codex task workspace and matched to the user-supplied D: package names. Archive SHA-256:
+
+| Package | SHA-256 | Package's own gate statement |
+|---|---|---|
+| `macau-commercial-energy-os-g7.9-mvp-domain-foundation-v0.1.zip` | `CB144A2B57C612A78C80F39FD0A0BB2911CECE6453566DD0F90C70D5FD2CD30A` | Step 1 status says Completed and points to Step 2. |
+| `macau-commercial-energy-os-g7.9-step2-domain-data-contract-design-v0.1.zip` | `B70CAFDA01B6F19FAC8731154A90D24930CB2A66ADA449EA9BB8E5AA4B149A6C` | Step 2 status says Completed and points to Step 3 Service Boundary and Implementation Design. |
+
+This is an audit of the supplied v0.1 package contents, not a claim about later package variants or unlisted conversation attachments.
+
+### What the package contents establish
+
+- Step 1 establishes an initial, generic SaaS domain and a simulated telemetry-to-recommendation vertical-slice concept. Its scope includes tenant/building/device/telemetry/recommendation foundations and a dashboard/basic recommendation; it explicitly excludes full billing and direct equipment control.
+- Step 2 lists initial entities and generic tenant isolation, telemetry, event and API concepts. Its API list is `POST /telemetry`, `GET /buildings`, `GET /assets`, and `GET /recommendations`.
+- These are useful historical foundations for identity, telemetry and the first recommendation slice. They do **not** express the later dispatch-first commercial product in sufficient detail for implementation or acceptance.
+
+### Specific completeness gaps in the supplied Step 2 files
+
+The ten-file package contains `API_CONTRACT.md`, `CURRENT.md`, `DATABASE_SCHEMA_DESIGN.md`, `ENTITY_MODEL.md`, `EVENT_SCHEMA.md`, `MIGRATION_STRATEGY.md`, `MULTI_TENANT_STRATEGY.md`, `NEXT_GATE.md`, `README.md`, `TELEMETRY_CONTRACT.md`, and `VERSIONING_STRATEGY.md` (11 files total, including the listed CURRENT/NEXT/README entries). The contents are short initial descriptions rather than a complete domain/contract specification:
+
+- `DATABASE_SCHEMA_DESIGN.md` gives table names only (tenant, organization, building, energy_asset, device, telemetry_point/record, optimization_run, recommendation); no fields, keys, constraints, effective dating, meter topology or account/contract/tariff relationships are defined.
+- `ENTITY_MODEL.md` names Tenant, Organization, Site, Building, Energy Asset, Device, Telemetry Point and Telemetry Record, but its relationship sketch jumps from Building to Asset/Device/Telemetry and does not define cardinalities, site/building identity, meter hierarchy or settlement ownership.
+- `API_CONTRACT.md` lists four endpoint shapes without request/response schemas, authorization behavior, lifecycle/error semantics, idempotency, pagination or interval schedule assessment. It says contracts are generated from schemas, but this package contains no schema files.
+- `TELEMETRY_CONTRACT.md` provides an untyped illustrative object with tenant/site/device/metric/value/unit/timestamp and broad versioning rules; it does not define interval start/end, UTC/local-time semantics, quality/provenance, measured-vs-forecast-vs-scenario status, mapping revision or source evidence.
+- `EVENT_SCHEMA.md` lists event names without envelopes, versioned payload schemas, ordering/delivery, replay or evidence identity.
+- `MULTI_TENANT_STRATEGY.md` states shared-database tenant isolation as a principle, but does not specify identity, authorization, row-level policy, cross-tenant negative tests or security enforcement evidence.
+
+The package does not define a coordinated grid/PV/ESS/flexible-load schedule, resource capability and service constraints, partial evidence/claim scope, physically separate settlement mappings, tariff applicability, demand/Pu windows, export rights/payee, immutable review/replay, or monitoring/M&V acceptance. Step 1's explicit exclusion of a full billing system is a historical scope choice; it does not settle the later request to study commercial energy-source economic dispatch.
+
+### Reconciled status
+
+The correct reading is:
+
+1. **Gate label:** supplied Step 1 and Step 2 package metadata mark those steps complete.
+2. **Artifact depth:** the supplied v0.1 documents are an initial domain sketch, not production-oriented detailed design or implementation-ready contracts.
+3. **Later work:** PR #10 supplies more detailed, review-only dispatch, evidence, settlement, claim and APP-11 proposals; PR #14 tests a bounded assessment experiment. Neither has merged, and the G7.9 Step 3 owner packet still says Step 3 is open.
+4. **Repository implementation:** current main's VS-001 slice implements a synthetic single-event telemetry/recommendation path, not the source/load scheduling lifecycle.
+
+This direct file review strengthens the previously recorded Step 2 source-conformance finding. It does not retroactively change the package's declared gate status, approve PR #10's proposed semantics, or authorize a canonical schema. The remaining G7.9 Step 3 dependency is to resolve the controlling authority/contract boundary, approve the product and acceptance choices, and then turn the stack-neutral proposals into an approved detailed design and integrated vertical slice.
