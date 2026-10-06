@@ -1,0 +1,22 @@
+name: Dispatch Projection Validation
+
+on:
+  pull_request:
+    paths:
+      - "docs/02-product/prototype/source-load-dispatch/v2.9/**"
+      - ".github/workflows/dispatch-projection-validation.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  projection:
+    name: Validate v2.9 projection semantics
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Validate pinned synthetic result and UI boundary
+        run: python3 docs/02-product/prototype/source-load-dispatch/v2.9/validate-projection.py
