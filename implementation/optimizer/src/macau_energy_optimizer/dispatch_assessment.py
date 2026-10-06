@@ -676,7 +676,10 @@ def _validate_schedule(schedule: Schedule, request: AssessmentRequest, *, is_can
             "PV generation must equal on-site use + export + curtailment.",
         )
         supply = row.grid_import_kw + row.pv_used_kw + row.ess_discharge_kw
-        demand = row.total_load_kw + row.ess_charge_kw + row.pv_export_kw + row.losses_kw
+        # Export is already the non-local part of PV generation in the PV flow
+        # identity above. `pv_used_kw` is the local bus contribution, so adding
+        # export again here would double-count it as a site load.
+        demand = row.total_load_kw + row.ess_charge_kw + row.losses_kw
         _check_equal(supply, demand, "Physical AC power balance does not reconcile for an interval.")
 
         flow_ids = [flow.asset_id for flow in row.flexible_loads]
