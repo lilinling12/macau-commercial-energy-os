@@ -42,3 +42,39 @@ The original v2.8 main result panel clearly blocked economic output, but left th
 
 This review checked exact GitHub source blobs, the exact v2.8 JSON projection, browser-visible text and accessibility tree. It does not validate the actual Macau tariff, site, comfort/service models, complete localization, production app integration, operator usability, savings or pilot readiness.
 
+
+
+## Current PR #14 implementation and UI lineage reconciliation — 2026-10-07
+
+This addendum compares the live PR #14 head and the current PR #10 result fixture. It supplements the historical v2.8/v2.9 review above; it does not claim an integrated adapter or approve G7.9 Step 3.
+
+### Exact revisions inspected
+
+- PR #14 remains open, Draft and unmerged at head 9b80adca9243a0ae9a7bd666f0efee1acfc6309a.
+- Current PR #14 assessment source: dispatch_assessment.py, blob 534ae269a7949601bd4504271e0076369807a68f.
+- Current PR #14 optimizer source: dispatch_optimizer.py, blob 2d3256801f0ddce6b849c648c160f5a32fd90a27.
+- Current PR #14 B1/C1 interval tariff-period mapper: macau_tariff_periods.py, blob f3f2e7db37ad7b502788335b282596d7dca5aa41.
+- Current PR #14 historical bill-component replay: macau_bill_replay.py, blob dd31ae5fd6e5f9938e19ee6e22c29e0e38823c78.
+- Current PR #10 v2.9 projection fixture: blob fec75272470155c531a1747ddf00db91ec00c583. Its embedded source manifest points to earlier PR #14 commit d5180703df3730779f1f180a89d07c620e7e349d and earlier assessor blob 4986bb546d675c469646881ab151dfd847725790. The optimizer blob matches the current optimizer blob, but the assessor lineage does not.
+- On exact PR #14 head 9b80adca9243a0ae9a7bd666f0efee1acfc6309a, GitHub reported Optimizer, Contract Fixtures, Platform API, Edge Runtime, Repository hygiene and Validate authority structure checks completed successfully.
+
+### Current experiment scope
+
+The latest assessor adds independently scoped physical claims, resource-specific withholding, exact interval matching for import-energy rates, partial covered-interval reporting, and a per-interval trace for the eligible import-energy component. It deliberately withholds an interval if its rate boundary splits that interval because the input has no finer-grained energy quantity for exact allocation. The optimizer remains exact only over its declared short-horizon discrete action space and requires aligned import rates plus account/contract/tariff evidence to guide candidate generation.
+
+The PR #14 branch additionally contains an effective-dated B1/C1 active-energy interval-rate mapper and historical B1/C1 bill-component replay over already classified meter/register evidence. The mapper is a narrow SHADOW input adapter, not a bill calculator. The replay is historical subtotal arithmetic, not candidate-schedule settlement or a complete bill. These functions do not establish a customer's tariff applicability, authenticate source evidence, calculate Pu from raw interval data, evaluate demand charges for dispatch, reproduce a full bill, or validate Macau site outcomes. The B1/C1 fixture rates are synthetic assumptions unless independently evidenced.
+
+### Cross-layer finding
+
+The v2.9 page fetches a local JSON fixture and renders that fixture; it has no optimizer API call, APP-11 DTO adapter, persistence, or authenticated evidence lookup. Its fixture is explicitly synthetic and economically BLOCKED, which is the correct presentation boundary. However, its embedded lineage names an earlier assessor commit/blob than the live PR #14 head. Therefore:
+
+1. Treat v2.9 as a pinned historical synthetic projection, not as a projection of the current PR #14 implementation.
+2. Before using it as exact current-head integration evidence, regenerate the fixture from current PR #14 source and update the manifest, or keep the older pin and state that limitation visibly in the review.
+3. Add a reproducible UI/adapter contract check that compares the current optimizer/assessor output fixture with what the UI renders, including partial rate coverage, boundary-withheld intervals, verified versus assumption-tagged rates, scenario-only physical claims, unmodeled service, and all permanently withheld control/full-bill claims.
+4. Preserve an explicit orchestration/application state for “no economic evaluation / not calculated”; do not fabricate this as an assessor enum or turn an assumed-rate search objective into verified customer economics.
+
+### Remaining G7.9 Step 3 work
+
+The evidence moves the optimizer from prose-only design into a bounded, CI-exercised research experiment, but the gate remains open. The next implementation slice still needs an approved APP-11 ownership and contract decision; immutable/authenticated input and evidence references; durable assessment lifecycle and tenant/site authorization; a canonical output DTO mapping physical/economic/claim/service/review states; and a UI client bound to that contract. Add adapter acceptance cases against the live PR #14 head, then inspect the runtime boundary and failure/recovery behavior. No device-command path belongs in this SHADOW slice.
+
+The current green PR #14 checks prove their bounded job coverage at that exact head. They do not validate G7.9 gate completion, product approval, production architecture, bill-grade settlement, operator acceptance, or pilot readiness.
