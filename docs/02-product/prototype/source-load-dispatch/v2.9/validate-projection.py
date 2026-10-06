@@ -126,4 +126,20 @@ for locale_copy in (
 ):
     require(locale_copy in html, f"missing localized scope disclosure: {locale_copy}")
 
+# The separate partial-coverage UI state is a presentation contract example,
+# not a claim emitted by this pinned blocked projection or optimizer fixture.
+require('value="partial-demo"' in html, "partial-coverage presentation state must be selectable")
+require('claimViewMode==="partial-demo"' in html, "partial state must use an explicit display-only branch")
+require("claimDemoBanner:" in html, "every locale must disclose that the partial state is a UI example")
+require("partialImportScope:" in html and "4 / 6" in html, "partial scope must state the exact covered interval count")
+require("wholeWindowScope:" in html and "savingsReason:" in html and "demandReason:" in html,
+        "whole-window bill, savings, and demand-charge claims must remain independently withheld")
+require("uncovered intervals must not be treated as zero" in html,
+        "English copy must explain uncovered-interval handling")
+require("不得把未覆蓋時段當作零" in html,
+        "Traditional Chinese copy must explain uncovered-interval handling")
+require("não podem ser tratados como zero" in html,
+        "Portuguese draft copy must explain uncovered-interval handling")
+require('data-i18n="claimModeLegend"' in html and 'querySelectorAll("[data-i18n]")' in html,
+        "new state controls must participate in locale switching")
 print("v2.9 projection semantics and source pins passed (static fixture/source guard only).")
