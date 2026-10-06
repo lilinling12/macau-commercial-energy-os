@@ -321,3 +321,10 @@ Source inspection found that Phase C records several sourceRefs under pre-migrat
 ### Scope limitation
 
 This reconciliation validates the bounded thread messages and named GitHub commits/files. The public shared conversation still has not been completely exported or semantically reviewed; all archive text entries have not been read; the full contents of the user's D: research folder and all deep research reports are not re-audited in this update. The products, architecture and design proposals in PR #8/#10/#11/#14 remain unmerged unless a later live PR state says otherwise.
+
+
+### Follow-up — Phase C evidence-reference repair proposed on PR #15 — 2026-10-07
+
+The stale Phase C source references identified above are corrected in open Draft PR #15, head a9865ec4686131e32120862e2f59361f09717a50. The change points emitted VS-001 evidence records to existing canonical VS-001, module-boundary, open-question and decision-register documents. A platform test exercises completed and fail-closed graph/site/tariff paths and checks every emitted documentation-path reference resolves. PR #15 also aligns the repository's existing Authority and Hygiene checks and AGENTS.md with the migrated canonical documentation paths.
+
+All six exact-head CI jobs passed on PR #15: Platform API, Edge Runtime, Optimizer, Contract Fixtures, Repository hygiene and Validate authority structure. PR #15 remains unmerged, so main still contains the stale references and stale-path checks until that proposal is reviewed and merged. These green checks validate the bounded code regression and repository gates only; they do not change the Phase C or product/architecture scope.
