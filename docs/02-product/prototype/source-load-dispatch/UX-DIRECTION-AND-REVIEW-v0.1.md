@@ -253,3 +253,27 @@ The proposed same-task A/B comparison already existed at v0.2.2, but it changed 
 The exact v0.2.3 source was rendered in Edge at 1440, 1024, 900, 768, 640, 375, 360, 340 and 320 CSS px for both layouts. All 18 document widths matched the viewport; data-row numeric values matched; pointer and keyboard interval selection worked; the table disclosure opened; sampled touch controls were at least 44px after a review-button height correction; no page errors or low-contrast sampled DOM text pairs were observed. These checks and their scope limitations are in the versioned review.
 
 This satisfies the earlier proposed **desk comparison** of timeline-first versus interval-first hierarchy with palette held constant. It does not select either direction or replace representative operator testing, full six-stage workflow review, complete localization, screen-reader work or WCAG conformance review. Next work is decision-task evaluation and carrying the eventual owner-selected direction across all six stages, not another palette-only comparison.
+
+
+
+## UI-UX Pro Max fit and v2.9 interaction-tree check — 2026-10-07
+
+Applied the installed `ui-ux-pro-max` skill and the PR #8 project-specific skill draft. The project skill is a draft in an unmerged PR; its energy semantics and task-focused review checklist guided this review, but it is not active main policy.
+
+### Search fit
+
+| Search | Returned top-level guidance | Decision |
+|---|---|---|
+| `commercial energy dispatch operations console` — `--design-system` | “Trust & Authority + Conversion”; hero/proof/CTA sections; Organic Biophilic; green/solar palette; Syncopate + Space Mono | Rejected for this surface: it is conversion/landing-page oriented and its wellness/kinetic brand cues do not establish a useful operations-console direction. |
+| Retry: `energy operations scheduling workflow dashboard` — `--design-system` | “Real-Time / Operations Landing”; demo/trust/CTA sections; Glassmorphism; dark status palette; Fira Code + Fira Sans | Still a landing-page pattern with a visual treatment not justified by the operator task. Rejected; no suggested palette or typography was adopted. |
+| `partial evidence accessible status` — `--domain ux` | Generic form feedback, accessible names and selected-button semantics | The results did not define a domain-specific partial-evidence presentation. |
+| Retry: `stale partial data status accessibility announcement` — `--domain ux` | Contextual live-status messaging, visible error feedback, text/icon in addition to color | Retain only these general accessibility principles; they do not define evidence-claim policy or canonical status semantics. |
+| `multi-series time-series comparison` — `--domain chart` | First result was a radar chart; a later result was a line chart with styles, direct labels and a data-table fallback | The top match was irrelevant. |
+| Retry: `time series comparison intervals` — `--domain chart` | Again ranked the unrelated radar result first; the time-series guidance remained a later match | Use only the task-relevant line/table principles already compatible with the project skill. No generated chart type or color palette is binding. |
+
+### Current preview surface inspected
+
+The in-app browser accessibility tree for the local tab titled “Macau Energy OS · 來源與負荷調度 / 結果審閱” showed the v2.9 synthetic SHADOW result/review view: same-horizon grid import, PV generation/self-use, ESS power and SOC, and HVAC/EV/hot-water schedule; cost and savings are withheld; the review choices are page-local; the device-control boundary is explicit; Portuguese is visibly marked as a draft. This is a semantic-tree observation of the loaded local preview, not a new pinned-source render or a fresh viewport/visual, keyboard, screen-reader, contrast, or locale-quality audit.
+
+The v2.9 screen is a focused result/evidence/review stage. It does not itself contain navigation through data/contract verification, site-model creation, monitoring and replay. Earlier branch versions outline the six-stage flow. The next useful prototype increment is to connect that workflow to the refined v2.9 result states so the operator can follow the full dispatch lifecycle, while preserving this page as the detailed result review. Product scope, locale release set and visual system remain unapproved.
+
