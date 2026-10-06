@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Macau Energy OS — 六階段調度流程研究 v3.0</title>
+<style>
+:root {
+  color-scheme: light;
+  --ink: #142d3a;
+  --muted: #526873;
+  --faint: #71838c;
+  --line: #d6e0e1;
+  --paper: #fff;
+  --canvas: #f2f5f3;
+  --navy: #102e3a;
+  --teal: #087d73;
+  --teal-soft: #e4f3ef;
+  --blue: #316b91;
+  --blue-soft: #e7f0f6;
+  --amber: #81540e;
+  --amber-soft: #fff4dc;
+  --red: #963c35;
+  --red-soft: #fff0ed;
+  --violet: #6653a0;
+  --shadow: 0 14px 36px rgb(20 45 58 / 6%);
+  font: 16px/1.55 Inter, "Segoe UI", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  background: var(--canvas);
+  color: var(--ink);
+}
+* { box-sizing: border-box }
+body { margin: 0; min-width: 320px; background: var(--canvas) }
+button, input, textarea { font: inherit }
+button { cursor: pointer; color: inherit }
+a { color: #245d79 }
+:focus-visible { outline: 3px solid #126e93; outline-offset: 3px }
+.skip { position: absolute; z-index: 10; top: -60px; left: 12px; padding: 10px 14px; background: #fff; border-radius: 8px }
+.skip:focus { top: 12px }
+.topbar { display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:64px; padding:10px clamp(16px,3vw,40px); background:var(--paper); border-bottom:1px solid var(--line) }
+.brand { display:flex; align-items:center; gap:12px; min-width:0 }
+.mark { display:grid; place-items:center; width:34px; height:34px; border-radius:11px; color:#fff; background:var(--navy); font-size:15px; font-weight:750; letter-spacing:-.04em }
+.brand-name { font-size:14px; font-weight:750; letter-spacing:.01em }
+.brand-sub { color:var(--muted); font-size:12px }
+.context { display:flex; gap:9px; align-items:center; color:var(--muted); font-size:12px }
+.context strong { color:var(--ink); font-weight:650 }
+.badge { display:inline-flex; align-items:center; gap:7px; min-height:28px; padding:3px 10px; border:1px solid var(--line); border-radius:999px; color:var(--ink); background:#fff; font-size:12px; font-weight:650; white-space:nowrap }
+.badge .dot { width:7px; height:7px; border-radius:50%; background:var(--amber) }
+.page { max-width:1450px; margin:0 auto; padding:clamp(20px,3vw,40px) clamp(14px,3vw,40px) 48px }
+.intro { display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:23px }
+.eyebrow { color:var(--teal); text-transform:uppercase; letter-spacing:.12em; font-size:11px; font-weight:750 }
+h1 { margin:5px 0 7px; font-size:clamp(25px,3vw,36px); line-height:1.14; letter-spacing:-.035em }
+.intro p { max-width:760px; margin:0; color:var(--muted); font-size:14px }
+.study-note { max-width:300px; padding:10px 13px; border-left:3px solid var(--amber); color:#5c471f; background:var(--amber-soft); font-size:12px }
+.workspace { display:grid; grid-template-columns:250px minmax(0,1fr); gap:18px; align-items:start }
+.rail, .main-panel { background:var(--paper); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow) }
+.rail { padding:16px 12px; position:sticky; top:16px }
+.rail-head { margin:2px 9px 12px; color:var(--muted); font-size:11px; font-weight:750; text-transform:uppercase; letter-spacing:.1em }
+.steps { display:grid; gap:4px }
+.step { display:grid; grid-template-columns:32px minmax(0,1fr); align-items:center; gap:10px; min-height:53px; padding:7px 9px; text-align:left; border:1px solid transparent; border-radius:10px; background:transparent }
+.step:hover { background:#f7f9f8 }
+.step[aria-selected="true"] { border-color:#b9d8d2; background:var(--teal-soft) }
+.step-num { display:grid; place-items:center; width:28px; height:28px; border:1px solid var(--line); border-radius:50%; color:var(--muted); font-size:12px; font-variant-numeric:tabular-nums }
+.step[aria-selected="true"] .step-num { border-color:var(--teal); color:#fff; background:var(--teal) }
+.step-copy { min-width:0 }
+.step-name { display:block; font-size:13px; font-weight:700; line-height:1.25 }
+.step-meta { display:block; margin-top:3px; color:var(--muted); font-size:11px }
+.rail-foot { margin:15px 8px 2px; padding-top:13px; border-top:1px solid var(--line); color:var(--muted); font-size:11px }
+.main-panel { min-width:0; overflow:hidden }
+.panel-head { display:flex; justify-content:space-between; align-items:flex-start; gap:18px; padding:23px 26px 18px; border-bottom:1px solid var(--line) }
+.panel-kicker { color:var(--teal); font-size:11px; font-weight:750; letter-spacing:.1em; text-transform:uppercase }
+h2 { margin:4px 0 6px; font-size:23px; line-height:1.25; letter-spacing:-.02em }
+.panel-head p { max-width:720px; margin:0; color:var(--muted); font-size:13px }
+.panel-body { padding:23px 26px 26px }
+.stage { display:none }
+.stage.active { display:block; animation:enter .18s ease-out }
+@keyframes enter { from { opacity:.65; transform:translateY(3px) } to { opacity:1; transform:none } }
+.summary-row { display:flex; flex-wrap:wrap; gap:9px; margin-top:13px }
+.pill { display:inline-flex; align-items:center; gap:7px; padding:5px 9px; border-radius:7px; background:#f1f5f4; color:#405863; font-size:11px; font-weight:650 }
+.pill.warn { color:#6b4a10; background:var(--amber-soft) }
+.section-label { margin:20px 0 9px; color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.09em; font-weight:750 }
+.evidence-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); border-top:1px solid var(--line) }
+.evidence-item { display:flex; justify-content:space-between; gap:16px; padding:13px 4px; border-bottom:1px solid var(--line) }
+.evidence-item:nth-child(odd) { padding-right:20px }
+.evidence-item:nth-child(even) { padding-left:20px; border-left:1px solid var(--line) }
+.evidence-title { display:block; font-size:13px; font-weight:700 }
+.evidence-detail { display:block; margin-top:3px; color:var(--muted); font-size:11px }
+.state { flex:none; align-self:flex-start; padding:3px 7px; border-radius:6px; color:#694b14; background:var(--amber-soft); font-size:10px; font-weight:700 }
+.state.allowed { color:#1e655a; background:var(--teal-soft) }
+.state.blocked { color:#8a3e38; background:var(--red-soft) }
+.callout { margin-top:17px; padding:13px 15px; border-left:3px solid var(--blue); background:var(--blue-soft); color:#294c62; font-size:12px }
+.callout.warn { border-color:var(--amber); background:var(--amber-soft); color:#5c471f }
+.flow { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; align-items:stretch }
+.flow-node { position:relative; min-height:99px; padding:14px 13px; border:1px solid var(--line); border-radius:12px; background:#fff }
+.flow-node:not(:last-child)::after { content:""; position:absolute; z-index:1; top:31px; right:-10px; width:10px; border-top:2px solid #9eb4ba }
+.flow-node strong { display:block; font-size:13px }
+.flow-node small { display:block; margin-top:5px; color:var(--muted); font-size:11px }
+.flow-node.grid { border-top:3px solid var(--blue) }
+.flow-node.pv { border-top:3px solid var(--teal) }
+.flow-node.ess { border-top:3px solid var(--violet) }
+.flow-node.load { border-top:3px solid var(--amber) }
+.separation { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px }
+.separation > div { padding:14px 15px; border-radius:11px; background:#f5f7f6 }
+.separation h3 { margin:0 0 5px; font-size:13px }
+.separation p { margin:0; color:var(--muted); font-size:12px }
+.compare-head { display:flex; justify-content:space-between; align-items:center; gap:15px; margin-bottom:14px }
+.scenario-name { font-weight:750; font-size:14px }
+.scenario-sub { color:var(--muted); font-size:11px }
+.chart-wrap { padding:14px 14px 6px; border:1px solid var(--line); border-radius:12px; background:#fcfdfc }
+.chart-title { display:flex; justify-content:space-between; gap:12px; align-items:center; margin:0 2px 8px; font-size:12px; font-weight:700 }
+.chart-svg { display:block; width:100%; height:auto; min-height:145px }
+.mobile-chart-summary { display:none }
+.legend { display:flex; flex-wrap:wrap; gap:14px; padding:2px 4px 8px; color:var(--muted); font-size:11px }
+.legend span { display:flex; align-items:center; gap:7px }
+.line-key { display:inline-block; width:22px; border-top:2px solid var(--blue) }
+.line-key.base { border-top-style:dashed; border-color:#8496a0 }
+.line-key.candidate { border-color:var(--teal) }
+.data-note { margin:9px 2px 0; color:var(--muted); font-size:11px }
+.table-scroll { margin-top:13px; overflow-x:auto; border:1px solid var(--line); border-radius:11px }
+table { width:100%; border-collapse:collapse; min-width:700px; font-size:12px; font-variant-numeric:tabular-nums }
+caption { padding:10px 12px; text-align:left; color:var(--muted); font-size:11px }
+th,td { padding:10px 11px; text-align:left; vertical-align:top; border-top:1px solid var(--line) }
+th { background:#f5f8f7; color:#405863; font-size:11px }
+td:first-child, th:first-child { white-space:nowrap }
+.delta-up { color:#7c4f16; font-weight:700 }
+.delta-down { color:#24645b; font-weight:700 }
+.mobile-intervals { display:none; margin-top:12px; border-top:1px solid var(--line) }
+.interval { padding:12px 2px; border-bottom:1px solid var(--line) }
+.interval h3 { display:flex; justify-content:space-between; gap:12px; margin:0 0 8px; font-size:13px }
+.interval-grid { display:grid; grid-template-columns:1fr 1fr; gap:7px 12px }
+.interval-grid div { min-width:0; color:var(--muted); font-size:11px }
+.interval-grid strong { display:block; margin-top:2px; color:var(--ink); font-size:12px }
+.metrics { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:14px 0 }
+.metric { padding:13px 14px; border-left:2px solid var(--line); background:#f7f9f8 }
+.metric label { display:block; color:var(--muted); font-size:11px }
+.metric strong { display:block; margin-top:3px; font-size:20px; font-variant-numeric:tabular-nums; letter-spacing:-.03em }
+.metric small { color:var(--muted); font-size:10px }
+.claim-list { border-top:1px solid var(--line) }
+.claim { display:grid; grid-template-columns:minmax(160px,1fr) minmax(160px,1.5fr) auto; gap:14px; align-items:start; padding:11px 2px; border-bottom:1px solid var(--line) }
+.claim strong { font-size:12px }
+.claim p { margin:0; color:var(--muted); font-size:11px }
+.claim-status { font-size:10px; font-weight:750; white-space:nowrap }
+.claim-status.yes { color:#1e655a }
+.claim-status.no { color:#8a3e38 }
+.review-options { display:grid; gap:8px; margin:15px 0 }
+.review-option { display:flex; align-items:flex-start; gap:11px; padding:13px 14px; border:1px solid var(--line); border-radius:11px; cursor:pointer }
+.review-option:has(input:checked) { border-color:var(--teal); background:var(--teal-soft) }
+.review-option input { width:18px; height:18px; margin:1px 0 0; accent-color:var(--teal) }
+.review-option strong { display:block; font-size:13px }
+.review-option small { display:block; margin-top:3px; color:var(--muted); font-size:11px }
+textarea { display:block; width:100%; min-height:86px; padding:11px 12px; border:1px solid var(--line); border-radius:9px; resize:vertical }
+.local-status { min-height:24px; margin-top:10px; color:var(--muted); font-size:12px }
+.empty { display:grid; grid-template-columns:42px minmax(0,1fr); gap:13px; align-items:start; padding:17px; border:1px dashed #b6c4c7; border-radius:12px; background:#fafcfb }
+.empty-mark { display:grid; place-items:center; width:38px; height:38px; border-radius:11px; background:#e9efed; color:#526873; font-weight:800 }
+.empty h3 { margin:0 0 4px; font-size:14px }
+.empty p { margin:0; color:var(--muted); font-size:12px }
+.requirements { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:9px; margin-top:14px }
+.requirement { padding:11px 12px; border:1px solid var(--line); border-radius:9px; color:var(--muted); font-size:11px }
+.requirement strong { display:block; margin-bottom:3px; color:var(--ink); font-size:12px }
+.stage-foot { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:16px 26px; border-top:1px solid var(--line); background:#fbfcfb }
+.progress-text { color:var(--muted); font-size:11px }
+.actions { display:flex; gap:8px }
+.btn { display:inline-flex; justify-content:center; align-items:center; min-height:44px; padding:9px 15px; border:1px solid var(--line); border-radius:9px; background:#fff; font-size:12px; font-weight:700 }
+.btn.primary { border-color:var(--navy); color:#fff; background:var(--navy) }
+.btn:hover:not(:disabled) { border-color:#829ba1; background:#f6f8f7 }
+.btn.primary:hover { background:#1b4352 }
+.btn:disabled { cursor:not-allowed; opacity:.55 }
+.footer-note { margin:17px 3px 0; color:var(--muted); font-size:11px }
+[hidden] { display:none !important }
+@media (max-width:980px) {
+  .workspace { grid-template-columns:1fr }
+  .rail { position:static; padding:11px }
+  .rail-head, .rail-foot { display:none }
+  .steps { grid-template-columns:repeat(3,minmax(0,1fr)); gap:5px }
+  .step { min-height:48px; grid-template-columns:27px minmax(0,1fr); gap:7px; padding:6px }
+  .step-num { width:25px; height:25px }
+  .step-meta { font-size:10px }
+}
+@media (max-width:680px) {
+  .topbar { min-height:58px; padding:9px 14px }
+  .context { display:none }
+  .page { padding:22px 12px 32px }
+  .intro { display:block; margin-bottom:16px }
+  .study-note { max-width:none; margin-top:12px }
+  .steps { grid-template-columns:repeat(3,minmax(0,1fr)) }
+  .step { min-height:48px; grid-template-columns:1fr; gap:0; padding:6px 4px; text-align:center }
+  .step-num { display:none }
+  .step-meta { display:none }
+  .panel-head { display:block; padding:18px 16px 15px }
+  .panel-head .badge { margin-top:11px }
+  .panel-body { padding:17px 16px 20px }
+  .stage-foot { padding:13px 16px }
+  .evidence-list { grid-template-columns:1fr }
+  .evidence-item:nth-child(odd), .evidence-item:nth-child(even) { padding:11px 3px; border-left:0 }
+  .flow { grid-template-columns:1fr 1fr }
+  .flow-node:not(:last-child)::after { display:none }
+  .separation { grid-template-columns:1fr }
+  .metrics { grid-template-columns:1fr 1fr }
+  .claim { grid-template-columns:1fr auto; gap:5px 10px }
+  .claim p { grid-column:1 / -1 }
+  .requirements { grid-template-columns:1fr }
+  .table-scroll { display:none }
+  .mobile-intervals { display:block }
+  .chart-svg { display:none }
+  .mobile-chart-summary { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px; margin:8px 2px 2px }
+  .mobile-chart-summary div { padding:8px 9px; border-radius:8px; background:#f1f5f4; font-size:11px }
+  .mobile-chart-summary strong { display:block; color:var(--muted); font-size:10px }
+  .stage-foot .actions { flex:1 }
+  .btn { flex:1; padding-inline:10px }
+}
+@media (max-width:390px) {
+  .brand-sub { font-size:10px }
+  .steps { gap:3px }
+  .step { grid-template-columns:1fr; min-height:46px; gap:0; padding:5px 2px }
+  .step-name { font-size:12px }
+  .metrics { grid-template-columns:1fr }
+  .flow { grid-template-columns:1fr 1fr }
+  .flow-node { min-height:89px; padding:11px }
+  .stage-foot { align-items:flex-start; flex-direction:column }
+  .stage-foot .actions { width:100% }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳至主要內容</a>
+<header class="topbar">
+  <div class="brand">
+    <div class="mark" aria-hidden="true">M</div>
+    <div><div class="brand-name">Macau Energy OS</div><div class="brand-sub">商業用電來源與負荷調度</div></div>
+  </div>
+  <div class="context">
+    <span>研究範圍</span><strong>合成六時段</strong>
+    <span class="badge"><i class="dot" aria-hidden="true"></i>SHADOW 研究</span>
+  </div>
+</header>
+<main id="main" class="page">
+  <div class="intro">
+    <div>
+      <div class="eyebrow">Dispatch workflow · study v3.0</div>
+      <h1>先核驗依據，再比較能源安排</h1>
+      <p>沿著一條調度工作流，從資料與合同資格走到方案比較、Shadow 審閱與回放。物理能源流與電費結算分開呈現。</p>
+    </div>
+    <div class="study-note"><strong>合成研究情景</strong><br>所有數值與資源任務均為專案假設。沒有澳門現場、客戶合同、設備能力或控制權限證據。</div>
+  </div>
+  <div class="workspace">
+    <nav class="rail" aria-label="調度工作流程">
+      <div class="rail-head">六階段流程</div>
+      <div class="steps" role="tablist" aria-label="工作流程階段" aria-orientation="vertical">
+        <button class="step" role="tab" id="tab-1" aria-controls="stage-1" aria-selected="true" tabindex="0" data-stage="0"><span class="step-num">01</span><span class="step-copy"><span class="step-name">資料與合同</span><span class="step-meta">缺口先顯示</span></span></button>
+        <button class="step" role="tab" id="tab-2" aria-controls="stage-2" aria-selected="false" tabindex="-1" data-stage="1"><span class="step-num">02</span><span class="step-copy"><span class="step-name">站點能源模型</span><span class="step-meta">物理與結算分層</span></span></button>
+        <button class="step" role="tab" id="tab-3" aria-controls="stage-3" aria-selected="false" tabindex="-1" data-stage="2"><span class="step-num">03</span><span class="step-copy"><span class="step-name">預測與方案</span><span class="step-meta">共同比較時段</span></span></button>
+        <button class="step" role="tab" id="tab-4" aria-controls="stage-4" aria-selected="false" tabindex="-1" data-stage="3"><span class="step-num">04</span><span class="step-copy"><span class="step-name">成本與約束</span><span class="step-meta">逐項顯示資格</span></span></button>
+        <button class="step" role="tab" id="tab-5" aria-controls="stage-5" aria-selected="false" tabindex="-1" data-stage="4"><span class="step-num">05</span><span class="step-copy"><span class="step-name">Shadow 審閱</span><span class="step-meta">本地研究意見</span></span></button>
+        <button class="step" role="tab" id="tab-6" aria-controls="stage-6" aria-selected="false" tabindex="-1" data-stage="5"><span class="step-num">06</span><span class="step-copy"><span class="step-name">監測與回放</span><span class="step-meta">等待現場證據</span></span></button>
+      </div>
+      <div class="rail-foot">階段狀態只供本頁研究展示，不代表工作流已在服務端執行。</div>
+    </nav>
+    <section class="main-panel" aria-label="目前工作流程內容">
+      <div class="panel-head">
+        <div>
+          <div class="panel-kicker" id="stage-counter">階段 01 / 06</div>
+          <h2 id="panel-title">資料與合同核驗</h2>
+          <p id="panel-description">先看哪些資料屬於現場證據、哪些只是情景假設，以及它們允許展示哪一類結論。</p>
+        </div>
+        <span class="badge"><i class="dot" aria-hidden="true"></i><span id="panel-state">證據未核實</span></span>
+      </div>
+      <div class="panel-body">
+        <section class="stage active" role="tabpanel" id="stage-1" aria-labelledby="tab-1" tabindex="-1">
+          <div class="summary-row"><span class="pill">研究站點 · 合成範例</span><span class="pill">澳門時區 · 示意六小時</span><span class="pill warn">不是現場連線</span></div>
+          <div class="section-label">參與方案的輸入依據</div>
+          <div class="evidence-list">
+            <div class="evidence-item"><div><span class="evidence-title">間隔電力曲線</span><span class="evidence-detail">六個一小時的合成基線與候選值</span></div><span class="state">合成</span></div>
+            <div class="evidence-item"><div><span class="evidence-title">負荷、PV 與天氣預測</span><span class="evidence-detail">沒有預測資料；候選只使用固定合成假設</span></div><span class="state">未提供</span></div>
+            <div class="evidence-item"><div><span class="evidence-title">電表與物理拓撲</span><span class="evidence-detail">未提供現場電表映射或有效版本</span></div><span class="state">未核實</span></div>
+            <div class="evidence-item"><div><span class="evidence-title">帳戶、合同與適用費率</span><span class="evidence-detail">未提供可確認的結算範圍及費率</span></div><span class="state">未核實</span></div>
+            <div class="evidence-item"><div><span class="evidence-title">設備能力與服務限制</span><span class="evidence-detail">HVAC、EV、熱水與儲能均為情景任務</span></div><span class="state">未核實</span></div>
+          </div>
+          <div class="callout warn"><strong>可展示範圍：</strong>可討論合成曲線與方案結構。現場適用電費、上網補償、節省、服務可行性與設備可控性均不計算。</div>
+        </section>
+        <section class="stage" role="tabpanel" id="stage-2" aria-labelledby="tab-2" tabindex="-1" hidden>
+          <p>先把電力如何流動，與帳單如何歸屬，分開建模。未確認的連接以未知顯示，不補畫成已證實的能源路徑。</p>
+          <div class="section-label">物理能源模型 · 情景示意</div>
+          <div class="flow" aria-label="合成能源流示意">
+            <div class="flow-node grid"><strong>電網進口</strong><small>供應缺口；候選 3–11 kW</small></div>
+            <div class="flow-node pv"><strong>現場 PV</strong><small>僅示意發電與自用；不表示外送</small></div>
+            <div class="flow-node ess"><strong>儲能 ESS</strong><small>候選充放電及 SOC 軌跡</small></div>
+            <div class="flow-node load"><strong>建築與可調負荷</strong><small>基礎負荷 + HVAC / EV / 熱水任務</small></div>
+          </div>
+          <div class="separation">
+            <div><h3>物理邊界</h3><p>能源平衡、電表位置、設備連接、充放電方向與負荷服務需要現場拓撲和設備資料。這個示意沒有驗證現場平衡或可操作性。</p></div>
+            <div><h3>結算邊界</h3><p>帳戶、合同、費率版本、需量窗口、PV 外送權利與收款方需獨立核實。物理上有能量流，不等於帳單上可抵扣或有收入。</p></div>
+          </div>
+          <div class="callout"><strong>待核驗：</strong>同一站點的物理表計與帳戶結算關係、有效時間範圍及任何跨樓宇關係。尚未建立跨站點供電或抵扣主張。</div>
+        </section>
+        <section class="stage" role="tabpanel" id="stage-3" aria-labelledby="tab-3" tabindex="-1" hidden>
+          <div class="compare-head"><div><div class="scenario-name">候選 A · 有限離散合成情景</div><div class="scenario-sub">沿用 v2.9 合成值；沒有接入預測或現場設備服務模型</div></div><span class="badge">同一六小時範圍</span></div>
+          <div class="chart-wrap">
+            <div class="chart-title" id="chart-heading"><span>電網輸入比較 · kW</span><span class="pill">一小時平均 · 澳門時間</span></div>
+            <svg class="chart-svg" viewBox="0 0 760 220" role="img" aria-labelledby="svg-title chart-desc">
+              <title id="svg-title">基線與候選的合成電網輸入曲線</title>
+              <desc id="chart-desc">六個時段。基線為 8、8、6、4、8、10 千瓦；候選為 9、9、11、3、5、7 千瓦。實線是候選，虛線是基線。</desc>
+              <g stroke="#dce5e4" stroke-width="1"><path d="M55 35H730"/><path d="M55 75H730"/><path d="M55 115H730"/><path d="M55 155H730"/><path d="M55 195H730"/></g>
+              <g fill="#61757e" font-size="11"><text x="18" y="39">12</text><text x="24" y="79">9</text><text x="24" y="119">6</text><text x="24" y="159">3</text><text x="28" y="199">0</text></g>
+              <g fill="#61757e" font-size="10" text-anchor="middle"><text x="112" y="214">09–10</text><text x="224" y="214">10–11</text><text x="336" y="214">11–12</text><text x="448" y="214">12–13</text><text x="560" y="214">13–14</text><text x="672" y="214">14–15</text></g>
+              <path d="M112 88H224V88H336V115H448V142H560V88H672V61H730" fill="none" stroke="#8496a0" stroke-width="3" stroke-dasharray="7 6" stroke-linejoin="round"/>
+              <path d="M112 75H224V75H336V48H448V155H560V128H672V101H730" fill="none" stroke="#087d73" stroke-width="3" stroke-linejoin="round"/>
+              <g fill="#fff" stroke="#8496a0" stroke-width="2"><circle cx="112" cy="88" r="4"/><circle cx="224" cy="88" r="4"/><circle cx="336" cy="115" r="4"/><circle cx="448" cy="142" r="4"/><circle cx="560" cy="88" r="4"/><circle cx="672" cy="61" r="4"/></g>
+              <g fill="#087d73"><circle cx="112" cy="75" r="4"/><circle cx="224" cy="75" r="4"/><circle cx="336" cy="48" r="4"/><circle cx="448" cy="155" r="4"/><circle cx="560" cy="128" r="4"/><circle cx="672" cy="101" r="4"/></g>
+            </svg>
+            <div class="legend"><span><i class="line-key base" aria-hidden="true"></i>基線 · 虛線 / 空心點</span><span><i class="line-key candidate" aria-hidden="true"></i>候選 · 實線 / 實心點</span></div>
+            <div class="mobile-chart-summary" aria-label="逐時電網輸入，基線與候選，單位千瓦">
+              <div><strong>基線 · 09時至15時</strong>8 · 8 · 6 · 4 · 8 · 10</div>
+              <div><strong>候選 · 09時至15時</strong>9 · 9 · 11 · 3 · 5 · 7</div>
+            </div>
+          </div>
+          <div class="metrics">
+            <div class="metric"><label>時段電網輸入</label><strong>44 → 44 kWh</strong><small>合成六小時總量相同</small></div>
+            <div class="metric"><label>時段最高輸入</label><strong>10 → 11 kW</strong><small>候選峰值增加；不是帳單需量 / Pu</small></div>
+            <div class="metric"><label>合格電費結果</label><strong>未計算</strong><small>帳戶、合同及適用費率未核實</small></div>
+          </div>
+          <div class="table-scroll"><table><caption>完整合成排程 · PV 發電 / 自用；不表示外送或收益</caption>
+            <thead><tr><th scope="col">時段</th><th scope="col">電網輸入<br>基線 / 候選 kW</th><th scope="col">PV 發電<br>自用 kW</th><th scope="col">ESS 候選<br>動作 / SOC kWh</th><th scope="col">可調負荷變化</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">09:00–10:00</th><td>8 / 9</td><td>0 / 0</td><td>充電 1 · 5→6</td><td>無</td></tr>
+              <tr><th scope="row">10:00–11:00</th><td>8 / 9</td><td>0 / 0</td><td>充電 1 · 6→7</td><td>無</td></tr>
+              <tr><th scope="row">11:00–12:00</th><td>6 / <span class="delta-up">11</span></td><td>2 / 2</td><td>充電 1 · 7→8</td><td>HVAC 2、EV 1、熱水 1 kW</td></tr>
+              <tr><th scope="row">12:00–13:00</th><td>4 / 3</td><td>4 / 4</td><td>放電 1 · 8→7</td><td>無</td></tr>
+              <tr><th scope="row">13:00–14:00</th><td>8 / 5</td><td>2 / 2</td><td>放電 1 · 7→6</td><td>基線 HVAC 1、熱水 1；候選無</td></tr>
+              <tr><th scope="row">14:00–15:00</th><td>10 / 7</td><td>0 / 0</td><td>放電 1 · 6→5</td><td>基線 HVAC 1、EV 1；候選無</td></tr>
+            </tbody>
+          </table></div>
+          <div class="mobile-intervals" aria-label="逐時情景資料"></div>
+          <p class="data-note">此原型呈現提供的合成排程，不證明電池效率、HVAC 熱響應、EV 交付、熱水服務或候選可執行性。未提供預測區間或信心範圍。</p>
+        </section>
+        <section class="stage" role="tabpanel" id="stage-4" aria-labelledby="tab-4" tabindex="-1" hidden>
+          <p>將物理可行性、負荷服務與帳單經濟性分開評估。任何金額都要能追到適用的帳戶、費率版本和計算規則。</p>
+          <div class="claim-list">
+            <div class="claim"><strong>合成電網輸入曲線</strong><p>只限本頁六個合成時段與提供的基線 / 候選資料。</p><span class="claim-status yes">可展示 · 情景範圍</span></div>
+            <div class="claim"><strong>情景最高電網輸入</strong><p>候選 11 kW；不是帳單需量或 CEM Pu。</p><span class="claim-status yes">可展示 · 情景範圍</span></div>
+            <div class="claim"><strong>逐時間隔購電費</strong><p>合同、帳戶、費率與適用時間均未核實；本頁不提供金額。</p><span class="claim-status no">未計算</span></div>
+            <div class="claim"><strong>需量電費與完整帳單</strong><p>沒有帳單周期需量窗口、Pu 規則、稅項或其他費率項目。</p><span class="claim-status no">未計算</span></div>
+            <div class="claim"><strong>PV 外送補償 / 跨站抵扣</strong><p>沒有併網、合同、外送表計、收款方或跨帳戶資格證據。</p><span class="claim-status no">未評估</span></div>
+            <div class="claim"><strong>節省、舒適度、設備控制</strong><p>情景差異不是已實現節省；沒有設備服務模型或指令授權。</p><span class="claim-status no">不作主張</span></div>
+          </div>
+          <div class="callout warn"><strong>情景取捨：</strong>候選總購電量相同，合成時段峰值卻更高。按假設小時費率得到的搜索結果不能替代帳單需量、服務限制或現場核驗。</div>
+          <div class="section-label">下一項需要的證據</div>
+          <div class="requirements"><div class="requirement"><strong>電費範圍</strong>有效合同、帳戶 / 電表映射、完整費率與帳單窗口。</div><div class="requirement"><strong>設備與服務</strong>現場資產能力、舒適 / 交付要求、SOC 與安全上下限。</div><div class="requirement"><strong>輸入品質</strong>來源、時區、間隔、品質、時間戳與可追溯快照。</div></div>
+        </section>
+        <section class="stage" role="tabpanel" id="stage-5" aria-labelledby="tab-5" tabindex="-1" hidden>
+          <p>審閱意見只記錄在此瀏覽頁面中。它不會提交至服務端、改變方案狀態或觸發任何現場動作。</p>
+          <fieldset style="margin:0;padding:0;border:0">
+            <legend class="section-label">選擇一項研究審閱意見</legend>
+            <div class="review-options">
+              <label class="review-option"><input type="radio" name="review" value="evidence"><span><strong>需要現場 / 合同證據</strong><small>指出結論依賴的資料或資格仍未核實。</small></span></label>
+              <label class="review-option"><input type="radio" name="review" value="revise"><span><strong>要求修改情景</strong><small>建議調整假設、時段或資源安排，再重新研究。</small></span></label>
+              <label class="review-option"><input type="radio" name="review" value="hold"><span><strong>暫不採納此候選</strong><small>保留意見，不代表正式拒絕或更改運行配置。</small></span></label>
+            </div>
+          </fieldset>
+          <label for="review-note" class="section-label">審閱備註 · 僅此頁暫存</label>
+          <textarea id="review-note" placeholder="記下要補充的證據或情景問題"></textarea>
+          <div class="local-status" id="review-status" role="status" aria-live="polite">尚未選擇審閱意見。</div>
+          <div class="callout"><strong>SHADOW 邊界：</strong>候選排程不是設備指令；本原型沒有設備控制路徑，也沒有真實審批或身份權限。</div>
+        </section>
+        <section class="stage" role="tabpanel" id="stage-6" aria-labelledby="tab-6" tabindex="-1" hidden>
+          <p>監測與回放要以後續量測和不可變輸入快照為依據。目前只有合成方案資料，沒有現場執行或觀察到的結果。</p>
+          <div class="empty">
+            <div class="empty-mark" aria-hidden="true">—</div>
+            <div><h3>沒有現場量測或可回放的調度紀錄</h3><p>沒有已授權站點、方案 ID、實際指令、事後量測或 M&amp;V 基線。本頁不能證明已執行或節省。</p></div>
+          </div>
+          <div class="section-label">正式回放至少需要</div>
+          <div class="requirements"><div class="requirement"><strong>固定輸入</strong>時間範圍、資料快照、拓撲與來源版本。</div><div class="requirement"><strong>計算版本</strong>費率、約束、模型、優化器和建置版本。</div><div class="requirement"><strong>結果與量測</strong>審閱紀錄、現場授權、觀察值與差異解釋。</div></div>
+          <div class="callout warn">狀態：<strong>不可回放</strong> · 缺少持久化評估、證據解析和實際量測資料。</div>
+        </section>
+      </div>
+      <div class="stage-foot">
+        <span class="progress-text" id="progress-text" aria-live="polite">目前為第 1 階段，共 6 階段</span>
+        <div class="actions"><button class="btn" id="prev" type="button" disabled>上一步</button><button class="btn primary" id="next" type="button">下一步：站點能源模型</button></div>
+      </div>
+    </section>
+  </div>
+  <p class="footer-note">設計研究原型 v3.0 · 繁體中文工作流整合研究 · 非產品本地化、現場驗證、經濟建議或設備控制介面。詳見同目錄 REVIEW.md。</p>
+</main>
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('[role="tabpanel"]'));
+  var titles = ["資料與合同核驗", "站點能源模型", "預測與調度方案比較", "成本、約束與證據", "Shadow 建議審閱", "結果監測與回放"];
+  var descriptions = [
+    "先看哪些資料屬於現場證據、哪些只是情景假設，以及它們允許展示哪一類結論。",
+    "分清站點內的物理能源流，以及帳戶、合同和費率構成的結算關係。",
+    "在同一時間範圍內比較基線與候選的電網、現場 PV、儲能和負荷變化；目前沒有預測資料，僅展示固定合成情景。",
+    "逐項查看物理結果、服務限制與經濟評估的資格、缺口和不可支持主張。",
+    "保留人員對合成候選的研究意見；這不是批准或設備操作。",
+    "查看未來如何對照實際量測並回放；當前範例尚不具備回放條件。"
+  ];
+  var stateLabels = ["證據未核實", "情景模型", "合成候選", "經濟未計算", "本地意見", "等待現場證據"];
+  var nextLabels = ["下一步：站點能源模型", "下一步：預測與方案", "下一步：成本與約束", "下一步：Shadow 審閱", "下一步：監測與回放", "已到最後階段"];
+  var counter = document.getElementById("stage-counter");
+  var title = document.getElementById("panel-title");
+  var description = document.getElementById("panel-description");
+  var state = document.getElementById("panel-state");
+  var progress = document.getElementById("progress-text");
+  var previous = document.getElementById("prev");
+  var next = document.getElementById("next");
+  var active = 0;
+  var tablist = document.querySelector('[role="tablist"]');
+
+  function syncOrientation() {
+    tablist.setAttribute("aria-orientation", window.matchMedia("(max-width: 980px)").matches ? "horizontal" : "vertical");
+  }
+  syncOrientation();
+  window.addEventListener("resize", syncOrientation);
+
+  function show(index, moveFocus) {
+    active = Math.max(0, Math.min(5, index));
+    tabs.forEach(function (tab, i) {
+      var selected = i === active;
+      tab.setAttribute("aria-selected", selected ? "true" : "false");
+      tab.tabIndex = selected ? 0 : -1;
+    });
+    panels.forEach(function (panel, i) {
+      var selected = i === active;
+      panel.hidden = !selected;
+      panel.classList.toggle("active", selected);
+    });
+    counter.textContent = "階段 " + String(active + 1).padStart(2, "0") + " / 06";
+    title.textContent = titles[active];
+    description.textContent = descriptions[active];
+    state.textContent = stateLabels[active];
+    progress.textContent = "目前為第 " + (active + 1) + " 階段，共 6 階段";
+    previous.disabled = active === 0;
+    next.disabled = active === 5;
+    next.textContent = nextLabels[active];
+    if (moveFocus) panels[active].focus({ preventScroll: true });
+  }
+  tabs.forEach(function (tab, index) {
+    tab.addEventListener("click", function () { show(index, false); });
+    tab.addEventListener("keydown", function (event) {
+      var target = null;
+      if (event.key === "ArrowDown" || event.key === "ArrowRight") target = (index + 1) % tabs.length;
+      if (event.key === "ArrowUp" || event.key === "ArrowLeft") target = (index + tabs.length - 1) % tabs.length;
+      if (event.key === "Home") target = 0;
+      if (event.key === "End") target = tabs.length - 1;
+      if (target !== null) {
+        event.preventDefault();
+        show(target, false);
+        tabs[target].focus();
+      }
+    });
+  });
+  previous.addEventListener("click", function () { show(active - 1, true); });
+  next.addEventListener("click", function () { show(active + 1, true); });
+  document.querySelectorAll('input[name="review"]').forEach(function (input) {
+    input.addEventListener("change", function () {
+      var labels = { evidence: "已選：需要現場 / 合同證據。選擇只保存在目前頁面。", revise: "已選：要求修改情景。選擇只保存在目前頁面。", hold: "已選：暫不採納此候選。選擇只保存在目前頁面。" };
+      document.getElementById("review-status").textContent = labels[input.value];
+    });
+  });
+  var intervals = [
+    ["09:00–10:00","8 / 9","0 / 0","充電 1 · 5→6","無"],
+    ["10:00–11:00","8 / 9","0 / 0","充電 1 · 6→7","無"],
+    ["11:00–12:00","6 / 11","2 / 2","充電 1 · 7→8","HVAC 2、EV 1、熱水 1 kW"],
+    ["12:00–13:00","4 / 3","4 / 4","放電 1 · 8→7","無"],
+    ["13:00–14:00","8 / 5","2 / 2","放電 1 · 7→6","基線 HVAC 1、熱水 1 kW"],
+    ["14:00–15:00","10 / 7","0 / 0","放電 1 · 6→5","基線 HVAC 1、EV 1 kW"]
+  ];
+  var mobile = document.querySelector(".mobile-intervals");
+  intervals.forEach(function (row) {
+    var article = document.createElement("article");
+    article.className = "interval";
+    article.innerHTML = "<h3><span>" + row[0] + "</span><span>kW / kWh</span></h3>" +
+      "<div class='interval-grid'><div>電網輸入 · 基線 / 候選<strong>" + row[1] + "</strong></div>" +
+      "<div>PV 發電 / 自用<strong>" + row[2] + "</strong></div>" +
+      "<div>ESS 動作 / SOC<strong>" + row[3] + "</strong></div>" +
+      "<div>可調負荷<strong>" + row[4] + "</strong></div></div>";
+    mobile.appendChild(article);
+  });
+  show(0, false);
+}());
+</script>
+</body>
+</html>
+
