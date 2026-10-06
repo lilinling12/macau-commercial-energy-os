@@ -205,3 +205,58 @@ The reviewed owner packet in PR #10 keeps authority precedence, APP-11 logical o
 ### UI-state evidence wording correction — 2026-10-06
 
 The v2.4 source is not interaction-free: its synthetic claim fixture selector and separate HVAC radio group update visible statuses and announcements. At 375 CSS px, the four claim cases and four HVAC states were exercised without page errors or horizontal overflow. The fixed fixtures are local presentation studies, not runtime/API outputs; their separate controls are not connected to the same assessment, schedule or optimizer. This corrects only the interaction description, not the production integration status or architecture decision.
+
+
+# Technical authority live recheck — 2026-10-07
+
+**Scope:** exact G7.6/G7.8 source-package recheck, live GitHub `main`, implementation manifests, current review PR state, and access status for the referenced original conversation. This supplements the broader technology reconciliation; it does not approve or freeze a production stack.
+
+## 1. Current repository authority is internally inconsistent
+
+At the inspected `main` SHA `a897bf0b1e7e6ceea3862d7d87fa288ecca08203`:
+
+- `docs/00-authority/CURRENT.md` says Authority v2.0 is being imported and research, product, architecture and engineering layers are still being migrated.
+- `docs/00-authority/handoff/CURRENT.md` uses Research Authority v1.6.2 plus G6.9-R2 Steps 3A–3C, says Step 3D pinned framework integration is pending, and calls C+ a provisional default rather than a winner.
+- `docs/03-architecture/technology-authority/G6.9-technology-selection/README.md` records the layer summary React/TS, TS/Go responsibilities under evaluation, Temporal candidate, PostgreSQL + Timescale baseline, NATS JetStream candidate, Python, Go Edge and future Wasm/WASI. It explicitly says C+ is only a provisional hypothesis and Step 3D remains next.
+
+These are two current-state entrypoints with different authority/scope claims. `handoff/CURRENT.md` is operationally more detailed, but the repository does not clearly declare how it supersedes or relates to the short Authority v2.0 import status. Do not silently collapse them into one authority statement.
+
+## 2. Exact historical technology records
+
+| Source archive | SHA-256 | Exact decision evidence | Interpretation today |
+|---|---|---|---|
+| `macau-commercial-energy-os-g7.6-step2-engineering-foundation-v0.1.zip` | `18704C677AF55A53886806A219A1A5EE22DEA9EF3A0256E286EC9429DD7F2785` | Seven-entry short package; `CURRENT.md` says research package completed. It does not contain the detailed ADR set. | Distinct summary artifact; cannot be treated as byte-equivalent to `(1)`. |
+| `macau-commercial-energy-os-g7.6-step2-engineering-foundation-v0.1(1).zip` | `F3955862E9902166F82126A2C489E798413676CF93000D4F3F68F650867D47EB` | Detailed package says G7.6 Step 2 completed and the engineering shape frozen. ADR-072 accepts Node 24 LTS + Fastify 5; ADR-073 accepts PostgreSQL 18 as initial system of record and defers Timescale/dedicated TSDB until pilot evidence; ADR-074 accepts NATS + JetStream; ADR-076 prohibits direct cloud equipment control. `TECH_STACK_FREEZE.md` selects React 19.3 + TypeScript 6 + Vite 8, Node 24/Fastify 5, Python 3.14, Go 1.27, PostgreSQL 18, NATS 2.12 + JetStream, and says no SSR requirement for the MVP operations portal. | Concrete accepted historical MVP baseline. It is not present as a complete canonical ADR set in current `main`; later G6.9 reopened technology evaluation, but no superseding decision was found in current `main`. |
+| `macau-commercial-energy-os-g7.8-step2-technology-stack-decision-v0.1.zip` | `4F8C41AD3E5FA8F2BF61AECEE71DB6BD02260446CBB1E739AA47CDE66FD02EF5` | Proposed React/TS frontend, TypeScript cloud platform, Go Edge, Python optimization, OpenAPI + JSON Schema. `NEXT_GATE.md` calls for Step 3 ADR freeze. | Language/boundary direction, not an exact framework/runtime decision. |
+| `macau-commercial-energy-os-g7.8-step3-technology-stack-adr-freeze-v0.1.zip` | `BD82412488C041FF3879A245F479D091C768B9FCEA9286D5266B835EB8E817E3` | `ADR-TECH-001` adopts React/TS, TypeScript cloud platform, Go Edge, Python optimization and OpenAPI/JSON Schema. Companion `BACKEND_FRAMEWORK_DECISION.md` says “Start with Fastify-based architecture.” `CURRENT.md` marks Step 3 complete and Step 4 repository bootstrap next. | Preserve both sources: the broad ADR does not name Fastify; its companion does. The subsequent G7.6 detailed freeze makes the Node/Fastify baseline explicit. |
+
+The current `main` G6.9 record is a later re-evaluation: it preserves React/TS, Go Edge and Python, calls PostgreSQL + Timescale a provisional baseline, lists NATS JetStream as a candidate, and sets C+ as a provisional hypothesis while A/B remain candidates. It explicitly requires Step 3D. No owner-approved supersession of G7.6 ADR-072/073/074 was found on `main`.
+
+## 3. What the repository implements versus what its architecture summaries claim
+
+At the same exact `main` SHA:
+
+- `implementation/platform-api/package.json` pins Node 24.21.x/npm 11.19.x and NestJS 12.0.3 with `@nestjs/platform-express`; this is not Fastify. `platform-api/README.md` calls it a NestJS modular-monolith direction.
+- The inspected platform package manifest has no PostgreSQL, Timescale or NATS client dependency; it is not evidence those data/event systems are deployed or integrated.
+- `implementation/optimizer/pyproject.toml` has no dependencies; `implementation/edge-runtime/go.mod` declares the Go module/version. These are bootstrap facts, not evidence of a pilot-ready optimizer/Edge integration.
+- Current-main runtime governance separately documents Node 24.21/NestJS 12/TypeScript 6, Go 1.27.1 and Python 3.14.8. Runtime pinning does not resolve the historical Fastify ADR conflict or prove production-stack selection.
+
+Accordingly, label the states separately: **historically accepted** G7.6 Node/Fastify + PostgreSQL-only initial store + NATS JetStream; **implemented bootstrap** Node/NestJS Express; **current G6.9 proposal state** C+ provisional, A/B candidates, PostgreSQL+Timescale provisional and NATS candidate; **measured production winner** none evidenced.
+
+## 4. Next.js finding
+
+Deep Research (6) does not recommend Next.js. Deep Research (7) favors React/TypeScript SPA for the authenticated operator console and Node/NestJS for the cloud control plane; it mentions Next.js conditionally for a public/customer portal or useful server-side UI composition. Next.js is outside the main G6.9 A/B/C+ matrix and absent from the inspected G7.6/G7.8 ADRs. It is neither the selected backend nor the operator-console framework. Adding it to a bake-off would require an explicit requirement, an amended candidate set and comparable evidence.
+
+## 5. Live PR and source access state
+
+At this recheck: `main` remains `a897bf0b1e7e6ceea3862d7d87fa288ecca08203`; PR #8 is open/ready-for-review at `9e3dec0bccf5acb5122f94c688814e7f4e026a1b`; PR #10 is open/Draft at `a9ac1889978b873bed5efe070a7d1021af11b651`; PR #11 was open/Draft at `d13fc834ed6274a134eddb48d7e64455572f32d0`; PR #14 is open/Draft at `d5180703df3730779f1f180a89d07c620e7e349d`. None is merged. PR #10's v2.8 UI/APP-11 supplement does not alter the stack or Gate status.
+
+The referenced ChatGPT share URL `https://chatgpt.com/share/6ac10df8-a30c-83e9-83bd-f8de8ec31ca1` could not be fetched in the current browser tool (cache miss). Reading conversation `6abf4f5c-b2d4-83ea-b189-6534f517c5a1` returns only its newest 10 turns, `hasMore=false`, with no attachments. Thus this recheck does not claim to have read the full original research conversation. The two local research reports and the named local archives above were available and directly inspected.
+
+## 6. Required next architecture work
+
+1. Establish one versioned, owner-approved current-authority entrypoint and an explicit precedence/supersession map across Authority v1.6.2/v1.7.x/v2.0/v2.1, G7.6/G7.8 accepted ADRs, G6.9-R2, later reports and live implementation.
+2. Reconcile the actual Node/NestJS Express bootstrap against accepted Fastify ADR-072; record whether it is a deliberate deviation, a supersession, or a provisional prototype.
+3. Reconcile PostgreSQL-only initial store against PostgreSQL + Timescale current provisional wording, and NATS accepted baseline against later candidate wording.
+4. Either execute the exact pinned G6.9-R2 Step 3D/Step 4 common integration/failure comparison with reproducible evidence or record the approved waiver/replacement and its effect on the Gate. Do not call the stack selected until the relevant authority decision is approved.
+
