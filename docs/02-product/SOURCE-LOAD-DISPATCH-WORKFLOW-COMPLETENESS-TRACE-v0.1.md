@@ -1,0 +1,129 @@
+# Source/load dispatch workflow completeness trace v0.1
+
+**Review date:** 2026-10-07  
+**Status:** Source-pinned product/workflow gap trace for owner and domain review. It is not product approval, a final PRD, Gate closure, architecture selection, site validation, or control authorization.  
+**Purpose:** Make the current product-design answer auditable: identify what is designed, what is represented in prototypes, what exists as code, what is integrated into `main`, and what evidence is still missing.
+
+## 1. Exact repository snapshot
+
+This review compared the same `main` base against the three relevant open proposals:
+
+| Ref | Exact state checked | Meaning |
+|---|---|---|
+| `main` | PR base `a897bf0b1e7e6ceea3862d7d87fa288ecca08203` | Current target branch for the three PRs below. |
+| PR #8 `docs/product-architecture-roadmap` | `9e3dec0bccf5acb5122f94c688814e7f4e026a1b`, open, non-draft, unmerged | Broad product design, PRD, IA, visual principles, research/usability plan, detailed-design proposals, UI/UX skill draft and platform prototypes. |
+| PR #10 `product/source-load-economic-dispatch` | `e1ce7486d9ea752e2421249d044748fefa078773`, open, Draft, unmerged | Dispatch-specific product proposal, research traces, six-stage workflow prototypes, locale and layout studies, and result-projection reviews. |
+| PR #14 `poc/shadow-dispatch-assessment` | `9b80adca9243a0ae9a7bd666f0efee1acfc6309a`, open, Draft, unmerged | Bounded Python SHADOW assessment/search experiment; not an integrated product service. |
+
+The current main branch therefore does **not** contain these complete proposed product/design artifacts as one adopted, end-to-end dispatch product. A green branch check does not change that state or constitute owner approval.
+
+### Source anchors checked
+
+- PR #8 `docs/02-product/PRODUCT-DESIGN.md` — blob `4726a5bb7b74711054cee5eda056f2bd51c3da33a`.
+- PR #8 `docs/02-product/PRD-v0.1.md` — blob `22b129baf1a7c3d0cf11069d9f23fb414908d1d7`.
+- PR #8 `docs/02-product/USER-FLOWS-AND-IA-v0.1.md` — blob `41082c28d41386303fc991ba1217b3f7ba9f0e08`.
+- PR #10 `docs/02-product/PRODUCT-DESIGN-RECONCILIATION-v0.4.md` — blob `8c16124704a44118f0cad5c6d3ba6b3a05e0f993`.
+- PR #10 `docs/02-product/SOURCE-AND-LOAD-DISPATCH-DESIGN-v0.1.md` — blob `b34860f487d1b83b2cc9d6b6e99cbd27ebe93ef8`.
+- PR #10 `docs/02-product/G7.3-G7.9-RESEARCH-AND-REPOSITORY-TRACE-v0.1.md` — blob `3c2a18a7dc4cead6b74d267afdd2cc11972d2122`.
+- PR #10 full-workflow prototype v1.9 review — `docs/02-product/prototype/source-load-dispatch/v1.9/REVIEW.md`, blob `61c802008079a1b44de5fa7c8929e881a41f5219`.
+- PR #10 result/claim prototype v2.9 review — `docs/02-product/prototype/source-load-dispatch/v2.9/REVIEW.md`, blob `3d5b545485a532b4784582f2fff1c4d7d48b9894`; HTML blob `a19472d11fcbdf39afde64fcc8d0d9bf2f1c4457`; fixture blob `fec75272470155c531a1747ddf00db91ec00c583`.
+- PR #10 matched-palette layout comparison v0.2.3 review — `docs/02-product/prototype/source-load-dispatch/directions/v0.2.3/REVIEW.md`, blob `9c61627197195faebb15144f59defb72eaeae66c`.
+- PR #10 `docs/03-architecture/detailed-design/APP11-V2.8-PR14-RESULT-PROJECTION-REVIEW-2026-10-07.md` — blob `d84e0c36aa37c5d8875c16bdb830eacfd750775f`.
+
+The referenced original ChatGPT share page was also attempted on this review date and returned a cache miss. This trace is therefore grounded in the accessible repository sources above, not a claim that the full original conversation was re-read. The full local research archive semantic review is a separate, incomplete audit scope.
+
+## 2. Status vocabulary
+
+- **Draft design:** a written requirement or proposed behavior exists; it is not approved.
+- **Synthetic prototype:** a user interface demonstrates selected states using fixture values; it does not prove service behavior, site facts or product acceptance.
+- **Code experiment:** executable code exists within a bounded test scope; it is not integrated into the user workflow.
+- **Implemented on main:** the actual default branch contains the behavior, contract and necessary persistence/integration.
+- **Site/user validated:** authorized Macau site evidence and representative-user results support the behavior.
+
+A stage can have a draft design and synthetic prototype while remaining unimplemented on main.
+
+## 3. Product-design finding
+
+**The product direction is coherent and has substantial draft design, but the product design is not complete or approved, and the six-stage dispatch task is not implemented end-to-end on main.**
+
+The product proposal is centered on a commercial operator comparing time-aligned schedules for grid import, evidenced on-site PV, optional ESS charging/discharging, and only site-qualified flexible loads such as HVAC/chillers, EV charging or hot water. It is not merely an energy KPI dashboard. It keeps physical energy flow separate from account/meter/contract/tariff settlement and makes the result advisory.
+
+PR #8 contains the broad product workspace, PRD, IA, visual principles and discovery/usability proposals. PR #10 makes source/load economic dispatch the first-class task and adds the six-stage workflow and successive interaction studies. These are complementary draft lines; neither is an approved baseline and neither is merged. PR #14 supplies a bounded optimizer experiment but does not integrate it into the PRD, UI, API, evidence service, durable review or monitoring flow.
+
+## 4. Six-stage requirement-to-evidence trace
+
+| Stage | Draft design evidence | Prototype / code evidence | Main-branch and validation status | Gap and acceptance evidence still required |
+|---|---|---|---|---|
+| **1. Data and contract evidence** | Dispatch design and product reconciliation require site/horizon context, telemetry quality, physical mapping, separate account/meter/contract/tariff applicability and independent readiness states. | v1.9 starts at an evidence-check stage using synthetic readiness. v2.9 deliberately withholds bill-grade money when applicability is unverified. PR #14 uses caller-supplied evidence markers. | **Not an integrated main workflow.** No product-level authenticated evidence intake, effective-dated source registry or user repair path is established by the cited prototypes/experiment. No customer documents/data have been validated here. | Demonstrate source identity, authorization, version/effective dates, freshness and lineage for meter mapping, interval data, account, contract and tariff. Missing evidence must withhold only dependent claims and show an actionable next step. |
+| **2. Physical site model** | Design separates physical topology (grid, meters, PV, ESS, loads) from settlement/account mapping; unknown links must remain explicit. | v1.9 presents a synthetic site-model stage. v2.9 shows a synthetic source/load schedule but is not a topology editor. | **Not implemented as an integrated site model on main; not site-validated.** PR #14 supports one supplied site/account-meter scope and does not establish an energy graph. | Review an authorized site's one-line/topology, meter boundaries, point mappings, assets and effective periods. Prove separate physical and economic mappings, including ambiguity/overlap handling, before stating cross-building supply or credits. |
+| **3. Schedule comparison** | Product requirement is a same-site, same-horizon comparison with aligned baseline/candidate intervals, sources, loads, ESS trajectory and explicit flexible-load shifts/rebound. | v1.9 represents this stage in its six-step synthetic flow. v2.9 presents a six-interval fixture. PR #14 can search a supplied finite set of discrete actions in a bounded horizon; its exactness is limited to that search space. | **No integrated dispatch API-to-product UI path on main is evidenced.** PR #14 is code experiment, not a production service or schedule-generation UI. Neither prototype proves a real feasible schedule. | Pin same immutable inputs, timezone, horizon, interval grid and model/rule versions. Show baseline and at least two alternatives with per-resource changes, rebound, ESS SOC, import/export and binding constraints. Validate against site-approved capability envelopes. |
+| **4. Cost, constraints and evidence** | Design requires independent physical, service/comfort and economic claim states; values must be withheld when their own evidence is missing. | v2.9 shows synthetic rates and scenario search rationale, but withholds bill cost, full-bill amounts, savings, export compensation, comfort/controllability, cross-site credits and control. APP-11 projection review documents this UI/result boundary. PR #14's monetary scope is limited to qualifying interval grid-import energy rates; it does not implement full tariff settlement. | **No bill-grade dispatch result on main or validated against a Macau customer's bill.** Neither the fixture's six interval rates nor the prototype's 44 kWh comparison establish tariff applicability, billing demand/Pu or savings. | Independently reconstruct representative bills (“Golden Bill” cases) using verified account, meter, contract, effective tariff, billing intervals and settlement rules. Model demand windows, export and other components only when source evidence supports them; compare outputs against approved reference calculations and explicit tolerances. |
+| **5. SHADOW review** | Design proposes advisory recommendation review with identity, authorization, immutable result reference and an append-only disposition; review is not execution. | v1.9 and v2.9 controls are page-local and reset on reload. PR #14 contains no device-control path, but does not supply durable review service semantics. | **No durable dispatch review flow on main is established here.** A click in a prototype is not an audited decision. | Persist reviewer, role, time, result version, disposition, reason and evidence reference; enforce authorization and idempotency. Demonstrate that no review action can reach a device command endpoint. |
+| **6. Monitoring and replay** | Design requires measured post-period results, declared M&V basis, immutable input/rule/model/build manifest and replay differences. | v1.9 includes a monitoring/replay stage as a conceptual/synthetic screen. The cited v2.9 prototype focuses result disclosure and has no durable replay. PR #14 repeatability is bounded code evidence, not an integrated replay service. | **No live Macau monitoring, M&V, durable dispatch replay or verified savings is demonstrated on main by these artifacts.** A synthetic/reference simulator baseline is not a site baseline. | Capture consented, quality-qualified measurements and a pre-agreed baseline/M&V method. Replay the pinned request deterministically; surface unavailable or changed evidence and explain any difference. Validate reporting with site/operator and finance owner. |
+
+### Cross-cutting product states
+
+The interface and future contracts must not collapse these into one “ready” badge:
+
+1. request lifecycle;
+2. physical input/result readiness;
+3. service, comfort and safety constraint status;
+4. economic applicability and component coverage;
+5. recommendation and review state;
+6. monitoring/replay state.
+
+A physical profile may remain inspectable while tariff economics are withheld, but whether an optimized physical-only candidate is allowed with no applicable contract remains an **owner/domain decision**. Prototype v2.9's no-tariff withholding behavior is a study policy, not a final product rule.
+
+## 5. UI/UX evidence and limits
+
+- The six-stage v1.9 review reports six stage states at 320, 375, 768 and 1440 CSS px (24 combinations), with no document-level horizontal overflow in the reviewed synthetic prototype. This is layout evidence, not user validation.
+- The v1.9 localization study is split into separate review versions. The existing reconciliation reports a 337-unit contextual translation draft and limited accessibility-tree review; its status must not be generalized into full, human-reviewed multilingual support.
+- The v2.9 review checks the single claim/results page in Traditional Chinese, English and Portuguese at 320×800, 375×812, 768×900, 1024×900 and 1440×900 (15 combinations). It reports no page-level overflow and translated page content; it explicitly does not establish translation quality or launch locale approval.
+- Layout directions v0.2.3 compare timeline-first and interval-first compositions on a matched palette across nine widths. The palette, layout, product visual identity and direction remain unapproved. The recorded checks are targeted; they are not a complete WCAG audit or conformance claim.
+- No cited source establishes moderated operator usability, a winning-site reference transfer study, full screen-reader/keyboard coverage, complete locale QA, or production UI.
+
+Keep three separate design jobs: dispatch operations console, customer/account setup and evidence maintenance, and any future marketing homepage. Award-winning consumer/marketing patterns are inspiration and quality-review references, not a substitute for operational task evidence or an excuse to copy a visual style.
+
+## 6. Proposed MVP acceptance bar
+
+Before calling the dispatch workflow an MVP, an integrated review build should prove all of the following:
+
+1. An authorized user can identify site, local-time horizon, interval, source snapshot and measured/forecast/scenario/synthetic status.
+2. Physical topology and settlement/account applicability are separate, inspectable mappings.
+3. Baseline and candidate share pinned inputs and aligned intervals; each changed resource, SOC trajectory, rebound and constraint is visible.
+4. Unknown/missing/stale evidence is never silently replaced with zero, unlimited capability, export rights, comfort, controllability or verified economics.
+5. Physical, service, economic, recommendation and replay states remain independent and have explicit blocked/partial explanations.
+6. No bill-grade amount, savings, export compensation or demand-charge claim appears until the matching site/contract/meter/tariff evidence passes a validated rule.
+7. SHADOW dispositions persist with actor, authorization, result version and audit history; there is no device write path in MVP.
+8. A completed assessment can be replayed from immutable input and version references; divergence and missing evidence are visible.
+9. The same critical tasks work at approved viewport/locale combinations with keyboard use, accessible names, non-color status cues and human-reviewed terminology.
+10. Representative operator and finance users complete agreed tasks against an authorized pilot evidence packet; comprehension/errors and acceptance thresholds are recorded.
+
+These are proposed acceptance criteria. Items 9–10 are not evidenced as passed.
+
+## 7. Open decisions and next concrete work
+
+### Decisions for a single owner review packet
+
+- **No-applicable-tariff behavior:** physical/scenario-only analysis with economics withheld, or no candidate generation. Explain safety, site permission and product-value consequences.
+- **First pilot context:** site archetype, accountable operator/finance roles, available evidence and first supported resources. HVAC/chiller is a leading hypothesis, not validated capability; PV/ESS/EV/hot-water participation depends on site evidence and rights.
+- **MVP settlement boundary:** exact bill components and qualification threshold; explicitly identify demand-window/Pu, export, netting, cross-site and uncertainty exclusions.
+- **Locale policy:** validate Traditional Chinese, Portuguese and English needs, Macau terminology, regional formatting and human-review capacity. Current strings/prototype checks are not approval.
+- **Visual/IA direction:** compare same-task dispatch and evidence layouts; approve only after full state/locale checks and user research.
+- **Product acceptance:** name participants, tasks, measurable comprehension/error thresholds and domain reviewers.
+- **APP-11 and architecture:** reconcile the proposed logical dispatch capability and result/review/replay contracts with G7.9 and architecture authority before creating canonical APIs or production commitments.
+
+### Work that can proceed before these decisions
+
+1. Preserve PR #8 and PR #10 as review proposals and maintain source links; do not describe either as adopted merely because it is detailed.
+2. Create a matched dispatch-task study for missing tariff, partial data, HVAC constraint, ESS unknown, PV export and scenario-only candidate states using identical inputs across layout variants.
+3. Extend the six-stage review contract matrix so every visible state/claim maps to a domain rule, source evidence, API field and acceptance example; keep proposed semantics separate from canonical schemas.
+4. Build an authorized, redacted site-evidence acquisition packet only after an owner selects a participant/site; until then keep prototype fixtures explicitly synthetic.
+5. Resolve the source/authority gaps in G7.9 Step 2/3 and technology decision records before freezing service boundaries or production stack.
+6. After product decisions, implement one vertical slice on a review branch: pinned evidence snapshot → topology-qualified schedule assessment → independently gated result claims → durable SHADOW review → deterministic replay. Keep device control excluded.
+
+## 8. Conclusion
+
+**Product design exists as a substantial, research-derived proposal and multiple tested synthetic studies. It is not yet a finalized product, an owner-approved PRD/UI, or a complete implemented workflow.** The most advanced product-design evidence is distributed across PR #8 and PR #10; the most advanced schedule-search code is isolated in PR #14. None is merged into the inspected main base, and none proves site/user validation or a production-ready dispatch product.
+
+The correct next product step is a source-linked owner review of the explicit choices above, supported by one integrated workflow/state/contract trace. Continue independent evidence and design work while those choices remain open; do not silently convert prototype behavior, GitHub checks or a code experiment into an approved business or architecture decision.
