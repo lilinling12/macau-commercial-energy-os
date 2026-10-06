@@ -52,3 +52,45 @@ The v2.7 evidence shows use of the project UI/UX review process and targeted vis
 ## Verification performed for this addendum
 
 Fetched the current main handoff, PR #10 metadata, full changed-file list, PR #10 product design, source audit, G7.9 owner decision packet, v2.7 HTML/review, and PR review submissions from GitHub on 2026-10-06. This document records that bounded review and is not a claim that every source archive or conversation turn has been semantically read.
+
+
+## Current-state correction — 2026-10-07
+
+This dated addendum supersedes the live-state statements above where they describe the current PR head or prototype ceiling. The earlier 2026-10-06 snapshot is retained as a historical observation.
+
+### Current pull-request snapshot
+
+Fetched live PR metadata from GitHub on 2026-10-07:
+
+| PR | Head | State | Current interpretation |
+|---|---|---|---|
+| #8 | 9e3dec0bccf5acb5122f94c688814e7f4e026a1b | Open, non-draft, unmerged | Broad product/architecture roadmap proposal |
+| #10 | 7106d994a37ae8260731f58d9264e3704bf22371 | Open, Draft, unmerged | Dispatch-centered product, workflow, research traces, G7.9 proposals and synthetic prototypes |
+| #11 | c1ca1282d853f14595a14cd43ace4dd9d3b26140 | Open, Draft, unmerged | Technology research reconciliation proposal |
+| #14 | 9b80adca9243a0ae9a7bd666f0efee1acfc6309a | Open, Draft, unmerged | Bounded SHADOW search experiment |
+
+All four PRs report main base a897bf0b1e7e6ceea3862d7d87fa288ecca08203. These proposals are not merged into main and must not be described as adopted product or architecture decisions.
+
+PR #10's live changed-file inventory extends through the v2.9 result-projection prototype and includes a G7.9 Step 3 acceptance/backlog/owner-decision set, tariff and settlement research, a product-to-research trace, and localization evidence. The earlier statement that the changed-file set ended at v2.7 is historical and no longer describes the live branch.
+
+### Localization evidence correction
+
+The current branch contains distinct studies, not one complete localized product:
+
+- v1.9 six-stage workflow localization v0.4: 346 contextual English draft units and 346 Portuguese draft units; both catalogs structurally validate, but translations remain AI-assisted and unapproved.
+- v1.9 browser matrix: 90 locale/stage/viewport samples; zero measured page/active-stage overflow and zero page errors; 13 contained scrolling regions and 18 sampled screenshots. These checks cover a generated static preview, not a production runtime.
+- v2.3 claim-state page: its own pinned inventory records 489 contextual source units and no English or Portuguese translation for that version.
+- v2.9 result-projection panel: a separate 15-combination viewport/locale review for a synthetic single-page fixture.
+
+The precise source scope, measurements, and limitations are recorded in PR #10's MACAU-DISPATCH-LOCALIZATION-REQUIREMENTS-v0.1.md addendum and the version-specific review records. No locale set, Macau Portuguese variant, translation quality, full-product localization, accessibility conformance, or user acceptance is approved by these studies.
+
+### Still-open authority and delivery gaps
+
+- G6.9-R2 Step 3D remains pending in main authority; G7.9 Step 3 remains open.
+- G7.8's archived Fastify/contract freeze, G6.9's pending comparative integration gate, and the differing Deep Research (6)/(7) recommendations remain an unresolved authority/selection question. Next.js remains a conditional portal/server-feature option in Deep Research (7), not an approved backend or G6.9 candidate.
+- Current PR proposals, browser prototypes and the bounded PR #14 experiment do not establish an integrated dispatch MVP, Macau site/tariff validation, representative-user validation, equipment control, or pilot readiness.
+- The full semantic review of the 735 text entries inventoried in local archives and a complete export/review of the shared original conversation remain incomplete, as documented in the source audit.
+
+### Exact-head repository checks
+
+After the 2026-10-07 localization evidence correction, PR #10 advanced to head 7106d994a37ae8260731f58d9264e3704bf22371. At the time of this record, the exact-head Repository hygiene and Validate authority structure checks were queued. They are not reported as passing; any later status must be re-fetched against this exact head.
