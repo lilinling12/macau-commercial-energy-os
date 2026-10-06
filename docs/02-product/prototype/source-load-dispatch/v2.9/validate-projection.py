@@ -131,7 +131,10 @@ for locale_copy in (
 require('value="partial-demo"' in html, "partial-coverage presentation state must be selectable")
 require('claimViewMode==="partial-demo"' in html, "partial state must use an explicit display-only branch")
 require("claimDemoBanner:" in html, "every locale must disclose that the partial state is a UI example")
-require("partialImportScope:" in html and "4 / 6" in html, "partial scope must state the exact covered interval count")
+require("Economic assessment: PARTIAL" in html, "English copy must put PARTIAL on the economic assessment")
+require("ALLOWED · covered intervals only" in html, "component claim must remain ALLOWED within scope")
+require("09:00–13:00" in html and "13:00–15:00" in html,
+        "partial display must disclose exact covered and uncovered interval ranges")
 require("wholeWindowScope:" in html and "savingsReason:" in html and "demandReason:" in html,
         "whole-window bill, savings, and demand-charge claims must remain independently withheld")
 require("uncovered intervals must not be treated as zero" in html,
@@ -142,4 +145,5 @@ require("não podem ser tratados como zero" in html,
         "Portuguese draft copy must explain uncovered-interval handling")
 require('data-i18n="claimModeLegend"' in html and 'querySelectorAll("[data-i18n]")' in html,
         "new state controls must participate in locale switching")
+
 print("v2.9 projection semantics and source pins passed (static fixture/source guard only).")
