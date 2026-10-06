@@ -70,6 +70,22 @@ class DispatchAssessmentTests(unittest.TestCase):
         self.assertEqual(result.baseline_import_energy_kwh, D("10.0"))
         self.assertIsNone(result.import_energy_charge_delta_mop)
 
+    def test_pv_export_is_not_double_counted_in_site_bus_balance(self):
+        candidate = interval(
+            grid="5",
+            pv="5",
+            load="10",
+            pv_generation_kw=D("10"),
+            pv_export_kw=D("5"),
+        )
+        result = assess_schedule(request(candidate=candidate))
+        claims = {item.claim: item for item in result.claim_readiness}
+
+        self.assertEqual(result.physical_status, PhysicalStatus.VALIDATED_WITHIN_SCOPE)
+        self.assertEqual(result.interval_comparisons[0].candidate_pv_export_kw, D("5"))
+        self.assertEqual(claims[ClaimType.EXPORT_COMPENSATION].status, ClaimStatus.WITHHELD)
+        self.assertIsNone(result.import_energy_charge_delta_mop)
+
     def test_missing_unknown_and_stale_candidate_pv_curtailment_withhold_feasibility(self):
         candidate = interval(
             grid="10", load="15",
