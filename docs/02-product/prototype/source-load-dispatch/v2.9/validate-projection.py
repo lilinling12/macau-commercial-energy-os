@@ -116,7 +116,7 @@ require(len(fetches) == 1, "prototype should have only the local fixture fetch, 
 for locale_copy in (
     "not an economic optimum under an applicable Macau contract",
     "No equipment command path",
-    "not stored, sent to a service or connected to field actions",
+    "not saved, sent to a service or connected to field actions",
     "這不是澳門適用電價下的經濟最優結論",
     "沒有設備指令路徑",
     "不會保存、提交服務或觸發現場動作",
