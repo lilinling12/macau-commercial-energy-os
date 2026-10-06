@@ -1,0 +1,596 @@
+{
+  "fixture_id": "pr14-exact-head-generated-synthetic-dispatch-v1",
+  "fixture_status": "SYNTHETIC_SCENARIO_ONLY",
+  "source": {
+    "repository": "lilinling12/macau-commercial-energy-os",
+    "pr": 14,
+    "commit": "d5180703df3730779f1f180a89d07c620e7e349d",
+    "optimizer_blob": "2d3256801f0ddce6b849c648c160f5a32fd90a27",
+    "assessment_blob": "4986bb546d675c469646881ab151dfd847725790"
+  },
+  "scope": "Six one-hour intervals, fixed PV/base load, three aggregate service-energy tasks, simple ESS, import-energy component objective only.",
+  "limitations": [
+    "Every evidence reference is PROJECT_ASSUMPTION.",
+    "HVAC comfort/thermal dynamics and rebound are not modeled.",
+    "EV departure deadlines and hot-water temperature/service are not modeled.",
+    "This fixture does not establish Macau tariff applicability, real site topology, savings, export compensation, or equipment control.",
+    "The exact discrete result is only optimal within the declared 1 kW/1 kWh action grid and bounded horizon."
+  ],
+  "inputs": {
+    "site_timezone": "Asia/Macau",
+    "planning_window_start": "2026-10-08T09:00:00+08:00",
+    "planning_window_end_exclusive": "2026-10-08T15:00:00+08:00",
+    "interval_seconds": 3600,
+    "power_step_kw": "1",
+    "soc_step_kwh": "1",
+    "initial_soc_kwh": "5",
+    "terminal_soc_policy": "equal to baseline end SOC",
+    "pv_generation_kw": [
+      "0",
+      "0",
+      "2",
+      "4",
+      "2",
+      "0"
+    ],
+    "base_load_kw": [
+      "8",
+      "8",
+      "8",
+      "8",
+      "8",
+      "8"
+    ],
+    "import_rates_mop_per_kwh": [
+      "0.50",
+      "0.50",
+      "0.50",
+      "0.90",
+      "1.50",
+      "1.50"
+    ],
+    "tasks": [
+      {
+        "asset_id": "hvac-task",
+        "kind": "HVAC",
+        "required_energy_kwh": "2",
+        "min_on_power_kw": "1",
+        "max_power_kw": "2",
+        "availability": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "asset_id": "ev-task",
+        "kind": "EV",
+        "required_energy_kwh": "1",
+        "min_on_power_kw": "1",
+        "max_power_kw": "1",
+        "availability": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "asset_id": "hot-water-task",
+        "kind": "HOT_WATER",
+        "required_energy_kwh": "1",
+        "min_on_power_kw": "1",
+        "max_power_kw": "1",
+        "availability": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    ]
+  },
+  "search": {
+    "scope": "EXACT_WITHIN_DECLARED_DISCRETE_ACTION_SPACE",
+    "transitions_examined": 5706,
+    "scenario_only": true
+  },
+  "physical": {
+    "status": "SCENARIO_ONLY",
+    "claim_scope": "SCENARIO_ONLY",
+    "reasons": [
+      "Account, contract, and tariff applicability evidence must be verified.",
+      "One or more physical inputs use project assumptions; resulting comparisons are scenario-only."
+    ],
+    "baseline_import_energy_kwh": "44.0",
+    "candidate_import_energy_kwh": "44.0",
+    "baseline_peak_grid_import_kw": "10",
+    "candidate_peak_grid_import_kw": "11"
+  },
+  "economic": {
+    "status": "BLOCKED",
+    "component": null,
+    "baseline_import_energy_charge_mop": null,
+    "candidate_import_energy_charge_mop": null,
+    "delta_mop": null,
+    "covered_intervals": [],
+    "interval_count": 6
+  },
+  "claims": [
+    {
+      "claim": "GRID_IMPORT_PROFILE",
+      "status": "ALLOWED",
+      "scope": "SCENARIO_ONLY",
+      "reasons": [
+        "Profile is bounded to the supplied schedule window and evidence; the horizon peak is not billing-period Pu."
+      ],
+      "subject": null
+    },
+    {
+      "claim": "HORIZON_PEAK",
+      "status": "ALLOWED",
+      "scope": "SCENARIO_ONLY",
+      "reasons": [
+        "Profile is bounded to the supplied schedule window and evidence; the horizon peak is not billing-period Pu."
+      ],
+      "subject": null
+    },
+    {
+      "claim": "DISPATCH_FEASIBILITY",
+      "status": "ALLOWED",
+      "scope": "SCENARIO_ONLY",
+      "reasons": [
+        "All applicable schedule constraints are evidenced within this bounded prototype."
+      ],
+      "subject": null
+    },
+    {
+      "claim": "PV_CURTAILMENT",
+      "status": "ALLOWED",
+      "scope": "SCENARIO_ONLY",
+      "reasons": [
+        "No candidate PV curtailment is declared."
+      ],
+      "subject": null
+    },
+    {
+      "claim": "ESS_DISPATCH",
+      "status": "ALLOWED",
+      "scope": "SCENARIO_ONLY",
+      "reasons": [
+        "ESS schedule is bounded by its supplied evidence."
+      ],
+      "subject": null
+    },
+    {
+      "claim": "FLEXIBLE_LOAD_DISPATCH",
+      "status": "ALLOWED",
+      "scope": "SCENARIO_ONLY",
+      "reasons": [
+        "The changed flexible-load schedule is within its supplied evidence."
+      ],
+      "subject": "ev-task"
+    },
+    {
+      "claim": "FLEXIBLE_LOAD_DISPATCH",
+      "status": "ALLOWED",
+      "scope": "SCENARIO_ONLY",
+      "reasons": [
+        "The changed flexible-load schedule is within its supplied evidence."
+      ],
+      "subject": "hot-water-task"
+    },
+    {
+      "claim": "FLEXIBLE_LOAD_DISPATCH",
+      "status": "ALLOWED",
+      "scope": "SCENARIO_ONLY",
+      "reasons": [
+        "The changed flexible-load schedule is within its supplied evidence."
+      ],
+      "subject": "hvac-task"
+    },
+    {
+      "claim": "GRID_IMPORT_ENERGY_COMPONENT",
+      "status": "WITHHELD",
+      "scope": "NONE",
+      "reasons": [
+        "Account, contract, and tariff applicability evidence must be verified."
+      ],
+      "subject": null
+    },
+    {
+      "claim": "DEMAND_CHARGE",
+      "status": "WITHHELD",
+      "scope": "NONE",
+      "reasons": [
+        "Billing-period Pu and demand-charge rules are not evaluated by this prototype."
+      ],
+      "subject": null
+    },
+    {
+      "claim": "EXPORT_COMPENSATION",
+      "status": "WITHHELD",
+      "scope": "NONE",
+      "reasons": [
+        "Export remuneration, payee, and account applicability are not evaluated."
+      ],
+      "subject": null
+    },
+    {
+      "claim": "FULL_BILL",
+      "status": "WITHHELD",
+      "scope": "NONE",
+      "reasons": [
+        "Taxes, demand components, and other bill items are outside the calculated energy component."
+      ],
+      "subject": null
+    },
+    {
+      "claim": "SAVINGS",
+      "status": "WITHHELD",
+      "scope": "NONE",
+      "reasons": [
+        "A modeled import-energy component is not measured or realized savings."
+      ],
+      "subject": null
+    },
+    {
+      "claim": "CONTROLLABILITY",
+      "status": "WITHHELD",
+      "scope": "NONE",
+      "reasons": [
+        "No site-qualified equipment capability or control authorization is established."
+      ],
+      "subject": null
+    },
+    {
+      "claim": "COMFORT_SERVICE",
+      "status": "WITHHELD",
+      "scope": "NONE",
+      "reasons": [
+        "Thermal comfort and other service constraints are not modeled."
+      ],
+      "subject": null
+    },
+    {
+      "claim": "CROSS_SITE_CREDIT",
+      "status": "WITHHELD",
+      "scope": "NONE",
+      "reasons": [
+        "No cross-building or cross-account credit is established."
+      ],
+      "subject": null
+    },
+    {
+      "claim": "DEVICE_CONTROL",
+      "status": "WITHHELD",
+      "scope": "NONE",
+      "reasons": [
+        "This assessment has no equipment command path."
+      ],
+      "subject": null
+    }
+  ],
+  "baseline": [
+    {
+      "start": "2026-10-08T09:00:00+08:00",
+      "end": "2026-10-08T10:00:00+08:00",
+      "grid_import_kw": "8",
+      "pv_generation_kw": "0",
+      "pv_used_kw": "0",
+      "pv_export_kw": "0",
+      "pv_curtailed_kw": "0",
+      "ess_charge_kw": "0",
+      "ess_discharge_kw": "0",
+      "ess_soc_start_kwh": "5",
+      "ess_soc_end_kwh": "5",
+      "base_load_kw": "8",
+      "flexible_loads": [],
+      "losses_kw": "0"
+    },
+    {
+      "start": "2026-10-08T10:00:00+08:00",
+      "end": "2026-10-08T11:00:00+08:00",
+      "grid_import_kw": "8",
+      "pv_generation_kw": "0",
+      "pv_used_kw": "0",
+      "pv_export_kw": "0",
+      "pv_curtailed_kw": "0",
+      "ess_charge_kw": "0",
+      "ess_discharge_kw": "0",
+      "ess_soc_start_kwh": "5",
+      "ess_soc_end_kwh": "5",
+      "base_load_kw": "8",
+      "flexible_loads": [],
+      "losses_kw": "0"
+    },
+    {
+      "start": "2026-10-08T11:00:00+08:00",
+      "end": "2026-10-08T12:00:00+08:00",
+      "grid_import_kw": "6",
+      "pv_generation_kw": "2",
+      "pv_used_kw": "2",
+      "pv_export_kw": "0",
+      "pv_curtailed_kw": "0",
+      "ess_charge_kw": "0",
+      "ess_discharge_kw": "0",
+      "ess_soc_start_kwh": "5",
+      "ess_soc_end_kwh": "5",
+      "base_load_kw": "8",
+      "flexible_loads": [],
+      "losses_kw": "0"
+    },
+    {
+      "start": "2026-10-08T12:00:00+08:00",
+      "end": "2026-10-08T13:00:00+08:00",
+      "grid_import_kw": "4",
+      "pv_generation_kw": "4",
+      "pv_used_kw": "4",
+      "pv_export_kw": "0",
+      "pv_curtailed_kw": "0",
+      "ess_charge_kw": "0",
+      "ess_discharge_kw": "0",
+      "ess_soc_start_kwh": "5",
+      "ess_soc_end_kwh": "5",
+      "base_load_kw": "8",
+      "flexible_loads": [],
+      "losses_kw": "0"
+    },
+    {
+      "start": "2026-10-08T13:00:00+08:00",
+      "end": "2026-10-08T14:00:00+08:00",
+      "grid_import_kw": "8",
+      "pv_generation_kw": "2",
+      "pv_used_kw": "2",
+      "pv_export_kw": "0",
+      "pv_curtailed_kw": "0",
+      "ess_charge_kw": "0",
+      "ess_discharge_kw": "0",
+      "ess_soc_start_kwh": "5",
+      "ess_soc_end_kwh": "5",
+      "base_load_kw": "8",
+      "flexible_loads": [
+        {
+          "asset_id": "hvac-task",
+          "kind": "HVAC",
+          "power_kw": "1"
+        },
+        {
+          "asset_id": "hot-water-task",
+          "kind": "HOT_WATER",
+          "power_kw": "1"
+        }
+      ],
+      "losses_kw": "0"
+    },
+    {
+      "start": "2026-10-08T14:00:00+08:00",
+      "end": "2026-10-08T15:00:00+08:00",
+      "grid_import_kw": "10",
+      "pv_generation_kw": "0",
+      "pv_used_kw": "0",
+      "pv_export_kw": "0",
+      "pv_curtailed_kw": "0",
+      "ess_charge_kw": "0",
+      "ess_discharge_kw": "0",
+      "ess_soc_start_kwh": "5",
+      "ess_soc_end_kwh": "5",
+      "base_load_kw": "8",
+      "flexible_loads": [
+        {
+          "asset_id": "hvac-task",
+          "kind": "HVAC",
+          "power_kw": "1"
+        },
+        {
+          "asset_id": "ev-task",
+          "kind": "EV",
+          "power_kw": "1"
+        }
+      ],
+      "losses_kw": "0"
+    }
+  ],
+  "candidate": [
+    {
+      "start": "2026-10-08T09:00:00+08:00",
+      "end": "2026-10-08T10:00:00+08:00",
+      "grid_import_kw": "9",
+      "pv_generation_kw": "0",
+      "pv_used_kw": "0",
+      "pv_export_kw": "0",
+      "pv_curtailed_kw": "0",
+      "ess_charge_kw": "1",
+      "ess_discharge_kw": "0",
+      "ess_soc_start_kwh": "5",
+      "ess_soc_end_kwh": "6.0",
+      "base_load_kw": "8",
+      "flexible_loads": [
+        {
+          "asset_id": "hvac-task",
+          "kind": "HVAC",
+          "power_kw": "0"
+        },
+        {
+          "asset_id": "ev-task",
+          "kind": "EV",
+          "power_kw": "0"
+        },
+        {
+          "asset_id": "hot-water-task",
+          "kind": "HOT_WATER",
+          "power_kw": "0"
+        }
+      ],
+      "losses_kw": "0"
+    },
+    {
+      "start": "2026-10-08T10:00:00+08:00",
+      "end": "2026-10-08T11:00:00+08:00",
+      "grid_import_kw": "9",
+      "pv_generation_kw": "0",
+      "pv_used_kw": "0",
+      "pv_export_kw": "0",
+      "pv_curtailed_kw": "0",
+      "ess_charge_kw": "1",
+      "ess_discharge_kw": "0",
+      "ess_soc_start_kwh": "6.0",
+      "ess_soc_end_kwh": "7.0",
+      "base_load_kw": "8",
+      "flexible_loads": [
+        {
+          "asset_id": "hvac-task",
+          "kind": "HVAC",
+          "power_kw": "0"
+        },
+        {
+          "asset_id": "ev-task",
+          "kind": "EV",
+          "power_kw": "0"
+        },
+        {
+          "asset_id": "hot-water-task",
+          "kind": "HOT_WATER",
+          "power_kw": "0"
+        }
+      ],
+      "losses_kw": "0"
+    },
+    {
+      "start": "2026-10-08T11:00:00+08:00",
+      "end": "2026-10-08T12:00:00+08:00",
+      "grid_import_kw": "11",
+      "pv_generation_kw": "2",
+      "pv_used_kw": "2",
+      "pv_export_kw": "0",
+      "pv_curtailed_kw": "0",
+      "ess_charge_kw": "1",
+      "ess_discharge_kw": "0",
+      "ess_soc_start_kwh": "7.0",
+      "ess_soc_end_kwh": "8.0",
+      "base_load_kw": "8",
+      "flexible_loads": [
+        {
+          "asset_id": "hvac-task",
+          "kind": "HVAC",
+          "power_kw": "2"
+        },
+        {
+          "asset_id": "ev-task",
+          "kind": "EV",
+          "power_kw": "1"
+        },
+        {
+          "asset_id": "hot-water-task",
+          "kind": "HOT_WATER",
+          "power_kw": "1"
+        }
+      ],
+      "losses_kw": "0"
+    },
+    {
+      "start": "2026-10-08T12:00:00+08:00",
+      "end": "2026-10-08T13:00:00+08:00",
+      "grid_import_kw": "3",
+      "pv_generation_kw": "4",
+      "pv_used_kw": "4",
+      "pv_export_kw": "0",
+      "pv_curtailed_kw": "0",
+      "ess_charge_kw": "0",
+      "ess_discharge_kw": "1",
+      "ess_soc_start_kwh": "8.0",
+      "ess_soc_end_kwh": "7.0",
+      "base_load_kw": "8",
+      "flexible_loads": [
+        {
+          "asset_id": "hvac-task",
+          "kind": "HVAC",
+          "power_kw": "0"
+        },
+        {
+          "asset_id": "ev-task",
+          "kind": "EV",
+          "power_kw": "0"
+        },
+        {
+          "asset_id": "hot-water-task",
+          "kind": "HOT_WATER",
+          "power_kw": "0"
+        }
+      ],
+      "losses_kw": "0"
+    },
+    {
+      "start": "2026-10-08T13:00:00+08:00",
+      "end": "2026-10-08T14:00:00+08:00",
+      "grid_import_kw": "5",
+      "pv_generation_kw": "2",
+      "pv_used_kw": "2",
+      "pv_export_kw": "0",
+      "pv_curtailed_kw": "0",
+      "ess_charge_kw": "0",
+      "ess_discharge_kw": "1",
+      "ess_soc_start_kwh": "7.0",
+      "ess_soc_end_kwh": "6.0",
+      "base_load_kw": "8",
+      "flexible_loads": [
+        {
+          "asset_id": "hvac-task",
+          "kind": "HVAC",
+          "power_kw": "0"
+        },
+        {
+          "asset_id": "ev-task",
+          "kind": "EV",
+          "power_kw": "0"
+        },
+        {
+          "asset_id": "hot-water-task",
+          "kind": "HOT_WATER",
+          "power_kw": "0"
+        }
+      ],
+      "losses_kw": "0"
+    },
+    {
+      "start": "2026-10-08T14:00:00+08:00",
+      "end": "2026-10-08T15:00:00+08:00",
+      "grid_import_kw": "7",
+      "pv_generation_kw": "0",
+      "pv_used_kw": "0",
+      "pv_export_kw": "0",
+      "pv_curtailed_kw": "0",
+      "ess_charge_kw": "0",
+      "ess_discharge_kw": "1",
+      "ess_soc_start_kwh": "6.0",
+      "ess_soc_end_kwh": "5.0",
+      "base_load_kw": "8",
+      "flexible_loads": [
+        {
+          "asset_id": "hvac-task",
+          "kind": "HVAC",
+          "power_kw": "0"
+        },
+        {
+          "asset_id": "ev-task",
+          "kind": "EV",
+          "power_kw": "0"
+        },
+        {
+          "asset_id": "hot-water-task",
+          "kind": "HOT_WATER",
+          "power_kw": "0"
+        }
+      ],
+      "losses_kw": "0"
+    }
+  ]
+}
+
