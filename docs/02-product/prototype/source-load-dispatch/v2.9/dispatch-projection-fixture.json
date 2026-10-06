@@ -4,9 +4,9 @@
   "source": {
     "repository": "lilinling12/macau-commercial-energy-os",
     "pr": 14,
-    "commit": "d5180703df3730779f1f180a89d07c620e7e349d",
+    "commit": "9b80adca9243a0ae9a7bd666f0efee1acfc6309a",
     "optimizer_blob": "2d3256801f0ddce6b849c648c160f5a32fd90a27",
-    "assessment_blob": "4986bb546d675c469646881ab151dfd847725790"
+    "assessment_blob": "534ae269a7949601bd4504271e0076369807a68f"
   },
   "scope": "Six one-hour intervals, fixed PV/base load, three aggregate service-energy tasks, simple ESS, import-energy component objective only.",
   "limitations": [
@@ -593,4 +593,3 @@
     }
   ]
 }
-
