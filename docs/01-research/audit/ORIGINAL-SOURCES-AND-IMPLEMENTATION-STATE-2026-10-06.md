@@ -350,7 +350,7 @@ This is an audit of the supplied v0.1 package contents, not a claim about later 
 
 ### Specific completeness gaps in the supplied Step 2 files
 
-The ten-file package contains `API_CONTRACT.md`, `CURRENT.md`, `DATABASE_SCHEMA_DESIGN.md`, `ENTITY_MODEL.md`, `EVENT_SCHEMA.md`, `MIGRATION_STRATEGY.md`, `MULTI_TENANT_STRATEGY.md`, `NEXT_GATE.md`, `README.md`, `TELEMETRY_CONTRACT.md`, and `VERSIONING_STRATEGY.md` (11 files total, including the listed CURRENT/NEXT/README entries). The contents are short initial descriptions rather than a complete domain/contract specification:
+The package contains `API_CONTRACT.md`, `CURRENT.md`, `DATABASE_SCHEMA_DESIGN.md`, `ENTITY_MODEL.md`, `EVENT_SCHEMA.md`, `MIGRATION_STRATEGY.md`, `MULTI_TENANT_STRATEGY.md`, `NEXT_GATE.md`, `README.md`, `TELEMETRY_CONTRACT.md`, and `VERSIONING_STRATEGY.md` (11 files total). The contents are short initial descriptions rather than a complete domain/contract specification:
 
 - `DATABASE_SCHEMA_DESIGN.md` gives table names only (tenant, organization, building, energy_asset, device, telemetry_point/record, optimization_run, recommendation); no fields, keys, constraints, effective dating, meter topology or account/contract/tariff relationships are defined.
 - `ENTITY_MODEL.md` names Tenant, Organization, Site, Building, Energy Asset, Device, Telemetry Point and Telemetry Record, but its relationship sketch jumps from Building to Asset/Device/Telemetry and does not define cardinalities, site/building identity, meter hierarchy or settlement ownership.
