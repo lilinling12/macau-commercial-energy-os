@@ -13,6 +13,8 @@
 - Economic result shown as **not calculated**. The supplied rates are assumptions, so no charge, full bill, savings or export compensation is displayed.
 - Claim eligibility and scope remain distinct. Scenario-only physical outputs stay qualified; comfort/service, controllability, cross-site credit and device-control claims remain withheld.
 - Assumptions, search resolution, search-state count and omitted models are available by progressive disclosure.
+- The primary result view states that the search minimizes the supplied interval import-energy rates, and that these unverified assumed rates do not establish a Macau-contract economic optimum.
+- Physical result scope is explicitly shown as synthetic scenario only, separately from the uncalculated/blocked economic result.
 - Review choices update page-local text only and disappear on reload. No API, persistence, approval record, optimizer invocation, customer/site evidence or device command is connected.
 
 ## Source result summary
@@ -49,6 +51,7 @@ This page uses an original calm analytical treatment: restrained ink/canvas surf
 - The first interval-table screenshot showed header text squeezed into very narrow columns. The table now keeps a readable minimum width inside its own horizontal-scroll region; the page content remains within the captured viewport, with horizontal scrolling contained to chart/data regions.
 - A direct raw-source read of the PR #10 v2.7 HTML returned 1,676 Unicode replacement characters, affecting the Chinese interface copy. v2.8 was authored as a new version in UTF-8 rather than carrying the damaged strings forward; v2.7 remains an immutable historical study until the owner chooses how to treat it.
 - Opened the assumptions disclosure and verified the exact six rate assumptions, task quantities, time zone and 5,706 transition count in the accessibility tree.
+- After reviewing the exact PR #14 optimizer source, a source-backed search-objective caveat was promoted into the primary result summary. A fresh browser/AX review confirmed the visible objective, `物理結果 · 僅限合成情景`, 44→44 kWh, 10→11 kW, and separate `未計算` economic state.
 - Selected “需要現場／合同證據” and verified the local-only review message. Reload returned the control and message to their initial state, confirming there is no persistence.
 - Keyboard sequence verified through the focused controls: skip link → chart scroll region → interval-table scroll region → disclosure → review choices. Space expands the disclosure and records the local review message; the chart focus outline was visibly rendered.
 - The embedded browser exposed a narrow raster preview but not a trustworthy CSS viewport measurement. This is not evidence for exact 320/375 CSS-pixel breakpoints or desktop widths. The full responsive matrix remains open.
