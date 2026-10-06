@@ -105,3 +105,25 @@ The checked-in v2.3 localization candidate contains 489 source/context units. It
 - v2.3 improves claim explanation and truthful mixed-state presentation; it does not resolve the gap between synthetic UI, the separate bounded Python optimizer, and an integrated durable product workflow.
 - Keep the visible user workflow as qualification → site/energy model → comparable schedules → separate physical/economic constraints and evidence → SHADOW review → monitor/replay. Each transition needs an explicit state and recoverable reason. The prototype currently demonstrates only a small synthetic slice of the result-explanation step.
 - Next product evidence should first connect one immutable assessment fixture to a typed result adapter and verify that the UI renders the same result/claim states. That integration must remain synthetic and SHADOW-only until G7.9 ownership/contracts, security review and site evidence are approved. In parallel, complete v2.3 browser/keyboard review against the exact source; do not describe those checks as user validation.
+
+
+## User-direction clarification — product center versus pilot sequence (2026-10-07)
+
+The current user objective explicitly requires commercial source/load **economic dispatch to be the central product task**, rather than a generic energy dashboard or a secondary recommendation card. Treat this as a confirmed product-design constraint for the work in this goal. Do not re-open it as a binary owner choice between a dispatch-first product and a dashboard-first product.
+
+That requirement is compatible with, but distinct from, the early research's staged adoption proposals:
+
+- G7.1's pilot-plan sketch stages visibility, optimization recommendations, limited control, then multi-energy dispatch.
+- G7.4's pilot blueprint sketches site assessment, energy visibility, SHADOW optimization, then M&V, with closed-loop control kept outside the initial SHADOW stages.
+- G7.2 already states the economic objective and dispatch variables: grid import, PV use, battery charging/discharging and HVAC operation; optimize economic value, not renewable use alone.
+
+These are source-package proposals and hypotheses, not validated pilot results or signed customer commitments. They suggest an evidence-first rollout, but they do not change the required product information hierarchy:
+
+1. The dispatch workspace and source/load schedule comparison are the main product task.
+2. Site, data, physical model, contract/tariff, evidence and integration work are prerequisite/supporting tasks that feed that decision; a generic portfolio overview must not replace it.
+3. Early pilot operation can be read-only and SHADOW-only. A site may first go through qualification/visibility before a verified dispatch comparison is available, but that is a readiness stage within a dispatch-centered product—not a different dashboard-led product thesis.
+4. Direct equipment control remains excluded from the MVP and requires its own future safety/authorization gate.
+
+**Still open for a separate owner decision:** the first commercial pilot promise and its rollout stage. In particular: (a) evidence/read-only site qualification only, (b) an evidence-qualified SHADOW schedule comparison on a selected site, or (c) a staged pilot beginning with qualification and moving to SHADOW dispatch only after named evidence thresholds. Any option must preserve the dispatch-centered product design and must state what is actually deliverable with the pilot site's data and contracts.
+
+The early package roadmap is not evidence that the later source/load workflow is owner-approved or customer-validated. The user's product-center requirement is clear; the specific pilot commitment remains unselected. This clarification changes no main-branch decision, Gate state, production stack or repository authority.
