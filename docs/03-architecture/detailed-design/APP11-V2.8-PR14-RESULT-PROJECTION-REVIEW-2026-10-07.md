@@ -116,3 +116,10 @@ Those capabilities make the earlier statement that the evaluator “returns one 
 2. Record the fixture-generator blob and exact regeneration command/output in its source manifest; regenerate from the current PR #14 head and keep the PR #10 projection validator checking the pinned source lineage.
 3. Preserve economic interval coverage and withheld-boundary semantics in UI/API acceptance examples.
 4. Keep T0 authority, contract and owner decisions separate from this experiment. PR #14 remains research code; PR #10 remains a product/design proposal; neither closes G7.9 Step 3 or establishes pilot readiness.
+
+
+## Clarification — generated-fixture reproducibility evidence
+
+The preceding sentence that “exact current-head regeneration lineage is still incomplete” overstated the gap. The fixture JSON does not embed a generator blob, but this review pins the audited PR #14 head and its generator blob above. At that exact head, `tests/test_projection_fixture.py` runs `generate_dispatch_projection_fixture.py --check`; Runtime Bootstrap #486 passed, so the committed fixture matched the output of that generator and its pinned optimizer/assessor modules. The `source.commit` field identifies the pinned engine-source revision (`9b80adca...`), not the generator revision.
+
+Accordingly, fixture regeneration **is verified for the audited PR #14 head**. The remaining provenance improvement is only to make the generator identity self-contained in the fixture or its sidecar manifest; it is not a blocker for reproducing the audited result. This does not change the separate finding that the UI consumes a static local fixture and is not an integrated optimizer/API workflow.
