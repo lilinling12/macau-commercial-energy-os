@@ -51,4 +51,16 @@ The G7.9 T1 scoped-evidence matrix defines `PARTIAL` as an assessment/coverage s
 
 Added `G7.9-T1-APP11-CLAIM-TO-UI-MAPPING-v0.1.md` as a schema-neutral proposal connecting these UI semantics to the scoped evidence matrix and future APP-11 view model. It does not approve a wire schema or close G7.9.
 
-The static verifier now checks the separation and coverage language. Browser recheck of this corrected copy is pending.
+The static verifier now checks the separation and coverage language. 
+
+## Browser review after semantic correction — 2026-10-07
+
+Reviewed the corrected branch copy at `e9429ff25ae4f56e65e14a44587f0bdff0207043` in the local in-app browser at approximately 1265 × 705 CSS pixels.
+
+- Traditional Chinese actual-result mode showed the unchanged synthetic projection and its blocked economics.
+- Selecting the partial display example changed only the claim list. The banner identified the economic assessment as `PARTIAL`, listed 09:00–13:00 Macau time as covered (4/6) and 13:00–15:00 as uncovered (2/6); the energy-component claim read `ALLOWED` only in covered intervals.
+- Full-horizon bill, savings and demand charge each remained separately `WITHHELD`. No monetary value appeared.
+- English retained the same selected state, exact ranges, claim disposition and withheld boundaries after locale switching.
+- The previous Portuguese draft browser pass exercised the prior copy; this semantic correction has not yet been browser-reviewed in Portuguese.
+
+The browser evidence covers this desktop viewport and the state/locale actions described above. Narrow-screen rendering after this change, Portuguese review after semantic correction, complete keyboard coverage, screen-reader review, contrast measurement, operator validation, WCAG conformance, site evidence and production API binding remain unverified.
