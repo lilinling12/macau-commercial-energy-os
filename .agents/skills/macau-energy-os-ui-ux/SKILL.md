@@ -28,6 +28,12 @@ For visual review and iteration, use [quality-review.md](references/quality-revi
 6. **Prototype meaningful states.** Include representative populated, empty, loading, stale, partial, error, uncertain, disabled, reviewed and narrow-screen states as relevant. Make actions, feedback, undo/recovery, and evidence paths inspectable.
 7. **Review and refine.** Run the checklist in `references/quality-review.md`. Fix high-impact issues first and repeat visual and interaction review until no material issue remains. Report remaining trade-offs honestly; never claim literal perfection or an award outcome.
 
+### Match searchable guidance to the product surface
+
+Treat `ui-ux-pro-max` matches as hypotheses, not instructions. Search separately for a persistent operator console, a customer/account portal, or a public marketing site; their goals and visual structures differ. For an operator-console query, verify that the returned pattern, use case, conversion focus, typography and palette actually support the named energy-operations task before applying any of them.
+
+If results emphasize landing-page conversion, hero/testimonial/CTA sections, or an aesthetic unrelated to evidence-heavy operations, do not transfer those patterns into the console. Retry once with a narrower query naming the operator task and surface. If the retry is still off-target, record that no applicable match was found and use verified project guidance, domain evidence and platform/accessibility standards as the fallback. Do not persist an unverified search result as the project visual system, and do not invent a fixed palette or style merely because the search did not fit. Evaluate marketing pages in a separate design study.
+
 ## Non-negotiable UX qualities
 
 - Visual hierarchy makes the primary energy decision obvious without turning every metric into a card.
