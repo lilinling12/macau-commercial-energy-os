@@ -207,7 +207,7 @@ const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../../.
 
 async function assertRepositorySourcesResolve(sourceRefs: readonly string[]): Promise<void> {
   for (const sourceRef of sourceRefs) {
-    if (!/^(docs|mvp)\\//.test(sourceRef)) {
+    if (!(sourceRef.startsWith('docs/') || sourceRef.startsWith('mvp/'))) {
       continue;
     }
     await access(resolve(repositoryRoot, sourceRef));
