@@ -260,3 +260,34 @@ The referenced ChatGPT share URL `https://chatgpt.com/share/6ac10df8-a30c-83e9-8
 3. Reconcile PostgreSQL-only initial store against PostgreSQL + Timescale current provisional wording, and NATS accepted baseline against later candidate wording.
 4. Either execute the exact pinned G6.9-R2 Step 3D/Step 4 common integration/failure comparison with reproducible evidence or record the approved waiver/replacement and its effect on the Gate. Do not call the stack selected until the relevant authority decision is approved.
 
+
+
+## Live authority and proposal recheck — 2026-10-07
+
+This recheck updates the branch-level status above from live GitHub reads. It records repository state; it does not amend the governing authority.
+
+### Main-branch technical authority
+
+- The fetched main handoff is blob `5b3da3af0a7e267c34a8a743a30cfc89d8fb24ca`; its declared snapshot remains **2026-10-03**. It says G6.9-R2 Step 3A/3B/3C complete and Step 3D pending, and labels C+ a provisional default rather than a measured winner. It also records the existing Node/NestJS Phase B/C implementation as a bootstrap path, not evidence that Candidate B won. [CURRENT.md](https://github.com/lilinling12/macau-commercial-energy-os/blob/main/docs/00-authority/handoff/CURRENT.md)
+- The fetched main decision register blob is `20df79d798b7c39f85778c70b8843fed94cf9428). D-064 keeps Go Energy Core + Temporal Go + Go Edge/Safety, thin Bun/Hono/TypeScript product surface and Python intelligence as the **provisional** default. D-065 requires generated cross-language bindings from versioned OpenAPI, Protobuf or JSON Schema. D-066 separates Temporal workflow state, NATS cloud events, MQTT site/cloud messaging and PostgreSQL business/audit state. D-068 requires a common semantic vertical slice, hard safety/security gates and controlled AI-engineering trials. D-069 suspends only the Java/Spring implementation choice while retaining tariff semantics. [DECISIONS.md](https://github.com/lilinling12/macau-commercial-energy-os/blob/main/docs/00-authority/decisions/DECISIONS.md)
+- This does not silently cancel the accepted G7.6 Step 2 ADR package or G7.8 Step 3 Fastify record. The present trace is: **historical package decision = Node 24/Fastify 5, PostgreSQL initial store without a separate time-series database, NATS/JetStream; later main authority = C+ provisional pending bake-off; current repository code = NestJS bootstrap.** The missing evidence is an explicit, owner-reviewed supersession/deviation record plus the Step 3D/4 experiment or approved waiver. “Later” alone does not settle precedence.
+
+### Current review branches and exact-head checks
+
+| Proposal | Live state at this recheck | What the evidence establishes |
+|---|---|---|
+| [PR #8](https://github.com/lilinling12/macau-commercial-energy-os/pull/8) — roadmap, product/architecture and continuity | Open, unmerged, Ready for review; head `9e3dec0bccf5acb5122f94c688814e7f4e026a1b`; 98 changed files. | Broad review package; its own authority says product, interface, production topology and Gate closure are not approved. Review must remain grouped by subject; successful repository checks cannot replace semantic owner review. |
+| [PR #10](https://github.com/lilinling12/macau-commercial-energy-os/pull/10) — source/load dispatch | Open, unmerged, Draft; exact head `5ca2449f1bd9c0e6d78fd2bed4ea8cc880ba6f23). | Authority Validation and Repository Hygiene both succeeded on that head. Its dispatch workflow, APP-11 boundary and fixtures are proposals; they do not choose the production stack or close G7.9 Step 3. |
+| [PR #11](https://github.com/lilinling12/macau-commercial-energy-os/pull/11) — this technology reconciliation | Open, unmerged, Draft; exact head before this addendum `e161cf1fe4a61509bff8ce191285360f1a9485f5). | Authority Validation and Repository Hygiene succeeded on that exact head. Those checks validate repository structure/hygiene, not the interpretation or an architecture decision. This addendum requires new exact-head checks after commit. |
+| [PR #14](https://github.com/lilinling12/macau-commercial-energy-os/pull/14) — bounded SHADOW optimizer | Open, unmerged, Draft; exact head `9b80adca9243a0ae9a7bd666f0efee1acfc6309a). | Authority, Repository Hygiene, Platform API, Edge Runtime, Optimizer and Contract Fixtures checks succeeded on that head. It is an isolated bounded synthetic optimizer experiment; it is not an integrated dispatch service, site proof, production architecture decision or field-control authorization. |
+
+### Consequences and next architecture work
+
+1. Keep G6.9 Step 3D status **pending/unresolved** in the active handoff until an exact run/decision or approved replacement is linked. Do not treat PR checks or the PR #14 synthetic optimizer tests as Step 3D evidence.
+2. Put the G7.6/G7.8 Fastify decision, main D-064 C+ provisional default and NestJS implementation into one owner-reviewed supersession/deviation record. Include the actual runtime/adapter, migration cost and the result of the chosen common decision rule.
+3. Reconcile the data/event decisions explicitly: G7.6's initial PostgreSQL-only store and NATS/JetStream record versus main's PostgreSQL system-of-record, Timescale provisional wording and D-066 event responsibilities. Separate “database baseline” from “Timescale extension selected”; separate event broker from workflow engine.
+4. Keep G7.9 Step 3 OPEN. PR #10 is a dispatch design proposal and PR #14 is a bounded code experiment; integrate them only after the API/event contract, optimizer boundary, persistence/replay semantics and product acceptance evidence are reviewed.
+5. The product work is more advanced as review material than as an approved product: PR #8 contains the PRD, design, prototypes and detailed-design package; PR #10 adds the dispatch-first workflow; PR #14 adds synthetic behavior. All three remain unmerged. None is user-tested or site-validated merely because it exists as a prototype or passes repository CI.
+6. Next.js remains an unselected, unassessed candidate-fit question from PR #8 outside the G6.9 A/B/C+ set; report (7)'s conditional portal/server-composition discussion is not an Energy OS backend selection.
+
+This dated supplement does not change main, choose between conflicting ADRs, approve the broad PR #8 review bundle, close a Gate, or authorize production implementation/control.
