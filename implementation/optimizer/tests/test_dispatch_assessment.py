@@ -137,7 +137,7 @@ class DispatchAssessmentTests(unittest.TestCase):
         )
         hvac = FlexibleLoadFlow("hvac-1", FlexibleLoadKind.HVAC, D("1"))
         candidate = interval(
-            grid="12", pv="5", load="14",
+            grid="10", pv="5", load="14",
             pv_generation_kw=D("7"), pv_export_kw=D("2"),
             flexible_loads=(hvac,),
             ess_soc_start_kwh=D("4"), ess_soc_end_kwh=D("4"),
