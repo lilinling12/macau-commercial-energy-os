@@ -39,4 +39,3 @@ At widths up to 900 CSS pixels, the preview hides direct plot annotations to add
 ## Suggested next gate
 
 After the owner confirms candidate launch locales and Portuguese variant, commission contextual linguistic/domain review; resolve a glossary; implement reviewed resources in the selected product runtime; test switching/state preservation and numerical/date formats; then repeat the six-stage, dynamic-state, keyboard, screen-reader and responsive review with recorded evidence.
-

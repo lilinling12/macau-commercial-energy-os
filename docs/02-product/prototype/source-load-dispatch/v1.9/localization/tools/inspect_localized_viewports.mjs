@@ -74,4 +74,3 @@ const report = { sampleCount: rows.length, locales, stages, viewports, rows };
 await fs.writeFile(path.join(outDir, "measurements.json"), JSON.stringify(report, null, 2));
 const problems = rows.filter(r => r.pageOverflowX || r.sectionOverflowX || r.pageErrors.length || r.untranslatedSvgText.length);
 console.log(JSON.stringify({ sampleCount: rows.length, problems, screenshots: (await fs.readdir(outDir)).filter(name => name.endsWith(".png")) }, null, 2));
-

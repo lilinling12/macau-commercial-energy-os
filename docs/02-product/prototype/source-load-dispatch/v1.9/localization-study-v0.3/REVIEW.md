@@ -67,4 +67,3 @@ This pass treats Apple HIG layout/accessibility/motion guidance and Material 3 a
 3. Exercise language switching and state preservation, then test keyboard-only navigation, focus order, screen-reader language/announcements, zoom and reduced-motion behavior.
 4. Review dense chart information with representative energy operators; test alternative annotation/legend/table compositions rather than treating the 900px rule as frozen.
 5. Rerun the visual and accessibility review after an approved locale set and product design direction exist.
-
