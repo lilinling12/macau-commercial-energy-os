@@ -62,6 +62,7 @@
     .decision-lead .eyebrow { color: #a5d8cb; }
     .decision-lead h2 { margin: 6px 0 5px; font-size: 21px; letter-spacing: -.025em; }
     .decision-lead p { max-width: 500px; margin: 0; color: #cad9dc; font-size: 13px; }
+    .decision-lead .objective-note { max-width: 560px; margin-top: 10px; padding-left: 10px; border-left: 2px solid #e7c56f; color: #f2e5bf; font-size: 12px; }
     .decision-stat { display: flex; flex-direction: column; justify-content: center; gap: 2px; padding: 16px 18px; border-left: 1px solid var(--line); }
     .decision-stat span { color: var(--muted); font-size: 11px; }
     .decision-stat strong { font-size: clamp(18px, 2vw, 22px); line-height: 1.25; font-variant-numeric: tabular-nums; }
@@ -191,8 +192,8 @@
     <aside class="notice" aria-label="情景聲明"><span class="notice-icon" aria-hidden="true">i</span><div><strong>所有輸入均為專案假設，並非澳門現場或客戶合同資料。</strong> 這是 PR #14 優化器輸出的離線投影示例。此頁不代表真實電價、實際節省、舒適度、設備可控性或設備控制；不計算上網補償、跨樓宇抵扣或完整電費。</div></aside>
 
     <section class="card decision" aria-labelledby="decision-title">
-      <div class="decision-lead"><div class="eyebrow">候選方案 · 僅供研究審閱</div><h2 id="decision-title">能量未減，尖峰反而上升</h2><p>候選方案把可調負荷集中到 11:00，並調整儲能充放電；在這個離散情景中，總購電量相同，但規劃時段內最高電網輸入增加。</p></div>
-      <div class="decision-stat"><span>時段購電量</span><strong id="energy-stat">—</strong><small id="energy-sub">基線 → 候選</small></div>
+      <div class="decision-lead"><div class="eyebrow">候選方案 · 僅供研究審閱</div><h2 id="decision-title">能量未減，尖峰反而上升</h2><p>候選方案把可調負荷集中到 11:00，並調整儲能充放電；在這個離散情景中，總購電量相同，但規劃時段內最高電網輸入增加。</p><p class="objective-note"><strong>搜索目標：</strong>按輸入的逐時購電費率尋找費用最低的候選；此費率屬未驗證假設，結果不代表澳門適用合同下的經濟最優方案。</p></div>
+      <div class="decision-stat"><span>時段購電量</span><strong id="energy-stat">—</strong><small id="energy-sub">基線 → 候選</small><small id="physical-status">物理結果 · 情景範圍</small></div>
       <div class="decision-stat"><span>時段最高電網輸入</span><strong id="peak-stat">—</strong><small>不是帳單計費需量</small></div>
       <div class="decision-stat"><span>電費評估</span><strong class="blocked">未計算</strong><small>合同與費率適用性未核實</small></div>
     </section>
@@ -309,6 +310,7 @@
       const candidatePeak = Math.max(...data.candidate.map(row => num(row.grid_import_kw)));
       document.getElementById("energy-stat").textContent = `${fmt(baseKwh)} → ${fmt(candidateKwh)} kWh`;
       document.getElementById("energy-sub").textContent = baseKwh === candidateKwh ? "此情景總量相同" : `情景變化 ${fmt(candidateKwh - baseKwh, 1)} kWh`;
+      document.getElementById("physical-status").textContent = data.physical.status === "SCENARIO_ONLY" ? "物理結果 · 僅限合成情景" : `物理狀態 · ${escapeText(data.physical.status)}`;
       document.getElementById("peak-stat").textContent = `${fmt(basePeak)} → ${fmt(candidatePeak)} kW`;
       renderChart(data); renderRows(data); renderClaims(data); renderAssumptions(data);
       document.getElementById("projection").hidden = false;
