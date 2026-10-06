@@ -102,3 +102,38 @@ A prototype with a few translated navigation labels, a selector without translat
 ## v2.3 exact-source locale inventory — 2026-10-05
 
 The [v2.3 locale inventory](prototype/source-load-dispatch/v2.3/LOCALE-COVERAGE.md) was generated from exact branch blob `6f199ddaee1f2a416b9925ce310a073b0455b054` using a v2.3-adapted version of the source-pinned extractor. It found 520 static text nodes, 445 unique text values, 27 non-empty text attributes, 94 dynamic Chinese string candidates, and 489 contextual catalog units. v2.3 remains `zh-Hant` only; Portuguese and English have zero translated v2.3 units. English status enums are technical codes, not evidence of English UI coverage. This does not approve a locale set or claim runtime multilingual support.
+
+
+## 9. Reconciliation of the v1.9 full-flow and v2.3 claim-state localization studies — 2026-10-07
+
+The two prototype lines answer different questions and must not be combined into a claim of complete product localization:
+
+- **v1.9 six-stage flow:** source HTML blob b2ebcaf4cfd59d0825fb105ed0d320808776b902; its v0.4 draft catalog contains 346 contextual units in each of English and Portuguese, with zero catalog validation errors. The paired browser study records 90 geometry/render samples (3 candidate locales × 6 stages × 5 viewport sizes), 0 measured page or active-stage overflow, 0 page errors, 13 contained horizontal-scroll regions and 18 sampled screenshots. At widths up to 900 CSS px, plot annotations are hidden while axes, series, legend and data alternatives remain. The report explicitly labels the translations AI-assisted and unapproved.
+- **v2.3 claim-state page:** the existing inventory remains tied to v2.3 source blob 6f199ddaee1f2a416b9925ce310a073b0455b054: 489 contextual source units, zh-Hant only, and zero Portuguese/English translations for that version. English status codes are not translated UI. Do not transfer v1.9's catalog counts or rendered matrix to v2.3.
+- **v2.9 result-projection page:** a separate review records 15 viewport/locale renders and page-width containment for one synthetic result panel. Its candidate-language content on that page is not proof of a shared runtime localization system, translated full workflow, persistence, or approved Macau Portuguese.
+
+### Evidence interpretation
+
+The v1.9 study materially improves evidence over the earlier 337-unit catalog by adding nine contextual SVG chart-text units after screenshots exposed untranslated annotations. Its 346/346 English and Portuguese counts establish catalog coverage for that pinned six-stage source only. The render matrix establishes limited geometry and browser-error observations for that generated preview. It does not establish translation accuracy, operator comprehension, complete dynamic/error-state coverage, language-switch behavior, date/number formatting, screen-reader language or WCAG conformance.
+
+The updated evidence therefore supports this status:
+
+| Scope | Evidence-backed status |
+|---|---|
+| v1.9 static six-stage source catalog | en/pt draft catalog coverage recorded as 346/346 each; human/domain review pending |
+| v1.9 generated preview | 90-case render/geometry smoke evidence recorded; selector, persistence, formatting, assistive technology and user validation not established |
+| v2.3 claim-state prototype | zh-Hant source only according to its pinned inventory; no en/pt translations for that version |
+| v2.9 result-projection prototype | one-page three-locale rendering evidence only; not end-to-end localization |
+| Product launch locale policy | unresolved; zh-Hant, Portuguese variant and en remain owner/product decisions |
+| Production application localization | not demonstrated by these static prototypes |
+
+### Source records
+
+- prototype/source-load-dispatch/v1.9/localization/LOCALIZATION-COVERAGE-REPORT-v0.4.md, blob 65466ed26e3a81f00ba7730848ef8cc391cc60fc.
+- prototype/source-load-dispatch/v1.9/localization-study-v0.3/REVIEW.md, blob 09be29f9dc3a5d7062290d5b1c15d45b9c40ee55.
+- prototype/source-load-dispatch/v2.3/LOCALE-COVERAGE.md, blob b11a75524c5867b36a726db0997f9899d4273a4d (verify against current branch before reusing this fingerprint).
+- prototype/source-load-dispatch/v2.9/REVIEW.md, blob 3d5b545485a532b4784582f2fff1c4d7d48b9894.
+
+### Next localization work
+
+Keep the existing locale-neutral requirements and test plan. Before calling any locale supported, choose the pilot locale set and Portuguese variant; commission qualified terminology review; connect reviewed resources to the actual product runtime; exercise locale switching with state preservation and Macau number/time formatting; and review all dynamic states with keyboard and assistive technology. Repeat responsive review on the integrated workflow, including chart alternatives and long translated content. Until then, describe these artifacts as separate localization studies, not product multilingual support.
