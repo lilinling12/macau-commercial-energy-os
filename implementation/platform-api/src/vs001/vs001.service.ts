@@ -82,7 +82,7 @@ export class Vs001Service {
         status: 'UNKNOWN',
         subject: 'VS-001 Energy Graph resolution failed closed',
         recordedAt: evidenceTime(event),
-        sourceRefs: ['mvp/vertical-slices/VS-001-energy-intelligence-loop.md'],
+        sourceRefs: ['docs/05-mvp/vertical-slices/VS-001-energy-intelligence-loop.md'],
         notes: 'No settlement context was resolved for this telemetry point.',
       };
       await this.evidenceRepository.save(evidence);
@@ -102,7 +102,7 @@ export class Vs001Service {
         status: 'UNKNOWN',
         subject: 'VS-001 tenant/site boundary mismatch',
         recordedAt: evidenceTime(event),
-        sourceRefs: ['docs/engineering/module-boundaries/README.md'],
+        sourceRefs: ['docs/04-engineering/module-boundaries/README.md'],
         notes: 'Resolved context did not match telemetry tenant/site identity.',
       };
       await this.evidenceRepository.save(evidence);
@@ -124,8 +124,8 @@ export class Vs001Service {
         subject: 'VS-001 tariff resolution failed closed',
         recordedAt: evidenceTime(event),
         sourceRefs: [
-          'docs/decisions/OPEN-QUESTIONS.md',
-          'docs/architecture/tariff-engine/README.md',
+          'docs/00-authority/decisions/OPEN-QUESTIONS.md',
+          'docs/00-authority/decisions/DECISIONS.md',
         ],
         notes: `${tariff.code}: ${tariff.message}`,
       };
@@ -148,7 +148,7 @@ export class Vs001Service {
       sourceRefs: [
         tariff.cost.tariffVersionRef,
         tariff.cost.calculationRef,
-        'mvp/vertical-slices/VS-001-energy-intelligence-loop.md',
+        'docs/05-mvp/vertical-slices/VS-001-energy-intelligence-loop.md',
       ],
       derivation: 'Tariff cost returned by the authoritative tariff-resolution port.',
     };
