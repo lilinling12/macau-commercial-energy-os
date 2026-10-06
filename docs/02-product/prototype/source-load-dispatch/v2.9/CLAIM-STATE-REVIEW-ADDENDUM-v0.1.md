@@ -40,3 +40,15 @@ Reviewed the branch artifact at commit `24171f4b33d234ee5776575b77bd884ef9563143
 - The schedule/chart stayed the pinned synthetic scenario while only the claim-list presentation state changed.
 
 The state picker is a native radio group with a legend. This browser pass did not include a full keyboard-only sequence, screen reader, mobile viewport after this change, formal contrast audit, translation review, operator/user task test, Macau site evidence or WCAG conformance. Portuguese remains draft. The prior v2.9 responsive review predates this new panel and cannot substitute for narrow-screen validation of this addition.
+
+## Semantic separation correction — 2026-10-07
+
+The G7.9 T1 scoped-evidence matrix defines `PARTIAL` as an assessment/coverage state; claim disposition remains `ALLOWED` or `WITHHELD`. The first UI example attached the PARTIAL label directly to the energy-component row, which could imply a third claim disposition. Corrected the rendering:
+- the economic evaluation reports `PARTIAL` and the exact sample ranges 09:00–13:00 covered (4/6), 13:00–15:00 uncovered (2/6);
+- the energy-component claim is `ALLOWED` only within the covered intervals;
+- full-horizon total, savings and demand charge remain separately `WITHHELD`;
+- no monetary amount is shown, and the sample remains separate from the actual blocked v2.9 projection.
+
+Added `G7.9-T1-APP11-CLAIM-TO-UI-MAPPING-v0.1.md` as a schema-neutral proposal connecting these UI semantics to the scoped evidence matrix and future APP-11 view model. It does not approve a wire schema or close G7.9.
+
+The static verifier now checks the separation and coverage language. Browser recheck of this corrected copy is pending.
