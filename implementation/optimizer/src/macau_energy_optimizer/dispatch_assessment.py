@@ -92,8 +92,8 @@ class ScheduleInterval:
     start: datetime
     end: datetime
     grid_import_kw: Decimal
-    pv_generation_kw: Decimal
-    pv_used_kw: Decimal
+    pv_generation_kw: Decimal  # Prototype semantic: available AC output before curtailment.
+    pv_used_kw: Decimal  # PV supplied to the local site bus; excludes grid export.
     pv_export_kw: Decimal
     pv_curtailed_kw: Decimal
     ess_charge_kw: Decimal
@@ -670,6 +670,9 @@ def _validate_schedule(schedule: Schedule, request: AssessmentRequest, *, is_can
             raise _Blocked("Power values must be finite, non-negative Decimal kW values.")
         if row.duration_hours <= 0:
             raise _Blocked("Each interval must have positive duration.")
+        # In this prototype pv_generation_kw is available AC output before
+        # curtailment, so it partitions into local use, export, and curtailed
+        # availability. Actual PV output is local use plus export.
         _check_equal(
             row.pv_generation_kw,
             row.pv_used_kw + row.pv_export_kw + row.pv_curtailed_kw,
