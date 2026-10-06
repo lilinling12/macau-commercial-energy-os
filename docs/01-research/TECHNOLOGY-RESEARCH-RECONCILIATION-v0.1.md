@@ -291,3 +291,61 @@ This recheck updates the branch-level status above from live GitHub reads. It re
 6. Next.js remains an unselected, unassessed candidate-fit question from PR #8 outside the G6.9 A/B/C+ set; report (7)'s conditional portal/server-composition discussion is not an Energy OS backend selection.
 
 This dated supplement does not change main, choose between conflicting ADRs, approve the broad PR #8 review bundle, close a Gate, or authorize production implementation/control.
+
+
+## Direct G6.9 bake-off source verification — 2026-10-07
+
+This section records a direct read of the two user-supplied bake-off archives and the report (6)/(7) source files on 2026-10-07. It supplements, but does not replace, the current-main Authority or the older gate packages.
+
+### Source fingerprints
+
+| Source | SHA-256 | Source status |
+|---|---|---|
+| `D:\Downloads\deep-research-report (6).md` | `1E0118807DBFDCA3D13AE1949383B4CBFEFB80DB0CD867D13BD6C8DC0D744495` | Dated 2026-10-04 in this user's download set; recommends C+ before the bake-off, and specifies Node 24 as the compatibility control. |
+| `D:\Downloads\deep-research-report (7).md` | `5DB518CBE85402E0A8AD2682B9E52A7782D17748EC95C60F43B4BB748B6CAC82` | File states research date 2026-10-02; recommends React SPA + Node LTS/NestJS Control Plane + Go data/Edge + Python intelligence. |
+| G6.9-R2 bake-off `macau-energy-os-stack-bakeoff-v0.2.0.zip` | `189377F4D7757532B310E82DB729FD22A580147C3AAC7D5D0059FA63736A8389` | Executable experiment foundation and Step 3B protocol/Edge conformance. It explicitly says the pack does not declare a winner until the experiment is executed. |
+| G6.9-R2 bake-off `macau-energy-os-stack-bakeoff-v0.3.0.zip` | `B8825E9E93CE3AB612DA71701A0712CF9A94C37C3861724A1716D01B47E6767B` | Step 3C semantic vertical slice complete for available runtimes; its own README and result explicitly defer framework-native Step 3D. |
+
+### What Step 3B/3C actually establishes
+
+The v0.2 pack's Step 3B result says the same signed-command conformance corpus ran against Node and Go. Bun source was prepared against the same semantics but **not executed because Bun was unavailable**. The HMAC is labeled a test fixture only, not a production device-key algorithm.
+
+The v0.3 `spec/STEP-3C-RESULT.md` identifies the Step 3C environment as Node `22.16.0`, Go `1.23.2`, Python `3.13.5`; Bun and Docker were unavailable. This version tuple belongs only to that local semantic/conformance run. It is **not** the production baseline: report (6) treats Node 24 LTS as the Node compatibility candidate, G7.6 Step 2 freezes Node 24 + Fastify 5 as its historical accepted MVP record, and current main's platform package declares Node `24.21.x`.
+
+Step 3C's synthetic path exercised tenant/site binding, idempotent persistence, fixed UTC 15-minute aggregation, a deterministic Python optimizer call, proposal identity, signed command envelope, Go Edge verification/simulated write, acknowledgement and append-only semantic audit. It found and fixed two cross-runtime semantic defects: trace IDs contaminating proposal identity, and quality filtering moving the fixed aggregation boundary. The result establishes the recorded Node/Go semantic equality and replay scenario **only**.
+
+The same Step 3C result explicitly says it did **not** run MQTT, PostgreSQL/Timescale, Temporal, Hono/Effect or NestJS/Fastify in that runner. The common integration infrastructure in the pack is a planned/pinned prerequisite, not executed Step 3C evidence. The measured local sub-second shell times are explicitly not valid framework benchmarks. Therefore the trace remains:
+
+- **3A/3B/3C:** package-reported setup/conformance/semantic milestones, bounded by their availability and test scope.
+- **3D:** pending pinned framework-native A/B/C+ integration, real common infrastructure, failure/chaos/soak work and comparative measurements.
+- **Step 4 / stack selection:** not evidenced by the supplied archive results; no stack winner is established by current checks, the PR #14 synthetic optimizer, or the existing NestJS scaffold.
+
+### Candidate pins and decision rule are still prospective
+
+The v0.3 `STEP-3C-RESULT.md` names the proposed Step 3D matrix:
+
+- **A:** Bun 1.4.2 + Hono + Effect 4 API; keep the Temporal TypeScript Worker on Node 24.
+- **B:** Node 24 LTS + NestJS/Fastify + Temporal TypeScript Worker.
+- **C+:** Go 1.27 Energy Core + Temporal Go Worker; Bun/Hono thin BFF.
+
+Each must use the same PostgreSQL/Timescale, Temporal, NATS JetStream, MQTT 5, OpenTelemetry and Go Edge environment. The pack requires common acceptance/failure behavior, comparative install/build/test/runtime and AI-coding trials; its 120-run plan and performance/quality thresholds are not run evidence. C+ is still explicitly a **provisional default**, not a declared winner.
+
+### Next.js source finding
+
+In report (7), the operator console recommendation is React + TypeScript as an authenticated SPA. The report says Next.js may be used where public/customer portal, SSR or server-side UI composition materially helps; it also mentions version-matched Next.js agent documentation as a general AI-coding aid. These are conditional/productivity observations, not an Energy OS backend decision. Report (6) does not include Next.js in C+, and the G6.9 A/B/C+ candidate matrix does not benchmark it. The current main tree also has no operator web app or Next.js package. Thus Next.js is **not selected** by these sources.
+
+### Technology-state interpretation
+
+| Item | Evidence-based state at this recheck |
+|---|---|
+| Node 22.16 | **Executed in Step 3C semantic run only**; not selected as production runtime. |
+| Node 24 | **Historical G7.6 accepted baseline** and compatibility/benchmark control; current main pins Node 24.21.x. It is not thereby a G6.9 measured winner. |
+| Fastify 5 | **Historical G7.6/G7.8 accepted record**; G7.8 Step 3 says “Start with Fastify-based architecture.” |
+| NestJS / Express adapter | **Current main implementation fact and Candidate B path**, not benchmark win; this differs from the Fastify record and needs an explicit owner-reviewed supersession/deviation record. |
+| Go Energy Core / Temporal Go | **Report (6)/C+ and G6.9 challenger/provisional candidate**, pending Step 3D execution and authority review. |
+| PostgreSQL | **Historical accepted system-of-record direction**; exact Timescale extension/operational boundary must be kept distinct from a separate high-volume telemetry database decision. |
+| NATS JetStream / MQTT 5 / Temporal | **Architecture and common-bake-off candidates with different roles** (cloud events, site/cloud transport, durable workflow); their presence in an environment manifest does not mean Step 3C ran them or that every role is approved. |
+| Python | **Shared intelligence/optimizer domain and current code skeleton**; the Step 3C deterministic call is semantic evidence, not a validated forecasting/optimization service. |
+| Wasm/WASI, Deno sandbox | **Future/contained security direction in research**; no production plugin subsystem is implemented or selected by the G6.9 run evidence. |
+
+The appropriate next step is to retain G6.9-R2 Step 3D as **pending** and make the G7.8 Fastify → current NestJS/Express deviation explicit in one decision record. If the full Step 3D benchmark is not feasible or no longer the right project step, the owner must approve a scoped waiver/re-evaluation criterion; do not label an unexecuted benchmark complete or silently treat C+ as final.
