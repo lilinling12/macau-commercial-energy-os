@@ -64,3 +64,9 @@ Reviewed the corrected branch copy at `e9429ff25ae4f56e65e14a44587f0bdff0207043`
 - The previous Portuguese draft browser pass exercised the prior copy; this semantic correction has not yet been browser-reviewed in Portuguese.
 
 The browser evidence covers this desktop viewport and the state/locale actions described above. Narrow-screen rendering after this change, Portuguese review after semantic correction, complete keyboard coverage, screen-reader review, contrast measurement, operator validation, WCAG conformance, site evidence and production API binding remain unverified.
+
+### Portuguese draft and output-isolation follow-up — 2026-10-07
+
+At the same local browser viewport (approximately 1265 × 705 CSS pixels), the corrected partial example was reviewed in the Portuguese draft. The copy kept the economic evaluation `PARTIAL`, the 4/6 and 2/6 interval scopes, the component claim `ALLOWED` only in covered intervals, and separate withheld full-horizon bill/savings/demand claims. No amount appeared.
+
+Switching back to “Resultado da projecção actual” restored the current synthetic fixture claims, including unverified account/contract/rate and withheld economics. The schedule and projection values stayed unchanged. Portuguese remains unapproved draft copy; this interaction check is not translation-quality review or localization approval.
