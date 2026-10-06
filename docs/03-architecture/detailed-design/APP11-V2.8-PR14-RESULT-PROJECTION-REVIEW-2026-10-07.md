@@ -78,3 +78,41 @@ The v2.9 page fetches a local JSON fixture and renders that fixture; it has no o
 The evidence moves the optimizer from prose-only design into a bounded, CI-exercised research experiment, but the gate remains open. The next implementation slice still needs an approved APP-11 ownership and contract decision; immutable/authenticated input and evidence references; durable assessment lifecycle and tenant/site authorization; a canonical output DTO mapping physical/economic/claim/service/review states; and a UI client bound to that contract. Add adapter acceptance cases against the live PR #14 head, then inspect the runtime boundary and failure/recovery behavior. No device-command path belongs in this SHADOW slice.
 
 The current green PR #14 checks prove their bounded job coverage at that exact head. They do not validate G7.9 gate completion, product approval, production architecture, bill-grade settlement, operator acceptance, or pilot readiness.
+
+
+## Exact-head follow-up — 2026-10-07, PR #14 head deed7683
+
+**Status:** Source and check revalidation on the current draft heads. This updates the older cross-review snapshot; it does not approve the experiment or close G7.9 Step 3.
+
+### Pinned state
+
+- PR #14 is open, Draft and unmerged at `deed7683a8b0ce3a811966ab8fc3b030695debad`.
+- Its assessment source is blob `534ae269a7949601bd4504271e0076369807a68f`; optimizer source is blob `2d3256801f0ddce6b849c648c160f5a32fd90a27`; fixture generator is blob `69c205983d65650ce4fc6dd8ce70af91fd0ab971`.
+- PR #10 is open, Draft and unmerged at `8d3bb030c59d20f62dec46249f5177e2b87b5592`.
+- The v2.9 projection fixture blob is `0e746cbe54532e58221529f38c7a2583d1787c4b`. Its embedded source commit is the earlier PR #14 head `9b80adca9243a0ae9a7bd666f0efee1acfc6309a`; its optimizer and assessor blob pins **match** those modules at current PR #14 head. The fixture does not pin the current generator blob, so exact current-head regeneration lineage is still incomplete.
+- PR #14's exact-head Authority Validation run #1498, Repository Hygiene run #1497, and Runtime Bootstrap run #486 all completed successfully on this head. These establish only the configured repository/runtime checks.
+
+### Corrections to the earlier cross-review
+
+The earlier 2026-10-05 review was based on an older assessor revision. The current source now has:
+
+- per-claim readiness records and separate withholding for several resource-specific claims;
+- resource-scoped unqualified reasons for ESS, changed flexible loads, the grid-import guard and PV curtailment;
+- exact-interval economic components, partially covered interval reporting and explicit uncovered-rate reasons.
+
+Those capabilities make the earlier statement that the evaluator “returns one grid-import energy component or withholds all monetary output” too broad for the current revision: it can calculate the component over exactly covered intervals and mark that economic result PARTIAL. Historical assessment text should remain as a dated snapshot, but current-state summaries should use this addendum.
+
+### Remaining code and evidence limits
+
+- Core `physical_evidence` is still request-wide: any UNKNOWN or STALE core reference blocks the whole physical assessment. Evidence references remain caller-supplied; the module does not authenticate tenant/site authority or resolve point-to-meter mappings.
+- An effective-rate boundary inside one schedule interval is withheld because there is no finer-grained energy quantity for allocation. Only exact interval matches are priced.
+- Verified account/meter, contract and tariff applicability remain prerequisites for economic output. The optimizer still searches its declared discrete action space against supplied import rates; a synthetic/assumption-tagged objective is not Macau economics.
+- Comfort/service constraints, demand/Pu settlement, export compensation, full-bill reconstruction, verified equipment capability, uncertainty, realized savings and device control remain outside this experiment.
+- The v2.9 result page remains a static fixture projection; matching optimizer/assessor source blobs do not create an API adapter, persistence, authenticated evidence resolution or an integrated operator workflow.
+
+### Next evidence-bearing slice
+
+1. Choose and review the scope of core evidence references (request, asset, interval or claim) before changing behavior; add cases proving that independent unaffected claims remain available without weakening required physical-balance evidence.
+2. Record the fixture-generator blob and exact regeneration command/output in its source manifest; regenerate from the current PR #14 head and keep the PR #10 projection validator checking the pinned source lineage.
+3. Preserve economic interval coverage and withheld-boundary semantics in UI/API acceptance examples.
+4. Keep T0 authority, contract and owner decisions separate from this experiment. PR #14 remains research code; PR #10 remains a product/design proposal; neither closes G7.9 Step 3 or establishes pilot readiness.
