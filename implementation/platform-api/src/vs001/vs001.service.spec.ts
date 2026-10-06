@@ -1,5 +1,8 @@
 import assert from 'node:assert/strict';
+import { access } from 'node:fs/promises';
 import test from 'node:test';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import type { TelemetryEventV1 } from './contracts.js';
 import type {
   EnergyGraphContext,
@@ -197,4 +200,62 @@ test('VS-001 evidence identifier is deterministic for identical replay input', a
   const b = await second.evaluate(EVENT);
 
   assert.equal(a.evidence.evidenceId, b.evidence.evidenceId);
+});
+
+
+const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../../../../');
+
+async function assertRepositorySourcesResolve(sourceRefs: readonly string[]): Promise<void> {
+  for (const sourceRef of sourceRefs) {
+    if (!/^(docs|mvp)\\//.test(sourceRef)) {
+      continue;
+    }
+    await access(resolve(repositoryRoot, sourceRef));
+  }
+}
+
+test('VS-001 emitted documentation source references resolve on the repository tree', async () => {
+  const evidence = new MemoryEvidence();
+  const optimizer = new StaticOptimizer();
+
+  const unresolvedGraph = await new Vs001Service(
+    new StaticGraph(null),
+    new StaticTariff(),
+    optimizer,
+    evidence,
+  ).evaluate(EVENT);
+  assert.equal(unresolvedGraph.kind, 'FAIL_CLOSED');
+  await assertRepositorySourcesResolve(unresolvedGraph.evidence.sourceRefs);
+
+  const mismatchedGraph = await new Vs001Service(
+    new StaticGraph({ ...CONTEXT, siteId: 'site-other' }),
+    new StaticTariff(),
+    optimizer,
+    evidence,
+  ).evaluate(EVENT);
+  assert.equal(mismatchedGraph.kind, 'FAIL_CLOSED');
+  await assertRepositorySourcesResolve(mismatchedGraph.evidence.sourceRefs);
+
+  const unresolvedTariff = await new Vs001Service(
+    new StaticGraph(),
+    new StaticTariff({
+      kind: 'UNRESOLVED',
+      code: 'U-001',
+      message: 'CEM Pu settlement interval is not verified.',
+      evidenceStatus: 'UNKNOWN',
+    }),
+    optimizer,
+    evidence,
+  ).evaluate(EVENT);
+  assert.equal(unresolvedTariff.kind, 'FAIL_CLOSED');
+  await assertRepositorySourcesResolve(unresolvedTariff.evidence.sourceRefs);
+
+  const completed = await new Vs001Service(
+    new StaticGraph(),
+    new StaticTariff(),
+    optimizer,
+    evidence,
+  ).evaluate(EVENT);
+  assert.equal(completed.kind, 'COMPLETED');
+  await assertRepositorySourcesResolve(completed.evidence.sourceRefs);
 });
