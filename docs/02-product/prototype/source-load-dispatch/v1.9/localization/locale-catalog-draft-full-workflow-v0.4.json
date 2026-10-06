@@ -1,0 +1,4935 @@
+{
+  "catalogVersion": "0.4.0-full-workflow-svg-coverage-draft",
+  "status": "AI-assisted complete-coverage draft including static chart SVG text; human Macau Portuguese and energy-domain review required; not runtime localization or approved locale policy.",
+  "defaultReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW",
+  "sourceLocale": "zh-Hant",
+  "source": {
+    "path": "docs/02-product/prototype/source-load-dispatch/v1.9/index.html",
+    "blob": "b2ebcaf4cfd59d0825fb105ed0d320808776b902",
+    "sourceLocale": "zh-Hant"
+  },
+  "candidateLocales": [
+    "zh-Hant",
+    "pt",
+    "en"
+  ],
+  "localeApproval": "UNRESOLVED",
+  "extraction": {
+    "method": "Python html.parser text/attribute extraction plus inline-script literal scan",
+    "textNodes": 429,
+    "uniqueTextValues": 368,
+    "uniqueChineseTextValues": 292,
+    "nonEmptyTextAttributes": 23,
+    "uniqueChineseAttributeValues": 21,
+    "dynamicChineseLiteralValues": 21,
+    "catalogUnitsIncludingContextAndChannels": 346,
+    "limitations": [
+      "Source text is not translated.",
+      "Dynamic string literals can be sentence fragments and need manual key/context review.",
+      "Static source counts exclude runtime-created pager nodes; their source literals are in dynamic-script entries.",
+      "Repeated text in distinct stages/channels may intentionally have separate keys.",
+      "This candidate catalog is not wired into the prototype and does not constitute multilingual support.",
+      "This draft batch covers shell, evidence-check, site-model, and dispatchComparison units only. Constraint-analysis, shadow-review, outcome-replay, and dynamic interaction messages remain untranslated; do not use this catalog as runtime localization.",
+      "Static SVG text is inventoried separately as svg-text units because the original generic extractor intentionally skipped SVG subtrees; review every visible chart annotation in rendered context."
+    ]
+  },
+  "messages": [
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.0943908e8c",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "項目",
+      "translations": {
+        "pt": "Item",
+        "en": "Item"
+      },
+      "locations": [
+        249
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.0c9bd6277c",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "所需證據",
+      "translations": {
+        "pt": "Evidência necessária",
+        "en": "Required evidence"
+      },
+      "locations": [
+        249
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.0e3c2968bc",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "下一步：審查 SHADOW 建議 ↓",
+      "translations": {
+        "pt": "Seguinte: rever a recomendação SHADOW ↓",
+        "en": "Next: review the SHADOW recommendation ↓"
+      },
+      "locations": [
+        259
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.0f38b68739",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "4 / 6 時段具備精確且已核實的費率",
+      "translations": {
+        "pt": "4 de 6 intervalos têm tarifas precisas e verificadas;",
+        "en": "4 of 6 intervals have precise, verified tariffs;"
+      },
+      "locations": [
+        259
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.1e247ae803",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "EV 充電電費歸屬",
+      "translations": {
+        "pt": "Imputação do custo de carregamento de VE",
+        "en": "EV charging cost allocation"
+      },
+      "locations": [
+        254
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.217c9174a4",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "未涵蓋",
+      "translations": {
+        "pt": "Não abrangido",
+        "en": "Not covered"
+      },
+      "locations": [
+        259
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.22d49a1ced",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "充電樁服務表計、帳戶、有效合同/電價及對應賬單",
+      "translations": {
+        "pt": "Contador do serviço de carregamento, conta, contrato/tarifa em vigor e fatura correspondente",
+        "en": "Charger service meter, account, effective contract/tariff, and matching bill"
+      },
+      "locations": [
+        254
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.23066572fc",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "合成積分 · 未驗證",
+      "translations": {
+        "pt": "Pontuação sintética · não verificada",
+        "en": "Synthetic score · unverified"
+      },
+      "locations": [
+        253
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.23cc36863e",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "適用電錶配置、合同與匹配賬單",
+      "translations": {
+        "pt": "Configuração do contador aplicável, contrato e fatura correspondente",
+        "en": "Applicable meter configuration, contract, and matched bill"
+      },
+      "locations": [
+        251
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.246409376b",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "當期已觀測最大值、完整賬期邊界及後續期內資料",
+      "translations": {
+        "pt": "Máximo observado até à data, limites do período de faturação completo e dados do período seguinte",
+        "en": "Observed maximum to date, complete billing-period boundary, and subsequent-period data"
+      },
+      "locations": [
+        251
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.25860c501c",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "不得假設適用樓宇電價或成本分攤規則",
+      "translations": {
+        "pt": "Não presumir a tarifa aplicável ao edifício nem as regras de imputação de custos",
+        "en": "Do not assume the building's applicable tariff or cost-allocation rules"
+      },
+      "locations": [
+        254
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.286fbe0bc6",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "Pu 平均計量窗口",
+      "translations": {
+        "pt": "Intervalo de média de Pu",
+        "en": "Pu averaging interval"
+      },
+      "locations": [
+        251
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.2d4a3f86d8",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "不能把展示窗口功率換算成 Pu",
+      "translations": {
+        "pt": "A potência na janela apresentada não deve ser tratada como Pu",
+        "en": "Display-window power must not be treated as Pu"
+      },
+      "locations": [
+        251
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.33cc05f28d",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "本原型沒有解出一個最佳方案，也沒有驗證 HVAC 舒適或 ESS 可行性。",
+      "translations": {
+        "pt": "Este protótipo não calculou um plano ótimo nem verificou o conforto do AVAC ou a viabilidade do ESS.",
+        "en": "This prototype has not solved an optimal plan or verified HVAC comfort or ESS feasibility."
+      },
+      "locations": [
+        257
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.35175fbf84",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "已涵蓋",
+      "translations": {
+        "pt": "Abrangido",
+        "en": "Covered"
+      },
+      "locations": [
+        259
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.359de44d2d",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "設備規格、SOC 時序及安全保留",
+      "translations": {
+        "pt": "Potências nominais dos equipamentos, trajetória do SOC e reserva de segurança",
+        "en": "Equipment ratings, SOC trajectory, and safety reserve"
+      },
+      "locations": [
+        253
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.40b0244b67",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "電價/有效期/帳戶關聯",
+      "translations": {
+        "pt": "Tarifa / período de vigência / associação à conta",
+        "en": "Tariff / effective period / account association"
+      },
+      "locations": [
+        250
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.469adf8de6",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "參數一致性可檢查；不代表現場可行排程",
+      "translations": {
+        "pt": "É possível verificar a consistência dos parâmetros; isso não comprova que o horário seja executável no local",
+        "en": "Parameter consistency can be checked; this does not establish an operable site schedule"
+      },
+      "locations": [
+        253
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.46f275b08e",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "客戶合同、電價及表計帳戶映射",
+      "translations": {
+        "pt": "Contrato do cliente, tarifa e associação do contador à conta",
+        "en": "Customer contract, tariff, and meter-to-account mapping"
+      },
+      "locations": [
+        250
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.4d8c1c5b42",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "未知",
+      "translations": {
+        "pt": "Desconhecido",
+        "en": "Unknown"
+      },
+      "locations": [
+        251
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.50d2bb615a",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "完整計費規則、Pu窗口和當期賬期證據",
+      "translations": {
+        "pt": "Regras completas de faturação, intervalo de Pu e evidência do período de faturação",
+        "en": "Complete billing rules, Pu interval, and evidence for the billing period"
+      },
+      "locations": [
+        255
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.5a1ab1da22",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "已批准的運行界限及站點數據",
+      "translations": {
+        "pt": "Limites operacionais aprovados e dados do local",
+        "en": "Approved operating limits and site data"
+      },
+      "locations": [
+        252
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.5a4ddc887e",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "帳單級成本 BLOCKED",
+      "translations": {
+        "pt": "Custo ao nível da fatura BLOQUEADO",
+        "en": "Bill-level cost BLOCKED"
+      },
+      "locations": [
+        250
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.65c83dfb47",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "示意",
+      "translations": {
+        "pt": "Ilustrativo",
+        "en": "Illustrative"
+      },
+      "locations": [
+        252
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.6a71a42e6e",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "；另 2 個時段因缺少有效費率而不計入。此示例不含電量、費率或金額，因此不顯示總額。",
+      "translations": {
+        "pt": "2 outros intervalos são excluídos por não existir uma tarifa válida. Este exemplo não contém energia, tarifa ou montante monetário, pelo que não apresenta um total.",
+        "en": "2 other intervals are excluded because no valid tariff is available. This example contains no energy, tariff, or monetary amount, so no total is shown."
+      },
+      "locations": [
+        259
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.6cf9d4b3e7",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "HVAC 舒適/服務界限",
+      "translations": {
+        "pt": "Limites de conforto / serviço do AVAC",
+        "en": "HVAC comfort / service limits"
+      },
+      "locations": [
+        252
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.756762e293",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "未提供",
+      "translations": {
+        "pt": "Não fornecido",
+        "en": "Not provided"
+      },
+      "locations": [
+        250,
+        251
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.7d379fe28e",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "物理情境增加 25 kW；不代表 Pu",
+      "translations": {
+        "pt": "O cenário físico aumenta 25 kW; isto não corresponde a Pu",
+        "en": "Physical scenario increases by 25 kW; this is not Pu"
+      },
+      "locations": [
+        255
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.803cf6fa19",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "候選可行性未驗證",
+      "translations": {
+        "pt": "Viabilidade da alternativa não verificada",
+        "en": "Candidate feasibility unverified"
+      },
+      "locations": [
+        252
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.872f4852ac",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "不能判斷候選是否改變本期需求費",
+      "translations": {
+        "pt": "Não é possível determinar se a alternativa altera a componente de potência deste período",
+        "en": "Cannot determine whether the candidate changes this period's demand charge"
+      },
+      "locations": [
+        251
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.94f6fe9111",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "ESS SOC/效率/損耗",
+      "translations": {
+        "pt": "SOC / eficiência / perdas do ESS",
+        "en": "ESS SOC / efficiency / losses"
+      },
+      "locations": [
+        253
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.95b51ad6fa",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "未知限制不能視為零、無限或寬鬆值。候選結果需標出阻擋項、適用時段、來源、版本和審核狀態。",
+      "translations": {
+        "pt": "Um limite desconhecido não deve ser tratado como zero, ilimitado ou permissivo. Os resultados da alternativa devem identificar impedimentos, intervalos aplicáveis, fonte, versão e estado de revisão.",
+        "en": "An unknown limit must not be treated as zero, unlimited, or permissive. Candidate results must identify blockers, applicable intervals, source, version, and review status."
+      },
+      "locations": [
+        257
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.9613751d3e",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "04 · 成本、約束與證據",
+      "translations": {
+        "pt": "04 · Custos, restrições e evidências",
+        "en": "04 · Cost, constraints, and evidence"
+      },
+      "locations": [
+        247
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.98c3614dd5",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "僅精確對應的時段可計價",
+      "translations": {
+        "pt": "Só podem ser valorizados os intervalos correspondentes com precisão",
+        "en": "Only precisely matched intervals may be priced"
+      },
+      "locations": [
+        259
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.a02c315c7c",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "列明原因；不以零代替未知",
+      "translations": {
+        "pt": "Indicar o motivo; não substituir desconhecido por zero",
+        "en": "State the reason; do not replace unknown with zero"
+      },
+      "locations": [
+        259
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.a273293ba6",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "目前狀態",
+      "translations": {
+        "pt": "Estado atual",
+        "en": "Current status"
+      },
+      "locations": [
+        249
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.b1de15a21a",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "未核實",
+      "translations": {
+        "pt": "Não verificado",
+        "en": "Unverified"
+      },
+      "locations": [
+        254
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.bfb1bccce7",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "若經濟證據缺失，只允許具名的物理/情境比較，不出現帳單金額、成本節省或投資回報。",
+      "translations": {
+        "pt": "Sem evidência económica, permitir apenas uma comparação física/de cenários identificada; não apresentar valor de fatura, poupança de custos ou retorno do investimento.",
+        "en": "Without economic evidence, allow only a named physical/scenario comparison; show no bill amount, cost saving, or investment return."
+      },
+      "locations": [
+        257
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.c2c00bc245",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "展示窗口最大進口",
+      "translations": {
+        "pt": "Importação máxima na janela apresentada",
+        "en": "Display-window maximum import"
+      },
+      "locations": [
+        255
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.c64978fd09",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "本計費期已觀測 Pu",
+      "translations": {
+        "pt": "Pu observado neste período de faturação",
+        "en": "Observed Pu for this billing period"
+      },
+      "locations": [
+        251
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.d4c768415b",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "狀態顯示樣例 · 合成 UI 狀態，不屬於上方排程",
+      "translations": {
+        "pt": "Exemplos de estado · estados sintéticos da interface, não correspondem ao horário acima",
+        "en": "Status examples · synthetic UI states, not the schedule above"
+      },
+      "locations": [
+        259
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.d5201a5cfe",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "區間改善不等於賬期或經濟改善。",
+      "translations": {
+        "pt": "Uma melhoria num intervalo não equivale a uma melhoria no período de faturação nem a um benefício económico.",
+        "en": "An interval improvement is not a billing-period or economic improvement."
+      },
+      "locations": [
+        247
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.d65b981e05",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "成本與限制狀態 · 合成方案",
+      "translations": {
+        "pt": "Estado dos custos e das restrições · cenário sintético",
+        "en": "Cost and constraint status · synthetic scenario"
+      },
+      "locations": [
+        249
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.d9bc928777",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "限制沒有證據時不作最佳化事實",
+      "translations": {
+        "pt": "Não afirmar que houve otimização quando faltam evidências sobre as restrições",
+        "en": "Do not claim optimization when constraint evidence is missing"
+      },
+      "locations": [
+        257
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.ec104d139a",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "需求電費/Pu、完整電費、反送收益及節省仍需各自的計量、合約與結算證據。",
+      "translations": {
+        "pt": "A componente de potência/Pu, a fatura completa, a receita de injeção e as poupanças exigem, cada uma, evidência própria de medição, contrato e liquidação.",
+        "en": "Demand charge/Pu, full bill, export revenue, and savings each require their own metering, contract, and settlement evidence."
+      },
+      "locations": [
+        259
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.f319aa5cd4",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "進口電量費組件 · PARTIAL",
+      "translations": {
+        "pt": "Componente de custo da energia importada · PARCIAL",
+        "en": "Imported-energy charge component · PARTIAL"
+      },
+      "locations": [
+        259
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.f5f03f9819",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "影響",
+      "translations": {
+        "pt": "Impacto",
+        "en": "Impact"
+      },
+      "locations": [
+        249
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.constraint-analysis.text.fd52237654",
+      "channel": "text",
+      "stage": "constraint-analysis",
+      "sourceText": "候選在 15:00–16:00 降低該區間的電網輸入，但回彈令本展示窗口最大電網輸入增加 25 kW；計費周期 Pu 未知。此處不把該變化換算成費用。",
+      "translations": {
+        "pt": "A alternativa reduz a importação da rede no intervalo 15:00–16:00, mas o efeito de recuperação aumenta em 25 kW a importação máxima nesta janela apresentada; o Pu do período de faturação é desconhecido. Esta variação não é convertida em custo.",
+        "en": "The candidate reduces grid import in the 15:00–16:00 interval, but rebound raises the maximum grid import in this display window by 25 kW; billing-period Pu is unknown. This change is not converted into a cost."
+      },
+      "locations": [
+        247
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.attribute-aria-label.2fbeeda706",
+      "channel": "attribute-aria-label",
+      "stage": "dispatchComparison",
+      "sourceText": "圖例",
+      "translations": {
+        "pt": "Legenda",
+        "en": "Legend"
+      },
+      "locations": [
+        213
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.attribute-aria-label.542d251880",
+      "channel": "attribute-aria-label",
+      "stage": "dispatchComparison",
+      "sourceText": "六小時逐時供能與負荷安排摘要",
+      "translations": {
+        "pt": "Resumo horário do fornecimento e das cargas ao longo de seis horas",
+        "en": "Six-hour, interval-by-interval supply and load schedule summary"
+      },
+      "locations": [
+        224
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.attribute-aria-label.55a525136d",
+      "channel": "attribute-aria-label",
+      "stage": "dispatchComparison",
+      "sourceText": "逐時段平均功率表格，可水平捲動查看完整欄位",
+      "translations": {
+        "pt": "Tabela de potência média por intervalo; desloque horizontalmente para ver todas as colunas",
+        "en": "Interval average-power table; scroll horizontally to view all columns"
+      },
+      "locations": [
+        235
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.attribute-aria-label.a975a143f6",
+      "channel": "attribute-aria-label",
+      "stage": "dispatchComparison",
+      "sourceText": "圖表突顯方案",
+      "translations": {
+        "pt": "Destaque do plano no gráfico",
+        "en": "Chart schedule highlight"
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.attribute-aria-label.bbe607e571",
+      "channel": "attribute-aria-label",
+      "stage": "dispatchComparison",
+      "sourceText": "SHADOW 原型審閱動作",
+      "translations": {
+        "pt": "Ações de revisão do protótipo SHADOW",
+        "en": "SHADOW prototype review actions"
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.attribute-aria-label.ee7b2aced7",
+      "channel": "attribute-aria-label",
+      "stage": "dispatchComparison",
+      "sourceText": "CEM 本計費期 Pu 狀態未知",
+      "translations": {
+        "pt": "O estado do Pu do CEM neste período de faturação é desconhecido",
+        "en": "CEM Pu status for this billing period is unknown"
+      },
+      "locations": [
+        234
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.attribute-aria-label.f1674de063",
+      "channel": "attribute-aria-label",
+      "stage": "dispatchComparison",
+      "sourceText": "六小時供能與負荷曲線，可左右捲動",
+      "translations": {
+        "pt": "Curvas de fornecimento e carga de seis horas; desloque horizontalmente",
+        "en": "Six-hour supply and load curves; scroll horizontally"
+      },
+      "locations": [
+        214
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.attribute-title.55b26379a4",
+      "channel": "attribute-title",
+      "stage": "dispatchComparison",
+      "sourceText": "本 MVP 原型不提供設備控制",
+      "translations": {
+        "pt": "Este protótipo de MVP não controla equipamentos",
+        "en": "This MVP prototype does not control equipment"
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.00756e07a8",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "電網輸入",
+      "translations": {
+        "pt": "Importação da rede",
+        "en": "Grid import"
+      },
+      "locations": [
+        223
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.092a440a4b",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "來源與電表映射",
+      "translations": {
+        "pt": "Mapeamento de fontes e contadores",
+        "en": "Source and meter mapping"
+      },
+      "locations": [
+        243
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.0a96b688ba",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "設備控制未啟用",
+      "translations": {
+        "pt": "O controlo dos equipamentos está desativado",
+        "en": "Equipment control is disabled"
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.0bfb1c99cf",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "基線 485 → 候選 510 kW（回彈時段 +25 kW）。本計費期 Pu 未知，不計算費用。",
+      "translations": {
+        "pt": "Base 485 → cenário proposto 510 kW (mais 25 kW no intervalo de recuperação). O Pu deste período de faturação é desconhecido; o custo não é calculado.",
+        "en": "Baseline 485 → candidate 510 kW (rebound interval +25 kW). Pu for this billing period is unknown; cost is not calculated."
+      },
+      "locations": [
+        233
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.0de900efbf",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "候選功率平衡（AC 端）",
+      "translations": {
+        "pt": "Balanço de potência proposto (lado CA)",
+        "en": "Candidate power balance (AC side)"
+      },
+      "locations": [
+        235
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.189f623d1a",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "ESS 充電 24.691 kW · SOC 17.778 → 40 kWh · HVAC —",
+      "translations": {
+        "pt": "Carregamento do ESS 24,691 kW · SOC 17,778 → 40 kWh · AVAC —",
+        "en": "ESS charge 24.691 kW · SOC 17.778 → 40 kWh · HVAC —"
+      },
+      "locations": [
+        231
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.1a1d1d24dc",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "儲能放電",
+      "translations": {
+        "pt": "Descarga do ESS",
+        "en": "ESS discharge"
+      },
+      "locations": [
+        213
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.1a3968f45d",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "18:00 · 結束",
+      "translations": {
+        "pt": "18:00 · fim",
+        "en": "18:00 · end"
+      },
+      "locations": [
+        217
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.2b65713ddb",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "候選情境 · 含 20 kW ESS 放電",
+      "translations": {
+        "pt": "Cenário proposto · inclui descarga do ESS de 20 kW",
+        "en": "Candidate scenario · includes 20 kW ESS discharge"
+      },
+      "locations": [
+        234
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.2c7ae03902",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "供能與負荷時間線",
+      "translations": {
+        "pt": "Cronologia do fornecimento e das cargas",
+        "en": "Supply and load timeline"
+      },
+      "locations": [
+        211
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.2c8133427b",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "負荷 580 → 580 kW · PV 125 kW",
+      "translations": {
+        "pt": "Carga 580 → 580 kW · fotovoltaico 125 kW",
+        "en": "Load 580 → 580 kW · PV 125 kW"
+      },
+      "locations": [
+        229
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.316d86d206",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "先看方案依據是否完整",
+      "translations": {
+        "pt": "Verifique primeiro se as evidências do plano estão completas",
+        "en": "First check whether the schedule evidence is complete"
+      },
+      "locations": [
+        243
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.31cdcfdef1",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "時段能源平衡",
+      "translations": {
+        "pt": "Balanço energético do intervalo",
+        "en": "Interval energy balance"
+      },
+      "locations": [
+        243
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.3476e5ac62",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "未核實 · 不計算帳單金額",
+      "translations": {
+        "pt": "Não verificado · valor da fatura não calculado",
+        "en": "Unverified · bill amount not calculated"
+      },
+      "locations": [
+        243
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.376f0ddcf9",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "候選 · HVAC 負荷移峰",
+      "translations": {
+        "pt": "Proposto · deslocamento da carga AVAC",
+        "en": "Candidate · HVAC load shifting"
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.37c0e0734c",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "展示窗口峰值：",
+      "translations": {
+        "pt": "Pico da janela apresentada:",
+        "en": "Displayed-window peak:"
+      },
+      "locations": [
+        233
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.38dd65978a",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "+30 · 回彈",
+      "translations": {
+        "pt": "+30 · recuperação",
+        "en": "+30 · rebound"
+      },
+      "locations": [
+        241
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.391b27a2c0",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "電網輸入 候選",
+      "translations": {
+        "pt": "Importação da rede · proposto",
+        "en": "Grid import · candidate"
+      },
+      "locations": [
+        235
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.3a14bd4d6d",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "要求補證據",
+      "translations": {
+        "pt": "Solicitar evidências adicionais",
+        "en": "Request more evidence"
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.3a51e9c7e8",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "現場光伏",
+      "translations": {
+        "pt": "Fotovoltaico no local",
+        "en": "On-site PV"
+      },
+      "locations": [
+        213,
+        235
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.3aff72f24e",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "ESS 充電 候選",
+      "translations": {
+        "pt": "Carregamento do ESS · proposto",
+        "en": "ESS charging · candidate"
+      },
+      "locations": [
+        235
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.3ba7ef77ce",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "電網輸入 基線",
+      "translations": {
+        "pt": "Importação da rede · base",
+        "en": "Grid import · baseline"
+      },
+      "locations": [
+        235
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.3baac79d8b",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "電網",
+      "translations": {
+        "pt": "Rede elétrica",
+        "en": "Grid"
+      },
+      "locations": [
+        227,
+        228,
+        229,
+        230,
+        231,
+        232
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.3ce08262ab",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "以下候選是合成情境，只用於檢查時段能源平衡、儲能軌跡與 HVAC 回彈；不代表預測、最佳化結果或現場可行性。",
+      "translations": {
+        "pt": "O cenário proposto abaixo é sintético e serve apenas para analisar o balanço energético por intervalo, a trajetória do armazenamento e a recuperação do AVAC. Não é uma previsão, um resultado de otimização nem uma indicação de viabilidade no local.",
+        "en": "The candidate below is synthetic and is used only to inspect interval energy balance, storage trajectory, and HVAC rebound. It is not a forecast, optimization result, or indication of site feasibility."
+      },
+      "locations": [
+        212
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.3d64e7973d",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "HVAC 移峰／回彈",
+      "translations": {
+        "pt": "Deslocamento / recuperação da carga AVAC",
+        "en": "HVAC load shifting / rebound"
+      },
+      "locations": [
+        213
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.3e64e7f225",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "時段",
+      "translations": {
+        "pt": "Intervalo",
+        "en": "Interval"
+      },
+      "locations": [
+        235
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.3f9bf3480d",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "示意將 30 kW 空調需求移出 15:00，儲能情境於15:00放電20 kW、16:00以24.691 kW充電恢復SOC；未驗證現場可調能力。",
+      "translations": {
+        "pt": "Ilustra o deslocamento de 30 kW de procura de ar condicionado para fora das 15:00. No cenário de armazenamento, o ESS descarrega 20 kW às 15:00 e carrega a 24,691 kW às 16:00 para repor o SOC; a flexibilidade no local não foi verificada.",
+        "en": "Illustrates shifting 30 kW of air-conditioning demand away from 15:00. In the storage scenario, the ESS discharges 20 kW at 15:00 and charges at 24.691 kW at 16:00 to restore SOC; site flexibility is unverified."
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.409a08a67e",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "15:00–16:00 電網輸入",
+      "translations": {
+        "pt": "Importação da rede das 15:00 às 16:00",
+        "en": "15:00–16:00 grid import"
+      },
+      "locations": [
+        234
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.41019bc004",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "為甚麼仍是情境比較？ ↗",
+      "translations": {
+        "pt": "Porque continua a ser uma comparação de cenários? ↗",
+        "en": "Why is this still a scenario comparison? ↗"
+      },
+      "locations": [
+        243
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.41e141b710",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "HVAC 調整",
+      "translations": {
+        "pt": "Ajuste do AVAC",
+        "en": "HVAC adjustment"
+      },
+      "locations": [
+        235
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.469084f44e",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "動作只更新本頁示意，不寫入審計、不授權、不下發；重新載入後重設。",
+      "translations": {
+        "pt": "As ações atualizam apenas esta ilustração na página; não criam um registo de auditoria, não concedem autorização nem enviam comandos. O estado é reposto ao recarregar.",
+        "en": "Actions update this page-only illustration; they do not create an audit record, grant authorization, or send commands. Reloading resets the state."
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.4d8c1c5b42",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "未知",
+      "translations": {
+        "pt": "Desconhecido",
+        "en": "Unknown"
+      },
+      "locations": [
+        234
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.4db208c8d6",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "kW 為合成區間平均功率；SOC 以小時區間積分為 kWh。此例並非計費週期或現場結果。此版按合成效率逐時積分 ESS 充放電與 SOC；容量、功率、效率、HVAC 舒適度均非現場驗證，亦未計退化、預測不確定性或電費。",
+      "translations": {
+        "pt": "Os valores em kW são potências médias sintéticas por intervalo; o SOC é integrado em intervalos horários e expresso em kWh. Este exemplo não representa um período de faturação nem resultados do local. A carga/descarga do ESS e o SOC usam eficiências sintéticas; capacidade, potência, eficiência e conforto do AVAC não foram verificados. A degradação, a incerteza das previsões e os custos de eletricidade não são modelados.",
+        "en": "kW values are synthetic interval-average power; SOC is integrated over hourly intervals in kWh. This example is neither a billing-period nor a site result. ESS charge/discharge and SOC use synthetic efficiencies; capacity, power, efficiency, and HVAC comfort are unverified. Degradation, forecast uncertainty, and electricity charges are not modelled."
+      },
+      "locations": [
+        242
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.4e77f140ac",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "未審查 · 示意",
+      "translations": {
+        "pt": "Não revisto · ilustração",
+        "en": "Unreviewed · illustration"
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.4f23a16fa6",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "示例基礎負荷、空調與現場光伏曲線；不是需求預測。",
+      "translations": {
+        "pt": "Perfis de exemplo da carga base, do ar condicionado e do fotovoltaico local; não são uma previsão da procura.",
+        "en": "Example base-load, air-conditioning, and on-site PV profiles; not a demand forecast."
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.5182c4439e",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "尚未計入電費或收益",
+      "translations": {
+        "pt": "Custos de eletricidade ou receitas não calculados",
+        "en": "Electricity charges or revenue not calculated"
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.5696f47650",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "目前突顯：基線；基線與候選均同時顯示。",
+      "translations": {
+        "pt": "Em destaque: cenário base; base e cenário proposto permanecem visíveis.",
+        "en": "Currently highlighted: baseline; both baseline and candidate remain visible."
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.56e315c9cc",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "基線 · 合成參照",
+      "translations": {
+        "pt": "Base · referência sintética",
+        "en": "Baseline · synthetic reference"
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.56f5e7345a",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "合成情境",
+      "translations": {
+        "pt": "Cenário sintético",
+        "en": "Synthetic scenario"
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.5911614a48",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "審查狀態",
+      "translations": {
+        "pt": "Estado da revisão",
+        "en": "Review status"
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.5934ab4157",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "17:00–18:00 · 展示窗口峰值 510 kW",
+      "translations": {
+        "pt": "17:00–18:00 · pico da janela apresentada: 510 kW",
+        "en": "17:00–18:00 · displayed-window peak 510 kW"
+      },
+      "locations": [
+        223
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.5a9fcc9161",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "查看經濟與方案假設",
+      "translations": {
+        "pt": "Consultar pressupostos económicos e do plano",
+        "en": "Review economic and schedule assumptions"
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.5b570e03c3",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "光伏",
+      "translations": {
+        "pt": "Fotovoltaico",
+        "en": "PV"
+      },
+      "locations": [
+        223
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.5d25748b9a",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "參照",
+      "translations": {
+        "pt": "Referência",
+        "en": "Reference"
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.64d7c54588",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "基線電網輸入",
+      "translations": {
+        "pt": "Importação da rede no cenário base",
+        "en": "Baseline grid import"
+      },
+      "locations": [
+        213
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.69172c473a",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "本展示窗口峰值 · 基線 → 候選",
+      "translations": {
+        "pt": "Pico desta janela apresentada · base → cenário proposto",
+        "en": "Peak in this displayed window · baseline → candidate"
+      },
+      "locations": [
+        234
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.6a65580493",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "ESS 放電 20 kW · SOC 40 → 17.778 kWh · HVAC −30 kW",
+      "translations": {
+        "pt": "Descarga do ESS 20 kW · SOC 40 → 17,778 kWh · AVAC −30 kW",
+        "en": "ESS discharge 20 kW · SOC 40 → 17.778 kWh · HVAC −30 kW"
+      },
+      "locations": [
+        230
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.6b1b196d2d",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "03 · 同一能源平衡 · 不同安排",
+      "translations": {
+        "pt": "03 · Mesmo balanço energético · planos diferentes",
+        "en": "03 · Same energy balance · different schedules"
+      },
+      "locations": [
+        211
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.6caa65d098",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "負荷 540 → 570 kW · PV 60 kW",
+      "translations": {
+        "pt": "Carga 540 → 570 kW · fotovoltaico 60 kW",
+        "en": "Load 540 → 570 kW · PV 60 kW"
+      },
+      "locations": [
+        232
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.70315b0c5c",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "合成情境：逐時段平均功率（kW）；18:00 為結束邊界",
+      "translations": {
+        "pt": "Cenário sintético: potência média por intervalo (kW); 18:00 é o limite final",
+        "en": "Synthetic scenario: interval-average power (kW); 18:00 is the end boundary"
+      },
+      "locations": [
+        235
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.70a71955c1",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "電價與合約規則",
+      "translations": {
+        "pt": "Regras tarifárias e contratuais",
+        "en": "Tariff and contract rules"
+      },
+      "locations": [
+        243
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.73dcea5318",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "負荷 570 → 570 kW · PV 85 kW",
+      "translations": {
+        "pt": "Carga 570 → 570 kW · fotovoltaico 85 kW",
+        "en": "Load 570 → 570 kW · PV 85 kW"
+      },
+      "locations": [
+        231
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.7634323fd7",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "基線總負荷",
+      "translations": {
+        "pt": "Carga total no cenário base",
+        "en": "Baseline total load"
+      },
+      "locations": [
+        213,
+        223
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.791a372108",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "17:00 HVAC 回彈",
+      "translations": {
+        "pt": "Recuperação do AVAC às 17:00",
+        "en": "17:00 HVAC rebound"
+      },
+      "locations": [
+        223
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.7baebcf270",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "基線 → 候選",
+      "translations": {
+        "pt": "Base → cenário proposto",
+        "en": "Baseline → candidate"
+      },
+      "locations": [
+        227,
+        228,
+        229,
+        230,
+        231,
+        232
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.7f0d89fb16",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "合成情境下的供能及負荷安排",
+      "translations": {
+        "pt": "Planos de fornecimento e carga num cenário sintético",
+        "en": "Supply and load schedules in a synthetic scenario"
+      },
+      "locations": [
+        214
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.8200ecefa6",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "總負荷 候選",
+      "translations": {
+        "pt": "Carga total · proposto",
+        "en": "Total load · candidate"
+      },
+      "locations": [
+        235
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.8548773be5",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "12時至18時，共六個一小時區間。曲線按區間平均功率繪成階梯，18時為時段結束邊界。候選總負荷在 15 至 16 時較基線少 30 kW，17 至 18 時因 HVAC 回彈增加 30 kW；候選17至18時的本展示窗口最高電網輸入為510 kW，基線最高為485 kW；該值不是計費周期 Pu；候選15至16時放電20 kW，16至17時充電24.691 kW，SOC由40降至17.778再回到40 kWh；效率為合成假設。全部為合成示例，並非設備控制、帳單結論或實際節省。",
+      "translations": {
+        "pt": "O período das 12:00 às 18:00 contém seis intervalos de uma hora. As curvas representam a potência média por intervalo em degraus, sendo 18:00 o limite final. A carga total proposta é 30 kW inferior à base das 15:00 às 16:00 e 30 kW superior das 17:00 às 18:00 devido à recuperação do AVAC. Nesta janela apresentada, a importação proposta atinge um máximo de 510 kW entre as 17:00 e as 18:00, face a 485 kW no cenário base; este valor não é o Pu do período de faturação. O cenário proposto descarrega 20 kW das 15:00 às 16:00 e carrega 24,691 kW das 16:00 às 17:00; o SOC desce de 40 para 17,778 e regressa a 40 kWh. A eficiência é sintética. Todos os valores são ilustrativos e não representam controlo de equipamentos, conclusão de fatura ou poupança real.",
+        "en": "12:00–18:00 comprises six one-hour intervals. Curves show interval-average power as steps, with 18:00 as the end boundary. Candidate total load is 30 kW below baseline from 15:00–16:00 and 30 kW higher from 17:00–18:00 due to HVAC rebound. Candidate grid import peaks at 510 kW during 17:00–18:00 in this displayed window, versus 485 kW for baseline; this is not billing-period Pu. The candidate discharges 20 kW at 15:00–16:00 and charges 24.691 kW at 16:00–17:00; SOC falls from 40 to 17.778 and returns to 40 kWh. Efficiency is synthetic. All values are illustrative, not equipment control, a bill conclusion, or actual savings."
+      },
+      "locations": [
+        214
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.85accbd4a5",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "小時平均功率 kW · 計費週期未核實 · 合成情境",
+      "translations": {
+        "pt": "Potência média horária em kW · período de faturação não verificado · cenário sintético",
+        "en": "Hourly average power in kW · billing period unverified · synthetic scenario"
+      },
+      "locations": [
+        211
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.8903675865",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "回彈時段 +25 kW",
+      "translations": {
+        "pt": "Intervalo de recuperação +25 kW",
+        "en": "Rebound interval +25 kW"
+      },
+      "locations": [
+        234
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.901a7d0b93",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "窄屏可左右滑動曲線；完整逐時數值可開啟數據表。",
+      "translations": {
+        "pt": "Em ecrãs estreitos, desloque as curvas horizontalmente; abra a tabela para consultar todos os valores por intervalo.",
+        "en": "Scroll the curves horizontally on narrow screens; open the data table for complete interval values."
+      },
+      "locations": [
+        214
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.90ab4cb3ee",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "負荷 590 → 560 kW · PV 110 kW",
+      "translations": {
+        "pt": "Carga 590 → 560 kW · fotovoltaico 110 kW",
+        "en": "Load 590 → 560 kW · PV 110 kW"
+      },
+      "locations": [
+        230
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.91aa115aca",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "ESS — · SOC 40 → 40 kWh · HVAC +30 kW 回彈",
+      "translations": {
+        "pt": "ESS — · SOC 40 → 40 kWh · recuperação do AVAC +30 kW",
+        "en": "ESS — · SOC 40 → 40 kWh · HVAC +30 kW rebound"
+      },
+      "locations": [
+        232
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.937ed5bf5f",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "駁回建議",
+      "translations": {
+        "pt": "Rejeitar recomendação",
+        "en": "Reject recommendation"
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.96d487cec3",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "可用性檢查",
+      "translations": {
+        "pt": "Verificação de disponibilidade",
+        "en": "Availability check"
+      },
+      "locations": [
+        243
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.a94353ada8",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "相同資料快照",
+      "translations": {
+        "pt": "Mesmo instantâneo de dados",
+        "en": "Same input snapshot"
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.ad79b91985",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "展示窗口峰值由485升至510 kW（+25 kW），出現在17:00–18:00回彈時段。這不是計費周期 Pu。計量窗口、當期已觀測 Pu、適用合同及完整賬期資料未提供，故本例不能推斷需求費或賬單影響；只呈現合成功率安排。HVAC時移不代表降低總用電；ESS充電令16:00–17:00電網輸入增至509.691 kW。",
+      "translations": {
+        "pt": "O pico da janela apresentada sobe de 485 para 510 kW (+25 kW) no intervalo de recuperação das 17:00–18:00. Este valor não é o Pu do período de faturação. Não foram fornecidos a janela de medição, o Pu observado no período atual, o contrato aplicável nem os dados completos do período de faturação; por isso, não é possível inferir encargos de procura ou impacto na fatura. Apresenta-se apenas um plano de potência sintético. O deslocamento do AVAC não significa menor consumo total de energia. O carregamento do ESS eleva a importação da rede para 509,691 kW entre as 16:00 e as 17:00.",
+        "en": "The displayed-window peak rises from 485 to 510 kW (+25 kW) during the 17:00–18:00 rebound interval. This is not billing-period Pu. The measurement window, observed Pu for the current period, applicable contract, and complete billing-period data were not provided, so demand charges or bill impact cannot be inferred; only a synthetic power schedule is shown. HVAC shifting does not mean lower total energy use. ESS charging raises grid import to 509.691 kW from 16:00–17:00."
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.ad8f387ab4",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "總負荷 基線",
+      "translations": {
+        "pt": "Carga total · base",
+        "en": "Total load · baseline"
+      },
+      "locations": [
+        235
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.b0d4120911",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "ESS 放電 候選",
+      "translations": {
+        "pt": "Descarga do ESS · proposto",
+        "en": "ESS discharge · candidate"
+      },
+      "locations": [
+        235
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.bf972e06a7",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "15:00–16:00 · ESS 放電 20 kW；SOC 40 → 17.778 kWh",
+      "translations": {
+        "pt": "15:00–16:00 · descarga do ESS 20 kW; SOC 40 → 17,778 kWh",
+        "en": "15:00–16:00 · ESS discharge 20 kW; SOC 40 → 17.778 kWh"
+      },
+      "locations": [
+        222
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.c0340fd1d0",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "15–16時移出；17–18時回彈",
+      "translations": {
+        "pt": "Deslocado das 15:00–16:00; recupera entre as 17:00–18:00",
+        "en": "Shifted out of 15:00–16:00; rebounds at 17:00–18:00"
+      },
+      "locations": [
+        234
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.c701e198b0",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "示意映射 · 未連接現場",
+      "translations": {
+        "pt": "Mapeamento ilustrativo · sem ligação ao local",
+        "en": "Illustrative mapping · no site connection"
+      },
+      "locations": [
+        243
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.ca47340b98",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "查看資料就緒度 →",
+      "translations": {
+        "pt": "Ver prontidão dos dados →",
+        "en": "View data readiness →"
+      },
+      "locations": [
+        212
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.cc8462c75e",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "未提供現場負荷／光伏預測 · 不可生成正式最佳排程",
+      "translations": {
+        "pt": "Sem previsões locais de carga/fotovoltaico · não é possível gerar um plano otimizado formal",
+        "en": "No site load/PV forecasts provided · a formal optimized schedule cannot be generated"
+      },
+      "locations": [
+        212
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.cccf3e00e5",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "儲能與負荷約束",
+      "translations": {
+        "pt": "Restrições do armazenamento e das cargas",
+        "en": "Storage and load constraints"
+      },
+      "locations": [
+        243
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.cda8dc3804",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "手機版逐時摘要 · 合成情境。完整欄位可開啟數據表；此處不代表預測或現場可行性。",
+      "translations": {
+        "pt": "Resumo móvel por intervalo · cenário sintético. Abra a tabela para ver todos os campos; esta vista não é uma previsão nem comprova a viabilidade no local.",
+        "en": "Mobile interval summary · synthetic scenario. Open the data table for all fields; this view is not a forecast or proof of site feasibility."
+      },
+      "locations": [
+        225
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.d2e6398581",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "檢視數據表",
+      "translations": {
+        "pt": "Ver tabela de dados",
+        "en": "View data table"
+      },
+      "locations": [
+        211
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.d4ac7a5559",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "方案比較",
+      "translations": {
+        "pt": "Comparação de planos",
+        "en": "Schedule comparison"
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.db8fcff272",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "CEM 本計費期 Pu",
+      "translations": {
+        "pt": "Pu do CEM neste período de faturação",
+        "en": "CEM Pu for this billing period"
+      },
+      "locations": [
+        234
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.dd66fb6c9e",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "負荷 520 → 520 kW · PV 170 kW",
+      "translations": {
+        "pt": "Carga 520 → 520 kW · fotovoltaico 170 kW",
+        "en": "Load 520 → 520 kW · PV 170 kW"
+      },
+      "locations": [
+        227
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.dfb7880d33",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "ESS 容量/功率/SOC、效率與 HVAC 功率界限均為合成假設；舒適模型未建立",
+      "translations": {
+        "pt": "Capacidade/potência/SOC e eficiência do ESS, bem como limites de potência do AVAC, são pressupostos sintéticos; não existe modelo de conforto",
+        "en": "ESS capacity/power/SOC, efficiency, and HVAC power limits are synthetic assumptions; no comfort model is defined"
+      },
+      "locations": [
+        243
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.e197dccd60",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "標記已閱",
+      "translations": {
+        "pt": "Marcar como consultado",
+        "en": "Mark as reviewed"
+      },
+      "locations": [
+        244
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.e447436ffa",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "候選總負荷",
+      "translations": {
+        "pt": "Carga total proposta",
+        "en": "Candidate total load"
+      },
+      "locations": [
+        213
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.e72869b7df",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "計量窗口與賬期峰值未提供",
+      "translations": {
+        "pt": "Janela de medição e pico do período de faturação não fornecidos",
+        "en": "Measurement window and billing-period peak not provided"
+      },
+      "locations": [
+        234
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.ec0827a570",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "16:00–17:00 · ESS 充電 24.691 kW；SOC 17.778 → 40 kWh",
+      "translations": {
+        "pt": "16:00–17:00 · carregamento do ESS 24,691 kW; SOC 17,778 → 40 kWh",
+        "en": "16:00–17:00 · ESS charge 24.691 kW; SOC 17.778 → 40 kWh"
+      },
+      "locations": [
+        222
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.eda69cd75b",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "SOC 候選 kWh",
+      "translations": {
+        "pt": "SOC · proposto · kWh",
+        "en": "SOC · candidate · kWh"
+      },
+      "locations": [
+        235
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.edd729023c",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "HVAC 時移與回彈",
+      "translations": {
+        "pt": "Deslocamento e recuperação do AVAC",
+        "en": "HVAC shifting and rebound"
+      },
+      "locations": [
+        234
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.efb1127740",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "可左右滑動；聚焦表格後可用左右方向鍵查看完整欄位。",
+      "translations": {
+        "pt": "Desloque horizontalmente; foque a tabela e use as setas esquerda/direita para ver todas as colunas.",
+        "en": "Scroll horizontally; focus the table and use the left/right arrow keys to view all columns."
+      },
+      "locations": [
+        235
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.f39084c752",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "示意數據可核對；非現場驗證",
+      "translations": {
+        "pt": "Os dados ilustrativos podem ser conferidos; não foram validados no local",
+        "en": "Illustrative data can be checked; not validated on site"
+      },
+      "locations": [
+        243
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.f592d98594",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "負荷 550 → 550 kW · PV 145 kW",
+      "translations": {
+        "pt": "Carga 550 → 550 kW · fotovoltaico 145 kW",
+        "en": "Load 550 → 550 kW · PV 145 kW"
+      },
+      "locations": [
+        228
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.dispatchcomparison.text.ff69d4fb4b",
+      "channel": "text",
+      "stage": "dispatchComparison",
+      "sourceText": "候選電網輸入",
+      "translations": {
+        "pt": "Importação da rede proposta",
+        "en": "Candidate grid import"
+      },
+      "locations": [
+        213
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.attribute-aria-label.7db3fc5803",
+      "channel": "attribute-aria-label",
+      "stage": "evidence-check",
+      "sourceText": "合成來源清單；水平捲動查看所有欄位",
+      "translations": {
+        "pt": "Inventário sintético de fontes; desloque horizontalmente para ver todos os campos",
+        "en": "Synthetic source inventory; scroll horizontally to view all fields"
+      },
+      "locations": [
+        178
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.0404ca5399",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "本原型沒有代表任何客戶帳戶。正式工作區只列出目前角色可查看的範圍；站點授權不自動授予帳戶權限。",
+      "translations": {
+        "pt": "Este protótipo não representa uma conta de cliente. A área de trabalho de produção apresenta apenas o âmbito visível para o perfil atual; a autorização do local não concede automaticamente acesso à conta.",
+        "en": "This prototype does not represent a customer account. A production workspace shows only the scope visible to the current role; site authorization does not automatically grant account access."
+      },
+      "locations": [
+        187
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.0a3717da13",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "下一步：檢視站點能源模型 ↓",
+      "translations": {
+        "pt": "Seguinte: consultar o modelo energético do local ↓",
+        "en": "Next: review the site energy model ↓"
+      },
+      "locations": [
+        187
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.1646b5733a",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "結算範圍示意 · 合成狀態",
+      "translations": {
+        "pt": "Ilustração do âmbito de faturação · estado sintético",
+        "en": "Settlement-scope illustration · synthetic status"
+      },
+      "locations": [
+        187
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.1740932005",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "逆變器、接線點、可用性與輸出邊界",
+      "translations": {
+        "pt": "Inversores, pontos de ligação, disponibilidade e limites de injeção",
+        "en": "Inverters, connection points, availability, and export limits"
+      },
+      "locations": [
+        180
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.280ec95999",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "物理模型",
+      "translations": {
+        "pt": "Modelo físico",
+        "en": "Physical model"
+      },
+      "locations": [
+        187
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.2ea966066d",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "阻擋經濟結果",
+      "translations": {
+        "pt": "Resultados económicos bloqueados",
+        "en": "Economic results blocked"
+      },
+      "locations": [
+        183
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.3554c831d1",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "電價與合同",
+      "translations": {
+        "pt": "Tarifas e contratos",
+        "en": "Tariffs and contracts"
+      },
+      "locations": [
+        183
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.3a51e9c7e8",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "現場光伏",
+      "translations": {
+        "pt": "Fotovoltaico no local",
+        "en": "On-site PV"
+      },
+      "locations": [
+        180
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.3babda55e8",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "輸入為示例；站點接線和設備能力未確認。",
+      "translations": {
+        "pt": "Os dados de entrada são ilustrativos; a cablagem do local e as capacidades dos equipamentos não foram verificadas.",
+        "en": "Inputs are illustrative; site wiring and equipment capabilities are unverified."
+      },
+      "locations": [
+        185
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.413d17df13",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "部分情境",
+      "translations": {
+        "pt": "Cenário parcial",
+        "en": "Partial scenario"
+      },
+      "locations": [
+        181
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.423de570a8",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "儲能",
+      "translations": {
+        "pt": "Armazenamento de energia",
+        "en": "Energy storage"
+      },
+      "locations": [
+        181
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.55fba8b0c0",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "阻擋 · 未有已核實帳戶/合同",
+      "translations": {
+        "pt": "Bloqueado · sem conta ou contrato verificado",
+        "en": "Blocked · no verified account or contract"
+      },
+      "locations": [
+        187
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.661ab654aa",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "表計映射、時鐘、資料品質及帳戶關係",
+      "translations": {
+        "pt": "Correspondência dos contadores, sincronização dos relógios, qualidade dos dados e relações entre contas",
+        "en": "Meter mapping, clock alignment, data quality, and account relationships"
+      },
+      "locations": [
+        179
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.69f7346742",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "本例未提供",
+      "translations": {
+        "pt": "Não fornecido neste exemplo",
+        "en": "Not provided in this example"
+      },
+      "locations": [
+        183
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.6ababd07cf",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "若一個站點有多個獨立供電/結算帳戶，需逐個範圍核驗並分開計算，不按站點名稱推定合併。",
+      "translations": {
+        "pt": "Se um local tiver várias contas independentes de fornecimento ou faturação, verifique e calcule cada âmbito separadamente. Não presuma que as contas estão agregadas com base no nome do local.",
+        "en": "If a site has multiple independent supply or settlement accounts, verify and calculate each scope separately. Do not infer that accounts are combined from the site name."
+      },
+      "locations": [
+        187
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.6c8618e673",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "原型示例",
+      "translations": {
+        "pt": "Exemplo do protótipo",
+        "en": "Prototype example"
+      },
+      "locations": [
+        178
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.70a81567b8",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "電網進線",
+      "translations": {
+        "pt": "Ponto de entrada da rede",
+        "en": "Grid import point"
+      },
+      "locations": [
+        179
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.7369b16a8b",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "經濟模型：BLOCKED",
+      "translations": {
+        "pt": "Modelo económico: BLOQUEADO",
+        "en": "Economic model: BLOCKED"
+      },
+      "locations": [
+        185
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.947491a89a",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "HVAC 負荷",
+      "translations": {
+        "pt": "Carga do AVAC",
+        "en": "HVAC load"
+      },
+      "locations": [
+        182
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.9658560e1c",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "進入現場模型前需核實",
+      "translations": {
+        "pt": "Verificar antes de incluir no modelo do local",
+        "en": "Verify before adding to the site model"
+      },
+      "locations": [
+        178
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.9ae3ed63ff",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "資料充足度不等於調度權限。所有設備狀態和合同映射都需有來源、時間和審核紀錄。",
+      "translations": {
+        "pt": "A suficiência dos dados não concede autorização de despacho. Cada estado de equipamento e correspondência contratual precisa de fonte, data/hora e registo de revisão.",
+        "en": "Data sufficiency does not grant dispatch authority. Every equipment status and contract mapping needs a source, timestamp, and review record."
+      },
+      "locations": [
+        185
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.9f2dd037aa",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "點位、舒適/服務界限、授權和響應證據",
+      "translations": {
+        "pt": "Pontos de telemetria, limites de conforto/serviço, autorização e evidências de resposta",
+        "en": "Telemetry points, comfort/service limits, authorization, and response evidence"
+      },
+      "locations": [
+        182
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.a2182fe59c",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "合成示例 · 未連接現場",
+      "translations": {
+        "pt": "Exemplo sintético · sem ligação ao local",
+        "en": "Synthetic example · no site connection"
+      },
+      "locations": [
+        187
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.a4424a58a0",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "示意發電曲線",
+      "translations": {
+        "pt": "Perfil de produção ilustrativo",
+        "en": "Illustrative generation profile"
+      },
+      "locations": [
+        180
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.a5651442f1",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "合成",
+      "translations": {
+        "pt": "Sintético",
+        "en": "Synthetic"
+      },
+      "locations": [
+        179,
+        180
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.aa25cb006f",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "先看輸入是否可用，再看能否作經濟判斷。",
+      "translations": {
+        "pt": "Verifique se os dados de entrada são utilizáveis antes de fazer uma avaliação económica.",
+        "en": "Check whether the inputs are usable before making an economic assessment."
+      },
+      "locations": [
+        176
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.acc4989e2c",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "合成來源清單 · 尚未核實的項目不帶入帳單級結果",
+      "translations": {
+        "pt": "Inventário sintético de fontes · itens não verificados são excluídos dos resultados ao nível da fatura",
+        "en": "Synthetic source inventory · unverified items are excluded from bill-level results"
+      },
+      "locations": [
+        178
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.b1ec61fa2f",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "經濟模型",
+      "translations": {
+        "pt": "Modelo económico",
+        "en": "Economic model"
+      },
+      "locations": [
+        187
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.b2ece7a2c9",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "未提供適用合同、電價及需求計算規則。",
+      "translations": {
+        "pt": "Não foram fornecidos o contrato aplicável, a tarifa nem as regras de cálculo da procura.",
+        "en": "Applicable contract, tariff, and demand calculation rules have not been provided."
+      },
+      "locations": [
+        185
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.b8faaf1a3d",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "適用客戶/表計、有效期、Pu 規則及合同條文",
+      "translations": {
+        "pt": "Cliente e contador aplicáveis, período de validade, regras Pu e cláusulas contratuais",
+        "en": "Applicable customer and meter, validity period, Pu rules, and contract terms"
+      },
+      "locations": [
+        183
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.b919fbad4a",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "兩種就緒度，分開判斷",
+      "translations": {
+        "pt": "Dois estados de prontidão, avaliados separadamente",
+        "en": "Two readiness states, assessed separately"
+      },
+      "locations": [
+        185
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.ccb8abd26e",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "物理模型：僅可作合成情境",
+      "translations": {
+        "pt": "Modelo físico: apenas cenários sintéticos",
+        "en": "Physical model: synthetic scenarios only"
+      },
+      "locations": [
+        185
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.ceca81038a",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "輸入類別",
+      "translations": {
+        "pt": "Categoria de dados de entrada",
+        "en": "Input category"
+      },
+      "locations": [
+        178
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.ddd892a011",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "功率/容量、SOC、效率、保留值及安全界限",
+      "translations": {
+        "pt": "Potência/capacidade, SOC, eficiência, reserva e limites de segurança",
+        "en": "Power/capacity, SOC, efficiency, reserve, and safety limits"
+      },
+      "locations": [
+        181
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.e773f76b25",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "01 · 資料與合約核驗",
+      "translations": {
+        "pt": "01 · Verificação de dados e contratos",
+        "en": "01 · Data and contract review"
+      },
+      "locations": [
+        176
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.ec64efb40e",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "可用狀態",
+      "translations": {
+        "pt": "Estado de disponibilidade",
+        "en": "Availability status"
+      },
+      "locations": [
+        178
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.ece736911f",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "情境放電及充電；SOC 軌跡為合成示例",
+      "translations": {
+        "pt": "Descarga e carregamento do cenário; trajetória do SOC sintética",
+        "en": "Scenario discharge and charging; SOC trajectory is synthetic"
+      },
+      "locations": [
+        181
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.ed20e555fc",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "以下只展示合成欄位。本站點、表計、合約及設備點位均未連接；狀態不能當成澳門現場資料。",
+      "translations": {
+        "pt": "Abaixo são apresentados apenas campos sintéticos. Este local, os seus contadores, contratos e pontos dos equipamentos não estão ligados; estes estados não são dados de um local em Macau.",
+        "en": "Only synthetic fields are shown below. This site, its meters, contracts, and equipment points are not connected; these statuses are not Macau site data."
+      },
+      "locations": [
+        176
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.f27c94ac6c",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "未驗證",
+      "translations": {
+        "pt": "Não verificado",
+        "en": "Unverified"
+      },
+      "locations": [
+        182
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.f4730ac8f3",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "示意移峰與回彈",
+      "translations": {
+        "pt": "Deslocamento de carga e recuperação ilustrativos",
+        "en": "Illustrative load shifting and rebound"
+      },
+      "locations": [
+        182
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.fb9cbbc532",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "未連接結算帳戶 · 0 個已核實範圍",
+      "translations": {
+        "pt": "Nenhuma conta de faturação ligada · 0 âmbitos verificados",
+        "en": "No settlement account connected · 0 verified scopes"
+      },
+      "locations": [
+        187
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.evidence-check.text.fc1de6c613",
+      "channel": "text",
+      "stage": "evidence-check",
+      "sourceText": "示意電表／小時平均 kW",
+      "translations": {
+        "pt": "Contador ilustrativo / média horária em kW",
+        "en": "Illustrative meter / hourly average kW"
+      },
+      "locations": [
+        179
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.interaction-code.dynamic-script.067ee2fb89",
+      "channel": "dynamic-script",
+      "stage": "interaction-code",
+      "sourceText": "已更新本頁的示意狀態；沒有寫入審計、授權或執行設備。重新載入後重設。",
+      "translations": {
+        "pt": "O estado ilustrativo desta página foi alterado; não foi registado qualquer evento de auditoria, autorização ou ação sobre equipamentos. É reposto ao recarregar.",
+        "en": "The illustrative state on this page changed; no audit record, authorization, or equipment action was written. It resets on reload."
+      },
+      "locations": [
+        285
+      ],
+      "reviewNote": "Literal may be an interpolation fragment; human review required.",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.interaction-code.dynamic-script.127a9f6fef",
+      "channel": "dynamic-script",
+      "stage": "interaction-code",
+      "sourceText": "階段導覽",
+      "translations": {
+        "pt": "Navegação por etapas",
+        "en": "Stage navigation"
+      },
+      "locations": [
+        299
+      ],
+      "reviewNote": "Literal may be an interpolation fragment; human review required.",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.interaction-code.dynamic-script.22e6ea36aa",
+      "channel": "dynamic-script",
+      "stage": "interaction-code",
+      "sourceText": "已更新本頁的示意狀態；沒有建立補證任務或寫入審計。重新載入後重設。",
+      "translations": {
+        "pt": "O estado ilustrativo desta página foi alterado; não foi criada nenhuma tarefa de evidência nem escrito qualquer registo de auditoria. É reposto ao recarregar.",
+        "en": "The illustrative state on this page changed; no evidence task was created and nothing was written to the audit log. It resets on reload."
+      },
+      "locations": [
+        285
+      ],
+      "reviewNote": "Literal may be an interpolation fragment; human review required.",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.interaction-code.dynamic-script.3883693e6f",
+      "channel": "dynamic-script",
+      "stage": "interaction-code",
+      "sourceText": "收起數據表",
+      "translations": {
+        "pt": "Recolher tabela de dados",
+        "en": "Collapse data table"
+      },
+      "locations": [
+        283
+      ],
+      "reviewNote": "Literal may be an interpolation fragment; human review required.",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.interaction-code.dynamic-script.3b8ea8693a",
+      "channel": "dynamic-script",
+      "stage": "interaction-code",
+      "sourceText": "示意標記需補證，未提交。",
+      "translations": {
+        "pt": "Pedido ilustrativo de evidência; não submetido.",
+        "en": "Illustrative evidence request; not submitted."
+      },
+      "locations": [
+        285
+      ],
+      "reviewNote": "Literal may be an interpolation fragment; human review required.",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.interaction-code.dynamic-script.3d1d1440f8",
+      "channel": "dynamic-script",
+      "stage": "interaction-code",
+      "sourceText": "需補證據 · 僅本頁示意",
+      "translations": {
+        "pt": "Solicitar evidência · exemplo apenas nesta página",
+        "en": "Request evidence · page-only example"
+      },
+      "locations": [
+        285
+      ],
+      "reviewNote": "Literal may be an interpolation fragment; human review required.",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.interaction-code.dynamic-script.55f480cfcb",
+      "channel": "dynamic-script",
+      "stage": "interaction-code",
+      "sourceText": "候選方案",
+      "translations": {
+        "pt": "Horário alternativo",
+        "en": "Candidate schedule"
+      },
+      "locations": [
+        284
+      ],
+      "reviewNote": "Literal may be an interpolation fragment; human review required.",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.interaction-code.dynamic-script.584ba1dbdb",
+      "channel": "dynamic-script",
+      "stage": "interaction-code",
+      "sourceText": "；另一條曲線仍保留以供直接比較。",
+      "translations": {
+        "pt": "; a outra série continua visível para comparação direta.",
+        "en": "; the other series remains visible for direct comparison."
+      },
+      "locations": [
+        284
+      ],
+      "reviewNote": "Literal may be an interpolation fragment; human review required.",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.interaction-code.dynamic-script.7ea7965a02",
+      "channel": "dynamic-script",
+      "stage": "interaction-code",
+      "sourceText": "← 上一階段",
+      "translations": {
+        "pt": "← Etapa anterior",
+        "en": "← Previous stage"
+      },
+      "locations": [
+        300
+      ],
+      "reviewNote": "Literal may be an interpolation fragment; human review required.",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.interaction-code.dynamic-script.85f825dc7a",
+      "channel": "dynamic-script",
+      "stage": "interaction-code",
+      "sourceText": "已更新圖表突顯；只改變本頁顯示，沒有儲存或執行。",
+      "translations": {
+        "pt": "Destaque do gráfico atualizado; altera apenas a apresentação nesta página e não é guardado nem executado.",
+        "en": "Chart emphasis updated; this changes this page's display only and is not saved or executed."
+      },
+      "locations": [
+        284
+      ],
+      "reviewNote": "Literal may be an interpolation fragment; human review required.",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.interaction-code.dynamic-script.8c267223ce",
+      "channel": "dynamic-script",
+      "stage": "interaction-code",
+      "sourceText": "目前突顯：",
+      "translations": {
+        "pt": "Em destaque:",
+        "en": "Currently highlighted:"
+      },
+      "locations": [
+        284
+      ],
+      "reviewNote": "Literal may be an interpolation fragment; human review required.",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.interaction-code.dynamic-script.9552fe3bd3",
+      "channel": "dynamic-script",
+      "stage": "interaction-code",
+      "sourceText": "第 ",
+      "translations": {
+        "pt": "Etapa ",
+        "en": "Stage "
+      },
+      "locations": [
+        301
+      ],
+      "reviewNote": "Literal may be an interpolation fragment; human review required.",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.interaction-code.dynamic-script.9b93fa0713",
+      "channel": "dynamic-script",
+      "stage": "interaction-code",
+      "sourceText": "已更新本頁的示意狀態；沒有保存或改變推薦，也沒有執行設備控制。重新載入後重設。",
+      "translations": {
+        "pt": "O estado ilustrativo desta página foi alterado; nada foi guardado, nenhuma recomendação foi alterada e nenhum equipamento foi controlado. É reposto ao recarregar.",
+        "en": "The illustrative state on this page changed; nothing was saved, no recommendation was changed, and no equipment was controlled. It resets on reload."
+      },
+      "locations": [
+        285
+      ],
+      "reviewNote": "Literal may be an interpolation fragment; human review required.",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.interaction-code.dynamic-script.a49a4e75dd",
+      "channel": "dynamic-script",
+      "stage": "interaction-code",
+      "sourceText": "駁回 · 僅本頁示意",
+      "translations": {
+        "pt": "Rejeitar · exemplo apenas nesta página",
+        "en": "Dismiss · page-only example"
+      },
+      "locations": [
+        285
+      ],
+      "reviewNote": "Literal may be an interpolation fragment; human review required.",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.interaction-code.dynamic-script.c8dfa2a7ee",
+      "channel": "dynamic-script",
+      "stage": "interaction-code",
+      "sourceText": "基線",
+      "translations": {
+        "pt": "Referência",
+        "en": "Baseline"
+      },
+      "locations": [
+        284
+      ],
+      "reviewNote": "Literal may be an interpolation fragment; human review required.",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.interaction-code.dynamic-script.ce072e6939",
+      "channel": "dynamic-script",
+      "stage": "interaction-code",
+      "sourceText": "已閱 · 僅本頁示意",
+      "translations": {
+        "pt": "Revisto · exemplo apenas nesta página",
+        "en": "Reviewed · page-only example"
+      },
+      "locations": [
+        285
+      ],
+      "reviewNote": "Literal may be an interpolation fragment; human review required.",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.interaction-code.dynamic-script.d2e6398581",
+      "channel": "dynamic-script",
+      "stage": "interaction-code",
+      "sourceText": "檢視數據表",
+      "translations": {
+        "pt": "Ver tabela de dados",
+        "en": "View data table"
+      },
+      "locations": [
+        283
+      ],
+      "reviewNote": "Literal may be an interpolation fragment; human review required.",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.interaction-code.dynamic-script.ea8c4ca558",
+      "channel": "dynamic-script",
+      "stage": "interaction-code",
+      "sourceText": "示意駁回，未提交。",
+      "translations": {
+        "pt": "Rejeição ilustrativa; não submetida.",
+        "en": "Illustrative dismissal; not submitted."
+      },
+      "locations": [
+        285
+      ],
+      "reviewNote": "Literal may be an interpolation fragment; human review required.",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.interaction-code.dynamic-script.f1deeff5c7",
+      "channel": "dynamic-script",
+      "stage": "interaction-code",
+      "sourceText": "示意已閱，未提交。",
+      "translations": {
+        "pt": "Revisão ilustrativa; não submetida.",
+        "en": "Illustrative review; not submitted."
+      },
+      "locations": [
+        285
+      ],
+      "reviewNote": "Literal may be an interpolation fragment; human review required.",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.interaction-code.dynamic-script.f8060364c7",
+      "channel": "dynamic-script",
+      "stage": "interaction-code",
+      "sourceText": " 階段<strong>",
+      "translations": {
+        "pt": " Etapa<strong>",
+        "en": " Stage<strong>"
+      },
+      "locations": [
+        301
+      ],
+      "reviewNote": "Literal may be an interpolation fragment; human review required.",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.interaction-code.dynamic-script.fea1a5d500",
+      "channel": "dynamic-script",
+      "stage": "interaction-code",
+      "sourceText": "下一階段 →",
+      "translations": {
+        "pt": "Etapa seguinte →",
+        "en": "Next stage →"
+      },
+      "locations": [
+        302
+      ],
+      "reviewNote": "Literal may be an interpolation fragment; human review required.",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.outcome-replay.text.04c38c1cea",
+      "channel": "text",
+      "stage": "outcome-replay",
+      "sourceText": "預測、外部操作和量測結果分開記錄。",
+      "translations": {
+        "pt": "As previsões, as ações externas e os resultados medidos são registados separadamente.",
+        "en": "Forecasts, external actions, and measured outcomes are recorded separately."
+      },
+      "locations": [
+        266
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.outcome-replay.text.22c66c1cc1",
+      "channel": "text",
+      "stage": "outcome-replay",
+      "sourceText": "不可計算 · 缺少客戶批准的基線與計量期",
+      "translations": {
+        "pt": "Não calculável · falta uma linha de base aprovada pelo cliente e o período de medição",
+        "en": "Not calculable · customer-approved baseline and measurement period missing"
+      },
+      "locations": [
+        270
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.outcome-replay.text.25ede92cbd",
+      "channel": "text",
+      "stage": "outcome-replay",
+      "sourceText": "快照身份：",
+      "translations": {
+        "pt": "Identificador do instantâneo:",
+        "en": "Snapshot identity:"
+      },
+      "locations": [
+        273
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.outcome-replay.text.328eae461a",
+      "channel": "text",
+      "stage": "outcome-replay",
+      "sourceText": "未授權且未執行 · 本 MVP 邊界為 SHADOW",
+      "translations": {
+        "pt": "Não autorizado nem executado · o limite deste MVP é SHADOW",
+        "en": "Not authorized or executed · this MVP boundary is SHADOW"
+      },
+      "locations": [
+        269
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.outcome-replay.text.3a64a3ee71",
+      "channel": "text",
+      "stage": "outcome-replay",
+      "sourceText": "返回資料核驗 ↑",
+      "translations": {
+        "pt": "Voltar à validação dos dados ↑",
+        "en": "Return to data qualification ↑"
+      },
+      "locations": [
+        273
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.outcome-replay.text.503e0f7fa9",
+      "channel": "text",
+      "stage": "outcome-replay",
+      "sourceText": "現場結果",
+      "translations": {
+        "pt": "Resultado no local",
+        "en": "Site outcome"
+      },
+      "locations": [
+        268
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.outcome-replay.text.717b7d2cec",
+      "channel": "text",
+      "stage": "outcome-replay",
+      "sourceText": "設備操作",
+      "translations": {
+        "pt": "Ação sobre equipamento",
+        "en": "Equipment action"
+      },
+      "locations": [
+        269
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.outcome-replay.text.9918258ad8",
+      "channel": "text",
+      "stage": "outcome-replay",
+      "sourceText": "節省 / M&V",
+      "translations": {
+        "pt": "Poupanças / M&V",
+        "en": "Savings / M&V"
+      },
+      "locations": [
+        270
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.outcome-replay.text.9fd52c372f",
+      "channel": "text",
+      "stage": "outcome-replay",
+      "sourceText": "06 · 結果監測與回放",
+      "translations": {
+        "pt": "06 · Monitorização de resultados e reprodução",
+        "en": "06 · Outcome monitoring and replay"
+      },
+      "locations": [
+        266
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.outcome-replay.text.bd0cd71bcc",
+      "channel": "text",
+      "stage": "outcome-replay",
+      "sourceText": "同一站點、時區和時段；輸入資料快照及品質；合同/規則版本（若適用）；模型/預測/優化器版本；候選和約束；人工審閱狀態；其後獨立的操作回執與量測窗口。",
+      "translations": {
+        "pt": "Mesmo local, fuso horário e intervalos; instantâneo e qualidade dos dados de entrada; versão do contrato/regra (se aplicável); versões do modelo/previsão/otimizador; alternativa e restrições; estado da revisão humana; comprovativo independente da ação posterior e janela de medição.",
+        "en": "Same site, time zone, and intervals; input-data snapshot and quality; contract/rule version (if applicable); model/forecast/optimizer versions; candidate and constraints; human review status; subsequent independent action receipt and measurement window."
+      },
+      "locations": [
+        272
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.outcome-replay.text.cd841e97ed",
+      "channel": "text",
+      "stage": "outcome-replay",
+      "sourceText": "未實作 · 此靜態原型沒有輸入快照 ID、版本鎖定或持久化回放。正式系統在原始快照不可用時應顯示「回放不可用/不完整」，不得套用最新資料。",
+      "translations": {
+        "pt": "Não implementado · este protótipo estático não tem identificador do instantâneo de entrada, bloqueio de versões ou reprodução persistente. Um sistema de produção deve indicar “reprodução indisponível/incompleta” quando falta o instantâneo original; não deve substituí-lo pelos dados mais recentes.",
+        "en": "Not implemented · this static prototype has no input snapshot ID, version lock, or durable replay. A production system should show “replay unavailable/incomplete” when the original snapshot is missing; it must not substitute the latest data."
+      },
+      "locations": [
+        273
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.outcome-replay.text.d76f379e87",
+      "channel": "text",
+      "stage": "outcome-replay",
+      "sourceText": "尚未量測 · 無客戶站點資料",
+      "translations": {
+        "pt": "Ainda não medido · sem dados de um local do cliente",
+        "en": "Not yet measured · no customer-site data"
+      },
+      "locations": [
+        268
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.outcome-replay.text.dd87272c6b",
+      "channel": "text",
+      "stage": "outcome-replay",
+      "sourceText": "回放所需的不可變依據",
+      "translations": {
+        "pt": "Evidência imutável necessária para reprodução",
+        "en": "Immutable evidence required for replay"
+      },
+      "locations": [
+        272
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.outcome-replay.text.e1ecec8d97",
+      "channel": "text",
+      "stage": "outcome-replay",
+      "sourceText": "當前沒有現場接入、執行記錄或已同意的 M&V 基線；因此展示阻擋狀態和未來所需資料，不虛構已發生的監測結果。",
+      "translations": {
+        "pt": "Atualmente não existe ligação ao local, registo de execução nem linha de base de M&V acordada; por isso, esta vista mostra impedimentos e dados necessários no futuro, sem inventar resultados de monitorização.",
+        "en": "There is currently no site connection, execution record, or agreed M&V baseline; therefore this view shows blockers and future data needs rather than inventing monitoring results."
+      },
+      "locations": [
+        266
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.outcome-replay.text.fc758b0b05",
+      "channel": "text",
+      "stage": "outcome-replay",
+      "sourceText": "沒有站點執行或測量記錄；此畫面只重播合成示例資料。",
+      "translations": {
+        "pt": "Sem registos de execução ou medição no local; este ecrã reproduz apenas dados de exemplo sintéticos.",
+        "en": "No site execution or measurement records; this screen replays synthetic example data only."
+      },
+      "locations": [
+        272
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.outcome-replay.text.ff04ab8c77",
+      "channel": "text",
+      "stage": "outcome-replay",
+      "sourceText": "目前回放狀態：",
+      "translations": {
+        "pt": "Estado atual da reprodução:",
+        "en": "Current replay status:"
+      },
+      "locations": [
+        272
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shadow-review.text.2678e06a65",
+      "channel": "text",
+      "stage": "shadow-review",
+      "sourceText": "05 · SHADOW 建議審查",
+      "translations": {
+        "pt": "05 · Revisão da recomendação SHADOW",
+        "en": "05 · SHADOW recommendation review"
+      },
+      "locations": [
+        262
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shadow-review.text.2f8c2f569f",
+      "channel": "text",
+      "stage": "shadow-review",
+      "sourceText": "候選摘要",
+      "translations": {
+        "pt": "Resumo da alternativa",
+        "en": "Candidate summary"
+      },
+      "locations": [
+        263
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shadow-review.text.3abc6fe48c",
+      "channel": "text",
+      "stage": "shadow-review",
+      "sourceText": "本原型可切換「已閱、需補證據、駁回」三種頁面示意狀態；重新載入會重設。正式系統須保存審計紀錄並綁定已授權身份。",
+      "translations": {
+        "pt": "Este protótipo permite alternar entre três estados ilustrativos da página: revisto, evidência solicitada e rejeitado; ao recarregar, os estados são repostos. Um sistema de produção deve persistir o registo de auditoria e associá-lo a uma identidade autenticada.",
+        "en": "This prototype can switch among three illustrative page states: reviewed, evidence requested, and dismissed; a reload resets them. A production system must persist the audit record and bind it to an authenticated identity."
+      },
+      "locations": [
+        263
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shadow-review.text.3be5ee01a0",
+      "channel": "text",
+      "stage": "shadow-review",
+      "sourceText": "此原型可切換頁面內的審閱狀態，重新載入會清除。它不保存、不發出命令，亦不代表有人已審批實際站點方案。",
+      "translations": {
+        "pt": "Este protótipo permite alterar o estado de revisão na página; ao recarregar, o estado é apagado. Não guarda dados nem envia comandos, e não significa que alguém tenha aprovado o plano real do local.",
+        "en": "This prototype can change a review state on the page; reloading clears it. It does not save or send commands, and does not mean anyone approved the actual site plan."
+      },
+      "locations": [
+        262
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shadow-review.text.767698ae39",
+      "channel": "text",
+      "stage": "shadow-review",
+      "sourceText": "使用頁面右側的「記錄示意審閱（僅本頁）」按鈕；狀態會即時顯示且不會持久化。",
+      "translations": {
+        "pt": "Use o botão “Registar revisão ilustrativa (apenas nesta página)” à direita; o estado aparece imediatamente e não é persistido.",
+        "en": "Use the “Record illustrative review (page only)” button on the right; the state appears immediately and is not persisted."
+      },
+      "locations": [
+        263
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shadow-review.text.7e9dc38a73",
+      "channel": "text",
+      "stage": "shadow-review",
+      "sourceText": "在方案面板記錄示意審閱",
+      "translations": {
+        "pt": "Registar revisão ilustrativa no painel da alternativa",
+        "en": "Record illustrative review in the candidate panel"
+      },
+      "locations": [
+        263
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shadow-review.text.b28346dc84",
+      "channel": "text",
+      "stage": "shadow-review",
+      "sourceText": "15:00–16:00 情境電網輸入減少 50 kW；候選展示窗口最大值則由 485 增至 510 kW；賬期 Pu 仍未知。HVAC 有 +30 kW 回彈；合約成本、舒適和設備響應均未驗證；SOC/效率只按合成參數積分，不是現場驗證。",
+      "translations": {
+        "pt": "A importação da rede no intervalo de cenário das 15:00–16:00 diminui 50 kW; o máximo apresentado para a alternativa aumenta de 485 para 510 kW; o Pu do período de faturação continua desconhecido. O AVAC recupera +30 kW; o custo contratual, o conforto e a resposta dos equipamentos não foram verificados; o SOC/eficiência são calculados apenas a partir de parâmetros sintéticos, sem evidência de campo.",
+        "en": "Grid import in the 15:00–16:00 scenario interval falls by 50 kW; the candidate display-window maximum rises from 485 to 510 kW; billing-period Pu remains unknown. HVAC rebounds by +30 kW; contract cost, comfort, and equipment response are unverified; SOC/efficiency are integrated from synthetic parameters only, not field evidence."
+      },
+      "locations": [
+        263
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shadow-review.text.d761ff771f",
+      "channel": "text",
+      "stage": "shadow-review",
+      "sourceText": "可用審查動作：",
+      "translations": {
+        "pt": "Ações de revisão disponíveis:",
+        "en": "Available review actions:"
+      },
+      "locations": [
+        263
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shadow-review.text.e6c1ac9865",
+      "channel": "text",
+      "stage": "shadow-review",
+      "sourceText": "跳至審閱控制 ↓",
+      "translations": {
+        "pt": "Ir para os controlos de revisão ↓",
+        "en": "Jump to review controls ↓"
+      },
+      "locations": [
+        263
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shadow-review.text.ff2a75beaa",
+      "channel": "text",
+      "stage": "shadow-review",
+      "sourceText": "審查是可追溯的意見，不是控制授權。",
+      "translations": {
+        "pt": "Uma revisão é um comentário rastreável, não uma autorização de controlo.",
+        "en": "A review is traceable feedback, not control authorization."
+      },
+      "locations": [
+        262
+      ],
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.attribute-aria-label.143a991b4b",
+      "channel": "attribute-aria-label",
+      "stage": "shell",
+      "sourceText": "組合概覽",
+      "translations": {
+        "pt": "Visão geral do portefólio",
+        "en": "Portfolio overview"
+      },
+      "locations": [
+        161
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.attribute-aria-label.1944996eb0",
+      "channel": "attribute-aria-label",
+      "stage": "shell",
+      "sourceText": "主導覽",
+      "translations": {
+        "pt": "Navegação principal",
+        "en": "Main navigation"
+      },
+      "locations": [
+        161
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.attribute-aria-label.2843e77f48",
+      "channel": "attribute-aria-label",
+      "stage": "shell",
+      "sourceText": "當前調度階段；展開以切換階段",
+      "translations": {
+        "pt": "Fase atual do despacho; expanda para mudar de fase",
+        "en": "Current dispatch stage; expand to change stage"
+      },
+      "locations": [
+        167
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.attribute-aria-label.778ff5f989",
+      "channel": "attribute-aria-label",
+      "stage": "shell",
+      "sourceText": "使用者",
+      "translations": {
+        "pt": "Utilizador",
+        "en": "User"
+      },
+      "locations": [
+        163
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.attribute-aria-label.886dc60909",
+      "channel": "attribute-aria-label",
+      "stage": "shell",
+      "sourceText": "選擇時間粒度",
+      "translations": {
+        "pt": "Selecionar resolução temporal",
+        "en": "Select time resolution"
+      },
+      "locations": [
+        164
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.attribute-aria-label.9927ebd1fa",
+      "channel": "attribute-aria-label",
+      "stage": "shell",
+      "sourceText": "目前規劃條件",
+      "translations": {
+        "pt": "Condições atuais de planeamento",
+        "en": "Current planning conditions"
+      },
+      "locations": [
+        165
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.attribute-aria-label.a3f8fc4bb9",
+      "channel": "attribute-aria-label",
+      "stage": "shell",
+      "sourceText": "選擇規劃日期",
+      "translations": {
+        "pt": "Selecionar data de planeamento",
+        "en": "Select planning date"
+      },
+      "locations": [
+        164
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.attribute-aria-label.b58e02e1e7",
+      "channel": "attribute-aria-label",
+      "stage": "shell",
+      "sourceText": "調度工作流程",
+      "translations": {
+        "pt": "Fluxo de trabalho do despacho",
+        "en": "Dispatch workflow"
+      },
+      "locations": [
+        167
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.attribute-aria-label.c7fdddf79e",
+      "channel": "attribute-aria-label",
+      "stage": "shell",
+      "sourceText": "關閉",
+      "translations": {
+        "pt": "Fechar",
+        "en": "Close"
+      },
+      "locations": [
+        278
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.attribute-aria-label.d9908a457b",
+      "channel": "attribute-aria-label",
+      "stage": "shell",
+      "sourceText": "能源模型",
+      "translations": {
+        "pt": "Modelo energético",
+        "en": "Energy model"
+      },
+      "locations": [
+        161
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.attribute-aria-label.e72180aa5f",
+      "channel": "attribute-aria-label",
+      "stage": "shell",
+      "sourceText": "來源調度",
+      "translations": {
+        "pt": "Despacho de fontes",
+        "en": "Source dispatch"
+      },
+      "locations": [
+        161
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.attribute-aria-label.ffbb85be64",
+      "channel": "attribute-aria-label",
+      "stage": "shell",
+      "sourceText": "證據",
+      "translations": {
+        "pt": "Evidências",
+        "en": "Evidence"
+      },
+      "locations": [
+        161
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.032fb5fd84",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "查看此方案的假設",
+      "translations": {
+        "pt": "Consultar os pressupostos deste plano",
+        "en": "Review this schedule's assumptions"
+      },
+      "locations": [
+        275
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.0545e73134",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "比較同一時段",
+      "translations": {
+        "pt": "Comparar o mesmo intervalo",
+        "en": "Compare the same interval"
+      },
+      "locations": [
+        170
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.0d5c1097c2",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "站點能源模型",
+      "translations": {
+        "pt": "Modelo energético do local",
+        "en": "Site energy model"
+      },
+      "locations": [
+        169
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.0d865067be",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "所有數值均為合成演示。沒有顯示上網、跨樓宇抵扣、節省金額或已執行控制。請以現場點位、合同與安全約束替換後再評估。",
+      "translations": {
+        "pt": "Todos os valores são demonstrações sintéticas. Não são apresentados injeção na rede, compensação entre edifícios, poupanças ou controlo executado. Substitua-os por pontos de telemetria do local, termos contratuais e restrições de segurança antes de avaliar.",
+        "en": "All values are synthetic demonstrations. No grid export, cross-building credits, savings, or executed control are shown. Replace them with site telemetry points, contract terms, and safety constraints before evaluating."
+      },
+      "locations": [
+        275
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.1336a694e4",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "查看輸入依據",
+      "translations": {
+        "pt": "Ver evidências dos dados de entrada",
+        "en": "View input evidence"
+      },
+      "locations": [
+        164
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.1515b619bf",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "查看流程⌄",
+      "translations": {
+        "pt": "Ver fluxo de trabalho⌄",
+        "en": "View workflow⌄"
+      },
+      "locations": [
+        167
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.16a226dfa0",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "空調可調範圍、建築舒適約束與移峰後反彈；",
+      "translations": {
+        "pt": "Flexibilidade do AVAC, limites de conforto do edifício e recuperação da carga após o deslocamento;",
+        "en": "HVAC flexibility, building comfort constraints, and rebound after load shifting;"
+      },
+      "locations": [
+        278
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.258ab144aa",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "12:00–18:00 · 澳門時間示例",
+      "translations": {
+        "pt": "12:00–18:00 · exemplo na hora de Macau",
+        "en": "12:00–18:00 · Macau time example"
+      },
+      "locations": [
+        165
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.2eb2c3e0ea",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "合成資料 · 版本 DEMO-04",
+      "translations": {
+        "pt": "Dados sintéticos · versão DEMO-04",
+        "en": "Synthetic data · version DEMO-04"
+      },
+      "locations": [
+        165
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.409243f756",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "未核實 · 暫不提供帳單級金額",
+      "translations": {
+        "pt": "Não verificado · valores ao nível da fatura indisponíveis",
+        "en": "Unverified · bill-level amounts unavailable"
+      },
+      "locations": [
+        165
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.4293082f0d",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "放回每個時段。",
+      "translations": {
+        "pt": "em cada intervalo.",
+        "en": "for every interval."
+      },
+      "locations": [
+        164
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.45b9c6748c",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "原型邊界：",
+      "translations": {
+        "pt": "Limites do protótipo:",
+        "en": "Prototype boundary:"
+      },
+      "locations": [
+        275
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.4ec1a337e4",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "監測與回放",
+      "translations": {
+        "pt": "Monitorização e reprodução",
+        "en": "Monitoring and replay"
+      },
+      "locations": [
+        173
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.523f329832",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "解讀限制和證據",
+      "translations": {
+        "pt": "Interpretar restrições e evidências",
+        "en": "Interpret constraints and evidence"
+      },
+      "locations": [
+        171
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.52dedc5197",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "規劃條件 · 12:00–18:00 · Shadow",
+      "translations": {
+        "pt": "Condições de planeamento · 12:00–18:00 · SHADOW",
+        "en": "Planning conditions · 12:00–18:00 · SHADOW"
+      },
+      "locations": [
+        165
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.5562b7ffa4",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "建議狀態",
+      "translations": {
+        "pt": "Estado da recomendação",
+        "en": "Recommendation status"
+      },
+      "locations": [
+        165
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.6023fa2b07",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "示例日期 · 合成情境",
+      "translations": {
+        "pt": "Data de exemplo · cenário sintético",
+        "en": "Example date · synthetic scenario"
+      },
+      "locations": [
+        164
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.644ad5833a",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "把能源安排，",
+      "translations": {
+        "pt": "Planeie a utilização de energia",
+        "en": "Plan energy use"
+      },
+      "locations": [
+        164
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.6cfd730dca",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "儲能容量、SOC、效率、保留電量與運行界限；",
+      "translations": {
+        "pt": "capacidade de armazenamento, SOC, eficiência, energia de reserva e limites operacionais;",
+        "en": "storage capacity, SOC, efficiency, reserved energy, and operating limits;"
+      },
+      "locations": [
+        278
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.7be0f65214",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "方案可解讀，仍不可執行",
+      "translations": {
+        "pt": "Os planos são explicáveis, mas não executáveis",
+        "en": "Schedules are explainable, but not executable"
+      },
+      "locations": [
+        278
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.7fc31a14fb",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "時序與方案",
+      "translations": {
+        "pt": "Cronologia e planos",
+        "en": "Timeline and schedules"
+      },
+      "locations": [
+        167,
+        170
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.8035e11dfa",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "進線／分項電表對應、時鐘與資料品質；",
+      "translations": {
+        "pt": "Correspondência entre contador geral e subcontadores, sincronização dos relógios e qualidade dos dados;",
+        "en": "Main/submeter mapping, clock alignment, and data quality;"
+      },
+      "locations": [
+        278
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.81fc559364",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "分清物理與結算",
+      "translations": {
+        "pt": "Separar fluxos físicos do acerto da fatura",
+        "en": "Separate physical flows from settlement"
+      },
+      "locations": [
+        169
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.83daf176e0",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "等待實測證據",
+      "translations": {
+        "pt": "A aguardar evidências medidas",
+        "en": "Awaiting measured evidence"
+      },
+      "locations": [
+        173
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.85fb64afff",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "跳至主要內容",
+      "translations": {
+        "pt": "Saltar para o conteúdo principal",
+        "en": "Skip to main content"
+      },
+      "locations": [
+        159
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.88d8ed29ba",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "光伏逆變器與並網點能力，以及適用的上網／限發狀態；",
+      "translations": {
+        "pt": "Capacidade do inversor fotovoltaico e do ponto de ligação à rede, incluindo o estado aplicável de injeção ou limitação;",
+        "en": "PV inverter and grid-connection capacity, plus applicable export or curtailment status;"
+      },
+      "locations": [
+        278
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.8b9394950c",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "建議不會下發",
+      "translations": {
+        "pt": "As recomendações não são enviadas aos equipamentos",
+        "en": "Recommendations are not sent to equipment"
+      },
+      "locations": [
+        172
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.8e37cd5f7f",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "明白",
+      "translations": {
+        "pt": "Compreendi",
+        "en": "Understood"
+      },
+      "locations": [
+        278
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.981de64444",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "合成情境 · 非現場資料",
+      "translations": {
+        "pt": "Cenário sintético · não são dados do local",
+        "en": "Synthetic scenario · not site data"
+      },
+      "locations": [
+        163
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.9b27913b81",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "Macau Commercial Energy OS · 調度流程研究 v1.9",
+      "translations": {
+        "pt": "Macau Commercial Energy OS · estudo do fluxo de despacho v1.9",
+        "en": "Macau Commercial Energy OS · dispatch workflow study v1.9"
+      },
+      "locations": [
+        276
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.9f636d12ca",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "繁體中文介面實驗 · 尚不代表完整多語支援或已核准視覺方向",
+      "translations": {
+        "pt": "Estudo multilingue da interface · não representa suporte linguístico completo nem uma direção visual aprovada",
+        "en": "Multilingual locale study · not complete language support or an approved visual direction"
+      },
+      "locations": [
+        276
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.a197c684b4",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "證據與假設",
+      "translations": {
+        "pt": "Evidências e pressupostos",
+        "en": "Evidence and assumptions"
+      },
+      "locations": [
+        278
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.a765f4038f",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "Shadow 審查",
+      "translations": {
+        "pt": "Revisão SHADOW",
+        "en": "SHADOW review"
+      },
+      "locations": [
+        172
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.a8e1acbdab",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "概覽",
+      "translations": {
+        "pt": "Visão geral",
+        "en": "Overview"
+      },
+      "locations": [
+        161
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.b98986b33b",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "適用電價、需量計算與合同有效期。",
+      "translations": {
+        "pt": "Tarifa aplicável, cálculo da procura e período de vigência do contrato.",
+        "en": "Applicable tariff, demand calculation, and contract effective period."
+      },
+      "locations": [
+        278
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.bb6a844a3b",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "成本與約束",
+      "translations": {
+        "pt": "Custos e restrições",
+        "en": "Costs and constraints"
+      },
+      "locations": [
+        171
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.c21246bd2b",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "輸入快照",
+      "translations": {
+        "pt": "Instantâneo dos dados de entrada",
+        "en": "Input snapshot"
+      },
+      "locations": [
+        165
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.c63baa088c",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "計費規則",
+      "translations": {
+        "pt": "Regras de faturação",
+        "en": "Billing rules"
+      },
+      "locations": [
+        165
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.c98e118e0a",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "模型",
+      "translations": {
+        "pt": "Modelo",
+        "en": "Model"
+      },
+      "locations": [
+        161
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.cab390756f",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "規劃時段",
+      "translations": {
+        "pt": "Horizonte de planeamento",
+        "en": "Planning horizon"
+      },
+      "locations": [
+        165
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.cb38e429dd",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "來源與負荷 · 調度工作區",
+      "translations": {
+        "pt": "Fontes e cargas · área de trabalho do despacho",
+        "en": "Sources and loads · dispatch workspace"
+      },
+      "locations": [
+        164
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.cbca52f072",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "情境比較 · Shadow",
+      "translations": {
+        "pt": "Comparação de cenários · SHADOW",
+        "en": "Scenario comparison · SHADOW"
+      },
+      "locations": [
+        165
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.cd46c29849",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "資料與合約",
+      "translations": {
+        "pt": "Dados e contratos",
+        "en": "Data and contracts"
+      },
+      "locations": [
+        168
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.cf840fb254",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "澳門情境",
+      "translations": {
+        "pt": "Cenário de Macau",
+        "en": "Macau scenario"
+      },
+      "locations": [
+        163
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.cfedccc44f",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "能源營運 / 調度",
+      "translations": {
+        "pt": "Operações energéticas / despacho",
+        "en": "Energy operations / dispatch"
+      },
+      "locations": [
+        163
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.d35fe25712",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "目前畫面用一個合成平衡示例測試調度任務的資訊層次。實際排程至少需要以下現場與合同證據：",
+      "translations": {
+        "pt": "Esta vista usa um exemplo sintético de balanço para avaliar a hierarquia da informação numa tarefa de despacho. Um plano real exige, no mínimo, as seguintes evidências do local e do contrato:",
+        "en": "This view uses a synthetic balance example to examine the information hierarchy for dispatch work. A real schedule requires, at minimum, the following site and contract evidence:"
+      },
+      "locations": [
+        278
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.d7e1f9a67c",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "核驗輸入依據",
+      "translations": {
+        "pt": "Verificar evidências dos dados de entrada",
+        "en": "Verify input evidence"
+      },
+      "locations": [
+        168
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.ed320e32da",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "缺少結算依據時，只呈現物理功率情境；缺少控制和安全授權時，只能審查建議，不提供下發操作。",
+      "translations": {
+        "pt": "Sem evidências de faturação, apresentar apenas cenários de potência física. Sem autorização de controlo e segurança, as recomendações podem ser revistas, mas não é possível enviar comandos aos equipamentos.",
+        "en": "Without settlement evidence, show physical-power scenarios only. Without control and safety authorization, recommendations may be reviewed, but no dispatch command is available."
+      },
+      "locations": [
+        278
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.f05c505e82",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "比較同一時段的供能與負荷安排，先核實現場證據，再看成本與約束。",
+      "translations": {
+        "pt": "Compare os planos de fornecimento e carga para o mesmo intervalo. Verifique as evidências do local antes de analisar custos e restrições.",
+        "en": "Compare supply and load schedules for the same interval. Verify site evidence before reviewing costs and constraints."
+      },
+      "locations": [
+        164
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.f120c59851",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "調度",
+      "translations": {
+        "pt": "Despacho",
+        "en": "Dispatch"
+      },
+      "locations": [
+        161
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.fa355ec5fe",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "1 小時示例粒度",
+      "translations": {
+        "pt": "Resolução de exemplo: 1 hora",
+        "en": "Example resolution: 1 hour"
+      },
+      "locations": [
+        164
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.ff8913d116",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "示範商業站點",
+      "translations": {
+        "pt": "Local comercial de demonstração",
+        "en": "Demonstration commercial site"
+      },
+      "locations": [
+        163
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.shell.text.ffbb85be64",
+      "channel": "text",
+      "stage": "shell",
+      "sourceText": "證據",
+      "translations": {
+        "pt": "Evidências",
+        "en": "Evidence"
+      },
+      "locations": [
+        161
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.0385c17b13",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "物理流 · 合成平衡示意",
+      "translations": {
+        "pt": "Fluxos físicos · balanço sintético ilustrativo",
+        "en": "Physical flows · synthetic balance illustration"
+      },
+      "locations": [
+        192
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.0cf77420bd",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "把實際能源路徑和電費規則放在不同層。",
+      "translations": {
+        "pt": "Separe os fluxos físicos de energia das regras da fatura.",
+        "en": "Keep physical energy paths separate from billing rules."
+      },
+      "locations": [
+        190
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.23428d6cdc",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "EV 充電 · 物理負荷候選",
+      "translations": {
+        "pt": "Carregamento de VE · carga física candidata",
+        "en": "EV charging · candidate physical load"
+      },
+      "locations": [
+        205
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.24c287811d",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "演示移峰和回彈，不代表已核實點位、舒適/服務界限、控制權或現場響應。",
+      "translations": {
+        "pt": "Ilustra o deslocamento e a recuperação da carga; não comprova pontos verificados, limites de conforto ou serviço, autoridade de controlo nem resposta no local.",
+        "en": "Illustrates load shifting and rebound; it does not establish verified points, comfort or service limits, control authority, or site response."
+      },
+      "locations": [
+        204
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.24dd26b63c",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "未納入 · 證據不足",
+      "translations": {
+        "pt": "Excluído · evidências insuficientes",
+        "en": "Excluded · insufficient evidence"
+      },
+      "locations": [
+        206
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.265f02cf36",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "電網輸入 · 現場 PV · 可選 ESS 放電",
+      "translations": {
+        "pt": "Importação da rede · fotovoltaico no local · descarga opcional do ESS",
+        "en": "Grid import · on-site PV · optional ESS discharge"
+      },
+      "locations": [
+        192
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.2efd588334",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "儲能 ESS",
+      "translations": {
+        "pt": "Armazenamento de energia (ESS)",
+        "en": "Energy storage (ESS)"
+      },
+      "locations": [
+        203
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.31c56fa995",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "本次情境用了哪些資源？",
+      "translations": {
+        "pt": "Que recursos são utilizados neste cenário?",
+        "en": "Which resources are used in this scenario?"
+      },
+      "locations": [
+        197
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.324a181065",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "「納入示例」不代表現場可調度；只有站點映射、設備能力、營運限制和授權都核實後，資源才可進入實際評估。",
+      "translations": {
+        "pt": "“Incluído no exemplo” não significa que o recurso possa ser despachado no local. Só pode integrar uma avaliação real após verificar o mapeamento do local, a capacidade dos equipamentos, os limites operacionais e a autorização.",
+        "en": "“Included in example” does not mean dispatchable at the site. A resource may enter a real assessment only after site mapping, equipment capability, operating limits, and authorization are verified."
+      },
+      "locations": [
+        198
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.363dde1d08",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "EV 可在證據齊全後作為物理柔性負荷建模；本合成候選未建模或調度 EV。仍需核實充電樁、服務表計、可用時窗、離場電量、授權及響應。充電費用歸屬須另行匹配實際表計、帳戶、合同與電價，不假設沿用樓宇電價。",
+      "translations": {
+        "pt": "O carregamento de VE pode ser modelado como carga física flexível quando existirem evidências completas; este cenário sintético não modela nem despacha VE. Verifique os carregadores, o contador de serviço, a janela de disponibilidade, a carga necessária à partida, a autorização e a resposta. Atribua os custos de carregamento apenas após associar o contador, a conta, o contrato e a tarifa reais; não presuma que se aplica a tarifa do edifício.",
+        "en": "EV charging can be modelled as a physical flexible load when evidence is complete; this synthetic candidate does not model or dispatch EVs. Verify the chargers, service meter, availability window, required departure charge, authorization, and response. Attribute charging costs only after matching the actual meter, account, contract, and tariff; do not assume the building tariff applies."
+      },
+      "locations": [
+        205
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.37e4833d3d",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "只有已核實的電表與設備關係才可形成物理事實。此處的連線是合成示意，不表示反送、跨樓宇共享或抵扣權利。",
+      "translations": {
+        "pt": "Só relações verificadas entre contadores e equipamentos estabelecem factos físicos. As ligações aqui apresentadas são sintéticas e não implicam injeção na rede, partilha entre edifícios ou direitos de compensação.",
+        "en": "Only verified meter-to-equipment relationships establish physical facts. The connections shown here are synthetic and do not imply export, cross-building sharing, or credit rights."
+      },
+      "locations": [
+        190
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.3a51e9c7e8",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "現場光伏",
+      "translations": {
+        "pt": "Fotovoltaico no local",
+        "en": "On-site PV"
+      },
+      "locations": [
+        202
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.3c006a21a7",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "顯示合成進口曲線；未核實實際表計、帳戶、供電容量或適用需求規則。",
+      "translations": {
+        "pt": "Apresenta um perfil sintético de importação; os contadores, as contas, a capacidade de fornecimento e as regras de procura aplicáveis não foram verificados.",
+        "en": "Shows a synthetic import profile; actual meters, accounts, supply capacity, and applicable demand rules are unverified."
+      },
+      "locations": [
+        201
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.3eb513fa54",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "合成候選：15:00–16:00 電網 430 + PV 110 + ESS 放電 20 = 負荷 560 kW；16:00–17:00 電網 509.691 + PV 85 = 負荷 570 + ESS 充電 24.691 kW。SOC 由 40 降至 17.778 kWh，再於充電後回到 40 kWh。分別按 90% 充、放電效率積分；全部設備參數均非現場證據。",
+      "translations": {
+        "pt": "Cenário sintético: 15:00–16:00 rede 430 + fotovoltaico 110 + descarga do ESS 20 = carga 560 kW; 16:00–17:00 rede 509,691 + fotovoltaico 85 = carga 570 + carregamento do ESS 24,691 kW. O SOC desce de 40 para 17,778 kWh e regressa a 40 kWh após o carregamento. Cálculo com eficiência sintética de 90% na carga e descarga; nenhum parâmetro dos equipamentos constitui evidência do local.",
+        "en": "Synthetic candidate: 15:00–16:00 grid 430 + PV 110 + ESS discharge 20 = load 560 kW; 16:00–17:00 grid 509.691 + PV 85 = load 570 + ESS charge 24.691 kW. SOC falls from 40 to 17.778 kWh, then returns to 40 kWh after charging. Integrated with 90% charge and discharge efficiency; no equipment parameter is site evidence."
+      },
+      "locations": [
+        192
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.491e984eac",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "光伏輸出 → 自用/反送/抵扣：",
+      "translations": {
+        "pt": "Produção fotovoltaica → autoconsumo / injeção / compensação:",
+        "en": "PV output → self-consumption / export / credits:"
+      },
+      "locations": [
+        193
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.58a1ff4174",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "資源資格 · 按證據納入",
+      "translations": {
+        "pt": "Elegibilidade dos recursos · incluir apenas com evidências",
+        "en": "Resource eligibility · include only when supported by evidence"
+      },
+      "locations": [
+        197
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.5c972e3a04",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "02 · 站點能源模型",
+      "translations": {
+        "pt": "02 · Modelo energético do local",
+        "en": "02 · Site energy model"
+      },
+      "locations": [
+        190
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.604ac40d3d",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "只作合成發電與自用平衡示意；未核實逆變器、併網、輸出表計、收購或結算權利。",
+      "translations": {
+        "pt": "Apenas balanço sintético de produção e autoconsumo; inversor, ligação à rede, contador de injeção, condições de compra e direitos de faturação não foram verificados.",
+        "en": "Synthetic generation and self-consumption balance only; inverter, grid connection, export meter, purchase terms, and settlement rights are unverified."
+      },
+      "locations": [
+        202
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.6053058050",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "結算映射 · 另外核驗",
+      "translations": {
+        "pt": "Mapeamento de faturação · verificar separadamente",
+        "en": "Settlement mapping · verify separately"
+      },
+      "locations": [
+        193
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.734919fe8d",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "熱水負荷",
+      "translations": {
+        "pt": "Carga de água quente",
+        "en": "Hot-water load"
+      },
+      "locations": [
+        206
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.76f9f41d7c",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "納入示例 · 合成",
+      "translations": {
+        "pt": "Incluído no exemplo · sintético",
+        "en": "Included in example · synthetic"
+      },
+      "locations": [
+        201,
+        202,
+        203,
+        204
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.777cd04d75",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "不納入此排程 · 證據不足",
+      "translations": {
+        "pt": "Excluído deste plano · evidências insuficientes",
+        "en": "Excluded from this schedule · insufficient evidence"
+      },
+      "locations": [
+        205
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.7a68337279",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "用能端",
+      "translations": {
+        "pt": "Lado do consumo",
+        "en": "Consumption side"
+      },
+      "locations": [
+        192
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.7f5929e077",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "電網電量 → 適用電價/合同：",
+      "translations": {
+        "pt": "Energia da rede → tarifa/contrato aplicável:",
+        "en": "Grid energy → applicable tariff/contract:"
+      },
+      "locations": [
+        193
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.7f823ec8d1",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "尚無設備/熱水箱映射、溫度與服務界限、需求時窗、控制權及響應證據。",
+      "translations": {
+        "pt": "Faltam o mapeamento dos equipamentos ou depósitos de água quente, os limites de temperatura e serviço, as janelas de procura, a autoridade de controlo e evidências de resposta.",
+        "en": "Equipment or hot-water tank mapping, temperature and service limits, demand windows, control authority, and response evidence are missing."
+      },
+      "locations": [
+        206
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.8304b6e4f5",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "HVAC / 冷水機",
+      "translations": {
+        "pt": "AVAC / chiller",
+        "en": "HVAC / chiller"
+      },
+      "locations": [
+        204
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.8f69dfae61",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "未提供證據，經濟輸出阻擋。",
+      "translations": {
+        "pt": "Evidências não fornecidas; resultados económicos bloqueados.",
+        "en": "Evidence not provided; economic outputs are blocked."
+      },
+      "locations": [
+        193
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.9909237ebe",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "供能端",
+      "translations": {
+        "pt": "Lado do fornecimento",
+        "en": "Supply side"
+      },
+      "locations": [
+        192
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.a0ac96bf09",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "跨樓宇能源關係：",
+      "translations": {
+        "pt": "Relação energética entre edifícios:",
+        "en": "Cross-building energy relationship:"
+      },
+      "locations": [
+        193
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.b57b3107d4",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "只顯示合成發電與自用情境，不推斷上網或帳戶權利。",
+      "translations": {
+        "pt": "Apresenta apenas cenários sintéticos de produção e autoconsumo; não presume direitos de injeção na rede ou direitos associados às contas.",
+        "en": "Shows only synthetic generation and self-consumption scenarios; no export or account rights are inferred."
+      },
+      "locations": [
+        193
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.c648bdd320",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "未建模、未主張。",
+      "translations": {
+        "pt": "Não modelado nem declarado.",
+        "en": "Not modelled or claimed."
+      },
+      "locations": [
+        193
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.d87e3b61ee",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "只演示充放電與 SOC 積分；實際功率、容量、效率、保留值和安全限制未知。",
+      "translations": {
+        "pt": "Ilustra apenas carga, descarga e integração do SOC; a potência, capacidade, eficiência, reserva e limites de segurança reais são desconhecidos.",
+        "en": "Illustrates charging, discharging, and SOC integration only; actual power, capacity, efficiency, reserve, and safety limits are unknown."
+      },
+      "locations": [
+        203
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.f43c90e405",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "電網進口",
+      "translations": {
+        "pt": "Importação da rede",
+        "en": "Grid import"
+      },
+      "locations": [
+        201
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.f5cec2ec9b",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "下一步：比較同一規劃時段 ↓",
+      "translations": {
+        "pt": "Seguinte: comparar planos para o mesmo horizonte de planeamento ↓",
+        "en": "Next: compare schedules for the same planning horizon ↓"
+      },
+      "locations": [
+        209
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "key": "dispatch.v1_9.site-model.text.fabe99d298",
+      "channel": "text",
+      "stage": "site-model",
+      "sourceText": "基礎負荷 · HVAC · 其他已核實可調負荷",
+      "translations": {
+        "pt": "Carga base · AVAC · outras cargas flexíveis verificadas",
+        "en": "Base load · HVAC · other verified flexible loads"
+      },
+      "locations": [
+        192
+      ],
+      "translationReviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_REVIEW"
+    },
+    {
+      "translations": {
+        "en": "17:00–18:00 · window peak 510 kW",
+        "pt": "17:00–18:00 · pico da janela 510 kW"
+      },
+      "key": "dispatch.v1_9.dispatchcomparison.svg.chart-peak",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW",
+      "sourceText": "17:00–18:00 · 展示窗口峰值 510 kW",
+      "stage": "dispatchComparison",
+      "channel": "svg-text",
+      "locations": [
+        224
+      ]
+    },
+    {
+      "translations": {
+        "en": "15:00–16:00 HVAC −30 kW",
+        "pt": "15:00–16:00 AVAC −30 kW"
+      },
+      "key": "dispatch.v1_9.dispatchcomparison.svg.hvac-shift",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW",
+      "sourceText": "15:00–16:00 HVAC −30 kW",
+      "stage": "dispatchComparison",
+      "channel": "svg-text",
+      "locations": [
+        224
+      ]
+    },
+    {
+      "translations": {
+        "en": "Baseline load",
+        "pt": "Carga base"
+      },
+      "key": "dispatch.v1_9.dispatchcomparison.svg.baseline-load",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW",
+      "sourceText": "基線總負荷",
+      "stage": "dispatchComparison",
+      "channel": "svg-text",
+      "locations": [
+        224
+      ]
+    },
+    {
+      "translations": {
+        "en": "17:00 rebound",
+        "pt": "Recuperação 17:00"
+      },
+      "key": "dispatch.v1_9.dispatchcomparison.svg.hvac-rebound",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW",
+      "sourceText": "17:00 HVAC 回彈",
+      "stage": "dispatchComparison",
+      "channel": "svg-text",
+      "locations": [
+        224
+      ]
+    },
+    {
+      "translations": {
+        "en": "PV",
+        "pt": "Fotovoltaico"
+      },
+      "key": "dispatch.v1_9.dispatchcomparison.svg.pv",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW",
+      "sourceText": "光伏",
+      "stage": "dispatchComparison",
+      "channel": "svg-text",
+      "locations": [
+        224
+      ]
+    },
+    {
+      "translations": {
+        "en": "Grid import",
+        "pt": "Importação da rede"
+      },
+      "key": "dispatch.v1_9.dispatchcomparison.svg.grid-import",
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW",
+      "sourceText": "電網輸入",
+      "stage": "dispatchComparison",
+      "channel": "svg-text",
+      "locations": [
+        224
+      ]
+    },
+    {
+      "stage": "dispatchComparison",
+      "locations": [
+        224
+      ],
+      "sourceText": "18:00 · 結束",
+      "channel": "svg-text",
+      "key": "dispatch.v1_9.dispatchcomparison.svg.end-boundary",
+      "translations": {
+        "en": "18:00 · end",
+        "pt": "18:00 · fim"
+      },
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "stage": "dispatchComparison",
+      "locations": [
+        224
+      ],
+      "sourceText": "15:00–16:00 · ESS 放電 20 kW；SOC 40 → 17.778 kWh",
+      "channel": "svg-text",
+      "key": "dispatch.v1_9.dispatchcomparison.svg.ess-discharge-soc",
+      "translations": {
+        "en": "15:00–16:00 · ESS discharge 20 kW; SOC 40 → 17.778 kWh",
+        "pt": "15:00–16:00 · descarga do ESS 20 kW; SOC 40 → 17,778 kWh"
+      },
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    },
+    {
+      "stage": "dispatchComparison",
+      "locations": [
+        224
+      ],
+      "sourceText": "16:00–17:00 · ESS 充電 24.691 kW；SOC 17.778 → 40 kWh",
+      "channel": "svg-text",
+      "key": "dispatch.v1_9.dispatchcomparison.svg.ess-charge-soc",
+      "translations": {
+        "en": "16:00–17:00 · ESS charge 24.691 kW; SOC 17.778 → 40 kWh",
+        "pt": "16:00–17:00 · carregamento do ESS 24,691 kW; SOC 17,778 → 40 kWh"
+      },
+      "reviewState": "DRAFT_NEEDS_MACAU_ENERGY_DOMAIN_AND_LANGUAGE_REVIEW"
+    }
+  ],
+  "translationBatch": {
+    "scope": "All 337 extracted contextual units across shell, data qualification, site model, dispatch comparison, constraints/economics, SHADOW review, outcome replay, and dynamic interaction messages.",
+    "newlyDraftedUnitsPerLocale": 95,
+    "priorDraftSource": "locale-catalog-draft-core-v0.2.json (242/337 units per target locale)",
+    "locales": {
+      "en": "English draft",
+      "pt": "Portuguese draft; Macau regional terminology and variant require specialist review"
+    },
+    "runtimeIntegrated": false,
+    "ownerLocaleApproval": false
+  }
+}
