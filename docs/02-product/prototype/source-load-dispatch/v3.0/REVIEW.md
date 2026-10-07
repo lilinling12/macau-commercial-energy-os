@@ -39,7 +39,7 @@ These are focused prototype checks. They do not establish full keyboard-only cov
 
 Applied the `ui-ux-pro-max` skill and ran a design-system search. Its first match returned a real-time operations **landing-page** pattern with glassmorphism and prominent conversion actions; that pattern does not fit this evidence-first dispatch console, so it was rejected. A narrower sustainable-energy product search returned energy/utilities dashboard, paper-like/data-dense and earth/sky/solar palette suggestions. These are useful references for further exploration, not selected tokens or an owner-approved visual direction.
 
-The current prototype uses a light paper surface, dark text, teal energy series and amber evidence status. Sample token contrast calculations were: ink on white 14.32:1; muted text on white 5.86:1; teal on white 5.01:1; white on teal 5.01:1; focus blue on white 5.71:1; white on navy 14.25:1; warning text on warning surface 8.16:1. This is a token sample, not an exhaustive contrast audit. Some dense metadata remains 11 px and should be reviewed at larger text settings.
+The current prototype uses a light paper surface, dark text, teal energy series and amber evidence status. Sample token contrast calculations were: ink on white 14.32:1; muted text on white 5.86:1; teal on white 5.01:1; white on teal 5.01:1; focus blue on white 5.71:1; white on navy 14.25:1; warning text on warning surface 8.09:1. This is a token sample, not an exhaustive contrast audit. Some dense metadata remains 11 px and should be reviewed at larger text settings.
 
 ## Scope and remaining work
 
