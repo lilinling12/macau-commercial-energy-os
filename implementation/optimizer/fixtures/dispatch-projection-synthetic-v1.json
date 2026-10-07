@@ -4,9 +4,9 @@
   "source": {
     "repository": "lilinling12/macau-commercial-energy-os",
     "pr": 14,
-    "commit": "9b80adca9243a0ae9a7bd666f0efee1acfc6309a",
+    "commit": "e02ed268c23d9cd62f2641db05923befa88ed281",
     "optimizer_blob": "2d3256801f0ddce6b849c648c160f5a32fd90a27",
-    "assessment_blob": "534ae269a7949601bd4504271e0076369807a68f"
+    "assessment_blob": "275a1cd79613cf1997456916f1b59833fb683109"
   },
   "scope": "Six one-hour intervals, fixed PV/base load, three aggregate service-energy tasks, simple ESS, import-energy component objective only.",
   "limitations": [
@@ -144,10 +144,10 @@
     },
     {
       "claim": "DISPATCH_FEASIBILITY",
-      "status": "ALLOWED",
-      "scope": "SCENARIO_ONLY",
+      "status": "WITHHELD",
+      "scope": "NONE",
       "reasons": [
-        "All applicable schedule constraints are evidenced within this bounded prototype."
+        "Overall dispatch feasibility is withheld because service for changed flexible loads is not modeled."
       ],
       "subject": null
     },
