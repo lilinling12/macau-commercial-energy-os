@@ -100,9 +100,42 @@ Solid paths show the initial telemetry, analysis, SHADOW and evidence loop. Dash
 | Cloud-core candidates | A, B, and C+ remain in bake-off. C+ is provisional default, not winner. |
 | Existing Node/NestJS code | Candidate B implementation path; not a stack-selection result. |
 | Java tariff implementation | D-030 semantic tariff architecture remains relevant; Java/Spring implementation authority is suspended by D-069 pending bake-off or a separately approved boundary. |
-| Next.js (API/BFF option; outside the original G6.9-R2 candidate set) | Report (7) conditionally discusses server-side composition/public portal/SSR; it recommends React SPA for the authenticated operator console. The current G6.9-R2 A/B/C+ pack does not test Next.js, and official Next.js documentation describes Route Handlers/BFF endpoints while stating they are not a full backend replacement. Treat Next.js as not assessed in this comparison; any later evaluation requires a concrete product workload and an owner-approved scope amendment or separate ADR. No selection or rejection follows. |
+| Next.js (conditional public/customer portal UI; not a backend selection) | Report (7) recommends React + TypeScript SPA for the authenticated operator console and says Next.js may serve a public/customer portal or where its server features are useful. Its separate reference to Next.js version-matched docs concerns AI coding context, not this product stack. Next.js is outside G6.9-R2 candidates and is not the selected API/BFF or backend. Assess only if an approved portal/SSR requirement justifies it. |
 
 See `docs/03-architecture/technology-authority/` and the G6.9-R2 bake-off Authority for exact candidate topology and decision rules.
+
+## Historical architecture decisions and current-state reconciliation — 2026-10-07
+
+This addendum separates historical acceptance, later research recommendations, the open G6.9-R2 evaluation, and code that happens to exist. It does not silently supersede an ADR or approve the production architecture.
+
+| Source/time | Evidence | Status and effect |
+|---|---|---|
+| G7.6 Step 2 detailed engineering-foundation archive (the separately named `(1)` package) | `TECH_STACK_FREEZE.md` and ADR-072/073/074/076 record React 19.3 + TypeScript 6 + Vite 8; Node 24 + Fastify 5; PostgreSQL 18 initially, with Timescale/dedicated TSDB deferred until pilot evidence; NATS + JetStream; Python 3.14; Go 1.27; and no direct cloud equipment control. It says the authenticated MVP portal has no SSR requirement. | Historically accepted Step 2 baseline. The archive is not a complete canonical ADR set on current `main`; later G6.9 reopened the cloud-core comparison. Preserve it as prior authority until a valid superseding decision is recorded. |
+| G7.8 Step 2/3 archives | Step 2 proposes React/TypeScript, TypeScript cloud responsibilities, Go Edge, Python optimization and OpenAPI/JSON Schema. Step 3's ADR-TECH-001 accepts broad language/boundary direction; its companion `BACKEND_FRAMEWORK_DECISION.md` says to start with Fastify. | Accepted historical direction, with framework detail clearer in the companion record and G7.6 ADR-072. It does not decide the later G6.9 bake-off. |
+| Deep Research report (6), 2026-10-02 | Recommends Candidate C+ before the bake-off: thin Bun/Hono/TypeScript product surface, authoritative Go Energy Core, Temporal Go workers, Go Edge/Safety and Python intelligence. | Research recommendation, not a measured result or owner-approved supersession. |
+| Deep Research report (7), 2026-10-02 | Recommends React/Vite SPA for the authenticated operator UI; Node LTS + NestJS modular-monolith API/control plane; Go cloud data plane and Edge; Python intelligence. Allows Next.js conditionally for a public/customer portal or valuable server-side UI features. | A materially different research recommendation from report (6), not a decision record. The report does not choose Next.js as backend or as the operator-console framework. |
+| G6.9-R2 current authority on `main` | Steps 3A–3C are recorded complete; Step 3D framework-native integration/failure comparison remains pending. Candidate A (Bun/Hono/Effect), B (Node/NestJS/Fastify), and C+ (Go core + thin Bun/Hono surface) remain in the bake-off; C+ is provisional hypothesis only. | Current selection process controls. No measured winner or owner-approved supersession of the G7.6 historical baseline is evidenced. |
+| Current `main` implementation bootstrap | `implementation/platform-api/package.json` pins Node 24.21.x and NestJS 12.0.3 with `@nestjs/platform-express`; it does not use Fastify. That package has no PostgreSQL, Timescale or NATS client dependency. | Implemented bootstrap/deviation evidence, not a production selection or proof that those infrastructure systems are integrated. It does not match the historical Fastify adapter or Candidate B's Fastify variant. |
+
+### Technology status ledger
+
+| Technology / boundary | Evidence-based status now | What is not established |
+|---|---|---|
+| React + TypeScript | Historical G7.6 accepted UI baseline and repeated in later research; React/Vite SPA is report (7)'s operator-console recommendation. | Current product-owner approval, final visual direction and complete production UI scope. |
+| Next.js | Conditional public/customer portal or useful server-side UI option in report (7); not in the G6.9 candidate set. The report's AI-coding documentation mention is not a stack recommendation. | Backend/API selection, operator-console selection, or a requirement to adopt it. |
+| Node + Fastify | Historically accepted in G7.6 and named by the G7.8 companion; Candidate B later tests NestJS/Fastify. | Current winner; Step 3D and Step 4 remain open. |
+| Node + NestJS + Express | Present in the current API bootstrap. Report (7) favors NestJS generally, while current implementation uses Express adapter. | Approval as the production stack; equivalence to the Fastify bake-off candidate. |
+| Bun + Hono | Candidate A's application surface and C+'s thin product/BFF surface. | Production suitability or winner; Step 3D remains unrun. |
+| Go authoritative Energy Core | C+ and report (6) recommendation. Go Edge is a separate, consistently proposed responsibility. | Selection of C+, or proof that Go must own cloud domain authority. |
+| Temporal | G6.9 candidate and workflow-runner comparison item; TypeScript/Go worker choices depend on candidate topology. | Adoption, operational fit or a deployed workflow service. |
+| PostgreSQL + Timescale | Current G6.9 evaluation baseline; report (6) also recommends it. | Superseding G7.6's PostgreSQL-only initial system-of-record decision, or evidence that Timescale is required for the first pilot. |
+| NATS JetStream | G7.6 historically accepted; current G6.9 layer summary calls it a candidate. | Current adoption or production integration. |
+| MQTT 5 | A protocol candidate in the pinned G6.9 Step 3D comparison and report (7)'s Edge/cloud recommendation. | A deployed broker/transport choice or a verified first-site integration. |
+| Python | Historical/research-supported intelligence, forecasting and optimization responsibility; report (7) explicitly recommends it for those workloads. | Specific model/solver, service topology, isolation or production deployment. |
+| Go Edge / Safety Kernel | Consistent research and historical responsibility direction; no direct cloud device write in the MVP. | Site hardware/protocol validation, field-control authorization or G6 closure. |
+| Wasm/WASI | Future plugin-isolation direction in the provisional layer summary. | MVP requirement, runtime choice, plugin API or implementation commitment. |
+
+The conflict is therefore not “Next.js versus backend.” It is the unresolved cloud application/core topology: the TypeScript/NestJS proposal in report (7), report (6)'s Go-authoritative C+ proposal, the earlier Fastify baseline, the current NestJS/Express bootstrap, and the still-open G6.9 comparison. Keep these states distinct; only a documented owner-approved supersession after the required evidence can resolve them.
 
 ## Principal data and control flow
 
