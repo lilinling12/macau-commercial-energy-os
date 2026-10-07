@@ -64,6 +64,11 @@ assert "Missing intervals are not treated as zero" in html
 assert "未覆蓋時段不視為零" in html
 assert "não são tratados como zero" in html
 assert "09:00–13:00" in html and "13:00–15:00" in html
+assert "uses assumed sample import rates in its optimizer objective" in html
+assert 'economicScope:"候選按示例費率排序；非帳單金額"' in html
+assert 'economicScope:"Candidate ranked using assumed rates; not a bill amount"' in html
+assert 'economicScope:"Cenário ordenado por tarifas presumidas; não é valor da fatura"' in html
+assert "tarifas de importação presumidas no objetivo do otimizador" in html
 for claim in ("DEMAND_CHARGE", "EXPORT_COMPENSATION", "FULL_BILL", "SAVINGS", "CONTROLLABILITY", "COMFORT_SERVICE", "CROSS_SITE_CREDIT", "DEVICE_CONTROL"):
     assert any(x["claim"] == claim and x["status"] == "WITHHELD" and x["scope"] == "NONE" for x in fixture["claims"])
 

@@ -2,11 +2,11 @@
 
 **Status:** Unapproved product and UI study on PR #10 draft branch `product/source-load-economic-dispatch`. It does not close G7.9 Step 3, select production architecture, validate a Macau site, or authorize equipment control.
 
-**Local artifact fingerprints:** `index.html` SHA-256 `FC989B8BCB800BEEB2BB29CFB8FE1CF1B4616B4A0C2679124AA077F16996AD79`; fixture SHA-256 `82B38BA9F6FBC431C09B2DD1143C4659BC76D35207228D8A182DE701879170D4`; validator SHA-256 `F8287C3B82844C6F290F6CDA8DE77FBBE42B4DE2A3440DA6B0C36D5268387E07`.
+**Local artifact fingerprints:** `index.html` SHA-256 `B047809C94C2B3F607EC3011034D54BC5544145E757EF662965FE4DDB0FF18E4`; fixture SHA-256 `82B38BA9F6FBC431C09B2DD1143C4659BC76D35207228D8A182DE701879170D4`; validator SHA-256 `A67612BE0DBC0DA9E43A0A043AC5B818B333CBB19EAF6A8C844260973F4EEEC0`.
 
 ## What changed
 
-v3.3 connects the six-stage review page to the PR #14 synthetic dispatch fixture. The schedule chart, interval table, import-energy and horizon-peak metrics, and Stage 4 claim states now derive from the same fixture. Stage 4 exposes two explicit views:
+v3.3 connects the six-stage review page to the PR #14 synthetic dispatch fixture. The schedule chart, interval table, import-energy and horizon-peak metrics, and Stage 4 claim states now derive from the same fixture. It discloses that the optimizer objective uses assumed sample import rates; those rates do not establish a Macau contract, and economic assessment remains blocked. Stage 4 exposes two explicit views:
 
 - **PR #14 fixture output:** the fixture's six allowed scenario-scoped claims and its withheld claims, including bill, demand, export compensation, savings, service, controllability, cross-site credit and device control. It identifies the source commit and shows economic assessment as `BLOCKED`.
 - **Partial-coverage UI example:** a separately labeled presentation state for four covered intervals (09:00–13:00) and two uncovered intervals (13:00–15:00). It shows no amount, does not treat missing intervals as zero, and withholds a whole-window bill, savings and demand charge. It is not emitted by the PR #14 fixture or optimizer.

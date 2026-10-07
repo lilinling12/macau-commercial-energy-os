@@ -244,3 +244,41 @@ The six-stage task spine is represented in PR #10's v1.9 source: evidence qualif
 - Map each user-visible status/claim to its supporting product rule and domain contract. Do not implement a disagreement between UI, optimizer and evidence policy as if it were settled.
 
 This reconciliation records the available design evidence and proposals. It does not resolve the open Owner decisions, approve the pilot, select a visual system or production stack, close G7.9, or authorize device control.
+
+
+## v3.3 fixture-backed dispatch prototype review — 2026-10-07
+
+### Exact source snapshot and proposal state
+
+The design review was refreshed against main tree a897bf0b1e7e6ceea3862d7d87fa288ecca08203, PR #8 head 1dbcad2dd31d6e5aa749851bff0fcb297f8d7425 (open, unmerged), PR #10 head a7bef59f2cdb2466dd08397dd6ffe880ec66f07d (open, draft, unmerged), and PR #14 head deed7683a8b0ce3a811966ab8fc3b030695debad (open, draft, unmerged). These are proposal/research branches; no owner approval is inferred.
+
+### What v3.3 demonstrates and does not demonstrate
+
+The v3.3 six-stage study now reads the exact PR #10 v2.9 fixture blob 0e746cbe54532e58221529f38c7a2583d1787c4b. The fixture pins optimizer commit 9b80adca9243a0ae9a7bd666f0efee1acfc6309a, optimizer blob 2d3256801f0ddce6b849c648c160f5a32fd90a27 and assessment blob 534ae269a7949601bd4504271e0076369807a68f.
+
+| Stage | Current prototype evidence | Product/implementation boundary |
+|---|---|---|
+| Data and contract qualification | Shows required site, meter, contract, asset, measurement and forecast evidence as unverified. | No authenticated intake, evidence repair, contract resolution or site data. |
+| Physical energy model | Shows a conceptual source/load topology and a separate settlement mapping. | No verified site topology, meter overlap, interconnection or account applicability. |
+| Schedule comparison | Displays six baseline/candidate intervals from the synthetic optimizer fixture. Both total 44 kWh; the horizon peak is 10 kW baseline and 11 kW candidate. | Every input is a project assumption. Flexible-load service, comfort, EV departure, hot-water delivery and real ESS efficiency/state evidence are not established. |
+| Costs, constraints and evidence | Shows fixture-scoped claims and economic assessment BLOCKED. A distinct interface-only partial-rate view represents 4/6 covered intervals without an amount and keeps uncovered intervals, whole-window bill, demand charge and savings withheld. | Partial coverage is not optimizer output. No Macau tariff, bill, savings, export remuneration or cross-account credit is established. |
+| SHADOW review | Page-local choice can be selected. | Not durable, authenticated, submitted or authorizing; no equipment command path. |
+| Monitoring and replay | Describes the future evidence and version inputs. | No measured outcome ingestion, immutable assessment history, replay runtime or M&V. |
+
+The optimizer fixture uses assumed sample import rates in its objective. This is an important distinction: the physical schedule output is bounded to that synthetic fixture, while the economic assessment is BLOCKED because tariff/account applicability is not evidenced. The fixture does not establish that a real site's candidate is economically optimal.
+
+### Product decision consistency
+
+The existing G7.9 owner decision packet's Decision D recommends D1 for the interim SHADOW MVP: assess explicitly supplied schedules, do not generate an optimized candidate without an approved objective/economic context, and keep economics BLOCKED/NOT_CALCULATED when ineligible. D2 (separately approved physical-only objective) and D3 (assumed-tariff research mode) remain choices, not adopted product behavior. v3.3 shows a D3-like research fixture output for source fidelity; it must not be read as resolving or implementing the MVP policy. This discrepancy is now surfaced in the UI and remains an owner decision.
+
+### UI/UX evidence and status
+
+The prototype was reviewed with the UI/UX Pro Max skill's targeted searches for visible labels, evidence/status messaging and mobile table overflow. Rendered checks covered 320×900, 375×900, 768×900, 1024×900 and 1440×900 CSS pixels; the page/body had no horizontal overflow, while the workflow rail and wide table use contained horizontal scrolling at narrow widths. The fixture output, UI-only partial view, schedule values, page-local review, and Traditional Chinese, English and Portuguese draft copy were exercised. The Portuguese copy remains explicitly draft. See docs/02-product/prototype/source-load-dispatch/v3.3/REVIEW.md for exact limits and fingerprints.
+
+This is not a complete human localization review, screen-reader audit, measured all-state contrast audit, WCAG conformance result, operator usability study, or product visual-system decision. UI/UX Pro Max suggestions and Apple/Material/WCAG/award references remain evaluation inputs; no award-level or user-validated claim is made.
+
+### Current conclusion and next work
+
+The dispatch-first task is materially represented in a review prototype, but product design remains an unapproved proposal and is not an integrated operator application. The broad v0.10 workspace still contributes readiness/evidence/tariff concepts; it does not replace the dispatch-first primary task. The palette study remains exploratory and does not select the dispatch console palette.
+
+Before the first product behavior is frozen, the owner review should decide: (1) D1/D2/D3 behavior when no eligible tariff context exists; (2) first pilot user/site and resource scope; (3) what physical/service/economic claim each evidence type supports; (4) complete Traditional Chinese/Portuguese/English launch scope and Portuguese locale; and (5) observed user acceptance thresholds. Until then, keep v3.3 as a synthetic study, preserve SHADOW-only review, and defer production UI/API/persistence integration.

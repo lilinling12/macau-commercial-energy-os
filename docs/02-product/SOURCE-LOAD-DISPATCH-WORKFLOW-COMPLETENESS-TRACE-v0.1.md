@@ -159,3 +159,25 @@ The v0.10 prototype's navigation/views are Portfolio, Site, Integrations & site 
 The palette study presents the same synthetic portfolio/readiness/demand-review task in three visual alternatives—Harbor teal, Mineral blue and Night graphite. It supports exploratory color comparison, semantic state contrast samples and solid-vs-dashed actual/forecast encoding. Its own review copy says none is selected or user-tested; selected text contrast pairs are not a page-level WCAG conformance result. This study does not establish the color system for the later dispatch workspace.
 
 These artifacts explain the product-design evolution: retain useful site/evidence/tariff/recommendation capabilities from the earlier broad workspace, but give the economic source/load comparison the primary workflow position specified by PR #10. The dedicated v1.9 six-stage flow and v2.9 mixed-claim result study provide the later synthetic interaction evidence described above; neither converts the early prototype/palette into an approved or implemented product.
+
+
+## v3.3 exact-head workflow and product-claim update — 2026-10-07
+
+The previous sections' v1.9/v2.7/v2.9 evidence remains valid for those exact artifacts, but is no longer the latest PR #10 prototype state. PR #10 is now open, draft and unmerged at head a7bef59f2cdb2466dd08397dd6ffe880ec66f07d; main remains at the PR base a897bf0b1e7e6ceea3862d7d87fa288ecca08203. The complete v3.3 prototype and review are under docs/02-product/prototype/source-load-dispatch/v3.3/.
+
+| Stage | v3.3 evidence | Remaining product/runtime gap |
+|---|---|---|
+| 1. Data/contract qualification | Required evidence categories and unresolved states are visible. | No trusted tenant/site authorization, source registry, user data repair or effective-dated evidence intake. |
+| 2. Physical model | Physical source/load topology is visually separated from settlement mapping. | Conceptual only; no site-verified topology, meter boundary, overlap/ownership or export evidence. |
+| 3. Schedule comparison | Chart and six-row schedule derive from pinned PR #14 fixture; 44→44 kWh and 10→11 kW are fixture-derived. Optimizer assumed-rate objective is now disclosed. | Scenario-only assumptions, no valid Macau tariff or site service model. Does not prove customer-specific economic optimum. |
+| 4. Costs/claims | Reads fixture claim states; economic status BLOCKED. UI-only partial coverage explicitly identifies four covered intervals (09:00–13:00) and two uncovered (13:00–15:00), shows no amount and does not treat missing intervals as zero. | Partial view is not produced by the fixture/optimizer; no bill-grade economic evaluator or result API is connected. |
+| 5. SHADOW review | Page-local review choices visibly update. | No authenticated or durable review, immutable decision history or command authorization. |
+| 6. Monitoring/replay | Lists evidence/version requirements. | Descriptive only; no measurement ingestion, replay, reconciliation or M&V. |
+
+This extends UI evidence beyond static v3.2, but it is not the T7 vertical slice in the implementation backlog. No API, persistence, authorization, service integration or replay is present. The local static validator checks fixture source pins, energy/peak totals, PV and bus balance, withheld claims and UI/fixture boundary. Browser checks covered all six stages, Chinese/English/Portuguese draft text, actual/partial state selection, page-local review, console errors and viewports 320/375/768/1024/1440; the 320px table stays in its scroll container. These checks do not establish operator validation, WCAG conformance, site/tariff truth or production readiness. Exact evidence: v3.3/REVIEW.md and the three successful exact-head workflow runs on a7bef59: Repository Hygiene #1555, Dispatch Projection Validation #47, Authority Validation #1556. Those checks validate repository rules and fixture semantics only.
+
+### Decision-D and T7 implication
+
+PR #14's generated fixture candidate uses assumed sample import rates, while the owner decision packet recommends D1 as the interim MVP boundary: assess supplied schedules and do not generate a product candidate without an approved objective/economic context. v3.3 deliberately displays the experiment but labels its assumptions; it does not choose D3 or supersede D1. A future implementation must keep the fixture isolated as research data until D1/D2/D3 is decided.
+
+**T7 remains not implemented.** The prototype supplies a browser/fixture view only; T7 acceptance still requires contract, domain, security, integration, browser and replay evidence against the same pinned build, durable review, independent reconstruction and aligned API/UI states. T0/T1/T2–T6 dependencies and owner decisions are unchanged. Do not close G7.9 Step 3 from this prototype or passing Actions.
