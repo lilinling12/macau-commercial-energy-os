@@ -101,3 +101,60 @@ These are proposed semantic acceptance cases. The prototype/UI/API must eventual
 
 No site, customer access, service model, comfort result, savings or field control is claimed by this design.
 
+## 9. Proposed service-outcome semantics and acceptance matrix
+
+This section makes the review examples testable without selecting serialized enum names, a canonical API, or a production service model. Product/domain review remains open.
+
+### 9.1 Keep four result dimensions independent
+
+1. **Electrical profile and balance** — the supplied or generated interval trajectory at a declared physical boundary.
+2. **Asset operating envelope** — resource availability, electrical ratings, modes, ramp/dwell limits, SOC/reserve, protection and recovery limits. ESS SOC belongs here; SOC alone is not a customer-service outcome.
+3. **User/process service outcome** — HVAC comfort, EV departure-energy target, hot-water delivery, or another declared service obligation for the affected resource and horizon.
+4. **Economic evaluation** — separately scoped meter/account/contract/tariff calculations and their eligibility.
+
+A pass in one dimension cannot imply a pass in another. In particular, a balanced electrical schedule is not proof of service, an ESS SOC trajectory is not proof of comfort, and a lower modeled objective is not proof of an eligible bill saving.
+
+### 9.2 Proposed outcome meanings
+
+These are domain meanings for review, not approved wire values.
+
+| Proposed outcome | Exact meaning | Required disclosure |
+|---|---|---|
+| `NOT_ASSESSED` | No applicable service obligation was requested for this resource, or no service evaluator was invoked. This is not a pass. | State whether the service was out of scope or the evaluator/model was unavailable; identify any resulting claim withheld. |
+| `UNKNOWN` | Evaluation was requested, but none of the required service scope can be evaluated because required evidence is absent, invalid, stale, conflicting, unauthorized, or uncertainty prevents a pass/fail determination. | Name affected resource, horizon/intervals, evidence gaps and the next evidence needed. |
+| `PARTIAL` | At least one required interval is evaluable and at least one is not; no known hard-bound violation has been established. | List covered and uncovered intervals, count or duration coverage, and the reason for each gap. Never label the covered subset as a full-horizon pass. |
+| `WITHIN_DECLARED_PROFILE` | Every required interval, including the declared recovery horizon, is evaluable under an accepted site-specific service profile; evidence/model is usable for the stated purpose; no applicable hard bound is breached. | Identify service-profile/model revision, evidence basis, uncertainty policy, horizon and any soft-bound trade-offs. |
+| `VIOLATION` | At least one applicable, evidenced hard bound is known to be breached in the declared scope. This dominates incomplete coverage elsewhere in that same service scope. | Identify the bound, affected interval/resource, observed or modeled value and evidence/model basis. Do not average the breach away. |
+
+Combination rule: a known hard-bound breach yields `VIOLATION`; otherwise full required coverage yields `WITHIN_DECLARED_PROFILE`; partial coverage yields `PARTIAL`; zero evaluable coverage after a requested assessment yields `UNKNOWN`; no requested/invoked assessment yields `NOT_ASSESSED`. If an uncertainty range crosses a hard bound but does not establish a breach or a safe result, use `UNKNOWN` for the affected interval. An accepted model prediction may establish a modeled violation only when the model, uncertainty rule and applicable hard bound are themselves qualified; label it as modeled, not observed.
+
+Evidence basis (`MEASURED`, `MODELLED`, `SCENARIO`, `SYNTHETIC`, or other future vocabulary) and claim disposition (`ALLOWED` / `WITHHELD`) are separate axes. A synthetic fixture may demonstrate a scenario outcome only; it cannot qualify a site service claim. `PARTIAL` describes coverage, not a third claim disposition.
+
+### 9.3 Proposed overall feasibility composition
+
+- A dispatch-feasibility claim may be `ALLOWED` only when the declared electrical profile is qualified, every changed resource's applicable operating envelope is qualified over the affected intervals and recovery horizon, and every required service outcome for changed flexible loads is `WITHIN_DECLARED_PROFILE`.
+- If any required changed-load service outcome is `NOT_ASSESSED`, `UNKNOWN` or `PARTIAL`, withhold the overall dispatch-feasibility claim while preserving independent electrical-profile, resource and economic results that remain qualified.
+- A known operating-envelope or required-service hard-bound violation makes the candidate infeasible for the affected resource/scope. Do not imply the unaffected site scope also failed unless its dependencies require that conclusion.
+- When no user-service obligation applies to the changed resources (for example, a source-only scenario), do not invent a service failure; label service as not applicable/out of scope and assess the separately declared electrical operating envelope.
+- Economic `BLOCKED`/`WITHHELD` remains independent: it cannot turn a physical/service pass into a failure or turn an unqualified service result into a pass. An economic objective may not be ranked as bill savings without eligible settlement evidence.
+- This proposal is consistent with PR #14's current narrower rule: changed flexible loads without an evaluator keep their electrical profile, while `DISPATCH_FEASIBILITY` and `COMFORT_SERVICE` are withheld. It does not claim PR #14 implements these per-resource outcomes.
+
+### 9.4 Review acceptance matrix
+
+| Case | Expected resource/service outcome | Dispatch-feasibility and retained result |
+|---|---|---|
+| HVAC schedule changes; no service evaluator/profile exists | `NOT_ASSESSED` | Keep qualified electrical profile; withhold overall dispatch feasibility and comfort/service claims. |
+| HVAC profile covers all required zones and recovery; all hard bounds hold | `WITHIN_DECLARED_PROFILE` | Service may support feasibility only if electrical and operating-envelope gates also pass. |
+| HVAC measured/modelled trajectory breaches an evidenced hard comfort bound | `VIOLATION` | Candidate infeasible for the affected HVAC scope; retain independent qualified outputs. |
+| HVAC evidence is stale/conflicting for every required interval, or uncertainty crosses a hard bound | `UNKNOWN` | Withhold affected service and overall feasibility; disclose the missing/uncertain evidence. |
+| EV service was not requested for a changed charging resource | `NOT_ASSESSED` | Do not call it departure-ready; withhold feasibility if that service obligation is required by the declared task. |
+| EV target/window is requested but unavailable evidence prevents evaluation in all intervals | `UNKNOWN` | Withhold mobility and overall dispatch-feasibility claims. |
+| EV target is evaluated and projected delivered energy misses the evidenced departure target | `VIOLATION` | Candidate infeasible for the EV service scope, regardless of site-average cost. |
+| Hot-water draw or delivery evidence is missing for all required intervals | `UNKNOWN` when assessment requested; otherwise `NOT_ASSESSED` | Electrical energy may remain visible; do not claim delivered service. |
+| Hot-water reserve/hygiene bound is known to fail in an interval | `VIOLATION` | Reject the affected candidate scope even if modeled import cost improves. |
+| ESS SOC evidence is missing/stale but no customer-service evaluator is relevant | Service outcome is not the applicable result; ESS operating envelope is unqualified | Preserve only independent qualified profile; withhold ESS and overall dispatch feasibility when ESS is required by the candidate. |
+| Some HVAC/EV/hot-water intervals evaluate while others lack evidence; no known violation | `PARTIAL` | Report exact coverage and gaps; do not present the schedule as full-horizon service-feasible. |
+| Candidate explicitly records zero/off for an interval versus omitting the interval record | Explicit zero is a value subject to the profile; omission is incomplete scope unless schedule bounds define it | Never coerce omission to zero or treat it as proof of inactivity. |
+| Recovery horizon ends before the required/evidenced response is covered | `PARTIAL` if some required scope is covered, otherwise `UNKNOWN` | Withhold full-horizon feasibility/benefit; show the uncovered recovery interval. |
+
+These cases become contract and code acceptance tests only after product/domain owners accept the meanings and the authority chooses a contract profile. Until then, they are reviewable design criteria, not canonical API behavior or a Gate exit.
