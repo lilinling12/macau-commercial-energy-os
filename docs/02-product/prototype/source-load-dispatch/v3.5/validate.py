@@ -11,10 +11,36 @@ html = (ROOT / "index.html").read_text(encoding="utf-8")
 measurements = json.loads((ROOT / "measurements.json").read_text(encoding="utf-8"))
 
 assert fixture["fixture_status"] == "SYNTHETIC_SCENARIO_ONLY"
+assert fixture["source"] == {
+    "repository": "lilinling12/macau-commercial-energy-os",
+    "pr": 14,
+    "commit": "e02ed268c23d9cd62f2641db05923befa88ed281",
+    "optimizer_blob": "2d3256801f0ddce6b849c648c160f5a32fd90a27",
+    "assessment_blob": "275a1cd79613cf1997456916f1b59833fb683109",
+}
 assert len(fixture["baseline"]) == len(fixture["candidate"]) == 6
 assert len(fixture["inputs"]["tasks"]) == 3
 assert "HVAC comfort/thermal dynamics and rebound are not modeled." in fixture["limitations"]
 assert "EV departure deadlines and hot-water temperature/service are not modeled." in fixture["limitations"]
+
+# Protect the bounded result projection actually consumed by the prototype.
+# These checks do not establish an API contract or a Macau site outcome.
+assert fixture["physical"]["status"] == "SCENARIO_ONLY"
+assert fixture["economic"]["status"] == "BLOCKED"
+assert fixture["economic"]["baseline_import_energy_charge_mop"] is None
+assert fixture["economic"]["candidate_import_energy_charge_mop"] is None
+assert fixture["economic"]["delta_mop"] is None
+assert fixture["economic"]["covered_intervals"] == []
+claim_rows = fixture["claims"]
+claim_by_name = {row["claim"]: row for row in claim_rows}
+assert claim_by_name["GRID_IMPORT_PROFILE"]["status"] == "ALLOWED"
+assert claim_by_name["GRID_IMPORT_PROFILE"]["scope"] == "SCENARIO_ONLY"
+assert claim_by_name["DISPATCH_FEASIBILITY"]["status"] == "WITHHELD"
+assert claim_by_name["GRID_IMPORT_ENERGY_COMPONENT"]["status"] == "WITHHELD"
+for name in ("DEMAND_CHARGE", "EXPORT_COMPENSATION", "FULL_BILL", "SAVINGS",
+             "CONTROLLABILITY", "COMFORT_SERVICE", "CROSS_SITE_CREDIT", "DEVICE_CONTROL"):
+    assert claim_by_name[name]["status"] == "WITHHELD", name
+    assert claim_by_name[name]["scope"] == "NONE", name
 for rows in (fixture["baseline"], fixture["candidate"]):
     for previous, current in zip(rows, rows[1:]):
         assert datetime.fromisoformat(previous["end"]) == datetime.fromisoformat(current["start"])
@@ -45,6 +71,12 @@ for task in fixture["inputs"]["tasks"]:
 assert actual == expected, actual
 
 for required in (
+    'function resultMetrics(t)',
+    'fixtureData.physical',
+    'fixtureData.economic',
+    'function renderFixtureClaims(t)',
+    'fixtureData.claims.filter',
+    'c.status==="ALLOWED"?actual.allowed:actual.withheld',
     'function renderServiceOutcomes(t)',
     'out+=renderServiceOutcomes(t);',
     'aria-labelledby="serviceReviewTitle"',
