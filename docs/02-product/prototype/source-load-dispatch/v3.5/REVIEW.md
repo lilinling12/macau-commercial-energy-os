@@ -52,3 +52,12 @@ The study keeps the schedule and claim summary primary, then adds a compact reso
 The static verifier now pins the optimizer/assessor source blobs and checks the result semantics consumed by the page: physical scope remains scenario-only; economic status stays blocked with null monetary fields and no covered intervals; the import profile is allowed only as scenario scope; overall dispatch feasibility and bill, savings, control, service and cross-site claims remain withheld. It also checks that the page's result-metric and claim-rendering functions read those fixture fields.
 
 This is source/fixture consistency coverage, not a browser assertion that every mapped value is correctly announced, not an API adapter test, and not an operator or site validation.
+
+
+## APP-11 projection-boundary study — 2026-10-07
+
+The browser now reads `app11-ui-projection.json`, a deterministic view-model projection generated from the unchanged pinned `dispatch-projection-fixture.json`. The projection preserves the full source result and provenance, then adds one locale-neutral row per changed resource. Each row carries the changed intervals, `NOT_ASSESSED`, and the explicit basis `NO_SERVICE_EVALUATOR_IN_SOURCE_FIXTURE`. The browser renders those rows and supplies localized labels; it no longer derives changed intervals from baseline/candidate rows.
+
+`build_app11_projection.py` is a standard-library fixture transformer, not an APP-11 server, production client, approved wire contract or selected implementation language. The artifact records `NONCANONICAL_STATIC_UI_VIEW_MODEL` and `STUDY_ONLY_NOT_APPROVED`. It does not add authentication, persistence, a live API, service evaluation, or any equipment command path. G7.9 Step 3 remains open.
+
+Validation regenerates the projection deterministically, checks its exact source linkage and changed intervals, and confirms the UI consumes the projection while the raw fixture remains unchanged. Existing screenshots still show the same visible Stage 4 content; this change affects only how the page obtains the display rows. The prior viewport and locale captures are not a fresh accessibility or locale validation for an API-backed application.

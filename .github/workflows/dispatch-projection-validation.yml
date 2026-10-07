@@ -27,5 +27,7 @@ jobs:
         run: python3 docs/02-product/prototype/source-load-dispatch/v3.3/validate.py
       - name: Validate v3.4 fixture and feasibility boundary
         run: python3 docs/02-product/prototype/source-load-dispatch/v3.4/validate.py
+      - name: Validate deterministic APP-11 v3.5 projection
+        run: python3 docs/02-product/prototype/source-load-dispatch/v3.5/build_app11_projection.py --check
       - name: Validate v3.5 source, claims, and service boundary
         run: python3 docs/02-product/prototype/source-load-dispatch/v3.5/validate.py

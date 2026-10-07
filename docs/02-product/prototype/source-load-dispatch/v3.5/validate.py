@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 fixture = json.loads((ROOT / "dispatch-projection-fixture.json").read_text(encoding="utf-8"))
+projection = json.loads((ROOT / "app11-ui-projection.json").read_text(encoding="utf-8"))
 html = (ROOT / "index.html").read_text(encoding="utf-8")
 measurements = json.loads((ROOT / "measurements.json").read_text(encoding="utf-8"))
 
@@ -17,6 +18,15 @@ assert fixture["source"] == {
     "commit": "e02ed268c23d9cd62f2641db05923befa88ed281",
     "optimizer_blob": "2d3256801f0ddce6b849c648c160f5a32fd90a27",
     "assessment_blob": "275a1cd79613cf1997456916f1b59833fb683109",
+}
+assert projection["projection_id"] == "app11-ui-projection-study-v0.1"
+assert projection["projection_status"] == "NONCANONICAL_STATIC_UI_VIEW_MODEL"
+assert projection["contract_status"] == "STUDY_ONLY_NOT_APPROVED"
+assert projection["source_result"] == fixture
+assert projection["generated_from"] == {
+    "path": "dispatch-projection-fixture.json",
+    "fixture_id": fixture["fixture_id"],
+    "source": fixture["source"],
 }
 assert len(fixture["baseline"]) == len(fixture["candidate"]) == 6
 assert len(fixture["inputs"]["tasks"]) == 3
@@ -69,6 +79,24 @@ for task in fixture["inputs"]["tasks"]:
             changed.append(start[11:16])
     actual[asset_id] = changed
 assert actual == expected, actual
+assert projection["resource_services"] == [
+    {
+        "asset_id": asset_id,
+        "kind": kind,
+        "outcome": "NOT_ASSESSED",
+        "outcome_basis": "NO_SERVICE_EVALUATOR_IN_SOURCE_FIXTURE",
+        "changed_intervals": [
+            {"start": row["start"], "end": row["end"]}
+            for row in fixture["candidate"]
+            if row["start"][11:16] in hours
+        ],
+    }
+    for asset_id, kind, hours in (
+        ("hvac-task", "HVAC", ["11:00", "13:00", "14:00"]),
+        ("ev-task", "EV", ["11:00", "14:00"]),
+        ("hot-water-task", "HOT_WATER", ["11:00", "13:00"]),
+    )
+]
 
 for required in (
     'function resultMetrics(t)',
@@ -80,7 +108,9 @@ for required in (
     'function renderServiceOutcomes(t)',
     'out+=renderServiceOutcomes(t);',
     'aria-labelledby="serviceReviewTitle"',
-    "interval.start+'–'+interval.end",
+    'projectionData.resource_services',
+    'fetch("./app11-ui-projection.json")',
+    'resource.changed_intervals',
     'Not assessed',
     '暫未評估',
     'Não avaliado',
@@ -93,6 +123,7 @@ for required in (
     assert required in html, required
 
 assert 'data-command=' not in html and 'type="submit"' not in html
+assert 'fixtureData.candidate.forEach' not in html
 assert measurements["matrix_cases"] == len(measurements["viewports_css_px"]) * len(measurements["locales"]) == 15
 assert measurements["result"]["document_level_horizontal_overflow"] is False
 assert measurements["result"]["three_changed_resource_rows_present_in_every_case"] is True
