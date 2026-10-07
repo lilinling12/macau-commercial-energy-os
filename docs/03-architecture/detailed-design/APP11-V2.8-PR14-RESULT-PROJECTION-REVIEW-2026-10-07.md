@@ -123,3 +123,19 @@ Those capabilities make the earlier statement that the evaluator “returns one 
 The fixture JSON does not embed the generator blob, but this review pins the audited PR #14 head and its generator blob above. At that exact head, `tests/test_projection_fixture.py` runs `generate_dispatch_projection_fixture.py --check`; Runtime Bootstrap #486 passed, so the committed fixture matched the output of that generator and its pinned optimizer/assessor modules. The `source.commit` field identifies the pinned engine-source revision (`9b80adca...`), not the generator revision.
 
 Accordingly, fixture regeneration **is verified for the audited PR #14 head**. A self-contained generator identity in the fixture or a sidecar manifest would make provenance easier to inspect, but is not a blocker for reproducing the audited result. This does not change the separate finding that the UI consumes a static local fixture and is not an integrated optimizer/API workflow.
+
+
+## Current cross-PR source/UI recheck — 2026-10-07
+
+This recheck supersedes the older “Exact-head follow-up” snapshot above where its PR heads or source pins are no longer current. It does not change the dated historical findings.
+
+### Exact current heads and engine pins
+
+- PR #14 is currently open/Draft/unmerged at `ccbfa7011f66f86d0a2d541776b02c80eea3df7a`. Its current assessor blob is `275a1cd79613cf1997456916f1b59833fb683109`; optimizer blob is `2d3256801f0ddce6b849c648c160f5a32fd90a27`; the generator blob is `22e8383cf7a25f0c37ebe9d93b5c08d1430531f2`. The generator pins those engine blobs and the current PR #14 fixture. Runtime Bootstrap's `--check` test and the Repository Hygiene and Authority Validation checks passed at this head.
+- PR #10 is currently open/Draft/unmerged at `ccbd5d3e2ebf1e1e547976600ccd643d63ad37d7`. Its v3.5 UI fixture and PR #14's current generated fixture are the same blob `17906365997be7a529222b3c120e138ef336bb8c`. The v3.5 review records the byte-for-byte comparison. Its Repository Hygiene, Dispatch Projection Validation and Authority Validation checks passed at this head.
+
+### Version boundary
+
+The v2.9 result projection remains a historical snapshot: its fixture intentionally pins source commit `9b80adca9243a0ae9a7bd666f0efee1acfc6309a`, optimizer blob `2d3256801f0ddce6b849c648c160f5a32fd90a27`, and older assessor blob `534ae269a7949601bd4504271e0076369807a68f`. The current assessor is blob `275a1cd79613cf1997456916f1b59833fb683109`; therefore do not describe the v2.9 fixture as the latest assessor projection. The v3.5 workflow study instead uses the fixture matching the current PR #14 generator output, but still renders a local static JSON file and does not call an API or optimizer service.
+
+The service-level `NOT_ASSESSED` labels in v3.5 remain a presentation projection because no service evaluator exists in the optimizer fixture. Neither the exact fixture match nor passing CI proves a canonical APP-11 wire contract, authenticated evidence, durable result/review lifecycle, service feasibility, Macau tariff applicability, user acceptance, G7.9 Step 3 closure or pilot readiness.
