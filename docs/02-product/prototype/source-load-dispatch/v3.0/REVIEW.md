@@ -23,7 +23,7 @@ The displayed baseline import is 8, 8, 6, 4, 8, 10 kW; the candidate is 9, 9, 11
 
 ## Browser and interaction review
 
-The local page was rendered and reviewed at CSS viewports **320×900, 375×812, 768×900, 1024×900 and 1440×900**. At each width, document and body scroll widths stayed within the viewport. The compact chart summary and six interval cards appear at 320/375; the SVG and full table are used at wider widths. Screenshots were visually inspected at 375×812 and 1440×900.
+The local page was rendered and reviewed at CSS viewports **320×900, 375×900, 768×900, 1024×900 and 1440×900**. At each width, document and body scroll widths stayed within the viewport. The compact chart summary and six interval cards appear at 320/375; the SVG and full table are used at wider widths. Screenshots were visually inspected at 375×812 and 1440×900.
 
 Interaction checks:
 
