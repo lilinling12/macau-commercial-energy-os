@@ -6,6 +6,7 @@ on:
       - "docs/02-product/prototype/source-load-dispatch/v2.9/**"
       - "docs/02-product/prototype/source-load-dispatch/v3.3/**"
       - "docs/02-product/prototype/source-load-dispatch/v3.4/**"
+      - "docs/02-product/prototype/source-load-dispatch/v3.5/**"
       - ".github/workflows/dispatch-projection-validation.yml"
 
 permissions:
@@ -13,7 +14,7 @@ permissions:
 
 jobs:
   projection:
-    name: Validate pinned v2.9, v3.3, and v3.4 fixture semantics
+    name: Validate pinned v2.9, v3.3, v3.4, and v3.5 projection semantics
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
@@ -26,3 +27,5 @@ jobs:
         run: python3 docs/02-product/prototype/source-load-dispatch/v3.3/validate.py
       - name: Validate v3.4 fixture and feasibility boundary
         run: python3 docs/02-product/prototype/source-load-dispatch/v3.4/validate.py
+      - name: Validate v3.5 source, claims, and service boundary
+        run: python3 docs/02-product/prototype/source-load-dispatch/v3.5/validate.py
