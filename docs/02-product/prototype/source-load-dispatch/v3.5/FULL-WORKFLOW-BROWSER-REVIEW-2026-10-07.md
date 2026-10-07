@@ -1,33 +1,38 @@
 # Prototype v3.5 — full workflow browser review (2026-10-07)
 
-**Status:** Supplemental verification for an unapproved design study. This does not approve product scope, close G7.9 Step 3, validate a Macau site, certify accessibility, sign off translations, or authorize equipment control.
+**Status:** local supplemental browser evidence for the unapproved prototype study. This is not a repository-integrated check, G7.9 exit, product approval, accessibility conformance result, localization sign-off, operator validation, or Macau-site validation.
 
-## Exact source snapshot
+## Reviewed artifact
 
-- PR: [#10](https://github.com/lilinling12/macau-commercial-energy-os/pull/10), Draft/open/unmerged at review.
-- Branch head inspected: `31769891cafbc79ab50dffc69bcc7d808fb00158`.
-- Remote page blob: `5c9ec18baf17e41047f9a324359be5289628c015`.
-- Local page used for browser execution: Git blob `c03f351a6c7176d4eaea0944cc8d2e9bc9a390dc`. A normalized line comparison confirmed the page code matches the remote page after excluding blank lines; the difference is whitespace/trailing newline only.
-- Remote APP-11 projection blob: `a8b0e32a82e363a4cdfb7981a8d1d2299186854c`. Its parsed JSON content matches the local projection used in the run.
-- Remote and local source fixture share blob `17906365997be7a529222b3c120e138ef336bb8c`.
+- Page: `work/ui-current-head/v3.5/index.html`
+- SHA-256: `5558FC036333C92C68A59B694B502196DD9051BEA8F67BD7318018775C4EA709`
+- Projection SHA-256: `657D6641F3DC87B59926E5D2D4F3A731CB2510F6729625159A512D63A1FFCEA6`
+- Source fixture SHA-256: `E63D7F61F7580313A344DDF837D7837065FDB2E8E83AA9DCBEC5C803AEA64ED1`
+- Related project review: `work/ui-current-head/v3.5/REVIEW.md`.
 
 ## Coverage and result
 
-A headless Microsoft Edge run exercised **90 combinations**: six workflow stages × five CSS viewport widths (1440, 1024, 768, 375 and 320 px) × three displayed locales (Traditional Chinese, Portuguese draft and English).
+A headless Microsoft Edge run exercised 90 combinations: six workflow stages × five CSS viewport widths (1440, 1024, 768, 375, 320 px) × three displayed locales (Traditional Chinese, Portuguese draft, English).
 
 All 90 combinations passed these assertions:
 
-- The document language follows the selected locale and exactly one workflow stage is marked current.
-- No document-level horizontal overflow occurs at any tested stage, viewport or locale.
-- The physical energy model and economic settlement mapping appear as separate sections.
+- `<html lang>` follows the selected locale and exactly one workflow stage is marked current.
+- No document-level horizontal overflow occurs at any tested stage, viewport, or locale.
+- The physical energy model and economic settlement mapping are presented in separate sections.
 - Schedule comparison contains six aligned synthetic intervals.
-- The claims/evidence stage renders three resource-level service rows.
-- SHADOW review selection updates its page-local status; no Execute/Executar/執行 control is present.
+- The claim/evidence stage renders three resource-level service rows.
+- The SHADOW review selection updates its page-local status; no Execute/Executar/執行 control is present.
 - Monitoring/replay stage contains reviewable content.
 - No uncaught browser page errors occurred.
 
-The source/fixture verifier also passed. A separate supplied smoke script passed at Stage 4 at 375 and 1440 px: three service statuses localized in Traditional Chinese and English, no overflow and no page errors.
+A separate supplied smoke script also passed for Stage 4 at 375 and 1440 px: three `NOT_ASSESSED` service statuses localized in Traditional Chinese and English, no overflow, no page errors.
 
-## Limits
+The repeatable harness is `full_flow_review.js`. It uses the installed Playwright package and an Edge executable supplied via `EDGE_EXECUTABLE_PATH`; it serves only the local prototype and its JSON fixtures on loopback for the browser run.
 
-This is bounded prototype evidence for structure, selected state and responsive behavior. It does not prove full copy/translation quality, complete keyboard traversal, text enlargement, screen-reader behavior, non-text contrast, WCAG 2.2 conformance, real-world usability, tariff/settlement correctness, physical site feasibility, savings, equipment controllability or production API integration. Portuguese remains draft. Values are synthetic; economic claims remain blocked, and the prototype has no equipment command path.
+## Limits and implications
+
+This validates visible structure, selected state and bounded responsive behavior for this prototype artifact only. It does not prove copy completeness/translation quality, full keyboard traversal, text enlargement, screen-reader behavior, non-text contrast, WCAG 2.2 conformance, real-world usability, actual tariff/settlement correctness, physical site feasibility, savings, equipment controllability, a production API integration, or a safe control path. Portuguese remains draft. The prototype and all values are synthetic; economics remain blocked and no equipment control is available.
+
+The supplemental review is now attached to Draft PR #10 as commit `3df76cc2ff2bb699aec94f9f7a4343f5496e328e` at `docs/02-product/prototype/source-load-dispatch/v3.5/FULL-WORKFLOW-BROWSER-REVIEW-2026-10-07.md`. The PR remained open, Draft and unmerged after the update. Exact-head checks later completed successfully: Repository Hygiene run 37645524655 (#1592), Authority Validation run 37645524687 (#1593), and Dispatch Projection Validation run 37645524683 (#78). The dispatch job `Validate pinned projections and T7.1 semantic examples` succeeded. These CI checks cover repository structure and pinned projection/semantic examples; they do not rerun the 90 browser cases. The browser run itself was performed locally against a source copy whose page code matches the remote page after blank lines are excluded; projection JSON values match and the source fixture is byte-identical.
+
+
