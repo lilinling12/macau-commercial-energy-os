@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant-MO">
+<html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,7 @@
 <main class="shell">
   <header class="top">
     <div class="brand"><span class="mark" aria-hidden="true">↗</span><span>Macau Energy OS<small data-i="brandSub"></small></span></div>
-    <label class="locale"><span data-i="languageLabel"></span><select id="language" aria-label="Language"><option value="zh-Hant-MO">繁體中文</option><option value="pt-MO">Português</option><option value="en">English</option></select></label>
+    <label class="locale"><span data-i="languageLabel"></span><select id="language" aria-label="Language"><option value="zh-Hant">繁體中文</option><option value="pt">Português</option><option value="en">English</option></select></label>
   </header>
   <section class="hero" aria-labelledby="title">
     <div><p class="eyebrow" data-i="eyebrow"></p><h1 id="title" data-i="title"></h1><p data-i="intro"></p></div>
@@ -30,7 +30,7 @@
 </main>
 <script>
 const languages={
-"zh-Hant-MO":{pageTitle:"澳門能源 OS — 調度流程研究",metaDescription:"以繁體中文、葡語和英文檢視澳門商業建築能源來源與負荷調度流程的研究原型。",
+"zh-Hant":{pageTitle:"澳門能源 OS — 調度流程研究",metaDescription:"以繁體中文、葡語和英文檢視澳門商業建築能源來源與負荷調度流程的研究原型。",
 brandSub:"能源來源與負荷調度研究",languageLabel:"介面語言",eyebrow:"產品流程研究 · v3.1",title:"從能源證據到可審核的調度方案",intro:"研究商業建築如何比較電網、現場光伏、儲能與可調負荷。這是固定合成情境；流程不會向設備發出指令。",assumption:"合成資料 · 非現場建議",workflow:"研究流程",railNote:"六階段研究流程。語言切換只改介面文字，不改變能源數據、時間或幣種。",footerA:"本原型不連接現場設備，也不代表已驗證節省。",footerB:"資料情境：固定六小時合成排程",previous:"上一步",next:"下一步",last:"回到第一步",stageNames:["資料與合約","站點能源模型","比較調度方案","成本與限制","Shadow 審閱","監測與回放"],stages:[
 {title:"先核實輸入，再開始比較",desc:"把物理量測、合約結算和設備能力分開核驗。缺少關鍵證據時，流程應清楚顯示限制。",cards:[["現場與帳戶","站點電表和結算帳戶的對應關係尚未提供。","待核實"],["合約與費率","尚無帳單、費率版本或需求計費窗口證據。","待核實"],["設備與預測","光伏、儲能、HVAC/EV/熱水能力及負荷預測均未提供。","待核實"]],callout:"此情境使用專案假設資料。不能據此聲稱具備並網結算資格、負荷可控或預測有效。"},
 {title:"建立物理能源模型與結算範圍",desc:"先呈現能量實際流向，再單獨呈現哪些電量可能進入哪一個帳戶的結算。兩者不能混為一張圖。",flow:["電網購電","現場母線","樓宇負荷"],cards:[["物理能源流","電網、PV、ESS 與負荷的時段功率平衡。","模型草案"],["PV 與儲能","自用、充放電、可能的外送或棄電需分別表示。","現場未知"],["結算關係","電表、帳戶、合約與費率的有效期和歸屬關係。","未建模"]],callout:"沒有電表拓撲和合約證據時，不推斷跨樓宇抵扣或外送收入。"},
@@ -39,7 +39,7 @@ brandSub:"能源來源與負荷調度研究",languageLabel:"介面語言",eyebro
 {title:"在 Shadow 階段人工審閱",desc:"審閱者可以對研究情境提出意見；選擇僅保存在這個頁面，不會建立工作紀錄或發送任何控制命令。",options:[["接受此研究情境","只代表允許繼續檢視合成資料"],["要求修改情境","標記假設或邊界需要修訂"],["拒絕此研究情境","停止使用此合成比較"]],callout:"這不是現場建議批准、設備控制授權或客戶節省確認。"},
 {title:"監測與回放仍需真實證據",desc:"若要比較實際結果，必須先取得經授權的量測與合約資料，固定輸入快照並記錄方案版本。",cards:[["所需量測","時間戳、電表讀數、PV/ESS 與負荷時序。","尚未提供"],["固定輸入","站點模型、費率、合約、預測和設備約束的版本。","尚未固定"],["回放與核對","對齊區間、缺失狀態、基線和結果來源。","不可回放"]],callout:"此原型沒有連接遙測、資料保存、審計服務或控制通道。要做現場研究，仍需試點授權和安全審查。"}
 ]},
-"pt-MO":{pageTitle:"Macau Energy OS — Estudo de despacho",metaDescription:"Protótipo de estudo do fluxo de despacho de energia e cargas em chinês tradicional, português e inglês.",
+"pt":{pageTitle:"Macau Energy OS — Estudo de despacho",metaDescription:"Protótipo de estudo do fluxo de despacho de energia e cargas em chinês tradicional, português e inglês.",
 brandSub:"Estudo de despacho de energia e cargas",languageLabel:"Idioma da interface",eyebrow:"Estudo do fluxo do produto · v3.1",title:"Da evidência energética a um plano de despacho auditável",intro:"Estudo de comparação entre rede, energia solar no local, armazenamento e cargas flexíveis em edifícios comerciais. Cenário sintético fixo; não envia comandos a equipamentos.",assumption:"Dados sintéticos · sem recomendação local",workflow:"Fluxo de estudo",railNote:"Fluxo de estudo em seis etapas. A mudança de idioma altera apenas a interface; os dados, horários e moeda não mudam.",footerA:"Este protótipo não se liga a equipamentos nem comprova poupanças.",footerB:"Cenário: programação sintética fixa de seis horas",previous:"Anterior",next:"Seguinte",last:"Voltar ao início",stageNames:["Dados e contrato","Modelo energético","Comparar despacho","Custos e limites","Revisão Shadow","Monitorização"],stages:[
 {title:"Verificar os dados antes da comparação",desc:"Validar separadamente medições físicas, faturação contratual e capacidade dos equipamentos. As lacunas devem permanecer visíveis.",cards:[["Local e conta","Não foram fornecidos os contadores nem a relação com a conta de faturação.","Por verificar"],["Contrato e tarifa","Não há fatura, versão tarifária ou evidência da janela de procura.","Por verificar"],["Ativos e previsão","Sem dados de PV, armazenamento, AVAC/EV/água quente ou previsão de carga.","Por verificar"]],callout:"O cenário usa pressupostos do projeto. Não prova elegibilidade de injeção na rede, flexibilidade das cargas ou validade da previsão."},
 {title:"Separar o modelo físico da liquidação",desc:"Mostrar primeiro os fluxos físicos de energia e, em separado, que energia poderá pertencer à liquidação de cada conta. Não confundir as duas vistas.",flow:["Energia da rede","Barramento local","Cargas do edifício"],cards:[["Fluxo físico","Balanço de potência por intervalo para rede, PV, ESS e cargas.","Rascunho"],["PV e armazenamento","Autoconsumo, carga/descarga, eventual exportação e corte separados.","Dados locais em falta"],["Relação de liquidação","Contadores, contas, contratos, tarifas e períodos de validade.","Não modelado"]],callout:"Sem topologia dos contadores e evidência contratual, não se infere compensação entre edifícios nem receita de exportação."},
@@ -57,7 +57,7 @@ en:{pageTitle:"Macau Energy OS — Dispatch workflow study",metaDescription:"A w
 {title:"Monitoring and replay still need real evidence",desc:"Comparing actual outcomes requires authorized measurements and contract data, a pinned input snapshot and recorded scenario versions.",cards:[["Measurements needed","Timestamps, meter readings, PV/ESS and load series.","Not supplied"],["Pinned inputs","Versions of site model, tariff, contract, forecast and asset limits.","Not pinned"],["Replay and reconcile","Aligned intervals, missing states, baseline and result provenance.","Unavailable"]],callout:"This prototype has no telemetry, data persistence, audit service or control channel. A site study still needs pilot authorization and safety review."}
 ]}
 };
-let locale="zh-Hant-MO",active=0,review=-1;const steps=document.getElementById('steps'),panel=document.getElementById('panel'),lang=document.getElementById('language');
+let locale="zh-Hant",active=0,review=-1;const steps=document.getElementById('steps'),panel=document.getElementById('panel'),lang=document.getElementById('language');
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function stageHtml(d){
   let out="";
@@ -65,25 +65,25 @@ function stageHtml(d){
     out += '<div class="grid">' + d.cards.map((c,i) => '<article class="card '+(i===0?'tint':'')+'"><h3>'+esc(c[0])+'</h3><p>'+esc(c[1])+'</p><span class="status">'+esc(c[2])+'</span></article>').join('') + '</div>';
   }
   if(d.flow){
-    const heading = locale==="en" ? "Physical energy path" : locale==="pt-MO" ? "Percurso físico da energia" : "物理能源路徑";
+    const heading = locale==="en" ? "Physical energy path" : locale==="pt" ? "Percurso físico da energia" : "物理能源路徑";
     out += '<h3 class="section-title">'+esc(heading)+'</h3><div class="flow">'+d.flow.map((x,i)=>(i?'<b aria-hidden="true">→</b>':'')+'<span>'+esc(x)+'</span>').join('')+'</div>';
   }
   if(d.chart){
     const max=44;
-    const indicators = locale==="en" ? "Six-hour indicators" : locale==="pt-MO" ? "Indicadores de seis horas" : "六小時指標";
-    const details = locale==="en" ? "Interval detail" : locale==="pt-MO" ? "Detalhe por intervalo" : "時段明細";
+    const indicators = locale==="en" ? "Six-hour indicators" : locale==="pt" ? "Indicadores de seis horas" : "六小時指標";
+    const details = locale==="en" ? "Interval detail" : locale==="pt" ? "Detalhe por intervalo" : "時段明細";
     out += '<h3 class="section-title">'+esc(indicators)+'</h3><div class="grid">'+d.chart.map(x=>'<article class="card"><span class="barlabel">'+esc(x.name)+'</span><span class="big mono">'+x.value+'<span class="unit"> '+esc(x.unit)+'</span></span><div class="track" aria-hidden="true"><div class="fill '+x.kind+'" style="width:'+Math.max(8,Math.round(x.value/max*100))+'%"></div></div></article>').join('')+'</div>';
     out += '<h3 class="section-title">'+esc(details)+'</h3><div class="table-wrap"><table><thead><tr>'+d.table[0].map(x=>'<th scope="col">'+esc(x)+'</th>').join('')+'</tr></thead><tbody>'+d.table.slice(1).map(row=>'<tr>'+row.map(x=>'<td class="mono">'+esc(x)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';
   }
   if(d.options){
-    const response = locale==="en" ? "Research-only response" : locale==="pt-MO" ? "Resposta apenas para investigação" : "僅供研究的回應";
-    const neutral = locale==="en" ? "No review choice has been recorded." : locale==="pt-MO" ? "Nenhuma decisão de revisão foi registada." : "尚未選擇審閱意見。";
+    const response = locale==="en" ? "Research-only response" : locale==="pt" ? "Resposta apenas para investigação" : "僅供研究的回應";
+    const neutral = locale==="en" ? "No review choice has been recorded." : locale==="pt" ? "Nenhuma decisão de revisão foi registada." : "尚未選擇審閱意見。";
     out += '<h3 class="section-title">'+esc(response)+'</h3><div class="review-options" role="group">'+d.options.map((x,i)=>'<button class="review-option" type="button" aria-pressed="'+(review===i)+'" data-review="'+i+'"><strong>'+esc(x[0])+'</strong><small>'+esc(x[1])+'</small></button>').join('')+'</div><div id="reviewState" class="review-state" role="status" aria-live="polite">'+esc(review<0?neutral:d.options[review][1])+'</div>';
   }
   out += '<div class="callout '+(active===2||active===3?'warn':'')+'">'+esc(d.callout)+'</div>';
   return out;
 }function render(){const t=languages[locale];document.documentElement.lang=locale;document.title=t.pageTitle;document.querySelector('meta[name=description]').content=t.metaDescription;lang.value=locale;document.querySelectorAll('[data-i]').forEach(el=>el.textContent=t[el.dataset.i]);steps.setAttribute("aria-label",t.workflow);document.querySelector(".rail").setAttribute("aria-label",t.workflow);lang.setAttribute("aria-label",t.languageLabel);steps.innerHTML=t.stageNames.map((name,i)=>`<button class="step" id="step-${i}" type="button" role="tab" aria-selected="${active===i}" aria-current="${active===i?'step':'false'}" aria-controls="panel" tabindex="${active===i?'0':'-1'}" data-step="${i}"><span class="step-no">${String(i+1).padStart(2,'0')}</span><span class="step-copy">${esc(name)}</span></button>`).join('');const d=t.stages[active];panel.innerHTML=`<div class="panel-head"><div><h2>${esc(d.title)}</h2><p>${esc(d.desc)}</p></div><span class="stage-index">${String(active+1).padStart(2,'0')} / 06</span></div><div class="stage-body">${stageHtml(d)}</div>`;document.getElementById('previous').textContent=active===0?t.last:t.previous;document.getElementById('previous').disabled=active===0;document.getElementById('next').textContent=active===5?t.last:t.next;document.getElementById('next').dataset.last=active===5?'true':'false';document.getElementById('previous').dataset.last=active===0?'true':'false';document.getElementById('previous').setAttribute('aria-label',active===0?t.last:t.previous);document.getElementById('next').setAttribute('aria-label',active===5?t.last:t.next);document.getElementById('panel').setAttribute('aria-labelledby',`step-${active}`);document.querySelectorAll('[data-step]').forEach(b=>b.addEventListener('click',()=>{active=Number(b.dataset.step);render();document.getElementById('panel').focus()}));document.querySelectorAll('[data-review]').forEach(b=>b.addEventListener('click',()=>{review=Number(b.dataset.review);renderReview()}));}
-function renderReview(){const t=languages[locale],d=t.stages[4],state=document.getElementById('reviewState');if(!state)return;state.textContent=review<0?(locale==='en'?'No review choice has been recorded.':locale==='pt-MO'?'Nenhuma decisão de revisão foi registada.':'尚未選擇審閱意見。'):d.options[review][1];document.querySelectorAll('[data-review]').forEach(b=>b.setAttribute('aria-pressed',Number(b.dataset.review)===review?'true':'false'))}
+function renderReview(){const t=languages[locale],d=t.stages[4],state=document.getElementById('reviewState');if(!state)return;state.textContent=review<0?(locale==='en'?'No review choice has been recorded.':locale==='pt'?'Nenhuma decisão de revisão foi registada.':'尚未選擇審閱意見。'):d.options[review][1];document.querySelectorAll('[data-review]').forEach(b=>b.setAttribute('aria-pressed',Number(b.dataset.review)===review?'true':'false'))}
 steps.addEventListener("keydown",e=>{if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft")return;e.preventDefault();active=e.key==="ArrowRight"?Math.min(5,active+1):Math.max(0,active-1);render();document.getElementById("step-"+active).focus()});lang.addEventListener('change',()=>{locale=lang.value;render()});document.getElementById('previous').addEventListener('click',()=>{active=active===0?0:active-1;render();panel.focus()});document.getElementById('next').addEventListener('click',()=>{active=active===5?0:active+1;render();panel.focus()});document.addEventListener('keydown',e=>{if(e.target.closest('select,button'))return;if(e.key==='ArrowRight'){active=Math.min(5,active+1);render();document.getElementById(`step-${active}`).focus()}if(e.key==='ArrowLeft'){active=Math.max(0,active-1);render();document.getElementById(`step-${active}`).focus()}});render();
 </script>
 </body>
