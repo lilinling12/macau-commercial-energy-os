@@ -18,10 +18,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-SOURCE_COMMIT = "9b80adca9243a0ae9a7bd666f0efee1acfc6309a"
+SOURCE_COMMIT = "e02ed268c23d9cd62f2641db05923befa88ed281"
 SOURCE_BLOBS = {
     "src/macau_energy_optimizer/dispatch_optimizer.py": "2d3256801f0ddce6b849c648c160f5a32fd90a27",
-    "src/macau_energy_optimizer/dispatch_assessment.py": "534ae269a7949601bd4504271e0076369807a68f",
+    "src/macau_energy_optimizer/dispatch_assessment.py": "275a1cd79613cf1997456916f1b59833fb683109",
 }
 FIXTURE_PATH = ROOT / "fixtures" / "dispatch-projection-synthetic-v1.json"
 
