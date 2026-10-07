@@ -1,6 +1,6 @@
 # G1 Evidence Note — Macau PV Grid Interconnection and Feed-in Tariff
 
-**Evidence reviewed:** 2026-10-03  
+**Evidence reviewed:** 2026-10-04  
 **Status:** VERIFIED for Macau's general grid-interconnection / CEM feed-in purchase mechanism; not proof of cross-customer energy allocation.
 
 ## Verified from Macau official sources
@@ -12,13 +12,35 @@ The Environmental Protection Bureau (DSPA) explains that the PV interconnection 
 
 The public procedure requires design by a registered technician, the applicable DSSCU application/acceptance, then an interconnection request to CEM. CEM confirms the connection point and installs the meter; the CEM customer procedure says interconnection follows signing the PV interconnection contract. A bidirectional meter records energy injected into the CEM grid.
 
-DSPA states the feed-in tariff purchase period is 20 years and publishes these current capacity tiers:
+A statutory interconnection sizing limit also applies: Administrative Regulation 20/2014, Technical Regulation Article 12(4), says a PV system's total installed capacity may not exceed 50% of the public-grid supply capacity to the electrical installation or 50% of the upstream supply capacity to the installation's transformer. DSPA repeats the rule on its official PV page. This means rooftop area or theoretical yield alone cannot establish an approvable system size; the actual contracted/grid-supply and upstream-transformer capacity evidence, approved design and CEM connection arrangements matter. Preserve the two capacity bases and source evidence per project; the statutory wording's “or” should be applied using the regulator/CEM's project-specific interpretation, not silently converted into a software default. This technical limit does not answer cross-site account-credit rights or third-party ownership.
+
+Administrative Regulation 20/2014 is a technical installation/interconnection regulation: Articles 1 and 3 define its scope and PV system types, while Articles 5 and 14 establish technical documentation, compliant interconnection acceptance, and metering. It does not establish remote consumer allocation or bill-credit rights. The CEM application procedure distinguishes a PV system not connected to the public grid but connected to the consumer's electrical network; an anti-backflow device may be required at the boundary with the public network. CEM also asks the applicant to show a legal right to use the installation site/rooftop, which need not be the same wording as property ownership. This establishes a technical behind-the-meter configuration and a site-use-right prerequisite. It does not establish who may own equipment under a third-party PPA, whether a separate site-use holder may contract as PV system owner with CEM, how the host's supply contract treats it, or whether generation at a different building may be allocated to a consumer.
+
+DSPA describes a standardized CEM electricity-purchase contract with PV system owners for a term of up to 20 years (not necessarily exactly 20 years in every project contract) and publishes these current capacity tiers:
 - Installed capacity below 10 kW: MOP 3.7/kWh.
 - 10–100 kW: MOP 3.4/kWh.
 - Above 100–500 kW: MOP 3.0/kWh.
 - Above 500 kW: MOP 2.8/kWh.
 
-DSPA's page, last revised 2026-09-01, reports that by 2026-08-31 it had received 39 consultation cases on PV installation and 12 cases had proceeded to grid interconnection and electricity sales. These are cases, not necessarily unique buildings or customers. CEM's current PV introduction page separately reports 18 grid-connected PV systems as of June 2026 (4,762 kWp and nearly 8 million kWh generated). Because the later DSPA figure (12 cases) is lower than CEM's earlier system count (18 systems), and the units differ (cases vs systems), the totals cannot be combined or assumed to use the same counting scope. Reconciliation with DSPA and CEM is open as U-026.
+DSPA's page, last revised 2026-09-01, reports that by 2026-08-31 it had received 39 consultation cases on PV installation and 12 systems had proceeded to grid interconnection and electricity sales. CEM's PV introduction page reports 12 grid-connected systems, 4,193 kWp and more than 6 million kWh generated as of January 2026; CEM's 2026-06-08 low-carbon update again reports 12 connected systems and more than 6 million kWh cumulatively. The reported count of 12 is therefore consistent across these sources, although the dates and terms differ: DSPA reports systems already interconnected and selling, while CEM's January page reports connected systems and its June announcement gives no capacity refresh. The earlier repository statement that CEM reported 18 systems / 4,762 kWp as of June 2026 is not supported by the currently verifiable CEM primary pages and is withdrawn. U-026 remains partially open to reconcile reporting cutoffs, status definitions, capacity and production scope before using a time series.
+
+### Latest official grid-connected PV volume
+
+DSPA's 2026 Q2 energy report lists grid-connected PV at 0.90 GWh for Q2 2026 and 1.84 GWh for H1 2026, compared with 0.69 GWh and 1.26 GWh in the corresponding 2025 periods (+30% and +46%, respectively). Relative to the report's 1,710 GWh Q2 total electricity consumption, 0.90 GWh is approximately 0.05%. This is an aggregate system statistic; the report does not identify generating sites, owners, individual export meters, or any consumer-account allocation. It does not measure private behind-the-meter generation that is excluded from the total-consumption definition, and it does not change the separation between a producer's feed-in sale and another site's retail bill.
+
+## Separate route: green electricity certificates (GECs)
+
+CEM and China Southern Power Grid International announced a November 2025 memorandum to jointly act as agents coordinating procurement of Mainland China GECs for Macau customers, with an aim of expanding coverage. CEM also reports a 2023 cross-border transaction of 5.2 million kWh-equivalent certificates. In a 2026-06-08 announcement, CEM said it purchased 2,250 GECs (2.25 million kWh-equivalent) from Three Gorges New Energy to offset carbon emissions associated with the CEM Building's self-use electricity. CEM describes each GEC as representing the environmental attribute/premium of 1 MWh of qualifying renewable electricity generated and fed into the grid. This is a separate environmental-attribute procurement mechanism; the announcements do not prove physical delivery of a specific remote PV plant's electrons to a particular Macau building or a retail electricity-bill credit for customers. The CEM Building example documents a corporate carbon-accounting use, not customer bill netting. Commercial availability to customers, eligibility, price, certificate retirement and claim rules require the applicable offer and contract.
+
+## 2025 concession-contract clarification effective 2026-01-01
+
+The official Gazette excerpt for the extended and amended public electricity-supply concession contract (published 2025-12-03; effective 2026-01-01) adds an important boundary:
+
+- The concession excludes distribution on consumer-owned/shared consumer electrical networks and distribution of electricity self-generated through private installations, but that private distribution is limited to the same concession/private land parcel as the generating installation and requires prior written authorization from the Macao SAR.
+- The contract requires CEM to acquire renewable electricity under government-established tariffs/prices, with bidirectional metering and purchase contracts as applicable. This aligns with the separate producer-to-CEM feed-in route.
+- For public renewable generation under the contract's Annex VIII, the generation and associated rights belong to the SAR, grid-connection meters record the output, and it may be used to offset public-lighting consumption or other electricity consumption designated by the SAR. This public-infrastructure arrangement is not a private building's virtual-net-metering right.
+
+This is stronger evidence that Macau has a route for approved PV export and a narrowly bounded private same-parcel distribution possibility. It does not establish an ordinary right to wheel private PV across separate parcels or credit another customer's retail bill. U-025 remains open for any specific exception/approval, third-party ownership or PPA structure, and account-linked settlement terms.
 
 ## What this establishes
 
@@ -41,18 +63,30 @@ Do not model off-site PV as a direct bill credit, a cheaper retail supply, or a 
 
 ## Research follow-up — U-025
 
-Separate three structures and verify each: (1) PV owner sells metered export to CEM under the FIT purchase contract; (2) host-site PV self-consumption / behind-the-meter supply under the approved interconnection and supply contracts; (3) a remote customer's virtual allocation, bill credit, wheeling or retail purchase through the public grid. Public sources establish (1) and the technical route for approved PV, but do not establish (2)'s commercial contract rules or any entitlement under (3). Obtain the applicable CEM forms/contracts and written DSPA/DSSCU/CEM interpretation; confirm whether any approved third-party or account-linked arrangement exists.
+Keep four structures separate: (1) PV owner sells metered export to CEM under the FIT purchase contract; (2) behind-the-meter PV is connected to the consumer's electrical network with anti-backflow where required; (3) a third party owns/finances a host-site PV system under lease/PPA; and (4) a remote customer's virtual allocation, bill credit, wheeling or retail purchase through the public grid. Public sources establish (1), and the CEM page documents the technical configuration in (2), but the applicable host-supply/commercial terms and third-party ownership rights in (2)/(3) need contracts or written confirmation; no entitlement under (4) is established. Separately, the announced cross-border GEC agency model concerns renewable environmental attributes, not proof of physical delivery or electricity-bill netting. Obtain applicable CEM forms/contracts and written DSPA/DSSCU/CEM interpretation; confirm any approved third-party or account-linked arrangement and the GEC offer, price, eligibility and claim rules.
 
 Until then, keep the PV producer's feed-in revenue separate from the consuming site's bill and dispatch objective unless a verified arrangement explicitly links them.
+
+## Live-source recheck — 2026-10-04
+
+The current CEM PV application-procedure page was re-opened during this review. It says applicants must establish a legal right to use the rooftop/installation site; the procedure then requires the applicable DSSCU project approval/acceptance, a CEM interconnection request, a connection-point meter installed by CEM, and a signed PV interconnection contract before interconnection. For a non-grid-connected PV system tied into the consumer's own electrical network, the design may require an anti-backflow device at the public-grid boundary.
+
+This recheck confirms the existing source interpretation; it does not establish that site-use right equals PV-system ownership, identify the counterparty entitled to FIT proceeds under every third-party structure, or create a remote consumer bill credit. Keep U-025 OPEN.
 
 ## Sources
 
 - DSPA — Solar energy / PV interconnection and feed-in purchase: https://www.dspa.gov.mo/energytopics/solar/c1.html (last revised 2026-09-01).
 - CEM — PV introduction and bidirectional metering: https://www.cem-macau.com/zh/smart-living/photovoltaic-system-%28pv%29/pv-introduction/
 - CEM — PV interconnection application procedure: https://www.cem-macau.com/en/smart-living/photovoltaic-system-%28pv%29/application-procedure/
+- CEM — Cross-border GEC model for Macau customers and six integrated resorts: https://www.cem-macau.com/en/press-release/716/ (2025-11-26).
+- CEM — Low-carbon transition update reporting 12 grid-connected PV systems and 2,250 GECs used for CEM Building self-use emissions (2026-06-08): https://www.cem-macau.com/en/press-release/739/.
+- CEM — First Guangdong–Macau GEC transaction and GEC environmental-attribute definition: https://www.cem-macau.com/en/press-release/635/ (2023-12-25).
 - CEM — feed-in tariff table: https://www.cem-macau.com/en/go-green/photovoltaic-system-%28pv%29/feed-in-tariff/
+- Official Gazette — Administrative Regulation 20/2014, PV interconnection safety/installation rules: https://bo.dsaj.gov.mo/bo/i/2014/43/regadm20_cn.asp?printer=1
+- DSPA — PV technical limit and installation/interconnection explanation: https://www.dspa.gov.mo/energytopics/solar/c1.html
 - Official Gazette — Law 26/2024, including the republished Decree-Law 43/91/M: https://bo.dsaj.gov.mo/bo/i/2025/01/lei26_cn.asp (published 2025-01-06; effective 2025-01-07).
 - Official Gazette — Decree-Law 43/91/M, republished low/medium-voltage electricity supply and sale contract: https://bo.io.gov.mo/bo/i/91/28/declei43_cn.asp
 - Official Gazette — Administrative Regulation 20/2014, PV interconnection safety and installation rules: https://bo.dsaj.gov.mo/bo/i/2014/43/regadm20_cn.asp
 - Official Gazette — Administrative Regulation 25/2022, public electricity supply tariff system: https://bo.dsaj.gov.mo/bo/i/2022/26/regadm25.asp
 - Official Gazette — Decree-Law 53/98/M amendment to the standard supply contract: https://bo.io.gov.mo/bo/i/98/46/declei53_cn.asp?printer=1
+- Official Gazette — Macau public electricity-supply concession contract extension and amendment (Series II, Issue 49/2025, published 2025-12-03; effective 2026-01-01): https://bo.dsaj.gov.mo/bo/ii/2025/49/extractos_cn.asp

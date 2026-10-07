@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Macau Commercial Energy OS — Visual Direction Study v0.1</title>
+<style>
+:root{font-family:Inter,"Segoe UI",system-ui,-apple-system,sans-serif;color:#162334;background:#eef2f4;font-size:16px;font-synthesis:none}
+*{box-sizing:border-box}
+body{margin:0}
+button,a{font:inherit}
+button:focus-visible,a:focus-visible{outline:3px solid #1c82a3;outline-offset:3px}
+.page{max-width:1500px;margin:auto;padding:clamp(20px,4vw,48px)}
+header{max-width:850px;margin-bottom:26px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#506475}
+h1{font-size:clamp(28px,4vw,42px);letter-spacing:-.035em;line-height:1.12;margin:10px 0}
+header p{color:#45596b;line-height:1.6;margin:8px 0}
+.boundary{display:inline-flex;border:1px solid #c6d1d9;background:#f9fbfc;border-radius:6px;padding:7px 10px;font-size:12px;font-weight:650}
+.directions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:start}
+.direction{--bg:#F5F7F5;--surface:#fff;--ink:#152A28;--muted:#4D625F;--line:#D6E0DC;--brand:#145B59;--focus:#177E83;--good:#17633B;--good-bg:#E7F4EB;--warn:#795300;--warn-bg:#FFF3D6;--bad:#9B2B2B;--bad-bg:#FCEAEA;--actual:#1B6D8F;--forecast:#A25510;--nav:#173E3B;--nav-ink:#F1F8F5;--nav-muted:#C1D4D0;--shadow:0 4px 18px rgba(23,46,43,.07);background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+.direction[data-theme="mineral"]{--bg:#F4F7FB;--surface:#fff;--ink:#17243A;--muted:#53647B;--line:#D7E0EB;--brand:#214F95;--focus:#2457A6;--good:#176044;--good-bg:#E8F5EE;--warn:#8A4E00;--warn-bg:#FFF2D9;--bad:#9E3036;--bad-bg:#FCEAEC;--actual:#2457A6;--forecast:#9B4D12;--nav:#1B2E48;--nav-ink:#F3F6FB;--nav-muted:#C2D1E2;--shadow:0 4px 18px rgba(31,58,93,.08)}
+.direction[data-theme="night"]{--bg:#101A22;--surface:#1B2A35;--ink:#F2F6F8;--muted:#B6C4CC;--line:#43535E;--brand:#0E6575;--focus:#71D1D2;--good:#82D5A1;--good-bg:#263B36;--warn:#FFD27F;--warn-bg:#453A27;--bad:#FF9B9B;--bad-bg:#492E34;--actual:#71C5F1;--forecast:#FFC06E;--nav:#0B141B;--nav-ink:#F2F6F8;--nav-muted:#B6C4CC;--shadow:0 6px 20px rgba(0,0,0,.22)}
+.sample-head{padding:17px 18px 13px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.sample-head h2{font-size:18px;margin:0 0 5px;letter-spacing:-.02em}
+.sample-head p{font-size:12px;color:var(--muted);margin:0;line-height:1.45}
+.rank{font-size:11px;font-weight:750;border:1px solid var(--line);border-radius:999px;padding:5px 8px;white-space:nowrap}
+.nav{background:var(--nav);color:var(--nav-ink);padding:12px 15px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.brand{display:flex;gap:9px;align-items:center;font-size:13px;font-weight:700}
+.mark{width:25px;height:25px;border-radius:7px;background:var(--brand);display:grid;place-items:center;color:#fff;font-size:12px}
+.nav small{display:block;color:var(--nav-muted);font-size:10px;font-weight:500}
+.nav .site{color:var(--nav-muted);font-size:11px;text-align:right}
+.content{padding:15px}
+.title-row{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:12px}
+.title-row h3{font-size:15px;margin:0 0 3px}
+.title-row p{font-size:11px;color:var(--muted);margin:0;line-height:1.4}
+.badge{font-size:10px;font-weight:750;padding:5px 7px;border-radius:999px;background:var(--warn-bg);color:var(--warn);white-space:nowrap}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:10px;min-width:0}
+.kpi label{display:block;font-size:10px;color:var(--muted);font-weight:650;line-height:1.35}
+.kpi strong{display:block;font-size:20px;letter-spacing:-.025em;margin:7px 0 2px}
+.kpi span{display:block;font-size:10px;color:var(--muted);line-height:1.35}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px;margin-top:9px}
+.panel-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.panel h4{font-size:12px;margin:0}
+.panel .sub{font-size:10px;color:var(--muted);margin:4px 0 0;line-height:1.4}
+.chart{display:block;width:100%;height:auto;margin-top:6px}
+.gridline{stroke:var(--line);stroke-width:1}
+.actual-line{fill:none;stroke:var(--actual);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.forecast-line{fill:none;stroke:var(--forecast);stroke-width:3;stroke-dasharray:7 5;stroke-linecap:round}
+.band{fill:var(--forecast);opacity:.13}
+.axis{font:11px "Segoe UI",sans-serif;fill:var(--muted)}
+.legend{display:flex;gap:13px;flex-wrap:wrap;color:var(--muted);font-size:10px;margin-top:4px}
+.legend span{display:inline-flex;gap:5px;align-items:center}
+.key{width:15px;border-top:3px solid var(--actual)}
+.key.forecast{border-top:3px dashed var(--forecast)}
+.key.bandkey{height:8px;background:var(--forecast);opacity:.2;border:0}
+.legend b{color:var(--ink)}
+.callout{margin-top:9px;padding:9px 10px;border-radius:7px;background:var(--warn-bg);color:var(--warn);font-size:10px;line-height:1.45;border-left:3px solid var(--warn)}
+.callout strong{display:block;margin-bottom:2px}
+.action-row{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:10px}
+.action-row small{font-size:10px;color:var(--muted);line-height:1.4}
+.btn{min-height:40px;border:1px solid var(--brand);border-radius:7px;background:var(--brand);color:#fff;padding:7px 10px;font-weight:700;font-size:11px}
+.tokens{border-top:1px solid var(--line);padding:13px 15px}
+.tokens h4{font-size:11px;margin:0 0 9px}
+.swatches{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
+.swatch{font-size:10px;color:var(--muted);min-width:0}
+.chip{height:18px;border:1px solid var(--line);border-radius:5px;margin-bottom:4px}
+.swatch code{font:10px ui-monospace,monospace;color:var(--ink)}
+.locale{font-size:10px;line-height:1.55;color:var(--muted);margin-top:10px;border-top:1px solid var(--line);padding-top:8px}
+.locale strong{color:var(--ink)}
+footer{margin-top:18px;color:#45596b;font-size:12px;line-height:1.6;max-width:1000px}
+@media(max-width:1050px){.directions{grid-template-columns:1fr}.direction{max-width:780px;width:100%;margin:auto}.content{padding:18px}.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:400px){.page{padding:18px 12px}.sample-head{padding:14px}.content{padding:12px}.kpi{padding:8px}.kpi strong{font-size:18px}.nav .site{max-width:110px}.swatches{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<main class="page">
+<header>
+<div class="eyebrow">Visual direction study · v0.1 · synthetic data</div>
+<h1>Three palettes for the same energy workflow</h1>
+<p>Compare the same site-readiness and demand-review task in three visual directions. Color is treated as a semantic system for evidence, freshness, uncertainty and action state—not decoration. None is selected or user-tested.</p>
+<span class="boundary">Study artifact only · no live Macau data · no product or stack approval</span>
+</header>
+<section class="directions" aria-label="Three visual direction alternatives">
+<article class="direction" data-theme="harbor" aria-labelledby="harbor-title">
+<div class="sample-head"><div><h2 id="harbor-title">01 · Harbor teal</h2><p>Warm neutral canvas · restrained teal · solar amber</p></div><span class="rank">LIGHT</span></div>
+<div class="nav"><div class="brand"><span class="mark" aria-hidden="true">E</span><span>Energy OS<small>Commercial operations</small></span></div><div class="site">DEMO RESORT<br>Macau · Synthetic</div></div>
+<div class="content">
+<div class="title-row"><div><h3>Portfolio overview</h3><p>Check evidence before interpreting cost.</p></div><span class="badge">Evidence incomplete</span></div>
+<div class="kpis"><div class="kpi"><label>Sites</label><strong>01</strong><span>In this portfolio</span></div><div class="kpi"><label>Point coverage</label><strong>92%</strong><span>2 need review</span></div><div class="kpi"><label>Recommendation</label><strong>SHADOW</strong><span>Not executed</span></div></div>
+<div class="panel"><div class="panel-head"><div><h4>Demand and next-hour forecast</h4><p class="sub">kW · synthetic · updated 10:30</p></div><span class="badge">Estimate</span></div>
+<svg class="chart" viewBox="0 0 320 105" role="img" aria-label="Synthetic actual demand shown as a solid blue-green line and forecast as a dashed amber line with an uncertainty band">
+<path class="gridline" d="M28 15H315M28 42H315M28 69H315M28 96H315"/>
+<text class="axis" x="0" y="18">900</text><text class="axis" x="0" y="45">600</text><text class="axis" x="0" y="72">300</text><text class="axis" x="30" y="104">08:00</text><text class="axis" x="267" y="104">12:00</text>
+<path class="band" d="M225 43 C250 36 275 31 315 26 L315 53 C280 55 255 54 225 58Z"/>
+<path class="actual-line" d="M30 78 C58 69 73 70 94 58 S132 48 151 55 S190 34 224 43"/>
+<path class="forecast-line" d="M224 43 C252 42 271 37 294 39 S308 35 315 37"/>
+</svg>
+<div class="legend"><span><i class="key"></i><b>Actual</b></span><span><i class="key forecast"></i><b>Forecast</b></span><span><i class="key bandkey"></i>Uncertainty range</span></div>
+</div>
+<div class="callout"><strong>Data needs review</strong>One meter feed is stale. Cost interpretation is blocked until its source and time range are checked.</div>
+<div class="action-row"><small>Estimated values are not<br>measured savings.</small><button class="btn">Review evidence</button></div>
+</div>
+<div class="tokens"><h4>Core roles</h4><div class="swatches">
+<div class="swatch"><div class="chip" style="background:#F5F7F5"></div>Canvas<br><code>#F5F7F5</code></div>
+<div class="swatch"><div class="chip" style="background:#152A28"></div>Text<br><code>#152A28</code></div>
+<div class="swatch"><div class="chip" style="background:#145B59"></div>Primary<br><code>#145B59</code></div>
+<div class="swatch"><div class="chip" style="background:#A25510"></div>Forecast<br><code>#A25510</code></div>
+<div class="swatch"><div class="chip" style="background:#795300"></div>Warning<br><code>#795300</code></div></div>
+<div class="locale"><strong>Label fit:</strong> Data freshness · <span lang="zh-Hant">資料新鮮度</span> · <span lang="pt">Atualidade dos dados</span></div></div>
+</article>
+<article class="direction" data-theme="mineral" aria-labelledby="mineral-title">
+<div class="sample-head"><div><h2 id="mineral-title">02 · Mineral blue</h2><p>Cool paper · architectural blue · warm evidence accent</p></div><span class="rank">LIGHT</span></div>
+<div class="nav"><div class="brand"><span class="mark" aria-hidden="true">E</span><span>Energy OS<small>Commercial operations</small></span></div><div class="site">DEMO RESORT<br>Macau · Synthetic</div></div>
+<div class="content">
+<div class="title-row"><div><h3>Portfolio overview</h3><p>Check evidence before interpreting cost.</p></div><span class="badge">Evidence incomplete</span></div>
+<div class="kpis"><div class="kpi"><label>Sites</label><strong>01</strong><span>In this portfolio</span></div><div class="kpi"><label>Point coverage</label><strong>92%</strong><span>2 need review</span></div><div class="kpi"><label>Recommendation</label><strong>SHADOW</strong><span>Not executed</span></div></div>
+<div class="panel"><div class="panel-head"><div><h4>Demand and next-hour forecast</h4><p class="sub">kW · synthetic · updated 10:30</p></div><span class="badge">Estimate</span></div>
+<svg class="chart" viewBox="0 0 320 105" role="img" aria-label="Synthetic actual demand shown as a solid blue line and forecast as a dashed rust line with an uncertainty band">
+<path class="gridline" d="M28 15H315M28 42H315M28 69H315M28 96H315"/>
+<text class="axis" x="0" y="18">900</text><text class="axis" x="0" y="45">600</text><text class="axis" x="0" y="72">300</text><text class="axis" x="30" y="104">08:00</text><text class="axis" x="267" y="104">12:00</text>
+<path class="band" d="M225 43 C250 36 275 31 315 26 L315 53 C280 55 255 54 225 58Z"/>
+<path class="actual-line" d="M30 78 C58 69 73 70 94 58 S132 48 151 55 S190 34 224 43"/>
+<path class="forecast-line" d="M224 43 C252 42 271 37 294 39 S308 35 315 37"/>
+</svg>
+<div class="legend"><span><i class="key"></i><b>Actual</b></span><span><i class="key forecast"></i><b>Forecast</b></span><span><i class="key bandkey"></i>Uncertainty range</span></div>
+</div>
+<div class="callout"><strong>Data needs review</strong>One meter feed is stale. Cost interpretation is blocked until its source and time range are checked.</div>
+<div class="action-row"><small>Estimated values are not<br>measured savings.</small><button class="btn">Review evidence</button></div>
+</div>
+<div class="tokens"><h4>Core roles</h4><div class="swatches">
+<div class="swatch"><div class="chip" style="background:#F4F7FB"></div>Canvas<br><code>#F4F7FB</code></div>
+<div class="swatch"><div class="chip" style="background:#17243A"></div>Text<br><code>#17243A</code></div>
+<div class="swatch"><div class="chip" style="background:#214F95"></div>Primary<br><code>#214F95</code></div>
+<div class="swatch"><div class="chip" style="background:#9B4D12"></div>Forecast<br><code>#9B4D12</code></div>
+<div class="swatch"><div class="chip" style="background:#8A4E00"></div>Warning<br><code>#8A4E00</code></div></div>
+<div class="locale"><strong>Label fit:</strong> Data freshness · 資料新鮮度 · Atualidade dos dados</div></div>
+</article>
+<article class="direction" data-theme="night" aria-labelledby="night-title">
+<div class="sample-head"><div><h2 id="night-title">03 · Night graphite</h2><p>Dark neutral · clear cyan focus · warm forecast</p></div><span class="rank">DARK</span></div>
+<div class="nav"><div class="brand"><span class="mark" aria-hidden="true">E</span><span>Energy OS<small>Commercial operations</small></span></div><div class="site">DEMO RESORT<br>Macau · Synthetic</div></div>
+<div class="content">
+<div class="title-row"><div><h3>Portfolio overview</h3><p>Check evidence before interpreting cost.</p></div><span class="badge">Evidence incomplete</span></div>
+<div class="kpis"><div class="kpi"><label>Sites</label><strong>01</strong><span>In this portfolio</span></div><div class="kpi"><label>Point coverage</label><strong>92%</strong><span>2 need review</span></div><div class="kpi"><label>Recommendation</label><strong>SHADOW</strong><span>Not executed</span></div></div>
+<div class="panel"><div class="panel-head"><div><h4>Demand and next-hour forecast</h4><p class="sub">kW · synthetic · updated 10:30</p></div><span class="badge">Estimate</span></div>
+<svg class="chart" viewBox="0 0 320 105" role="img" aria-label="Synthetic actual demand shown as a solid cyan line and forecast as a dashed amber line with an uncertainty band">
+<path class="gridline" d="M28 15H315M28 42H315M28 69H315M28 96H315"/>
+<text class="axis" x="0" y="18">900</text><text class="axis" x="0" y="45">600</text><text class="axis" x="0" y="72">300</text><text class="axis" x="30" y="104">08:00</text><text class="axis" x="267" y="104">12:00</text>
+<path class="band" d="M225 43 C250 36 275 31 315 26 L315 53 C280 55 255 54 225 58Z"/>
+<path class="actual-line" d="M30 78 C58 69 73 70 94 58 S132 48 151 55 S190 34 224 43"/>
+<path class="forecast-line" d="M224 43 C252 42 271 37 294 39 S308 35 315 37"/>
+</svg>
+<div class="legend"><span><i class="key"></i><b>Actual</b></span><span><i class="key forecast"></i><b>Forecast</b></span><span><i class="key bandkey"></i>Uncertainty range</span></div>
+</div>
+<div class="callout"><strong>Data needs review</strong>One meter feed is stale. Cost interpretation is blocked until its source and time range are checked.</div>
+<div class="action-row"><small>Estimated values are not<br>measured savings.</small><button class="btn">Review evidence</button></div>
+</div>
+<div class="tokens"><h4>Core roles</h4><div class="swatches">
+<div class="swatch"><div class="chip" style="background:#101A22"></div>Canvas<br><code>#101A22</code></div>
+<div class="swatch"><div class="chip" style="background:#F2F6F8"></div>Text<br><code>#F2F6F8</code></div>
+<div class="swatch"><div class="chip" style="background:#0E6575"></div>Button<br><code>#0E6575</code></div>
+<div class="swatch"><div class="chip" style="background:#FFC06E"></div>Forecast<br><code>#FFC06E</code></div>
+<div class="swatch"><div class="chip" style="background:#FFD27F"></div>Warning<br><code>#FFD27F</code></div></div>
+<div class="locale"><strong>Label fit:</strong> Data freshness · 資料新鮮度 · Atualidade dos dados</div></div>
+</article>
+</section>
+<footer><strong>Review limits:</strong> Same synthetic portfolio task and chart across palettes. Computed text contrast samples: Harbor text/muted 14.00:1 / 6.04:1; Mineral 14.48:1 / 5.62:1; Night 16.19:1 / 9.86:1. All shown exceed WCAG 2.2 AA normal-text minimum for those pairs; this does not establish page conformance. Actual/forecast lines also use solid/dashed encoding and direct labels. Colors are proposals, not approved design tokens. A local browser preview confirmed the comparison content and stacked narrow-screen composition. Attempts to inspect 320px and 1440px override captures were clipped/scaled by the in-app preview, so they do not prove exact overflow behavior or full desktop side-by-side readability; rendered accessibility and user testing remain open.</footer>
+</main>
+</body>
+</html>

@@ -13,6 +13,7 @@ Stable project decisions. Do not silently overwrite; supersede with a new decisi
 ## D-003 — First controllable asset
 **Decision:** HVAC/chiller plant is the first priority controllable asset for the initial Macau pilot. ESS is not the default first asset.  
 **Status:** ACTIVE
+**Current evidence qualification (2026-10-04):** G2 remains OPEN. Treat this as a pilot-priority hypothesis for discovery and design only. No named site has yet established dispatchable HVAC/chiller flexibility, authorized control access, service/comfort limits, response/rebound or attributable savings. Reaffirm or supersede this priority after site selection, site-specific G2 evidence and owner/site review; do not present it as validated capability.
 
 ## D-004 — Battery role
 **Decision:** ESS is an optional fast-response and flexibility asset for TOU shifting, Pu clipping, resilience and control support; it must pass a site-specific economic case.  

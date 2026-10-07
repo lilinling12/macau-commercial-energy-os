@@ -1,0 +1,375 @@
+# Macau Commercial Energy OS archive semantic reconciliation v0.1
+
+**Review date:** 2026-10-05  
+**Purpose:** Reconstruct the authority/Gate version lineage and identify archive claims that cannot safely be carried into the current GitHub authority without an explicit crosswalk.  
+**Status:** First semantic audit pass; not a closure record for the remaining archives, Gates, product decisions, or architecture.
+
+## 1. Scope and access evidence
+
+Read-only inventory of `D:\dev\project\lilinling\macau-commercial-energy-os` found 44 ZIPs (40 Macau Energy OS packages and four unrelated remote-control packages) and two loose authority files. All 44 ZIPs opened without read errors. The scan read 1,071,834 uncompressed bytes, recorded SHA-256 values for entries, and found eight repeated embedded paths with different contents across Authority revisions. This proves archive readability and package membership, not that every claim has been semantically reviewed. The remote-control packages are excluded from Macau authority.
+
+This pass semantically read the Authority v1.0–v1.6.2 handoff/status and decision-register material; the v1.7.0–v2.0 transition/current files; the loose v2.0/v2.1 authorities; the G7.1/G7.2/G7.4/G7.5 package bodies; both G7.6 Step 2 variants; G7.8 Step 2/3 technology decisions; and the G7.9 Step 1/2 domain packages. The machine inventory is an audit aid, not evidence of a full content review of every file in every archive.
+
+The normal web fetch for the linked shared ChatGPT page returned **Cache miss**. A later in-app browser open exposed part of the shared conversation, including Phase B and Phase C outputs, but also displayed two `Failed to fetch template` error blocks. The conversation archive API returned four recent turns with `hasMore: false` and no older cursor. These channels provide partial evidence only; they do not expose the complete historic transcript, every attachment, or every generated output. The two attached technology reports were readable: `deep-research-report (6).md` SHA-256 `1E0118807DBFDCA3D13AE1949383B4CBFEFB80DB0CD867D13BD6C8DC0D744495`; `(7).md` SHA-256 `5DB518CBE85402E0A8AD2682B9E52A7782D17748EC95C60F43B4BB748B6CAC82`.
+
+## 2. Authority and Gate lineage
+
+| Source revision | What its own status records say | Reconciliation consequence |
+|---|---|---|
+| Research Authority v1.0.0–v1.6.2, snapshots 2026-10-02 to 2026-10-03 | G7 is **Reference Simulator & Pilot Validation**. Its early children concern the controller/economics loop, a live BOPTEST R0 baseline/no-op, SitePowerComposer/Macau replay, then a tariff-aware supervisory controller. G1 remains open. By v1.6.2, G7.2 live execution is still pending; G6.9-R2 Steps 3A/3B/3C are complete, while framework-native Step 3D is pending. | These G7.1–G7.4 identifiers describe a reference-simulation/control research sequence, not the later commercialization/productization Gate sequence. Their design completion does not equal live R0 execution or a Macau pilot result. |
+| Research Authority v1.7.0 | Calls G6.9-R2 “Technology consolidation” and says final framework-bake-off evidence and a reference-implementation decision are pending; next is G7 Commercialization Research. | “Technology research completed” in later summaries cannot silently be interpreted as a measured production-stack winner. |
+| Research Authority v1.7.1 | Says it restores the G6.9 authority format and prepares transition to G7 Productization; technology decisions remain accepted/provisional/open. Its roadmap assigns G7.2 to energy economics/dispatch, G7.3 to Macau electricity-market research, G7.4 to ROI simulation, and G7.5 to the pilot product blueprint. | The G7 namespace was repurposed. This is a new meaning for the same numbers, not evidence that the earlier same-numbered simulator/control sub-Gates closed under the new definition. |
+| Authority v1.8.0 | Labels G7.1 market, G7.2 economics, G7.3 dispatch, G7.4 pilot, G7.5 product architecture, and G7.6 engineering as completed/partially completed. | Those are declared package statuses. The separate G7.1 and G7.2 ZIPs are short framework/open-question documents, so their status declarations alone do not prove the research evidence or closure criteria. Later evidence reports must be mapped by subject and source, not Gate number alone. |
+| Authority v1.9.0 | Says research/architecture consolidation is complete and identifies G7.7 Repository Foundation as the next Gate; actual Git repository creation had not yet started in that snapshot. | This is a repository-preparation transition snapshot, not proof of an implemented product. |
+| Authority v2.0 recovery and Step 2/3/4 packages | Mark recovery/mapping, architecture consolidation, and repository preparation steps complete in their own `CURRENT.md` files. | These are historical authority-recovery checkpoints. Their “completed” status is not an implementation or live-pilot result. |
+| Loose Authority v2.0, SHA-256 `BD705A40A34DBE9BE1248B6B8BD792913ED92B398A32EC32E42D99829A1B4661` | Lists G6.9-R2 Steps 3A/3B/3C/3E/3F/3G.1 as completed and 3G.2 as next; describes React/TypeScript, Python, Go, PostgreSQL/Timescale and Wasm-related directions while keeping some cloud-core choices under evaluation. | This conflicts in completion level with the current GitHub main `CURRENT.md`, which still says G6.9-R2 Step 3D is pending. It needs a dated supersession/reconciliation record; neither document can be silently substituted for the other. |
+| Loose Authority v2.1, SHA-256 `93AF2811B278FA7B1099A6F5FBD69A2A9F7B60CD26ECDAABECBC82676524A373` | Says G6.9/AI-native engineering are complete, begins G7.1 market/ROI research, and frames the MVP as energy visibility, tariff intelligence, optimization SHADOW mode, and Edge. | This is a broad product thesis, not a detailed dispatch-first PRD. The current PR #8 PRD/IA now make economic source/load scheduling primary, but the old thesis has no explicit supersession record in the loose source. |
+| Current GitHub main `docs/00-authority/handoff/CURRENT.md` (snapshot 2026-10-03) | G1 is open; G6.9-R2 Steps 3A/3B/3C complete and Step 3D pending; G7.2 live baseline/no-op pending; C+ provisional and not the measured winner. | This is the controlling repository snapshot for current delivery. It preserves, rather than resolves, the conflict with the loose v2.0/v2.1 files and historical G7.8 freeze. |
+
+## 3. Gate package contents versus closure labels
+
+The standalone G7.1 market ZIP contains a segment/pain-point research framework, an ROI outline, and a `CURRENT.md` that says research is still underway. The standalone G7.2 economics ZIP contains a high-level dispatch diagram/objective and six explicit open questions (tariff detail, typical hotel load, PV economics, battery payback, demand response, realistic savings percentage). Neither package itself is a complete evidence-backed market/economics study. Later G1/G2 evidence in GitHub may satisfy individual questions, but it must be linked to specific requirements and does not follow merely from these ZIPs' names or later “completed” labels.
+
+The G7.4 Pilot Blueprint ZIP marks the package completed, while ADR-057/058/059 inside it are **Proposed**. Its pilot phases include shadow optimization and M&V, and do not supply named-site results. The G7.5 Step 3 roadmap places “limited closed-loop control” before “PV and battery dispatch”; this conflicts with the current dispatch-first, SHADOW-only MVP boundary unless a later record explicitly supersedes that sequence. Treat it as an old proposed roadmap, not current authorization.
+
+## 4. Technology-authority conflicts found in package bodies
+
+### G7.6 Step 2 duplicate archives
+
+Two different packages share the same nominal version/name family:
+
+- `macau-commercial-energy-os-g7.6-step2-engineering-foundation-v0.1.zip`, 7 entries, ZIP SHA-256 `18704C677AF55A53886806A219A1A5EE22DEA9EF3A0256E286EC9429DD7F2785`: its ADR-068/069/070 update calls the TypeScript + Go + Python hybrid, domain-service boundaries, and contract-first/AI verification **Proposed**; it does not pin runtime or database versions.
+- `macau-commercial-energy-os-g7.6-step2-engineering-foundation-v0.1(1).zip`, 39 entries, ZIP SHA-256 `F3955862E9902166F82126A2C489E798413676CF93000D4F3F68F650867D47EB`: its `CURRENT.md`, `DECISION_LOG_UPDATE.md`, ADRs 071–076, and `TECH_STACK_FREEZE.md` say **Accepted/Frozen**, including React/TypeScript/Vite, Node 24/Fastify 5 modular monolith, Python, Go Edge, PostgreSQL 18 initial storage, NATS/JetStream, and no direct cloud-to-equipment control. It explicitly defers splitting telemetry storage until evidence justifies it.
+
+These are materially different authority artifacts, not interchangeable “same version” copies. The detailed archive is a historical accepted freeze, but its current binding status must be reconciled with G6.9-R2 and current main before production architecture approval.
+
+### G7.8 Step 2/3 freeze versus G6.9-R2
+
+G7.8 Step 2 marks technology research complete and Step 3 as the final stack ADR. G7.8 Step 3 then explicitly marks its ADR freeze complete: React/TypeScript, Node LTS TypeScript backend, Go Edge, Python, OpenAPI + JSON Schema, with **Fastify** chosen over NestJS/Hono as the starting backend framework; Bun is evaluation/development tooling, not mandatory production runtime. This is a real historical freeze record in the supplied archive, not a mere recommendation.
+
+The later/current G6.9-R2 authority instead keeps C+ (Go Energy Core + Temporal Go + thin Bun/Hono/TypeScript surface + Go Edge + Python) provisional and requires a comparable Step 3D/Step 4 result. The archive set contains no explicit accepted record saying exactly whether G7.8 remains binding, is superseded by G6.9 evidence, or must be rerun. That authority-priority decision remains open in the PR #8 owner review materials.
+
+### G7.9 Step 1/2 status versus actual design depth
+
+Both G7.9 ZIPs mark their own step **Completed**. The Step 1 package is an initial tenant/building/device/telemetry/recommendation scope and explicitly excludes direct control and full billing. Step 2 lists Site as an entity, yet the relationship fragment omits Site; its table list omits Site; its API list is only telemetry/buildings/assets/recommendations; and the archive contains no schema artifact despite saying APIs are generated from schemas. There are no account, meter-settlement, tariff, dispatch assessment/result, review, or replay operations in the package. Therefore Step 2 is a completed **historical package status**, but it is not a complete source/load-dispatch domain contract. The current PR #10 Step 3 map correctly treats the dispatch, settlement and evidence extensions as new proposal work and keeps Step 3 open.
+
+## 5. Research-report reconciliation and Next.js role
+
+Deep Research (6) is a **pre-bake-off provisional C+ recommendation**: Go Energy Core and Temporal Go, thin Bun/Hono TypeScript BFF, Go Edge, Python, PostgreSQL/Timescale, NATS plus MQTT, and Deno initially for the plugin sandbox. It explicitly says to use a falsifiable bake-off; this is not a measured winner.
+
+Deep Research (7), dated 2026-10-02, recommends React/TypeScript with a simple SPA for the authenticated operator console, a Node LTS + NestJS modular-monolith control plane, Go ingestion/Edge, Python intelligence, PostgreSQL/Timescale initially and Kafka as a longer-term target. It says Next.js **may** serve a customer/public portal or where its server features are valuable, but the core authenticated Energy OS is a rich interactive app and does not need SSR by default. It does not select Next.js as the backend and does not add it to G6.9-R2's actual A/B/C+ candidates. The current product UI framework remains a proposal separate from that backend bake-off.
+
+The two reports are competing recommendations with different boundaries and evidence dates. Current main preserves C+ as provisional and A/B/C+ as candidates. The existing Node/NestJS scaffold is implementation evidence for B, not proof B won. The historic G7.8 Fastify freeze and later report (7) NestJS recommendation are distinct decisions/evidence and need an explicit owner decision; one cannot be silently rewritten as the other.
+
+## 6. GitHub mapping and unresolved work
+
+Current PR #8 contains a research/evidence register, Gate records, PRD, user-flow/IA, product review packet, architecture/detailed designs, traceability and readiness audit. PR #10 contains the dispatch-first product proposal, synthetic v0.3–v0.5 studies, the three layout study, and the G7.9 Step 3 proposal/map. Both PRs remain unmerged; they are reviewable proposals, not current main baselines. The PR changed-file lists do not contain the supplied ZIP archives themselves. This pass does not prove that every source document is represented or correctly traced in GitHub.
+
+The shared conversation is only partially accessible: the in-app browser rendered some messages and Phase B/C outputs, while two response blocks failed to fetch templates; `read_thread` returned four recent turns and no older cursor. The full transcript, attached files and all generated outputs remain an explicit source gap. The two Deep Research files and the named project folder archives above were directly readable.
+
+### Next audit sequence
+
+1. Continue full semantic cross-check of every G7.1–G7.9 package and every Authority/G6.9 package against the current GitHub evidence register and Gate exit criteria, recording exact archive/file hashes and “present / partial / absent / contradicted / unknown” status per artifact.
+2. Resolve the old/new G7 numbering crosswalk and whether v1.7.0/v1.7.1/G6.9 authority transitions supersede one another; do not mark historical design-only work as a live Gate closure.
+3. Resolve G7.6/G7.8 versus G6.9 stack authority, including the explicit G7.8 Fastify freeze, D-064 provisional C+, D-068 bake-off requirement, Next.js optional UI/server role, and main's actual Node/NestJS code status.
+4. Reconcile G7.9 Step 1/2 completion labels with the package omissions and current Step 3 design; preserve the distinction between a source package's status and validated implementation.
+5. Record the owner-approved product, locale, visual and architecture decisions only after the evidence packet is complete. No merge, freeze or equipment control is authorized by this audit.
+
+
+## 7. Authority v2.0 and G7.7–G7.8 package claims: direct semantic follow-up
+
+This section directly reads the Markdown entries from the following source ZIPs. SHA-256 values identify the archive files in the user-supplied folder; they do not by themselves rank authority or prove the contents were accepted by the GitHub repository.
+
+| Source package (SHA-256) | Its status/declared claim | What the package body actually establishes |
+|---|---|---|
+| `authority-v2.0-recovery-package.zip` (`3936F35ED0DDE8CD968699C5A81A23B1A6E6EA7CA46868EC3201498EA214572F`) | “Research direction”, “Architecture direction” and “Engineering direction” recovered; repository “Not created yet”. | Restores a six-domain file structure and a roadmap, explicitly says detailed research must still be restored/mapped/audited, and says repository creation follows approval. Its `RESEARCH_MAP.md` mentions Java under “Technology Decisions”; it contains no Java selection, ADR, comparative result or implementation mandate. |
+| `authority-v2.0-step2-research-mapping-audit.zip` (`FDD02600DA691BB4511B9165B1BB9C95F3BF931FF7D233F03BAAB2DE90A5CBA6`) | Step 2 Mapping & Completeness Audit = “Completed”. | `AUTHORITY_AUDIT_RESULT.md` says research/product/architecture frameworks were restored while “Detailed document migration” remains and “Repository creation not started”. Its `MISSING_RESEARCH_LIST.md` still calls out regulation, regional deployment, customer security, telemetry scale benchmarks and optimization evaluation. Therefore “completed” applies to this mapping checkpoint, not all research or repository realization. |
+| `authority-v2.0-step3-architecture-consolidation.zip` (`A798691969566240258EF4ED69638CC0C9980827BE948811403C44CBA2644A4E`) | Architecture consolidation = “Completed”; freeze checklist checked. | The frozen items are high-level principles: system boundary, Edge/cloud boundary, AI boundary, multi-tenancy, generic technology direction and contract strategy. Technology records say TypeScript platform, Go Edge, Python optimization and OpenAPI, with rationale headings but no runtime/framework versions, bake-off measurements or complete operational design. This is a principles/authority checkpoint, not evidence that G6.9's later candidate bake-off or a production stack winner was measured. |
+| `authority-v2.0-step4-repository-preparation.zip` (`C74690EC9B7E47A49E90740D9091F31946157A22823710B031E7FB7DE3F171A7`) | Step 4 repository preparation = “Completed”. | `GITHUB_BOOTSTRAP_CHECKLIST.md` still leaves actual repository creation, document import, CI enablement and MVP start unchecked; `NEXT_STEP.md` says create the actual repository. It specifies a final tree and initial-commit plan, but no repository-state evidence. |
+| G7.7 Steps 1–5 ZIPs (`0FB7DB37D4E0F8B334B937CB54767B2C10E4AFE82C8067B60F89C494A70AB4DA`; `012FB0E7F7C1C78F6182D36F656FC98D2DB66FDD617F6F586D85130E7DBC9369`; `A512103B8167FCDCBBB5E2DC2614E7D849A56C0B12704F9408A93ADC8249E324`; `C7ADF1B33CE1EA1164188E04BABC06CF73A0617ECFABBC631E3B3A250381204E`; `0306A64C4250334477E38B665E73DAB2F897779685C4768FDBEB44ED775FFB77`) | Each `CURRENT.md` says its own G7.7 step is completed. | These are repository strategy, authority-import structure, governance templates, recommended GitHub settings, and readiness checklists. Step 5's `FINAL_READINESS_CHECKLIST.md` still has actual Git repository creation and first implementation commit unchecked. CI governance/branch protection is written as a proposed requirement; the ZIP alone cannot prove GitHub branch protection was enabled. The Git repository was created later, but enforcement must be verified against live settings, not inferred from this archive. |
+| G7.8 foundation/Step 4/Step 5 ZIPs (`72A6D7DC5458E68272C0959402352C61D3F0AE97F21DD276931CA353CBD104B4`; `3770F38952EE8D4ED8C44BFDEC0FEC7D96FFBC968678354A2E2516259CDAA222`; `0CD05A69F4324E26DA1E093FFA775ED0A14F8A889EFE762C81698F38E90217DB`) | Foundation/bootstraps marked complete; Step 5 moves to G7.9 MVP Domain Implementation. | Step 4 concretizes React/TypeScript portal, Fastify/TypeScript API, Go Edge, Python optimizer, contracts/schemas and a simulator; Node is LTS and pnpm/Corepack. Step 5 leaves database/messaging components partly generic (PostgreSQL, Redis, broker “when required”), does not pin a Node LTS major, and sets initial G7.9 scope as tenant, asset, telemetry, recommendation loop and portal. It is historical evidence for a Fastify-based G7.8 implementation plan, not proof that G6.9-R2 C+ was measured or that dispatch-first product work has superseded the original first slice through owner approval. |
+
+### Crosswalk implications
+
+1. Authority v2.0's Step 1–4 “completed” labels record package checkpoints; their own contents retain missing research migration, unchecked repository/bootstrap actions and later implementation prerequisites.
+2. G7.7 packages contain a meaningful repository-governance plan, but mostly policy drafts, templates and readiness claims. Actual repository existence is later verifiable; branch enforcement and complete governance activation require separate live GitHub evidence.
+3. G7.8's more concrete historical stack is React + TypeScript, Node LTS + Fastify, Go Edge, Python optimizer, pnpm, with database and broker details not fully pinned in the Step 5 package. This must remain in the decision matrix alongside the later G6.9-R2 provisional C+ and current NestJS scaffold.
+4. The v2.0 mention of Java is a research-map keyword, not a selected project backend. It is also listed as one candidate in the G7.8 stack framework, not as the package's final stack.
+5. Historical G7.8 MVP sequencing starts from simulator/telemetry/recommendation/portal. The current dispatch-centered PRD and SHADOW experiments are later proposed scope; no package reviewed here establishes owner-approved supersession.
+
+The exact filenames and content were read from the listed archives using the ZIP entries, in addition to their SHA-256 calculation. This expands semantic coverage beyond the first pass, but **does not mean every file in every one of the 40 Macau archives has now received semantic review**.
+
+## 8. Original product decisions versus the current dispatch-first draft
+
+The earliest Authority v1.0 decision register and handoff were checked against current main's docs/00-authority/decisions/DECISIONS.md, the current handoff, and PR #8's PRODUCT-DESIGN.md and PRD-v0.1.md.
+
+| Early active authority | Current PR #8 draft | Reconciliation |
+|---|---|---|
+| D-001/D-002: Commercial Energy OS / orchestrator, total economic cost/value rather than minimum kWh; not a generic EMS dashboard. | Product Design v0.1 makes evidence-bounded economic source/load dispatch the primary task, with portfolio/cost/evidence views in supporting roles. | Strong continuity of product category and objective; dispatch-first is a sharper task-level expression, not a switch to a generic dashboard. Still a research-derived draft, not owner-approved scope. |
+| D-003/D-004: HVAC/chiller is first priority controllable asset; ESS is optional and must pass site-specific economics. | PRD compares grid, PV, ESS and site-qualified flexible loads; unknown limits/evidence block eligibility and economics. | Compatible only if implementation sequencing and prototype language preserve HVAC/chiller as first controllability hypothesis and ESS as optional/site-qualified. The current v0.5 screen's synthetic EV/hot-water decomposition is display-only; its review says those loads are not dispatched by the candidate. |
+| D-005/D-009/D-013/D-019: PV dispatch depends on verified settlement; tariff/contract and meter/settlement twins plus separate physical/settlement graphs; unknown rules fail closed; initial MVP includes HVAC model, SHADOW and M&V. | PRD separates physical flow from settlement; makes export/netting/savings claims evidence-gated; includes provenance, candidate comparison, SHADOW review and replay. | Key architecture/product invariants are retained. G1 tariff/demand-window and contract-specific settlement unknowns still block bill-grade economics. |
+| D-010: 1–5 MW C1/C2 non-gaming hotel or large commercial site with central chilled-water plant and BMS is a target hypothesis. | Product Design/PRD list several candidate site types and roles, with customer validation outstanding. | The broader segment list is exploratory; do not treat it as ranked or validated. Preserve the early hotel/chilled-water pilot as a hypothesis to test against interviews/site evidence. |
+| v1.0 handoff: do not start product UI before tariff and graph foundations are stable. | PR #8 adds product/IA drafts and clickable prototype studies while G1 remains open and G3/site graph evidence remains incomplete; no production UI is in main. | There is a sequencing interpretation gap. Research prototypes can be treated as disposable validation artifacts, but they must not be represented as production-ready or authorize implementation before the relevant evidence gates. This distinction should be stated in the controlling roadmap before UI implementation. |
+
+The current main decision register still lists D-001 through D-010 as ACTIVE (D-010 explicitly a hypothesis to validate with GTM); its current handoff also says G1 is OPEN and bill/settlement unknowns remain. Therefore the product direction itself is not evidenced as wrong. The important outstanding choices are scope/prioritization and evidence maturity: confirm initial buyer/site and promise, keep HVAC/chiller first, decide whether the first increment is physical feasibility only or evidence-qualified economics, and define whether UI work before G1/G3 closure is research-only. PR #8 materials correctly label these as unapproved/validation-pending; that status must stay visible.
+
+This crosswalk does not approve any PRD, prototype or UI direction and does not supersede the current main authority.
+
+## 9. G6.9-R2 execution boundary, candidate pins, and repository trace
+
+### What the source authority and pack evidence say
+
+The Library Research Authority v1.6.2 is explicit: G6.9-R2 Steps 3A/3B/3C are complete, while framework-native pinned Step 3D remains pending. Step 3B's 22 Node/Go protocol-case assertions and Step 3C's TypeScript/Node + Go semantic slices are evidence that protocol/business semantics can be shared across the tested shells. Step 3C explicitly did not run Temporal, Postgres/Timescale, NATS, MQTT, Hono/Effect or NestJS/Fastify together. Its runtimes (Node 22.16, Go 1.23.2, Python 3.13.5) are historical semantic-test versions, not candidate performance pins or selected production versions.
+
+The v0.2.0 pack supplies the experiment specification/contracts/corpus/validator. v0.3.0 adds Step 3C source and recorded results. Neither archive contains a completed Step 3D result set or a runnable pinned all-candidate integration. Their validators check pack structure/selected JSON and hashes; passing them cannot close Step 3D.
+
+PR #8 adds a 2026-10-04 preflight review and a machine-readable Step 3D manifest. The report records that host review found the required Docker/Compose, Bun, Go and Node 24.21.0 pin unavailable on the task host (Node 24.9.0 was installed but did not meet the pack pin), and no Step 3D command was run. The proposed dedicated disposable Linux x86-64 host is a recommendation only; no host, cost, execution, network, or evidence-retention arrangement has been approved.
+
+### Manifest state and blockers
+
+The manifest itself says draft-not-frozen, executionReady false, and selectsProductionArchitecture false. It leaves null or pending: Linux image/kernel/CPU/memory/disk and clean-runner procedure; several platform digests; Postgres/Temporal credentials/schema/health/reset; Temporal/NATS/MQTT/OTel configuration; candidate package locks; workload seeds, commit SHAs, schema hashes, agent versions, repetitions and raw-result retention. It also has unresolved scope decisions for common browser/API task coverage and the use of a separate Temporal PG16 runner database.
+
+Candidate pins in this file are experiment proposals, not production stack decisions:
+
+| Candidate | Manifest's proposed Step 3D runtime pin | Status |
+|---|---|---|
+| A | Bun 1.4.2 + Hono 4.13.12 + Effect 4.0.0 API; Node 24.21.0 + Temporal TypeScript worker | Unfrozen candidate |
+| B | Node 24.21.0 + NestJS 12.1.1/Fastify 5.12.5 + Temporal TypeScript worker | Unfrozen candidate |
+| C+ | Go 1.27.1 + Temporal Go; thin Bun/Hono BFF | Unfrozen candidate; C+ is only the repository's provisional topology hypothesis |
+| Shared intelligence/infrastructure | Python 3.14.8; Timescale PostgreSQL 18.6 app DB; proposed separate PostgreSQL 16.15 for Temporal persistence; Temporal server 1.32.0; NATS 2.15.0; Mosquitto 2.1.2; OTel Collector 0.162.0; Prometheus 3.15.0 | Experiment pins/blockers, not an approved deployment bill of materials |
+
+The draft manifest's freeze blockers include image digests and reproducible BOPTEST build; service credentials, schemas, health checks, limits and reset; dependency lockfiles; one same-host 24-hour soak; protected runner trust boundary; candidate source commits and workload/agent/repetition pins; raw evidence retention; and a common UI/API scope. Until each is resolved, elapsed time or green ordinary repository CI cannot be represented as bake-off evidence.
+
+### Next.js and the layer-summary authority mismatch
+
+Deep Research (7) discusses Next.js conditionally for a public/customer portal or where server-rendering/server features are useful; it does not select it as the authenticated Energy OS backend, and it is absent from A/B/C+ in the v1.6.2 bake-off authority. The newer PR #8 draft manifest introduces Owner decision #16: whether to add Next.js as a fourth backend/API candidate, replace Candidate B, or explicitly defer, with a corresponding pack amendment if included. That is a newly surfaced unresolved scope question, not proof that Next.js was a historical G6.9 candidate or selected backend. It must be reconciled with the original research and the user's distinction between “researched” and “decided” before changing bake-off scope.
+
+There is also a wording conflict across authority snapshots: current main CURRENT calls the React/TypeScript, TS/Go, Temporal, PostgreSQL/Timescale, NATS, Python, Go Edge and Wasm/WASI list an owner-confirmed provisional layer summary; PR #8's technology-selection README calls that same layer list “pending owner review.” Both sources distinguish it from the C+ topology matrix, but its approval status needs a dated cross-reference to avoid asking the owner to reconfirm something already recorded as provisional or accidentally treating it as a production freeze.
+
+### Repository status and exit conclusion
+
+The exact readiness plan, draft manifest and G6.9 selection README are in PR #8's changed-file list, but are not in main because PR #8 is open/unmerged. Main's 2026-10-04 CURRENT still marks Step 3D pending; PR #8's own G6.9 document likewise says unexecuted. The separate PR #14 Python optimizer prototype is not Step 3D and does not establish framework-native integration or a technology winner. Therefore G6.9-R2 is not complete on available evidence; its next substantive gate remains a frozen, reproducible, owner-authorized Step 3D common-runner execution, followed by the authority-defined candidate comparison/decision.
+
+This crosswalk does not authorize runner provisioning, add Next.js to the bake-off, change the provisional architecture, or close G6.9.
+
+## 10. G7.9 actual completion and Step 3 repository trace
+
+### Archive statuses versus artifacts
+
+The G7.9 Step 1 archive (`macau-commercial-energy-os-g7.9-mvp-domain-foundation-v0.1.zip`, SHA-256 `CB144A2B57C612A78C80F39FD0A0BB2911CECE6453566DD0F90C70D5FD2CD30A`, 10 Markdown entries) marks its domain-foundation package complete and names Step 2 as next. It is a scope/model foundation, not a shipped domain implementation.
+
+The G7.9 Step 2 archive (`macau-commercial-energy-os-g7.9-step2-domain-data-contract-design-v0.1.zip`, SHA-256 `B70CAFDA01B6F19FAC8731154A90D24930CB2A66ADA449EA9BB8E5AA4B149A6C`, 11 Markdown entries) marks its own design package complete and names “G7.9 Step 3 Service Boundary and Implementation Design” as next. Its listed API areas are telemetry, buildings/assets and recommendations. While it names Site as an entity and says APIs are schema-generated, the package has no schema files, omits Site in its listed table/relationship definitions, and has no account/meter/tariff, economic assessment, source/load dispatch, SHADOW review or replay contract. Thus “Step 2 Completed” is a package status, not evidence that the complete dispatch domain contract exists or that Step 3 is done.
+
+### Source-to-GitHub implementation map
+
+| Evidence layer | Live artifact | What it proves | What remains missing |
+|---|---|---|---|
+| Main authority / code | main CURRENT (2026-10-04), G6.9 technology authority, Phase A–C and merged VS-001 | Main has repository, contracts-first foundation and a telemetry-to-cost/recommendation slice. Main still identifies Step 3D pending and does not contain the new dispatch APP-11 contract/workspace. | Integrated interval schedule service, source/load domain contract, settlement/evidence resolver for the dispatch path, operator schedule workflow, and G7.9 Step 3 acceptance/closure evidence. |
+| PR #8 product/architecture | Open, unmerged branch; PRD and IA carry PR-10/dispatch-first; APP-01…APP-10 catalog; G6.9 Step 3D plan/manifest | Draft product requirements and logical contracts, owner review and Step 3D preflight are present as review material. | Owner decisions remain open; APP-11 is absent from the APP-01…APP-10 catalog; no production-authorized contract/stack. |
+| PR #10 G7.9 Step 3 map | Open, Draft, unmerged; `G7.9-STEP3-DISPATCH-CONTRACT-IMPLEMENTATION-MAP-v0.1.md` | Stack-neutral design proposal links a proposed APP-11 schedule capability to existing APP-05 assessment, APP-06 cost result, APP-07 SHADOW review and APP-08 evidence/replay without merging their authority. It says explicitly that it does not close Step 3. | Review and decision needed on request/result semantics, status dimensions, idempotency, evidence, lifecycle and catalog traceability; schema-authoring/wire format D-065 unresolved. |
+| PR #14 optimizer prototype | Open, Draft, unmerged; bounded Python assessment plus finite-horizon discrete search | An isolated prototype can check supplied schedule balance/limits and generate synthetic candidate schedules in its declared action space; the exact PR runtime bootstrap reports 18 total optimizer tests passed. | It trusts caller-supplied evidence states, has no authenticated evidence lookup, application API, persistence, portal, operator workflow, complete tariff/demand-charge, equipment/comfort/service model, forecast uncertainty or site validation. It is not G7.9 Step 3 or G6.9 Step 3D. Authority/Hygiene checks on this PR head fail because main still has legacy canonical-path requirements; PR #13's repair remains separate/unmerged. |
+
+### Finding: where G7.9 is and what is next
+
+The strongest supported statement is: **G7.9 Step 1 and Step 2 are marked complete as historical design packages; the repository later implemented a limited Phase C/VS-001 path; G7.9 Step 3 has reviewable design proposals but no approved, integrated dispatch service boundary or closure evidence.** The Step 1/2 package's stated next activity is Step 3. The exact dispatch-specific proposal remains on open PR #10 and a bounded algorithm experiment on open PR #14; neither is in main or owner-approved.
+
+The next implementation-design work that does not require a production-stack freeze is to reconcile APP-11 with the catalog and G7.9 domain model; resolve request/result/status and provenance semantics; align units, site time, interval and energy-flow equations with existing contract rules; specify authenticated tenant/site authorization, evidence reference resolution, durable idempotency, replay, SHADOW review/audit and failure behavior; then map acceptance cases to contract/schema/API/application/UI surfaces. The actual wire format, runtime/service split, database/messaging design and execution host remain gated on their authority/owner decisions.
+
+This finding matches the supplied Step 2 package's own “Step 3 next” declaration and the PR #10 proposal's explicit “does not close G7.9 Step 3” boundary. It does not claim the whole MVP is complete, and it does not validate any Macau site or tariff outcome.
+
+## 11. UI/UX skill and engineering-governance implementation state
+
+### UI/UX artifacts and proof boundary
+
+A direct main-branch fetch returns 404 for the project UI/UX skill, its visual principles, and the quality-baseline/adoption-plan files. They exist on PR #8's unmerged branch; therefore they are reviewable proposals but not yet part of the main authority or default repository workflow. PR #8's AGENTS.md explicitly invokes the project skill for interface work, combining it with ui-ux-pro-max.
+
+The project skill has useful product-specific controls: model source/load decisions from evidence; distinguish physical flow from settlement; preserve SHADOW/no-control semantics; compare materially different layouts before styling; treat Apple/Material/WCAG and selected award work as references rather than templates; include real populated/empty/stale/partial/error/review states; test locale length, keyboard, focus, reduced motion and responsive widths. Its quality-review companion defines blocker/high/polish severity and tells reviewers to record viewports, states, locales and evidence rather than claim user validation.
+
+The reviewed source does not prove the design requirement is complete. The visual-principles file and quality checklist point to Apple, Material, WCAG and Webby/Awwwards/FWA criteria/examples, but the prototype review does not document a curated set of winning product sites, per-site observations, or a transferable visual-quality rubric derived from those cases. That is a research/evidence gap for the requested award-standard benchmark, not a reason to copy award-site styling.
+
+Existing design review evidence remains bounded: PR #10 v0.5 is a synthetic Traditional-Chinese-only dispatch study; prior source/browser checks covered 1440, 1024, 768 and 375 CSS-pixel widths, interval arithmetic and limited keyboard/ARIA behavior. They did not validate English or Portuguese, Macau terminology with users, screen-reader operation, full WCAG conformance, or an approved palette/design system. PR #8's v0.10 and palette studies remain separate exploratory artifacts; no global IA, locale set, font, color palette or production component system is owner-approved. No production UI has been merged into main.
+
+### Engineering-governance implementation state
+
+Main's AGENTS.md requires reading authority, checking ADRs, preserving domain/contracts, and applying the same review/validation expectations to AI code. It does not itself define the full proposed risk-tier/task-packet/reviewer/release process. PR #8 contains the detailed AI Coding Quality Baseline and Adoption Plan, PR/task templates, project skill and additional validation workflow; each remains unmerged/proposed or review-stage, and the CURRENT document explicitly says the baseline is not owner-adopted.
+
+PR #8 CURRENT records a live GitHub settings observation dated 2026-10-04: main protection false, required-check enforcement off, and no repository rulesets; the repository connector could not read the settings endpoint (403) and has no settings-write operation. Treat this as a dated source record, not a fresh independent settings query in this pass. Passing exact-head Actions on PR #8 is useful validation evidence but not a required merge gate while these controls remain disabled.
+
+### Required next evidence and adoption work
+
+1. Record several specific Awwwards/Webby/FWA winning works and the criteria used to select them; extract composition, originality, motion and interaction lessons, then state how the operator-console task changes or rejects each lesson. Keep marketing work separate from the operations console.
+2. Select the product's intended locales through owner/customer evidence; localize full workflows, errors, units, dates, currency and data labels, then inspect text expansion and accessibility in all supported languages.
+3. Complete visual and assistive-technology checks against the skill checklist and actual rendered states; retain screenshots, viewport/state list, full keyboard path, contrast evidence and unresolved issues. Do not call it user-validated until representative Macau users test it.
+4. Review and adopt the AI Coding Quality Baseline and reviewer/owner model; then verify branch protection, required checks/rulesets, CODEOWNERS, security/dependency gates and release evidence on GitHub. Until enforcement is observable, report these as proposed controls.
+5. Keep current PRs unmerged until their coherent review groups and owner decisions are completed.
+
+This section records research and implementation status only; it does not adopt the policy or approve the visual direction.
+
+## 12. v1.6.2 G6.9/G7 executable evidence versus current main
+
+### Direct archive read
+
+The Authority v1.6.2 archive inventory records 26 entries (archive SHA-256 6559BD62B1617DA046BB5BE64715A5A723144534A62395F7811B20C5B9DE0989). This pass directly inspected its manifest/handoff, G6.9 Step 3B/3C and technology authority, G1.2 tariff architecture, and selected G7.1–G7.4 status/design files; the automated index was used to locate the remaining entries, not as proof that every archive file was semantically reviewed. Its manifest/handoff say G1 is OPEN, G6.9-R2 Steps 3A/3B/3C complete with Step 3D pending, and G7.2 live baseline/no-op not executed. The reviewed source status lines qualify the design/execution state as follows:
+
+| Gate/source artifact | Archive's own status and evidence | What must not be inferred |
+|---|---|---|
+| G6.9-R2 Step 3B | 22 Node 22.16 / Go 1.23.2 protocol-case assertions passed; Bun unavailable; exact command/envelope semantics fixed for the conformance fixture. | Production command signing/key lifecycle: U-022 remains OPEN / G6 SECURITY; HMAC is explicitly fixture-only. No framework/runtime winner. |
+| G6.9-R2 Step 3C | Node/Go/Python semantic slice with tenant rejection, deduplication, fixed 15-minute aggregate, deterministic proposal/command IDs, signed command semantics and crash-after-field-write replay scenario. | It did not run Temporal, Postgres/Timescale, MQTT, NATS, Bun/Hono/Effect or NestJS/Fastify together; not the 100-kill recovery gate or comparative Step 3D. |
+| G1.2 Tariff Implementation Architecture v1 | “DESIGN COMPLETE / IMPLEMENTATION-READY / NOT PRODUCTION-VERIFIED”; deterministic rule model, effective-date replay, exact arithmetic and PostgreSQL 18 are specified. The document proposes Java 25 + Spring Boot 4.1.1 for the production wrapper. | Java implementation portion is historical, not current production authority: current main D-069 suspends that part of D-030 while G6.9 is open. The semantic tariff architecture remains active; no Java tariff service is present in current main's tree. |
+| G7.1 controller/economics loop | Design complete; harness implementation not yet executed. Its design acceptance is architecture/scenario proof, not Macau hotel ROI. | No live or site-calibrated savings claim. |
+| G7.2 R0 preflight | Static preflight complete; live BOPTEST baseline/no-op not executed; file marks the gate partially complete and requires live paired runs. | No live baseline, controller outcome, or savings claim. |
+| G7.3 SitePowerComposer/replay | Offline reference implementation and golden tests are claimed in this archive; live R0 trajectory remains pending. Uses PROJECT_ASSUMPTION inputs and explicitly says production settlement authority is the G1 Tariff Engine design. | Offline tests do not establish a live BOPTEST result, a real CEM bill, or production tariff truth. |
+| G7.4 supervisory controller | Offline deterministic policy tests pass; live closed-loop execution pending. SAT/CHWS, comfort, stale inputs, site-power guard and rebound cases are specified; U-001 interval ambiguity must not be relabelled as verified Pu. | No actual equipment response or safe field-control proof. G6 command authorization/key lifecycle remains open. |
+
+This also distinguishes “G6.9” (technology stack research) from “G6” (Safety & Control). Current main's G6 gate page contains only high-level boundary principles; main OPEN-QUESTIONS explicitly leaves production signing/device identity/provisioning/rotation/revocation and hardware-backed key storage open under U-022. G6 therefore cannot be reported as completed on the current evidence.
+
+### Exact current-main tree comparison
+
+Fetched GitHub's recursive current-main tree at commit a897bf0b1e7e6ceea3862d7d87fa288ecca08203 (167 entries; not truncated). The tree includes a high-level G6.9 trend-research folder, technology-selection summaries, the G6.9 selection README, a Java Evaluation document, generic G1–G7 gate pages, current decisions/unknowns, and the Phase B/C implementation scaffold.
+
+The tree does not contain the v1.6.2 archive's exact G6.9 Step-3B/Step-3C evidence documents or raw runner outputs; it does not contain the Authority's reference-building directory, G7.1–G7.4 specification files, R0 YAML/JSON binding/manifests, Python replay/controller source, or the associated reference tests; it does not contain the G1.2 Tariff Implementation Architecture v1. A directory/name check found no same-name artifacts in the tree. Similar-purpose artifacts would need content-level comparison before being called equivalents. Some decisions and status summaries are represented elsewhere in main, but the source artifacts and executable research assets themselves were not imported under their archive paths. The main gate pages are high-level summaries and do not substitute for those source materials.
+
+PR #8 adds a Step 3D readiness proposal and extensive product/architecture documents, and PR #12 adds an archive/status audit; both remain unmerged. Neither imports the v1.6.2 reference-building code/test artifacts into main. Report these assets as “archive present, exact main artifact absent; decision/status summarized” until they are imported or a specific equivalent is proven.
+
+### Practical consequence
+
+There is more original technical research than current main's Gate pages alone reveal, but several important results remain only in the supplied archive. The next migration/crosswalk must preserve source version and hashes, map each artifact to an exact current or proposed repository path, and state whether code/result was rerun, merely copied, summarized, superseded or absent. Do not recreate an archive experiment as new work until its existing implementation and results have been traced and assessed.
+
+
+## Source-package coverage and integrity audit — 2026-10-05
+
+### Inventory scope and verification
+
+The supplied project folder was enumerated at `D:\dev\project\lilinling\macau-commercial-energy-os`. Its indexed source set is 44 ZIP packages and two loose Authority Markdown files. The ZIP set contains 40 Macau Energy OS packages (472 member files) and four separately categorized remote-control research packages (34 member files, excluded from Macau product/architecture conclusions). There are 506 ZIP member files in total, plus the two loose Authority files. The two Deep Research reports are separate Downloads files and are fingerprinted below.
+
+An independent Python `zipfile`/SHA-256 pass checked each ZIP's digest, member count, member paths, and every member file's byte length and SHA-256 against `work/archive-deep-index.json`. It also rechecked the two loose files. Result: all 44 archive digests, all 506 member records, and both loose-file records matched; no archive was unreadable and no path/size/content-hash mismatch was found. This establishes index/source integrity and enumeration coverage. It does **not** establish semantic review of every source document or prove that the prior text extraction correctly interpreted every document.
+
+| Source group | Packages/files | Verification result |
+|---|---:|---|
+| Macau Energy OS ZIPs | 40 / 472 members | SHA-256, member paths, counts, sizes and member hashes match index |
+| Excluded remote-control ZIPs | 4 / 34 members | Integrity checked; excluded from Macau OS research conclusions |
+| Loose Authority snapshots | 2 Markdown files | Size/SHA-256 match index |
+| Deep Research reports | 2 Markdown files | Independently fingerprinted; semantic review is recorded elsewhere |
+| Original shared ChatGPT conversation | Two URLs returned cache miss through web fetch; the referenced page later opened partially in the in-app browser | Some Phase B/C output text was visible, two template-fetch errors appeared, and the archive API returned four recent turns with `hasMore=false` and no older cursor; full transcript/attachments remain unverified |
+
+Loose snapshot fingerprints:
+
+- `macau-energy-os-research-authority-v2.0.md`: 1,609 bytes; SHA-256 `bd705a40a34dbe9be1248b6b8bd792913ed92b398a32ec32e42d99829a1b4661`.
+- `macau-energy-os-research-authority-v2.1.md`: 1,943 bytes; SHA-256 `93af2811b278fa7b1099a6f5fbd69a2a9f7b60cd26ecdaabecbc82676524a373`.
+
+Deep Research report fingerprints:
+
+- `D:\Downloads\deep-research-report (6).md`: 52,037 bytes; SHA-256 `1e0118807dbfdca3d13ae1949383b4cbfefb80db0cd867d13bd6c8dc0d744495`.
+- `D:\Downloads\deep-research-report (7).md`: 55,834 bytes; SHA-256 `5db518cbe85402e0a8ad2682b9e52a7782d17748ec95c60f43b4bb748b6cac82`.
+
+### Version conflicts that require source precedence
+
+The inventory identifies eight repeated relative paths with different content among Authority snapshots. This is evidence of version divergence, not by itself evidence that the later text supersedes an earlier executable result.
+
+| Repeated source path | Distinct indexed contents |
+|---|---:|
+| `authority-manifest.json` | 8 |
+| `decisions.md` | 8 |
+| `evidence/evidence-register.md` | 6 |
+| `handoff/current.md` | 8 |
+| `handoff/history.md` | 6 |
+| `open-questions.md` | 7 |
+| `readme.md` | 8 |
+| `technology/g6.9-r2-tech-stack-bakeoff.md` | 2 |
+
+The already documented high-impact conflict remains: v1.6.2 records G6.9-R2 Step 3A–3C evidence and Step 3D integration as pending; later snapshots broaden the “research complete” claim but the inspected packages still do not provide a Step 3D comparative run result. Loose Authority v2.0/v2.1 also assert later completion/transition states without supplying that missing run artifact. Current GitHub main's authority remains the active repository baseline until formally changed. Preserve both the historical gate claim and the evidence gap; do not infer a measured framework winner.
+
+### Semantic-review boundary
+
+The current semantic review directly reads the high-impact sources and artifacts cited in `RESEARCH-TIMELINE-AND-AUTHORITY-v0.1.md`, `ARCHIVE-SEMANTIC-RECONCILIATION-v0.1.md`, `G7.9-STEP3-DESIGN-RECONCILIATION-v0.1.md`, and the G7.9 acceptance/repository trace. It includes direct rereads of the supplied G7.9 Step 2 and G7.8 ADR packages, the detailed G7.6 Step 2 package, Authority v1.6.2, loose v2.0/v2.1, and Deep Research (6)/(7). The 44-package index provides names, paths, text headings/markers and hashes for the broader set; that inventory must not be described as a line-by-line semantic review of all 472 Macau package files.
+
+The full original share-conversation transcript remains unavailable through both supplied share URLs and the conversation archive API. Therefore its older turns and attached outputs remain an explicit unknown; conclusions here are limited to the readable archives, reports, local artifacts and GitHub evidence.
+
+### GitHub placement
+
+This audit is appended to the existing archive reconciliation artifact in PR #8 (`docs/product-architecture-roadmap`). PR #8 is open and unmerged; this does not move archive files into main or approve the gate/stack claims. PR #10 remains a separate draft for the dispatch-first product and G7.9 Step 3 proposal. Exact Actions results for the new PR #8 head must be checked before describing repository validation as passed.
+
+
+### Default-branch authority and Gate adoption check — 2026-10-05
+
+Separately fetched the default-branch `docs/00-authority/handoff/CURRENT.md` (Contents API blob `5b3da3af0a7e267c34a8a743a30cfc89d8fb24ca`). It names Library Research Authority v1.6.2, says G6.9-R2 Steps 3A–3C complete with pinned Step 3D pending, keeps G7.2 live baseline/no-op pending and C+ provisional, and suspends Java Phase D. It contains no G7.9 reference. Therefore the supplied G7.9 Step 1/2 packages and detailed Step 3 proposals on unmerged PRs have **not** been adopted into main's controlling handoff. The main-vs-archive/PR status is a repository governance gap to resolve; this audit does not silently advance the gate or replace the main authority.
+
+
+---
+
+# Authority snapshot deltas — source-level reconciliation
+
+**Audit date:** 2026-10-05  
+**Purpose:** explain the eight repeatedly versioned Authority paths using the ZIP packages themselves. This records what each snapshot says; it does not make an owner decision or silently revise current repository authority.
+
+## Source identity
+
+The package digests below were independently verified against the supplied source directory and archive index. The archive integrity audit is in `ARCHIVE-COVERAGE-AUDIT-2026-10-05.md`.
+
+| Snapshot | Source package SHA-256 |
+|---|---|
+| Authority v1.0.0 | `e86ed7a5cf6e17dc9e82e22685c072101e6b88e89577ef7cab654fce869268fb` |
+| Authority v1.1.0 | `d7cf498f778070751c5b6525d3a2f65389c9df7dcc192f94461720960172146b` |
+| Authority v1.2.0 | `6a9b58873cdccd10d552363d16340a26cc2cf51921724c166a1966dc8a0a9354` |
+| Authority v1.3.0 | `6a234e0e5945d71a0a6c064eeefa9fd11c0a75e68620de94fd1f1538d59b6be5` |
+| Authority v1.4.0 | `f2131af2eb2e460cbc7c6b67ecbe5c51c0a2ab61a26a15d0c2d578a1e8bf0590` |
+| Authority v1.5.0 | `7cff3a45c3f3ad76735cc514d5d194ee22a911496724b4620757b13179a73586` |
+| Authority v1.6.1 | `28123be1b8f23582d9006138f4c855ab2d2ab5f2cee3b323f4d2d54ddf9e6a46` |
+| Authority v1.6.2 | `6559bd62b1617da046bb5be64715a5a723144534a62395f7811b20c5b9de0989` |
+| Authority v1.7.0 | `fb98ee32aadad185b0cbc18134d5f5576223225eb65853fe7f7f4abbb2357b84` |
+| Authority v1.7.1 | `b23f71bc29b2db911d3d1612a286a8901b24e5957f20f8953e07a1abd1204adb` |
+| Authority v1.8.0 | `071b60f1e156f5b79ca318adcd5801d2c10cd8efee0649e8c35bdd9f14d71200` |
+| Authority v1.9.0 | `165cff61b07d36d45a2268bf55a3b4c485623a35e5435bf6393524965998c1d1` |
+| Authority v2.0 recovery | `3936f35ed0dde8cd968699c5a81a23b1a6e6ea7ca46868ec3201498ea214572f` |
+| Authority v2.0 mapping audit | `fdd02600da691bb4511b9165b1bb9c95f3bf931ff7d233f03baab2de90a5cba6` |
+| Authority v2.0 architecture consolidation | `a798691969566240258ef4ed69638cc0c9980827be948811403c44cba2644a4e` |
+| Authority v2.0 repository preparation | `c74690ec9b7e47a49e90740d9091f31946157a22823710b031e7fb7de3f171a7` |
+
+## Timeline and status matrix
+
+| Source snapshot | Recorded work and next step | Evidence classification |
+|---|---|---|
+| v1.0.0 | G1 active; G1.2 Tariff Engine implementation architecture next. | **Verified snapshot text**; early gate state. |
+| v1.1.0 | G1.2 completed; G7.1 controller/economics research next. D-030 records Java 25 + Spring Boot 4.1 as the initial tariff implementation stack and marks it active. | **Accepted in that snapshot**, later explicitly superseded for implementation language/runtime. |
+| v1.2.0 | G1 remains open; G7.1 design recorded complete; G7.2 live R0 baseline/no-op next. | **Design completion**, not live harness evidence. |
+| v1.3.0 | G7.2 static preflight completed, but live execution explicitly pending; G7.3 design may proceed in parallel. | **Verified preflight / pending live execution**. |
+| v1.4.0 | G7.3 SitePowerComposer + Macau energy/TCA replay design recorded complete; G7.4 controller specification next; G7.2 still live-pending. | **Design complete**, no live R0 closure. |
+| v1.5.0 | G7.4 deterministic TariffShaper v0 and offline policy tests recorded complete; G6.1 Safety Kernel next; G7.2 live work and G1 evidence acquisition still pending. | **Offline/design evidence**, not live performance validation. |
+| v1.6.1 | G6.9-R2 Steps 3A/3B complete; Step 3C pending; G7.2 remains live-pending. D-064 labels C+ provisional. | **Protocol evidence**, not final stack selection. |
+| v1.6.2 | Step 3C semantic end-to-end slice complete. Step 3D pinned framework-native integration is the explicit next task; U-021/U-023/U-024 remain open. G7.2 live baseline/no-op remains pending. | **Semantic slice verified in the snapshot; framework-native comparison not evidenced complete**. |
+| v1.7.0 / v1.7.1 | Broad consolidation/recovery transition is asserted, while later handoff text still describes the framework-native bake-off as pending or cloud framework as open. | **Gate-consolidation assertion; no Step 3D result supplied in these packages**. |
+| v1.8.0 / v1.9.0 | Top-level authority claims broader G6.9/G7 research completion and advances engineering/repository preparation. v1.9 says repository creation is next. | **Later status assertion**, not a benchmark artifact or measured winner. Historical repository status, since GitHub now exists. |
+| v2.0 recovery/steps 2–4 | Recovery, mapping, architecture consolidation and repository-preparation outputs are marked complete; the loose v2.0 Authority calls G6.9-R2 3G.1 complete and 3G.2 next. | **Preparation/mapping outputs**; do not prove the distinct Step 3D experiment ran. |
+| v2.1 loose Authority | Says G6.9 Technology Selection/AI Native Engineering complete and G7.1 next. | **Later closure assertion**; no Step 3D run ID/results, measured winner, approver, or explicit supersession record was located in the inspected file. |
+| Current GitHub default-branch `CURRENT.md` | Names v1.6.2, says 3A–3C complete / 3D pending, G7.2 live baseline pending and C+ provisional; it does not mention G7.9. | **Current repo authority** until changed through governance; exact fetched blob `5b3da3af0a7e267c34a8a743a30cfc89d8fb24ca`. |
+
+## What the eight divergent paths establish
+
+The 8 paths are `authority-manifest.json`, `decisions.md`, `evidence/evidence-register.md`, `handoff/current.md`, `handoff/history.md`, `open-questions.md`, `readme.md`, and `technology/g6.9-r2-tech-stack-bakeoff.md`.
+
+1. **Manifest, handoff/current, README, and history:** the snapshots are a changing research log, not a single timeless status. v1.2–v1.5 explicitly keep G7.2 live execution open while completing adjacent design work. v1.6.1 advances the next task to G6.9-R2 3C; v1.6.2 advances it to 3D after recording 3C complete.
+2. **Decision register:** D-030's Java 25/Spring Boot implementation choice is active in v1.1–v1.5. v1.6.1/1.6.2 introduce D-069, which supersedes **only the implementation stack choice** while retaining the tariff semantic architecture. The same later snapshots introduce D-064 C+ as an **active provisional default**, D-065 generated cross-language contracts, and D-068 requiring semantic and AI-engineering bake-off evidence. Java therefore appears in the original research but is not the current production implementation authority.
+3. **G6.9 bake-off source:** v1.6.1 ends after protocol conformance/Step 3B and names 3C next. v1.6.2 adds 3C semantic-slice evidence and names 3D pinned integration, including framework-native A/B/C+ execution with durable workflow, broker, persistence and fault-injection evidence. The inspected source packages identify 3D as next and contain no 3D result.
+4. **Open questions and evidence register:** unresolved economic and runtime questions persist while research designs advance. Evidence that a harness/API or offline policy works does not substitute for the missing pinned framework comparison or live G7.2 baseline.
+
+## Reconciliation
+
+The two claims below refer to different evidence levels and should remain distinct:
+
+- Later Authority releases declared broad G6.9 research/consolidation complete.
+- The supplied v1.6.2 checkpoint, current GitHub handoff and inspected bake-off artifacts do not show G6.9-R2 Step 3D completion or a measured production framework winner.
+
+Thus no production runtime should be described as benchmark-selected. The current repository records C+ as provisional; NestJS exists in code as an implementation path but did not thereby win; the historical G7.8 Fastify ADR and later G6.9 candidate process still need authority precedence reconciliation. The loose v2.0/v2.1 files and later summary packages do not resolve that conflict because they do not point to Step 3D result artifacts or an explicit superseding owner decision.
+
+## G7.9 placement
+
+The supplied G7.9 Step 1/2 packages mark their domain/design work complete and name Step 3 Service Boundary and Implementation Design next. The current main `CURRENT.md` does not mention G7.9. The G7.9 Step 3 acceptance/repository map and APP-11 dispatch design are on open PR #10; PR #8 carries broader product/roadmap proposals. Neither PR is merged. Therefore G7.9 design is **partly proposed in GitHub PRs, not adopted into main authority, and not closed**.
+
+## Next evidence-led action
+
+Resolve repository authority precedence before a production framework freeze: either run the missing Step 3D experiment in its pinned environment, or prepare an owner-reviewed dated supersession ADR that explicitly waives it with evidence. In parallel, update the main handoff through its normal review process so that G7.9's verified package status and unmerged design proposals are represented without implying gate closure. Do not merge or freeze based on this audit alone.
+
+
+### Share-page partial-access correction — 2026-10-05
+
+After the earlier web-fetch cache miss, the referenced share URL was opened in the in-app browser. The rendered accessibility tree exposed part of the conversation, including some research progress and Phase B/Phase C repository outputs, but showed two "Failed to fetch template" errors. The conversation archive API separately returned four recent turns with no older cursor. Accordingly, the share page is not wholly inaccessible, but neither is the full original dialogue verified. Older turns, inaccessible response templates, attachments and generated output files remain unreviewed unless independently available in the supplied archives or repository.
