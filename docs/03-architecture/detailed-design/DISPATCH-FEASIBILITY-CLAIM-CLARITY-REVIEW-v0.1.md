@@ -36,7 +36,14 @@ Missing service evidence is not proof of either safety or violation. A known, ap
 
 ## Acceptance gap and next step
 
-The current regression verifies that `COMFORT_SERVICE` is withheld while `DISPATCH_FEASIBILITY` is ALLOWED. That directly conflicts with the PR #10 presentation-contract acceptance example for an HVAC shift without service evidence, which requires overall dispatch feasibility to be withheld. Reconcile the semantics before canonicalizing the contract: either withhold overall feasibility as the existing proposal requires, or introduce a distinct electrical-constraints claim and reserve `DISPATCH_FEASIBILITY` for the broader conclusion. Add a regression assertion for the selected semantics and UI copy after owner/domain review.
+The original regression verified that `COMFORT_SERVICE` was withheld while `DISPATCH_FEASIBILITY` was ALLOWED, directly conflicting with PR #10's HVAC acceptance example. The conflict was reconciled in the PR #14 experiment: with changed flexible loads and no service evaluator, the physical profile and electrical envelope may remain available, but overall `DISPATCH_FEASIBILITY` is WITHHELD. A focused regression now asserts this combination and its reason. The presentation contract remains a proposal and still requires owner/domain review before it becomes canonical.
 
 This is a design conformance issue for the G7.9 implementation map and UI projection. It does not establish that service models exist and does not select a schema, API, runtime, solver or production stack.
 
+
+
+## Exact-head implementation reconciliation — 2026-10-07
+
+PR #14 `poc/shadow-dispatch-assessment` advanced to exact head `ccbfa7011f66f86d0a2d541776b02c80eea3df7a`. The changed-load/no-service gate withholds overall `DISPATCH_FEASIBILITY` while retaining the qualified physical profile and per-resource electrical-envelope result. `COMFORT_SERVICE` remains unmodeled/withheld. Runtime Bootstrap #37607006737 (Optimizer, Contract Fixtures, Edge Runtime and Platform API), Authority Validation #37607006721, and Repository Hygiene #37607006864 all succeeded.
+
+The v3.3 UI fixture remains pinned to its earlier engine commit `9b80adca9243a0ae9a7bd666f0efee1acfc6309a`; it is an auditable earlier snapshot and still exposes the former claim combination with explanatory copy. It must not be described as output from the corrected PR #14 head. A subsequent UI prototype version should repin/regenerate the fixture before representing current PR #14 output. The code change does not add thermal comfort, EV deadline, or hot-water delivery models; it only closes the overall-claim gap when changed flexible loads lack service evaluation.
