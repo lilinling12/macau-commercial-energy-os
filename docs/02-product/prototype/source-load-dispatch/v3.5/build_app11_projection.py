@@ -79,12 +79,17 @@ def main() -> None:
     args = parser.parse_args()
 
     source = json.loads(SOURCE_PATH.read_text(encoding="utf-8"))
-    encoded = json.dumps(build_projection(source), ensure_ascii=False, indent=2) + "\n"
+    expected = build_projection(source)
     if args.check:
-        if not OUTPUT_PATH.exists() or OUTPUT_PATH.read_text(encoding="utf-8") != encoded:
+        try:
+            current = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            current = None
+        if current != expected:
             raise SystemExit("APP-11 UI projection is stale; regenerate it from the pinned fixture")
-        print("APP-11 noncanonical UI projection is deterministic and current")
+        print("APP-11 noncanonical UI projection matches deterministic source mapping")
     else:
+        encoded = json.dumps(expected, ensure_ascii=False, indent=2) + "\n"
         OUTPUT_PATH.write_text(encoded, encoding="utf-8", newline="\n")
         print(f"Wrote {OUTPUT_PATH.name}")
 
