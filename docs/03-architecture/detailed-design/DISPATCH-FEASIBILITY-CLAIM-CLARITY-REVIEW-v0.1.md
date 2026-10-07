@@ -13,6 +13,7 @@
 - Test `test_electrical_feasibility_does_not_assert_comfort_service` explicitly expects that combination.
 - The optimizer's `_check_baseline_service` checks flexible tasks' aggregate energy, availability mask and electrical power envelope. It does not evaluate HVAC thermal comfort, an EV departure-energy target, or hot-water delivery/service.
 - PR #10's flexible-load service-boundary design already says an electrical schedule does not establish delivered service; absent a qualified service trajectory, the result is electrical-only and not operationally feasible.
+- PR #10's `DISPATCH-CLAIM-STATE-PRESENTATION-CONTRACT-v0.1.md` says the same more explicitly: for an HVAC shift with no service model/comfort evidence, show an electrical scenario, set HVAC service to “Not assessed,” and withhold **overall dispatch feasibility**. This is a draft presentation proposal, not approved canonical behavior.
 
 ## Finding
 
@@ -22,12 +23,12 @@ This is a claim-label and presentation ambiguity. The code and test do **not** c
 
 ## Proposed boundary for review
 
-Keep electrical and service outcomes independent, but qualify any positive result as **bounded electrical schedule feasibility** (or a future canonical equivalent) and show the service state beside it. If a changed resource has no service evaluator, do not present an overall “dispatch feasible”, “operationally feasible”, “safe”, “optimized” or “ready” headline. The interface may show the balanced electrical profile and the specific electrical constraints checked.
+Keep electrical and service outcomes independent. When a changed resource has no qualified service evaluator, the candidate may show its balanced electrical profile and a separately named **electrical-constraints assessment**, but overall `DISPATCH_FEASIBILITY` must be withheld under the existing PR #10 presentation proposal. Show the resource service state as NOT_ASSESSED/UNKNOWN beside it. Do not present an overall “dispatch feasible”, “operationally feasible”, “safe”, “optimized” or “ready” headline. A future contract may define an independently allowed claim named specifically for electrical schedule feasibility; do not repurpose the current overall claim without reconciling that contract.
 
 | Electrical assessment | Service assessment | Permitted interpretation | Do not claim |
 |---|---|---|---|
-| ALLOWED within declared electrical envelope | NOT_ASSESSED / UNKNOWN | Bounded electrical schedule only; service unresolved | Overall dispatch/operational feasibility, safety, service satisfied |
-| ALLOWED within declared electrical envelope | WITHIN_DECLARED_PROFILE for every changed resource | Supported only within named profiles, models and evidence scope | Site-safe, field-executable, guaranteed savings |
+| Electrical limits qualify; service evaluator absent for a changed resource | NOT_ASSESSED / UNKNOWN | Electrical profile/constraint assessment may be shown; overall feasibility WITHHELD | Overall dispatch/operational feasibility, safety, service satisfied |
+| Electrical limits and all applicable changed-resource service profiles qualify | WITHIN_DECLARED_PROFILE for every changed resource | Feasibility only within named profiles, models and evidence scope | Site-safe, field-executable, guaranteed savings |
 | Known hard electrical or service bound breached | VIOLATION / INFEASIBLE | Reject candidate for affected scope | Feasible or ready |
 | Evidence incomplete | PARTIAL / UNKNOWN | Show independent qualified portions and withheld scope | Treat missing values as zero or infer service success |
 
@@ -35,6 +36,7 @@ Missing service evidence is not proof of either safety or violation. A known, ap
 
 ## Acceptance gap and next step
 
-The current regression verifies that `COMFORT_SERVICE` is withheld; it does not assert the user-facing meaning of an ALLOWED `DISPATCH_FEASIBILITY` result. Add a claim-vocabulary and UI-copy assertion when the cross-runtime claim contract and owner-facing terminology are reviewed.
+The current regression verifies that `COMFORT_SERVICE` is withheld while `DISPATCH_FEASIBILITY` is ALLOWED. That directly conflicts with the PR #10 presentation-contract acceptance example for an HVAC shift without service evidence, which requires overall dispatch feasibility to be withheld. Reconcile the semantics before canonicalizing the contract: either withhold overall feasibility as the existing proposal requires, or introduce a distinct electrical-constraints claim and reserve `DISPATCH_FEASIBILITY` for the broader conclusion. Add a regression assertion for the selected semantics and UI copy after owner/domain review.
 
 This is a design conformance issue for the G7.9 implementation map and UI projection. It does not establish that service models exist and does not select a schema, API, runtime, solver or production stack.
+
