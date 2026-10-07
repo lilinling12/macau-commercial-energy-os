@@ -12,3 +12,8 @@ Principles:
 Flow:
 
 Research -> Decision -> Architecture -> Task -> Implementation -> Validation
+
+## Active standards
+
+- [AI coding and research governance](ai-coding-governance/README.md)
+- [AI coding quality baseline v0.1](ai-coding-governance/AI-CODING-QUALITY-BASELINE-v0.1.md) — proposed, stack-neutral quality and verification gate.
