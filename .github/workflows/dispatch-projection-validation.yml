@@ -18,7 +18,7 @@ permissions:
 
 jobs:
   projection:
-    name: Validate pinned v2.9, v3.3, v3.4, and v3.5 projection semantics
+    name: Validate pinned projections and T7.1 semantic examples
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
