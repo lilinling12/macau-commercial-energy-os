@@ -18,6 +18,17 @@
 - Macao Government Tourism Office, [Language — English](https://www.macaotourism.gov.mo/en/article/about-macao/language) and [Language — Traditional Chinese](https://www.macaotourism.gov.mo/zh-hant/travelessential/about-macao/language), accessed 2026-10-05.
 - Macao SAR Government Portal, [Laws](https://www.gov.mo/en/laws/): its English law pages identify English as a reference translation from Chinese originals and direct readers to Traditional Chinese or Portuguese when an English version is absent. Preserve legal/customer source material in its original language; do not make an English UI translation authoritative.
 
+## Primary-source legal-scope recheck — 2026-10-07
+
+The current primary text of Article 9 of the Macao Basic Law, published by the Legislative Assembly in Traditional Chinese and Portuguese, says that the MSAR executive, legislative and judicial organs may use Portuguese in addition to Chinese, and that Portuguese is also an official language. This confirms Chinese and Portuguese as official languages in the stated governmental context. The Macao Government Tourism Office separately describes Cantonese as most widely spoken and English as generally used in trade, tourism and commerce.
+
+Product implication: retain `zh-Hant`, `pt` and `en` as discovery candidates for the commercial-operations workflow, but do not infer from Article 9 that a private energy-software product has a statutory three-language UI obligation, or that English is an official language. The law establishes context; launch locale scope must still be validated with pilot customers and role-based users. This is a product-research note, not legal advice.
+
+Primary references checked 2026-10-07:
+
+- Macao SAR Basic Law, Article 9 — [Legislative Assembly, Traditional Chinese](https://al.gov.mo/zh/basic-law) and [Portuguese](https://www.al.gov.mo/pt/basic-law).
+- Macao Government Tourism Office, [Language (English)](https://www.macaotourism.gov.mo/en/travelessential/about-macao/language) and [語言 (Traditional Chinese)](https://www.macaotourism.gov.mo/zh-hant/travelessential/about-macao/language).
+
 ## 2. Locale behavior proposal
 
 - Provide one complete UI locale at a time, selected explicitly by the user. Do not put three languages on every control or table row by default.
