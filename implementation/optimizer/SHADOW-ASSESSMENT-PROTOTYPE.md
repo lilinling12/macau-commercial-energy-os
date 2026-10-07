@@ -82,3 +82,8 @@ The formulas are grounded in Articles 8, 9, 13, 15, 16 and 20 of Macau Administr
 - [Administrative Regulation 25/2022](https://bo.dsaj.gov.mo/bo/i/2022/26/regadm25_cn.asp)
 - [Executive Dispatch 105/2022](https://bo.dsaj.gov.mo/isapi/go.asp?d=despce-105-2022cn)
 
+
+
+## Overall versus electrical feasibility
+
+The claim ledger keeps the physical profile and resource electrical-envelope results separate from overall dispatch feasibility. When any flexible-load schedule changes, this prototype has no HVAC comfort/recovery, EV departure-energy, or hot-water service evaluator; therefore `DISPATCH_FEASIBILITY` is WITHHELD with an explicit reason, while an independently qualified electrical profile and per-load envelope claim may remain visible. This matches the PR #10 draft presentation example. It does not implement resource service models or make the product contract canonical.
