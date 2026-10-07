@@ -287,7 +287,7 @@ class DispatchAssessmentTests(unittest.TestCase):
         self.assertEqual(claims[ClaimType.FLEXIBLE_LOAD_DISPATCH].status, ClaimStatus.WITHHELD)
         self.assertEqual(claims[ClaimType.DISPATCH_FEASIBILITY].status, ClaimStatus.WITHHELD)
 
-    def test_electrical_feasibility_does_not_assert_comfort_service(self):
+    def test_overall_dispatch_feasibility_withheld_when_changed_load_service_unmodeled(self):
         baseline_flow = FlexibleLoadFlow("hvac-1", FlexibleLoadKind.HVAC, D("4"))
         candidate_flow = FlexibleLoadFlow("hvac-1", FlexibleLoadKind.HVAC, D("3"))
         baseline = interval(grid="10", load="11", flexible_loads=(baseline_flow,))
@@ -300,8 +300,17 @@ class DispatchAssessmentTests(unittest.TestCase):
         claims = {item.claim: item for item in result.claim_readiness}
 
         self.assertEqual(result.physical_status, PhysicalStatus.VALIDATED_WITHIN_SCOPE)
+        self.assertEqual(claims[ClaimType.GRID_IMPORT_PROFILE].status, ClaimStatus.ALLOWED)
+        self.assertEqual(claims[ClaimType.FLEXIBLE_LOAD_DISPATCH].status, ClaimStatus.ALLOWED)
         self.assertEqual(
-            claims[ClaimType.DISPATCH_FEASIBILITY].status, ClaimStatus.ALLOWED
+            claims[ClaimType.DISPATCH_FEASIBILITY].status, ClaimStatus.WITHHELD
+        )
+        self.assertEqual(
+            claims[ClaimType.DISPATCH_FEASIBILITY].scope, ClaimScope.NONE
+        )
+        self.assertIn(
+            "service for changed flexible loads is not modeled",
+            " ".join(claims[ClaimType.DISPATCH_FEASIBILITY].reasons),
         )
         self.assertEqual(
             claims[ClaimType.COMFORT_SERVICE].status, ClaimStatus.WITHHELD
