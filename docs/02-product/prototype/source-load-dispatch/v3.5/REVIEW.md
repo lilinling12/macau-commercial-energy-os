@@ -61,3 +61,8 @@ The browser now reads `app11-ui-projection.json`, a deterministic view-model pro
 `build_app11_projection.py` is a standard-library fixture transformer, not an APP-11 server, production client, approved wire contract or selected implementation language. The artifact records `NONCANONICAL_STATIC_UI_VIEW_MODEL` and `STUDY_ONLY_NOT_APPROVED`. It does not add authentication, persistence, a live API, service evaluation, or any equipment command path. G7.9 Step 3 remains open.
 
 Validation regenerates the projection deterministically, checks its exact source linkage and changed intervals, and confirms the UI consumes the projection while the raw fixture remains unchanged. Existing screenshots still show the same visible Stage 4 content; this change affects only how the page obtains the display rows. The prior viewport and locale captures are not a fresh accessibility or locale validation for an API-backed application.
+
+
+## Targeted post-change browser check — 2026-10-07
+
+A focused browser preview was run after switching the service rows to the APP-11 projection and repairing a narrow-screen claim-row collision. At a measured 319 CSS-pixel viewport in Stage 4, all 15 claim rows had zero title/status rectangle intersections, the document width was 304 px (no document-level horizontal overflow), and the three service rows showed the expected `NOT_ASSESSED` labels and exact fixture intervals. Switching the interface to English rendered all three statuses as “Not assessed”. The browser reported no page errors, and a full-page capture was visually inspected. This is a targeted check of one narrow viewport and two locale states, not a rerun of the 15-case matrix, full accessibility audit, or formal WCAG result.
