@@ -18,7 +18,7 @@ v3.1 adds a full six-stage localized workflow prototype in candidate Traditional
 
 All three language versions use the same synthetic data: baseline imports 8, 8, 6, 4, 8, 10 kW; candidate imports 9, 9, 11, 3, 5, 7 kW. Both total 44 kWh for the six intervals; the maximum interval rises from 10 to 11 kW. The UI states that this is not billed demand or a Macau Pu calculation. No forecast, PV profile, ESS profile, bill savings, export credit, service feasibility, controllability or equipment command is presented as verified.
 
-The locale identifiers `zh-Hant-MO`, `pt-MO` and `en` are implementation-study candidates only. Their selection does not establish audience preference, legal obligation or finalized locale policy.
+The locale tags `zh-Hant`, `pt` and `en` match the PR #10 v1.9 discovery catalog. They are study tags, not approved release locales or regional formatting policies; their selection does not establish audience preference or legal obligation.
 
 ## Validation performed
 
@@ -35,17 +35,22 @@ These checks cover prototype behavior and layout only. They are not full keyboar
 
 ## Remaining design and localization work
 
-- Portuguese wording and `pt-MO` must be reviewed by a Macau Portuguese language professional; do not assume this is the correct locale tag or spelling policy.
+- Portuguese wording and `pt` must be reviewed by a Macau Portuguese language professional; do not assume this is the correct locale tag or spelling policy.
 - Traditional Chinese technical terminology and written style need review by local energy operators; this prototype is not Cantonese-language copy.
 - Confirm whether all three languages are required, for which roles and artifacts, and whether user, organization or browser preference should select the initial language.
 - Review MOP/number/date formatting, site timezone, long table labels, 200% text zoom, narrow-screen chart/table use, complete keyboard interaction, screen-reader announcements and color/non-color status cues.
 - Review whether product-generated exports and audit narratives need each locale or should preserve source-language evidence alongside translated interface labels.
 - Conduct role-based task review with building/energy operations, facilities engineering and finance/billing reviewers before calling the design validated.
-- The current draft has not re-run the full 90-case matrix after the final navigation aria-label and keyboard-focus changes; these were separately checked for behavior and do not alter geometry. Repeat the matrix if the stage rail or language copy changes.
+- The complete 90-case matrix was rerun after the final locale-tag, navigation-label and keyboard-focus changes. All combinations had matching document language, non-empty stage headings and no document/body horizontal overflow; a fresh post-edit browser load had no console errors. This is static prototype evidence only.
+
+## Relationship to the existing localization study
+
+PR #10 already contains a richer v1.9 localized full-workflow study and 18 visual samples. Its 90-case matrix found no page/active-stage overflow for that separate generated preview, while the review records that language switching and state persistence were not exercised. v3.1 is a smaller, separate interaction hypothesis that directly checks language switching and retains the page-local Shadow review selection. Neither prototype supersedes the other as a product baseline; compare their workflow information architecture with representative roles.
 
 ## Traceability
 
 - Locale evidence and scope boundary: [LOCALIZATION-STRATEGY-v0.1.md](../../LOCALIZATION-STRATEGY-v0.1.md).
+- Detailed product acceptance context: [MACAU-DISPATCH-LOCALIZATION-REQUIREMENTS-v0.1.md](../../MACAU-DISPATCH-LOCALIZATION-REQUIREMENTS-v0.1.md).
 - v3.0 Chinese workflow and previous UX review: [v3.0 review](../v3.0/REVIEW.md).
 - Locale background: Macao Government Tourism Office [Language](https://www.macaotourism.gov.mo/en/travelessential/about-macao/language); Macao Legal Affairs Bureau [Decree-Law 101/99/M](https://bo.dsaj.gov.mo/bo/ba/i/99/50/declei101.asp). These describe official language context, not a private-product language mandate.
 - Accessibility basis: W3C [WCAG 2.2](https://www.w3.org/TR/WCAG22/), especially 3.1.1 and 3.1.2 for page and passage language.
