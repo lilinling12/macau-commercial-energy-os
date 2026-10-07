@@ -6,7 +6,7 @@
 
 This integrated six-stage source/load workflow combines the current PR #10 v3.1 workflow shell with the detailed synthetic schedule structure reviewed in v2.9. It was reviewed against the files on PR #10 branch `product/source-load-economic-dispatch` at head `7e590a4a0f5b5f9b6c79a95b0aa2e5f51d705d25` on 2026-10-07. The source files used as references were v2.9 blob `fc91d524453ce31bdfe7768fb44c070a48522a08` and v3.1 blob `e7e396e52dfce4640e9776b6e727d6b625044856`.
 
-The reviewed v3.2 HTML is a local design iteration. Its interval values are fixed synthetic examples, not Macau site data, tariff results, forecasts, optimizer output, dispatch feasibility, or savings evidence. It does not connect to a site or equipment and exposes no device command path.
+The v3.2 HTML is included in this draft PR as a review proposal; the browser review rendered the local working copy. Its interval values are fixed synthetic examples, not Macau site data, tariff results, forecasts, optimizer output, dispatch feasibility, or savings evidence. It does not connect to a site or equipment and exposes no device command path.
 
 ## Browser checks
 
