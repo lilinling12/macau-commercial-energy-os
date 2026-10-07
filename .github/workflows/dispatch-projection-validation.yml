@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - "docs/02-product/prototype/source-load-dispatch/v2.9/**"
+      - "docs/02-product/prototype/source-load-dispatch/v3.3/**"
       - ".github/workflows/dispatch-projection-validation.yml"
 
 permissions:
@@ -11,12 +12,14 @@ permissions:
 
 jobs:
   projection:
-    name: Validate v2.9 projection semantics
+    name: Validate pinned v2.9 and v3.3 fixture semantics
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
     steps:
       - name: Checkout
         uses: actions/checkout@v5
-      - name: Validate pinned synthetic result and UI boundary
+      - name: Validate v2.9 synthetic result and UI boundary
         run: python3 docs/02-product/prototype/source-load-dispatch/v2.9/validate-projection.py
+      - name: Validate v3.3 fixture and UI boundary
+        run: python3 docs/02-product/prototype/source-load-dispatch/v3.3/validate.py
