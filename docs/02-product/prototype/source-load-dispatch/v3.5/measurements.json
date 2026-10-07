@@ -36,5 +36,19 @@
     "formal WCAG 2.2 conformance",
     "representative operator or site-domain validation"
   ],
-  "screenshots_committed": false
+  "screenshots_committed": true,
+  "screenshot_artifacts": [
+    {
+      "path": "evidence/stage4-zh-Hant-1440.png",
+      "css_viewport": { "width": 1440, "height": 900 },
+      "locale": "zh-Hant",
+      "capture": "full-page"
+    },
+    {
+      "path": "evidence/stage4-pt-375.png",
+      "css_viewport": { "width": 375, "height": 800 },
+      "locale": "pt-draft",
+      "capture": "full-page"
+    }
+  ]
 }

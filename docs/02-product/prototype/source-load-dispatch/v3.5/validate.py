@@ -96,5 +96,11 @@ assert 'data-command=' not in html and 'type="submit"' not in html
 assert measurements["matrix_cases"] == len(measurements["viewports_css_px"]) * len(measurements["locales"]) == 15
 assert measurements["result"]["document_level_horizontal_overflow"] is False
 assert measurements["result"]["three_changed_resource_rows_present_in_every_case"] is True
-assert measurements["screenshots_committed"] is False
+assert measurements["screenshots_committed"] is True
+assert [item["path"] for item in measurements["screenshot_artifacts"]] == [
+    "evidence/stage4-zh-Hant-1440.png",
+    "evidence/stage4-pt-375.png",
+]
+assert measurements["screenshot_artifacts"][0]["css_viewport"] == {"width": 1440, "height": 900}
+assert measurements["screenshot_artifacts"][1]["css_viewport"] == {"width": 375, "height": 800}
 print("v3.5 source/fixture checks passed: 6 aligned intervals; 3 resources; exact changed intervals; 3 localized NOT_ASSESSED displays; no command form.")
