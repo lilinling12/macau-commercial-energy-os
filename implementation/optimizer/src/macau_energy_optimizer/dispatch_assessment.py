@@ -285,18 +285,25 @@ def _claim_readiness(
     add(ClaimType.GRID_IMPORT_PROFILE, profile_state, profile_scope, profile_reason)
     add(ClaimType.HORIZON_PEAK, profile_state, profile_scope, profile_reason)
 
+    changed_loads = _changed_flexible_load_ids(request)
     feasibility_qualified = (
         metrics_available
         and physical_status in (PhysicalStatus.VALIDATED_WITHIN_SCOPE, PhysicalStatus.SCENARIO_ONLY)
         and not unqualified
+        and not changed_loads
+    )
+    feasibility_reason = (
+        "Overall dispatch feasibility is withheld because service for changed flexible loads is not modeled."
+        if changed_loads
+        else "All applicable schedule constraints are evidenced within this bounded prototype."
+        if feasibility_qualified
+        else "Schedule feasibility is withheld because one or more required resource constraints are unresolved."
     )
     add(
         ClaimType.DISPATCH_FEASIBILITY,
         ClaimStatus.ALLOWED if feasibility_qualified else ClaimStatus.WITHHELD,
         qualified_scope if feasibility_qualified else ClaimScope.NONE,
-        "All applicable schedule constraints are evidenced within this bounded prototype."
-        if feasibility_qualified
-        else "Schedule feasibility is withheld because one or more required resource constraints are unresolved.",
+        feasibility_reason,
     )
 
     candidate_curtailed = any(row.pv_curtailed_kw > 0 for row in request.candidate.intervals)
@@ -347,7 +354,6 @@ def _claim_readiness(
             else (ess_issue or "ESS feasibility is withheld because the physical assessment is unavailable."),
         )
 
-    changed_loads = _changed_flexible_load_ids(request)
     load_limits = {item.asset_id: item for item in request.flexible_load_limits}
     for asset_id in sorted(changed_loads):
         issue = next((item for item in unqualified if item.startswith(f"Flexible load {asset_id}:")), None)
