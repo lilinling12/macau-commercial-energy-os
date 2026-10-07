@@ -74,3 +74,21 @@ These references inform controls; they do not establish certification or complia
 ## Change control
 
 This plan is proposed. Changes to access, merge/release authority, security posture, data governance, safety or commercial calculation policy require the applicable owner approval and durable Decision Record. The stack-specific annex must not be used to imply that a candidate technology has been selected.
+
+
+## Live implementation-path recheck — 2026-10-07
+
+This section records a read-only check of the current default branch and the focused path-repair PR. It updates implementation evidence only; it does not adopt this proposal or change repository settings.
+
+- On `main`, `.github/workflows/repository-hygiene.yml` still requires `docs/handoff/CURRENT.md` and `docs/handoff/CONTINUE-PROMPT.md`. The current authority layout is under `docs/00-authority/handoff/`; `.github/scripts/validate-authority.sh` likewise still requires the older `docs/handoff/`, `docs/decisions/`, `docs/evidence/`, `docs/research-gates/`, `docs/architecture/`, `docs/technology/`, `docs/productization/` and `docs/engineering/` paths. These are observed path mismatches in the checked-in workflow and script, not a claim that every run fails for every branch.
+- Main's `runtime-bootstrap.yml` runs Node Platform API typecheck/tests and deterministic VS-001 replay, Go Edge tests/build, Python Optimizer unit tests, and contract-fixture validation. The workflow is path-filtered and its successful run only establishes those configured checks for the exact tested revision; it does not verify product decisions, site data, full dispatch behavior, or production readiness.
+- Open Draft PR #15 (`fix/vs001-canonical-evidence-paths`, head `a9865ec4686131e32120862e2f59361f09717a50`) changes the authority validator, repository-hygiene handoff path, `AGENTS.md`, and VS-001 source references/tests. Its exact-head GitHub Actions runs for Repository Hygiene, Authority Validation and Runtime Bootstrap completed successfully. The path-repair workflow and agent instructions point to `docs/00-authority/handoff/` and the current numbered authority tree. PR #15 remains unmerged; these results do not make its changes active on `main`.
+- The adoption plan, AI coding quality baseline and project UI/UX skill are not present on `main` at their proposed PR #8 paths; they remain review artifacts on the open PR branches. Existing main workflows do not enforce the risk tiers, named human/domain review, task packet, UI accessibility/localization review, dependency scanning, or release-readiness policy described here.
+- The current linked GitHub tools expose workflow and commit status reads but no branch-protection/ruleset read. The 2026-10-04 settings observation already recorded above is historical; current required-check enforcement is therefore **not independently verified** in this recheck. Do not describe passing Actions as required merge gates.
+
+### Current actionable adoption sequence
+
+1. Review and decide whether to adopt the policy and identify the accountable reviewer path, including the single-maintainer case.
+2. Review PR #15's canonical-path repair independently; once merged, re-read `main` and verify the repaired workflows on the new main revision.
+3. Verify branch protection and required-check enforcement through an authorized settings view before claiming that CI blocks merges. If unavailable, record the setting as unknown.
+4. After product/architecture approval, turn the accepted policy into stack-specific checks and named ownership; keep pilot, release and live-control approvals as separate gates.
