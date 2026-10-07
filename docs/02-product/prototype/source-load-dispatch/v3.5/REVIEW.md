@@ -46,3 +46,10 @@ The study keeps the schedule and claim summary primary, then adds a compact reso
 - Product/domain owners must accept or revise the service outcome vocabulary, uncertainty rule, affected scope and overall-feasibility composition before a canonical API or production behavior is frozen.
 - The first pilot's user, building, service obligations, asset identifiers, evidence sources, service/recovery horizon and locale priorities remain unknown.
 - The three language labels are prototype copy only; complete reviewed locale catalogs are still needed before calling the product multilingual.
+
+
+## Cross-PR fixture identity check — 2026-10-07
+
+At PR #10 head `bd900312c11eb3c551ceb56087a25b6c0776c216`, this prototype fixture was fetched and compared byte-for-byte with PR #14 head `ccbfa7011f66f86d0a2d541776b02c80eea3df7a` at `implementation/optimizer/fixtures/dispatch-projection-synthetic-v1.json`. Both resolve to Git blob `17906365997be7a529222b3c120e138ef336bb8c` (15,323 bytes). This confirms the UI study uses the same pinned synthetic input fixture as the current optimizer branch at that snapshot. It does not mean the service-status labels are emitted by the optimizer: PR #14 has no service evaluator in this fixture, so the UI derives `NOT_ASSESSED` from the absent evaluator and displays it as a presentation projection.
+
+At the same snapshot, PR #14's Repository Hygiene, Authority Validation and Runtime Bootstrap checks completed successfully. Those checks validate repository/runtime gates, not site facts, the proposed service vocabulary, G7.9 Step 3 closure, or product acceptance.
