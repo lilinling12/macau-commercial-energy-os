@@ -5,6 +5,7 @@ on:
     paths:
       - "docs/02-product/prototype/source-load-dispatch/v2.9/**"
       - "docs/02-product/prototype/source-load-dispatch/v3.3/**"
+      - "docs/02-product/prototype/source-load-dispatch/v3.4/**"
       - ".github/workflows/dispatch-projection-validation.yml"
 
 permissions:
@@ -12,7 +13,7 @@ permissions:
 
 jobs:
   projection:
-    name: Validate pinned v2.9 and v3.3 fixture semantics
+    name: Validate pinned v2.9, v3.3, and v3.4 fixture semantics
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
@@ -23,3 +24,5 @@ jobs:
         run: python3 docs/02-product/prototype/source-load-dispatch/v2.9/validate-projection.py
       - name: Validate v3.3 fixture and UI boundary
         run: python3 docs/02-product/prototype/source-load-dispatch/v3.3/validate.py
+      - name: Validate v3.4 fixture and feasibility boundary
+        run: python3 docs/02-product/prototype/source-load-dispatch/v3.4/validate.py
