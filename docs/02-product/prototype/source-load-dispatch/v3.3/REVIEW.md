@@ -2,7 +2,7 @@
 
 **Status:** Unapproved product and UI study on PR #10 draft branch `product/source-load-economic-dispatch`. It does not close G7.9 Step 3, select production architecture, validate a Macau site, or authorize equipment control.
 
-**Local artifact fingerprints:** `index.html` SHA-256 `B047809C94C2B3F607EC3011034D54BC5544145E757EF662965FE4DDB0FF18E4`; fixture SHA-256 `82B38BA9F6FBC431C09B2DD1143C4659BC76D35207228D8A182DE701879170D4`; validator SHA-256 `A67612BE0DBC0DA9E43A0A043AC5B818B333CBB19EAF6A8C844260973F4EEEC0`.
+**Local artifact fingerprints:** `index.html` SHA-256 `86C79C77ED1EEADD84C15080DAD2CDEFD53D7DB3BCCCA352AB9FABB76E34FA57`; fixture SHA-256 `82B38BA9F6FBC431C09B2DD1143C4659BC76D35207228D8A182DE701879170D4`; validator SHA-256 `A67612BE0DBC0DA9E43A0A043AC5B818B333CBB19EAF6A8C844260973F4EEEC0`.
 
 ## What changed
 
@@ -34,3 +34,12 @@ No service/API request or device command path is added. The page performs one lo
 This is browser and static-fixture evidence only. It does not prove tariff applicability, meter topology, PV export rights, equipment capability, comfort/service feasibility, demand billing, savings, production security, durable reviews, replay, full localization quality, WCAG conformance, or operator usability. Portuguese remains marked draft. Screen-reader and full keyboard audits, measured contrast across all states, localization review and site/operator validation remain open.
 
 The existing visual direction remains unapproved. The prototype is an operator-workflow study and should not be treated as a marketing homepage or final production UI. G7.9 Step 3, APP-11 semantics, and production contract/schema authority remain open.
+
+
+## Overall feasibility wording reconciliation — 2026-10-07
+
+Cross-review found a contract mismatch: PR #14's fixture emits `DISPATCH_FEASIBILITY=ALLOWED` when the HVAC electrical schedule is within its supplied envelope, while `COMFORT_SERVICE` is withheld because service is not modeled. PR #10's draft `DISPATCH-CLAIM-STATE-PRESENTATION-CONTRACT-v0.1.md` acceptance example says an HVAC shift without service evidence may be shown as an electrical scenario, with service “Not assessed” and **overall dispatch feasibility withheld**.
+
+The v3.3 claim label now says “Electrical constraints only” in Traditional Chinese, English and Portuguese draft, and explains that service is unassessed and the overall feasibility conclusion should not be claimed under the product presentation proposal. This intentionally exposes the discrepancy; it does not rewrite the PR #14 fixture's emitted claim or pretend the two draft artifacts are already reconciled. The code/contract decision remains open for owner/domain review.
+
+The existing static validator passed after the copy change. This validates its pinned synthetic fixture and existing presentation-boundary assertions only; it does not validate the claim semantics, localization quality, browser layout after the longer copy, or owner approval.
