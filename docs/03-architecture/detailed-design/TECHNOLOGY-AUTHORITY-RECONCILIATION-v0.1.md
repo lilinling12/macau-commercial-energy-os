@@ -46,4 +46,46 @@ Do not freeze final architecture or author/generate dispatch bindings until that
 - The referenced ChatGPT share page returned a cache miss to the web reader and showed a login-only page in the available in-app browser. The `read_thread` call for the supplied conversation ID returned only a bounded recent ChatGPT conversation slice with no older-page cursor. Therefore this review does **not** claim to have inspected the full shared conversation transcript or every Library attachment.
 - This is a focused authority/source reconciliation, not a complete review of all G6.9/G7.1–G7.9 package contents, all GitHub PRs/files, or a fresh runtime bake-off.
 
+## Implementation-state recheck — 2026-10-07
 
+This addendum traces the current default-branch code separately from archive decisions, research recommendations and PR experiments. **Code present on main is implementation evidence; it does not by itself select or approve the production architecture.**
+
+### Current-main implementation evidence
+
+| Concern | Fetched main artifact | What it shows | What it does not establish |
+|---|---|---|---|
+| Application/API | `implementation/platform-api/README.md` blob `d01c76815d0122ba112264c7b22aa1e49a542206`; `package.json` blob `c42fcbca6b423c392c920080999b0d3c6022a2cc`; `src/main.ts` blob `e4937fe3c6e33caf86d3b439f192034671d8290f` | Node `24.21.x`, npm `11.19.x`, NestJS `12.0.3`, and `@nestjs/platform-express`. `main.ts` calls `NestFactory.create` and listens on the API port. The module wires the VS-001 controller/service and fail-closed ports. | It is not Fastify, not a measured G6.9 winner, and not a completed dispatch control plane. The README says no runtime bootstrap until boundaries are accepted, while the fetched main.ts already bootstraps; this is a documentation/code mismatch to reconcile. |
+| Current API slice | `implementation/platform-api/src/vs001/vs001.controller.ts` blob `de93bc59354890f1e8be6274123ecf51f24fb3ca`; `vs001.service.ts` blob `a35cf74b4587fad75415689341de40d88e623ede`; `adapters.ts` blob `d4b0872fd9a52dedf8745cc45bdcbcd2fb3e83d6`; `ports.ts` blob `4dc5303af249f9a5e8f55592063eacc64bba5b32` | The endpoint is a single-event VS-001 evaluation path. Energy Graph and tariff adapters fail closed; the optimizer adapter cannot run until tariff context resolves; evidence storage is in-memory. | It does not implement APP-11 source/load schedule assessment, a durable replay path, a verified Macau tariff/account graph, an authenticated evidence resolver, or a production dispatch service. |
+| Go Edge | `implementation/edge-runtime/README.md` blob `7ec8850b88529569ea81667382af6401c1b8436d`; `go.mod` blob `f2869eb831a7380015e5a3d1bee1e1d5d290b805` | The module declares Go `1.27.1`. The README assigns protocol adapters, point normalization, local buffering, retry/reconnect, secure telemetry transport and local health/audit signals to the Edge boundary; it excludes tariff truth and optimization policy. | The README and module declaration alone do not prove production adapter coverage, device commissioning, safety certification or a field-control authorization. Source implementation completeness was not established by these two files. |
+| Contracts | `implementation/contracts/README.md` blob `31aef1f622ae22e3cf32ae82dd53bbd2cc8dd204`; schemas `telemetry-event.v1` `b066a0efc149042f70e11113918588169333fcca`, `recommendation.v1` `e558389d6c62c2635475dc443989beef20d1bcab`, `evidence-record.v1` `0d3d1bb2d28ec46ed9ba111ffe9a6e598c2c2fc7` | Versioned JSON Schema contracts exist for telemetry, recommendation and evidence. Their README requires explicit tenant/site, timestamp, unit and evidence-status semantics. | These are not the missing canonical multi-interval dispatch, tariff/settlement-scope, claim-ledger, human-review or replay contracts; an early recommendation contract is not proof of a schedulable/feasible plan. |
+| Optimizer | Main `implementation/optimizer/README.md` blob `10b88c297a25a04c6d738530689c3797cd807e8b` | Python is the stated forecasting/simulation/optimization boundary and initial product mode is SHADOW. | No integrated production optimizer or site-calibrated forecast is established on main by this README. |
+
+The fetched Platform API dependency manifest contains NestJS and the Express adapter, but no Fastify adapter, Temporal SDK, NATS client or database driver. This statement is limited to that manifest; it is not a repository-wide proof that those dependencies occur nowhere else. The inspected Edge `go.mod` declares no dependency lines beyond its module path and Go version.
+
+### Candidate implementations on separate PR branches
+
+PR #14's current bounded Python experiment is separate from main. Its assessment module validates a **supplied** schedule and its adjacent finite-horizon search enumerates declared discrete flexible-load and ESS actions. The PR #10 acceptance audit source-pins the code/tests and records the exact PR #14 head and checks. It also identifies material unimplemented or partial cases, including tenant/site authorization, per-interval physical evidence coverage, non-overlapping meter topology, authenticated evidence resolution, durable assessment/replay and real-site tariff validation. The experiment is neither the canonical APP-11 contract nor an integrated production optimizer/API; its green branch checks do not close G7.9.
+
+PR #10 itself contains product, UI/UX, contract and architecture proposals, including newer localized design studies. Those remain on an unmerged Draft branch and do not update the operative main authority.
+
+### Technology-by-technology status after the code trace
+
+- **React + TypeScript:** research/owner-review product-surface direction. No inspected main artifact establishes an approved or integrated operator-console frontend.
+- **Node + NestJS:** implemented Candidate B path on main (Node 24.21.x, NestJS 12.0.3, Express adapter). This is an implementation state, not evidence that B won.
+- **Node + Fastify:** accepted historical G7.6/G7.8 package claim; not the adapter used by the fetched main Platform API manifest. Binding/superseded status remains unresolved.
+- **Go Edge:** main module and responsibility README exist; deployment, protocol, site integration and control-safety acceptance remain unproven.
+- **Go Energy Core + Temporal Go:** Deep Research (6) C+ recommendation only. No inspected main code establishes this topology.
+- **Bun + Hono:** Deep Research (6) provisional product/BFF proposal; not the fetched main API runtime.
+- **Temporal:** candidate in the layer summary/C+ topology. No Temporal SDK or worker was observed in the fetched API manifest or inspected current-main files; no workflow selection is established.
+- **PostgreSQL + Timescale:** evaluation baseline/research direction. The fetched API manifest and inspected bootstrap do not establish a database integration, migrations, retention policy or replay persistence.
+- **NATS JetStream:** cloud-event candidate. No runtime integration was established by the inspected main manifests.
+- **MQTT 5:** telemetry/edge candidate in research. The inspected Edge README describes secure telemetry transport but does not specify an MQTT adapter; protocol implementation was not verified in this pass.
+- **Python:** named optimizer boundary on main; the more substantive source/load assessment/search is on separate PR #14, not integrated.
+- **Wasm/WASI:** future plugin-isolation direction; no MVP runtime or sandbox implementation was observed in the inspected main files.
+- **Next.js:** Deep Research (7) describes a conditional public/customer portal or server-feature option. It is not the recommended authenticated operator console, the proposed backend, or a G6.9-R2 candidate in the reviewed matrix.
+
+### Architecture and implementation implication
+
+Two separate decisions are still being conflated in some historical notes: **which topology is authorized as the target** and **which scaffold currently exists**. Main currently runs a Node/NestJS + Express VS-001 API path, while the binding-status question for the historical Node/Fastify freeze and the active G6.9 C+ provisional default remains unresolved. Neither the current code nor the historical freeze should silently supersede the operative main CURRENT/D-064/D-068/D-076 record.
+
+Product and domain work can advance without that selection. The implementation next needs a reviewed APP-11 contract and evidence/scope decision, then a vertical slice joining site/meter/contract evidence, physical schedule assessment, separately scoped settlement claims, human review and replay. Production framework selection and infrastructure adoption remain behind the authority/bake-off decision. No owner decision, Gate closure or field-control authority is inferred here.
