@@ -1,0 +1,54 @@
+{
+  "review_date": "2026-10-07",
+  "browser": "Microsoft Edge via Playwright",
+  "stage": 4,
+  "viewports_css_px": [
+    { "width": 1440, "height": 900 },
+    { "width": 1024, "height": 900 },
+    { "width": 768, "height": 900 },
+    { "width": 375, "height": 800 },
+    { "width": 320, "height": 800 }
+  ],
+  "locales": ["zh-Hant", "en", "pt-draft"],
+  "matrix_cases": 15,
+  "result": {
+    "three_changed_resource_rows_present_in_every_case": true,
+    "document_level_horizontal_overflow": false,
+    "browser_script_errors": 0,
+    "mobile_service_rows_stack_to_single_column": true,
+    "keyboard_stage_navigation": "pass",
+    "keyboard_partial_claim_example_toggle": "pass",
+    "stage_step_focus_outline": "3px solid with inset teal focus ring"
+  },
+  "status_label_contrast": {
+    "foreground": "#684a19",
+    "background": "#fff8e9",
+    "ratio": 7.69,
+    "scope": "New NOT_ASSESSED label only; not a full-page contrast audit"
+  },
+  "synthetic_fixture": "pr14-exact-head-generated-synthetic-dispatch-v1",
+  "unreviewed": [
+    "full keyboard traversal",
+    "zoom and text enlargement",
+    "screen-reader output",
+    "non-text contrast",
+    "complete locale and translation review",
+    "formal WCAG 2.2 conformance",
+    "representative operator or site-domain validation"
+  ],
+  "screenshots_committed": true,
+  "screenshot_artifacts": [
+    {
+      "path": "evidence/stage4-zh-Hant-1440.png",
+      "css_viewport": { "width": 1440, "height": 900 },
+      "locale": "zh-Hant",
+      "capture": "full-page"
+    },
+    {
+      "path": "evidence/stage4-pt-375.png",
+      "css_viewport": { "width": 375, "height": 800 },
+      "locale": "pt-draft",
+      "capture": "full-page"
+    }
+  ]
+}

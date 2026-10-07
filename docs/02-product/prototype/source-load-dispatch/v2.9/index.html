@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Macau Energy OS · Dispatch Review v2.9</title>
+<style>
+:root{color-scheme:light;--ink:#142d3a;--muted:#526873;--line:#d6e0e1;--paper:#fff;--canvas:#f2f5f3;--navy:#102e3a;--teal:#087d73;--blue:#316b91;--amber:#8a5910;--amber-bg:#fff5df;--red:#963c35;--red-bg:#fff0ed;--violet:#6653a0;--shadow:0 18px 44px rgb(20 45 58 / 5%);font:16px/1.55 Inter,"Segoe UI","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;background:var(--canvas);color:var(--ink)}
+*{box-sizing:border-box}body{margin:0;min-width:0;background:var(--canvas)}button,select{font:inherit}button{cursor:pointer}a{color:#245d79}:focus-visible{outline:3px solid #126e93;outline-offset:3px}
+.skip{position:absolute;z-index:5;inset:-60px auto auto 12px;padding:10px 14px;background:#fff;border-radius:8px}.skip:focus{inset-block-start:10px}
+header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:13px clamp(16px,3vw,40px);background:var(--paper);border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:11px;min-width:0}.mark{display:grid;place-items:center;width:38px;height:38px;flex:none;border-radius:12px;background:var(--navy);color:#b9e4d9;font-weight:800}.brand strong,.brand small{display:block}.brand strong{font-size:14px}.brand small{font-size:11px;color:var(--muted)}
+.header-meta{display:flex;align-items:center;justify-content:flex-end;gap:9px;flex-wrap:wrap}.pill{display:inline-flex;align-items:center;gap:7px;min-height:34px;padding:5px 10px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--muted);font-size:11px;font-weight:700}.pill.warn{background:var(--amber-bg);border-color:#ead7a8;color:#634a1c}.dot{width:7px;height:7px;border-radius:50%;background:currentColor}.locale{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:12px}.locale select{min-height:40px;padding:6px 28px 6px 10px;border:1px solid #9caaad;border-radius:8px;background:#fff;color:var(--ink)}
+main{width:min(1440px,100%);margin:auto;padding:clamp(20px,3vw,42px) clamp(16px,3vw,42px) 56px}.intro{display:flex;align-items:end;justify-content:space-between;gap:24px;margin:0 0 18px}.eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--teal)}h1{margin:6px 0 8px;font-size:clamp(30px,4vw,46px);line-height:1.08;letter-spacing:-.04em}.intro p{max-width:760px;margin:0;color:var(--muted);font-size:15px}.scenario-meta{flex:none;text-align:right;font-size:12px;color:var(--muted)}
+.notice{display:grid;grid-template-columns:22px 1fr;gap:11px;margin:18px 0;padding:14px 16px;border:1px solid #e7d29b;border-radius:12px;background:#fff8e8;color:#5e4a22;font-size:13px}.notice-icon{display:grid;place-items:center;width:21px;height:21px;border-radius:50%;background:#efdfb8;color:#684e19;font-weight:900}.notice strong{color:#463719}
+.decision{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(130px,.55fr));margin-bottom:18px;overflow:hidden;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:var(--shadow)}.decision-lead{padding:20px 22px;background:var(--navy);color:#f5fbfa}.decision-lead .eyebrow{color:#a5d8cb}.decision-lead h2{font-size:21px;line-height:1.25;margin:5px 0}.decision-lead p{max-width:550px;margin:0;color:#d0dedf;font-size:13px}.objective{margin-top:10px;padding-left:10px;border-left:2px solid #e7c56f;color:#f2e5bf;font-size:12px}.stat{display:flex;flex-direction:column;justify-content:center;gap:2px;padding:16px 18px;border-left:1px solid var(--line)}.stat span{font-size:11px;color:var(--muted)}.stat strong{font-size:clamp(18px,2vw,22px);line-height:1.25;font-variant-numeric:tabular-nums}.stat small{font-size:11px;color:var(--muted)}.stat .blocked{color:var(--red)}
+.layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(280px,.8fr);gap:18px;align-items:start}.stack{display:grid;gap:18px;min-width:0}.panel{min-width:0;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:var(--shadow);overflow:hidden}.panel-head{display:flex;align-items:start;justify-content:space-between;gap:16px;padding:17px 20px 14px;border-bottom:1px solid #e9eeee}.panel-head h2{margin:0;font-size:16px}.panel-head p{margin:4px 0 0;font-size:12px;color:var(--muted)}.unit{white-space:nowrap;color:var(--muted);font-size:11px}.chart-scroll{overflow-x:auto;overscroll-behavior-inline:contain;padding:15px 20px 5px}.chart{display:block;width:100%;min-width:550px;height:auto}.chart text{fill:#526872;font:12px Inter,"Segoe UI",system-ui,sans-serif}.gridline{stroke:#e6ecec;stroke-width:1}.baseline{fill:none;stroke:#647b86;stroke-width:2.5;stroke-dasharray:7 5}.candidate{fill:none;stroke:#087d73;stroke-width:3.5}.base-dot{fill:#fff;stroke:#647b86;stroke-width:2.2}.cand-dot{fill:#fff;stroke:#087d73;stroke-width:2.5}
+.legend{display:flex;gap:18px;flex-wrap:wrap;padding:0 21px 14px;color:var(--muted);font-size:12px}.legend-item{display:inline-flex;align-items:center;gap:8px}.legend-line{width:24px;border-top:3px dashed #647b86}.legend-line.current{border-top:3px solid #087d73}.table-wrap{overflow-x:auto;overscroll-behavior-inline:contain;border-top:1px solid var(--line)}table{width:100%;border-collapse:collapse;font-size:12px}.table-wrap table{min-width:900px}caption{padding:12px 16px 8px;text-align:left;color:var(--muted)}th,td{padding:10px 12px;border-bottom:1px solid #edf1f1;text-align:right;vertical-align:top;font-variant-numeric:tabular-nums}th{background:#f7f9f8;color:var(--muted);font-size:11px;font-weight:750}td:first-child,th:first-child{text-align:left}tbody tr:last-child td{border-bottom:0}.num{white-space:nowrap}.load-cell{min-width:230px;text-align:left}.load-row{display:flex;gap:8px;align-items:baseline;padding:2px 0}.load-row b{min-width:62px;color:var(--muted);font-size:11px}.load-name{display:inline-flex;align-items:center;gap:5px;margin:2px 7px 2px 0;white-space:nowrap}.marker{display:inline-block;width:8px;height:8px;border:2px solid currentColor;border-radius:2px}.hvac{color:var(--teal)}.ev{color:var(--blue)}.water{color:var(--violet)}.mobile-note{display:none;padding:9px 14px 12px;color:var(--muted);font-size:11px}
+.side{padding:18px}.side h2{margin:0 0 5px;font-size:15px}.side-intro{margin:0 0 14px;color:var(--muted);font-size:12px}.section-label{margin:18px 0 8px;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.resource{padding:11px 0;border-top:1px solid #edf1f1}.resource:first-of-type{border-top:0}.resource-head{display:flex;justify-content:space-between;gap:12px;align-items:start}.resource-head strong{font-size:13px}.resource small{display:block;margin-top:3px;color:var(--muted);font-size:11px}.resource-state{flex:none;padding:3px 7px;border-radius:999px;background:#fff5df;color:#684d17;font-size:10px;font-weight:750}.claim-list{list-style:none;padding:0;margin:0}.claim-list li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:start;padding:10px 0;border-top:1px solid #edf1f1;font-size:12px}.claim-list li:first-child{border-top:0}.claim-list strong,.claim-list small{display:block}.claim-list small{margin-top:2px;color:var(--muted);font-size:11px}.state{font-size:10px;font-weight:800;white-space:nowrap}.state.allowed{color:#315f57}.state.held{color:#785518}.details{padding:16px 18px}.details h2{margin:0 0 4px;font-size:15px}.details>p{margin:0 0 8px;color:var(--muted);font-size:12px}.details summary{padding:10px 0;cursor:pointer;font-weight:700;font-size:13px}.details ul{padding-inline-start:20px;color:var(--muted);font-size:12px}.details li{margin:7px 0}
+.review{padding:18px}.review h2{margin:0 0 5px;font-size:15px}.review p{margin:0 0 12px;color:var(--muted);font-size:12px}.review-actions{display:grid;gap:8px;margin:0;padding:0;border:0;min-width:0}.review-actions legend{margin-bottom:2px;color:var(--muted);font-size:12px}.review-option{display:flex;align-items:center;gap:10px;min-height:44px;padding:9px 12px;border:1px solid #c5d0d2;border-radius:9px;background:#fff;color:var(--ink);font-size:13px;cursor:pointer;transition:background-color .15s,border-color .15s}.review-option:hover{border-color:#688e91;background:#f4faf8}.review-option input{width:18px;height:18px;margin:0;flex:none;accent-color:var(--teal)}.review-option.selected{border-color:#087d73;background:#eaf5f2}.review-state{min-height:42px;margin-top:11px;padding:9px 10px;border-radius:8px;background:#f2f5f3;color:var(--muted);font-size:12px}.shadow{margin-top:14px;padding:12px;border-left:3px solid #8a6e35;background:#fff8e8;color:#5e4a22;font-size:12px}.shadow strong{display:block;margin-bottom:3px}.footer{padding:15px 0 0;color:var(--muted);font-size:11px}.error{display:none;margin:14px 0;padding:12px;border:1px solid #d8aaa5;border-radius:10px;background:var(--red-bg);color:#722d29}
+@media(max-width:980px){.decision{grid-template-columns:repeat(3,minmax(0,1fr))}.decision-lead{grid-column:1/-1}.stat:nth-child(2){border-left:0}.layout{grid-template-columns:1fr}.scenario-meta{text-align:left}.intro{align-items:start}}
+@media(max-width:620px){header{align-items:flex-start;flex-direction:column}.header-meta{justify-content:flex-start;width:100%}.intro{display:block}.scenario-meta{margin-top:10px}.decision{grid-template-columns:1fr 1fr}.decision-lead{grid-column:1/-1}.stat{padding:13px}.stat:nth-child(4){border-left:0;border-top:1px solid var(--line)}.stat:nth-child(5){border-top:1px solid var(--line)}.panel-head{padding:15px 16px}.chart-scroll{padding:12px 16px 5px}.mobile-note{display:block}.table-wrap table{min-width:900px}.side{padding:16px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+
+.claim-mode{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0 9px;padding:10px;border:1px solid var(--line);border-radius:10px;background:#f8faf9}.claim-mode legend{padding:0 4px;color:var(--muted);font-size:10px;font-weight:750}.claim-mode label{display:flex;align-items:flex-start;gap:7px;min-height:40px;padding:8px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:10px;line-height:1.35;cursor:pointer}.claim-mode input{margin:2px 0 0;accent-color:var(--teal);flex:none}.claim-mode input:focus-visible{outline:3px solid #126e93;outline-offset:3px}.claim-mode label:has(input:checked){border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal);background:#f2faf7}.claim-demo-banner{margin:0 0 10px;padding:10px 11px;border:1px solid #ead7a8;border-radius:9px;background:var(--amber-bg);color:#634a1c;font-size:10px;line-height:1.45}.claim-list li .claim-scope{display:inline-flex;align-items:center;margin-top:5px;padding:3px 7px;border-radius:999px;background:#eef3f2;color:#334e57;font-size:10px;font-weight:800}.claim-list li .claim-scope.partial{background:#fff1d6;color:#70490f}.claim-list li .claim-scope.withheld{background:#fbe9e6;color:#803a34}.claim-list li .claim-reason{display:block;margin-top:3px;color:var(--muted);font-size:10px;line-height:1.4}@media(max-width:650px){.claim-mode{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a class="skip" id="skip" href="#main"></a>
+<header>
+  <div class="brand"><span class="mark" aria-hidden="true">M</span><span><strong>Macau Energy OS</strong><small id="brand-sub"></small></span></div>
+  <div class="header-meta"><span class="pill warn"><i class="dot" aria-hidden="true"></i><span id="synthetic-tag"></span></span><span class="pill" id="version-tag"></span><label class="locale"><span id="locale-label"></span><select id="locale-select" aria-label="Language">
+    <option value="zh-Hant">繁體中文</option><option value="en">English</option><option value="pt">Português · rascunho</option>
+  </select></label></div>
+</header>
+<main id="main" tabindex="-1">
+  <section class="intro" aria-labelledby="page-title">
+    <div><div class="eyebrow" id="kicker"></div><h1 id="page-title"></h1><p id="intro-copy"></p></div>
+    <div class="scenario-meta" id="scenario-date"></div>
+  </section>
+  <section class="notice" aria-label="Scenario scope"><span class="notice-icon" aria-hidden="true">i</span><div><strong id="notice-title"></strong> <span id="notice-copy"></span></div></section>
+  <section class="decision" aria-labelledby="decision-title">
+    <div class="decision-lead"><div class="eyebrow" id="candidate-label"></div><h2 id="decision-title"></h2><p id="decision-copy"></p><div class="objective"><strong id="objective-title"></strong> <span id="objective-copy"></span></div></div>
+    <div class="stat"><span id="energy-label"></span><strong id="energy-stat">—</strong><small id="energy-hint"></small></div>
+    <div class="stat"><span id="peak-label"></span><strong id="peak-stat">—</strong><small id="peak-hint"></small></div>
+    <div class="stat"><span id="economics-label"></span><strong class="blocked" id="economics-stat"></strong><small id="economics-hint"></small></div>
+  </section>
+  <div id="load-error" class="error" role="alert"></div>
+  <section id="projection" class="layout" hidden>
+    <div class="stack">
+      <section class="panel" aria-labelledby="chart-title">
+        <div class="panel-head"><div><h2 id="chart-title"></h2><p id="chart-copy"></p></div><span class="unit">kW · <span id="interval-unit"></span></span></div>
+        <div class="chart-scroll" role="region" tabindex="0" aria-labelledby="chart-title" aria-describedby="chart-hint"><svg id="chart" class="chart" viewBox="0 0 760 270" role="img"></svg></div>
+        <div class="legend"><span class="legend-item"><i class="legend-line" aria-hidden="true"></i><span id="baseline-label"></span></span><span class="legend-item"><i class="legend-line current" aria-hidden="true"></i><span id="candidate-legend"></span></span></div>
+        <p class="mobile-note" id="chart-hint"></p>
+        <div class="table-wrap" role="region" tabindex="0" aria-labelledby="table-caption" aria-describedby="table-hint">
+          <table><caption id="table-caption"></caption><thead><tr>
+            <th scope="col" id="th-time"></th><th scope="col"><span id="th-grid"></span><br><small id="th-grid-sub"></small></th>
+            <th scope="col"><span id="th-pv"></span><br><small id="th-pv-sub"></small></th><th scope="col"><span id="th-ess"></span><br><small id="th-ess-sub"></small></th>
+            <th scope="col"><span id="th-soc"></span><br><small id="th-soc-sub"></small></th><th scope="col" id="th-load"></th>
+          </tr></thead><tbody id="rows"></tbody></table>
+        </div><p class="mobile-note" id="table-hint"></p>
+      </section>
+      <details class="panel details"><summary id="assumptions-summary"></summary><h2 id="assumptions-title"></h2><p id="assumptions-intro"></p><ul id="assumptions"></ul></details>
+    </div>
+    <aside class="stack" aria-label="Evidence and review">
+      <section class="panel side"><h2 id="resources-title"></h2><p class="side-intro" id="resources-copy"></p><div id="resources"></div>
+        <h3 class="section-label" id="claims-title"></h3><fieldset class="claim-mode"><legend data-i18n="claimModeLegend"></legend><label><input type="radio" name="claim-view-mode" value="actual" checked><span data-i18n="claimModeActual"></span></label><label><input type="radio" name="claim-view-mode" value="partial-demo"><span data-i18n="claimModePartial"></span></label></fieldset><p class="claim-demo-banner" id="claim-demo-banner" role="status" aria-live="polite" hidden></p><ul class="claim-list" id="claims"></ul>
+      </section>
+      <section class="panel review"><h2 id="review-title"></h2><p id="review-copy"></p>
+        <fieldset class="review-actions" aria-labelledby="review-group-label"><legend id="review-group-label"></legend>
+          <label class="review-option"><input type="radio" name="review-choice" data-review="evidence" value="evidence" id="review-evidence"><span id="review-evidence-label"></span></label>
+          <label class="review-option"><input type="radio" name="review-choice" data-review="revise" value="revise" id="review-revise"><span id="review-revise-label"></span></label>
+          <label class="review-option"><input type="radio" name="review-choice" data-review="hold" value="hold" id="review-hold"><span id="review-hold-label"></span></label>
+        </fieldset><div class="review-state" id="review-state" aria-live="polite"></div>
+        <div class="shadow"><strong id="shadow-title"></strong><span id="shadow-copy"></span></div>
+      </section>
+    </aside>
+  </section>
+  <p class="footer" id="footer"></p>
+</main>
+<script>
+const messages={
+"zh-Hant":{
+lang:"語言",brandSub:"商業能源調度 · 結果投影",synthetic:"合成情景 · SHADOW",version:"設計審閱 v2.9",skip:"跳至主要內容",kicker:"來源與負荷調度 / 結果審閱",
+title:"來源與負荷調度",intro:"比較電網、現場光伏、儲能和可調負荷在同一時段內如何配合；先看功率與服務邊界，再檢視經濟資格與證據。",
+scenario:"研究情景 · 2026 年 10 月 8 日 · 澳門時區",noticeTitle:"僅供設計研究。",
+noticeCopy:"所有數值都是專案假設，不代表澳門現場、客戶合同、已驗證設備能力或實際調度。",
+candidate:"候選情景 · 僅供 SHADOW 審閱",decision:"電量相同，時段尖峰增加",
+decisionCopy:"這個有限的離散情景把 HVAC、EV 與熱水任務集中到一個時段，並調整儲能；購電總量不變，規劃時段的最高輸入由 10 kW 升至 11 kW。",
+objectiveTitle:"搜索目標：",objectiveCopy:"按輸入的逐時購電費率尋找費用最低的候選。費率未經合同核實，因此這不是澳門適用電價下的經濟最優結論。",
+energyLabel:"時段購電量",energyHint:"此合成情景的總量相同",peakLabel:"時段最高電網輸入",peakHint:"不是帳單週期需量或 Pu",economicsLabel:"電費評估",economics:"未計算",economicsHint:"帳戶、合同及費率適用性未核實",
+chartTitle:"電網輸入 · 基線與候選",chartCopy:"實線與虛線、點形共同區分兩條曲線；下表列出逐時數值。",intervalUnit:"每小時平均",baseline:"基線 · 虛線與空心點",candidateLegend:"候選 · 實線與圓點",
+chartDescription:"六個一小時區間的電網輸入。",chartEnd:"區間開始時間 · 澳門",scrollChart:"圖表可水平捲動；下方資料表提供精確數值。",
+tableCaption:"逐時情景資料 · 澳門時間，左閉右開；PV 欄列發電與自用，不表示上網或收益。",thTime:"時段",thGrid:"電網輸入",thGridSub:"基線 / 候選 · kW",thPV:"現場 PV",thPVSub:"發電 · 自用基線 → 候選 · kW",thESS:"儲能",thESSSub:"候選充電 / 放電 · kW",thSOC:"儲能 SOC",thSOCSub:"候選起始 → 結束 · kWh",thLoad:"可調負荷 · 基線 → 候選",
+scrollTable:"欄位較多；只在本資料區域內左右捲動。",baselineShort:"基線",candidateShort:"候選",charge:"充電",discharge:"放電",idle:"閒置",none:"—",
+assumptionsSummary:"查看輸入假設與搜索邊界",assumptionsTitle:"輸入假設與搜索邊界",assumptionsIntro:"這些條件只定義了原型搜索範圍，不代表現場設備或運行承諾。",
+resourcesTitle:"參與情景的資源",resourcesCopy:"下列任務只作合成時間安排。設備能力、服務效果及控制權限均未驗證。",
+resourceHvac:"HVAC / 空調",resourceEv:"EV 充電",resourceWater:"熱水",resourceState:"合成任務 · 現場服務未評估",
+claimsTitle:"結論可展示範圍",claimModeLegend:"狀態呈現演示（本頁）",claimModeActual:"目前投影結果",claimModePartial:"局部覆蓋狀態範例",claimDemoBanner:"界面狀態示例，不是本次合成投影或 PR #14 優化器輸出。經濟評估為 PARTIAL：示例覆蓋澳門時間 09:00–13:00（4 / 6），未覆蓋 13:00–15:00（2 / 6）；購電能量費 claim 為 ALLOWED，但只適用已覆蓋時段。不顯示金額，亦不推斷現場帳單。",partialImportLabel:"電網購電能量費組件",partialImportScope:"ALLOWED · 僅限已覆蓋時段",partialImportReason:"只可涵蓋具有效費率匹配的時段；此演示不提供金額。",wholeWindowLabel:"完整規劃期總電費",wholeWindowScope:"WITHHELD · 未計算",wholeWindowReason:"仍有時段缺少有效費率；不得把未覆蓋時段當作零。",savingsLabel:"基線與候選節省",savingsReason:"部分覆蓋不足以支持完整規劃期比較。",demandLabel:"需量費用",demandReason:"帳單需量窗口及合同計算規則未核實。",claimWithheld:"WITHHELD · 暫不提供",claimGrid:"時段電網輸入曲線",claimPeak:"情景時段最高輸入",claimFeas:"離散情景內的約束檢查",claimPv:"光伏棄發",claimEss:"儲能充放電序列",claimFlex:"可調負荷時間安排",claimEnergy:"購電能量費",claimDemand:"需量電費",claimExport:"光伏上網補償",claimBill:"完整電費",claimSavings:"節省金額",claimControl:"設備可控性",claimService:"舒適度與服務",claimCredit:"跨樓宇抵扣",claimDevice:"設備控制",
+scopeScenario:"僅限本頁合成情景",scopePeak:"不是帳單需量或 Pu",scopeFeas:"不代表現場安全或服務可行",scopePv:"本情景沒有聲明候選棄發",scopeEss:"只根據假設功率與 SOC",scopeFlex:"能力、舒適度和服務未核實",withEnergy:"合同、帳戶和適用費率未核實",withDemand:"需量窗口與帳單規則未計算",withExport:"未評估資格、收款方或抵扣",withBill:"稅項、需量費和其他項目未計算",withSavings:"情景差異不等於實際節省",withControl:"現場設備能力和授權未建立",withService:"HVAC 熱響應、EV 交付和熱水服務未建模",withCredit:"沒有跨站點或帳戶抵扣證據",withDevice:"沒有設備指令路徑",shownScenario:"可展示 · 情景範圍",notProvided:"暫不提供",
+reviewTitle:"研究審閱",reviewCopy:"這些選擇只在此頁暫時顯示；不會保存、提交服務或觸發現場動作。",reviewGroup:"選擇一項審閱意見",reviewEvidence:"需要現場／合同證據",reviewRevise:"要求修改情景",reviewHold:"暫不採納此候選",reviewEmpty:"尚未記錄本地審閱意見。",
+reviewEvidenceMsg:"本地草稿：等待現場點位、合同和適用費率證據。重新載入頁面後清除。",reviewReviseMsg:"本地草稿：需重新界定設備服務、儲能限制與調度時窗。重新載入頁面後清除。",reviewHoldMsg:"本地草稿：暫不採納此合成候選方案。重新載入頁面後清除。",
+shadowTitle:"SHADOW 邊界",shadowCopy:"本頁沒有設備控制路徑。候選排程不是指令，也未證明設備能按此運行。",
+footer:"設計審閱原型 v2.9 · 繁體中文、英文、葡文均為候選預覽 · 葡文及所有術語仍待澳門能源領域審校 · 不代表產品已完整本地化。",
+error:"情景資料未能載入。請確認同目錄的 dispatch-projection-fixture.json 可存取。",
+assumption1:"時間範圍：09:00 至 15:00；每段一小時；澳門時區。",assumption2:"PV 與固定負荷均為合成輸入；不推斷上網或抵扣。",assumption3:"搜索使用假設購電費率；經濟評估仍被阻擋，不顯示費用或節省。",assumption4:"任務總能量來自 fixture；HVAC 熱慣性、EV 離場期限和熱水服務均未建模。",assumption5:"儲能 SOC 與功率限制只採用 fixture 的離散假設；未代表現場設備。",assumption6:"不含需量電費、完整帳單、上網收益、預測不確定性或設備控制。",
+loadObjective:"搜索器按逐時輸入費率比較候選；費率全屬專案假設。",transitionLabel:"搜索狀態轉移",timeZone:"澳門時間",chartAxis:"kW"
+},
+"en":{
+lang:"Language",brandSub:"Commercial energy dispatch · result projection",synthetic:"Synthetic scenario · SHADOW",version:"Design review v2.9",skip:"Skip to main content",kicker:"Source & load dispatch / result review",
+title:"Source and load dispatch",intro:"Compare how grid import, on-site PV, storage and flexible loads align over one shared horizon. Read power and service boundaries first, then economic eligibility and evidence.",
+scenario:"Research scenario · 8 October 2026 · Macau time",noticeTitle:"Design study only.",
+noticeCopy:"All values are project assumptions. They are not Macau site data, customer contract terms, verified equipment capabilities or an operational dispatch.",
+candidate:"Candidate scenario · SHADOW review only",decision:"Equal energy, higher interval peak",
+decisionCopy:"This bounded discrete scenario shifts HVAC, EV and hot-water tasks and changes storage timing. Total grid-import energy is unchanged; the horizon maximum rises from 10 kW to 11 kW.",
+objectiveTitle:"Search objective:",objectiveCopy:"Find the lowest-cost candidate using the supplied hourly import rates. Those rates are unverified assumptions, so this is not an economic optimum under an applicable Macau contract.",
+energyLabel:"Horizon import energy",energyHint:"Equal in this synthetic scenario",peakLabel:"Horizon peak grid import",peakHint:"Not billing-period demand or Pu",economicsLabel:"Bill assessment",economics:"Not calculated",economicsHint:"Account, contract and tariff applicability are unverified",
+chartTitle:"Grid import · baseline and candidate",chartCopy:"Line style and point shape both distinguish the series; exact interval values are in the table.",intervalUnit:"hourly average",baseline:"Baseline · dashed line and hollow points",candidateLegend:"Candidate · solid line and round points",
+chartDescription:"Grid import over six one-hour intervals.",chartEnd:"Interval start · Macau",scrollChart:"The chart scrolls horizontally; the table below provides exact values.",
+tableCaption:"Hourly scenario data · Macau time, start inclusive and end exclusive. PV shows generation and self-use; it does not imply export or revenue.",thTime:"Interval",thGrid:"Grid import",thGridSub:"Baseline / candidate · kW",thPV:"On-site PV",thPVSub:"Generation · self-use baseline → candidate · kW",thESS:"Storage",thESSSub:"Candidate charge / discharge · kW",thSOC:"Storage SOC",thSOCSub:"Candidate start → end · kWh",thLoad:"Flexible loads · baseline → candidate",
+scrollTable:"Many columns; scroll horizontally within this data region only.",baselineShort:"Baseline",candidateShort:"Candidate",charge:"Charge",discharge:"Discharge",idle:"Idle",none:"—",
+assumptionsSummary:"View input assumptions and search boundary",assumptionsTitle:"Input assumptions and search boundary",assumptionsIntro:"These conditions define only the prototype search space. They are not site equipment facts or operating commitments.",
+resourcesTitle:"Resources in this scenario",resourcesCopy:"These tasks are synthetic schedules only. Equipment capability, service outcomes and control authority are unverified.",
+resourceHvac:"HVAC / chiller",resourceEv:"EV charging",resourceWater:"Hot water",resourceState:"Synthetic task · site service not assessed",
+claimsTitle:"What this result may show",claimModeLegend:"Claim-state display study (this page)",claimModeActual:"Current projection result",claimModePartial:"Partial-coverage state example",claimDemoBanner:"Interface-state example only, not the current synthetic projection or PR #14 optimizer output. Economic assessment: PARTIAL, covering 09:00–13:00 Macau time (4 / 6 intervals); 13:00–15:00 (2 / 6) is uncovered. The grid-import energy-component claim is ALLOWED only within covered intervals. No monetary amount is shown and no site bill is inferred.",partialImportLabel:"Grid-import energy charge component",partialImportScope:"ALLOWED · covered intervals only",partialImportReason:"Only intervals with a valid rate match are in scope; this example provides no amount.",wholeWindowLabel:"Full-horizon bill total",wholeWindowScope:"WITHHELD · not calculated",wholeWindowReason:"Some intervals lack a valid rate; uncovered intervals must not be treated as zero.",savingsLabel:"Baseline-to-candidate savings",savingsReason:"Partial coverage cannot support a full-horizon comparison.",demandLabel:"Demand charge",demandReason:"The billing-demand window and contract calculation rules are unverified.",claimWithheld:"WITHHELD · not provided",claimGrid:"Horizon grid-import profile",claimPeak:"Scenario horizon peak",claimFeas:"Constraint check in the discrete scenario",claimPv:"PV curtailment",claimEss:"Storage charge/discharge sequence",claimFlex:"Flexible-load schedule",claimEnergy:"Import energy charge",claimDemand:"Demand charge",claimExport:"PV export compensation",claimBill:"Full bill",claimSavings:"Savings",claimControl:"Controllability",claimService:"Comfort and service",claimCredit:"Cross-site credit",claimDevice:"Device control",
+scopeScenario:"This synthetic scenario only",scopePeak:"Not billing demand or Pu",scopeFeas:"Not field safety or service feasibility",scopePv:"No candidate curtailment is declared in this scenario",scopeEss:"Based only on assumed power and SOC",scopeFlex:"Capability, comfort and service unverified",withEnergy:"Contract, account and applicable tariff unverified",withDemand:"Demand window and billing rules not evaluated",withExport:"Eligibility, payee and bill credit not evaluated",withBill:"Taxes, demand and other items not calculated",withSavings:"Scenario difference is not realized savings",withControl:"Site capability and authorization not established",withService:"HVAC thermal response, EV delivery and hot-water service not modeled",withCredit:"No cross-site or account credit evidence",withDevice:"No equipment command path",shownScenario:"Shown · scenario scope",notProvided:"Not provided",
+reviewTitle:"Research review",reviewCopy:"Choices below appear on this page only. They are not saved, sent to a service or connected to field actions.",reviewGroup:"Choose one review action",reviewEvidence:"Need site / contract evidence",reviewRevise:"Request a revised scenario",reviewHold:"Do not use this candidate",reviewEmpty:"No local review note yet.",
+reviewEvidenceMsg:"Local draft: awaiting site points, contract and applicable tariff evidence. Cleared when this page reloads.",reviewReviseMsg:"Local draft: equipment service, storage limits and dispatch window need review. Cleared when this page reloads.",reviewHoldMsg:"Local draft: this synthetic candidate is not accepted. Cleared when this page reloads.",
+shadowTitle:"SHADOW boundary",shadowCopy:"This page has no equipment-control path. A candidate schedule is not a command and does not prove the equipment can follow it.",
+footer:"Design review prototype v2.9 · Traditional Chinese, English and Portuguese are candidate previews · Portuguese and domain terminology need Macau energy review · This is not complete product localization.",
+error:"Scenario data could not be loaded. Confirm dispatch-projection-fixture.json is available beside this page.",
+assumption1:"Planning window: 09:00 to 15:00; one-hour intervals; Macau time.",assumption2:"PV and fixed load are synthetic inputs; export or bill credit is not inferred.",assumption3:"The search uses assumed import rates; economic assessment remains blocked with no charge or savings shown.",assumption4:"Task energy comes from the fixture; HVAC thermal inertia, EV departure deadlines and hot-water service are not modeled.",assumption5:"Storage SOC and power limits use only the fixture's discrete assumptions; they do not describe site equipment.",assumption6:"Demand charges, the full bill, export revenue, forecast uncertainty and equipment control are outside this result.",
+loadObjective:"The search compares candidates using hourly import rates; every rate is a project assumption.",transitionLabel:"Search state transitions",timeZone:"Macau time",chartAxis:"kW"
+},
+"pt":{
+lang:"Idioma",brandSub:"Despacho de energia comercial · projeção de resultado",synthetic:"Cenário sintético · SHADOW",version:"Revisão de design v2.9",skip:"Saltar para o conteúdo principal",kicker:"Despacho de fontes e cargas / revisão do resultado",
+title:"Despacho de fontes e cargas",intro:"Compare como a rede, a energia fotovoltaica no local, o armazenamento e as cargas flexíveis se alinham no mesmo horizonte. Veja primeiro a potência e os limites de serviço; depois, a elegibilidade económica e as evidências.",
+scenario:"Cenário de investigação · 8 de outubro de 2026 · hora de Macau",noticeTitle:"Apenas estudo de design.",
+noticeCopy:"Todos os valores são pressupostos do projeto. Não representam dados de instalações em Macau, contratos de clientes, capacidades de equipamento verificadas ou despacho operacional.",
+candidate:"Cenário candidato · apenas para revisão SHADOW",decision:"Energia igual, pico do intervalo superior",
+decisionCopy:"Este cenário discreto e limitado desloca tarefas de HVAC, carregamento de veículos elétricos e água quente, e altera o horário do armazenamento. A energia total importada da rede mantém-se; o máximo do horizonte sobe de 10 kW para 11 kW.",
+objectiveTitle:"Objetivo da pesquisa:",objectiveCopy:"Encontrar o candidato de menor custo com as tarifas horárias de importação fornecidas. Essas tarifas são pressupostos não verificados; isto não é um ótimo económico segundo um contrato aplicável em Macau.",
+energyLabel:"Energia importada no horizonte",energyHint:"Igual neste cenário sintético",peakLabel:"Pico de importação da rede",peakHint:"Não é a demanda do período de faturação nem Pu",economicsLabel:"Avaliação da fatura",economics:"Não calculada",economicsHint:"Conta, contrato e aplicação tarifária não verificados",
+chartTitle:"Importação da rede · referência e candidato",chartCopy:"O estilo das linhas e a forma dos pontos distinguem as séries; a tabela apresenta os valores exatos.",intervalUnit:"média horária",baseline:"Referência · linha tracejada e pontos vazios",candidateLegend:"Candidato · linha contínua e pontos circulares",
+chartDescription:"Importação da rede em seis intervalos de uma hora.",chartEnd:"Início do intervalo · Macau",scrollChart:"O gráfico permite deslocamento horizontal; a tabela abaixo mostra os valores exatos.",
+tableCaption:"Dados horários do cenário · hora de Macau, início incluído e fim excluído. PV indica geração e autoconsumo; não implica exportação nem receita.",thTime:"Intervalo",thGrid:"Importação da rede",thGridSub:"Referência / candidato · kW",thPV:"PV no local",thPVSub:"Geração · autoconsumo referência → candidato · kW",thESS:"Armazenamento",thESSSub:"Carga / descarga do candidato · kW",thSOC:"SOC do armazenamento",thSOCSub:"Início → fim do candidato · kWh",thLoad:"Cargas flexíveis · referência → candidato",
+scrollTable:"Há muitas colunas; desloque horizontalmente apenas dentro desta região de dados.",baselineShort:"Referência",candidateShort:"Candidato",charge:"Carga",discharge:"Descarga",idle:"Inativo",none:"—",
+assumptionsSummary:"Ver pressupostos de entrada e limite da pesquisa",assumptionsTitle:"Pressupostos de entrada e limite da pesquisa",assumptionsIntro:"Estas condições definem apenas o espaço de pesquisa do protótipo. Não são factos sobre equipamentos no local nem compromissos operacionais.",
+resourcesTitle:"Recursos neste cenário",resourcesCopy:"Estas tarefas são apenas horários sintéticos. As capacidades dos equipamentos, os resultados de serviço e a autoridade de controlo não foram verificados.",
+resourceHvac:"HVAC / climatização",resourceEv:"Carregamento de veículos elétricos",resourceWater:"Água quente",resourceState:"Tarefa sintética · serviço no local não avaliado",
+claimsTitle:"O que este resultado pode mostrar",claimModeLegend:"Estudo de apresentação dos estados (nesta página)",claimModeActual:"Resultado da projecção actual",claimModePartial:"Exemplo de cobertura parcial",claimDemoBanner:"Exemplo apenas do estado da interface, não corresponde à projecção sintética actual nem à saída do optimizador PR #14. Avaliação económica: PARTIAL, com cobertura das 09:00 às 13:00, hora de Macau (4 / 6 intervalos); 13:00–15:00 (2 / 6) fica sem cobertura. A alegação de custo da componente de energia importada da rede é ALLOWED apenas nos intervalos cobertos. Não apresenta montantes nem infere uma factura do local.",partialImportLabel:"Componente de custo da energia importada da rede",partialImportScope:"ALLOWED · apenas intervalos cobertos",partialImportReason:"Só abrange intervalos com correspondência válida de tarifa; este exemplo não apresenta montantes.",wholeWindowLabel:"Total da factura do horizonte completo",wholeWindowScope:"WITHHELD · não calculado",wholeWindowReason:"Há intervalos sem tarifa válida; os intervalos não cobertos não podem ser tratados como zero.",savingsLabel:"Poupança entre base e candidato",savingsReason:"A cobertura parcial não permite uma comparação do horizonte completo.",demandLabel:"Encargo de potência",demandReason:"O período de demanda faturável e as regras contratuais de cálculo não foram verificados.",claimWithheld:"WITHHELD · não disponibilizado",claimGrid:"Perfil de importação da rede no horizonte",claimPeak:"Pico do horizonte do cenário",claimFeas:"Verificação de limites no cenário discreto",claimPv:"Corte de geração PV",claimEss:"Sequência de carga/descarga do armazenamento",claimFlex:"Horário das cargas flexíveis",claimEnergy:"Custo da energia importada",claimDemand:"Encargo de demanda",claimExport:"Compensação pela exportação de PV",claimBill:"Fatura completa",claimSavings:"Poupança",claimControl:"Capacidade de controlo",claimService:"Conforto e serviço",claimCredit:"Crédito entre locais",claimDevice:"Controlo de equipamentos",
+scopeScenario:"Apenas este cenário sintético",scopePeak:"Não é demanda de faturação nem Pu",scopeFeas:"Não demonstra segurança ou viabilidade de serviço no local",scopePv:"Este cenário não declara corte de geração PV",scopeEss:"Baseado apenas em potência e SOC presumidos",scopeFlex:"Capacidade, conforto e serviço não verificados",withEnergy:"Contrato, conta e tarifa aplicável não verificados",withDemand:"Janela de demanda e regras de faturação não avaliadas",withExport:"Elegibilidade, beneficiário e crédito na fatura não avaliados",withBill:"Impostos, demanda e outros itens não calculados",withSavings:"A diferença do cenário não é poupança realizada",withControl:"Capacidade e autorização no local não estabelecidas",withService:"Resposta térmica HVAC, entrega EV e serviço de água quente não modelados",withCredit:"Sem evidência de crédito entre locais ou contas",withDevice:"Sem via de comando para equipamentos",shownScenario:"Visível · âmbito do cenário",notProvided:"Não disponibilizado",
+reviewTitle:"Revisão da investigação",reviewCopy:"As escolhas abaixo aparecem apenas nesta página. Não são guardadas, enviadas a um serviço nem ligadas a ações no local.",reviewGroup:"Escolha uma opção de revisão",reviewEvidence:"São necessárias evidências do local / contrato",reviewRevise:"Pedir revisão do cenário",reviewHold:"Não utilizar este candidato",reviewEmpty:"Ainda não existe nota de revisão local.",
+reviewEvidenceMsg:"Rascunho local: aguardam-se pontos do local, contrato e evidência da tarifa aplicável. Será limpo ao recarregar a página.",reviewReviseMsg:"Rascunho local: rever os serviços dos equipamentos, limites do armazenamento e janela de despacho. Será limpo ao recarregar a página.",reviewHoldMsg:"Rascunho local: este candidato sintético não foi aceite. Será limpo ao recarregar a página.",
+shadowTitle:"Limite SHADOW",shadowCopy:"Esta página não tem via de controlo de equipamentos. O horário candidato não é um comando nem prova que os equipamentos o possam cumprir.",
+footer:"Protótipo de revisão de design v2.9 · Chinês tradicional, inglês e português são pré-visualizações candidatas · Português e terminologia do domínio requerem revisão energética em Macau · Não representa localização completa do produto.",
+error:"Não foi possível carregar os dados do cenário. Confirme que dispatch-projection-fixture.json está disponível junto desta página.",
+assumption1:"Janela de planeamento: 09:00 a 15:00; intervalos de uma hora; hora de Macau.",assumption2:"PV e carga fixa são dados sintéticos; não se infere exportação nem crédito na fatura.",assumption3:"A pesquisa usa tarifas presumidas; a avaliação económica continua bloqueada, sem apresentar custo ou poupança.",assumption4:"A energia das tarefas vem do fixture; inércia térmica HVAC, prazo de saída EV e serviço de água quente não são modelados.",assumption5:"SOC e limites de potência do armazenamento usam apenas pressupostos discretos do fixture; não descrevem equipamento no local.",assumption6:"Encargos de demanda, fatura completa, receita de exportação, incerteza da previsão e controlo de equipamentos ficam fora deste resultado.",
+loadObjective:"A pesquisa compara candidatos com tarifas horárias; todas as tarifas são pressupostos do projeto.",transitionLabel:"Transições de estado da pesquisa",timeZone:"Hora de Macau",chartAxis:"kW"
+}};
+const localeTag={"zh-Hant":"zh-Hant","en":"en","pt":"pt"};
+const claimCopy={
+GRID_IMPORT_PROFILE:["claimGrid","scopeScenario"],HORIZON_PEAK:["claimPeak","scopePeak"],DISPATCH_FEASIBILITY:["claimFeas","scopeFeas"],PV_CURTAILMENT:["claimPv","scopePv"],ESS_DISPATCH:["claimEss","scopeEss"],FLEXIBLE_LOAD_DISPATCH:["claimFlex","scopeFlex"],GRID_IMPORT_ENERGY_COMPONENT:["claimEnergy","withEnergy"],DEMAND_CHARGE:["claimDemand","withDemand"],EXPORT_COMPENSATION:["claimExport","withExport"],FULL_BILL:["claimBill","withBill"],SAVINGS:["claimSavings","withSavings"],CONTROLLABILITY:["claimControl","withControl"],COMFORT_SERVICE:["claimService","withService"],CROSS_SITE_CREDIT:["claimCredit","withCredit"],DEVICE_CONTROL:["claimDevice","withDevice"]};
+let currentLocale="zh-Hant",fixtureData=null,reviewChoice=null;
+function msg(k){return messages[currentLocale][k]}
+function fmt(x,d){return new Intl.NumberFormat(localeTag[currentLocale],{maximumFractionDigits:d||0}).format(Number(x))}
+function time(x){return x.slice(11,16)}
+function el(id){return document.getElementById(id)}
+function set(id,value){el(id).textContent=value}
+function setLanguage(locale){
+ currentLocale=messages[locale]?locale:"zh-Hant";
+ document.documentElement.lang=localeTag[currentLocale];document.documentElement.dir="ltr";
+ el("locale-select").value=currentLocale;el("locale-select").setAttribute("aria-label",msg("lang"));
+ document.title="Macau Energy OS · "+msg("kicker");
+ ["skip","brand-sub","synthetic-tag","version-tag","locale-label","kicker","page-title","intro-copy","scenario-date","notice-title","notice-copy","candidate-label","decision-title","decision-copy","objective-title","objective-copy","energy-label","energy-hint","peak-label","peak-hint","economics-label","chart-title","chart-copy","interval-unit","baseline-label","candidate-legend","chart-hint","table-caption","th-time","th-grid","th-grid-sub","th-pv","th-pv-sub","th-ess","th-ess-sub","th-soc","th-soc-sub","th-load","table-hint","assumptions-summary","assumptions-title","assumptions-intro","resources-title","resources-copy","claims-title","review-title","review-copy","review-group-label","review-evidence-label","review-revise-label","review-hold-label","shadow-title","shadow-copy","footer"].forEach(id=>{const key={"skip":"skip","brand-sub":"brandSub","synthetic-tag":"synthetic","version-tag":"version","locale-label":"lang","kicker":"kicker","page-title":"title","intro-copy":"intro","scenario-date":"scenario","notice-title":"noticeTitle","notice-copy":"noticeCopy","candidate-label":"candidate","decision-title":"decision","decision-copy":"decisionCopy","objective-title":"objectiveTitle","objective-copy":"objectiveCopy","energy-label":"energyLabel","energy-hint":"energyHint","peak-label":"peakLabel","peak-hint":"peakHint","economics-label":"economicsLabel","chart-title":"chartTitle","chart-copy":"chartCopy","interval-unit":"intervalUnit","baseline-label":"baseline","candidate-legend":"candidateLegend","chart-hint":"scrollChart","table-caption":"tableCaption","th-time":"thTime","th-grid":"thGrid","th-grid-sub":"thGridSub","th-pv":"thPV","th-pv-sub":"thPVSub","th-ess":"thESS","th-ess-sub":"thESSSub","th-soc":"thSOC","th-soc-sub":"thSOCSub","th-load":"thLoad","table-hint":"scrollTable","assumptions-summary":"assumptionsSummary","assumptions-title":"assumptionsTitle","assumptions-intro":"assumptionsIntro","resources-title":"resourcesTitle","resources-copy":"resourcesCopy","claims-title":"claimsTitle","review-title":"reviewTitle","review-copy":"reviewCopy","review-group-label":"reviewGroup","review-evidence-label":"reviewEvidence","review-revise-label":"reviewRevise","review-hold-label":"reviewHold","shadow-title":"shadowTitle","shadow-copy":"shadowCopy","footer":"footer"}[id];if(key)set(id,msg(key))});
+ document.querySelectorAll("[data-i18n]").forEach(node=>{node.textContent=msg(node.dataset.i18n)});
+ el("economics-stat").textContent=msg("economics");
+ el("review-state").textContent=reviewChoice?msg("review"+reviewChoice[0].toUpperCase()+reviewChoice.slice(1)+"Msg"):msg("reviewEmpty");syncReviewChoice();
+ if(fixtureData)render(fixtureData);
+}
+function renderChart(data){
+ const base=data.baseline.map(r=>Number(r.grid_import_kw)),cand=data.candidate.map(r=>Number(r.grid_import_kw)),max=Math.max(12,...base,...cand);
+ const x0=70,x1=720,y0=25,y1=205,x=i=>x0+(x1-x0)*i/(base.length-1),y=v=>y1-v/max*(y1-y0),path=a=>a.map((v,i)=>(i?"L":"M")+x(i)+","+y(v)).join(" ");
+ let s="<desc>"+msg("chartDescription")+" "+msg("baseline")+" "+base.map(v=>fmt(v)).join(", ")+" kW; "+msg("candidateLegend")+" "+cand.map(v=>fmt(v)).join(", ")+" kW.</desc>";
+ [0,3,6,9,12].forEach(v=>{s+='<g><line class="gridline" x1="'+x0+'" y1="'+y(v)+'" x2="'+x1+'" y2="'+y(v)+'"></line><text x="'+(x0-12)+'" y="'+(y(v)+4)+'" text-anchor="end">'+fmt(v)+'</text></g>'});
+ s+='<path class="baseline" d="'+path(base)+'"></path><path class="candidate" d="'+path(cand)+'"></path>';
+ base.forEach((v,i)=>{s+='<circle class="base-dot" cx="'+x(i)+'" cy="'+y(v)+'" r="4"><title>'+msg("baselineShort")+' '+time(data.baseline[i].start)+': '+fmt(v)+' kW</title></circle>'});
+ cand.forEach((v,i)=>{s+='<circle class="cand-dot" cx="'+x(i)+'" cy="'+y(v)+'" r="4.5"><title>'+msg("candidateShort")+' '+time(data.candidate[i].start)+': '+fmt(v)+' kW</title></circle>'});
+ cand.forEach((v,i)=>{s+='<text x="'+x(i)+'" y="232" text-anchor="middle">'+time(data.candidate[i].start)+'</text>'});
+ s+='<text x="18" y="18">kW</text><text x="720" y="260" text-anchor="end">'+msg("chartEnd")+'</text>';el("chart").innerHTML=s;el("chart").setAttribute("aria-label",msg("chartTitle"));el("chart").setAttribute("aria-describedby","chart-hint")
+}
+function kind(k){return k==="HVAC"?msg("resourceHvac"):k==="EV"?msg("resourceEv"):msg("resourceWater")}
+function renderRows(data){
+ el("rows").innerHTML=data.candidate.map((r,i)=>{
+  const b=data.baseline[i],loads=(row)=>row.flexible_loads.filter(l=>Number(l.power_kw)>0).map(l=>'<span class="load-name '+(l.kind==="HVAC"?"hvac":l.kind==="EV"?"ev":"water")+'"><i class="marker" aria-hidden="true"></i>'+kind(l.kind)+' '+fmt(l.power_kw,1)+' kW</span>').join(" ")||msg("none");
+  const charge=Number(r.ess_charge_kw),dis=Number(r.ess_discharge_kw),ess=charge?msg("charge")+" "+fmt(charge,1):dis?msg("discharge")+" "+fmt(dis,1):msg("idle");
+  return '<tr><td class="num">'+time(r.start)+'–'+time(r.end)+'</td><td class="num">'+fmt(b.grid_import_kw)+' / <strong>'+fmt(r.grid_import_kw)+'</strong></td><td class="num">'+fmt(r.pv_generation_kw,1)+' · '+fmt(b.pv_used_kw,1)+' → '+fmt(r.pv_used_kw,1)+'</td><td class="num">'+ess+'</td><td class="num">'+fmt(r.ess_soc_start_kwh,1)+' → '+fmt(r.ess_soc_end_kwh,1)+'</td><td class="load-cell"><div class="load-row"><b>'+msg("baselineShort")+'</b><span>'+loads(b)+'</span></div><div class="load-row"><b>'+msg("candidateShort")+'</b><span>'+loads(r)+'</span></div></td></tr>'
+ }).join("")
+}
+let claimViewMode="actual";
+function renderClaims(data){
+ if(claimViewMode==="partial-demo"){
+  el("claim-demo-banner").hidden=false;el("claim-demo-banner").textContent=msg("claimDemoBanner");
+  const rows=[
+   ["partialImportLabel","partialImportScope","partialImportReason","partial"],
+   ["wholeWindowLabel","wholeWindowScope","wholeWindowReason","withheld"],
+   ["savingsLabel","claimWithheld","savingsReason","withheld"],
+   ["demandLabel","claimWithheld","demandReason","withheld"]
+  ];
+  el("claims").innerHTML=rows.map(([label,scope,reason,kind])=>'<li><div><strong>'+msg(label)+'</strong><span class="claim-scope '+kind+'">'+msg(scope)+'</span><small class="claim-reason">'+msg(reason)+'</small></div></li>').join("");
+  return
+ }
+ el("claim-demo-banner").hidden=true;
+ const by=new Map();data.claims.forEach(c=>{if(!by.has(c.claim)||(by.get(c.claim).status==="ALLOWED"&&c.status!=="ALLOWED"))by.set(c.claim,c)});
+ const order=Object.keys(claimCopy);
+ el("claims").innerHTML=order.filter(k=>by.has(k)).map(k=>{const c=by.get(k),pair=claimCopy[k],allow=c.status==="ALLOWED";return '<li><div><strong>'+msg(pair[0])+'</strong><small>'+msg(pair[1])+'</small></div><span class="state '+(allow?"allowed":"held")+'">'+msg(allow?"shownScenario":"notProvided")+'</span></li>'}).join("")
+}
+function renderResources(data){
+ const types=[["HVAC","resourceHvac"],["EV","resourceEv"],["HOT_WATER","resourceWater"]];
+ el("resources").innerHTML=types.map(([kindName,label])=>{const task=data.inputs.tasks.find(t=>t.kind===kindName);return '<div class="resource"><div class="resource-head"><strong>'+msg(label)+'</strong><span class="resource-state">'+msg("resourceState")+'</span></div><small>'+msg("loadObjective")+' '+(task?fmt(task.required_energy_kwh,1):"0")+' kWh</small></div>'}).join("")
+}
+function renderAssumptions(data){
+ const inputs=data.inputs;
+ const values=[
+ msg("assumption1"),
+ msg("assumption2")+" PV: "+inputs.pv_generation_kw.map(v=>fmt(v,1)).join(", ")+" kW; fixed load: "+inputs.base_load_kw.map(v=>fmt(v,1)).join(", ")+" kW.",
+ msg("assumption3")+" Example MOP/kWh rates: "+inputs.import_rates_mop_per_kwh.join(", ")+".",
+ msg("assumption4")+" Task energy: "+inputs.tasks.map(t=>kind(t.kind)+" "+fmt(t.required_energy_kwh,1)+" kWh").join("; ")+".",
+ msg("assumption5")+" Initial SOC: "+fmt(inputs.initial_soc_kwh,1)+" kWh; "+fmt(data.search.transitions_examined)+" "+msg("transitionLabel")+".",
+ msg("assumption6")
+ ];el("assumptions").innerHTML=values.map(x=>"<li>"+x+"</li>").join("")
+}
+function render(data){
+ fixtureData=data;
+ const baseKwh=data.baseline.reduce((n,r)=>n+Number(r.grid_import_kw),0),candKwh=data.candidate.reduce((n,r)=>n+Number(r.grid_import_kw),0),basePeak=Math.max(...data.baseline.map(r=>Number(r.grid_import_kw))),candPeak=Math.max(...data.candidate.map(r=>Number(r.grid_import_kw)));
+ set("energy-stat",fmt(baseKwh)+" → "+fmt(candKwh)+" kWh");set("peak-stat",fmt(basePeak)+" → "+fmt(candPeak)+" kW");
+ renderChart(data);renderRows(data);renderClaims(data);renderResources(data);renderAssumptions(data);el("projection").hidden=false
+}
+function syncReviewChoice(){document.querySelectorAll("[data-review]").forEach(option=>{const selected=option.value===reviewChoice;option.checked=selected;option.closest(".review-option").classList.toggle("selected",selected)})}
+document.querySelectorAll("[data-review]").forEach(option=>option.addEventListener("change",()=>{reviewChoice=option.value;syncReviewChoice();set("review-state",msg("review"+reviewChoice[0].toUpperCase()+reviewChoice.slice(1)+"Msg"))}));
+el("locale-select").addEventListener("change",event=>setLanguage(event.target.value));
+setLanguage("zh-Hant");
+fetch("./dispatch-projection-fixture.json").then(r=>{if(!r.ok)throw new Error("fixture unavailable");return r.json()}).then(render).catch(()=>{set("load-error",msg("error"));el("load-error").style.display="block"});
+document.querySelectorAll('input[name="claim-view-mode"]').forEach(input=>input.addEventListener("change",()=>{claimViewMode=input.value;if(fixtureData)renderClaims(fixtureData)}));
+</script>
+</body></html>

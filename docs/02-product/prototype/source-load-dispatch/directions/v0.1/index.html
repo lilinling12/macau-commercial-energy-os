@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Macau Commercial Energy OS — Dispatch visual directions v0.1</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #f2f5f7;
+      --surface: #ffffff;
+      --surface-2: #eaf0f3;
+      --ink: #172b36;
+      --muted: #526771;
+      --line: #d4dfe4;
+      --brand: #145d67;
+      --brand-soft: #d9ecee;
+      --pv: #a95716;
+      --pv-soft: #f8eadc;
+      --grid: #385c8c;
+      --ess: #67559b;
+      --load: #61717b;
+      --warning: #795300;
+      --warning-soft: #fff1d3;
+      --radius: 18px;
+      --shadow: 0 18px 45px rgba(25, 50, 62, .07);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--page); color: var(--ink); font: 16px/1.5 Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+    button, select { color: inherit; font: inherit; }
+    button { cursor: pointer; }
+    a { color: var(--brand); }
+    :focus-visible { outline: 3px solid #b44920; outline-offset: 3px; }
+    .skip { position: absolute; top: -4rem; left: 1rem; z-index: 10; background: white; padding: .7rem 1rem; border-radius: .5rem; }
+    .skip:focus { top: 1rem; }
+    .page { max-width: 1540px; margin: auto; padding: 28px clamp(16px, 3.8vw, 58px) 72px; }
+    .masthead { display:flex; align-items:center; justify-content:space-between; gap:20px; padding-bottom:22px; border-bottom:1px solid var(--line); }
+    .identity { display:flex; align-items:center; gap:13px; }
+    .mark { width:38px; height:38px; border-radius:12px 12px 12px 4px; display:grid; place-items:center; background:var(--brand); color:#fff; font-weight:750; letter-spacing:-.04em; }
+    .identity strong { display:block; font-size:14px; letter-spacing:.01em; }
+    .identity small { display:block; color:var(--muted); font-size:12px; }
+    .top-meta { display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
+    .tag { display:inline-flex; align-items:center; gap:7px; min-height:32px; padding:5px 10px; border:1px solid var(--line); border-radius:999px; background:var(--surface); font-size:12px; color:var(--muted); }
+    .tag strong { color:var(--ink); font-weight:650; }
+    .tag .dot { width:7px; height:7px; border-radius:50%; background:var(--warning); }
+    .intro { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:end; gap:24px; padding:35px 0 26px; }
+    .eyebrow { margin:0 0 8px; color:var(--brand); font-size:11px; font-weight:760; letter-spacing:.15em; text-transform:uppercase; }
+    h1 { margin:0; max-width:900px; text-wrap:balance; font-size:clamp(32px,4.5vw,58px); line-height:1.02; letter-spacing:-.055em; font-weight:660; }
+    .lead { max-width:750px; margin:13px 0 0; color:var(--muted); }
+    .boundary { max-width:290px; padding:12px 14px; border-left:3px solid var(--warning); background:var(--warning-soft); color:#553c05; border-radius:0 10px 10px 0; font-size:12px; }
+    .boundary strong { display:block; margin-bottom:3px; font-size:13px; }
+    .study-nav { display:flex; gap:9px; overflow-x:auto; padding:1px 2px 17px; scrollbar-width:thin; }
+    .study-nav button { flex:0 0 auto; min-height:44px; border:1px solid var(--line); border-radius:10px; padding:8px 13px; background:var(--surface); font-size:13px; font-weight:620; }
+    .study-nav button[aria-pressed="true"] { background:var(--ink); color:#fff; border-color:var(--ink); }
+    .direction { margin-top:19px; border:1px solid var(--line); border-radius:24px; background:var(--surface); box-shadow:var(--shadow); overflow:hidden; }
+    .direction[hidden] { display:none; }
+    .direction-head { display:flex; justify-content:space-between; align-items:center; gap:18px; padding:19px 24px; border-bottom:1px solid var(--line); }
+    .direction-head h2 { margin:0; font-size:17px; letter-spacing:-.02em; }
+    .direction-head p { margin:3px 0 0; color:var(--muted); font-size:12px; }
+    .direction-number { width:36px; height:36px; flex:0 0 36px; display:grid; place-items:center; border-radius:50%; background:var(--brand-soft); color:var(--brand); font-weight:750; font-size:13px; }
+    .direction-content { padding:22px 24px 25px; }
+    .context-row { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; padding-bottom:16px; }
+    .site-context strong { display:block; font-size:17px; letter-spacing:-.02em; }
+    .site-context span { display:block; color:var(--muted); font-size:12px; }
+    .workflow { display:grid; grid-template-columns:repeat(6, minmax(110px,1fr)); margin:16px 0 23px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .step { position:relative; min-height:50px; display:flex; align-items:center; gap:8px; padding:9px 8px; color:var(--muted); font-size:12px; }
+    .step b { width:22px; height:22px; flex:0 0 22px; display:grid; place-items:center; border:1px solid var(--line); border-radius:50%; font-size:10px; font-weight:650; }
+    .step.active { color:var(--ink); font-weight:650; }
+    .step.active b { background:var(--brand); border-color:var(--brand); color:#fff; }
+    .workspace { display:grid; grid-template-columns:minmax(0,1.55fr) minmax(265px,.72fr); gap:17px; align-items:start; min-width:0; }
+    .schedule, .evidence, .flow-box, .tradeoff { border:1px solid var(--line); border-radius:16px; background:var(--surface); min-width:0; }
+    .schedule { padding:18px 19px 16px; }
+    .panel-title { display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-bottom:12px; }
+    .panel-title h3 { margin:0; font-size:16px; letter-spacing:-.025em; }
+    .panel-title p { margin:3px 0 0; color:var(--muted); font-size:12px; }
+    .mini-label { color:var(--muted); font-size:12px; white-space:nowrap; }
+    .legend { display:flex; gap:13px; flex-wrap:wrap; margin:8px 0 8px; color:var(--muted); font-size:11px; }
+    .legend span { display:inline-flex; align-items:center; gap:6px; }
+    .key { width:10px; height:10px; display:inline-block; border-radius:3px; background:var(--grid); }
+    .key.candidate { background:var(--brand); }
+    .key.pv { background:var(--pv); }
+    .key.ess { background:var(--ess); }
+    .compare-scroll { width:100%; max-width:100%; min-width:0; overflow-x:auto; }
+    .compare-table { width:100%; border-collapse:separate; border-spacing:6px 5px; table-layout:fixed; }
+    .compare-table th:first-child { width:130px; text-align:left; }
+    .compare-table thead th { padding:0 2px 4px; color:var(--muted); font-size:12px; font-weight:550; text-align:center; }
+    .series-label { font-size:12px; font-weight:630; }
+    .series-label small { display:block; color:var(--muted); font-size:11px; font-weight:450; }
+    .scroll-hint { display:none; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    .bar-cell { position:relative; min-height:48px; display:flex; align-items:center; justify-content:center; gap:2px; border-radius:8px; background:var(--surface-2); font-variant-numeric:tabular-nums; font-size:12px; }
+    .bar-cell::before { content:""; position:absolute; inset:auto 5px 4px; height:4px; border-radius:4px; background:var(--bar-color,var(--grid)); transform:scaleX(var(--bar, .5)); transform-origin:left; opacity:.75; }
+    .bar-cell.candidate::before { background:var(--brand); }
+    .bar-cell em { position:absolute; top:1px; right:3px; color:var(--muted); font-size:10px; font-style:normal; }
+    .bar-cell.improved { border:1px solid #b8dcdb; background:#eff8f7; }
+    .bar-cell.worse { border:1px solid #efcfb9; background:#fff5ed; }
+    .range-note { margin:9px 0 0; padding-top:10px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    .range-note strong { color:var(--ink); }
+    .evidence { padding:17px; background:var(--surface-2); }
+    .evidence h3 { margin:0 0 12px; font-size:15px; }
+    .evidence-row { display:grid; grid-template-columns:1fr auto; align-items:start; gap:10px; padding:10px 0; border-top:1px solid var(--line); }
+    .evidence-row strong { display:block; font-size:12px; }
+    .evidence-row small { display:block; margin-top:2px; color:var(--muted); font-size:12px; }
+    .state { align-self:start; padding:3px 7px; border-radius:99px; background:var(--warning-soft); color:#553c05; font-size:11px; font-weight:680; white-space:nowrap; }
+    .state.ready { background:#dff0ec; color:#14564d; }
+    .flow-row { display:grid; grid-template-columns:1fr auto 1fr auto 1fr auto 1fr; gap:8px; align-items:stretch; margin-top:17px; }
+    .flow-node { min-width:0; padding:12px; border:1px solid var(--line); border-radius:12px; background:var(--surface-2); }
+    .flow-node .kind { display:block; margin-bottom:8px; color:var(--muted); font-size:10px; letter-spacing:.06em; text-transform:uppercase; }
+    .flow-node strong { display:block; font-size:17px; line-height:1.2; letter-spacing:-.03em; font-variant-numeric:tabular-nums; }
+    .flow-node small { display:block; margin-top:4px; color:var(--muted); font-size:10px; }
+    .flow-node.grid { border-top:3px solid var(--grid); }
+    .flow-node.pv { border-top:3px solid var(--pv); }
+    .flow-node.ess { border-top:3px solid var(--ess); }
+    .flow-node.load { border-top:3px solid var(--brand); }
+    .load-breakdown { margin-top:16px; padding:17px 18px; border:1px solid var(--line); border-radius:16px; background:var(--surface); }
+    .load-breakdown h3 { margin:0; font-size:16px; letter-spacing:-.025em; }
+    .load-breakdown .asset-note { margin:4px 0 12px; color:var(--muted); font-size:12px; }
+    .asset-scroll { overflow-x:auto; max-width:100%; }
+    .asset-table { width:100%; min-width:650px; border-collapse:collapse; font-size:12px; font-variant-numeric:tabular-nums; }
+    .asset-table th,.asset-table td { padding:8px 10px; border-bottom:1px solid var(--line); text-align:right; white-space:nowrap; }
+    .asset-table th:first-child,.asset-table td:first-child { text-align:left; }
+    .asset-table thead th { color:var(--muted); font-size:11px; font-weight:650; }
+    .asset-table tbody th { font-weight:650; }
+    .asset-table .adjusted { color:var(--brand); font-weight:750; }
+    .asset-table .assumed { color:var(--muted); }
+    .asset-boundary { margin:11px 0 0; padding:10px 12px; border-radius:10px; background:var(--warning-soft); color:var(--ink); font-size:12px; }
+    .flow-arrow { align-self:center; color:var(--muted); font-size:16px; }
+    .balance-note { margin:10px 0 0; color:var(--muted); font-size:11px; }
+    .decision-row { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:16px; align-items:center; margin-top:17px; padding:15px 16px; border-radius:14px; background:var(--ink); color:#fff; }
+    .decision-row p { margin:0; font-size:12px; color:#e4edf0; }
+    .decision-row strong { color:#fff; }
+    .demo-button { min-height:44px; padding:9px 13px; border:1px solid rgba(255,255,255,.55); border-radius:10px; background:transparent; color:#fff; font-weight:650; font-size:12px; }
+    .demo-button[aria-pressed="true"] { background:#fff; color:var(--ink); }
+    .review-message { min-height:1.5em; margin:10px 0 0; color:var(--muted); font-size:12px; }
+    .flow-layout .direction-content { display:flex; flex-direction:column; }
+    .flow-layout .flow-box { order:1; }
+    .flow-layout .workspace { order:2; grid-template-columns:1fr; }
+    .flow-layout .decision-row { order:3; }
+    .flow-layout .review-message { order:4; }
+    .flow-layout .flow-row { grid-template-columns:1fr auto 1fr auto 1fr auto 1fr; }
+    .flow-layout .schedule { order:2; }
+    .flow-layout .evidence { order:1; display:grid; grid-template-columns:1.1fr repeat(3,1fr); gap:10px; align-items:center; }
+    .flow-layout .evidence h3 { margin:0; }
+    .flow-layout .evidence-row { border:0; padding:5px; }
+    .evidence-layout .workspace { grid-template-columns:minmax(0,1.35fr) minmax(305px,.8fr); }
+    .evidence-layout .evidence { order:0; background:transparent; }
+    .evidence-layout .schedule { order:1; }
+    .evidence-layout .flow-row { margin-top:22px; }
+    .night { --page:#101b23; --surface:#17262f; --surface-2:#20333d; --ink:#edf4f5; --muted:#bac8cd; --line:#38505b; --brand:#6ccdc3; --brand-soft:#224b4e; --pv:#f4b771; --pv-soft:#523d27; --grid:#88addb; --ess:#c0a8fa; --load:#bac8cd; --warning:#ffd27f; --warning-soft:#493c24; --shadow:0 18px 45px rgba(0,0,0,.22); color-scheme:dark; }
+    .night .boundary { background:var(--warning-soft); color:#fff1c9; }
+    .night .decision-row { background:#0b1419; }
+    .night .bar-cell.improved { background:#1d3a39; border-color:#366763; }
+    .night .bar-cell.worse { background:#3a2b24; border-color:#684936; }
+    .night .state.ready { color:#d5f5ef; background:#244942; }
+    .night .demo-button[aria-pressed="true"] { background:#dff7f4; }
+    footer { margin:24px 2px 0; color:var(--muted); font-size:12px; }
+    @media(max-width:980px) {
+      .intro { grid-template-columns:1fr; align-items:start; }
+      .boundary { max-width:unset; }
+      .workspace, .evidence-layout .workspace { grid-template-columns:minmax(0,1fr); }
+      .workflow { grid-template-columns:repeat(3,1fr); }
+      .flow-layout .evidence { grid-template-columns:repeat(2,1fr); }
+    }
+    @media(max-width:680px) {
+      .page { padding:17px 14px 48px; }
+      .masthead { align-items:flex-start; }
+      .top-meta { max-width:170px; }
+      .top-meta .tag:first-child { display:none; }
+      .intro { padding-top:26px; }
+      .direction { border-radius:17px; }
+      .direction-head { padding:16px; }
+      .direction-content { padding:16px; }
+      .workflow { grid-template-columns:repeat(2,1fr); }
+      .study-nav { flex-wrap:wrap; overflow:visible; }
+      .study-nav button { flex:1 1 calc(50% - 9px); }
+      .compare-scroll { overflow-x:auto; scrollbar-width:thin; scroll-padding-inline:8px; }
+      .compare-table { min-width:570px; }
+      .scroll-hint { display:block; margin:0 0 4px; color:var(--muted); font-size:12px; }
+      .bar-cell { min-height:44px; font-size:12px; }
+      .series-label { font-size:11px; }
+      .flow-row, .flow-layout .flow-row { grid-template-columns:1fr 1fr; }
+      .flow-arrow { display:none; }
+      .flow-layout .evidence { grid-template-columns:1fr; }
+      .flow-layout .evidence-row { border-top:1px solid var(--line); }
+      .decision-row { grid-template-columns:1fr; }
+      .demo-button { width:100%; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">跳至主要内容</a>
+  <main id="main" class="page">
+    <header class="masthead">
+      <div class="identity"><span class="mark" aria-hidden="true">E</span><span><strong>Macau Commercial Energy OS</strong><small>调度体验方向研究 · 仅合成数据</small></span></div>
+      <div class="top-meta"><span class="tag">研究状态 <strong>未定稿</strong></span><span class="tag"><i class="dot" aria-hidden="true"></i><strong>Shadow 建议</strong> · 无设备控制</span></div>
+    </header>
+    <section class="intro" aria-labelledby="page-title">
+      <div><p class="eyebrow">产品体验研究 · v0.1</p><h1 id="page-title">让每一段电力安排，都能说清依据。</h1><p class="lead">以同一组来源、负荷和约束数据比较三种调度工作台布局。先核对现场与合同证据，再讨论方案；所有数值均来自合成六小时情境，不代表澳门现场或客户账单。</p></div>
+          <aside class="boundary"><strong>情境范围</strong>2026-10-04 · 12:00–18:00 · 合成数据<br>包含 HVAC、EV、热水负荷；只有 HVAC / ESS 候选变化<br>EV 与热水可控性未核实；不计算电费或收益</aside>
+    </section>
+    <nav class="study-nav" aria-label="选择布局研究方向">
+      <button type="button" data-view="schedule" aria-pressed="true">01 · 时段优先</button>
+      <button type="button" data-view="flow" aria-pressed="false">02 · 能源流优先</button>
+      <button type="button" data-view="evidence" aria-pressed="false">03 · 证据优先</button>
+      <button type="button" id="contrastToggle" aria-pressed="false">切换暗色概念</button>
+    </nav>
+    <section class="direction" id="direction" aria-labelledby="direction-title">
+      <header class="direction-head"><div><h2 id="direction-title">01 · 时段优先</h2><p id="direction-desc">先看基线与候选在各区间的变化，再打开能源平衡和证据限制。</p></div><span class="direction-number" id="direction-number">01</span></header>
+      <div class="direction-content">
+        <div class="context-row"><div class="site-context"><strong>示例站点 · Synthetic site 01</strong><span>Asia/Macau · 2026年10月4日 · 12:00–18:00 · 每小时平均功率</span></div><div class="top-meta"><span class="tag">评估结果 <strong>仅情境</strong></span><span class="tag">结算周期 <strong>未核实</strong></span></div></div>
+        <div class="workflow" aria-label="调度工作流六阶段"><div class="step"><b>1</b>资料与合同</div><div class="step"><b>2</b>站点能源模型</div><div class="step"><b>3</b>预测与方案</div><div class="step active"><b>4</b>成本与约束</div><div class="step"><b>5</b>Shadow 审阅</div><div class="step"><b>6</b>监测与回放</div></div>
+        <div class="workspace">
+          <section class="schedule" aria-labelledby="schedule-title">
+            <div class="panel-title"><div><h3 id="schedule-title">电网输入 · 基线 / 候选</h3><p>逐小时平均 kW · 同一规划区间</p></div><span class="mini-label">蓝灰 基线　青绿 候选</span></div>
+            <div class="legend"><span><i class="key"></i>基线电网</span><span><i class="key candidate"></i>候选电网</span><span><i class="key pv"></i>现场 PV</span><span><i class="key ess"></i>储能</span></div>
+            <p class="scroll-hint" id="compare-hint">窄屏可左右滑动查看所有区间；下方摘要同时列出最大变化。</p>
+            <div class="compare-scroll" role="region" aria-label="逐时段电网输入比较表，可水平滚动" tabindex="0">
+              <table class="compare-table"><caption class="sr-only">合成情境逐小时平均电网输入比较，单位为千瓦。</caption><thead><tr><th scope="col">区间 / kW</th><th scope="col">12–13</th><th scope="col">13–14</th><th scope="col">14–15</th><th scope="col">15–16</th><th scope="col">16–17</th><th scope="col">17–18</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row" class="series-label">基线<small>合成参照</small></th><td><div class="bar-cell" style="--bar:.58">350</div></td><td><div class="bar-cell" style="--bar:.67">405</div></td><td><div class="bar-cell" style="--bar:.75">455</div></td><td><div class="bar-cell" style="--bar:.79">480</div></td><td><div class="bar-cell" style="--bar:.80">485</div></td><td><div class="bar-cell" style="--bar:.79">480</div></td></tr>
+                  <tr><th scope="row" class="series-label">候选<small>情境方案</small></th><td><div class="bar-cell candidate" style="--bar:.58">350</div></td><td><div class="bar-cell candidate" style="--bar:.67">405</div></td><td><div class="bar-cell candidate" style="--bar:.75">455</div></td><td><div class="bar-cell candidate improved" style="--bar:.70" aria-label="430 kW，比基线低 50 kW">430<em aria-hidden="true">−50</em></div></td><td><div class="bar-cell candidate worse" style="--bar:.84" aria-label="509.7 kW，比基线高约 24.7 kW">509.7<em aria-hidden="true">+24.7</em></div></td><td><div class="bar-cell candidate worse" style="--bar:.84" aria-label="510 kW，比基线高 30 kW">510<em aria-hidden="true">+30</em></div></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="range-note"><strong>时段效应：</strong>15–16 时电网输入低 50 kW；储能回充与 HVAC 回弹后，候选全时段峰值为 510 kW，基线为 485 kW。需量电费影响未计算，CEM 适用计量窗与客户合同尚未核实。</p>
+          </section>
+          <aside class="evidence" aria-labelledby="evidence-title">
+            <h3 id="evidence-title">结论依赖的证据</h3>
+            <div class="evidence-row"><div><strong>现场电表与时间覆盖</strong><small>本例为情境输入，无站点映射</small></div><span class="state">未核验</span></div>
+            <div class="evidence-row"><div><strong>账户、合同与适用电价</strong><small>无法计算客户账单或节省</small></div><span class="state">未核验</span></div>
+            <div class="evidence-row"><div><strong>HVAC 可调与舒适边界</strong><small>只有功率假设，没有热舒适模型</small></div><span class="state">缺失</span></div>
+            <div class="evidence-row"><div><strong>EV 接入时段与充电约束</strong><small>负荷已拆分；充电窗口 / 可控性未核实</small></div><span class="state">未核验</span></div>
+            <div class="evidence-row"><div><strong>热水需求与热惯性约束</strong><small>负荷已拆分；储热 / 卫生温度限制未建模</small></div><span class="state">未核验</span></div>
+            <div class="evidence-row"><div><strong>ESS 功率 / SOC / 效率</strong><small>仅合成参数，未验证设备能力</small></div><span class="state">情境值</span></div>
+          </aside>
+        </div>
+        <section class="flow-box" aria-labelledby="balance-title" style="margin-top:16px;padding:17px 18px">
+          <div class="panel-title"><div><h3 id="balance-title">来源与负荷平衡 · 16:00–17:00 候选</h3><p>AC 端功率；仅用于说明物理流，不等于电费结算</p></div><span class="mini-label">合成情境</span></div>
+          <div class="flow-row"><div class="flow-node grid"><span class="kind">电网输入</span><strong>509.691 kW</strong><small>购电计量窗未核实</small></div><span class="flow-arrow" aria-hidden="true">+</span><div class="flow-node pv"><span class="kind">现场 PV 自用</span><strong>85 kW</strong><small>不推断上网 / 抵扣权利</small></div><span class="flow-arrow" aria-hidden="true">=</span><div class="flow-node load"><span class="kind">现场负荷</span><strong>570 kW</strong><small>基础 + HVAC + EV + 热水</small></div><span class="flow-arrow" aria-hidden="true">+</span><div class="flow-node ess"><span class="kind">ESS 充电</span><strong>24.691 kW</strong><small>SOC 17.778 → 40 kWh</small></div></div>
+          <p class="balance-note">物理关系：509.691 + 85 = 570 + 24.691 kW。ESS 容量、效率和各类负荷均为合成值；EV 与热水仅作未核验负荷，不表示可控性。未包含 HVAC 舒适约束、预测不确定性或储能备用要求。</p>
+        </section>
+        <section class="load-breakdown" aria-labelledby="asset-load-title">
+          <div class="panel-title"><div><h3 id="asset-load-title">负荷分解 · 基线 / 候选 · kW</h3><p class="asset-note">Fixture 只给非 HVAC 总量；基础 / EV / 热水的分摊是纯界面示意，不来自站点资料。合计与原总量一致，示例只调整 HVAC。</p></div><span class="mini-label">子项为虚构拆分</span></div>
+          <p class="scroll-hint">窄屏可左右滑动核对全部六个区间；合计行对应上方站点负荷。</p>
+          <div class="asset-scroll" role="region" aria-label="各类负荷六时段分解表，可水平滚动" tabindex="0">
+            <table class="asset-table"><caption class="sr-only">基础、HVAC、EV 与热水负荷基线和候选功率，单位千瓦。</caption><thead><tr><th scope="col">负荷 / kW</th><th scope="col">12–13</th><th scope="col">13–14</th><th scope="col">14–15</th><th scope="col">15–16</th><th scope="col">16–17</th><th scope="col">17–18</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">基础负荷 · 基线 / 候选</th><td>300 / 300</td><td>310 / 310</td><td>320 / 320</td><td>330 / 330</td><td>320 / 320</td><td>320 / 320</td></tr>
+                <tr><th scope="row">HVAC · 基线</th><td>180</td><td>200</td><td>220</td><td>220</td><td>210</td><td>180</td></tr>
+                <tr><th scope="row">HVAC · 候选</th><td>180</td><td>200</td><td>220</td><td class="adjusted">190</td><td>210</td><td class="adjusted">210</td></tr>
+                <tr><th scope="row">EV · 基线 / 候选</th><td>20 / 20</td><td>20 / 20</td><td>15 / 15</td><td>20 / 20</td><td>15 / 15</td><td>15 / 15</td></tr>
+                <tr><th scope="row">热水 · 基线 / 候选</th><td>20 / 20</td><td>20 / 20</td><td>25 / 25</td><td>20 / 20</td><td>25 / 25</td><td>25 / 25</td></tr>
+                <tr><th scope="row">站点负荷 · 基线 / 候选</th><td>520 / 520</td><td>550 / 550</td><td>580 / 580</td><td>590 / 560</td><td>570 / 570</td><td>540 / 570</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="asset-boundary"><strong>调度边界：</strong>本例未证明 EV 到离站窗口、充电优先级、热水可延迟时间或温度安全边界，因此不移动这两类负荷。加入候选调度前需要站点设备、控制权限与舒适 / 服务约束证据。</p>
+        </section>
+        <div class="decision-row"><p><strong>Shadow 审阅示例：</strong>仅记录本页选择，用于检视反馈文案；不保存、不授权、不下发设备命令。复核应先处理证据缺口与全时段峰值上升。</p><button type="button" class="demo-button" id="review" aria-pressed="false">标记为已阅 · 本页演示</button></div>
+        <p class="review-message" id="review-message" aria-live="polite">当前状态：未审阅 · 无持久化 · 无执行路径。</p>
+      </div>
+    </section>
+        <footer><strong>研究限制：</strong>本页使用 `source-load-dispatch-workflow-fixture-v0.2.json` 的总量合成数据。原 fixture 仅有 non-HVAC 总量；本页为界面演示而虚构基础 / EV / 热水分项，只有分项合计与原总量一致，分项本身不是项目研究或站点证据。EV 与热水没有可控能力证据，因此候选不调整这两类负荷。此页不是现场结果、完整费率核算、优化器验收或用户测试。PV 只呈现情境中的自用量，不表达并网结算。三种布局方向均未选定。<br><br>参考方式：项目 Energy Operations UX 与 Quality Review skill；ui-ux-pro-max 定向 UX / chart 搜索结果仅作为辅助检查。对 Apple HIG、Material 与 WCAG 的遵循仍需逐页面、逐状态验证；本研究不声明合规或获奖。</footer>
+  </main>
+  <script>
+    const direction = document.getElementById('direction');
+    const directionTitle = document.getElementById('direction-title');
+    const directionDesc = document.getElementById('direction-desc');
+    const directionNumber = document.getElementById('direction-number');
+    const directions = {
+      schedule: { n:'01', title:'01 · 时段优先', desc:'先看基线与候选在各区间的变化，再打开能源平衡和证据限制。', cls:'' },
+      flow: { n:'02', title:'02 · 能源流优先', desc:'先对齐一个区间内的供给、负荷与储能，再检查结算证据。', cls:'flow-layout' },
+      evidence: { n:'03', title:'03 · 证据优先', desc:'先说明哪些结论可用、哪些被阻挡，再呈现物理流与时段比较。', cls:'evidence-layout' }
+    };
+    document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => {
+      document.querySelectorAll('[data-view]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      const item = directions[button.dataset.view];
+      direction.classList.remove('flow-layout', 'evidence-layout');
+      if (item.cls) direction.classList.add(item.cls);
+      directionTitle.textContent = item.title;
+      directionDesc.textContent = item.desc;
+      directionNumber.textContent = item.n;
+    }));
+    document.getElementById('contrastToggle').addEventListener('click', event => {
+      const active = document.body.classList.toggle('night');
+      event.currentTarget.setAttribute('aria-pressed', String(active));
+      event.currentTarget.textContent = active ? '切换浅色概念' : '切换暗色概念';
+    });
+    document.getElementById('review').addEventListener('click', event => {
+      const reviewed = event.currentTarget.getAttribute('aria-pressed') !== 'true';
+      event.currentTarget.setAttribute('aria-pressed', String(reviewed));
+      event.currentTarget.textContent = reviewed ? '取消本页演示状态' : '标记为已阅 · 本页演示';
+      document.getElementById('review-message').textContent = reviewed ? '当前状态：已阅 · 仅本页演示状态；未保存、未授权、未执行。' : '当前状态：未审阅 · 无持久化 · 无执行路径。';
+    });
+  </script>
+</body>
+</html>
+

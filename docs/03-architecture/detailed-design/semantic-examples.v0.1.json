@@ -1,0 +1,309 @@
+{
+  "artifact_id": "G7.9-T7.1-SEMANTIC-EXAMPLES-v0.1",
+  "artifact_status": "STUDY_ONLY_NOT_WIRE_CONTRACT",
+  "canonical_contract": false,
+  "purpose": "Fail-closed semantic examples for T7.1 review. Cases are source behavior excerpts or explicit design/presentation proposals, never real Macau site results.",
+  "control_authorized": false,
+  "source_pins": [
+    {
+      "ref": "PR #10",
+      "commit": "dd411a83b9c41ffbf7b8c17ff2a80b7c4229f35e",
+      "files": [
+        "docs/03-architecture/detailed-design/APP11-SEMANTIC-DECISION-PACKET-v0.1.md",
+        "docs/03-architecture/detailed-design/APP11-ASSESSMENT-RESULT-VIEW-MODEL-PROPOSAL-v0.1.md",
+        "docs/03-architecture/detailed-design/G7.9-T1-SCOPED-EVIDENCE-DEPENDENCY-MATRIX-v0.1.md",
+        "docs/03-architecture/detailed-design/G7.9-T1-APP11-CLAIM-TO-UI-MAPPING-v0.1.md",
+        "docs/03-architecture/detailed-design/FLEXIBLE-LOAD-SERVICE-BOUNDARY-DESIGN-v0.1.md"
+      ]
+    },
+    {
+      "ref": "PR #14",
+      "commit": "ccbfa7011f66f86d0a2d541776b02c80eea3df7a",
+      "files": [
+        "implementation/optimizer/src/macau_energy_optimizer/dispatch_assessment.py",
+        "implementation/optimizer/src/macau_energy_optimizer/dispatch_optimizer.py",
+        "implementation/optimizer/fixtures/dispatch-projection-synthetic-v1.json"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "T71-01-synthetic-service-not-assessed",
+      "case_kind": "current_fixture_projection",
+      "source_relation": "PR #14 synthetic fixture plus PR #10 v3.5 static UI projection; service state is derived by the UI because source fixture has no service evaluator",
+      "lifecycle": {
+        "state": "NOT_REPRESENTED"
+      },
+      "physical": {
+        "status": "SCENARIO_ONLY"
+      },
+      "economic": {
+        "status": "BLOCKED",
+        "covered_interval_ids": [],
+        "amount": null,
+        "currency": null
+      },
+      "claims": [
+        {
+          "id": "dispatch_feasibility",
+          "disposition": "WITHHELD",
+          "scope": "full_requested_horizon",
+          "amount": null
+        },
+        {
+          "id": "full_bill",
+          "disposition": "WITHHELD",
+          "scope": "full_requested_horizon",
+          "amount": null
+        },
+        {
+          "id": "savings",
+          "disposition": "WITHHELD",
+          "scope": "comparison_period",
+          "amount": null
+        },
+        {
+          "id": "device_control",
+          "disposition": "WITHHELD",
+          "scope": "none",
+          "amount": null
+        }
+      ],
+      "services": [
+        {
+          "resource_id": "changed-flexible-loads",
+          "status": "NOT_ASSESSED",
+          "basis": "NO_SERVICE_EVALUATOR_IN_SOURCE_FIXTURE"
+        }
+      ],
+      "assertions": [
+        "Synthetic/scenario only; no site feasibility or service pass"
+      ]
+    },
+    {
+      "id": "T71-02-partial-rate-presentation-only",
+      "case_kind": "presentation_contract_example",
+      "source_relation": "G7.9 T1 claim-to-UI mapping section 2.1; authored to exercise exact-scope presentation, not an optimizer output or economic calculation",
+      "lifecycle": {
+        "state": "NOT_REPRESENTED"
+      },
+      "physical": {
+        "status": "SCENARIO_ONLY"
+      },
+      "economic": {
+        "status": "PARTIAL",
+        "covered_interval_ids": [
+          "interval-01",
+          "interval-02",
+          "interval-03",
+          "interval-04"
+        ],
+        "uncovered_interval_ids": [
+          "interval-05",
+          "interval-06"
+        ],
+        "amount": null,
+        "currency": null
+      },
+      "claims": [
+        {
+          "id": "grid_import_energy_component",
+          "disposition": "ALLOWED",
+          "scope_interval_ids": [
+            "interval-01",
+            "interval-02",
+            "interval-03",
+            "interval-04"
+          ],
+          "amount": null
+        },
+        {
+          "id": "full_bill",
+          "disposition": "WITHHELD",
+          "scope": "full_requested_horizon",
+          "amount": null
+        },
+        {
+          "id": "savings",
+          "disposition": "WITHHELD",
+          "scope": "comparison_period",
+          "amount": null
+        },
+        {
+          "id": "demand_charge",
+          "disposition": "WITHHELD",
+          "scope": "billing_period",
+          "amount": null
+        },
+        {
+          "id": "export_compensation",
+          "disposition": "WITHHELD",
+          "scope": "settlement_scope",
+          "amount": null
+        }
+      ],
+      "services": [],
+      "assertions": [
+        "Coverage is exactly four of six intervals",
+        "No currency amount is calculated",
+        "Uncovered intervals are excluded rather than zero-filled"
+      ]
+    },
+    {
+      "id": "T71-03-stale-resource-evidence",
+      "case_kind": "semantic_review_proposal",
+      "source_relation": "PR #14 resource-scoped partial-claim behavior combined with proposed T1 service semantics; not a canonical serialized result",
+      "lifecycle": {
+        "state": "NOT_REPRESENTED"
+      },
+      "physical": {
+        "status": "PARTIAL"
+      },
+      "economic": {
+        "status": "NOT_CALCULATED",
+        "covered_interval_ids": [],
+        "amount": null,
+        "currency": null
+      },
+      "evidence": {
+        "scope": "resource:ess-01",
+        "qualification": "STALE"
+      },
+      "claims": [
+        {
+          "id": "ess_feasibility",
+          "disposition": "WITHHELD",
+          "scope": "resource:ess-01",
+          "amount": null
+        },
+        {
+          "id": "full_bill",
+          "disposition": "WITHHELD",
+          "scope": "full_requested_horizon",
+          "amount": null
+        },
+        {
+          "id": "safety",
+          "disposition": "WITHHELD",
+          "scope": "resource:ess-01",
+          "amount": null
+        }
+      ],
+      "services": [
+        {
+          "resource_id": "ess-01",
+          "status": "UNKNOWN",
+          "basis": "STALE_REQUIRED_EVIDENCE",
+          "hard_bound_breach_evidenced": false
+        }
+      ],
+      "assertions": [
+        "Do not convert stale evidence into VIOLATION",
+        "Do not claim safety or full-horizon feasibility from unaffected profile"
+      ]
+    },
+    {
+      "id": "T71-04-unknown-core-evidence",
+      "case_kind": "current_pr14_source_behavior",
+      "source_relation": "PR #14 assessor blocks request-wide physical assessment when core physical evidence is UNKNOWN or STALE",
+      "lifecycle": {
+        "state": "NOT_REPRESENTED"
+      },
+      "physical": {
+        "status": "BLOCKED",
+        "metrics": null
+      },
+      "economic": {
+        "status": "NOT_CALCULATED",
+        "covered_interval_ids": [],
+        "amount": null,
+        "currency": null
+      },
+      "claims": [
+        {
+          "id": "site_import_profile",
+          "disposition": "WITHHELD",
+          "scope": "full_requested_horizon",
+          "amount": null
+        },
+        {
+          "id": "dispatch_feasibility",
+          "disposition": "WITHHELD",
+          "scope": "full_requested_horizon",
+          "amount": null
+        },
+        {
+          "id": "savings",
+          "disposition": "WITHHELD",
+          "scope": "comparison_period",
+          "amount": null
+        }
+      ],
+      "evidence": {
+        "scope": "request_core",
+        "qualification": "UNKNOWN"
+      },
+      "services": [],
+      "assertions": [
+        "Unknown core evidence is not INFEASIBLE",
+        "Missing metrics and money are null/absent, never zero"
+      ]
+    },
+    {
+      "id": "T71-05-operational-failure",
+      "case_kind": "lifecycle_semantic_proposal",
+      "source_relation": "APP-11 view-model proposal: operational/worker failure must not be mapped to physical BLOCKED or INFEASIBLE",
+      "lifecycle": {
+        "state": "FAILED",
+        "failure_class": "OPERATIONAL"
+      },
+      "assessment": null,
+      "physical": null,
+      "economic": null,
+      "claims": [],
+      "services": [],
+      "assertions": [
+        "No assessment result is fabricated",
+        "Operational failure is not a physical conclusion or schedule result"
+      ]
+    },
+    {
+      "id": "T71-06-known-hard-bound-violation",
+      "case_kind": "domain_semantic_proposal",
+      "source_relation": "Flexible-load service boundary proposal: VIOLATION requires a known applicable hard bound and evidenced breach",
+      "lifecycle": {
+        "state": "NOT_REPRESENTED"
+      },
+      "physical": {
+        "status": "NOT_CONCLUDED",
+        "reason": "SERVICE_SCOPE_ONLY"
+      },
+      "economic": {
+        "status": "NOT_CALCULATED",
+        "covered_interval_ids": [],
+        "amount": null,
+        "currency": null
+      },
+      "claims": [
+        {
+          "id": "resource_service_feasibility",
+          "disposition": "WITHHELD",
+          "scope": "resource:hvac-01",
+          "amount": null
+        }
+      ],
+      "services": [
+        {
+          "resource_id": "hvac-01",
+          "status": "VIOLATION",
+          "basis": "KNOWN_APPLICABLE_HARD_BOUND_BREACHED",
+          "hard_bound_breach_evidenced": true
+        }
+      ],
+      "assertions": [
+        "Comparator proposal only; never infer breach from missing, stale, or unknown evidence",
+        "Service violation does not by itself establish site electrical infeasibility"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+name: Dispatch Projection Validation
+
+on:
+  pull_request:
+    paths:
+      - "docs/02-product/prototype/source-load-dispatch/v2.9/**"
+      - "docs/02-product/prototype/source-load-dispatch/v3.3/**"
+      - "docs/02-product/prototype/source-load-dispatch/v3.4/**"
+      - "docs/02-product/prototype/source-load-dispatch/v3.5/**"
+      - "docs/03-architecture/detailed-design/APP11-T7.1-SEMANTIC-EXAMPLES-v0.1.md"
+      - "docs/03-architecture/detailed-design/semantic-examples.v0.1.json"
+      - "docs/03-architecture/detailed-design/validate_semantic_examples.py"
+      - "docs/03-architecture/detailed-design/G7.9-STEP3-IMPLEMENTATION-BACKLOG-v0.1.md"
+      - ".github/workflows/dispatch-projection-validation.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  projection:
+    name: Validate pinned projections and T7.1 semantic examples
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Validate v2.9 synthetic result and UI boundary
+        run: python3 docs/02-product/prototype/source-load-dispatch/v2.9/validate-projection.py
+      - name: Validate v3.3 fixture and UI boundary
+        run: python3 docs/02-product/prototype/source-load-dispatch/v3.3/validate.py
+      - name: Validate v3.4 fixture and feasibility boundary
+        run: python3 docs/02-product/prototype/source-load-dispatch/v3.4/validate.py
+      - name: Validate deterministic APP-11 v3.5 projection
+        run: python3 docs/02-product/prototype/source-load-dispatch/v3.5/build_app11_projection.py --check
+      - name: Validate v3.5 source, claims, and service boundary
+        run: python3 docs/02-product/prototype/source-load-dispatch/v3.5/validate.py
+      - name: Validate schema-neutral APP-11 T7.1 semantic examples
+        run: python3 docs/03-architecture/detailed-design/validate_semantic_examples.py

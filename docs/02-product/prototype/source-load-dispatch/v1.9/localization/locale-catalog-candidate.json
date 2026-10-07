@@ -1,0 +1,4457 @@
+{
+ "catalogVersion": "0.1.0",
+ "status": "REVIEW_CANDIDATE_NOT_RUNTIME",
+ "defaultReviewState": "UNTRANSLATED_CANDIDATE",
+ "sourceLocale": "zh-Hant",
+ "source": {
+  "path": "docs/02-product/prototype/source-load-dispatch/v1.9/index.html",
+  "blob": "b2ebcaf4cfd59d0825fb105ed0d320808776b902",
+  "sourceLocale": "zh-Hant"
+ },
+ "candidateLocales": [
+  "zh-Hant",
+  "pt",
+  "en"
+ ],
+ "localeApproval": "UNRESOLVED",
+ "extraction": {
+  "method": "Python html.parser text/attribute extraction plus inline-script literal scan",
+  "textNodes": 429,
+  "uniqueTextValues": 368,
+  "uniqueChineseTextValues": 292,
+  "nonEmptyTextAttributes": 23,
+  "uniqueChineseAttributeValues": 21,
+  "dynamicChineseLiteralValues": 21,
+  "catalogUnitsIncludingContextAndChannels": 337,
+  "limitations": [
+   "Source text is not translated.",
+   "Dynamic string literals can be sentence fragments and need manual key/context review.",
+   "Static source counts exclude runtime-created pager nodes; their source literals are in dynamic-script entries.",
+   "Repeated text in distinct stages/channels may intentionally have separate keys.",
+   "This candidate catalog is not wired into the prototype and does not constitute multilingual support."
+  ]
+ },
+ "messages": [
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.0943908e8c",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "項目",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    249
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.0c9bd6277c",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "所需證據",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    249
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.0e3c2968bc",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "下一步：審查 SHADOW 建議 ↓",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    259
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.0f38b68739",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "4 / 6 時段具備精確且已核實的費率",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    259
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.1e247ae803",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "EV 充電電費歸屬",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    254
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.217c9174a4",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "未涵蓋",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    259
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.22d49a1ced",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "充電樁服務表計、帳戶、有效合同/電價及對應賬單",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    254
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.23066572fc",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "合成積分 · 未驗證",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    253
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.23cc36863e",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "適用電錶配置、合同與匹配賬單",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    251
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.246409376b",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "當期已觀測最大值、完整賬期邊界及後續期內資料",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    251
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.25860c501c",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "不得假設適用樓宇電價或成本分攤規則",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    254
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.286fbe0bc6",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "Pu 平均計量窗口",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    251
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.2d4a3f86d8",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "不能把展示窗口功率換算成 Pu",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    251
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.33cc05f28d",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "本原型沒有解出一個最佳方案，也沒有驗證 HVAC 舒適或 ESS 可行性。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    257
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.35175fbf84",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "已涵蓋",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    259
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.359de44d2d",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "設備規格、SOC 時序及安全保留",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    253
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.40b0244b67",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "電價/有效期/帳戶關聯",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    250
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.469adf8de6",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "參數一致性可檢查；不代表現場可行排程",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    253
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.46f275b08e",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "客戶合同、電價及表計帳戶映射",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    250
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.4d8c1c5b42",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "未知",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    251
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.50d2bb615a",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "完整計費規則、Pu窗口和當期賬期證據",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    255
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.5a1ab1da22",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "已批准的運行界限及站點數據",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    252
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.5a4ddc887e",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "帳單級成本 BLOCKED",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    250
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.65c83dfb47",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "示意",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    252
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.6a71a42e6e",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "；另 2 個時段因缺少有效費率而不計入。此示例不含電量、費率或金額，因此不顯示總額。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    259
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.6cf9d4b3e7",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "HVAC 舒適/服務界限",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    252
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.756762e293",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "未提供",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    250,
+    251
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.7d379fe28e",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "物理情境增加 25 kW；不代表 Pu",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    255
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.803cf6fa19",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "候選可行性未驗證",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    252
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.872f4852ac",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "不能判斷候選是否改變本期需求費",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    251
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.94f6fe9111",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "ESS SOC/效率/損耗",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    253
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.95b51ad6fa",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "未知限制不能視為零、無限或寬鬆值。候選結果需標出阻擋項、適用時段、來源、版本和審核狀態。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    257
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.9613751d3e",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "04 · 成本、約束與證據",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    247
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.98c3614dd5",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "僅精確對應的時段可計價",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    259
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.a02c315c7c",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "列明原因；不以零代替未知",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    259
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.a273293ba6",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "目前狀態",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    249
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.b1de15a21a",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "未核實",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    254
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.bfb1bccce7",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "若經濟證據缺失，只允許具名的物理/情境比較，不出現帳單金額、成本節省或投資回報。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    257
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.c2c00bc245",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "展示窗口最大進口",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    255
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.c64978fd09",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "本計費期已觀測 Pu",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    251
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.d4c768415b",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "狀態顯示樣例 · 合成 UI 狀態，不屬於上方排程",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    259
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.d5201a5cfe",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "區間改善不等於賬期或經濟改善。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    247
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.d65b981e05",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "成本與限制狀態 · 合成方案",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    249
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.d9bc928777",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "限制沒有證據時不作最佳化事實",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    257
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.ec104d139a",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "需求電費/Pu、完整電費、反送收益及節省仍需各自的計量、合約與結算證據。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    259
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.f319aa5cd4",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "進口電量費組件 · PARTIAL",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    259
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.f5f03f9819",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "影響",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    249
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.constraint-analysis.text.fd52237654",
+   "channel": "text",
+   "stage": "constraint-analysis",
+   "sourceText": "候選在 15:00–16:00 降低該區間的電網輸入，但回彈令本展示窗口最大電網輸入增加 25 kW；計費周期 Pu 未知。此處不把該變化換算成費用。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    247
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.attribute-aria-label.2fbeeda706",
+   "channel": "attribute-aria-label",
+   "stage": "dispatchComparison",
+   "sourceText": "圖例",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    213
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.attribute-aria-label.542d251880",
+   "channel": "attribute-aria-label",
+   "stage": "dispatchComparison",
+   "sourceText": "六小時逐時供能與負荷安排摘要",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    224
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.attribute-aria-label.55a525136d",
+   "channel": "attribute-aria-label",
+   "stage": "dispatchComparison",
+   "sourceText": "逐時段平均功率表格，可水平捲動查看完整欄位",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    235
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.attribute-aria-label.a975a143f6",
+   "channel": "attribute-aria-label",
+   "stage": "dispatchComparison",
+   "sourceText": "圖表突顯方案",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.attribute-aria-label.bbe607e571",
+   "channel": "attribute-aria-label",
+   "stage": "dispatchComparison",
+   "sourceText": "SHADOW 原型審閱動作",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.attribute-aria-label.ee7b2aced7",
+   "channel": "attribute-aria-label",
+   "stage": "dispatchComparison",
+   "sourceText": "CEM 本計費期 Pu 狀態未知",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    234
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.attribute-aria-label.f1674de063",
+   "channel": "attribute-aria-label",
+   "stage": "dispatchComparison",
+   "sourceText": "六小時供能與負荷曲線，可左右捲動",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    214
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.attribute-title.55b26379a4",
+   "channel": "attribute-title",
+   "stage": "dispatchComparison",
+   "sourceText": "本 MVP 原型不提供設備控制",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.00756e07a8",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "電網輸入",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    223
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.092a440a4b",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "來源與電表映射",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    243
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.0a96b688ba",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "設備控制未啟用",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.0bfb1c99cf",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "基線 485 → 候選 510 kW（回彈時段 +25 kW）。本計費期 Pu 未知，不計算費用。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    233
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.0de900efbf",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "候選功率平衡（AC 端）",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    235
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.189f623d1a",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "ESS 充電 24.691 kW · SOC 17.778 → 40 kWh · HVAC —",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    231
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.1a1d1d24dc",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "儲能放電",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    213
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.1a3968f45d",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "18:00 · 結束",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    217
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.2b65713ddb",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "候選情境 · 含 20 kW ESS 放電",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    234
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.2c7ae03902",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "供能與負荷時間線",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    211
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.2c8133427b",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "負荷 580 → 580 kW · PV 125 kW",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    229
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.316d86d206",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "先看方案依據是否完整",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    243
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.31cdcfdef1",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "時段能源平衡",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    243
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.3476e5ac62",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "未核實 · 不計算帳單金額",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    243
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.376f0ddcf9",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "候選 · HVAC 負荷移峰",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.37c0e0734c",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "展示窗口峰值：",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    233
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.38dd65978a",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "+30 · 回彈",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    241
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.391b27a2c0",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "電網輸入 候選",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    235
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.3a14bd4d6d",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "要求補證據",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.3a51e9c7e8",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "現場光伏",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    213,
+    235
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.3aff72f24e",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "ESS 充電 候選",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    235
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.3ba7ef77ce",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "電網輸入 基線",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    235
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.3baac79d8b",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "電網",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    227,
+    228,
+    229,
+    230,
+    231,
+    232
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.3ce08262ab",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "以下候選是合成情境，只用於檢查時段能源平衡、儲能軌跡與 HVAC 回彈；不代表預測、最佳化結果或現場可行性。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    212
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.3d64e7973d",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "HVAC 移峰／回彈",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    213
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.3e64e7f225",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "時段",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    235
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.3f9bf3480d",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "示意將 30 kW 空調需求移出 15:00，儲能情境於15:00放電20 kW、16:00以24.691 kW充電恢復SOC；未驗證現場可調能力。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.409a08a67e",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "15:00–16:00 電網輸入",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    234
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.41019bc004",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "為甚麼仍是情境比較？ ↗",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    243
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.41e141b710",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "HVAC 調整",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    235
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.469084f44e",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "動作只更新本頁示意，不寫入審計、不授權、不下發；重新載入後重設。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.4d8c1c5b42",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "未知",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    234
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.4db208c8d6",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "kW 為合成區間平均功率；SOC 以小時區間積分為 kWh。此例並非計費週期或現場結果。此版按合成效率逐時積分 ESS 充放電與 SOC；容量、功率、效率、HVAC 舒適度均非現場驗證，亦未計退化、預測不確定性或電費。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    242
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.4e77f140ac",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "未審查 · 示意",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.4f23a16fa6",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "示例基礎負荷、空調與現場光伏曲線；不是需求預測。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.5182c4439e",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "尚未計入電費或收益",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.5696f47650",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "目前突顯：基線；基線與候選均同時顯示。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.56e315c9cc",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "基線 · 合成參照",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.56f5e7345a",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "合成情境",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.5911614a48",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "審查狀態",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.5934ab4157",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "17:00–18:00 · 展示窗口峰值 510 kW",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    223
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.5a9fcc9161",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "查看經濟與方案假設",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.5b570e03c3",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "光伏",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    223
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.5d25748b9a",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "參照",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.64d7c54588",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "基線電網輸入",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    213
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.69172c473a",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "本展示窗口峰值 · 基線 → 候選",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    234
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.6a65580493",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "ESS 放電 20 kW · SOC 40 → 17.778 kWh · HVAC −30 kW",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    230
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.6b1b196d2d",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "03 · 同一能源平衡 · 不同安排",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    211
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.6caa65d098",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "負荷 540 → 570 kW · PV 60 kW",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    232
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.70315b0c5c",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "合成情境：逐時段平均功率（kW）；18:00 為結束邊界",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    235
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.70a71955c1",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "電價與合約規則",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    243
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.73dcea5318",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "負荷 570 → 570 kW · PV 85 kW",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    231
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.7634323fd7",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "基線總負荷",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    213,
+    223
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.791a372108",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "17:00 HVAC 回彈",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    223
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.7baebcf270",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "基線 → 候選",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    227,
+    228,
+    229,
+    230,
+    231,
+    232
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.7f0d89fb16",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "合成情境下的供能及負荷安排",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    214
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.8200ecefa6",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "總負荷 候選",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    235
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.8548773be5",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "12時至18時，共六個一小時區間。曲線按區間平均功率繪成階梯，18時為時段結束邊界。候選總負荷在 15 至 16 時較基線少 30 kW，17 至 18 時因 HVAC 回彈增加 30 kW；候選17至18時的本展示窗口最高電網輸入為510 kW，基線最高為485 kW；該值不是計費周期 Pu；候選15至16時放電20 kW，16至17時充電24.691 kW，SOC由40降至17.778再回到40 kWh；效率為合成假設。全部為合成示例，並非設備控制、帳單結論或實際節省。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    214
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.85accbd4a5",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "小時平均功率 kW · 計費週期未核實 · 合成情境",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    211
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.8903675865",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "回彈時段 +25 kW",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    234
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.901a7d0b93",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "窄屏可左右滑動曲線；完整逐時數值可開啟數據表。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    214
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.90ab4cb3ee",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "負荷 590 → 560 kW · PV 110 kW",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    230
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.91aa115aca",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "ESS — · SOC 40 → 40 kWh · HVAC +30 kW 回彈",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    232
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.937ed5bf5f",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "駁回建議",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.96d487cec3",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "可用性檢查",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    243
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.a94353ada8",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "相同資料快照",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.ad79b91985",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "展示窗口峰值由485升至510 kW（+25 kW），出現在17:00–18:00回彈時段。這不是計費周期 Pu。計量窗口、當期已觀測 Pu、適用合同及完整賬期資料未提供，故本例不能推斷需求費或賬單影響；只呈現合成功率安排。HVAC時移不代表降低總用電；ESS充電令16:00–17:00電網輸入增至509.691 kW。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.ad8f387ab4",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "總負荷 基線",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    235
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.b0d4120911",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "ESS 放電 候選",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    235
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.bf972e06a7",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "15:00–16:00 · ESS 放電 20 kW；SOC 40 → 17.778 kWh",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    222
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.c0340fd1d0",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "15–16時移出；17–18時回彈",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    234
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.c701e198b0",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "示意映射 · 未連接現場",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    243
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.ca47340b98",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "查看資料就緒度 →",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    212
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.cc8462c75e",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "未提供現場負荷／光伏預測 · 不可生成正式最佳排程",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    212
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.cccf3e00e5",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "儲能與負荷約束",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    243
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.cda8dc3804",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "手機版逐時摘要 · 合成情境。完整欄位可開啟數據表；此處不代表預測或現場可行性。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    225
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.d2e6398581",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "檢視數據表",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    211
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.d4ac7a5559",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "方案比較",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.db8fcff272",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "CEM 本計費期 Pu",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    234
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.dd66fb6c9e",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "負荷 520 → 520 kW · PV 170 kW",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    227
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.dfb7880d33",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "ESS 容量/功率/SOC、效率與 HVAC 功率界限均為合成假設；舒適模型未建立",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    243
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.e197dccd60",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "標記已閱",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    244
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.e447436ffa",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "候選總負荷",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    213
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.e72869b7df",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "計量窗口與賬期峰值未提供",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    234
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.ec0827a570",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "16:00–17:00 · ESS 充電 24.691 kW；SOC 17.778 → 40 kWh",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    222
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.eda69cd75b",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "SOC 候選 kWh",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    235
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.edd729023c",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "HVAC 時移與回彈",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    234
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.efb1127740",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "可左右滑動；聚焦表格後可用左右方向鍵查看完整欄位。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    235
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.f39084c752",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "示意數據可核對；非現場驗證",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    243
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.f592d98594",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "負荷 550 → 550 kW · PV 145 kW",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    228
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.dispatchcomparison.text.ff69d4fb4b",
+   "channel": "text",
+   "stage": "dispatchComparison",
+   "sourceText": "候選電網輸入",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    213
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.attribute-aria-label.7db3fc5803",
+   "channel": "attribute-aria-label",
+   "stage": "evidence-check",
+   "sourceText": "合成來源清單；水平捲動查看所有欄位",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    178
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.0404ca5399",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "本原型沒有代表任何客戶帳戶。正式工作區只列出目前角色可查看的範圍；站點授權不自動授予帳戶權限。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    187
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.0a3717da13",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "下一步：檢視站點能源模型 ↓",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    187
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.1646b5733a",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "結算範圍示意 · 合成狀態",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    187
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.1740932005",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "逆變器、接線點、可用性與輸出邊界",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    180
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.280ec95999",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "物理模型",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    187
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.2ea966066d",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "阻擋經濟結果",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    183
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.3554c831d1",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "電價與合同",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    183
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.3a51e9c7e8",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "現場光伏",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    180
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.3babda55e8",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "輸入為示例；站點接線和設備能力未確認。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    185
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.413d17df13",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "部分情境",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    181
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.423de570a8",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "儲能",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    181
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.55fba8b0c0",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "阻擋 · 未有已核實帳戶/合同",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    187
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.661ab654aa",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "表計映射、時鐘、資料品質及帳戶關係",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    179
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.69f7346742",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "本例未提供",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    183
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.6ababd07cf",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "若一個站點有多個獨立供電/結算帳戶，需逐個範圍核驗並分開計算，不按站點名稱推定合併。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    187
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.6c8618e673",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "原型示例",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    178
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.70a81567b8",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "電網進線",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    179
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.7369b16a8b",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "經濟模型：BLOCKED",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    185
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.947491a89a",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "HVAC 負荷",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    182
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.9658560e1c",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "進入現場模型前需核實",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    178
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.9ae3ed63ff",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "資料充足度不等於調度權限。所有設備狀態和合同映射都需有來源、時間和審核紀錄。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    185
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.9f2dd037aa",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "點位、舒適/服務界限、授權和響應證據",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    182
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.a2182fe59c",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "合成示例 · 未連接現場",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    187
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.a4424a58a0",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "示意發電曲線",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    180
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.a5651442f1",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "合成",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    179,
+    180
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.aa25cb006f",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "先看輸入是否可用，再看能否作經濟判斷。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    176
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.acc4989e2c",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "合成來源清單 · 尚未核實的項目不帶入帳單級結果",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    178
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.b1ec61fa2f",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "經濟模型",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    187
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.b2ece7a2c9",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "未提供適用合同、電價及需求計算規則。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    185
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.b8faaf1a3d",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "適用客戶/表計、有效期、Pu 規則及合同條文",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    183
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.b919fbad4a",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "兩種就緒度，分開判斷",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    185
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.ccb8abd26e",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "物理模型：僅可作合成情境",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    185
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.ceca81038a",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "輸入類別",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    178
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.ddd892a011",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "功率/容量、SOC、效率、保留值及安全界限",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    181
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.e773f76b25",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "01 · 資料與合約核驗",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    176
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.ec64efb40e",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "可用狀態",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    178
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.ece736911f",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "情境放電及充電；SOC 軌跡為合成示例",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    181
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.ed20e555fc",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "以下只展示合成欄位。本站點、表計、合約及設備點位均未連接；狀態不能當成澳門現場資料。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    176
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.f27c94ac6c",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "未驗證",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    182
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.f4730ac8f3",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "示意移峰與回彈",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    182
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.fb9cbbc532",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "未連接結算帳戶 · 0 個已核實範圍",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    187
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.evidence-check.text.fc1de6c613",
+   "channel": "text",
+   "stage": "evidence-check",
+   "sourceText": "示意電表／小時平均 kW",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    179
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.interaction-code.dynamic-script.067ee2fb89",
+   "channel": "dynamic-script",
+   "stage": "interaction-code",
+   "sourceText": "已更新本頁的示意狀態；沒有寫入審計、授權或執行設備。重新載入後重設。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    285
+   ],
+   "reviewNote": "Literal may be an interpolation fragment; human review required."
+  },
+  {
+   "key": "dispatch.v1_9.interaction-code.dynamic-script.127a9f6fef",
+   "channel": "dynamic-script",
+   "stage": "interaction-code",
+   "sourceText": "階段導覽",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    299
+   ],
+   "reviewNote": "Literal may be an interpolation fragment; human review required."
+  },
+  {
+   "key": "dispatch.v1_9.interaction-code.dynamic-script.22e6ea36aa",
+   "channel": "dynamic-script",
+   "stage": "interaction-code",
+   "sourceText": "已更新本頁的示意狀態；沒有建立補證任務或寫入審計。重新載入後重設。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    285
+   ],
+   "reviewNote": "Literal may be an interpolation fragment; human review required."
+  },
+  {
+   "key": "dispatch.v1_9.interaction-code.dynamic-script.3883693e6f",
+   "channel": "dynamic-script",
+   "stage": "interaction-code",
+   "sourceText": "收起數據表",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    283
+   ],
+   "reviewNote": "Literal may be an interpolation fragment; human review required."
+  },
+  {
+   "key": "dispatch.v1_9.interaction-code.dynamic-script.3b8ea8693a",
+   "channel": "dynamic-script",
+   "stage": "interaction-code",
+   "sourceText": "示意標記需補證，未提交。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    285
+   ],
+   "reviewNote": "Literal may be an interpolation fragment; human review required."
+  },
+  {
+   "key": "dispatch.v1_9.interaction-code.dynamic-script.3d1d1440f8",
+   "channel": "dynamic-script",
+   "stage": "interaction-code",
+   "sourceText": "需補證據 · 僅本頁示意",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    285
+   ],
+   "reviewNote": "Literal may be an interpolation fragment; human review required."
+  },
+  {
+   "key": "dispatch.v1_9.interaction-code.dynamic-script.55f480cfcb",
+   "channel": "dynamic-script",
+   "stage": "interaction-code",
+   "sourceText": "候選方案",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    284
+   ],
+   "reviewNote": "Literal may be an interpolation fragment; human review required."
+  },
+  {
+   "key": "dispatch.v1_9.interaction-code.dynamic-script.584ba1dbdb",
+   "channel": "dynamic-script",
+   "stage": "interaction-code",
+   "sourceText": "；另一條曲線仍保留以供直接比較。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    284
+   ],
+   "reviewNote": "Literal may be an interpolation fragment; human review required."
+  },
+  {
+   "key": "dispatch.v1_9.interaction-code.dynamic-script.7ea7965a02",
+   "channel": "dynamic-script",
+   "stage": "interaction-code",
+   "sourceText": "← 上一階段",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    300
+   ],
+   "reviewNote": "Literal may be an interpolation fragment; human review required."
+  },
+  {
+   "key": "dispatch.v1_9.interaction-code.dynamic-script.85f825dc7a",
+   "channel": "dynamic-script",
+   "stage": "interaction-code",
+   "sourceText": "已更新圖表突顯；只改變本頁顯示，沒有儲存或執行。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    284
+   ],
+   "reviewNote": "Literal may be an interpolation fragment; human review required."
+  },
+  {
+   "key": "dispatch.v1_9.interaction-code.dynamic-script.8c267223ce",
+   "channel": "dynamic-script",
+   "stage": "interaction-code",
+   "sourceText": "目前突顯：",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    284
+   ],
+   "reviewNote": "Literal may be an interpolation fragment; human review required."
+  },
+  {
+   "key": "dispatch.v1_9.interaction-code.dynamic-script.9552fe3bd3",
+   "channel": "dynamic-script",
+   "stage": "interaction-code",
+   "sourceText": "第 ",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    301
+   ],
+   "reviewNote": "Literal may be an interpolation fragment; human review required."
+  },
+  {
+   "key": "dispatch.v1_9.interaction-code.dynamic-script.9b93fa0713",
+   "channel": "dynamic-script",
+   "stage": "interaction-code",
+   "sourceText": "已更新本頁的示意狀態；沒有保存或改變推薦，也沒有執行設備控制。重新載入後重設。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    285
+   ],
+   "reviewNote": "Literal may be an interpolation fragment; human review required."
+  },
+  {
+   "key": "dispatch.v1_9.interaction-code.dynamic-script.a49a4e75dd",
+   "channel": "dynamic-script",
+   "stage": "interaction-code",
+   "sourceText": "駁回 · 僅本頁示意",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    285
+   ],
+   "reviewNote": "Literal may be an interpolation fragment; human review required."
+  },
+  {
+   "key": "dispatch.v1_9.interaction-code.dynamic-script.c8dfa2a7ee",
+   "channel": "dynamic-script",
+   "stage": "interaction-code",
+   "sourceText": "基線",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    284
+   ],
+   "reviewNote": "Literal may be an interpolation fragment; human review required."
+  },
+  {
+   "key": "dispatch.v1_9.interaction-code.dynamic-script.ce072e6939",
+   "channel": "dynamic-script",
+   "stage": "interaction-code",
+   "sourceText": "已閱 · 僅本頁示意",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    285
+   ],
+   "reviewNote": "Literal may be an interpolation fragment; human review required."
+  },
+  {
+   "key": "dispatch.v1_9.interaction-code.dynamic-script.d2e6398581",
+   "channel": "dynamic-script",
+   "stage": "interaction-code",
+   "sourceText": "檢視數據表",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    283
+   ],
+   "reviewNote": "Literal may be an interpolation fragment; human review required."
+  },
+  {
+   "key": "dispatch.v1_9.interaction-code.dynamic-script.ea8c4ca558",
+   "channel": "dynamic-script",
+   "stage": "interaction-code",
+   "sourceText": "示意駁回，未提交。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    285
+   ],
+   "reviewNote": "Literal may be an interpolation fragment; human review required."
+  },
+  {
+   "key": "dispatch.v1_9.interaction-code.dynamic-script.f1deeff5c7",
+   "channel": "dynamic-script",
+   "stage": "interaction-code",
+   "sourceText": "示意已閱，未提交。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    285
+   ],
+   "reviewNote": "Literal may be an interpolation fragment; human review required."
+  },
+  {
+   "key": "dispatch.v1_9.interaction-code.dynamic-script.f8060364c7",
+   "channel": "dynamic-script",
+   "stage": "interaction-code",
+   "sourceText": " 階段<strong>",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    301
+   ],
+   "reviewNote": "Literal may be an interpolation fragment; human review required."
+  },
+  {
+   "key": "dispatch.v1_9.interaction-code.dynamic-script.fea1a5d500",
+   "channel": "dynamic-script",
+   "stage": "interaction-code",
+   "sourceText": "下一階段 →",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    302
+   ],
+   "reviewNote": "Literal may be an interpolation fragment; human review required."
+  },
+  {
+   "key": "dispatch.v1_9.outcome-replay.text.04c38c1cea",
+   "channel": "text",
+   "stage": "outcome-replay",
+   "sourceText": "預測、外部操作和量測結果分開記錄。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    266
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.outcome-replay.text.22c66c1cc1",
+   "channel": "text",
+   "stage": "outcome-replay",
+   "sourceText": "不可計算 · 缺少客戶批准的基線與計量期",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    270
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.outcome-replay.text.25ede92cbd",
+   "channel": "text",
+   "stage": "outcome-replay",
+   "sourceText": "快照身份：",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    273
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.outcome-replay.text.328eae461a",
+   "channel": "text",
+   "stage": "outcome-replay",
+   "sourceText": "未授權且未執行 · 本 MVP 邊界為 SHADOW",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    269
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.outcome-replay.text.3a64a3ee71",
+   "channel": "text",
+   "stage": "outcome-replay",
+   "sourceText": "返回資料核驗 ↑",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    273
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.outcome-replay.text.503e0f7fa9",
+   "channel": "text",
+   "stage": "outcome-replay",
+   "sourceText": "現場結果",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    268
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.outcome-replay.text.717b7d2cec",
+   "channel": "text",
+   "stage": "outcome-replay",
+   "sourceText": "設備操作",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    269
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.outcome-replay.text.9918258ad8",
+   "channel": "text",
+   "stage": "outcome-replay",
+   "sourceText": "節省 / M&V",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    270
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.outcome-replay.text.9fd52c372f",
+   "channel": "text",
+   "stage": "outcome-replay",
+   "sourceText": "06 · 結果監測與回放",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    266
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.outcome-replay.text.bd0cd71bcc",
+   "channel": "text",
+   "stage": "outcome-replay",
+   "sourceText": "同一站點、時區和時段；輸入資料快照及品質；合同/規則版本（若適用）；模型/預測/優化器版本；候選和約束；人工審閱狀態；其後獨立的操作回執與量測窗口。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    272
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.outcome-replay.text.cd841e97ed",
+   "channel": "text",
+   "stage": "outcome-replay",
+   "sourceText": "未實作 · 此靜態原型沒有輸入快照 ID、版本鎖定或持久化回放。正式系統在原始快照不可用時應顯示「回放不可用/不完整」，不得套用最新資料。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    273
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.outcome-replay.text.d76f379e87",
+   "channel": "text",
+   "stage": "outcome-replay",
+   "sourceText": "尚未量測 · 無客戶站點資料",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    268
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.outcome-replay.text.dd87272c6b",
+   "channel": "text",
+   "stage": "outcome-replay",
+   "sourceText": "回放所需的不可變依據",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    272
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.outcome-replay.text.e1ecec8d97",
+   "channel": "text",
+   "stage": "outcome-replay",
+   "sourceText": "當前沒有現場接入、執行記錄或已同意的 M&V 基線；因此展示阻擋狀態和未來所需資料，不虛構已發生的監測結果。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    266
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.outcome-replay.text.fc758b0b05",
+   "channel": "text",
+   "stage": "outcome-replay",
+   "sourceText": "沒有站點執行或測量記錄；此畫面只重播合成示例資料。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    272
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.outcome-replay.text.ff04ab8c77",
+   "channel": "text",
+   "stage": "outcome-replay",
+   "sourceText": "目前回放狀態：",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    272
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shadow-review.text.2678e06a65",
+   "channel": "text",
+   "stage": "shadow-review",
+   "sourceText": "05 · SHADOW 建議審查",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    262
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shadow-review.text.2f8c2f569f",
+   "channel": "text",
+   "stage": "shadow-review",
+   "sourceText": "候選摘要",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    263
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shadow-review.text.3abc6fe48c",
+   "channel": "text",
+   "stage": "shadow-review",
+   "sourceText": "本原型可切換「已閱、需補證據、駁回」三種頁面示意狀態；重新載入會重設。正式系統須保存審計紀錄並綁定已授權身份。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    263
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shadow-review.text.3be5ee01a0",
+   "channel": "text",
+   "stage": "shadow-review",
+   "sourceText": "此原型可切換頁面內的審閱狀態，重新載入會清除。它不保存、不發出命令，亦不代表有人已審批實際站點方案。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    262
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shadow-review.text.767698ae39",
+   "channel": "text",
+   "stage": "shadow-review",
+   "sourceText": "使用頁面右側的「記錄示意審閱（僅本頁）」按鈕；狀態會即時顯示且不會持久化。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    263
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shadow-review.text.7e9dc38a73",
+   "channel": "text",
+   "stage": "shadow-review",
+   "sourceText": "在方案面板記錄示意審閱",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    263
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shadow-review.text.b28346dc84",
+   "channel": "text",
+   "stage": "shadow-review",
+   "sourceText": "15:00–16:00 情境電網輸入減少 50 kW；候選展示窗口最大值則由 485 增至 510 kW；賬期 Pu 仍未知。HVAC 有 +30 kW 回彈；合約成本、舒適和設備響應均未驗證；SOC/效率只按合成參數積分，不是現場驗證。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    263
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shadow-review.text.d761ff771f",
+   "channel": "text",
+   "stage": "shadow-review",
+   "sourceText": "可用審查動作：",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    263
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shadow-review.text.e6c1ac9865",
+   "channel": "text",
+   "stage": "shadow-review",
+   "sourceText": "跳至審閱控制 ↓",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    263
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shadow-review.text.ff2a75beaa",
+   "channel": "text",
+   "stage": "shadow-review",
+   "sourceText": "審查是可追溯的意見，不是控制授權。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    262
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.attribute-aria-label.143a991b4b",
+   "channel": "attribute-aria-label",
+   "stage": "shell",
+   "sourceText": "組合概覽",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    161
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.attribute-aria-label.1944996eb0",
+   "channel": "attribute-aria-label",
+   "stage": "shell",
+   "sourceText": "主導覽",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    161
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.attribute-aria-label.2843e77f48",
+   "channel": "attribute-aria-label",
+   "stage": "shell",
+   "sourceText": "當前調度階段；展開以切換階段",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    167
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.attribute-aria-label.778ff5f989",
+   "channel": "attribute-aria-label",
+   "stage": "shell",
+   "sourceText": "使用者",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    163
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.attribute-aria-label.886dc60909",
+   "channel": "attribute-aria-label",
+   "stage": "shell",
+   "sourceText": "選擇時間粒度",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    164
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.attribute-aria-label.9927ebd1fa",
+   "channel": "attribute-aria-label",
+   "stage": "shell",
+   "sourceText": "目前規劃條件",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    165
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.attribute-aria-label.a3f8fc4bb9",
+   "channel": "attribute-aria-label",
+   "stage": "shell",
+   "sourceText": "選擇規劃日期",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    164
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.attribute-aria-label.b58e02e1e7",
+   "channel": "attribute-aria-label",
+   "stage": "shell",
+   "sourceText": "調度工作流程",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    167
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.attribute-aria-label.c7fdddf79e",
+   "channel": "attribute-aria-label",
+   "stage": "shell",
+   "sourceText": "關閉",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    278
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.attribute-aria-label.d9908a457b",
+   "channel": "attribute-aria-label",
+   "stage": "shell",
+   "sourceText": "能源模型",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    161
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.attribute-aria-label.e72180aa5f",
+   "channel": "attribute-aria-label",
+   "stage": "shell",
+   "sourceText": "來源調度",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    161
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.attribute-aria-label.ffbb85be64",
+   "channel": "attribute-aria-label",
+   "stage": "shell",
+   "sourceText": "證據",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    161
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.032fb5fd84",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "查看此方案的假設",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    275
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.0545e73134",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "比較同一時段",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    170
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.0d5c1097c2",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "站點能源模型",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    169
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.0d865067be",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "所有數值均為合成演示。沒有顯示上網、跨樓宇抵扣、節省金額或已執行控制。請以現場點位、合同與安全約束替換後再評估。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    275
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.1336a694e4",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "查看輸入依據",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    164
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.1515b619bf",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "查看流程⌄",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    167
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.16a226dfa0",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "空調可調範圍、建築舒適約束與移峰後反彈；",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    278
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.258ab144aa",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "12:00–18:00 · 澳門時間示例",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    165
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.2eb2c3e0ea",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "合成資料 · 版本 DEMO-04",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    165
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.409243f756",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "未核實 · 暫不提供帳單級金額",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    165
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.4293082f0d",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "放回每個時段。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    164
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.45b9c6748c",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "原型邊界：",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    275
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.4ec1a337e4",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "監測與回放",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    173
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.523f329832",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "解讀限制和證據",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    171
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.52dedc5197",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "規劃條件 · 12:00–18:00 · Shadow",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    165
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.5562b7ffa4",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "建議狀態",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    165
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.6023fa2b07",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "示例日期 · 合成情境",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    164
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.644ad5833a",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "把能源安排，",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    164
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.6cfd730dca",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "儲能容量、SOC、效率、保留電量與運行界限；",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    278
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.7be0f65214",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "方案可解讀，仍不可執行",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    278
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.7fc31a14fb",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "時序與方案",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    167,
+    170
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.8035e11dfa",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "進線／分項電表對應、時鐘與資料品質；",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    278
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.81fc559364",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "分清物理與結算",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    169
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.83daf176e0",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "等待實測證據",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    173
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.85fb64afff",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "跳至主要內容",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    159
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.88d8ed29ba",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "光伏逆變器與並網點能力，以及適用的上網／限發狀態；",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    278
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.8b9394950c",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "建議不會下發",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    172
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.8e37cd5f7f",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "明白",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    278
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.981de64444",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "合成情境 · 非現場資料",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    163
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.9b27913b81",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "Macau Commercial Energy OS · 調度流程研究 v1.9",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    276
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.9f636d12ca",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "繁體中文介面實驗 · 尚不代表完整多語支援或已核准視覺方向",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    276
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.a197c684b4",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "證據與假設",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    278
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.a765f4038f",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "Shadow 審查",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    172
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.a8e1acbdab",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "概覽",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    161
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.b98986b33b",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "適用電價、需量計算與合同有效期。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    278
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.bb6a844a3b",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "成本與約束",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    171
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.c21246bd2b",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "輸入快照",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    165
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.c63baa088c",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "計費規則",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    165
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.c98e118e0a",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "模型",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    161
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.cab390756f",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "規劃時段",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    165
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.cb38e429dd",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "來源與負荷 · 調度工作區",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    164
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.cbca52f072",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "情境比較 · Shadow",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    165
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.cd46c29849",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "資料與合約",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    168
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.cf840fb254",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "澳門情境",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    163
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.cfedccc44f",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "能源營運 / 調度",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    163
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.d35fe25712",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "目前畫面用一個合成平衡示例測試調度任務的資訊層次。實際排程至少需要以下現場與合同證據：",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    278
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.d7e1f9a67c",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "核驗輸入依據",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    168
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.ed320e32da",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "缺少結算依據時，只呈現物理功率情境；缺少控制和安全授權時，只能審查建議，不提供下發操作。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    278
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.f05c505e82",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "比較同一時段的供能與負荷安排，先核實現場證據，再看成本與約束。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    164
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.f120c59851",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "調度",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    161
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.fa355ec5fe",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "1 小時示例粒度",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    164
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.ff8913d116",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "示範商業站點",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    163
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.shell.text.ffbb85be64",
+   "channel": "text",
+   "stage": "shell",
+   "sourceText": "證據",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    161
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.0385c17b13",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "物理流 · 合成平衡示意",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    192
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.0cf77420bd",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "把實際能源路徑和電費規則放在不同層。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    190
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.23428d6cdc",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "EV 充電 · 物理負荷候選",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    205
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.24c287811d",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "演示移峰和回彈，不代表已核實點位、舒適/服務界限、控制權或現場響應。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    204
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.24dd26b63c",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "未納入 · 證據不足",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    206
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.265f02cf36",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "電網輸入 · 現場 PV · 可選 ESS 放電",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    192
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.2efd588334",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "儲能 ESS",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    203
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.31c56fa995",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "本次情境用了哪些資源？",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    197
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.324a181065",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "「納入示例」不代表現場可調度；只有站點映射、設備能力、營運限制和授權都核實後，資源才可進入實際評估。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    198
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.363dde1d08",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "EV 可在證據齊全後作為物理柔性負荷建模；本合成候選未建模或調度 EV。仍需核實充電樁、服務表計、可用時窗、離場電量、授權及響應。充電費用歸屬須另行匹配實際表計、帳戶、合同與電價，不假設沿用樓宇電價。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    205
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.37e4833d3d",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "只有已核實的電表與設備關係才可形成物理事實。此處的連線是合成示意，不表示反送、跨樓宇共享或抵扣權利。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    190
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.3a51e9c7e8",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "現場光伏",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    202
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.3c006a21a7",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "顯示合成進口曲線；未核實實際表計、帳戶、供電容量或適用需求規則。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    201
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.3eb513fa54",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "合成候選：15:00–16:00 電網 430 + PV 110 + ESS 放電 20 = 負荷 560 kW；16:00–17:00 電網 509.691 + PV 85 = 負荷 570 + ESS 充電 24.691 kW。SOC 由 40 降至 17.778 kWh，再於充電後回到 40 kWh。分別按 90% 充、放電效率積分；全部設備參數均非現場證據。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    192
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.491e984eac",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "光伏輸出 → 自用/反送/抵扣：",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    193
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.58a1ff4174",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "資源資格 · 按證據納入",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    197
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.5c972e3a04",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "02 · 站點能源模型",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    190
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.604ac40d3d",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "只作合成發電與自用平衡示意；未核實逆變器、併網、輸出表計、收購或結算權利。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    202
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.6053058050",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "結算映射 · 另外核驗",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    193
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.734919fe8d",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "熱水負荷",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    206
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.76f9f41d7c",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "納入示例 · 合成",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    201,
+    202,
+    203,
+    204
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.777cd04d75",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "不納入此排程 · 證據不足",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    205
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.7a68337279",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "用能端",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    192
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.7f5929e077",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "電網電量 → 適用電價/合同：",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    193
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.7f823ec8d1",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "尚無設備/熱水箱映射、溫度與服務界限、需求時窗、控制權及響應證據。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    206
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.8304b6e4f5",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "HVAC / 冷水機",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    204
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.8f69dfae61",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "未提供證據，經濟輸出阻擋。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    193
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.9909237ebe",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "供能端",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    192
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.a0ac96bf09",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "跨樓宇能源關係：",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    193
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.b57b3107d4",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "只顯示合成發電與自用情境，不推斷上網或帳戶權利。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    193
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.c648bdd320",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "未建模、未主張。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    193
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.d87e3b61ee",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "只演示充放電與 SOC 積分；實際功率、容量、效率、保留值和安全限制未知。",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    203
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.f43c90e405",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "電網進口",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    201
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.f5cec2ec9b",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "下一步：比較同一規劃時段 ↓",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    209
+   ]
+  },
+  {
+   "key": "dispatch.v1_9.site-model.text.fabe99d298",
+   "channel": "text",
+   "stage": "site-model",
+   "sourceText": "基礎負荷 · HVAC · 其他已核實可調負荷",
+   "translations": {
+    "pt": null,
+    "en": null
+   },
+   "locations": [
+    192
+   ]
+  }
+ ]
+}
+
